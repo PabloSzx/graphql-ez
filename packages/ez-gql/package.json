@@ -9,6 +9,7 @@
     }
   },
   "scripts": {
+    "dev": "bob-esbuild watch",
     "prepare": "bob-esbuild build"
   },
   "dependencies": {
@@ -139,5 +140,12 @@
   },
   "publishConfig": {
     "directory": "dist"
+  },
+  "typesVersions": {
+    "*": {
+      "*": [
+        "dist/*"
+      ]
+    }
   }
 }
