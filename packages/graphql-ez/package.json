@@ -11,6 +11,7 @@
   "scripts": {
     "dev": "bob-esbuild watch",
     "prepare": "bob-esbuild build",
+    "postpublish": "gh-release --repo PabloSzx/graphql-ez",
     "test": "jest"
   },
   "dependencies": {
@@ -52,6 +53,7 @@
     "@types/react-dom": "^17.0.6",
     "bob-esbuild-cli": "^0.1.24",
     "builtin-modules": "^3.2.0",
+    "changesets-github-release": "^0.0.1",
     "concurrently": "^6.2.0",
     "cross-env": "^7.0.3",
     "dataloader": "^2.0.0",
