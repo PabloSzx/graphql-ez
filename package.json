@@ -21,7 +21,8 @@
     "dev:mjs:koa": "cross-env PORT=3005 pnpm -r --filter example-app-koa dev:mjs -- --silent",
     "dev:next": "pnpm -r --filter example-app-nextjs dev -- -p 3006",
     "prepare": "husky install",
-    "pretty": "prettier --write \"**/*{.ts,.tsx}\""
+    "pretty": "prettier --write \"**/*{.ts,.tsx}\"",
+    "test": "pnpm -r test"
   },
   "devDependencies": {
     "bob-esbuild": "^0.1.26",
