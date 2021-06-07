@@ -1,17 +1,17 @@
 import { gql } from 'graphql-modules';
 import querystring from 'querystring';
 
-import { BaseEnvelopAppOptions, BaseEnvelopBuilder, createEnvelopAppFactory, handleRequest } from '@ez-gql/core/app';
-import { LazyPromise } from '@ez-gql/core/base';
-import { handleCodegen, WithCodegen } from '@ez-gql/core/codegen/handle';
-import { handleCors, WithCors } from '@ez-gql/core/cors/rawCors';
-import { parseIDEConfig, WithIDE } from '@ez-gql/core/ide/handle';
-import { RawAltairHandler } from '@ez-gql/core/ide/rawAltair';
-import { handleJit, WithJit } from '@ez-gql/core/jit';
-import { getPathname } from '@ez-gql/core/utils/url';
+import { BaseEnvelopAppOptions, BaseEnvelopBuilder, createEnvelopAppFactory, handleRequest } from '@graphql-ez/core/app';
+import { LazyPromise } from '@graphql-ez/core/base';
+import { handleCodegen, WithCodegen } from '@graphql-ez/core/codegen/handle';
+import { handleCors, WithCors } from '@graphql-ez/core/cors/rawCors';
+import { parseIDEConfig, WithIDE } from '@graphql-ez/core/ide/handle';
+import { RawAltairHandler } from '@graphql-ez/core/ide/rawAltair';
+import { handleJit, WithJit } from '@graphql-ez/core/jit';
+import { getPathname } from '@graphql-ez/core/utils/url';
 
 import type { RenderGraphiQLOptions } from 'graphql-helix/dist/types';
-import type { EnvelopContext } from '@ez-gql/core/types';
+import type { EnvelopContext } from '@graphql-ez/core/types';
 import type { RenderOptions } from 'altair-static';
 import type { IncomingMessage, ServerResponse } from 'http';
 import type { Envelop } from '@envelop/types';
@@ -254,4 +254,4 @@ export function AltairHandler(options: AltairHandlerOptions = {}): AsyncRequestH
 
 export { gql, getPathname };
 
-export * from '@ez-gql/core/base';
+export * from '@graphql-ez/core/base';

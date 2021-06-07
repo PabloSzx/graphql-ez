@@ -1,3 +1,3 @@
-import { AltairHandler } from 'ez-gql/nextjs';
+import { AltairHandler } from 'graphql-ez/nextjs';
 
 export default AltairHandler();

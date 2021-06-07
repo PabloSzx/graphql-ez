@@ -1,13 +1,13 @@
 import { gql } from 'graphql-modules';
 
-import { BaseEnvelopAppOptions, BaseEnvelopBuilder, createEnvelopAppFactory, handleRequest } from '@ez-gql/core/app';
-import { handleCodegen, WithCodegen } from '@ez-gql/core/codegen/handle';
-import { handleCors, WithCors } from '@ez-gql/core/cors/rawCors';
-import { LazyPromise } from '@ez-gql/core/utils/promise';
+import { BaseEnvelopAppOptions, BaseEnvelopBuilder, createEnvelopAppFactory, handleRequest } from '@graphql-ez/core/app';
+import { handleCodegen, WithCodegen } from '@graphql-ez/core/codegen/handle';
+import { handleCors, WithCors } from '@graphql-ez/core/cors/rawCors';
+import { LazyPromise } from '@graphql-ez/core/utils/promise';
 
 import type { RenderGraphiQLOptions } from 'graphql-helix/dist/types';
 import type { NextApiHandler, NextApiRequest, NextApiResponse } from 'next';
-import type { EnvelopContext } from '@ez-gql/core/types';
+import type { EnvelopContext } from '@graphql-ez/core/types';
 import type { RenderOptions } from 'altair-static';
 import type { Envelop } from '@envelop/types';
 
@@ -219,4 +219,4 @@ export function AltairHandler(options: AltairHandlerOptions = {}): NextApiHandle
 
 export { gql };
 
-export * from '@ez-gql/core/base';
+export * from '@graphql-ez/core/base';

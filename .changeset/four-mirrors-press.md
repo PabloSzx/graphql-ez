@@ -1,6 +1,6 @@
 ---
-'@ez-gql/core': minor
-'ez-gql': minor
+'@graphql-ez/core': minor
+'graphql-ez': minor
 ---
 
 release

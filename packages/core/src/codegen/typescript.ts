@@ -134,7 +134,7 @@ export async function EnvelopTypeScriptCodegen(
   options: WithCodegen & WithGraphQLUpload,
   internalConfig: InternalCodegenConfig
 ): Promise<void> {
-  const moduleName = `ez-gql/${internalConfig.moduleName}`;
+  const moduleName = `graphql-ez/${internalConfig.moduleName}`;
   const schema = parse(printSchemaWithDirectives(executableSchema));
 
   const {

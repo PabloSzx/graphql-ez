@@ -2,17 +2,17 @@ import assert from 'assert';
 import { Express, json, Request, RequestHandler, Response, Router } from 'express';
 import { createServer, Server } from 'http';
 
-import { BaseEnvelopAppOptions, BaseEnvelopBuilder, createEnvelopAppFactory, handleRequest } from '@ez-gql/core/app';
-import { handleCodegen, WithCodegen } from '@ez-gql/core/codegen/handle';
-import { handleIDE, WithIDE } from '@ez-gql/core/ide/handle';
-import { handleJit, WithJit } from '@ez-gql/core/jit';
-import { CreateWebSocketsServer, WithWebSockets } from '@ez-gql/core/websockets/handle';
+import { BaseEnvelopAppOptions, BaseEnvelopBuilder, createEnvelopAppFactory, handleRequest } from '@graphql-ez/core/app';
+import { handleCodegen, WithCodegen } from '@graphql-ez/core/codegen/handle';
+import { handleIDE, WithIDE } from '@graphql-ez/core/ide/handle';
+import { handleJit, WithJit } from '@graphql-ez/core/jit';
+import { CreateWebSocketsServer, WithWebSockets } from '@graphql-ez/core/websockets/handle';
 
 import type { CorsOptions, CorsOptionsDelegate } from 'cors';
 import type { Envelop } from '@envelop/types';
-import type { EnvelopContext } from '@ez-gql/core/types';
+import type { EnvelopContext } from '@graphql-ez/core/types';
 import type { OptionsJson as BodyParserOptions } from 'body-parser';
-import type { WithGraphQLUpload } from '@ez-gql/core/upload';
+import type { WithGraphQLUpload } from '@graphql-ez/core/upload';
 
 export interface BuildContextArgs {
   request: Request;
@@ -208,4 +208,4 @@ export function CreateApp(config: EnvelopAppOptions = {}): EnvelopAppBuilder {
 
 export { gql } from 'graphql-modules';
 
-export * from '@ez-gql/core/base';
+export * from '@graphql-ez/core/base';

@@ -1,4 +1,4 @@
-import { CreateApp, BuildContextArgs, InferFunctionReturn, gql } from 'ez-gql/hapi';
+import { CreateApp, BuildContextArgs, InferFunctionReturn, gql } from 'graphql-ez/hapi';
 
 function buildContext({ request }: BuildContextArgs) {
   return {
@@ -7,7 +7,7 @@ function buildContext({ request }: BuildContextArgs) {
   };
 }
 
-declare module 'ez-gql/hapi' {
+declare module 'graphql-ez/hapi' {
   interface EnvelopContext extends InferFunctionReturn<typeof buildContext> {}
 }
 

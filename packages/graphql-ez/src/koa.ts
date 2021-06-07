@@ -1,17 +1,17 @@
 import bodyParser from 'koa-bodyparser';
 
-import { BaseEnvelopAppOptions, BaseEnvelopBuilder, createEnvelopAppFactory, handleRequest } from '@ez-gql/core/app';
-import { handleCodegen, WithCodegen } from '@ez-gql/core/codegen/handle';
-import { handleIDE, WithIDE } from '@ez-gql/core/ide/handle';
-import { RawAltairHandlerDeps } from '@ez-gql/core/ide/rawAltair';
-import { handleJit, WithJit } from '@ez-gql/core/jit';
+import { BaseEnvelopAppOptions, BaseEnvelopBuilder, createEnvelopAppFactory, handleRequest } from '@graphql-ez/core/app';
+import { handleCodegen, WithCodegen } from '@graphql-ez/core/codegen/handle';
+import { handleIDE, WithIDE } from '@graphql-ez/core/ide/handle';
+import { RawAltairHandlerDeps } from '@graphql-ez/core/ide/rawAltair';
+import { handleJit, WithJit } from '@graphql-ez/core/jit';
 
 import type { Options as CorsOptions } from '@koa/cors';
 import type * as KoaRouter from '@koa/router';
-import type { EnvelopContext } from '@ez-gql/core/types';
+import type { EnvelopContext } from '@graphql-ez/core/types';
 import type { ParameterizedContext, Request, Response } from 'koa';
 import type { Envelop } from '@envelop/types';
-import type { WithGraphQLUpload } from '@ez-gql/core/upload';
+import type { WithGraphQLUpload } from '@graphql-ez/core/upload';
 
 export interface BuildContextArgs {
   request: Request;
@@ -199,4 +199,4 @@ export function CreateApp(config: EnvelopAppOptions = {}): EnvelopAppBuilder {
 
 export { gql } from 'graphql-modules';
 
-export * from '@ez-gql/core/base';
+export * from '@graphql-ez/core/base';

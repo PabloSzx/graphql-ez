@@ -312,7 +312,7 @@ test('codegen result', async () => {
     })
   ).toMatchInlineSnapshot(`
     "import type { GraphQLResolveInfo, GraphQLScalarType, GraphQLScalarTypeConfig } from 'graphql';
-    import type { EnvelopContext } from 'ez-gql/fastify';
+    import type { EnvelopContext } from 'graphql-ez/fastify';
     export type Maybe<T> = T | null;
     export type Exact<T extends { [key: string]: unknown }> = { [K in keyof T]: T[K] };
     export type MakeOptional<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]?: Maybe<T[SubKey]> };
@@ -532,8 +532,8 @@ test('codegen result', async () => {
      */
     export type IResolvers<ContextType = EnvelopContext> = Resolvers<ContextType>;
 
-    declare module 'ez-gql/fastify' {
-      interface EnvelopResolvers extends Resolvers<import('ez-gql/fastify').EnvelopContext> {}
+    declare module 'graphql-ez/fastify' {
+      interface EnvelopResolvers extends Resolvers<import('graphql-ez/fastify').EnvelopContext> {}
     }
     "
   `);

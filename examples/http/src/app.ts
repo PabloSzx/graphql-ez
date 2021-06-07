@@ -1,4 +1,4 @@
-import { CreateApp, BuildContextArgs, InferFunctionReturn, gql } from 'ez-gql/http';
+import { CreateApp, BuildContextArgs, InferFunctionReturn, gql } from 'graphql-ez/http';
 
 function buildContext({ request }: BuildContextArgs) {
   return {
@@ -7,7 +7,7 @@ function buildContext({ request }: BuildContextArgs) {
   };
 }
 
-declare module 'ez-gql/http' {
+declare module 'graphql-ez/http' {
   interface EnvelopContext extends InferFunctionReturn<typeof buildContext> {}
 }
 

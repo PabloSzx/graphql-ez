@@ -1,19 +1,19 @@
 import assert from 'assert';
 
-import { BaseEnvelopAppOptions, BaseEnvelopBuilder, createEnvelopAppFactory, handleRequest } from '@ez-gql/core/app';
-import { LazyPromise } from '@ez-gql/core/base';
-import { handleCodegen, WithCodegen } from '@ez-gql/core/codegen/handle';
-import { handleIDE, WithIDE } from '@ez-gql/core/ide/handle';
-import { handleJit, WithJit } from '@ez-gql/core/jit';
-import { CreateWebSocketsServer, WithWebSockets } from '@ez-gql/core/websockets/handle';
+import { BaseEnvelopAppOptions, BaseEnvelopBuilder, createEnvelopAppFactory, handleRequest } from '@graphql-ez/core/app';
+import { LazyPromise } from '@graphql-ez/core/base';
+import { handleCodegen, WithCodegen } from '@graphql-ez/core/codegen/handle';
+import { handleIDE, WithIDE } from '@graphql-ez/core/ide/handle';
+import { handleJit, WithJit } from '@graphql-ez/core/jit';
+import { CreateWebSocketsServer, WithWebSockets } from '@graphql-ez/core/websockets/handle';
 
 import type { FastifyCorsOptions, FastifyCorsOptionsDelegate, FastifyPluginOptionsDelegate } from 'fastify-cors';
 import type { Envelop } from '@envelop/types';
 import type { FastifyInstance, FastifyPluginCallback, FastifyReply, FastifyRequest, RouteOptions } from 'fastify';
 import type { Server } from 'http';
-import type { EnvelopContext } from '@ez-gql/core/types';
+import type { EnvelopContext } from '@graphql-ez/core/types';
 import type { AltairFastifyPluginOptions } from 'altair-fastify-plugin';
-import type { WithGraphQLUpload } from '@ez-gql/core/upload';
+import type { WithGraphQLUpload } from '@graphql-ez/core/upload';
 
 export type EnvelopAppPlugin = FastifyPluginCallback<{}, Server>;
 
@@ -235,4 +235,4 @@ export function CreateApp(config: EnvelopAppOptions = {}): EnvelopAppBuilder {
 
 export { gql } from 'graphql-modules';
 
-export * from '@ez-gql/core/base';
+export * from '@graphql-ez/core/base';

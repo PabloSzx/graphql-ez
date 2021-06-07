@@ -1,11 +1,11 @@
-import { BaseEnvelopAppOptions, BaseEnvelopBuilder, createEnvelopAppFactory, handleRequest } from '@ez-gql/core/app';
-import { LazyPromise } from '@ez-gql/core/base';
-import { handleCodegen, WithCodegen } from '@ez-gql/core/codegen/handle';
-import { handleIDE, WithIDE } from '@ez-gql/core/ide/handle';
-import { RawAltairHandler } from '@ez-gql/core/ide/rawAltair';
-import { handleJit, WithJit } from '@ez-gql/core/jit';
+import { BaseEnvelopAppOptions, BaseEnvelopBuilder, createEnvelopAppFactory, handleRequest } from '@graphql-ez/core/app';
+import { LazyPromise } from '@graphql-ez/core/base';
+import { handleCodegen, WithCodegen } from '@graphql-ez/core/codegen/handle';
+import { handleIDE, WithIDE } from '@graphql-ez/core/ide/handle';
+import { RawAltairHandler } from '@graphql-ez/core/ide/rawAltair';
+import { handleJit, WithJit } from '@graphql-ez/core/jit';
 
-import type { EnvelopContext } from '@ez-gql/core/types';
+import type { EnvelopContext } from '@graphql-ez/core/types';
 import type { Request, ResponseToolkit, Plugin, Server, Lifecycle, RouteOptionsCors, RouteOptions } from '@hapi/hapi';
 import type { Envelop } from '@envelop/types';
 
@@ -174,4 +174,4 @@ export function CreateApp(config: EnvelopAppOptions = {}): EnvelopAppBuilder {
 }
 
 export { gql } from 'graphql-modules';
-export * from '@ez-gql/core/base';
+export * from '@graphql-ez/core/base';

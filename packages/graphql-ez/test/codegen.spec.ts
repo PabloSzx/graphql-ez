@@ -56,7 +56,7 @@ describe('codegen with operations', () => {
           documents: [tmpGqlFile.path],
           targetPath: tmpGeneratedFile.path,
           transformGenerated(code) {
-            return code.replace(/'.+\/http'/g, "'ez-gql/http'");
+            return code.replace(/'.+\/http'/g, "'graphql-ez/http'");
           },
         },
       },
