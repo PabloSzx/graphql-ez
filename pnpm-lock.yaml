@@ -32,15 +32,15 @@ importers:
       '@types/express': ^4.17.12
       '@types/node': ^15.6.1
       express: ^4.17.1
-      graphql-ez: workspace:^0.0.1
       graphql: 15.4.0-experimental-stream-defer.1
+      graphql-ez: workspace:^0.1.0
       tsup: ^4.11.1
       typescript: ^4.2.4
     dependencies:
       '@graphql-typed-document-node/core': 3.1.0_34dd13c2583fe2e4418c23a0d30fc388
       express: 4.17.1
-      graphql-ez: link:../../packages/graphql-ez
       graphql: 15.4.0-experimental-stream-defer.1
+      graphql-ez: link:../../packages/graphql-ez
     devDependencies:
       '@types/express': 4.17.12
       '@types/node': 15.12.1
@@ -51,16 +51,16 @@ importers:
     specifiers:
       '@graphql-typed-document-node/core': ^3.1.0
       '@types/node': ^15.6.1
-      graphql-ez: workspace:^0.0.1
       fastify: ^3.15.1
       graphql: 15.4.0-experimental-stream-defer.1
+      graphql-ez: workspace:^0.1.0
       tsup: ^4.11.1
       typescript: ^4.2.4
     dependencies:
       '@graphql-typed-document-node/core': 3.1.0_34dd13c2583fe2e4418c23a0d30fc388
-      graphql-ez: link:../../packages/graphql-ez
       fastify: 3.17.0
       graphql: 15.4.0-experimental-stream-defer.1
+      graphql-ez: link:../../packages/graphql-ez
     devDependencies:
       '@types/node': 15.12.1
       tsup: 4.11.2_typescript@4.3.2
@@ -72,15 +72,15 @@ importers:
       '@hapi/hapi': ^20.1.3
       '@types/hapi__hapi': ^20.0.8
       '@types/node': ^15.6.1
-      graphql-ez: workspace:^0.0.1
       graphql: 15.4.0-experimental-stream-defer.1
+      graphql-ez: workspace:^0.1.0
       tsup: ^4.11.1
       typescript: ^4.2.4
     dependencies:
       '@graphql-typed-document-node/core': 3.1.0_34dd13c2583fe2e4418c23a0d30fc388
       '@hapi/hapi': 20.1.3
-      graphql-ez: link:../../packages/graphql-ez
       graphql: 15.4.0-experimental-stream-defer.1
+      graphql-ez: link:../../packages/graphql-ez
     devDependencies:
       '@types/hapi__hapi': 20.0.8
       '@types/node': 15.12.1
@@ -91,7 +91,7 @@ importers:
     specifiers:
       '@graphql-typed-document-node/core': ^3.1.0
       '@types/node': ^15.6.1
-      graphql-ez: workspace:^0.0.1
+      graphql-ez: workspace:^0.1.0
       tsup: ^4.11.1
       typescript: ^4.2.4
     dependencies:
@@ -110,7 +110,7 @@ importers:
       '@types/koa__router': ^8.0.4
       '@types/koa-bodyparser': ^4.3.0
       '@types/node': ^15.6.1
-      graphql-ez: workspace:^0.0.1
+      graphql-ez: workspace:^0.1.0
       koa: ^2.13.1
       koa-bodyparser: ^4.3.0
       tsup: ^4.11.1
@@ -135,7 +135,7 @@ importers:
       '@types/node': ^15.6.1
       '@types/react': ^17.0.8
       '@types/react-dom': ^17.0.5
-      graphql-ez: workspace:^0.0.1
+      graphql-ez: workspace:^0.1.0
       graphql-request: ^3.4.0
       next: ^10.2.3
       react: ^17.0.2
@@ -298,7 +298,7 @@ importers:
   packages/graphql-ez:
     specifiers:
       '@envelop/types': ^0.1.4
-      '@graphql-ez/core': workspace:^0.0.1
+      '@graphql-ez/core': workspace:^0.1.0
       '@graphql-tools/utils': ^7.10.0
       '@graphql-typed-document-node/core': ^3.1.0
       '@hapi/hapi': ^20.1.3
