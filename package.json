@@ -1,9 +1,12 @@
 {
   "name": "ez-gql-monorepo",
   "version": "0.0.1",
+  "private": true,
   "license": "MIT",
   "author": "PabloSz <pablosaez1995@gmail.com>",
   "scripts": {
+    "ci:release": "pnpm -r publish --access public --no-git-checks",
+    "ci:version": "changeset version && pnpm i --no-frozen-lockfile --lockfile-only --ignore-scripts",
     "dev:cjs": "pnpm -r --filter ez-gql dev -- --onSuccess \"pnpm -w dev:cjs:all\"",
     "dev:cjs:all": "concurrently pnpm:dev:core pnpm:dev:cjs:express pnpm:dev:cjs:fastify pnpm:dev:cjs:http pnpm:dev:cjs:koa pnpm:dev:cjs:hapi pnpm:dev:next",
     "dev:cjs:express": "cross-env PORT=3001 pnpm -r --filter example-app-express dev:cjs -- --silent",
@@ -25,6 +28,7 @@
     "test": "pnpm -r test"
   },
   "devDependencies": {
+    "@changesets/cli": "2.16.0",
     "bob-esbuild": "^0.1.26",
     "bob-esbuild-cli": "^0.1.26",
     "concurrently": "^6.2.0",
@@ -32,6 +36,9 @@
     "husky": "^6.0.0",
     "prettier": "^2.3.1",
     "pretty-quick": "^3.1.0"
+  },
+  "engines": {
+    "pnpm": ">=6.7.1"
   },
   "pnpm": {
     "overrides": {
