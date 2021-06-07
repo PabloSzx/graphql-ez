@@ -1,0 +1,24 @@
+{
+  "name": "ez-gql-monorepo",
+  "version": "0.0.1",
+  "license": "MIT",
+  "author": "PabloSz <pablosaez1995@gmail.com>",
+  "scripts": {
+    "prepare": "husky install",
+    "pretty": "prettier --write \"**/*{.ts,.tsx}\""
+  },
+  "devDependencies": {
+    "bob-esbuild": "^0.1.26",
+    "bob-esbuild-cli": "^0.1.26",
+    "esbuild": "^0.12.6",
+    "husky": "^6.0.0",
+    "prettier": "^2.3.1",
+    "pretty-quick": "^3.1.0"
+  },
+  "pnpm": {
+    "overrides": {
+      "graphql": "15.4.0-experimental-stream-defer.1",
+      "esbuild": "^0.12.6"
+    }
+  }
+}
