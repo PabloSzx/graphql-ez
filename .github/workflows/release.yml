@@ -28,8 +28,6 @@ jobs:
         run: npm i pnpm@^6.7.1 -g
       - name: Install Dependencies
         run: pnpm i
-      - name: Build everything
-        run: pnpm build
       - name: Create Release Pull Request or Publish to npm
         id: changesets
         uses: changesets/action@master
