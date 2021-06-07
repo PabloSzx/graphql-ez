@@ -25,7 +25,7 @@
     "dev:next": "pnpm -r --filter example-app-nextjs dev -- -p 3006",
     "prepare": "husky install",
     "pretty": "prettier --write \"**/*{.ts,.tsx}\"",
-    "test": "pnpm -r test"
+    "test": "pnpm -r test -- "
   },
   "devDependencies": {
     "@changesets/cli": "2.16.0",
