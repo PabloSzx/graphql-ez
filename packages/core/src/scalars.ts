@@ -1,5 +1,7 @@
-import { createModule, gql, Module } from 'graphql-modules';
+import { gql } from './utils/gql';
+import { LazyPromise } from './utils/promise';
 
+import type { Module } from 'graphql-modules';
 import type { resolvers as scalarResolvers } from 'graphql-scalars';
 import type { IScalarTypeResolver } from '@graphql-tools/utils';
 import type { DocumentNode, GraphQLScalarType } from 'graphql';
@@ -19,7 +21,7 @@ export interface WithScalars {
 
 export interface ScalarsModule {
   typeDefs: DocumentNode;
-  module: Module;
+  module: Promise<Module>;
   resolvers: ScalarResolvers;
 }
 
@@ -84,10 +86,13 @@ export async function createScalarsModule(
       return {
         typeDefs,
         resolvers,
-        module: createModule({
-          id: 'scalars',
-          typeDefs,
-          resolvers,
+        module: LazyPromise(async () => {
+          const { createModule } = await import('graphql-modules');
+          return createModule({
+            id: 'scalars',
+            typeDefs,
+            resolvers,
+          });
         }),
       };
     }

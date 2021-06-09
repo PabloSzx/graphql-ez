@@ -1,8 +1,7 @@
-import { gql } from 'graphql-modules';
 import querystring from 'querystring';
 
 import { BaseEnvelopAppOptions, BaseEnvelopBuilder, createEnvelopAppFactory, handleRequest } from '@graphql-ez/core/app';
-import { LazyPromise } from '@graphql-ez/core/base';
+import { LazyPromise, gql } from '@graphql-ez/core/base';
 import { handleCodegen, WithCodegen } from '@graphql-ez/core/codegen/handle';
 import { handleCors, WithCors } from '@graphql-ez/core/cors/rawCors';
 import { parseIDEConfig, WithIDE } from '@graphql-ez/core/ide/handle';

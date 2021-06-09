@@ -1,18 +1,18 @@
-import { Application, createApplication, gql, Module } from 'graphql-modules';
-
 import { Envelop, envelop, Plugin } from '@envelop/core';
-import { useGraphQLModules } from '@envelop/graphql-modules';
 
 import { handleCache, WithCache } from './cache';
 import { RegisterDataLoader, RegisterDataLoaderFactory } from './dataloader';
 import { RegisterModule, RegisterModuleFactory, WithGraphQLModules } from './modules';
 import { createScalarsModule, ScalarsModule, WithScalars } from './scalars';
 import { SchemaBuilderFactory, WithSchemaBuilding } from './schema';
+import { gql } from './utils/gql';
 import { uniqueArray } from './utils/object';
+
+import type { Application, Module } from 'graphql-modules';
 
 import type { handleRequest } from './request';
 
-export type AdapterFactory<T> = (envelop: Envelop<unknown>, modulesApplication: Application) => T;
+export type AdapterFactory<T> = (envelop: Envelop<unknown>, modulesApplication: Application | undefined) => T;
 
 export interface BaseEnvelopBuilder {
   /**
@@ -35,7 +35,7 @@ export interface BaseEnvelopBuilder {
    *
    * > _You can safely mutate this list_
    */
-  modules: Module[];
+  modules: (Module | Promise<Module>)[];
 
   /**
    * List of current Envelop Plugins
@@ -136,19 +136,31 @@ export function createEnvelopAppFactory<TContext>(
     }
 
     async function getApp() {
-      const appModules = uniqueArray(factoryModules);
+      const appModulesPromise = uniqueArray(factoryModules);
       const appPlugins = uniqueArray(factoryPlugins);
+
+      const appModules = await Promise.all(appModulesPromise);
 
       const scalarsModule = await scalarsModulePromise;
 
-      if (scalarsModule?.module && appModules.length) appModules.push(scalarsModule.module);
+      if (scalarsModule?.module && appModules.length) appModules.push(await scalarsModule.module);
 
-      const modulesApplication = createApplication({
-        ...config.GraphQLModules,
-        modules: uniqueArray(appModules),
-      });
+      let modulesApplication: Application | undefined;
 
-      if (appModules.length) appPlugins.push(useGraphQLModules(modulesApplication));
+      if (appModules.length) {
+        const [{ createApplication }, { useGraphQLModules }] = await Promise.all([
+          import('graphql-modules'),
+          import('@envelop/graphql-modules'),
+        ]);
+        const modulesApp = createApplication({
+          ...config.GraphQLModules,
+          modules: uniqueArray(appModules),
+        });
+
+        modulesApplication = modulesApp;
+
+        appPlugins.push(useGraphQLModules(modulesApp));
+      }
 
       const cachePromise = handleCache(config, appPlugins);
 
@@ -192,4 +204,4 @@ export function createEnvelopAppFactory<TContext>(
 
 export * from './request';
 
-export { gql } from 'graphql-modules';
+export { gql } from './utils/gql';

@@ -1,9 +1,7 @@
-import { gql } from 'graphql-modules';
-
 import { BaseEnvelopAppOptions, BaseEnvelopBuilder, createEnvelopAppFactory, handleRequest } from '@graphql-ez/core/app';
 import { handleCodegen, WithCodegen } from '@graphql-ez/core/codegen/handle';
 import { handleCors, WithCors } from '@graphql-ez/core/cors/rawCors';
-import { LazyPromise } from '@graphql-ez/core/utils/promise';
+import { LazyPromise, gql } from '@graphql-ez/core/base';
 
 import type { RenderGraphiQLOptions } from 'graphql-helix/dist/types';
 import type { NextApiHandler, NextApiRequest, NextApiResponse } from 'next';

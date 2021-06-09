@@ -1,8 +1,15 @@
-import { ApplicationConfig, createModule, Module, TypeDefs } from 'graphql-modules';
+import { LazyPromise } from './utils/promise';
 
 import { isDocumentNode } from '@graphql-tools/utils';
 
+import type { ApplicationConfig, Module, TypeDefs } from 'graphql-modules';
 import type { EnvelopModuleConfig } from './types';
+
+const GraphQLModules = LazyPromise(async () => {
+  const { createModule } = await import('graphql-modules');
+
+  return { createModule };
+});
 
 export interface WithGraphQLModules {
   /**
@@ -10,7 +17,7 @@ export interface WithGraphQLModules {
    *
    * List of extra GraphQL Modules instances
    */
-  modules?: Module[];
+  modules?: (Module | Promise<Module>)[];
   /**
    * Custom GraphQL Modules configuration
    */
@@ -19,7 +26,7 @@ export interface WithGraphQLModules {
 
 export interface RegisterModule {
   (module: Module): Module;
-  (typeDefs: TypeDefs, options?: EnvelopModuleConfig): Module;
+  (typeDefs: TypeDefs, options?: EnvelopModuleConfig): Promise<Module>;
 }
 
 export interface RegisterModuleState {
@@ -30,7 +37,7 @@ export interface RegisterModuleState {
   registerModule: RegisterModule;
 }
 
-export function RegisterModuleFactory(modules: Module[]): RegisterModuleState {
+export function RegisterModuleFactory(modules: (Module | Promise<Module>)[]): RegisterModuleState {
   const state: RegisterModuleState = {
     registerModuleState: {
       acumId: 0,
@@ -40,23 +47,23 @@ export function RegisterModuleFactory(modules: Module[]): RegisterModuleState {
 
   return state;
 
-  function registerModule(typeDefs: TypeDefs, config?: EnvelopModuleConfig): Module;
+  function registerModule(typeDefs: TypeDefs, config?: EnvelopModuleConfig): Promise<Module>;
   function registerModule(module: Module): Module;
   function registerModule(firstParam: TypeDefs | Module, options?: EnvelopModuleConfig) {
-    let module: Module;
-
     if (Array.isArray(firstParam) || isDocumentNode(firstParam)) {
       const { id = `module${++state.registerModuleState.acumId}`, autoAdd = true } = options || {};
 
-      module = createModule({
-        typeDefs: firstParam,
-        id,
-        ...options,
+      const promiseModule = GraphQLModules.then(({ createModule }) => {
+        return createModule({
+          typeDefs: firstParam,
+          id,
+          ...options,
+        });
       });
 
-      if (autoAdd) modules.push(module);
+      if (autoAdd) modules.push(promiseModule);
 
-      return module;
+      return promiseModule;
     }
 
     modules.push(firstParam);
@@ -64,4 +71,4 @@ export function RegisterModuleFactory(modules: Module[]): RegisterModuleState {
   }
 }
 
-export { gql } from 'graphql-modules';
+export { gql } from './utils/gql';

@@ -1,8 +1,7 @@
 export * from './types';
-export * as GraphQLModules from 'graphql-modules';
 export * as EnvelopCore from '@envelop/core';
 
-export { gql } from 'graphql-modules';
+export { gql } from './utils/gql';
 export { makeExecutableSchema } from '@graphql-tools/schema';
 export * from './utils/promise';
 export * from './utils/buffer';

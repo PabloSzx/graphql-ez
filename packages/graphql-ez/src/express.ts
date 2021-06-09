@@ -206,6 +206,4 @@ export function CreateApp(config: EnvelopAppOptions = {}): EnvelopAppBuilder {
   };
 }
 
-export { gql } from 'graphql-modules';
-
 export * from '@graphql-ez/core/base';
