@@ -1,5 +1,13 @@
 # graphql-ez
 
+## 0.1.2
+
+### Patch Changes
+
+- 542cd1a: publish with README and LICENSE
+- Updated dependencies [542cd1a]
+  - @graphql-ez/core@0.1.2
+
 ## 0.1.1
 
 ### Patch Changes
