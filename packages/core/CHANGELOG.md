@@ -1,5 +1,11 @@
 # @graphql-ez/core
 
+## 0.1.3
+
+### Patch Changes
+
+- 7df922d: separate integrations in their own packages
+
 ## 0.1.2
 
 ### Patch Changes
