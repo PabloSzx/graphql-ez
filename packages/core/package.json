@@ -9,6 +9,10 @@
   "license": "MIT",
   "author": "PabloSz <pablosaez1995@gmail.com>",
   "exports": {
+    ".": {
+      "require": "./dist/index.js",
+      "import": "./dist/index.mjs"
+    },
     "./*": {
       "require": "./dist/*.js",
       "import": "./dist/*.mjs"
@@ -17,7 +21,8 @@
   "scripts": {
     "dev": "bob-esbuild watch --skipTsc --onSuccess \"node dist/utils/gql.js\"",
     "prepare": "bob-esbuild build",
-    "postpublish": "gh-release --repo PabloSzx/graphql-ez"
+    "postpublish": "gh-release --repo PabloSzx/graphql-ez",
+    "test": "jest"
   },
   "dependencies": {
     "@envelop/core": "^0.2.2",
@@ -48,7 +53,6 @@
     "graphql-helix": "^1.6.1",
     "graphql-modules": "^1.4.2",
     "graphql-scalars": "^1.10.0",
-    "graphql-tag": "^2.12.4",
     "graphql-ws": "^5.1.2",
     "mime-types": "^2.1.31",
     "mkdirp": "^1.0.4",
@@ -57,40 +61,23 @@
     "ws": "^7.4.6"
   },
   "devDependencies": {
+    "@graphql-ez/testing": "workspace:^1.0.0",
     "@types/concurrently": "6.2.0",
-    "@types/eventsource": "1.1.5",
     "@types/graphql-upload": "8.0.5",
-    "@types/hapi__hapi": "20.0.8",
     "@types/jest": "26.0.23",
-    "@types/lodash": "4.14.170",
     "@types/mime-types": "2.1.0",
     "@types/mkdirp": "1.0.1",
     "@types/node": "15.12.2",
-    "@types/node-fetch": "2.5.10",
     "@types/prettier": "2.2.3",
-    "@types/react": "17.0.11",
-    "@types/react-dom": "17.0.7",
     "bob-esbuild-cli": "0.1.26",
-    "builtin-modules": "3.2.0",
     "changesets-github-release": "0.0.1",
-    "concurrently": "6.2.0",
     "cross-env": "7.0.3",
-    "eventsource": "1.1.0",
-    "express": "4.17.1",
-    "form-data": "4.0.0",
-    "get-port": "5.1.1",
-    "globby": "11.0.3",
-    "got": "11.8.2",
     "graphql": "15.4.0-experimental-stream-defer.1",
     "graphql-upload": "12.0.0",
     "jest": "27.0.4",
-    "lodash": "4.17.21",
-    "node-fetch": "2.6.1",
-    "rimraf": "3.0.2",
     "tmp-promise": "3.0.2",
     "ts-jest": "27.0.3",
-    "typescript": "4.3.2",
-    "undici": "3.3.6"
+    "typescript": "4.3.2"
   },
   "peerDependencies": {
     "@types/graphql-upload": "*",

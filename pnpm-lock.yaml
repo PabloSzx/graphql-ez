@@ -12,6 +12,7 @@ importers:
       bob-esbuild: 0.1.26
       bob-esbuild-cli: 0.1.26
       concurrently: 6.2.0
+      cross-env: ^7.0.3
       esbuild: ^0.12.8
       husky: 6.0.0
       prettier: 2.3.1
@@ -21,6 +22,7 @@ importers:
       bob-esbuild: 0.1.26
       bob-esbuild-cli: 0.1.26
       concurrently: 6.2.0
+      cross-env: 7.0.3
       esbuild: 0.12.8
       husky: 6.0.0
       prettier: 2.3.1
@@ -28,19 +30,19 @@ importers:
 
   examples/express:
     specifiers:
+      '@graphql-ez/express': workspace:^0.1.0
       '@graphql-typed-document-node/core': ^3.1.0
       '@types/express': ^4.17.12
       '@types/node': ^15.12.2
       express: ^4.17.1
       graphql: 15.4.0-experimental-stream-defer.1
-      graphql-ez: workspace:^0.1.2
       tsup: ^4.11.2
       typescript: ^4.3.2
     dependencies:
+      '@graphql-ez/express': link:../../packages/express
       '@graphql-typed-document-node/core': 3.1.0_34dd13c2583fe2e4418c23a0d30fc388
       express: 4.17.1
       graphql: 15.4.0-experimental-stream-defer.1
-      graphql-ez: link:../../packages/graphql-ez
     devDependencies:
       '@types/express': 4.17.12
       '@types/node': 15.12.2
@@ -49,18 +51,18 @@ importers:
 
   examples/fastify:
     specifiers:
+      '@graphql-ez/fastify': workspace:^0.1.0
       '@graphql-typed-document-node/core': ^3.1.0
       '@types/node': ^15.12.2
       fastify: ^3.17.0
       graphql: 15.4.0-experimental-stream-defer.1
-      graphql-ez: workspace:^0.1.2
       tsup: ^4.11.2
       typescript: ^4.3.2
     dependencies:
+      '@graphql-ez/fastify': link:../../packages/fastify
       '@graphql-typed-document-node/core': 3.1.0_34dd13c2583fe2e4418c23a0d30fc388
       fastify: 3.17.0
       graphql: 15.4.0-experimental-stream-defer.1
-      graphql-ez: link:../../packages/graphql-ez
     devDependencies:
       '@types/node': 15.12.2
       tsup: 4.11.2_typescript@4.3.2
@@ -68,19 +70,19 @@ importers:
 
   examples/hapi:
     specifiers:
+      '@graphql-ez/hapi': workspace:^0.1.0
       '@graphql-typed-document-node/core': ^3.1.0
       '@hapi/hapi': ^20.1.3
       '@types/hapi__hapi': ^20.0.8
       '@types/node': ^15.12.2
       graphql: 15.4.0-experimental-stream-defer.1
-      graphql-ez: workspace:^0.1.2
       tsup: ^4.11.2
       typescript: ^4.3.2
     dependencies:
+      '@graphql-ez/hapi': link:../../packages/hapi
       '@graphql-typed-document-node/core': 3.1.0_34dd13c2583fe2e4418c23a0d30fc388
       '@hapi/hapi': 20.1.3
       graphql: 15.4.0-experimental-stream-defer.1
-      graphql-ez: link:../../packages/graphql-ez
     devDependencies:
       '@types/hapi__hapi': 20.0.8
       '@types/node': 15.12.2
@@ -89,14 +91,14 @@ importers:
 
   examples/http:
     specifiers:
+      '@graphql-ez/http': workspace:^0.1.0
       '@graphql-typed-document-node/core': ^3.1.0
       '@types/node': ^15.12.2
-      graphql-ez: workspace:^0.1.2
       tsup: ^4.11.2
       typescript: ^4.3.2
     dependencies:
+      '@graphql-ez/http': link:../../packages/http
       '@graphql-typed-document-node/core': 3.1.0
-      graphql-ez: link:../../packages/graphql-ez
     devDependencies:
       '@types/node': 15.12.2
       tsup: 4.11.2_typescript@4.3.2
@@ -104,21 +106,21 @@ importers:
 
   examples/koa:
     specifiers:
+      '@graphql-ez/koa': workspace:^0.1.0
       '@graphql-typed-document-node/core': ^3.1.0
       '@koa/router': ^10.0.0
       '@types/koa': ^2.13.3
       '@types/koa__router': ^8.0.4
       '@types/koa-bodyparser': ^4.3.1
       '@types/node': ^15.12.2
-      graphql-ez: workspace:^0.1.2
       koa: ^2.13.1
       koa-bodyparser: ^4.3.0
       tsup: ^4.11.2
       typescript: ^4.3.2
     dependencies:
+      '@graphql-ez/koa': link:../../packages/koa
       '@graphql-typed-document-node/core': 3.1.0
       '@koa/router': 10.0.0
-      graphql-ez: link:../../packages/graphql-ez
       koa: 2.13.1
       koa-bodyparser: 4.3.0
     devDependencies:
@@ -131,11 +133,11 @@ importers:
 
   examples/nextjs:
     specifiers:
+      '@graphql-ez/nextjs': workspace:^0.1.0
       '@graphql-typed-document-node/core': ^3.1.0
       '@types/node': ^15.12.2
       '@types/react': ^17.0.11
       '@types/react-dom': ^17.0.7
-      graphql-ez: workspace:^0.1.2
       graphql-request: ^3.4.0
       next: ^10.2.3
       react: ^17.0.2
@@ -143,8 +145,8 @@ importers:
       react-query: ^3.16.1
       typescript: ^4.3.2
     dependencies:
+      '@graphql-ez/nextjs': link:../../packages/nextjs
       '@graphql-typed-document-node/core': 3.1.0
-      graphql-ez: link:../../packages/graphql-ez
       graphql-request: 3.4.0
       next: 10.2.3_c8cdd86752aa86fb2b6e32ae91115ebe
       react: 17.0.2
@@ -155,6 +157,61 @@ importers:
       '@types/react': 17.0.11
       '@types/react-dom': 17.0.7
       typescript: 4.3.2
+
+  internal/testing:
+    specifiers:
+      '@graphql-ez/core': workspace:^0.1.2
+      '@graphql-ez/express': workspace:^0.1.0
+      '@graphql-ez/fastify': workspace:^0.1.0
+      '@graphql-ez/hapi': workspace:^0.1.0
+      '@graphql-ez/http': workspace:^0.1.0
+      '@graphql-ez/koa': workspace:^0.1.0
+      '@graphql-ez/nextjs': workspace:^0.1.0
+      '@graphql-tools/utils': ^7.10.0
+      '@graphql-typed-document-node/core': ^3.1.0
+      '@hapi/hapi': ^20.1.4
+      '@koa/router': ^10.0.0
+      bob-esbuild-cli: ^0.1.26
+      dataloader: ^2.0.0
+      express: ^4.17.1
+      fastify: ^3.17.0
+      fastify-nextjs: ^5.4.1
+      form-data: ^4.0.0
+      get-port: ^5.1.1
+      graphql: 15.4.0-experimental-stream-defer.1
+      graphql-modules: ^1.4.2
+      graphql-ws: ^5.1.2
+      koa: ^2.13.1
+      subscriptions-transport-ws-envelop: ^0.1.0
+      tmp-promise: ^3.0.2
+      undici: ^3.3.6
+    dependencies:
+      '@graphql-ez/core': link:../../packages/core
+      '@graphql-ez/express': link:../../packages/express
+      '@graphql-ez/fastify': link:../../packages/fastify
+      '@graphql-ez/hapi': link:../../packages/hapi
+      '@graphql-ez/http': link:../../packages/http
+      '@graphql-ez/koa': link:../../packages/koa
+      '@graphql-ez/nextjs': link:../../packages/nextjs
+      '@graphql-tools/utils': 7.10.0_34dd13c2583fe2e4418c23a0d30fc388
+      '@graphql-typed-document-node/core': 3.1.0_34dd13c2583fe2e4418c23a0d30fc388
+      '@hapi/hapi': 20.1.4
+      '@koa/router': 10.0.0
+      dataloader: 2.0.0
+      express: 4.17.1
+      fastify: 3.17.0
+      fastify-nextjs: 5.4.1
+      form-data: 4.0.0
+      get-port: 5.1.1
+      graphql: 15.4.0-experimental-stream-defer.1
+      graphql-modules: 1.4.2_34dd13c2583fe2e4418c23a0d30fc388
+      graphql-ws: 5.1.2_34dd13c2583fe2e4418c23a0d30fc388
+      koa: 2.13.1
+      subscriptions-transport-ws-envelop: 0.1.0_34dd13c2583fe2e4418c23a0d30fc388
+      tmp-promise: 3.0.2
+      undici: 3.3.6
+    devDependencies:
+      bob-esbuild-cli: 0.1.26
 
   packages/core:
     specifiers:
@@ -171,6 +228,7 @@ importers:
       '@graphql-codegen/typescript': ^1.22.1
       '@graphql-codegen/typescript-operations': ^1.18.0
       '@graphql-codegen/typescript-resolvers': ^1.19.2
+      '@graphql-ez/testing': workspace:^1.0.0
       '@graphql-tools/graphql-file-loader': ^6.2.7
       '@graphql-tools/load': ^6.2.8
       '@graphql-tools/load-files': ^6.3.2
@@ -180,52 +238,33 @@ importers:
       '@graphql-typed-document-node/core': ^3.1.0
       '@types/concurrently': 6.2.0
       '@types/cors': ^2.8.10
-      '@types/eventsource': 1.1.5
       '@types/graphql-upload': 8.0.5
-      '@types/hapi__hapi': 20.0.8
       '@types/jest': 26.0.23
-      '@types/lodash': 4.14.170
       '@types/mime-types': 2.1.0
       '@types/mkdirp': 1.0.1
       '@types/node': 15.12.2
-      '@types/node-fetch': 2.5.10
       '@types/prettier': 2.2.3
-      '@types/react': 17.0.11
-      '@types/react-dom': 17.0.7
       '@types/ws': ^7.4.4
       altair-static: ^4.0.6
       bob-esbuild-cli: 0.1.26
-      builtin-modules: 3.2.0
       changesets-github-release: 0.0.1
-      concurrently: 6.2.0
       cors: ^2.8.5
       cross-env: 7.0.3
       dataloader: ^2.0.0
-      eventsource: 1.1.0
-      express: 4.17.1
-      form-data: 4.0.0
-      get-port: 5.1.1
-      globby: 11.0.3
-      got: 11.8.2
       graphql: 15.4.0-experimental-stream-defer.1
       graphql-helix: ^1.6.1
       graphql-modules: ^1.4.2
       graphql-scalars: ^1.10.0
-      graphql-tag: ^2.12.4
       graphql-upload: 12.0.0
       graphql-ws: ^5.1.2
       jest: 27.0.4
-      lodash: 4.17.21
       mime-types: ^2.1.31
       mkdirp: ^1.0.4
-      node-fetch: 2.6.1
       prettier: ^2.3.1
-      rimraf: 3.0.2
       subscriptions-transport-ws-envelop: ^0.1.0
       tmp-promise: 3.0.2
       ts-jest: 27.0.3
       typescript: 4.3.2
-      undici: 3.3.6
       ws: ^7.4.6
     dependencies:
       '@envelop/core': 0.2.2_34dd13c2583fe2e4418c23a0d30fc388
@@ -256,7 +295,6 @@ importers:
       graphql-helix: 1.6.1_34dd13c2583fe2e4418c23a0d30fc388
       graphql-modules: 1.4.2_34dd13c2583fe2e4418c23a0d30fc388
       graphql-scalars: 1.10.0_34dd13c2583fe2e4418c23a0d30fc388
-      graphql-tag: 2.12.4_34dd13c2583fe2e4418c23a0d30fc388
       graphql-ws: 5.1.2_34dd13c2583fe2e4418c23a0d30fc388
       mime-types: 2.1.31
       mkdirp: 1.0.4
@@ -264,181 +302,331 @@ importers:
       subscriptions-transport-ws-envelop: 0.1.0_34dd13c2583fe2e4418c23a0d30fc388
       ws: 7.4.6
     devDependencies:
+      '@graphql-ez/testing': link:../../internal/testing
       '@types/concurrently': 6.2.0
-      '@types/eventsource': 1.1.5
       '@types/graphql-upload': 8.0.5
-      '@types/hapi__hapi': 20.0.8
       '@types/jest': 26.0.23
-      '@types/lodash': 4.14.170
       '@types/mime-types': 2.1.0
       '@types/mkdirp': 1.0.1
       '@types/node': 15.12.2
-      '@types/node-fetch': 2.5.10
       '@types/prettier': 2.2.3
-      '@types/react': 17.0.11
-      '@types/react-dom': 17.0.7
       bob-esbuild-cli: 0.1.26_e3fb3700f8b176f300f1b7e599dc9c29
-      builtin-modules: 3.2.0
       changesets-github-release: 0.0.1
-      concurrently: 6.2.0
+      cross-env: 7.0.3
+      graphql: 15.4.0-experimental-stream-defer.1
+      graphql-upload: 12.0.0_34dd13c2583fe2e4418c23a0d30fc388
+      jest: 27.0.4
+      tmp-promise: 3.0.2
+      ts-jest: 27.0.3_jest@27.0.4+typescript@4.3.2
+      typescript: 4.3.2
+
+  packages/express:
+    specifiers:
+      '@envelop/types': ^0.1.4
+      '@graphql-ez/core': workspace:^0.1.2
+      '@graphql-ez/testing': workspace:^1.0.0
+      '@graphql-tools/schema': ^7.1.5
+      '@graphql-typed-document-node/core': 3.1.0
+      '@types/body-parser': ^1.19.0
+      '@types/cors': ^2.8.10
+      '@types/eventsource': 1.1.5
+      '@types/graphql-upload': 8.0.5
+      '@types/jest': 26.0.23
+      '@types/node': 15.12.2
+      '@types/node-fetch': 2.5.10
+      altair-express-middleware: ^4.0.6
+      bob-esbuild-cli: 0.1.26
+      body-parser: ^1.19.0
+      changesets-github-release: 0.0.1
+      cors: ^2.8.5
       cross-env: 7.0.3
       eventsource: 1.1.0
       express: 4.17.1
-      form-data: 4.0.0
-      get-port: 5.1.1
-      globby: 11.0.3
+      got: 11.8.2
+      graphql: 15.4.0-experimental-stream-defer.1
+      graphql-upload: 12.0.0
+      jest: 27.0.4
+      node-fetch: 2.6.1
+      ts-jest: 27.0.3
+      typescript: 4.3.2
+    dependencies:
+      '@envelop/types': 0.1.4_34dd13c2583fe2e4418c23a0d30fc388
+      '@graphql-ez/core': link:../core
+      '@types/body-parser': 1.19.0
+      '@types/cors': 2.8.10
+      altair-express-middleware: 4.0.6
+      body-parser: 1.19.0
+      cors: 2.8.5
+    devDependencies:
+      '@graphql-ez/testing': link:../../internal/testing
+      '@graphql-tools/schema': 7.1.5_34dd13c2583fe2e4418c23a0d30fc388
+      '@graphql-typed-document-node/core': 3.1.0_34dd13c2583fe2e4418c23a0d30fc388
+      '@types/eventsource': 1.1.5
+      '@types/graphql-upload': 8.0.5
+      '@types/jest': 26.0.23
+      '@types/node': 15.12.2
+      '@types/node-fetch': 2.5.10
+      bob-esbuild-cli: 0.1.26_e3fb3700f8b176f300f1b7e599dc9c29
+      changesets-github-release: 0.0.1
+      cross-env: 7.0.3
+      eventsource: 1.1.0
+      express: 4.17.1
       got: 11.8.2
       graphql: 15.4.0-experimental-stream-defer.1
       graphql-upload: 12.0.0_34dd13c2583fe2e4418c23a0d30fc388
       jest: 27.0.4
-      lodash: 4.17.21
       node-fetch: 2.6.1
-      rimraf: 3.0.2
-      tmp-promise: 3.0.2
       ts-jest: 27.0.3_jest@27.0.4+typescript@4.3.2
       typescript: 4.3.2
-      undici: 3.3.6
 
-  packages/graphql-ez:
+  packages/fastify:
     specifiers:
       '@envelop/types': ^0.1.4
       '@graphql-ez/core': workspace:^0.1.2
-      '@graphql-tools/utils': 7.10.0
+      '@graphql-ez/testing': workspace:^1.0.0
+      '@graphql-tools/schema': ^7.1.5
       '@graphql-typed-document-node/core': 3.1.0
-      '@hapi/hapi': 20.1.3
-      '@koa/cors': ^3.1.0
-      '@koa/router': 10.0.0
-      '@types/concurrently': 6.2.0
-      '@types/cors': ^2.8.10
       '@types/eventsource': 1.1.5
       '@types/express': 4.17.12
       '@types/graphql-upload': 8.0.5
+      '@types/jest': 26.0.23
+      '@types/node': 15.12.2
+      altair-fastify-plugin: ^4.0.6
+      bob-esbuild-cli: 0.1.26
+      changesets-github-release: 0.0.1
+      cross-env: 7.0.3
+      eventsource: 1.1.0
+      fastify: 3.17.0
+      fastify-cors: ^6.0.1
+      got: 11.8.2
+      graphql: 15.4.0-experimental-stream-defer.1
+      graphql-upload: 12.0.0
+      jest: 27.0.4
+      ts-jest: 27.0.3
+      typescript: 4.3.2
+    dependencies:
+      '@envelop/types': 0.1.4_34dd13c2583fe2e4418c23a0d30fc388
+      '@graphql-ez/core': link:../core
+      altair-fastify-plugin: 4.0.6_fastify@3.17.0
+      fastify-cors: 6.0.1
+    devDependencies:
+      '@graphql-ez/testing': link:../../internal/testing
+      '@graphql-tools/schema': 7.1.5_34dd13c2583fe2e4418c23a0d30fc388
+      '@graphql-typed-document-node/core': 3.1.0_34dd13c2583fe2e4418c23a0d30fc388
+      '@types/eventsource': 1.1.5
+      '@types/express': 4.17.12
+      '@types/graphql-upload': 8.0.5
+      '@types/jest': 26.0.23
+      '@types/node': 15.12.2
+      bob-esbuild-cli: 0.1.26_e3fb3700f8b176f300f1b7e599dc9c29
+      changesets-github-release: 0.0.1
+      cross-env: 7.0.3
+      eventsource: 1.1.0
+      fastify: 3.17.0
+      got: 11.8.2
+      graphql: 15.4.0-experimental-stream-defer.1
+      graphql-upload: 12.0.0_34dd13c2583fe2e4418c23a0d30fc388
+      jest: 27.0.4
+      ts-jest: 27.0.3_jest@27.0.4+typescript@4.3.2
+      typescript: 4.3.2
+
+  packages/hapi:
+    specifiers:
+      '@envelop/types': ^0.1.4
+      '@graphql-ez/core': workspace:^0.1.2
+      '@graphql-ez/testing': workspace:^1.0.0
+      '@graphql-tools/schema': ^7.1.5
+      '@graphql-typed-document-node/core': 3.1.0
+      '@types/eventsource': 1.1.5
       '@types/hapi__hapi': 20.0.8
+      '@types/jest': 26.0.23
+      '@types/node': 15.12.2
+      bob-esbuild-cli: 0.1.26
+      changesets-github-release: 0.0.1
+      cross-env: 7.0.3
+      eventsource: 1.1.0
+      got: 11.8.2
+      graphql: 15.4.0-experimental-stream-defer.1
+      jest: 27.0.4
+      ts-jest: 27.0.3
+      typescript: 4.3.2
+    dependencies:
+      '@envelop/types': 0.1.4_34dd13c2583fe2e4418c23a0d30fc388
+      '@graphql-ez/core': link:../core
+    devDependencies:
+      '@graphql-ez/testing': link:../../internal/testing
+      '@graphql-tools/schema': 7.1.5_34dd13c2583fe2e4418c23a0d30fc388
+      '@graphql-typed-document-node/core': 3.1.0_34dd13c2583fe2e4418c23a0d30fc388
+      '@types/eventsource': 1.1.5
+      '@types/hapi__hapi': 20.0.8
+      '@types/jest': 26.0.23
+      '@types/node': 15.12.2
+      bob-esbuild-cli: 0.1.26_e3fb3700f8b176f300f1b7e599dc9c29
+      changesets-github-release: 0.0.1
+      cross-env: 7.0.3
+      eventsource: 1.1.0
+      got: 11.8.2
+      graphql: 15.4.0-experimental-stream-defer.1
+      jest: 27.0.4
+      ts-jest: 27.0.3_jest@27.0.4+typescript@4.3.2
+      typescript: 4.3.2
+
+  packages/http:
+    specifiers:
+      '@envelop/types': ^0.1.4
+      '@graphql-ez/core': workspace:^0.1.2
+      '@graphql-ez/testing': workspace:^1.0.0
+      '@graphql-tools/schema': ^7.1.5
+      '@graphql-typed-document-node/core': 3.1.0
+      '@types/eventsource': 1.1.5
+      '@types/jest': 26.0.23
+      '@types/node': 15.12.2
+      altair-static: ^4.0.6
+      bob-esbuild-cli: 0.1.26
+      changesets-github-release: 0.0.1
+      cross-env: 7.0.3
+      eventsource: 1.1.0
+      got: 11.8.2
+      graphql: 15.4.0-experimental-stream-defer.1
+      graphql-helix: ^1.6.1
+      jest: 27.0.4
+      ts-jest: 27.0.3
+      typescript: 4.3.2
+    dependencies:
+      '@envelop/types': 0.1.4_34dd13c2583fe2e4418c23a0d30fc388
+      '@graphql-ez/core': link:../core
+      altair-static: 4.0.6
+      graphql-helix: 1.6.1_34dd13c2583fe2e4418c23a0d30fc388
+    devDependencies:
+      '@graphql-ez/testing': link:../../internal/testing
+      '@graphql-tools/schema': 7.1.5_34dd13c2583fe2e4418c23a0d30fc388
+      '@graphql-typed-document-node/core': 3.1.0_34dd13c2583fe2e4418c23a0d30fc388
+      '@types/eventsource': 1.1.5
+      '@types/jest': 26.0.23
+      '@types/node': 15.12.2
+      bob-esbuild-cli: 0.1.26_e3fb3700f8b176f300f1b7e599dc9c29
+      changesets-github-release: 0.0.1
+      cross-env: 7.0.3
+      eventsource: 1.1.0
+      got: 11.8.2
+      graphql: 15.4.0-experimental-stream-defer.1
+      jest: 27.0.4
+      ts-jest: 27.0.3_jest@27.0.4+typescript@4.3.2
+      typescript: 4.3.2
+
+  packages/koa:
+    specifiers:
+      '@envelop/types': ^0.1.4
+      '@graphql-ez/core': workspace:^0.1.2
+      '@graphql-ez/testing': workspace:^1.0.0
+      '@graphql-tools/schema': ^7.1.5
+      '@graphql-typed-document-node/core': 3.1.0
+      '@koa/cors': ^3.1.0
+      '@koa/router': 10.0.0
+      '@types/eventsource': 1.1.5
+      '@types/graphql-upload': 8.0.5
       '@types/jest': 26.0.23
       '@types/koa': 2.13.3
       '@types/koa__cors': ^3.0.2
       '@types/koa__router': 8.0.4
       '@types/koa-bodyparser': 4.3.1
-      '@types/lodash': 4.14.170
-      '@types/mime-types': 2.1.0
-      '@types/mkdirp': 1.0.1
       '@types/node': 15.12.2
       '@types/node-fetch': 2.5.10
-      '@types/prettier': 2.2.3
-      '@types/react': 17.0.11
-      '@types/react-dom': 17.0.7
-      altair-express-middleware: ^4.0.6
-      altair-fastify-plugin: ^4.0.6
-      altair-static: ^4.0.6
       bob-esbuild-cli: 0.1.26
-      builtin-modules: 3.2.0
       changesets-github-release: 0.0.1
-      concurrently: 6.2.0
-      cors: ^2.8.5
       cross-env: 7.0.3
-      dataloader: 2.0.0
       eventsource: 1.1.0
-      express: 4.17.1
-      fastify: 3.17.0
-      fastify-cors: ^6.0.1
-      fastify-nextjs: 5.4.1
-      form-data: 4.0.0
-      get-port: 5.1.1
-      globby: 11.0.3
       got: 11.8.2
       graphql: 15.4.0-experimental-stream-defer.1
-      graphql-helix: ^1.6.1
-      graphql-modules: ^1.4.2
       graphql-upload: 12.0.0
-      graphql-ws: 5.1.2
       jest: 27.0.4
       koa: 2.13.1
       koa-bodyparser: 4.3.0
-      lodash: 4.17.21
-      mime-types: ^2.1.31
-      next: 10.2.3
       node-fetch: 2.6.1
-      react: 17.0.2
-      react-dom: 17.0.2
-      rimraf: 3.0.2
-      rollup: 2.51.1
-      rollup-plugin-esbuild: 4.5.0
-      rollup-plugin-node-externals: 2.2.0
-      subscriptions-transport-ws-envelop: 0.1.0
-      tmp-promise: 3.0.2
       ts-jest: 27.0.3
       typescript: 4.3.2
-      undici: 3.3.6
     dependencies:
       '@envelop/types': 0.1.4_34dd13c2583fe2e4418c23a0d30fc388
       '@graphql-ez/core': link:../core
       '@koa/cors': 3.1.0
-      '@types/cors': 2.8.10
       '@types/koa__cors': 3.0.2
-      altair-express-middleware: 4.0.6
-      altair-fastify-plugin: 4.0.6_fastify@3.17.0
-      altair-static: 4.0.6
-      cors: 2.8.5
-      fastify-cors: 6.0.1
-      graphql-helix: 1.6.1_34dd13c2583fe2e4418c23a0d30fc388
-      graphql-modules: 1.4.2_34dd13c2583fe2e4418c23a0d30fc388
-      mime-types: 2.1.31
     devDependencies:
-      '@graphql-tools/utils': 7.10.0_34dd13c2583fe2e4418c23a0d30fc388
+      '@graphql-ez/testing': link:../../internal/testing
+      '@graphql-tools/schema': 7.1.5_34dd13c2583fe2e4418c23a0d30fc388
       '@graphql-typed-document-node/core': 3.1.0_34dd13c2583fe2e4418c23a0d30fc388
-      '@hapi/hapi': 20.1.3
       '@koa/router': 10.0.0
-      '@types/concurrently': 6.2.0
       '@types/eventsource': 1.1.5
-      '@types/express': 4.17.12
       '@types/graphql-upload': 8.0.5
-      '@types/hapi__hapi': 20.0.8
       '@types/jest': 26.0.23
       '@types/koa': 2.13.3
       '@types/koa__router': 8.0.4
       '@types/koa-bodyparser': 4.3.1
-      '@types/lodash': 4.14.170
-      '@types/mime-types': 2.1.0
-      '@types/mkdirp': 1.0.1
       '@types/node': 15.12.2
       '@types/node-fetch': 2.5.10
-      '@types/prettier': 2.2.3
-      '@types/react': 17.0.11
-      '@types/react-dom': 17.0.7
       bob-esbuild-cli: 0.1.26_e3fb3700f8b176f300f1b7e599dc9c29
-      builtin-modules: 3.2.0
       changesets-github-release: 0.0.1
-      concurrently: 6.2.0
       cross-env: 7.0.3
-      dataloader: 2.0.0
       eventsource: 1.1.0
-      express: 4.17.1
-      fastify: 3.17.0
-      fastify-nextjs: 5.4.1_next@10.2.3
-      form-data: 4.0.0
-      get-port: 5.1.1
-      globby: 11.0.3
       got: 11.8.2
       graphql: 15.4.0-experimental-stream-defer.1
       graphql-upload: 12.0.0_34dd13c2583fe2e4418c23a0d30fc388
-      graphql-ws: 5.1.2_34dd13c2583fe2e4418c23a0d30fc388
       jest: 27.0.4
       koa: 2.13.1
       koa-bodyparser: 4.3.0
-      lodash: 4.17.21
-      next: 10.2.3_c8cdd86752aa86fb2b6e32ae91115ebe
       node-fetch: 2.6.1
-      react: 17.0.2
-      react-dom: 17.0.2_react@17.0.2
-      rimraf: 3.0.2
-      rollup: 2.51.1
-      rollup-plugin-esbuild: 4.5.0_rollup@2.51.1
-      rollup-plugin-node-externals: 2.2.0_builtin-modules@3.2.0
-      subscriptions-transport-ws-envelop: 0.1.0_34dd13c2583fe2e4418c23a0d30fc388
-      tmp-promise: 3.0.2
       ts-jest: 27.0.3_jest@27.0.4+typescript@4.3.2
       typescript: 4.3.2
-      undici: 3.3.6
+
+  packages/nextjs:
+    specifiers:
+      '@envelop/types': ^0.1.4
+      '@graphql-ez/core': workspace:^0.1.2
+      '@graphql-ez/testing': workspace:^1.0.0
+      '@graphql-tools/schema': ^7.1.5
+      '@graphql-typed-document-node/core': 3.1.0
+      '@types/jest': 26.0.23
+      '@types/mime-types': 2.1.0
+      '@types/node': 15.12.2
+      '@types/react': 17.0.11
+      '@types/react-dom': 17.0.7
+      altair-static: ^4.0.6
+      bob-esbuild-cli: 0.1.26
+      changesets-github-release: 0.0.1
+      cross-env: 7.0.3
+      graphql: 15.4.0-experimental-stream-defer.1
+      graphql-helix: ^1.6.1
+      jest: 27.0.4
+      mime-types: ^2.1.31
+      next: 10.2.3
+      react: 17.0.2
+      react-dom: 17.0.2
+      ts-jest: 27.0.3
+      typescript: 4.3.2
+    dependencies:
+      '@envelop/types': 0.1.4_34dd13c2583fe2e4418c23a0d30fc388
+      '@graphql-ez/core': link:../core
+      altair-static: 4.0.6
+      graphql-helix: 1.6.1_34dd13c2583fe2e4418c23a0d30fc388
+      mime-types: 2.1.31
+    devDependencies:
+      '@graphql-ez/testing': link:../../internal/testing
+      '@graphql-tools/schema': 7.1.5_34dd13c2583fe2e4418c23a0d30fc388
+      '@graphql-typed-document-node/core': 3.1.0_34dd13c2583fe2e4418c23a0d30fc388
+      '@types/jest': 26.0.23
+      '@types/mime-types': 2.1.0
+      '@types/node': 15.12.2
+      '@types/react': 17.0.11
+      '@types/react-dom': 17.0.7
+      bob-esbuild-cli: 0.1.26_e3fb3700f8b176f300f1b7e599dc9c29
+      changesets-github-release: 0.0.1
+      cross-env: 7.0.3
+      graphql: 15.4.0-experimental-stream-defer.1
+      jest: 27.0.4
+      next: 10.2.3_c8cdd86752aa86fb2b6e32ae91115ebe
+      react: 17.0.2
+      react-dom: 17.0.2_react@17.0.2
+      ts-jest: 27.0.3_jest@27.0.4+typescript@4.3.2
+      typescript: 4.3.2
 
 packages:
 
@@ -1560,7 +1748,6 @@ packages:
       graphql: 15.4.0-experimental-stream-defer.1
       tslib: 2.2.0
       value-or-promise: 1.0.6
-    dev: false
 
   /@graphql-tools/utils/7.10.0_34dd13c2583fe2e4418c23a0d30fc388:
     resolution: {integrity: sha512-d334r6bo9mxdSqZW6zWboEnnOOFRrAPVQJ7LkU8/6grglrbcu6WhwCLzHb90E94JI3TD3ricC3YGbUqIi9Xg0w==}
@@ -1608,6 +1795,7 @@ packages:
     resolution: {integrity: sha512-FbCNwcTbnQP4VYYhLNGZmA76xb2aHg9AMPiy18NZyWMG310P5KdFGyA9v2rm5ujrIny77dEEIkMOwl0Xv+fSSA==}
     dependencies:
       '@hapi/hoek': 9.2.0
+    dev: false
 
   /@hapi/b64/5.0.0:
     resolution: {integrity: sha512-ngu0tSEmrezoiIaNGG6rRvKOUkUuDdf4XTPnONHGYfSGRmDqPZX5oJL6HAdKTo1UQHECbdB4OzhWrfgVppjHUw==}
@@ -1624,6 +1812,7 @@ packages:
     dependencies:
       '@hapi/boom': 9.1.2
       '@hapi/hoek': 9.2.0
+    dev: false
 
   /@hapi/bourne/2.0.0:
     resolution: {integrity: sha512-WEezM1FWztfbzqIUbsDzFRVMxSoLy3HugVcux6KDDtTqzPsLE8NDRHfXvev66aH1i2oOKKar3/XDjbvh/OUBdg==}
@@ -1633,12 +1822,14 @@ packages:
     dependencies:
       '@hapi/boom': 9.1.2
       '@hapi/hoek': 9.2.0
+    dev: false
 
   /@hapi/catbox-memory/5.0.1:
     resolution: {integrity: sha512-QWw9nOYJq5PlvChLWV8i6hQHJYfvdqiXdvTupJFh0eqLZ64Xir7mKNi96d5/ZMUAqXPursfNDIDxjFgoEDUqeQ==}
     dependencies:
       '@hapi/boom': 9.1.2
       '@hapi/hoek': 9.2.0
+    dev: false
 
   /@hapi/catbox/11.1.1:
     resolution: {integrity: sha512-u/8HvB7dD/6X8hsZIpskSDo4yMKpHxFd7NluoylhGrL6cUfYxdQPnvUp9YU2C6F9hsyBVLGulBd9vBN1ebfXOQ==}
@@ -1647,11 +1838,13 @@ packages:
       '@hapi/hoek': 9.2.0
       '@hapi/podium': 4.1.3
       '@hapi/validate': 1.1.3
+    dev: false
 
   /@hapi/content/5.0.2:
     resolution: {integrity: sha512-mre4dl1ygd4ZyOH3tiYBrOUBzV7Pu/EOs8VLGf58vtOEECWed8Uuw6B4iR9AN/8uQt42tB04qpVaMyoMQh0oMw==}
     dependencies:
       '@hapi/boom': 9.1.2
+    dev: false
 
   /@hapi/cryptiles/5.1.0:
     resolution: {integrity: sha512-fo9+d1Ba5/FIoMySfMqPBR/7Pa29J2RsiPrl7bkwo5W5o+AN1dAYQRi4SPrPwwVxVGKjgLOEWrsvt1BonJSfLA==}
@@ -1661,6 +1854,7 @@ packages:
 
   /@hapi/file/2.0.0:
     resolution: {integrity: sha512-WSrlgpvEqgPWkI18kkGELEZfXr0bYLtr16iIN4Krh9sRnzBZN6nnWxHFxtsnP684wueEySBbXPDg/WfA9xJdBQ==}
+    dev: false
 
   /@hapi/hapi/20.1.3:
     resolution: {integrity: sha512-ImOkrixD1kPUuvmSklwytPQ0sG8AtqydwU0JzvITLE6Z7wPMVf9i9LIMWywKPxHTNhCZ6W3oKP9yRjqM/IkHMQ==}
@@ -1684,6 +1878,31 @@ packages:
       '@hapi/teamwork': 5.1.0
       '@hapi/topo': 5.0.0
       '@hapi/validate': 1.1.3
+    dev: false
+
+  /@hapi/hapi/20.1.4:
+    resolution: {integrity: sha512-5nG6w7aruj9j/p5XSRylbXKlsO4qCNJ1t/VAJZJVbVXLqCNNYIjTHsm0OFQysuLLCqDGsmrpreI3UyV2qC0ICg==}
+    engines: {node: '>=12.0.0'}
+    dependencies:
+      '@hapi/accept': 5.0.2
+      '@hapi/ammo': 5.0.1
+      '@hapi/boom': 9.1.2
+      '@hapi/bounce': 2.0.0
+      '@hapi/call': 8.0.1
+      '@hapi/catbox': 11.1.1
+      '@hapi/catbox-memory': 5.0.1
+      '@hapi/heavy': 7.0.1
+      '@hapi/hoek': 9.2.0
+      '@hapi/mimos': 6.0.0
+      '@hapi/podium': 4.1.3
+      '@hapi/shot': 5.0.5
+      '@hapi/somever': 3.0.1
+      '@hapi/statehood': 7.0.3
+      '@hapi/subtext': 7.0.3
+      '@hapi/teamwork': 5.1.0
+      '@hapi/topo': 5.0.0
+      '@hapi/validate': 1.1.3
+    dev: false
 
   /@hapi/heavy/7.0.1:
     resolution: {integrity: sha512-vJ/vzRQ13MtRzz6Qd4zRHWS3FaUc/5uivV2TIuExGTM9Qk+7Zzqj0e2G7EpE6KztO9SalTbiIkTh7qFKj/33cA==}
@@ -1691,6 +1910,7 @@ packages:
       '@hapi/boom': 9.1.2
       '@hapi/hoek': 9.2.0
       '@hapi/validate': 1.1.3
+    dev: false
 
   /@hapi/hoek/9.2.0:
     resolution: {integrity: sha512-sqKVVVOe5ivCaXDWivIJYVSaEgdQK9ul7a4Kity5Iw7u9+wBAPbX1RMSnLLmp7O4Vzj0WOWwMAJsTL00xwaNug==}
@@ -1709,6 +1929,7 @@ packages:
     dependencies:
       '@hapi/hoek': 9.2.0
       mime-db: 1.48.0
+    dev: false
 
   /@hapi/nigel/4.0.2:
     resolution: {integrity: sha512-ht2KoEsDW22BxQOEkLEJaqfpoKPXxi7tvabXy7B/77eFtOyG5ZEstfZwxHQcqAiZhp58Ae5vkhEqI03kawkYNw==}
@@ -1716,6 +1937,7 @@ packages:
     dependencies:
       '@hapi/hoek': 9.2.0
       '@hapi/vise': 4.0.0
+    dev: false
 
   /@hapi/pez/5.0.3:
     resolution: {integrity: sha512-mpikYRJjtrbJgdDHG/H9ySqYqwJ+QU/D7FXsYciS9P7NYBXE2ayKDAy3H0ou6CohOCaxPuTV4SZ0D936+VomHA==}
@@ -1725,6 +1947,7 @@ packages:
       '@hapi/content': 5.0.2
       '@hapi/hoek': 9.2.0
       '@hapi/nigel': 4.0.2
+    dev: false
 
   /@hapi/podium/4.1.3:
     resolution: {integrity: sha512-ljsKGQzLkFqnQxE7qeanvgGj4dejnciErYd30dbrYzUOF/FyS/DOF97qcrT3bhoVwCYmxa6PEMhxfCPlnUcD2g==}
@@ -1738,12 +1961,14 @@ packages:
     dependencies:
       '@hapi/hoek': 9.2.0
       '@hapi/validate': 1.1.3
+    dev: false
 
   /@hapi/somever/3.0.1:
     resolution: {integrity: sha512-4ZTSN3YAHtgpY/M4GOtHUXgi6uZtG9nEZfNI6QrArhK0XN/RDVgijlb9kOmXwCR5VclDSkBul9FBvhSuKXx9+w==}
     dependencies:
       '@hapi/bounce': 2.0.0
       '@hapi/hoek': 9.2.0
+    dev: false
 
   /@hapi/statehood/7.0.3:
     resolution: {integrity: sha512-pYB+pyCHkf2Amh67QAXz7e/DN9jcMplIL7Z6N8h0K+ZTy0b404JKPEYkbWHSnDtxLjJB/OtgElxocr2fMH4G7w==}
@@ -1755,6 +1980,7 @@ packages:
       '@hapi/hoek': 9.2.0
       '@hapi/iron': 6.0.0
       '@hapi/validate': 1.1.3
+    dev: false
 
   /@hapi/subtext/7.0.3:
     resolution: {integrity: sha512-CekDizZkDGERJ01C0+TzHlKtqdXZxzSWTOaH6THBrbOHnsr3GY+yiMZC+AfNCypfE17RaIakGIAbpL2Tk1z2+A==}
@@ -1766,6 +1992,7 @@ packages:
       '@hapi/hoek': 9.2.0
       '@hapi/pez': 5.0.3
       '@hapi/wreck': 17.1.0
+    dev: false
 
   /@hapi/teamwork/5.1.0:
     resolution: {integrity: sha512-llqoQTrAJDTXxG3c4Kz/uzhBS1TsmSBa/XG5SPcVXgmffHE1nFtyLIK0hNJHCB3EuBKT84adzd1hZNY9GJLWtg==}
@@ -1786,6 +2013,7 @@ packages:
     resolution: {integrity: sha512-eYyLkuUiFZTer59h+SGy7hUm+qE9p+UemePTHLlIWppEd+wExn3Df5jO04bFQTm7nleF5V8CtuYQYb+VFpZ6Sg==}
     dependencies:
       '@hapi/hoek': 9.2.0
+    dev: false
 
   /@hapi/wreck/17.1.0:
     resolution: {integrity: sha512-nx6sFyfqOpJ+EFrHX+XWwJAxs3ju4iHdbB/bwR8yTNZOiYmuhA8eCe7lYPtYmb4j7vyK/SlbaQsmTtUrMvPEBw==}
@@ -1793,6 +2021,7 @@ packages:
       '@hapi/boom': 9.1.2
       '@hapi/bourne': 2.0.0
       '@hapi/hoek': 9.2.0
+    dev: false
 
   /@istanbuljs/load-nyc-config/1.1.0:
     resolution: {integrity: sha512-VjeHSlIzpv/NyD3N0YuHfXOPDIixcA1q2ZV98wsMqcYlPmv2n3Yb2lYP9XMElnaFVXg5A7YLTeLu6V84uQDjmQ==}
@@ -2737,10 +2966,6 @@ packages:
       '@types/koa': 2.13.3
     dev: true
 
-  /@types/lodash/4.14.170:
-    resolution: {integrity: sha512-bpcvu/MKHHeYX+qeEN8GE7DIravODWdACVA1ctevD8CN24RhPZIKMn9ntfAsrvLfSX3cR5RrBKAbYm9bGs0A+Q==}
-    dev: true
-
   /@types/mime-db/1.43.0:
     resolution: {integrity: sha512-nCqnKWfvDzTVRh8NS9Zn+rnZYs5+iw5hx3G0nFgKM/R2mJQwPChin4DQ4zXlXnxTtc/3Ys5FnWweKW6NW+d2aw==}
     dev: true
@@ -3190,6 +3415,7 @@ packages:
 
   /async-limiter/1.0.1:
     resolution: {integrity: sha512-csOlWGAcRFJaI6m+F2WKdnMKr4HhdhFVBk0H/QbJFMCr+uO2kwohwXQPxw/9OCxp05r5ghVBFSyioixx3gfkNQ==}
+    dev: false
 
   /async/0.9.2:
     resolution: {integrity: sha1-rqdNXmHB+JlhO/ZL2mbUx48v0X0=}
@@ -3373,6 +3599,7 @@ packages:
 
   /backo2/1.0.2:
     resolution: {integrity: sha1-MasayLEpNjRj41s+u2n038+6eUc=}
+    dev: false
 
   /balanced-match/1.0.2:
     resolution: {integrity: sha512-3oSeUO0TMV67hN1AmbXsK4yaqU7tjiHlbxRDZOpH0KW9+CeX4bRAaX0Anxt0tx2MrpRpWwQaPwIlISEJhYU5Pw==}
@@ -4636,6 +4863,7 @@ packages:
 
   /dataloader/2.0.0:
     resolution: {integrity: sha512-YzhyDAwA4TaQIhM5go+vCLmU0UikghC/t9DTQYZR2M/UvZ1MdOhPezSDZcjj9uqQJOMqjLcpWtyW2iNINdlatQ==}
+    dev: false
 
   /date-fns/1.30.1:
     resolution: {integrity: sha512-hBSVCvSmWC+QypYObzwGOd9wqdDpOt+0wl0KbU+R+uuZBS1jN8VsD1ss3irQDknRj5NvxiTF6oj/nDRnN/UQNw==}
@@ -5146,6 +5374,7 @@ packages:
 
   /eventemitter3/3.1.2:
     resolution: {integrity: sha512-tvtQIeLVHjDkJYnzf2dgVMxfuSGJeM/7UCG17TT4EumTfNtF+0nebF/4zWOIkCreAbtNqhGEboB6BWrwqNaw4Q==}
+    dev: false
 
   /events/3.3.0:
     resolution: {integrity: sha512-mQw+2fkQbALzQ7V0MY0IqdnXNOeTtP4r0lN9z7AAawCXgqea7bDii20AYrIBrFd/Hx0M2Ocz6S111CaFkUcb0Q==}
@@ -5416,16 +5645,15 @@ packages:
   /fastify-error/0.3.1:
     resolution: {integrity: sha512-oCfpcsDndgnDVgiI7bwFKAun2dO+4h84vBlkWsWnz/OUK9Reff5UFoFl241xTiLeHWX/vU9zkDVXqYUxjOwHcQ==}
 
-  /fastify-nextjs/5.4.1_next@10.2.3:
+  /fastify-nextjs/5.4.1:
     resolution: {integrity: sha512-Qy3kbp95iyajuh89leNlv7xYQzvo7xR6K4WZ6C9cF35y5KLNcG+5mzmO0uxBeC05iwr+3hjE1GuItTAb5JD0JQ==}
     engines: {node: '>=10'}
     peerDependencies:
       next: 9.x.x || 10.x.x
     dependencies:
       fastify-plugin: 3.0.0
-      next: 10.2.3_c8cdd86752aa86fb2b6e32ae91115ebe
       under-pressure: 5.6.0
-    dev: true
+    dev: false
 
   /fastify-plugin/2.3.4:
     resolution: {integrity: sha512-I+Oaj6p9oiRozbam30sh39BiuiqBda7yK2nmSPVwDCfIBlKnT8YB3MY+pRQc2Fcd07bf6KPGklHJaQ2Qu81TYQ==}
@@ -5435,6 +5663,7 @@ packages:
 
   /fastify-plugin/3.0.0:
     resolution: {integrity: sha512-ZdCvKEEd92DNLps5n0v231Bha8bkz1DjnPP/aEz37rz/q42Z5JVLmgnqR4DYuNn3NXAO3IDCPyRvgvxtJ4Ym4w==}
+    dev: false
 
   /fastify-static/3.4.0:
     resolution: {integrity: sha512-5y9xTNiPTj6/jDwzH6CqBIcI3/yZtocUiHoLud2NYPfHSOLlS6eW6DTheiU8b9WWlfmHfqOjwFFBdhiH1+nBhg==}
@@ -5660,7 +5889,7 @@ packages:
       asynckit: 0.4.0
       combined-stream: 1.0.8
       mime-types: 2.1.31
-    dev: true
+    dev: false
 
   /forwarded/0.2.0:
     resolution: {integrity: sha512-buRG0fpBtRHSTCOASe6hD258tEubFoRLb4ZNA6NxMVHNw2gOcwHo9wyablzMzOA5z9xA9L1KNjk/Nt6MT9aYow==}
@@ -5767,7 +5996,7 @@ packages:
   /get-port/5.1.1:
     resolution: {integrity: sha512-g/Q1aTSDOxFpchXC4i8ZWvxA1lnPqx/JHqcpIw0/LX9T8x/GBbi6YnlN5nhaKIFkT8oFsscUKgDJYxfwfS6QsQ==}
     engines: {node: '>=8'}
-    dev: true
+    dev: false
 
   /get-stdin/4.0.1:
     resolution: {integrity: sha1-uWjGsKBDhDJJAui/Gl3zJXmkUP4=}
@@ -6117,6 +6346,7 @@ packages:
       graphql: '>=0.11 <=15'
     dependencies:
       graphql: 15.4.0-experimental-stream-defer.1
+    dev: false
 
   /graphql/15.4.0-experimental-stream-defer.1:
     resolution: {integrity: sha512-zlGgY7aLlIofjO0CfTpCYK/tMccnj+5jvjnkTnW5qOxYhgEltuCvpMNYOJ67gz6L1flTIigt5BVEM8JExgtW3w==}
@@ -6989,6 +7219,7 @@ packages:
 
   /iterall/1.3.0:
     resolution: {integrity: sha512-QZ9qOMdF+QLHxy1QIpUHUU1D5pS2CG2P69LF6L6CPjPYA/XMOmKV3PZpawHoAjHNyB0swdVTRxdYT4tbBbxqwg==}
+    dev: false
 
   /jake/10.8.2:
     resolution: {integrity: sha512-eLpKyrfG3mzvGE2Du8VoPbeSkRry093+tyNjdYaBbJS9v17knImYGNXQCUV0gLxQtF82m3E8iRb/wdSQZLoq7A==}
@@ -9717,19 +9948,6 @@ packages:
       del: 5.1.0
     dev: true
 
-  /rollup-plugin-esbuild/4.5.0_rollup@2.51.1:
-    resolution: {integrity: sha512-ieUd3AoYWsN6Tfp0LBNnC+QpdhKjDEaH4NK3ghuEXOH56/7TAtD+hMbD9vSWZgsGSbaqCkrn4j6PaUj1vOSt1g==}
-    engines: {node: '>=12'}
-    peerDependencies:
-      esbuild: '>=0.10.1'
-      rollup: ^1.20.0 || ^2.0.0
-    dependencies:
-      '@rollup/pluginutils': 4.1.0_rollup@2.51.1
-      joycon: 3.0.1
-      jsonc-parser: 3.0.0
-      rollup: 2.51.1
-    dev: true
-
   /rollup-plugin-node-externals/2.2.0_builtin-modules@3.2.0:
     resolution: {integrity: sha512-WM7TtQ76GdsLceEGmZzQzn1afj8JgOQT5VLs1Y9RMqowM/8eK2mBj/Lv7hoE833U75QsUZIRirYUtFatu51RJA==}
     engines: {node: '>=8.0.0'}
@@ -10398,6 +10616,7 @@ packages:
       iterall: 1.3.0
       symbol-observable: 1.2.0
       ws: 5.2.3
+    dev: false
 
   /sucrase/3.18.2:
     resolution: {integrity: sha512-xCFP35OA6uAtBUVB8jPSftiR2Udjh0d9JkQnUOYppILpN4rBSk0yxiy67GVzD3XsFGIB6LlyIfhCABtwlopMSw==}
@@ -10467,6 +10686,7 @@ packages:
   /symbol-observable/1.2.0:
     resolution: {integrity: sha512-e900nM8RRtGhlV36KGEU9k65K3mPb1WV70OdjfxlG2EAuM1noi/E/BaW/uMhL7bPEssK8QV57vN3esixjUvcXQ==}
     engines: {node: '>=0.10.0'}
+    dev: false
 
   /symbol-tree/3.2.4:
     resolution: {integrity: sha512-9QNk5KwDF+Bvz+PyObkmSYjI5ksVUYtjW7AU22r2NKcfLJcXp96hkDWU3+XndOsUb+AQ9QhfzfCT2O+CNWT5Tw==}
@@ -10609,7 +10829,6 @@ packages:
     resolution: {integrity: sha512-OyCLAKU1HzBjL6Ev3gxUeraJNlbNingmi8IrHHEsYH8LTmEuhvYfqvhn2F/je+mjf4N58UmZ96OMEy1JanSCpA==}
     dependencies:
       tmp: 0.2.1
-    dev: true
 
   /tmp/0.0.33:
     resolution: {integrity: sha512-jRCJlojKnZ3addtTOjdIqoRuPEKBvNXcGYqzO6zWZX8KfKEpnGY5jfggJQ3EjKuu8D4bJRr0y+cYJFmYbImXGw==}
@@ -10630,7 +10849,6 @@ packages:
     engines: {node: '>=8.17.0'}
     dependencies:
       rimraf: 3.0.2
-    dev: true
 
   /tmpl/1.0.4:
     resolution: {integrity: sha1-I2QN17QtAEM5ERQIIOXPRA5SHdE=}
@@ -10913,11 +11131,11 @@ packages:
     dependencies:
       fastify-error: 0.3.1
       fastify-plugin: 3.0.0
-    dev: true
+    dev: false
 
   /undici/3.3.6:
     resolution: {integrity: sha512-/j3YTZ5AobMB4ZrTY72mzM54uFUX32v0R/JRW9G2vOyF1uSKYAx+WT8dMsAcRS13TOFISv094TxIyWYk+WEPsA==}
-    dev: true
+    dev: false
 
   /union-value/1.0.1:
     resolution: {integrity: sha512-tJfXmxMeWYnczCVs7XAEvIV7ieppALdyepWMkHkwciRpZraG/xwT+s2JN8+pr1+8jCRf80FFzvr+MpQeeoF4Xg==}
@@ -11100,7 +11318,6 @@ packages:
   /value-or-promise/1.0.6:
     resolution: {integrity: sha512-9r0wQsWD8z/BxPOvnwbPf05ZvFngXyouE9EKB+5GbYix+BYnAwrIChCUyFIinfbf2FL/U71z+CPpbnmTdxrwBg==}
     engines: {node: '>=12'}
-    dev: false
 
   /vary/1.1.2:
     resolution: {integrity: sha1-IpnwLG3tMNSllhsLn3RSShj2NPw=}
@@ -11348,6 +11565,7 @@ packages:
     resolution: {integrity: sha512-jZArVERrMsKUatIdnLzqvcfydI85dvd/Fp1u/VOpfdDWQ4c9qWXe+VIeAbQ5FrDwciAkr+lzofXLz3Kuf26AOA==}
     dependencies:
       async-limiter: 1.0.1
+    dev: false
 
   /ws/7.4.6:
     resolution: {integrity: sha512-YmhHDO4MzaDLB+M9ym/mDA5z0naX8j7SIlT8f8z+I0VtzsRbekxEutHSme7NPS2qE8StCYQNUnfWdXta/Yu85A==}

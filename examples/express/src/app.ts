@@ -1,4 +1,4 @@
-import { CreateApp, BuildContextArgs, InferFunctionReturn, readStreamToBuffer, gql } from 'graphql-ez/express';
+import { CreateApp, BuildContextArgs, InferFunctionReturn, readStreamToBuffer, gql } from '@graphql-ez/express';
 
 function buildContext({ request }: BuildContextArgs) {
   return {
@@ -7,7 +7,7 @@ function buildContext({ request }: BuildContextArgs) {
   };
 }
 
-declare module 'graphql-ez/express' {
+declare module '@graphql-ez/express' {
   interface EnvelopContext extends InferFunctionReturn<typeof buildContext> {}
 }
 

@@ -26,7 +26,7 @@ export interface WithCodegen {
 }
 
 export interface InternalCodegenConfig {
-  moduleName: 'express' | 'fastify' | 'nextjs' | 'http' | 'koa' | 'hapi' | 'extend';
+  moduleName: 'express' | 'fastify' | 'nextjs' | 'http' | 'koa' | 'hapi' | 'core';
 }
 
 export function handleCodegen(getEnveloped: Envelop<unknown>, config: WithCodegen, internalConfig: InternalCodegenConfig): void {

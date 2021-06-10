@@ -1,0 +1,49 @@
+{
+  "name": "@graphql-ez/testing",
+  "version": "1.0.0",
+  "private": true,
+  "license": "MIT",
+  "author": "PabloSz <pablosaez1995@gmail.com>",
+  "exports": {
+    "./*": {
+      "require": "./dist/*.js",
+      "import": "./dist/*.mjs"
+    }
+  },
+  "main": "dist/index.js",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "prepare": "bob-esbuild build"
+  },
+  "dependencies": {
+    "@graphql-ez/core": "workspace:^0.1.2",
+    "@graphql-ez/express": "workspace:^0.1.0",
+    "@graphql-ez/fastify": "workspace:^0.1.0",
+    "@graphql-ez/hapi": "workspace:^0.1.0",
+    "@graphql-ez/http": "workspace:^0.1.0",
+    "@graphql-ez/koa": "workspace:^0.1.0",
+    "@graphql-ez/nextjs": "workspace:^0.1.0",
+    "@graphql-tools/utils": "^7.10.0",
+    "@graphql-typed-document-node/core": "^3.1.0",
+    "@hapi/hapi": "^20.1.4",
+    "@koa/router": "^10.0.0",
+    "dataloader": "^2.0.0",
+    "express": "^4.17.1",
+    "fastify": "^3.17.0",
+    "fastify-nextjs": "^5.4.1",
+    "form-data": "^4.0.0",
+    "get-port": "^5.1.1",
+    "graphql": "15.4.0-experimental-stream-defer.1",
+    "graphql-modules": "^1.4.2",
+    "graphql-ws": "^5.1.2",
+    "koa": "^2.13.1",
+    "subscriptions-transport-ws-envelop": "^0.1.0",
+    "tmp-promise": "^3.0.2",
+    "undici": "^3.3.6"
+  },
+  "devDependencies": {
+    "bob-esbuild-cli": "^0.1.26"
+  }
+}

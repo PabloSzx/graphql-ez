@@ -4,13 +4,6 @@
   "private": true,
   "license": "MIT",
   "main": "index.js",
-  "tsup": {
-    "splitting": false,
-    "sourcemap": true,
-    "entryPoints": [
-      "src/index.ts"
-    ]
-  },
   "scripts": {
     "dev": "yarn dev:mjs",
     "dev:cjs": "tsup-node --format cjs --watch src --onSuccess \"node dist/index.js\"",
@@ -18,14 +11,21 @@
     "start": "node dist/index.js"
   },
   "dependencies": {
+    "@graphql-ez/fastify": "workspace:^0.1.0",
     "@graphql-typed-document-node/core": "^3.1.0",
     "fastify": "^3.17.0",
-    "graphql": "15.4.0-experimental-stream-defer.1",
-    "graphql-ez": "workspace:^0.1.2"
+    "graphql": "15.4.0-experimental-stream-defer.1"
   },
   "devDependencies": {
     "@types/node": "^15.12.2",
     "tsup": "^4.11.2",
     "typescript": "^4.3.2"
+  },
+  "tsup": {
+    "splitting": false,
+    "sourcemap": true,
+    "entryPoints": [
+      "src/index.ts"
+    ]
   }
 }

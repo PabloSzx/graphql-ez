@@ -1,4 +1,4 @@
-import { BuildContextArgs, CreateApp, gql, InferDataLoader, InferFunctionReturn, readStreamToBuffer } from 'graphql-ez/fastify';
+import { BuildContextArgs, CreateApp, gql, InferDataLoader, InferFunctionReturn, readStreamToBuffer } from '@graphql-ez/fastify';
 
 function buildContext({ request }: BuildContextArgs) {
   return {
@@ -78,7 +78,7 @@ const stringRepeatear = registerDataLoader('stringRepeater', DataLoader => {
     return keys.map(v => v.repeat(5));
   });
 });
-declare module 'graphql-ez/fastify' {
+declare module '@graphql-ez/fastify' {
   interface EnvelopContext extends InferFunctionReturn<typeof buildContext>, InferDataLoader<typeof stringRepeatear> {}
 }
 

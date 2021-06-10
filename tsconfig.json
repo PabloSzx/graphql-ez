@@ -17,8 +17,10 @@
     "baseUrl": "./",
     "paths": {
       "@graphql-ez/core/*": ["packages/core/src/*"],
-      "graphql-ez/*": ["packages/graphql-ez/src/*"]
+      "graphql-ez/*": ["packages/graphql-ez/src/*"],
+      "@graphql-ez/testing/*": ["internal/testing/src/*"],
+      "@graphql-ez/*": ["packages/*/src/index.ts"]
     }
   },
-  "include": ["packages", "bob-esbuild.config.ts"]
+  "include": ["packages", "internal", "bob-esbuild.config.ts"]
 }

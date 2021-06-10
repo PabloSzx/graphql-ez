@@ -1,0 +1,77 @@
+{
+  "name": "@graphql-ez/nextjs",
+  "version": "0.1.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/PabloSzx/graphql-ez",
+    "directory": "packages/graphql-ez"
+  },
+  "license": "MIT",
+  "author": "PabloSz <pablosaez1995@gmail.com>",
+  "exports": {
+    ".": {
+      "require": "./dist/index.js",
+      "import": "./dist/index.mjs"
+    },
+    "./*": {
+      "require": "./dist/*.js",
+      "import": "./dist/*.mjs"
+    }
+  },
+  "scripts": {
+    "dev": "bob-esbuild watch",
+    "prepare": "bob-esbuild build",
+    "postpublish": "gh-release --repo PabloSzx/graphql-ez",
+    "test": "jest"
+  },
+  "dependencies": {
+    "@envelop/types": "^0.1.4",
+    "@graphql-ez/core": "workspace:^0.1.2",
+    "altair-static": "^4.0.6",
+    "graphql-helix": "^1.6.1",
+    "mime-types": "^2.1.31"
+  },
+  "devDependencies": {
+    "@graphql-ez/testing": "workspace:^1.0.0",
+    "@graphql-tools/schema": "^7.1.5",
+    "@graphql-typed-document-node/core": "3.1.0",
+    "@types/jest": "26.0.23",
+    "@types/mime-types": "2.1.0",
+    "@types/node": "15.12.2",
+    "@types/react": "17.0.11",
+    "@types/react-dom": "17.0.7",
+    "bob-esbuild-cli": "0.1.26",
+    "changesets-github-release": "0.0.1",
+    "cross-env": "7.0.3",
+    "graphql": "15.4.0-experimental-stream-defer.1",
+    "jest": "27.0.4",
+    "next": "10.2.3",
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
+    "ts-jest": "27.0.3",
+    "typescript": "4.3.2"
+  },
+  "peerDependencies": {
+    "@types/node": "*",
+    "graphql": "*",
+    "next": "^10.2.3"
+  },
+  "peerDependenciesMeta": {
+    "graphql": {
+      "optional": true
+    },
+    "next": {
+      "optional": true
+    }
+  },
+  "publishConfig": {
+    "directory": "dist"
+  },
+  "typesVersions": {
+    "*": {
+      "*": [
+        "dist/*"
+      ]
+    }
+  }
+}
