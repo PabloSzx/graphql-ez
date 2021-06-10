@@ -70,7 +70,7 @@ describe('codegen with operations', () => {
     });
 
     expect(generatedFile).toContain('export const HelloDocument');
-  });
+  }, 15000);
 });
 
 describe('outputSchema', () => {
