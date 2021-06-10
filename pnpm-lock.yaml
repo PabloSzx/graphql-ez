@@ -171,6 +171,8 @@ importers:
       '@graphql-typed-document-node/core': ^3.1.0
       '@hapi/hapi': ^20.1.4
       '@koa/router': ^10.0.0
+      '@types/lodash': ^4.14.170
+      '@types/ws': ^7.4.4
       bob-esbuild-cli: ^0.1.26
       dataloader: ^2.0.0
       express: ^4.17.1
@@ -182,9 +184,11 @@ importers:
       graphql-modules: ^1.4.2
       graphql-ws: ^5.1.2
       koa: ^2.13.1
+      lodash: ^4.17.21
       subscriptions-transport-ws-envelop: ^0.1.0
       tmp-promise: ^3.0.2
       undici: ^3.3.6
+      ws: ^7.4.6
     dependencies:
       '@graphql-ez/core': link:../../packages/core
       '@graphql-ez/express': link:../../packages/express
@@ -207,10 +211,14 @@ importers:
       graphql-modules: 1.4.2_34dd13c2583fe2e4418c23a0d30fc388
       graphql-ws: 5.1.2_34dd13c2583fe2e4418c23a0d30fc388
       koa: 2.13.1
+      lodash: 4.17.21
       subscriptions-transport-ws-envelop: 0.1.0_34dd13c2583fe2e4418c23a0d30fc388
       tmp-promise: 3.0.2
       undici: 3.3.6
+      ws: 7.4.6
     devDependencies:
+      '@types/lodash': 4.14.170
+      '@types/ws': 7.4.4
       bob-esbuild-cli: 0.1.26
 
   packages/core:
@@ -2966,6 +2974,10 @@ packages:
       '@types/koa': 2.13.3
     dev: true
 
+  /@types/lodash/4.14.170:
+    resolution: {integrity: sha512-bpcvu/MKHHeYX+qeEN8GE7DIravODWdACVA1ctevD8CN24RhPZIKMn9ntfAsrvLfSX3cR5RrBKAbYm9bGs0A+Q==}
+    dev: true
+
   /@types/mime-db/1.43.0:
     resolution: {integrity: sha512-nCqnKWfvDzTVRh8NS9Zn+rnZYs5+iw5hx3G0nFgKM/R2mJQwPChin4DQ4zXlXnxTtc/3Ys5FnWweKW6NW+d2aw==}
     dev: true
@@ -3077,7 +3089,6 @@ packages:
     resolution: {integrity: sha512-d/7W23JAXPodQNbOZNXvl2K+bqAQrCMwlh/nuQsPSQk6Fq0opHoPrUw43aHsvSbIiQPr8Of2hkFbnz1XBFVyZQ==}
     dependencies:
       '@types/node': 15.12.2
-    dev: false
 
   /@types/yargs-parser/20.2.0:
     resolution: {integrity: sha512-37RSHht+gzzgYeobbG+KWryeAW8J33Nhr69cjTqSYymXVZEN9NbRYWoYlRtDhHKPVT1FyNKwaTPC1NynKZpzRA==}
