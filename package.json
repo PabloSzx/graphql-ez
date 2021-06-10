@@ -2,6 +2,10 @@
   "name": "graphql-ez-monorepo",
   "version": "0.0.1",
   "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/PabloSzx/graphql-ez"
+  },
   "license": "MIT",
   "author": "PabloSz <pablosaez1995@gmail.com>",
   "scripts": {
@@ -32,7 +36,7 @@
     "bob-esbuild": "0.1.26",
     "bob-esbuild-cli": "0.1.26",
     "concurrently": "6.2.0",
-    "esbuild": "0.12.8",
+    "esbuild": "^0.12.8",
     "husky": "6.0.0",
     "prettier": "2.3.1",
     "pretty-quick": "3.1.0"
@@ -43,7 +47,7 @@
   "pnpm": {
     "overrides": {
       "graphql": "15.4.0-experimental-stream-defer.1",
-      "esbuild": "^0.12.6"
+      "esbuild": "^0.12.8"
     }
   }
 }

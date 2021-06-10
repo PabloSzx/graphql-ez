@@ -1,6 +1,13 @@
 {
   "name": "@graphql-ez/core",
   "version": "0.1.1",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/PabloSzx/graphql-ez",
+    "directory": "packages/core"
+  },
+  "license": "MIT",
+  "author": "PabloSz <pablosaez1995@gmail.com>",
   "exports": {
     "./*": {
       "require": "./dist/*.js",
@@ -74,7 +81,7 @@
     "get-port": "5.1.1",
     "globby": "11.0.3",
     "got": "11.8.2",
-    "graphql": "15.5.0",
+    "graphql": "15.4.0-experimental-stream-defer.1",
     "graphql-upload": "12.0.0",
     "jest": "27.0.4",
     "lodash": "4.17.21",
@@ -84,6 +91,26 @@
     "ts-jest": "27.0.3",
     "typescript": "4.3.2",
     "undici": "3.3.6"
+  },
+  "peerDependencies": {
+    "@types/graphql-upload": "*",
+    "@types/node": "*",
+    "graphql": "*",
+    "graphql-upload": "^12.0.0"
+  },
+  "peerDependenciesMeta": {
+    "@types/graphql-upload": {
+      "optional": true
+    },
+    "@types/node": {
+      "optional": true
+    },
+    "graphql": {
+      "optional": true
+    },
+    "graphql-upload": {
+      "optional": true
+    }
   },
   "publishConfig": {
     "directory": "dist"
