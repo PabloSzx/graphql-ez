@@ -21,7 +21,7 @@
   "scripts": {
     "dev": "bob-esbuild watch --skipTsc --onSuccess \"node dist/utils/gql.js\"",
     "prepare": "bob-esbuild build",
-    "postpublish": "gh-release --repo PabloSzx/graphql-ez",
+    "postpublish": "gh-release",
     "test": "jest"
   },
   "dependencies": {
