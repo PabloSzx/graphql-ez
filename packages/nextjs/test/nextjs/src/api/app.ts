@@ -1,6 +1,6 @@
-import { CreateApp } from '../../../../src/nextjs';
+import { CreateApp } from '../../../../src';
 
-function buildContext(_args: import('../../../../src/nextjs').BuildContextArgs) {
+function buildContext(_args: import('../../../../src').BuildContextArgs) {
   return {
     foo: 'bar',
   };

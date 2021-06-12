@@ -9,6 +9,8 @@
   "license": "MIT",
   "author": "PabloSz <pablosaez1995@gmail.com>",
   "scripts": {
+    "changeset": "changeset",
+    "changesets": "changeset",
     "ci:release": "pnpm -r publish --access public --no-git-checks",
     "ci:version": "changeset version && pnpm i --no-frozen-lockfile --lockfile-only --ignore-scripts",
     "dev:cjs": "pnpm -w dev:cjs:all",
