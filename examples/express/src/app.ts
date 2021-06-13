@@ -1,8 +1,8 @@
 import { CreateApp, BuildContextArgs, InferFunctionReturn, readStreamToBuffer, gql } from '@graphql-ez/express';
 
-function buildContext({ request }: BuildContextArgs) {
+function buildContext({ req }: BuildContextArgs) {
   return {
-    request,
+    req,
     foo: 'bar',
   };
 }

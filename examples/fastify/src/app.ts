@@ -1,13 +1,13 @@
 import { BuildContextArgs, CreateApp, gql, InferDataLoader, InferFunctionReturn, readStreamToBuffer } from '@graphql-ez/fastify';
 
-function buildContext({ request }: BuildContextArgs) {
+function buildContext({ req, ws }: BuildContextArgs) {
   return {
-    request,
-    foo: 'bar',
+    req,
+    foo: ws ? 'ws' : 'http',
   };
 }
 
-export const { registerModule, buildApp, registerDataLoader, modules, plugins } = CreateApp({
+export const { registerModule, buildApp, registerDataLoader } = CreateApp({
   allowBatchedQueries: true,
   GraphQLUpload: true,
   codegen: {
@@ -30,12 +30,6 @@ export const { registerModule, buildApp, registerDataLoader, modules, plugins } 
   websockets: {
     graphQLWS: true,
     subscriptionsTransport: true,
-    buildWebsocketsContext({ request }) {
-      return {
-        request,
-        foo: 'baz',
-      };
-    },
   },
   ide: {
     altair: true,

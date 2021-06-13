@@ -1,8 +1,8 @@
 import { CreateApp, BuildContextArgs, InferFunctionReturn, gql } from '@graphql-ez/hapi';
 
-function buildContext({ request }: BuildContextArgs) {
+function buildContext({ req }: BuildContextArgs) {
   return {
-    request,
+    req,
     foo: 'bar',
   };
 }
