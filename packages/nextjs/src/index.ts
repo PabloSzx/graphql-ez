@@ -1,7 +1,7 @@
 import { BaseEnvelopAppOptions, BaseEnvelopBuilder, createEnvelopAppFactory, handleRequest } from '@graphql-ez/core/app';
+import { gql, LazyPromise } from '@graphql-ez/core/base';
 import { handleCodegen, WithCodegen } from '@graphql-ez/core/codegen/handle';
 import { handleCors, WithCors } from '@graphql-ez/core/cors/rawCors';
-import { LazyPromise, gql } from '@graphql-ez/core/base';
 
 import type { RenderGraphiQLOptions } from 'graphql-helix/dist/types';
 import type { NextApiHandler, NextApiRequest, NextApiResponse } from 'next';
@@ -9,17 +9,16 @@ import type { EnvelopContext } from '@graphql-ez/core/types';
 import type { RenderOptions } from 'altair-static';
 import type { Envelop } from '@envelop/types';
 
-export interface BuildContextArgs {
-  request: NextApiRequest;
-  response: NextApiResponse;
+declare module '@graphql-ez/core/types' {
+  interface BuildContextArgs {
+    next?: {
+      req: NextApiRequest;
+      res: NextApiResponse;
+    };
+  }
 }
 
-export interface EnvelopAppOptions extends BaseEnvelopAppOptions<EnvelopContext>, WithCodegen, WithCors {
-  /**
-   * Build Context
-   */
-  buildContext?: (args: BuildContextArgs) => Record<string, unknown> | Promise<Record<string, unknown>>;
-}
+export interface EnvelopAppOptions extends BaseEnvelopAppOptions<EnvelopContext>, WithCodegen, WithCors {}
 
 export interface BuildAppOptions {
   prepare?: (appBuilder: BaseEnvelopBuilder) => void | Promise<void>;
@@ -69,8 +68,11 @@ export function CreateApp(config: EnvelopAppOptions = {}): EnvelopAppBuilder {
             buildContext,
             buildContextArgs() {
               return {
-                request: req,
-                response: res,
+                req,
+                next: {
+                  req,
+                  res,
+                },
               };
             },
             onResponse(result) {

@@ -1,7 +1,7 @@
 import querystring from 'querystring';
 
 import { BaseEnvelopAppOptions, BaseEnvelopBuilder, createEnvelopAppFactory, handleRequest } from '@graphql-ez/core/app';
-import { LazyPromise, gql } from '@graphql-ez/core/base';
+import { gql, LazyPromise } from '@graphql-ez/core/base';
 import { handleCodegen, WithCodegen } from '@graphql-ez/core/codegen/handle';
 import { handleCors, WithCors } from '@graphql-ez/core/cors/rawCors';
 import { parseIDEConfig, WithIDE } from '@graphql-ez/core/ide/handle';
@@ -14,17 +14,14 @@ import type { EnvelopContext } from '@graphql-ez/core/types';
 import type { RenderOptions } from 'altair-static';
 import type { IncomingMessage, ServerResponse } from 'http';
 import type { Envelop } from '@envelop/types';
-export interface BuildContextArgs {
-  request: IncomingMessage;
-  response: ServerResponse;
+
+declare module '@graphql-ez/core/types' {
+  interface BuildContextArgs {
+    res?: ServerResponse;
+  }
 }
 
 export interface EnvelopAppOptions extends BaseEnvelopAppOptions<EnvelopContext>, WithCodegen, WithJit, WithIDE, WithCors {
-  /**
-   * Build Context
-   */
-  buildContext?: (args: BuildContextArgs) => Record<string, unknown> | Promise<Record<string, unknown>>;
-
   /**
    * @default "/graphql"
    */
@@ -123,8 +120,8 @@ export function CreateApp(config: EnvelopAppOptions = {}): EnvelopAppBuilder {
                 baseOptions: config,
                 buildContextArgs() {
                   return {
-                    request: req,
-                    response: res,
+                    req,
+                    res,
                   };
                 },
                 buildContext,

@@ -10,16 +10,17 @@ import type { Socket } from 'net';
 import type { ServerOptions as SubscriptionsTransportOptions } from 'subscriptions-transport-ws-envelop/dist/server';
 import type { ServerOptions as GraphQLWSOptions } from 'graphql-ws';
 import type { ExecutionArgs } from 'graphql';
+import type { EnvelopContext, BuildContextArgs } from '../types';
+import type { BaseEnvelopAppOptions } from '../app';
 
-export interface BuildWebSocketsContextArgs {
-  request: IncomingMessage;
-  socket: WebSocket;
-  connectionParams?: Readonly<Record<string, unknown>>;
+declare module '../types' {
+  interface BuildContextArgs {
+    ws?: {
+      socket: WebSocket;
+      connectionParams: Readonly<Record<string, unknown>> | undefined;
+    };
+  }
 }
-
-export type BuildWebSocketsContext = (
-  args: BuildWebSocketsContextArgs
-) => Record<string, unknown> | Promise<Record<string, unknown>>;
 
 export type CommonWebSocketsServerTuple =
   | readonly ['new', WebSocket.Server]
@@ -86,7 +87,6 @@ export type FilteredGraphQLWSOptions = Omit<
 export interface WebSocketObjectOptions {
   subscriptionsTransport?: FilteredSubscriptionsTransportOptions | boolean;
   graphQLWS?: FilteredGraphQLWSOptions | boolean;
-  buildWebsocketsContext?: BuildWebSocketsContext;
   wsOptions?: Pick<WebSocket.ServerOptions, 'verifyClient' | 'clientTracking' | 'perMessageDeflate' | 'maxPayload'>;
 }
 
@@ -111,7 +111,11 @@ export interface WithWebSockets {
   websockets?: WebSocketOptions;
 }
 
-export const CreateWebSocketsServer = async (options: WebSocketOptions | undefined): CommonWebSocketsServer => {
+export const CreateWebSocketsServer = async (
+  config: BaseEnvelopAppOptions<EnvelopContext> & WithWebSockets
+): CommonWebSocketsServer => {
+  const options = config.websockets;
+
   const enableOldTransport =
     options === 'legacy' || options === 'both' || (typeof options === 'object' && options.subscriptionsTransport);
 
@@ -134,7 +138,6 @@ export const CreateWebSocketsServer = async (options: WebSocketOptions | undefin
       ? {
           subscriptionsTransport: typeof options.subscriptionsTransport === 'object' ? options.subscriptionsTransport : {},
           graphQLWS: typeof options.graphQLWS === 'object' ? options.graphQLWS : {},
-          buildContext: options.buildWebsocketsContext,
           wsOptions: options.wsOptions,
         }
       : {};
@@ -170,12 +173,12 @@ export const CreateWebSocketsServer = async (options: WebSocketOptions | undefin
         noServer: true,
       });
 
-  const { buildContext } = optionsObj;
+  const { buildContext } = config;
 
   return function (getEnveloped) {
     const { contextFactory } = getEnveloped();
 
-    async function getContext(contextArgs: BuildWebSocketsContextArgs) {
+    async function getContext(contextArgs: BuildContextArgs) {
       if (buildContext) return contextFactory(Object.assign({}, await buildContext(contextArgs)));
 
       return contextFactory(contextArgs);
@@ -242,7 +245,7 @@ export function handleSubscriptionsTransport(
   wsServer: WebSocket.Server,
   options: FilteredSubscriptionsTransportOptions | undefined,
   getEnveloped: Envelop<unknown>,
-  getContext: (contextArgs: BuildWebSocketsContextArgs) => Promise<unknown>
+  getContext: (contextArgs: BuildContextArgs) => Promise<unknown>
 ): void {
   const { schema, execute, subscribe, validate, parse } = getEnveloped();
   subscriptionsTransportWs.create(
@@ -255,7 +258,13 @@ export function handleSubscriptionsTransport(
       validate,
       parse,
       onConnect(...[connectionParams, socket, { request }]: SubscriptionsTransportOnConnectArgs) {
-        return getContext({ connectionParams, request, socket });
+        return getContext({
+          req: request,
+          ws: {
+            connectionParams,
+            socket,
+          },
+        });
       },
     },
     wsServer
@@ -267,7 +276,7 @@ export function handleGraphQLWS(
   wsServer: WebSocket.Server,
   options: FilteredGraphQLWSOptions | undefined,
   getEnveloped: Envelop<unknown>,
-  getContext: (contextArgs: BuildWebSocketsContextArgs) => Promise<unknown>
+  getContext: (contextArgs: BuildContextArgs) => Promise<unknown>
 ): void {
   const { execute, subscribe, parse, validate } = getEnveloped();
   useGraphQLWSServer(
@@ -283,9 +292,11 @@ export function handleGraphQLWS(
           document: parse(query),
           variableValues: variables,
           contextValue: await getContext({
-            connectionParams,
-            request,
-            socket,
+            req: request,
+            ws: {
+              connectionParams,
+              socket,
+            },
           }),
         };
 

@@ -13,9 +13,13 @@ import type { ParameterizedContext, Request, Response } from 'koa';
 import type { Envelop } from '@envelop/types';
 import type { WithGraphQLUpload } from '@graphql-ez/core/upload';
 
-export interface BuildContextArgs {
-  request: Request;
-  response: Response;
+declare module '@graphql-ez/core/types' {
+  interface BuildContextArgs {
+    koa?: {
+      request: Request;
+      response: Response;
+    };
+  }
 }
 
 export interface EnvelopAppOptions
@@ -24,11 +28,6 @@ export interface EnvelopAppOptions
     WithJit,
     WithIDE,
     WithGraphQLUpload {
-  /**
-   * Build Context
-   */
-  buildContext?: (args: BuildContextArgs) => Record<string, unknown> | Promise<Record<string, unknown>>;
-
   /**
    * @default "/graphql"
    */
@@ -153,8 +152,11 @@ export function CreateApp(config: EnvelopAppOptions = {}): EnvelopAppBuilder {
             buildContext,
             buildContextArgs() {
               return {
-                request: ctx.request,
-                response: ctx.response,
+                req: ctx.req,
+                koa: {
+                  request: ctx.request,
+                  response: ctx.response,
+                },
               };
             },
             getEnveloped,

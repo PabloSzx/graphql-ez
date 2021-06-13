@@ -11,6 +11,7 @@ import { uniqueArray } from './utils/object';
 import type { Application, Module } from 'graphql-modules';
 
 import type { handleRequest } from './request';
+import type { BuildContextArgs, EnvelopContext } from './types';
 
 export type AdapterFactory<T> = (envelop: Envelop<unknown>, modulesApplication: Application | undefined) => T;
 
@@ -64,7 +65,7 @@ export interface EnvelopAppFactoryType extends BaseEnvelopBuilder {
   appBuilder<T>(opts: InternalAppBuildOptions<T>): Promise<BuiltApp<T>>;
 }
 
-export interface BaseEnvelopAppOptions<TContext>
+export interface BaseEnvelopAppOptions<TContext = EnvelopContext>
   extends WithGraphQLModules,
     WithSchemaBuilding<TContext>,
     WithScalars,
@@ -89,6 +90,11 @@ export interface BaseEnvelopAppOptions<TContext>
    * @default false
    */
   allowBatchedQueries?: boolean | number;
+
+  /**
+   * Build Context
+   */
+  buildContext?: (args: BuildContextArgs) => Record<string, unknown> | Promise<Record<string, unknown>>;
 }
 
 export function createEnvelopAppFactory<TContext>(
@@ -205,3 +211,4 @@ export function createEnvelopAppFactory<TContext>(
 export * from './request';
 
 export { gql } from './utils/gql';
+export * from './types';

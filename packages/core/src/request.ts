@@ -6,6 +6,7 @@ import type { Envelop } from '@envelop/types';
 import type { IncomingMessage, ServerResponse } from 'http';
 import type { ExecutionResult } from 'graphql';
 import type { BaseEnvelopAppOptions } from './app';
+import type { BuildContextArgs } from './types';
 
 export type EnvelopResponse = {
   type: 'RESPONSE';
@@ -30,7 +31,7 @@ export interface HandleRequestOptions<BuildContextArgs, TReturn = unknown> {
   onPushResponse: (result: Push<unknown, unknown>, defaultHandle: typeof defaultPushResponseHandle) => TReturn | Promise<TReturn>;
 }
 
-export async function handleRequest<BuildContextArgs, TReturn = unknown>({
+export async function handleRequest<TReturn = unknown>({
   request,
   getEnveloped,
   buildContextArgs,

@@ -20,7 +20,8 @@
       "graphql-ez/*": ["packages/graphql-ez/src/*"],
       "@graphql-ez/testing/*": ["internal/testing/src/*"],
       "@graphql-ez/*": ["packages/*/src/index.ts"]
-    }
+    },
+    "importsNotUsedAsValues": "error"
   },
   "include": ["packages", "internal", "bob-esbuild.config.ts"]
 }

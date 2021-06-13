@@ -14,9 +14,13 @@ import type { EnvelopContext } from '@graphql-ez/core/types';
 import type { OptionsJson as BodyParserOptions } from 'body-parser';
 import type { WithGraphQLUpload } from '@graphql-ez/core/upload';
 
-export interface BuildContextArgs {
-  request: Request;
-  response: Response;
+declare module '@graphql-ez/core/types' {
+  interface BuildContextArgs {
+    express?: {
+      req: Request;
+      res: Response;
+    };
+  }
 }
 
 export interface EnvelopAppOptions
@@ -35,11 +39,6 @@ export interface EnvelopAppOptions
    * JSON body-parser options
    */
   bodyParserJSONOptions?: BodyParserOptions | boolean;
-
-  /**
-   * Build Context
-   */
-  buildContext?: (args: BuildContextArgs) => Record<string, unknown> | Promise<Record<string, unknown>>;
 
   /**
    * Enable or configure CORS
@@ -76,7 +75,7 @@ export function CreateApp(config: EnvelopAppOptions = {}): EnvelopAppBuilder {
 
   const { path = '/graphql', websockets, customHandleRequest } = config;
 
-  const websocketsFactoryPromise = CreateWebSocketsServer(websockets);
+  const websocketsFactoryPromise = CreateWebSocketsServer(config);
 
   async function handleSubscriptions(getEnveloped: Envelop<unknown>, appInstance: Express, optionsServer: Server | undefined) {
     if (!websockets) return;
@@ -156,8 +155,11 @@ export function CreateApp(config: EnvelopAppOptions = {}): EnvelopAppBuilder {
             baseOptions: config,
             buildContextArgs() {
               return {
-                request: req,
-                response: res,
+                req,
+                express: {
+                  req,
+                  res,
+                },
               };
             },
             buildContext,

@@ -1,5 +1,5 @@
 import type { ModuleConfig } from 'graphql-modules';
-import type { IncomingHttpHeaders } from 'http';
+import type { IncomingHttpHeaders, IncomingMessage } from 'http';
 import type { ExecutionContext as HelixExecutionContext } from 'graphql-helix';
 
 export type PromiseOrValue<T> = T | Promise<T>;
@@ -26,6 +26,10 @@ export interface ExecutionContext extends HelixExecutionContext {
     method: string;
     query: any;
   };
+}
+
+export interface BuildContextArgs {
+  req: IncomingMessage;
 }
 
 export interface EnvelopContext extends ExecutionContext {}

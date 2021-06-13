@@ -9,17 +9,16 @@ import type { EnvelopContext } from '@graphql-ez/core/types';
 import type { Request, ResponseToolkit, Plugin, Server, Lifecycle, RouteOptionsCors, RouteOptions } from '@hapi/hapi';
 import type { Envelop } from '@envelop/types';
 
-export interface BuildContextArgs {
-  request: Request;
-  h: ResponseToolkit;
+declare module '@graphql-ez/core/types' {
+  interface BuildContextArgs {
+    hapi?: {
+      request: Request;
+      h: ResponseToolkit;
+    };
+  }
 }
 
 export interface EnvelopAppOptions extends BaseEnvelopAppOptions<EnvelopContext>, WithCodegen, WithJit, WithIDE {
-  /**
-   * Build Context
-   */
-  buildContext?: (args: BuildContextArgs) => Record<string, unknown> | Promise<Record<string, unknown>>;
-
   /**
    * @default "/graphql"
    */
@@ -125,15 +124,18 @@ export function CreateApp(config: EnvelopAppOptions = {}): EnvelopAppBuilder {
                 query: req.query,
               };
 
-              return requestHandler<BuildContextArgs, Lifecycle.ReturnValueTypes>({
+              return requestHandler<Lifecycle.ReturnValueTypes>({
                 request,
                 getEnveloped,
                 baseOptions: config,
                 buildContext,
                 buildContextArgs() {
                   return {
-                    request: req,
-                    h,
+                    req: req.raw.req,
+                    hapi: {
+                      request: req,
+                      h,
+                    },
                   };
                 },
                 onResponse(result) {

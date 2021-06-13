@@ -17,9 +17,13 @@ import type { WithGraphQLUpload } from '@graphql-ez/core/upload';
 
 export type EnvelopAppPlugin = FastifyPluginCallback<{}, Server>;
 
-export interface BuildContextArgs {
-  request: FastifyRequest;
-  response: FastifyReply;
+declare module '@graphql-ez/core/types' {
+  interface BuildContextArgs {
+    fastify?: {
+      request: FastifyRequest;
+      reply: FastifyReply;
+    };
+  }
 }
 
 export interface EnvelopAppOptions
@@ -33,11 +37,6 @@ export interface EnvelopAppOptions
    * @default "/graphql"
    */
   path?: string;
-
-  /**
-   * Build Context
-   */
-  buildContext?: (args: BuildContextArgs) => Record<string, unknown> | Promise<Record<string, unknown>>;
 
   /**
    * Custom Fastify Route options
@@ -82,7 +81,7 @@ export function CreateApp(config: EnvelopAppOptions = {}): EnvelopAppBuilder {
   });
   const { websockets, path = '/graphql' } = config;
 
-  const subscriptionsClientFactoryPromise = CreateWebSocketsServer(websockets);
+  const subscriptionsClientFactoryPromise = CreateWebSocketsServer(config);
 
   async function handleSubscriptions(getEnveloped: Envelop<unknown>, instance: FastifyInstance) {
     if (!websockets) return;
@@ -193,8 +192,11 @@ export function CreateApp(config: EnvelopAppOptions = {}): EnvelopAppBuilder {
                 baseOptions: config,
                 buildContextArgs() {
                   return {
-                    request: req,
-                    response: reply,
+                    req: req.raw,
+                    fastify: {
+                      request: req,
+                      reply,
+                    },
                   };
                 },
                 buildContext,

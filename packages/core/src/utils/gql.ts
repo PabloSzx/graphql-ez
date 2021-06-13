@@ -3,7 +3,7 @@
 
 import { parse } from 'graphql';
 
-import { DocumentNode, DefinitionNode, Location } from 'graphql/language/ast';
+import type { DocumentNode, DefinitionNode, Location } from 'graphql/language/ast';
 
 // A map docString -> graphql document
 const docCache = new Map<string, DocumentNode>();
