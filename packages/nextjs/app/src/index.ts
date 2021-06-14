@@ -9,6 +9,7 @@ import type { EnvelopContext } from '@graphql-ez/core/types';
 import type { RenderOptions } from './altairStatic';
 import type { Envelop } from '@envelop/types';
 
+export * from '@graphql-ez/core/types';
 declare module '@graphql-ez/core/types' {
   interface BuildContextArgs {
     next?: {

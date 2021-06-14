@@ -16,10 +16,10 @@
     "forceConsistentCasingInFileNames": true,
     "baseUrl": "./",
     "paths": {
-      "@graphql-ez/core/*": ["packages/core/src/*"],
-      "graphql-ez/*": ["packages/graphql-ez/src/*"],
+      "@graphql-ez/core/*": ["packages/core/app/src/*"],
+      "@graphql-ez/core": ["packages/core/app/src/index.ts"],
       "@graphql-ez/testing/*": ["internal/testing/src/*"],
-      "@graphql-ez/*": ["packages/*/src/index.ts"]
+      "@graphql-ez/*": ["packages/*/app/src/index.ts"]
     },
     "importsNotUsedAsValues": "error"
   },
