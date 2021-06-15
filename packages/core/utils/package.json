@@ -1,0 +1,27 @@
+{
+  "name": "@graphql-ez/core-utils",
+  "version": "0.0.1",
+  "exports": {
+    ".": {
+      "require": "./dist/index.js",
+      "import": "./dist/index.mjs"
+    },
+    "./*": {
+      "require": "./dist/*.js",
+      "import": "./dist/*.mjs"
+    }
+  },
+  "scripts": {
+    "prepare": "bob-esbuild build"
+  },
+  "devDependencies": {
+    "bob-esbuild-cli": "^0.1.26",
+    "graphql": "^15.5.0"
+  },
+  "peerDependencies": {
+    "graphql": "^15.5.0"
+  },
+  "publishConfig": {
+    "directory": "dist"
+  }
+}

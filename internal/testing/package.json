@@ -10,7 +10,6 @@
       "import": "./dist/*.mjs"
     }
   },
-  "main": "dist/index.js",
   "files": [
     "dist"
   ],
@@ -51,5 +50,8 @@
     "@graphql-ez/http": "workspace:^0.1.1",
     "@graphql-ez/koa": "workspace:^0.1.1",
     "@graphql-ez/nextjs": "workspace:^0.1.1"
+  },
+  "publishConfig": {
+    "directory": "dist"
   }
 }

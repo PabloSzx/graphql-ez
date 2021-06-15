@@ -1,0 +1,40 @@
+{
+  "name": "@graphql-ez/plugin-codegen",
+  "exports": {
+    ".": {
+      "require": "./dist/index.js",
+      "import": "./dist/index.mjs"
+    },
+    "./*": {
+      "require": "./dist/*.js",
+      "import": "./dist/*.mjs"
+    }
+  },
+  "scripts": {
+    "prepare": "bob-esbuild build"
+  },
+  "dependencies": {
+    "@graphql-codegen/core": "^1.17.10",
+    "@graphql-codegen/plugin-helpers": "^1.18.7",
+    "@graphql-codegen/typed-document-node": "^1.18.6",
+    "@graphql-codegen/typescript": "^1.22.1",
+    "@graphql-codegen/typescript-operations": "^1.18.0",
+    "@graphql-codegen/typescript-resolvers": "^1.19.2",
+    "@graphql-tools/graphql-file-loader": "^6.2.7",
+    "@graphql-tools/load": "^6.2.8",
+    "@graphql-tools/utils": "^7.10.0",
+    "prettier": "^2.3.1"
+  },
+  "devDependencies": {
+    "@graphql-ez/core-utils": "workspace:^0.0.1",
+    "bob-esbuild-cli": "^0.1.26",
+    "graphql": "^15.5.0"
+  },
+  "peerDependencies": {
+    "@graphql-ez/core-utils": "workspace:^0.0.1",
+    "graphql": "^15.5.0"
+  },
+  "publishConfig": {
+    "directory": "dist"
+  }
+}

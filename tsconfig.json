@@ -16,8 +16,9 @@
     "forceConsistentCasingInFileNames": true,
     "baseUrl": "./",
     "paths": {
-      "@graphql-ez/core/*": ["packages/core/app/src/*"],
-      "@graphql-ez/core": ["packages/core/app/src/index.ts"],
+      "@graphql-ez/core/*": ["packages/core/old-app/src/*"],
+      "@graphql-ez/core-utils/*": ["packages/core/utils/src/*"],
+      "@graphql-ez/core": ["packages/core/old-app/src/index.ts"],
       "@graphql-ez/testing/*": ["internal/testing/src/*"],
       "@graphql-ez/*": ["packages/*/app/src/index.ts"]
     },

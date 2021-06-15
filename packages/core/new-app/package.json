@@ -1,0 +1,35 @@
+{
+  "name": "@graphql-ez/core-app",
+  "version": "0.0.1",
+  "exports": {
+    ".": {
+      "require": "./dist/index.js",
+      "import": "./dist/index.mjs"
+    },
+    "./*": {
+      "require": "./dist/*.js",
+      "import": "./dist/*.mjs"
+    }
+  },
+  "scripts": {
+    "prepare": "bob-esbuild build"
+  },
+  "dependencies": {
+    "@envelop/core": "^0.2.2",
+    "@envelop/types": "^0.1.4",
+    "@graphql-ez/core-utils": "workspace:^0.0.1",
+    "@graphql-tools/merge": "^6.2.14",
+    "@graphql-tools/schema": "^7.1.5",
+    "graphql-helix": "^1.6.1"
+  },
+  "devDependencies": {
+    "bob-esbuild-cli": "^0.1.26",
+    "graphql": "^15.5.0"
+  },
+  "peerDependencies": {
+    "graphql": "^15.5.0"
+  },
+  "publishConfig": {
+    "directory": "dist"
+  }
+}
