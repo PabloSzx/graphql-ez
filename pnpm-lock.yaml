@@ -187,7 +187,7 @@ importers:
       lodash: ^4.17.21
       subscriptions-transport-ws-envelop: ^0.1.0
       tmp-promise: ^3.0.2
-      undici: ^3.3.6
+      undici: ^4.0.0
       ws: ^7.4.6
     dependencies:
       '@graphql-ez/core': link:../../packages/core
@@ -214,7 +214,7 @@ importers:
       lodash: 4.17.21
       subscriptions-transport-ws-envelop: 0.1.0_34dd13c2583fe2e4418c23a0d30fc388
       tmp-promise: 3.0.2
-      undici: 3.3.6
+      undici: 4.0.0
       ws: 7.4.6
     devDependencies:
       '@types/lodash': 4.14.170
@@ -605,7 +605,7 @@ importers:
       graphql-helix: ^1.6.1
       jest: 27.0.4
       mime-types: ^2.1.31
-      next: 10.2.3
+      next: 11.0.0
       react: 17.0.2
       react-dom: 17.0.2
       ts-jest: 27.0.3
@@ -630,7 +630,7 @@ importers:
       cross-env: 7.0.3
       graphql: 15.4.0-experimental-stream-defer.1
       jest: 27.0.4
-      next: 10.2.3_c8cdd86752aa86fb2b6e32ae91115ebe
+      next: 11.0.0_c8cdd86752aa86fb2b6e32ae91115ebe
       react: 17.0.2
       react-dom: 17.0.2_react@17.0.2
       ts-jest: 27.0.3_jest@27.0.4+typescript@4.3.2
@@ -2273,9 +2273,19 @@ packages:
 
   /@next/env/10.2.3:
     resolution: {integrity: sha512-uBOjRBjsWC4C8X3DfmWWP6ekwLnf2JCCwQX9KVnJtJkqfDsv1yQPakdOEwvJzXQc3JC/v5KKffYPVmV2wHXCgQ==}
+    dev: false
+
+  /@next/env/11.0.0:
+    resolution: {integrity: sha512-VKpmDvTYeCpEQjREg3J4pCmVs/QjEzoLmkM8shGFK6e9AmFd0G9QXOL8HGA8qKhy/XmNb7dHeMqrcMiBua4OgA==}
+    dev: true
 
   /@next/polyfill-module/10.2.3:
     resolution: {integrity: sha512-OkeY4cLhzfYbXxM4fd+6V4s5pTPuyfKSlavItfNRA6PpS7t1/R6YjO7S7rB8tu1pbTGuDHGIdE1ioDv15bAbDQ==}
+    dev: false
+
+  /@next/polyfill-module/11.0.0:
+    resolution: {integrity: sha512-gydtFzRqsT549U8+sY8382I/f4HFcelD8gdUGnAofQJa/jEU1jkxmjCHC8tmEiyeMLidl7iDZgchfSCpmMzzUg==}
+    dev: true
 
   /@next/react-dev-overlay/10.2.3_react-dom@17.0.2+react@17.0.2:
     resolution: {integrity: sha512-E6g2jws4YW94l0lMMopBVKIZK2mEHfSBvM0d9dmzKG9L/A/kEq6LZCB4SiwGJbNsAdlk2y3USDa0oNbpA+m5Kw==}
@@ -2296,6 +2306,28 @@ packages:
       source-map: 0.8.0-beta.0
       stacktrace-parser: 0.1.10
       strip-ansi: 6.0.0
+    dev: false
+
+  /@next/react-dev-overlay/11.0.0_react-dom@17.0.2+react@17.0.2:
+    resolution: {integrity: sha512-q+Wp+eStEMThe77zxdeJ/nbuODkHR6P+/dfUqYXZSqbLf6x5c5xwLBauwwVbkCYFZpAlDuL8Jk8QSAH1OsqC2w==}
+    peerDependencies:
+      react: ^17.0.2
+      react-dom: ^17.0.2
+    dependencies:
+      '@babel/code-frame': 7.12.11
+      anser: 1.4.9
+      chalk: 4.0.0
+      classnames: 2.2.6
+      css.escape: 1.5.1
+      data-uri-to-buffer: 3.0.1
+      platform: 1.3.6
+      react: 17.0.2
+      react-dom: 17.0.2_react@17.0.2
+      shell-quote: 1.7.2
+      source-map: 0.8.0-beta.0
+      stacktrace-parser: 0.1.10
+      strip-ansi: 6.0.0
+    dev: true
 
   /@next/react-refresh-utils/10.2.3_react-refresh@0.8.3:
     resolution: {integrity: sha512-qtBF56vPC6d6a8p7LYd0iRjW89fhY80kAIzmj+VonvIGjK/nymBjcFUhbKiMFqlhsarCksnhwX+Zmn95Dw9qvA==}
@@ -2307,6 +2339,19 @@ packages:
         optional: true
     dependencies:
       react-refresh: 0.8.3
+    dev: false
+
+  /@next/react-refresh-utils/11.0.0_react-refresh@0.8.3:
+    resolution: {integrity: sha512-hi5eY+KBn4QGtUv7VL2OptdM33fI2hxhd7+omOFmAK+S0hDWhg1uqHqqGJk0W1IfqlWEzzL10WvTJDPRAtDugQ==}
+    peerDependencies:
+      react-refresh: 0.8.3
+      webpack: ^4 || ^5
+    peerDependenciesMeta:
+      webpack:
+        optional: true
+    dependencies:
+      react-refresh: 0.8.3
+    dev: true
 
   /@nodelib/fs.scandir/2.1.5:
     resolution: {integrity: sha512-vq24Bq3ym5HEQm2NKCr3yXDwjc7vTsEThRDnkp2DK9p1uqLR+DHurm/NOTo0KG7HYHU7eppKZj3MyqYuMBf62g==}
@@ -2608,10 +2653,12 @@ packages:
     engines: {node: '>=8.0.0'}
     dependencies:
       '@opentelemetry/context-base': 0.14.0
+    dev: false
 
   /@opentelemetry/context-base/0.14.0:
     resolution: {integrity: sha512-sDOAZcYwynHFTbLo6n8kIbLiVF3a3BLkrmehJUyEbT9F+Smbi47kLGS2gG2g0fjBLR/Lr1InPD7kXL7FaTqEkw==}
     engines: {node: '>=8.0.0'}
+    dev: false
 
   /@pnpm/error/2.0.0:
     resolution: {integrity: sha512-mgj4h0LWGpDPZwsEH75VFQhr2Njut3PcaCQatERIoO3zmKGqCsLfla9cWYH9+zn0fcwnKhnJ+FBzoiY2LhnCtw==}
@@ -6628,6 +6675,14 @@ packages:
     resolution: {integrity: sha512-BMpfD7PpiETpBl/A6S498BaIJ6Y/ABT93ETbby2fP00v4EbvPBXWEoaR1UBPKs3iR53pJY7EtZk5KACI57i1Uw==}
     engines: {node: '>= 4'}
 
+  /image-size/1.0.0:
+    resolution: {integrity: sha512-JLJ6OwBfO1KcA+TvJT+v8gbE6iWbj24LyDNFgFEN0lzegn6cC6a/p3NIDaepMsJjQjlUWqIC7wJv8lBFxPNjcw==}
+    engines: {node: '>=12.0.0'}
+    hasBin: true
+    dependencies:
+      queue: 6.0.2
+    dev: true
+
   /immutable/3.7.6:
     resolution: {integrity: sha1-E7TTyxK++hVIKib+Gy665kAHHks=}
     engines: {node: '>=0.8.0'}
@@ -8625,6 +8680,82 @@ packages:
     transitivePeerDependencies:
       - typescript
       - webpack
+    dev: false
+
+  /next/11.0.0_c8cdd86752aa86fb2b6e32ae91115ebe:
+    resolution: {integrity: sha512-1OA0ccCTwVtdLats/1v7ReiBVx+Akya0UVhHo9IBr8ZkpDI3/SGNcaruJBp5agy8ROF97VDKkZamoUXxRB9NUA==}
+    engines: {node: '>=12.0.0'}
+    hasBin: true
+    peerDependencies:
+      fibers: '>= 3.1.0'
+      node-sass: ^4.0.0 || ^5.0.0
+      react: ^17.0.2
+      react-dom: ^17.0.2
+      sass: ^1.3.0
+    peerDependenciesMeta:
+      fibers:
+        optional: true
+      node-sass:
+        optional: true
+      sass:
+        optional: true
+    dependencies:
+      '@babel/runtime': 7.12.5
+      '@hapi/accept': 5.0.2
+      '@next/env': 11.0.0
+      '@next/polyfill-module': 11.0.0
+      '@next/react-dev-overlay': 11.0.0_react-dom@17.0.2+react@17.0.2
+      '@next/react-refresh-utils': 11.0.0_react-refresh@0.8.3
+      assert: 2.0.0
+      ast-types: 0.13.2
+      browserify-zlib: 0.2.0
+      browserslist: 4.16.6
+      buffer: 5.6.0
+      caniuse-lite: 1.0.30001237
+      chalk: 2.4.2
+      chokidar: 3.5.1
+      constants-browserify: 1.0.0
+      crypto-browserify: 3.12.0
+      cssnano-simple: 2.0.0_postcss@8.2.13
+      domain-browser: 4.19.0
+      encoding: 0.1.13
+      etag: 1.8.1
+      find-cache-dir: 3.3.1
+      get-orientation: 1.1.2
+      https-browserify: 1.0.0
+      image-size: 1.0.0
+      jest-worker: 27.0.0-next.5
+      native-url: 0.3.4
+      node-fetch: 2.6.1
+      node-html-parser: 1.4.9
+      node-libs-browser: 2.2.1
+      os-browserify: 0.3.0
+      p-limit: 3.1.0
+      path-browserify: 1.0.1
+      pnp-webpack-plugin: 1.6.4_typescript@4.3.2
+      postcss: 8.2.13
+      process: 0.11.10
+      prop-types: 15.7.2
+      querystring-es3: 0.2.1
+      raw-body: 2.4.1
+      react: 17.0.2
+      react-dom: 17.0.2_react@17.0.2
+      react-is: 17.0.2
+      react-refresh: 0.8.3
+      stream-browserify: 3.0.0
+      stream-http: 3.1.1
+      string_decoder: 1.3.0
+      styled-jsx: 3.3.2_react@17.0.2
+      timers-browserify: 2.0.12
+      tty-browserify: 0.0.1
+      use-subscription: 1.5.1_react@17.0.2
+      util: 0.12.3
+      vm-browserify: 1.1.2
+      watchpack: 2.1.1
+    transitivePeerDependencies:
+      - typescript
+      - webpack
+    dev: true
 
   /nice-try/1.0.5:
     resolution: {integrity: sha512-1nh45deeb5olNY7eX82BkPO7SSxR5SSYJiPTrTdFUVYwAl8CKMA5N9PjTYkHiRjisVcxcQ1HXdLhx2qxxJzLNQ==}
@@ -9515,6 +9646,12 @@ packages:
 
   /queue-microtask/1.2.3:
     resolution: {integrity: sha512-NuaNSa6flKT5JaSYQzJok04JzTL1CA6aGhv5rfLW3PgqA+M2ChpZQnAC8h8i4ZFkBS8X5RqkDBHA7r4hej3K9A==}
+
+  /queue/6.0.2:
+    resolution: {integrity: sha512-iHZWu+q3IdFZFX36ro/lKBkSvfkztY5Y7HMiPlOUjhupPcG2JMfst2KKEpu5XndviX/3UhFbRngUPNKtgvtZiA==}
+    dependencies:
+      inherits: 2.0.4
+    dev: true
 
   /quick-format-unescaped/4.0.3:
     resolution: {integrity: sha512-MaL/oqh02mhEo5m5J2rwsVL23Iw2PEaGVHgT2vFt8AAsr0lfvQA5dpXo9TPu0rz7tSBdUPgkbam0j/fj5ZM8yg==}
@@ -11129,8 +11266,9 @@ packages:
       fastify-plugin: 3.0.0
     dev: false
 
-  /undici/3.3.6:
-    resolution: {integrity: sha512-/j3YTZ5AobMB4ZrTY72mzM54uFUX32v0R/JRW9G2vOyF1uSKYAx+WT8dMsAcRS13TOFISv094TxIyWYk+WEPsA==}
+  /undici/4.0.0:
+    resolution: {integrity: sha512-bVXZKTcQPECj2yYWgVWk1tDw3T24Bzfbp5H5bivcVCpklpqoGvJ842mCA54bExFzuCZcIPrwsVJXWt215/qRIg==}
+    engines: {node: '>=12.18'}
     dev: false
 
   /union-value/1.0.1:
