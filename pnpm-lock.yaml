@@ -212,8 +212,8 @@ importers:
 
   packages/core/new-app:
     specifiers:
-      '@envelop/core': ^0.2.2
-      '@envelop/types': ^0.1.4
+      '@envelop/core': ^0.3.0
+      '@envelop/types': ^0.2.0
       '@graphql-ez/core-utils': workspace:^0.0.1
       '@graphql-tools/merge': ^6.2.14
       '@graphql-tools/schema': ^7.1.5
@@ -221,8 +221,8 @@ importers:
       graphql: 15.4.0-experimental-stream-defer.1
       graphql-helix: ^1.6.1
     dependencies:
-      '@envelop/core': 0.2.2_34dd13c2583fe2e4418c23a0d30fc388
-      '@envelop/types': 0.1.4_34dd13c2583fe2e4418c23a0d30fc388
+      '@envelop/core': 0.3.1_34dd13c2583fe2e4418c23a0d30fc388
+      '@envelop/types': 0.2.1_34dd13c2583fe2e4418c23a0d30fc388
       '@graphql-ez/core-utils': link:../utils
       '@graphql-tools/merge': 6.2.14_34dd13c2583fe2e4418c23a0d30fc388
       '@graphql-tools/schema': 7.1.5_34dd13c2583fe2e4418c23a0d30fc388
@@ -1504,15 +1504,6 @@ packages:
       prettier: 1.19.1
     dev: true
 
-  /@envelop/core/0.2.2_34dd13c2583fe2e4418c23a0d30fc388:
-    resolution: {integrity: sha512-QJfs7OS8n2CP2PUceNG+sKMzCXti9cidsJdf/hfYsSAssT13r2076X9DYdTPyeC7z5iGMeClwAprKnC7o0qO8g==}
-    peerDependencies:
-      graphql: ^14.0.0 || ^15.0.0
-    dependencies:
-      '@envelop/types': 0.1.4_34dd13c2583fe2e4418c23a0d30fc388
-      graphql: 15.4.0-experimental-stream-defer.1
-    dev: false
-
   /@envelop/core/0.3.1_34dd13c2583fe2e4418c23a0d30fc388:
     resolution: {integrity: sha512-+5i1fu+OAHkzTKEQwbBM79mQ69JwoQ7lS6rODMB0UXHgEQVX1AVdhHWc1oqQHkdWghmegIAiBHokbnAS4opq2Q==}
     peerDependencies:
@@ -1559,14 +1550,6 @@ packages:
     dependencies:
       graphql: 15.4.0-experimental-stream-defer.1
       tiny-lru: 7.0.6
-    dev: false
-
-  /@envelop/types/0.1.4_34dd13c2583fe2e4418c23a0d30fc388:
-    resolution: {integrity: sha512-sXVv1u3qpm+LDT/Rr/z5Abome4ayoisUSkyRRgvQrhqysg5W1WWDaUzGtqvrw//nkfFUsolAVSHPDAUWcDbppQ==}
-    peerDependencies:
-      graphql: ^14.0.0 || ^15.0.0
-    dependencies:
-      graphql: 15.4.0-experimental-stream-defer.1
     dev: false
 
   /@envelop/types/0.2.1_34dd13c2583fe2e4418c23a0d30fc388:
