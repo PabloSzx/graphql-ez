@@ -6,7 +6,7 @@ import { handleCors, WithCors } from '@graphql-ez/core/cors/rawCors';
 import type { RenderGraphiQLOptions } from 'graphql-helix/dist/types';
 import type { NextApiHandler, NextApiRequest, NextApiResponse } from 'next';
 import type { EnvelopContext } from '@graphql-ez/core/types';
-import type { RenderOptions } from 'altair-static';
+import type { RenderOptions } from './altairStatic';
 import type { Envelop } from '@envelop/types';
 
 declare module '@graphql-ez/core/types' {
