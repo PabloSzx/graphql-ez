@@ -154,7 +154,7 @@ export type HelloQueryVariables = Exact<{ [key: string]: never }>;
 
 export type HelloQuery = { __typename?: 'Query' } & Pick<Query, 'hello'>;
 
-export const HelloDocument: DocumentNode<HelloQuery, HelloQueryVariables> = {
+export const HelloDocument = {
   kind: 'Document',
   definitions: [
     {
@@ -164,7 +164,7 @@ export const HelloDocument: DocumentNode<HelloQuery, HelloQueryVariables> = {
       selectionSet: { kind: 'SelectionSet', selections: [{ kind: 'Field', name: { kind: 'Name', value: 'hello' } }] },
     },
   ],
-};
+} as unknown as DocumentNode<HelloQuery, HelloQueryVariables>;
 
 declare module '@graphql-ez/nextjs' {
   interface EnvelopResolvers extends Resolvers<import('@graphql-ez/nextjs').EnvelopContext> {}

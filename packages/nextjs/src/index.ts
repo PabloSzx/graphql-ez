@@ -165,53 +165,39 @@ export function AltairHandler(options: AltairHandlerOptions = {}): NextApiHandle
 
   const baseURL = path.endsWith('/') ? (path = path.slice(0, path.length - 1)) + '/' : path + '/';
 
-  const deps = LazyPromise(async () => {
-    const [
-      { getDistDirectory, renderAltair },
-      {
-        promises: { readFile },
-      },
-      { resolve },
-      { lookup },
-    ] = await Promise.all([import('altair-static'), import('fs'), import('path'), import('mime-types')]);
-
-    return {
-      getDistDirectory,
-      renderAltair,
-      readFile,
-      resolve,
-      lookup,
-    };
-  });
-
   return async function (req, res) {
-    const { renderAltair, getDistDirectory, readFile, resolve, lookup } = await deps;
+    const { renderAltair } = await import('./altairStatic');
+
     switch (req.url) {
       case path:
       case baseURL: {
         res.setHeader('content-type', 'text/html');
-        res.send(
-          renderAltair({
+
+        return res.send(
+          await renderAltair({
             ...renderOptions,
             baseURL,
             endpointURL,
           })
         );
-        return;
       }
       case undefined: {
         return res.status(404).end();
       }
       default: {
-        const resolvedPath = resolve(getDistDirectory(), req.url.slice(baseURL.length));
+        const resolvedPath = 'https://unpkg.com/altair-static@4.0.6/build/dist/' + req.url.slice(baseURL.length);
 
-        const result = await readFile(resolvedPath).catch(() => {});
+        const fetchResult = await fetch(resolvedPath).catch(() => null);
+
+        if (!fetchResult) return res.status(404).end();
+
+        const result = await fetchResult.arrayBuffer().catch(() => null);
 
         if (!result) return res.status(404).end();
 
-        const contentType = lookup(resolvedPath);
+        const contentType = fetchResult.headers.get('content-type');
         if (contentType) res.setHeader('content-type', contentType);
-        res.end(result);
+        res.end(Buffer.from(result));
       }
     }
   };
