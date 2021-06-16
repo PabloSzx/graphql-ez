@@ -34,7 +34,7 @@ import {
 import { isDocumentNode } from '@graphql-tools/utils';
 
 import type DataLoader from 'dataloader';
-import type { RequestOptions } from 'undici/types/client';
+import type { RequestOptions } from 'undici/types/dispatcher';
 import type { TypedDocumentNode } from '@graphql-typed-document-node/core';
 export const { readFile } = promises;
 
@@ -462,14 +462,14 @@ function getRequestPool(port: number, path = '/graphql') {
 
   return {
     address,
-    async request(options: RequestOptions) {
-      const { body } = await requestPool.request(options);
+    async request(options: Omit<RequestOptions, 'origin'>) {
+      const { body } = await requestPool.request({ ...options, origin: address });
 
       return getStringFromStream(body);
     },
 
-    async requestRaw(options: RequestOptions) {
-      const { body, ...rest } = await requestPool.request(options);
+    async requestRaw(options: Omit<RequestOptions, 'origin'>) {
+      const { body, ...rest } = await requestPool.request({ ...options, origin: address });
 
       return { body: getStringFromStream(body), ...rest };
     },
@@ -478,6 +478,7 @@ function getRequestPool(port: number, path = '/graphql') {
       variables?: TVariables
     ): Promise<ExecutionResult<TData>> {
       const { body, headers } = await requestPool.request({
+        origin: address,
         method: 'POST',
         headers: {
           'content-type': 'application/json',

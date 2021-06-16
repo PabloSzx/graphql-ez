@@ -1,7 +1,7 @@
 import { getGraphQLParameters } from 'graphql-helix/dist/get-graphql-parameters.js';
 import { processRequest } from 'graphql-helix/dist/process-request.js';
 
-import type { ExecutionContext, MultipartResponse, Push, Request } from 'graphql-helix';
+import type { MultipartResponse, Push, Request } from 'graphql-helix';
 import type { Envelop } from '@envelop/types';
 import type { IncomingMessage, ServerResponse } from 'http';
 import type { ExecutionResult } from 'graphql';
@@ -41,15 +41,7 @@ export async function handleRequest<TReturn = unknown>({
   onPushResponse,
   baseOptions,
 }: HandleRequestOptions<BuildContextArgs, TReturn>): Promise<TReturn> {
-  const { parse, validate, contextFactory: contextFactoryEnvelop, execute, schema, subscribe } = getEnveloped();
-
-  async function contextFactory(helixCtx: ExecutionContext) {
-    if (buildContext) {
-      return contextFactoryEnvelop(Object.assign({}, helixCtx, await buildContext(buildContextArgs())));
-    }
-
-    return contextFactoryEnvelop(helixCtx);
-  }
+  const { parse, validate, contextFactory, execute, schema, subscribe } = getEnveloped(buildContext?.(buildContextArgs()));
 
   if (Array.isArray(request.body)) {
     const allowBatchedQueries = baseOptions.allowBatchedQueries;
