@@ -2,13 +2,7 @@ import { LazyPromise } from '@graphql-ez/core-utils/promise';
 
 import type { EZPlugin, RequestHandler } from '@graphql-ez/core-types';
 import type { RenderOptions } from 'altair-static';
-
-export interface AltairOptions extends RenderOptions {
-  /**
-   * @default "/altair"
-   */
-  path?: string;
-}
+import type { AltairOptions } from './types';
 
 const AltairDeps = LazyPromise(async () => {
   const [
@@ -53,9 +47,7 @@ declare module '@graphql-ez/core-types' {
   }
 
   interface AppOptions {
-    ide?: {
-      altair?: AltairOptions | boolean;
-    };
+    altair?: AltairOptions | boolean;
   }
 }
 
@@ -68,8 +60,8 @@ export const AltairIDE = (options: AltairOptions | boolean): EZPlugin => {
   };
 };
 
-export function AltairHandler(options: AltairOptions): RequestHandler {
-  const { path, baseURL, renderOptions } = AltairHandlerDeps(options);
+export function AltairHandler(options: AltairOptions | true): RequestHandler {
+  const { path, baseURL, renderOptions } = AltairHandlerDeps(typeof options === 'object' ? options : {});
 
   return async function (req, res) {
     try {

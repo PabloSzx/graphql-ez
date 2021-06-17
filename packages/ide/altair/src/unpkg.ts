@@ -3,6 +3,7 @@ import fetch from 'node-fetch';
 import type { AltairConfigOptions } from 'altair-exported-types/dist/app/modules/altair/config';
 import type { EZPlugin, RequestHandler } from '@graphql-ez/core-types';
 import type { RenderOptions } from 'altair-static';
+import type { AltairOptions } from './types';
 
 const altairUnpkgDist = 'https://unpkg.com/altair-static@^4.0.6/build/dist/';
 
@@ -69,13 +70,6 @@ function getObjectPropertyForOption(option: any, propertyName: keyof AltairConfi
   return '';
 }
 
-export interface AltairOptions extends RenderOptions {
-  /**
-   * @default "/altair"
-   */
-  path?: string;
-}
-
 export function UnpkgAltairHandler(options: AltairOptions = {}): RequestHandler {
   let { path = '/api/altair', endpointURL = '/api/graphql', ...renderOptions } = options;
 
@@ -122,10 +116,8 @@ declare module '@graphql-ez/core-types' {
     unpkgAltairHandler?: typeof UnpkgAltairHandler;
   }
 
-  interface AppOptions {
-    ide?: {
-      altair?: AltairOptions | boolean;
-    };
+  interface IDEOptions {
+    altair?: AltairOptions | boolean;
   }
 }
 
