@@ -1,5 +1,11 @@
 # @graphql-ez/core
 
+## 0.1.4
+
+### Patch Changes
+
+- f152fa8: [BREAKING CHANGE] remove buildWebsocketsContext & use polymorphic buildContext with augmented buildContextArgs
+
 ## 0.1.3
 
 ### Patch Changes
