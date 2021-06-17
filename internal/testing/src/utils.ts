@@ -14,7 +14,7 @@ import { Readable } from 'stream';
 import {
   ClientOptions as SubscriptionsTransportClientOptions,
   SubscriptionClient as SubscriptionsTransportClient,
-} from 'subscriptions-transport-ws-envelop';
+} from 'subscriptions-transport-ws-envelop/client';
 import tmp from 'tmp-promise';
 import { Pool } from 'undici';
 import ws from 'ws';
