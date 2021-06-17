@@ -25,11 +25,14 @@
     "@graphql-tools/graphql-file-loader": "^6.2.7",
     "@graphql-tools/load": "^6.2.8",
     "@graphql-tools/utils": "^7.10.0",
+    "mkdirp": "^1.0.4",
     "prettier": "^2.3.1"
   },
   "devDependencies": {
+    "@types/mkdirp": "^1.0.1",
+    "@types/prettier": "^2.3.0",
     "bob-esbuild-cli": "^0.1.26",
-    "graphql": "15.5.0"
+    "graphql": "15.4.0-experimental-stream-defer.1"
   },
   "peerDependencies": {
     "graphql": "^15.5.0"
