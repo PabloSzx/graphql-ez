@@ -1,0 +1,28 @@
+{
+  "name": "@graphql-ez/ide-graphiql",
+  "version": "0.0.1",
+  "devDependencies": {
+    "bob-esbuild-cli": "^0.1.26"
+  },
+  "dependencies": {
+    "@graphql-ez/core-utils": "workspace:^0.0.1",
+    "graphql-helix": "^1.6.1"
+  },
+  "scripts": {
+    "prepare": "bob-esbuild build"
+  },
+  "publishConfig": {
+    "directory": "dist"
+  },
+  "exports": {
+    ".": {
+      "require": "./dist/index.js",
+      "import": "./dist/index.mjs"
+    },
+    "./*": {
+      "require": "./dist/*.js",
+      "import": "./dist/*.mjs"
+    }
+  },
+  "types": "dist/index.d.ts"
+}

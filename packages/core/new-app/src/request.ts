@@ -1,35 +1,9 @@
 import { getGraphQLParameters } from 'graphql-helix/dist/get-graphql-parameters.js';
 import { processRequest } from 'graphql-helix/dist/process-request.js';
 
-import type { MultipartResponse, Push, Request } from 'graphql-helix';
-import type { Envelop } from '@envelop/types';
+import type { MultipartResponse, Push } from 'graphql-helix';
 import type { IncomingMessage, ServerResponse } from 'http';
-import type { ExecutionResult } from 'graphql';
-import type { AppOptions } from './types';
-import type { BuildContextArgs } from './types';
-
-export type EnvelopResponse = {
-  type: 'RESPONSE';
-  status: number;
-  payload: ExecutionResult | ExecutionResult[];
-};
-
-export interface HandleRequestOptions<BuildContextArgs, TReturn = unknown> {
-  request: Request;
-  getEnveloped: Envelop<unknown>;
-
-  baseOptions: AppOptions;
-
-  buildContextArgs: () => BuildContextArgs;
-  buildContext: ((args: BuildContextArgs) => Record<string, unknown> | Promise<Record<string, unknown>>) | undefined;
-
-  onResponse: (result: EnvelopResponse, defaultHandle: typeof defaultResponseHandle) => TReturn | Promise<TReturn>;
-  onMultiPartResponse: (
-    result: MultipartResponse<unknown, unknown>,
-    defaultHandle: typeof defaultMultipartResponseHandle
-  ) => TReturn | Promise<TReturn>;
-  onPushResponse: (result: Push<unknown, unknown>, defaultHandle: typeof defaultPushResponseHandle) => TReturn | Promise<TReturn>;
-}
+import type { BuildContextArgs, HandleRequestOptions, EnvelopResponse } from '@graphql-ez/core-types';
 
 export async function handleRequest<TReturn = unknown>({
   request,

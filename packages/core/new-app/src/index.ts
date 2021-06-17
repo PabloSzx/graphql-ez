@@ -1,3 +1,3 @@
 export * from './app';
 export * from './request';
-export * from './types';
+export * from '@graphql-ez/core-types';

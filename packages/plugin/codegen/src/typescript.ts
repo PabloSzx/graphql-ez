@@ -13,12 +13,9 @@ import type { Source } from '@graphql-tools/utils';
 import type { LoadTypedefsOptions, UnnormalizedTypeDefPointer } from '@graphql-tools/load';
 import type { TypeScriptPluginConfig } from '@graphql-codegen/typescript';
 import type { TypeScriptResolversPluginConfig } from '@graphql-codegen/typescript-resolvers/config';
-import type { InternalCodegenConfig, WithCodegen } from './handle';
-// import type { WithGraphQLUpload } from '../upload';
 
-interface WithGraphQLUpload {
-  GraphQLUpload?: boolean;
-}
+import type { InternalAppBuildContext } from '@graphql-ez/core-types';
+
 export interface CodegenDocumentsConfig {
   /**
    * @default true
@@ -132,32 +129,26 @@ const CodegenDeps = LazyPromise(async () => {
   };
 });
 
-export async function EnvelopTypeScriptCodegen(
-  executableSchema: GraphQLSchema,
-  options: WithCodegen & WithGraphQLUpload,
-  internalConfig: InternalCodegenConfig
-): Promise<void> {
-  const moduleName = `@graphql-ez/${internalConfig.moduleName}`;
+export async function EnvelopTypeScriptCodegen(executableSchema: GraphQLSchema, ctx: InternalAppBuildContext): Promise<void> {
+  const moduleName = `@graphql-ez/${ctx.moduleName}`;
   const schema = parse(printSchemaWithDirectives(executableSchema));
 
   const {
-    codegen: {
-      targetPath,
-      deepPartialResolvers,
-      preImportCode = '',
-      scalars: customScalars,
-      onError,
-      pluginContext,
-      skipDocumentsValidation,
-      documents: documentsArg,
-      documentsConfig = {},
-      extraPluginsMap,
-      extraPluginsConfig,
-      transformGenerated,
-      documentsLoaders,
-      ...codegenOptions
-    } = {},
-  } = options;
+    targetPath,
+    deepPartialResolvers,
+    preImportCode = '',
+    scalars: customScalars,
+    onError,
+    pluginContext,
+    skipDocumentsValidation,
+    documents: documentsArg,
+    documentsConfig = {},
+    extraPluginsMap,
+    extraPluginsConfig,
+    transformGenerated,
+    documentsLoaders,
+    ...codegenOptions
+  } = ctx.codegen?.config || {};
 
   const { useTypedDocumentNode = true, loadDocuments: loadDocumentsConfig } = documentsConfig;
 
@@ -166,7 +157,7 @@ export async function EnvelopTypeScriptCodegen(
       ? customScalars
       : {
           ...(customScalars || {}),
-          ...(options.GraphQLUpload
+          ...(ctx.GraphQLUpload
             ? {
                 Upload: 'Promise<import("graphql-upload").FileUpload>',
               }

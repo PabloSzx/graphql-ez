@@ -19,10 +19,12 @@
       "@graphql-ez/core/*": ["packages/core/old-app/src/*"],
       "@graphql-ez/core-utils/*": ["packages/core/utils/src/*"],
       "@graphql-ez/core": ["packages/core/old-app/src/index.ts"],
+      "@graphql-ez/core-types": ["packages/core/types/src/index.ts"],
       "@graphql-ez/testing/*": ["internal/testing/src/*"],
       "@graphql-ez/*": ["packages/*/app/src/index.ts"]
     },
     "importsNotUsedAsValues": "error"
   },
+  "exclude": ["**/dist"],
   "include": ["packages", "internal", "bob-esbuild.config.ts"]
 }

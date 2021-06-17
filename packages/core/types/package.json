@@ -1,5 +1,5 @@
 {
-  "name": "@graphql-ez/core-app",
+  "name": "@graphql-ez/core-types",
   "version": "0.0.1",
   "exports": {
     ".": {
@@ -11,24 +11,24 @@
       "import": "./dist/*.mjs"
     }
   },
+  "types": "dist/index.d.ts",
   "scripts": {
     "prepare": "bob-esbuild build"
   },
-  "dependencies": {
-    "@envelop/core": "^0.3.0",
+  "devDependencies": {
     "@envelop/types": "^0.2.0",
-    "@graphql-ez/core-types": "workspace:^0.0.1",
     "@graphql-ez/core-utils": "workspace:^0.0.1",
-    "@graphql-tools/merge": "^6.2.14",
-    "@graphql-tools/schema": "^7.1.5",
+    "@types/node": "^15.12.2",
+    "bob-esbuild-cli": "^0.1.26",
+    "graphql": "^15.5.0",
     "graphql-helix": "^1.6.1"
   },
-  "devDependencies": {
-    "bob-esbuild-cli": "^0.1.26",
-    "graphql": "15.5.0"
-  },
   "peerDependencies": {
-    "graphql": "^15.5.0"
+    "@envelop/types": "^0.2.0",
+    "@graphql-ez/core-utils": "workspace:^0.0.1",
+    "@types/node": "*",
+    "graphql": "*",
+    "graphql-helix": "^1.6.1"
   },
   "publishConfig": {
     "directory": "dist"

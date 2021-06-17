@@ -3,43 +3,16 @@ import { gql } from '@graphql-ez/core-utils/gql';
 import { uniqueArray } from '@graphql-ez/core-utils/object';
 
 import type { Envelop } from '@envelop/types';
-import type { AppOptions, PickRequired } from './types';
-
-export interface BaseAppBuilder {
-  /**
-   * GraphQL Tag Parser
-   */
-  gql: typeof gql;
-}
-
-export interface AdapterFactoryArgs {
-  envelop: Envelop<unknown>;
-  ctx: InternalAppBuildContext;
-}
-
-export type AdapterFactory<T> = (args: AdapterFactoryArgs) => T;
-
-export interface EZPlugin {
-  onRegister?(ctx: InternalAppBuildContext): void | Promise<void>;
-  onPreBuild?(ctx: InternalAppBuildContext): void | Promise<void>;
-  onAfterBuild?(getEnveloped: Envelop, ctx: InternalAppBuildContext): void | Promise<void>;
-}
-
-export interface InternalAppBuildContext {
-  options: PickRequired<AppOptions, 'ez' | 'envelop'>;
-  appBuilder: BaseAppBuilder;
-}
-
-export interface BuiltApp<T> {
-  app: T;
-  getEnveloped: Envelop<unknown>;
-}
-
-export interface EnvelopAppFactoryType extends BaseAppBuilder {
-  appBuilder<T>(factory: AdapterFactory<T>): Promise<BuiltApp<T>>;
-}
+import type {
+  AppOptions,
+  BaseAppBuilder,
+  InternalAppBuildContext,
+  EnvelopAppFactoryType,
+  AdapterFactoryContext,
+} from '@graphql-ez/core-types';
 
 export function createEnvelopAppFactory(
+  factoryCtx: AdapterFactoryContext,
   rawOptions: AppOptions,
   {
     preBuild,
@@ -63,6 +36,7 @@ export function createEnvelopAppFactory(
   };
 
   const ctx: InternalAppBuildContext = {
+    ...factoryCtx,
     options,
     appBuilder: baseAppBuilder,
   };
@@ -115,4 +89,4 @@ export function createEnvelopAppFactory(
   return { ...baseAppBuilder, appBuilder };
 }
 
-export * from './types';
+export * from '@graphql-ez/core-types';

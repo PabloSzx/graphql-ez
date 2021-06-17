@@ -1,0 +1,64 @@
+import type { EZPlugin } from '@graphql-ez/core-types';
+import type { CodegenConfig } from './typescript';
+
+export interface CodegenOptions {
+  /**
+   * Enable code generation, by default is enabled if `NODE_ENV` is not `production` nor `test`
+   *
+   * @default process.env.NODE_ENV !== "production" && process.env.NODE_ENV !== "test"
+   */
+  enableCodegen?: boolean;
+
+  /**
+   * Add custom codegen config
+   */
+  config?: CodegenConfig;
+
+  /**
+   * Output schema target path or flag
+   *
+   * If `true`, defaults to `"./schema.gql"`
+   * You have to specify a `.gql`, `.graphql` or `.json` extension
+   *
+   * @default false
+   */
+  outputSchema?: boolean | string;
+}
+
+declare module '@graphql-ez/core-types' {
+  interface InternalAppBuildContext {
+    codegen?: CodegenOptions;
+    GraphQLUpload?: boolean;
+  }
+}
+
+export const EZCodegenPlugin: (options: CodegenOptions) => EZPlugin = options => {
+  return {
+    onRegister(ctx) {
+      ctx.codegen = options;
+    },
+    onAfterBuild(getEnveloped, ctx) {
+      const {
+        config: { onError = console.error, onFinish } = {},
+        outputSchema,
+        enableCodegen = process.env.NODE_ENV !== 'production' && process.env.NODE_ENV !== 'test',
+      } = options;
+
+      if (!enableCodegen) return onFinish?.();
+
+      const { schema } = getEnveloped();
+
+      Promise.all([
+        outputSchema
+          ? import('./outputSchema').then(({ writeOutputSchema }) => {
+              return writeOutputSchema(schema, outputSchema).catch(onError);
+            })
+          : null,
+
+        import('./typescript').then(({ EnvelopTypeScriptCodegen }) => {
+          return EnvelopTypeScriptCodegen(schema, ctx).catch(onError);
+        }),
+      ]).then(onFinish, onError);
+    },
+  };
+};
