@@ -3,7 +3,7 @@ import type { Envelop, Plugin } from '@envelop/types';
 import type { PickRequired } from './utils';
 import type { IncomingMessage } from 'http';
 import type { HandleRequest } from './request';
-import type { InternalAppBuildContext, BaseAppBuilder } from './index';
+import type { InternalAppBuildContext, BaseAppBuilder, BuildAppOptions } from './index';
 
 export interface AdapterFactoryArgs {
   envelop: Envelop<unknown>;
@@ -23,11 +23,15 @@ export interface AdapterFactoryContext {
 }
 
 declare module './index' {
-  export interface BaseAppBuilder {
+  interface BaseAppBuilder {
     /**
      * GraphQL Tag Parser
      */
     gql: typeof gql;
+  }
+
+  interface BaseEZApp {
+    getEnveloped: Promise<Envelop<unknown>>;
   }
 
   interface InternalAppBuildContext extends AdapterFactoryContext {
@@ -35,7 +39,11 @@ declare module './index' {
     appBuilder: BaseAppBuilder;
   }
 
-  export interface AppOptions {
+  interface BuildAppOptions {
+    prepare?: (appBuilder: BaseAppBuilder) => void | Promise<void>;
+  }
+
+  interface AppOptions {
     prepare?: (appBuilder: BaseAppBuilder) => void | Promise<void>;
 
     /**
@@ -71,7 +79,7 @@ declare module './index' {
     buildContext?: (args: BuildContextArgs) => Record<string, unknown> | Promise<Record<string, unknown>>;
   }
 
-  export interface BuildContextArgs {
+  interface BuildContextArgs {
     req: IncomingMessage;
   }
 }
@@ -82,5 +90,5 @@ export interface BuiltApp<T> {
 }
 
 export interface EnvelopAppFactoryType extends BaseAppBuilder {
-  appBuilder<T>(factory: AdapterFactory<T>): Promise<BuiltApp<T>>;
+  appBuilder<T>(buildOptions: BuildAppOptions, factory: AdapterFactory<T>): Promise<BuiltApp<T>>;
 }

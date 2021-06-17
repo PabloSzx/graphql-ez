@@ -50,9 +50,10 @@ export function createEnvelopAppFactory(
     process.exit(1);
   });
 
-  const appBuilder: EnvelopAppFactoryType['appBuilder'] = async function appBuilder(adapterFactory) {
+  const appBuilder: EnvelopAppFactoryType['appBuilder'] = async function appBuilder(buildOptions, adapterFactory) {
     await registerPromise;
 
+    if (buildOptions.prepare) await buildOptions.prepare(baseAppBuilder);
     if (options.prepare) await options.prepare(baseAppBuilder);
 
     return getApp();

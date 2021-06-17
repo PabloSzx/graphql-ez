@@ -4,7 +4,15 @@ export * from './app';
 
 export interface InternalAppBuildContext {}
 
-export interface AppOptions {}
+export interface BaseEZApp {}
+
+export interface IDEOptions {}
+
+export interface AppOptions {
+  ide?: IDEOptions;
+}
+
+export interface BuildAppOptions {}
 
 export interface BaseAppBuilder {}
 
