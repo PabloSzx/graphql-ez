@@ -1,4 +1,5 @@
 import { BaseAppBuilder, createEnvelopAppFactory, handleRequest } from '@graphql-ez/core-app';
+import { getObjectValue } from '@graphql-ez/core-utils/object';
 import { LazyPromise } from '@graphql-ez/core-utils/promise';
 
 import type { FastifyPluginCallback, FastifyInstance, RouteOptions, FastifyRequest, FastifyReply } from 'fastify';
@@ -61,9 +62,11 @@ export function CreateApp(config: FastifyAppOptions = {}): EZAppBuilder {
     {}
   );
 
+  const path = (config.path ||= '/graphql');
+
   const buildApp = function buildApp(buildOptions: BuildAppOptions): EZApp {
     const appPromise = appBuilder(buildOptions, ({ ctx, getEnveloped }) => {
-      const { cors, routeOptions, path = '/graphql', buildContext, onAppRegister } = config;
+      const { cors, routeOptions, buildContext, onAppRegister } = config;
       return async function FastifyPlugin(instance: FastifyInstance) {
         if (onAppRegister) await onAppRegister?.(ctx, instance);
         await onIntegrationRegister({
@@ -73,7 +76,7 @@ export function CreateApp(config: FastifyAppOptions = {}): EZAppBuilder {
         if (cors) {
           const fastifyCors = (await import('fastify-cors')).default;
 
-          await instance.register(fastifyCors, typeof cors !== 'boolean' ? cors : undefined);
+          await instance.register(fastifyCors, getObjectValue(cors));
         }
 
         if (ctx.options.ide) {
@@ -81,13 +84,15 @@ export function CreateApp(config: FastifyAppOptions = {}): EZAppBuilder {
           if (ctx.options.ide.altair && altairHandler) {
             const handler = altairHandler(ctx.options.ide.altair);
 
-            instance.get('/altair', async (req, res) => {
+            const { path = '/altair', baseURL = '/altair/' } = getObjectValue(ctx.options.ide.altair) || {};
+
+            instance.get(path, async (req, res) => {
               res.hijack();
 
               await handler(req.raw, res.raw);
             });
 
-            instance.get('/altair/*', async (req, res) => {
+            instance.get(baseURL, async (req, res) => {
               res.hijack();
               await handler(req.raw, res.raw);
             });

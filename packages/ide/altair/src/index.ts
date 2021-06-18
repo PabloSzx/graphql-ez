@@ -1,3 +1,4 @@
+import { getObjectValue } from '@graphql-ez/core-utils/object';
 import { LazyPromise } from '@graphql-ez/core-utils/promise';
 
 import type { EZPlugin, RequestHandler } from '@graphql-ez/core-types';
@@ -61,7 +62,7 @@ export const AltairEZIde = (options: AltairOptions | boolean = true): EZPlugin =
 };
 
 export function AltairHandler(options: AltairOptions | true): RequestHandler {
-  const { path, baseURL, renderOptions } = AltairHandlerDeps(typeof options === 'object' ? options : {});
+  const { path, baseURL, renderOptions } = AltairHandlerDeps(getObjectValue(options) || {});
 
   return async function (req, res) {
     try {

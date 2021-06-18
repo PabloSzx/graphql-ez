@@ -1,3 +1,5 @@
+import { getObjectValue } from '@graphql-ez/core-utils/object';
+
 import type { ParserCacheOptions } from '@envelop/parser-cache';
 import type { ValidationCacheOptions } from '@envelop/validation-cache';
 import type { EZPlugin } from '@graphql-ez/core-types';
@@ -44,9 +46,11 @@ export const CacheEZPlugin = (): EZPlugin => {
       const isParserEnabled = cache === true || !!cache.parse;
       const isValidationEnabled = cache === true || !!cache.validation;
 
-      const parserOptions = cache === true ? {} : typeof cache.parse === 'object' ? cache.parse : {};
+      const cacheObj = getObjectValue(cache);
 
-      const validationOptions = cache === true ? {} : typeof cache.validation === 'object' ? cache.validation : {};
+      const parserOptions = getObjectValue(cacheObj?.parse) || {};
+
+      const validationOptions = getObjectValue(cacheObj?.validation) || {};
 
       await Promise.all([
         isParserEnabled

@@ -1,0 +1,34 @@
+{
+  "name": "@graphql-ez/plugin-websockets",
+  "exports": {
+    ".": {
+      "require": "./dist/index.js",
+      "import": "./dist/index.mjs"
+    },
+    "./*": {
+      "require": "./dist/*.js",
+      "import": "./dist/*.mjs"
+    }
+  },
+  "scripts": {
+    "prepare": "bob-esbuild build"
+  },
+  "dependencies": {
+    "@envelop/types": "^0.2.0",
+    "@graphql-ez/core-types": "workspace:^0.0.1",
+    "@graphql-ez/core-utils": "workspace:^0.0.1",
+    "graphql-ws": "^5.1.2",
+    "subscriptions-transport-ws-envelop": "^1.0.4",
+    "ws": "^7.5.0"
+  },
+  "devDependencies": {
+    "bob-esbuild-cli": "^0.1.26",
+    "graphql": "15.4.0-experimental-stream-defer.1"
+  },
+  "peerDependencies": {
+    "graphql": "*"
+  },
+  "publishConfig": {
+    "directory": "dist"
+  }
+}

@@ -17,3 +17,8 @@ export function uniqueArray<T>(array?: T[]): T[] {
 export function toPlural<T>(value: T | T[]): T[] {
   return Array.isArray(value) ? value : [value];
 }
+
+export function getObjectValue<Obj extends object>(value: Obj | number | string | boolean | null | undefined): Obj | undefined {
+  if (value != null && typeof value === 'object') return value as Obj;
+  return undefined;
+}

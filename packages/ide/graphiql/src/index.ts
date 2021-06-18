@@ -1,4 +1,6 @@
+import { getObjectValue } from '@graphql-ez/core-utils/object';
 import { LazyPromise } from '@graphql-ez/core-utils/promise';
+
 import type { RenderGraphiQLOptions } from 'graphql-helix/dist/types';
 import type { EZPlugin, RequestHandler } from '@graphql-ez/core-types';
 
@@ -16,7 +18,7 @@ const GraphiQLDeps = LazyPromise(async () => {
 });
 
 export function GraphiQLHandler(options: GraphiQLOptions | boolean = {}): RequestHandler {
-  const { endpoint = '/graphiql', ...renderOptions } = typeof options === 'object' ? options : {};
+  const { endpoint = '/graphiql', ...renderOptions } = getObjectValue(options) || {};
 
   const html = GraphiQLDeps.then(({ renderGraphiQL }) => {
     return renderGraphiQL({ ...renderOptions, endpoint });

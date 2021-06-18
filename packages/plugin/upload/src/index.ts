@@ -1,5 +1,6 @@
-import { LazyPromise } from '@graphql-ez/core-utils/promise';
 import { gql } from '@graphql-ez/core-utils/gql';
+import { getObjectValue } from '@graphql-ez/core-utils/object';
+import { LazyPromise } from '@graphql-ez/core-utils/promise';
 
 import type { EZPlugin } from '@graphql-ez/core-types';
 import type { UploadOptions, processRequest, graphqlUploadExpress, graphqlUploadKoa, GraphQLUpload } from 'graphql-upload';
@@ -43,7 +44,7 @@ export const UploadEZPlugin = (options: GraphQLUploadConfig = true): EZPlugin =>
         });
 
         ctx.GraphQLUpload = {
-          options: typeof options === 'object' ? options : {},
+          options: getObjectValue(options) || {},
           ...deps,
           definition,
         };
