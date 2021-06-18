@@ -2,6 +2,8 @@ import { envelop } from '@envelop/core';
 import { gql } from '@graphql-ez/core-utils/gql';
 import { uniqueArray } from '@graphql-ez/core-utils/object';
 
+import { EZSchemaPlugin } from './schema';
+
 import type { Envelop } from '@envelop/types';
 import type {
   AppOptions,
@@ -25,7 +27,7 @@ export function createEnvelopAppFactory(
   const options = {
     ...rawOptions,
     ez: {
-      plugins: [...(rawOptions.ez?.plugins || [])],
+      plugins: [...(rawOptions.ez?.plugins || []), EZSchemaPlugin()],
     },
     envelop: {
       plugins: [...(rawOptions.envelop?.plugins || [])],
@@ -33,6 +35,8 @@ export function createEnvelopAppFactory(
   };
   const baseAppBuilder: BaseAppBuilder = {
     gql,
+    registerDataLoader: null as unknown as BaseAppBuilder['registerDataLoader'],
+    registerModule: null as unknown as BaseAppBuilder['registerModule'],
   };
 
   const ctx: InternalAppBuildContext = {
