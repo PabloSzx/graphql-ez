@@ -12,6 +12,10 @@ declare module '@graphql-ez/core-types' {
       reply: FastifyReply;
     };
   }
+
+  interface InternalAppBuildIntegrationContext {
+    fastify?: FastifyInstance;
+  }
 }
 
 interface FastifyAppOptions extends AppOptions {
@@ -43,7 +47,7 @@ export interface EZAppBuilder extends BaseAppBuilder {
 }
 
 export function CreateApp(config: FastifyAppOptions = {}): EZAppBuilder {
-  const { appBuilder, ...commonApp } = createEnvelopAppFactory(
+  const { appBuilder, onIntegrationRegister, ...commonApp } = createEnvelopAppFactory(
     {
       moduleName: 'fastify',
     },
@@ -52,10 +56,13 @@ export function CreateApp(config: FastifyAppOptions = {}): EZAppBuilder {
   );
 
   const buildApp = function buildApp(buildOptions: BuildAppOptions): EZApp {
-    const appPromise = appBuilder(buildOptions, ({ ctx, envelop }) => {
+    const appPromise = appBuilder(buildOptions, ({ ctx, getEnveloped }) => {
       const { cors, routeOptions, path = '/graphql', buildContext, onAppRegister } = config;
       return async function FastifyPlugin(instance: FastifyInstance) {
         if (onAppRegister) await onAppRegister?.(ctx, instance);
+        await onIntegrationRegister({
+          fastify: instance,
+        });
 
         if (cors) {
           const fastifyCors = (await import('fastify-cors')).default;
@@ -106,7 +113,7 @@ export function CreateApp(config: FastifyAppOptions = {}): EZAppBuilder {
 
             return requestHandler({
               request,
-              getEnveloped: envelop,
+              getEnveloped,
               baseOptions: config,
               buildContextArgs() {
                 return {

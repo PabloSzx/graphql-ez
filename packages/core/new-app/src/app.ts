@@ -10,6 +10,7 @@ import type {
   AppOptions,
   BaseAppBuilder,
   InternalAppBuildContext,
+  InternalAppBuildIntegrationContext,
   EnvelopAppFactoryType,
   AdapterFactoryContext,
 } from '@graphql-ez/core-types';
@@ -84,7 +85,7 @@ export function createEnvelopAppFactory(
 
       return {
         app: adapterFactory({
-          envelop: getEnveloped,
+          getEnveloped,
           ctx,
         }),
         getEnveloped,
@@ -92,7 +93,15 @@ export function createEnvelopAppFactory(
     }
   };
 
-  return { ...baseAppBuilder, appBuilder };
+  async function onIntegrationRegister(integrationCtx: InternalAppBuildIntegrationContext) {
+    await Promise.all(
+      options.ez.plugins.map(plugin => {
+        return plugin.onIntegrationRegister?.(ctx, integrationCtx);
+      })
+    );
+  }
+
+  return { ...baseAppBuilder, appBuilder, onIntegrationRegister };
 }
 
 export * from '@graphql-ez/core-types';

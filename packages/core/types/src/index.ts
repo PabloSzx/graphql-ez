@@ -2,6 +2,8 @@ export * from './utils';
 export * from './request';
 export * from './app';
 
+export interface InternalAppBuildIntegrationContext {}
+
 export interface InternalAppBuildContext {}
 
 export interface BaseEZApp {}

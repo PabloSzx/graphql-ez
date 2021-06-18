@@ -3,10 +3,10 @@ import type { Envelop, Plugin } from '@envelop/types';
 import type { PickRequired } from './utils';
 import type { IncomingMessage } from 'http';
 import type { HandleRequest } from './request';
-import type { InternalAppBuildContext, BaseAppBuilder, BuildAppOptions } from './index';
+import type { InternalAppBuildContext, BaseAppBuilder, BuildAppOptions, InternalAppBuildIntegrationContext } from './index';
 
 export interface AdapterFactoryArgs {
-  envelop: Envelop<unknown>;
+  getEnveloped: Envelop<unknown>;
   ctx: InternalAppBuildContext;
 }
 
@@ -14,6 +14,7 @@ export type AdapterFactory<T> = (args: AdapterFactoryArgs) => T;
 
 export interface EZPlugin {
   onRegister?(ctx: InternalAppBuildContext): void | Promise<void>;
+  onIntegrationRegister?(ctx: InternalAppBuildContext, integrationCtx: InternalAppBuildIntegrationContext): void | Promise<void>;
   onPreBuild?(ctx: InternalAppBuildContext): void | Promise<void>;
   onAfterBuild?(getEnveloped: Envelop, ctx: InternalAppBuildContext): void | Promise<void>;
 }
@@ -91,4 +92,5 @@ export interface BuiltApp<T> {
 
 export interface EnvelopAppFactoryType extends BaseAppBuilder {
   appBuilder<T>(buildOptions: BuildAppOptions, factory: AdapterFactory<T>): Promise<BuiltApp<T>>;
+  onIntegrationRegister(integrationCtx: InternalAppBuildIntegrationContext): Promise<void>;
 }
