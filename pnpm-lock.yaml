@@ -830,6 +830,42 @@ importers:
       bob-esbuild-cli: 0.1.27
       graphql: 15.4.0-experimental-stream-defer.1
 
+  packages/plugin/dataloader:
+    specifiers:
+      '@envelop/dataloader': ^0.2.0
+      '@graphql-ez/core-types': workspace:^0.0.1
+      '@graphql-ez/core-utils': workspace:^0.0.1
+      bob-esbuild-cli: ^0.1.26
+      dataloader: ^2.0.0
+      graphql: 15.4.0-experimental-stream-defer.1
+    dependencies:
+      '@envelop/dataloader': 0.2.0_1e69ec074ba37991a02dc0e22dcbc7f5
+      '@graphql-ez/core-types': link:../../core/types
+      '@graphql-ez/core-utils': link:../../core/utils
+      dataloader: 2.0.0
+    devDependencies:
+      bob-esbuild-cli: 0.1.26
+      graphql: 15.4.0-experimental-stream-defer.1
+
+  packages/plugin/modules:
+    specifiers:
+      '@envelop/graphql-modules': ^0.2.0
+      '@graphql-ez/core-types': workspace:^0.0.1
+      '@graphql-ez/core-utils': workspace:^0.0.1
+      '@graphql-tools/utils': ^7.10.0
+      bob-esbuild-cli: ^0.1.26
+      graphql: 15.4.0-experimental-stream-defer.1
+      graphql-modules: ^1.4.2
+    dependencies:
+      '@envelop/graphql-modules': 0.2.0_3a7a576ebbc898d3083991e1811491a6
+      '@graphql-ez/core-types': link:../../core/types
+      '@graphql-ez/core-utils': link:../../core/utils
+      '@graphql-tools/utils': 7.10.0_34dd13c2583fe2e4418c23a0d30fc388
+      graphql-modules: 1.4.2_34dd13c2583fe2e4418c23a0d30fc388
+    devDependencies:
+      bob-esbuild-cli: 0.1.26
+      graphql: 15.4.0-experimental-stream-defer.1
+
 packages:
 
   /@ardatan/aggregate-error/0.0.6:

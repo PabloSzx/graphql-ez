@@ -1,0 +1,32 @@
+{
+  "name": "@graphql-ez/plugin-dataloader",
+  "exports": {
+    ".": {
+      "require": "./dist/index.js",
+      "import": "./dist/index.mjs"
+    },
+    "./*": {
+      "require": "./dist/*.js",
+      "import": "./dist/*.mjs"
+    }
+  },
+  "scripts": {
+    "prepare": "bob-esbuild build"
+  },
+  "dependencies": {
+    "@envelop/dataloader": "^0.2.0",
+    "@graphql-ez/core-types": "workspace:^0.0.1",
+    "@graphql-ez/core-utils": "workspace:^0.0.1",
+    "dataloader": "^2.0.0"
+  },
+  "devDependencies": {
+    "bob-esbuild-cli": "^0.1.26",
+    "graphql": "15.4.0-experimental-stream-defer.1"
+  },
+  "peerDependencies": {
+    "graphql": "*"
+  },
+  "publishConfig": {
+    "directory": "dist"
+  }
+}
