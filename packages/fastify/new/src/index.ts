@@ -38,6 +38,12 @@ interface FastifyAppOptions extends AppOptions {
 
 export type FastifyAppPlugin = FastifyPluginCallback<{}>;
 
+declare module 'fastify' {
+  interface FastifyRequest {
+    isMultipart?: true;
+  }
+}
+
 export interface EZApp extends BaseEZApp {
   fastifyPlugin: FastifyAppPlugin;
 }

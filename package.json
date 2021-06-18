@@ -31,8 +31,8 @@
     "dev:next": "pnpm -r --filter example-app-nextjs dev -- -p 3006",
     "prepare": "husky install",
     "pretty": "prettier --write \"**/*{.ts,.tsx}\"",
-    "test": "pnpm -r --no-sort --no-bail --stream test -- ",
-    "test:ci": "pnpm -r --workspace-concurrency=1 --no-sort --no-bail --stream --filter=!graphql-ez-monorepo test -- "
+    "test": "pnpm -r --no-sort --no-bail test -- ",
+    "test:ci": "pnpm -r --workspace-concurrency=1 --no-sort --no-bail --filter=!graphql-ez-monorepo test -- "
   },
   "devDependencies": {
     "@changesets/cli": "2.16.0",

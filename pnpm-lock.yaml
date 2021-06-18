@@ -865,6 +865,25 @@ importers:
       bob-esbuild-cli: 0.1.27
       graphql: 15.4.0-experimental-stream-defer.1
 
+  packages/plugin/upload:
+    specifiers:
+      '@graphql-ez/core-types': workspace:^0.0.1
+      '@graphql-ez/core-utils': workspace:^0.0.1
+      '@graphql-tools/utils': ^7.10.0
+      '@types/graphql-upload': ^8.0.5
+      bob-esbuild-cli: ^0.1.26
+      graphql: 15.4.0-experimental-stream-defer.1
+      graphql-upload: ^12.0.0
+    dependencies:
+      '@graphql-ez/core-types': link:../../core/types
+      '@graphql-ez/core-utils': link:../../core/utils
+      '@graphql-tools/utils': 7.10.0_34dd13c2583fe2e4418c23a0d30fc388
+    devDependencies:
+      '@types/graphql-upload': 8.0.5
+      bob-esbuild-cli: 0.1.26
+      graphql: 15.4.0-experimental-stream-defer.1
+      graphql-upload: 12.0.0_34dd13c2583fe2e4418c23a0d30fc388
+
 packages:
 
   /@ardatan/aggregate-error/0.0.6:

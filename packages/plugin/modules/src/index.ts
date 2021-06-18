@@ -90,6 +90,16 @@ export const GraphQLModulesEZPlugin = (config: Partial<Omit<ApplicationConfig, '
             : null,
           Promise.all(ctx.modules || []),
         ]);
+
+        if (ctx.GraphQLUpload) {
+          modules.push(
+            createModule({
+              id: 'GraphQLUpload',
+              ...(await ctx.GraphQLUpload.definition),
+            })
+          );
+        }
+
         return createApplication({
           modules: scalarsModule ? [scalarsModule, ...modules] : modules,
           ...config,

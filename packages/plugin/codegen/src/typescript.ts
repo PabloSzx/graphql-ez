@@ -42,7 +42,7 @@ export interface CodegenConfig extends TypeScriptPluginConfig, TypeScriptResolve
   /**
    * Enable deep partial type resolvers
    *
-   * @default false
+   * @default true
    */
   deepPartialResolvers?: boolean;
 
@@ -135,7 +135,7 @@ export async function EnvelopTypeScriptCodegen(executableSchema: GraphQLSchema, 
 
   const {
     targetPath = './src/envelop.generated.ts',
-    deepPartialResolvers,
+    deepPartialResolvers = true,
     preImportCode = '',
     scalars: customScalars,
     onError = console.error,

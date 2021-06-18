@@ -1,0 +1,35 @@
+{
+  "name": "@graphql-ez/plugin-upload",
+  "exports": {
+    ".": {
+      "require": "./dist/index.js",
+      "import": "./dist/index.mjs"
+    },
+    "./*": {
+      "require": "./dist/*.js",
+      "import": "./dist/*.mjs"
+    }
+  },
+  "scripts": {
+    "prepare": "bob-esbuild build"
+  },
+  "dependencies": {
+    "@graphql-ez/core-types": "workspace:^0.0.1",
+    "@graphql-ez/core-utils": "workspace:^0.0.1",
+    "@graphql-tools/utils": "^7.10.0"
+  },
+  "devDependencies": {
+    "@types/graphql-upload": "^8.0.5",
+    "bob-esbuild-cli": "^0.1.26",
+    "graphql": "15.4.0-experimental-stream-defer.1",
+    "graphql-upload": "^12.0.0"
+  },
+  "peerDependencies": {
+    "@types/graphql-upload": "*",
+    "graphql": "*",
+    "graphql-upload": "^12.0.0"
+  },
+  "publishConfig": {
+    "directory": "dist"
+  }
+}

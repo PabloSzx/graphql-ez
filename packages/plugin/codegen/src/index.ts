@@ -28,7 +28,6 @@ export interface CodegenOptions {
 declare module '@graphql-ez/core-types' {
   interface InternalAppBuildContext {
     codegen?: CodegenOptions;
-    GraphQLUpload?: boolean;
   }
 }
 

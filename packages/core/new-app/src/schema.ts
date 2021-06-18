@@ -43,11 +43,13 @@ declare module '@graphql-ez/core-types' {
      */
     mergeSchemasConfig?: FilteredMergeSchemasConfig;
   }
+
+  interface InternalAppBuildContext {
+    extraSchemaDefinitions?: (EZExecutableSchemaDefinition | Promise<EZExecutableSchemaDefinition>)[];
+  }
 }
 
-const Merge = LazyPromise(() => {
-  return import('@graphql-tools/merge');
-});
+const mergeSchemas = LazyPromise(() => import('@graphql-tools/merge').then(v => v.mergeSchemasAsync));
 
 export const SchemaEZPlugin = (): EZPlugin => {
   return {
@@ -72,7 +74,7 @@ export const SchemaEZPlugin = (): EZPlugin => {
               if (isSchema(schemaValue)) {
                 if (!scalarsModuleSchema) return schemaValue;
 
-                return (await Merge).mergeSchemasAsync({
+                return (await mergeSchemas)({
                   ...cleanObject(mergeSchemasConfig),
                   schemas: [await scalarsModuleSchema, schemaValue],
                 });
@@ -97,16 +99,16 @@ export const SchemaEZPlugin = (): EZPlugin => {
 
       if (schemas.length > 1) {
         finalSchema = await (
-          await Merge
-        ).mergeSchemasAsync({
+          await mergeSchemas
+        )({
           ...cleanObject(mergeSchemasConfig),
           schemas: [...modulesSchemaList, ...schemas],
         });
       } else if (schemas[0]) {
         finalSchema = modulesSchemaList[0]
           ? await (
-              await Merge
-            ).mergeSchemasAsync({
+              await mergeSchemas
+            )({
               ...cleanObject(mergeSchemasConfig),
               schemas: [...modulesSchemaList, schemas[0]],
             })
@@ -120,6 +122,16 @@ export const SchemaEZPlugin = (): EZPlugin => {
       }
 
       if (finalSchema) {
+        if (ctx.extraSchemaDefinitions) {
+          const extraSchemaDefinitions = (await Promise.all(ctx.extraSchemaDefinitions)).map(makeExecutableSchema);
+
+          finalSchema = await (
+            await mergeSchemas
+          )({
+            schemas: [finalSchema, ...extraSchemaDefinitions],
+          });
+        }
+
         (ctx.options.envelop.plugins ||= []).push(useSchema(finalSchema));
       }
     },
