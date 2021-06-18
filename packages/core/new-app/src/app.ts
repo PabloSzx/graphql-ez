@@ -2,7 +2,8 @@ import { envelop } from '@envelop/core';
 import { gql } from '@graphql-ez/core-utils/gql';
 import { uniqueArray } from '@graphql-ez/core-utils/object';
 
-import { EZSchemaPlugin } from './schema';
+import { CacheEZPlugin } from './cache';
+import { SchemaEZPlugin } from './schema';
 
 import type { Envelop } from '@envelop/types';
 import type {
@@ -27,7 +28,7 @@ export function createEnvelopAppFactory(
   const options = {
     ...rawOptions,
     ez: {
-      plugins: [...(rawOptions.ez?.plugins || []), EZSchemaPlugin()],
+      plugins: [...(rawOptions.ez?.plugins || []), SchemaEZPlugin(), CacheEZPlugin()],
     },
     envelop: {
       plugins: [...(rawOptions.envelop?.plugins || [])],

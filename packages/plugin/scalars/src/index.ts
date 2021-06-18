@@ -20,7 +20,7 @@ export interface ScalarsDefinition {
   resolvers: ScalarResolvers;
 }
 
-export const EZScalars = (scalars?: ScalarsConfig): EZPlugin => {
+export const ScalarsEZPlugin = (scalars?: ScalarsConfig): EZPlugin => {
   return {
     async onRegister(ctx) {
       if (!scalars) return;

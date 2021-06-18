@@ -25,7 +25,7 @@ export type InferDataLoader<V> = V extends RegisteredDataLoader<infer Name, infe
   ? { [k in Name]: DataLoader<Key, Value, Cache> }
   : {};
 
-export const EZDataLoaderPlugin: () => EZPlugin = () => {
+export const DataLoaderEZPlugin = (): EZPlugin => {
   return {
     onRegister(ctx) {
       function registerDataLoader<Name extends string, Key, Value, Cache = Key>(

@@ -32,7 +32,7 @@ declare module '@graphql-ez/core-types' {
   }
 }
 
-export const EZCodegenPlugin: (options: CodegenOptions) => EZPlugin = options => {
+export const CodegenEZPlugin = (options: CodegenOptions = {}): EZPlugin => {
   return {
     onRegister(ctx) {
       ctx.codegen = options;

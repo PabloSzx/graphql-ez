@@ -49,7 +49,7 @@ const Merge = LazyPromise(() => {
   return import('@graphql-tools/merge');
 });
 
-export const EZSchemaPlugin = (): EZPlugin => {
+export const SchemaEZPlugin = (): EZPlugin => {
   return {
     async onPreBuild(ctx) {
       const { schema, mergeSchemasConfig } = ctx.options;
@@ -125,3 +125,5 @@ export const EZSchemaPlugin = (): EZPlugin => {
     },
   };
 };
+
+export { makeExecutableSchema };

@@ -41,7 +41,7 @@ export interface RegisterModule {
   (typeDefs: TypeDefs, options?: EnvelopModuleConfig): Promise<Module>;
 }
 
-export const EZGraphQLModulesPlugin = (config: Partial<Omit<ApplicationConfig, 'modules'>> = {}): EZPlugin => {
+export const GraphQLModulesEZPlugin = (config: Partial<Omit<ApplicationConfig, 'modules'>> = {}): EZPlugin => {
   const registerModuleState = {
     acumId: 0,
   };

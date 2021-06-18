@@ -33,7 +33,7 @@ export interface CodegenConfig extends TypeScriptPluginConfig, TypeScriptResolve
    * @description
    * Will use import type {} rather than import {} when importing only types.
    *
-   * This gives compatibility with TypeScript's "importsNotUsedAsValues": "error" option
+   * This gives also add compatibility with TypeScript's "importsNotUsedAsValues": "error" option
    *
    * @default true
    */
@@ -134,11 +134,11 @@ export async function EnvelopTypeScriptCodegen(executableSchema: GraphQLSchema, 
   const schema = parse(printSchemaWithDirectives(executableSchema));
 
   const {
-    targetPath,
+    targetPath = './src/envelop.generated.ts',
     deepPartialResolvers,
     preImportCode = '',
     scalars: customScalars,
-    onError,
+    onError = console.error,
     pluginContext,
     skipDocumentsValidation,
     documents: documentsArg,
@@ -247,5 +247,5 @@ export async function EnvelopTypeScriptCodegen(executableSchema: GraphQLSchema, 
     code = await formatPrettier(await transformGenerated(code), 'typescript');
   }
 
-  await writeFileIfChanged(resolve(targetPath ?? './src/envelop.generated.ts'), code).catch(onError);
+  await writeFileIfChanged(resolve(targetPath), code).catch(onError);
 }

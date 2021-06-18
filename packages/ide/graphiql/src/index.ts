@@ -30,7 +30,7 @@ export function GraphiQLHandler(options: GraphiQLOptions | boolean = {}): Reques
   };
 }
 
-export const GraphiQLIDE = (options?: GraphiQLOptions | boolean): EZPlugin => {
+export const GraphiQLEZIde = (options: GraphiQLOptions | boolean = true): EZPlugin => {
   return {
     onRegister(ctx) {
       ctx.graphiQLHandler = GraphiQLHandler;

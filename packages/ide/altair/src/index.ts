@@ -51,7 +51,7 @@ declare module '@graphql-ez/core-types' {
   }
 }
 
-export const AltairIDE = (options: AltairOptions | boolean): EZPlugin => {
+export const AltairEZIde = (options: AltairOptions | boolean = true): EZPlugin => {
   return {
     onRegister(ctx) {
       ctx.altairHandler = AltairHandler;
