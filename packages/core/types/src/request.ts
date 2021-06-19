@@ -41,6 +41,6 @@ export interface HandleRequestOptions<BuildContextArgs, TReturn = unknown> {
   onPushResponse: (result: Push<unknown, unknown>, defaultHandle: DefaultPushResponseHandler) => TReturn | Promise<TReturn>;
 }
 
-export type HandleRequest<TReturn = unknown> = (options: HandleRequestOptions<BuildContextArgs, TReturn>) => Promise<TReturn>;
+export type HandleRequest = <TReturn = unknown>(options: HandleRequestOptions<BuildContextArgs, TReturn>) => Promise<TReturn>;
 
 export type RequestHandler = (req: IncomingMessage, res: ServerResponse) => Promise<void> | void;

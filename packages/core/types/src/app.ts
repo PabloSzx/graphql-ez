@@ -35,7 +35,7 @@ export type EZPlugin =
       ) => void | Promise<void>;
     });
 
-export type IntegrationsNames = 'express-new' | 'fastify-new' | 'nextjs' | 'http' | 'koa' | 'hapi' | 'core';
+export type IntegrationsNames = 'express-new' | 'fastify-new' | 'nextjs' | 'http' | 'koa' | 'hapi-new' | 'core';
 export interface AdapterFactoryContext {
   integrationName: IntegrationsNames;
 }
