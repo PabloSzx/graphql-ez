@@ -1,4 +1,4 @@
-import { BaseEnvelopAppOptions, BaseEnvelopBuilder, createEnvelopAppFactory, handleRequest } from '@graphql-ez/core/app';
+import { BaseEZAppOptions, BaseEnvelopBuilder, createEZAppFactory, handleRequest } from '@graphql-ez/core/app';
 import { gql, LazyPromise } from '@graphql-ez/core/base';
 import { handleCodegen, WithCodegen } from '@graphql-ez/core/codegen/handle';
 import { handleCors, WithCors } from '@graphql-ez/core/cors/rawCors';
@@ -19,23 +19,23 @@ declare module '@graphql-ez/core/types' {
   }
 }
 
-export interface EnvelopAppOptions extends BaseEnvelopAppOptions<EnvelopContext>, WithCodegen, WithCors {}
+export interface EZAppOptions extends BaseEZAppOptions<EnvelopContext>, WithCodegen, WithCors {}
 
 export interface BuildAppOptions {
   prepare?: (appBuilder: BaseEnvelopBuilder) => void | Promise<void>;
 }
 
-export interface EnvelopApp {
+export interface EZApp {
   handler: NextApiHandler<unknown>;
   getEnveloped: Promise<Envelop<unknown>>;
 }
 
-export interface EnvelopAppBuilder extends BaseEnvelopBuilder {
-  buildApp(options?: BuildAppOptions): EnvelopApp;
+export interface EZAppBuilder extends BaseEnvelopBuilder {
+  buildApp(options?: BuildAppOptions): EZApp;
 }
 
-export function CreateApp(config: EnvelopAppOptions = {}): EnvelopAppBuilder {
-  const { appBuilder, ...commonApp } = createEnvelopAppFactory(config, {
+export function CreateApp(config: EZAppOptions = {}): EZAppBuilder {
+  const { appBuilder, ...commonApp } = createEZAppFactory(config, {
     afterBuilt(getEnveloped) {
       handleCodegen(getEnveloped, config, {
         moduleName: 'nextjs',
@@ -43,7 +43,7 @@ export function CreateApp(config: EnvelopAppOptions = {}): EnvelopAppBuilder {
     },
   });
 
-  function buildApp({ prepare }: BuildAppOptions = {}): EnvelopApp {
+  function buildApp({ prepare }: BuildAppOptions = {}): EZApp {
     let app: NextApiHandler<unknown> | undefined;
     const { buildContext, customHandleRequest } = config;
 

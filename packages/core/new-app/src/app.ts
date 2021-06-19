@@ -11,11 +11,11 @@ import type {
   BaseAppBuilder,
   InternalAppBuildContext,
   InternalAppBuildIntegrationContext,
-  EnvelopAppFactoryType,
+  EZAppFactoryType,
   AdapterFactoryContext,
 } from '@graphql-ez/core-types';
 
-export function createEnvelopAppFactory(
+export function createEZAppFactory(
   factoryCtx: AdapterFactoryContext,
   rawOptions: AppOptions,
   {
@@ -25,11 +25,20 @@ export function createEnvelopAppFactory(
     preBuild?: (ctx: InternalAppBuildContext) => void | Promise<void>;
     afterBuild?: (getEnveloped: Envelop, ctx: InternalAppBuildContext) => void | Promise<void>;
   } = {}
-): EnvelopAppFactoryType {
-  const options = {
+): EZAppFactoryType {
+  const ezPlugins = [...(rawOptions.ez?.plugins || []), ezSchema(), ezCache()];
+
+  const integrationName = factoryCtx.integrationName;
+  for (const { name, compatibilityList } of ezPlugins) {
+    if (compatibilityList && !compatibilityList.includes(integrationName)) {
+      throw Error(`EZ Plugin "${name}" is not compatible with "${integrationName}"`);
+    }
+  }
+
+  const options: InternalAppBuildContext['options'] = {
     ...rawOptions,
     ez: {
-      plugins: [...(rawOptions.ez?.plugins || []), ezSchema(), ezCache()],
+      plugins: ezPlugins,
     },
     envelop: {
       plugins: [...(rawOptions.envelop?.plugins || [])],
@@ -48,7 +57,7 @@ export function createEnvelopAppFactory(
   };
 
   const registerPromise = Promise.all(
-    options.ez.plugins.map(plugin => {
+    ezPlugins.map(plugin => {
       return plugin.onRegister?.(ctx);
     })
   ).catch(err => {
@@ -56,14 +65,14 @@ export function createEnvelopAppFactory(
     process.exit(1);
   });
 
-  const appBuilder: EnvelopAppFactoryType['appBuilder'] = async function appBuilder(buildOptions, adapterFactory) {
+  const appBuilder: EZAppFactoryType['appBuilder'] = async function appBuilder(buildOptions, adapterFactory) {
     await registerPromise;
 
     if (buildOptions.prepare) await buildOptions.prepare(baseAppBuilder);
     if (options.prepare) await options.prepare(baseAppBuilder);
 
     await Promise.all([
-      ...options.ez.plugins.map(async plugin => {
+      ...ezPlugins.map(async plugin => {
         await plugin.onPreBuild?.(ctx);
       }),
       preBuild?.(ctx),
@@ -74,7 +83,7 @@ export function createEnvelopAppFactory(
     });
 
     await Promise.all([
-      ...options.ez.plugins.map(async plugin => {
+      ...ezPlugins.map(async plugin => {
         return plugin.onAfterBuild?.(getEnveloped, ctx);
       }),
       afterBuild?.(getEnveloped, ctx),
@@ -91,7 +100,7 @@ export function createEnvelopAppFactory(
 
   async function onIntegrationRegister(integrationCtx: InternalAppBuildIntegrationContext) {
     await Promise.all(
-      options.ez.plugins.map(plugin => {
+      ezPlugins.map(plugin => {
         return plugin.onIntegrationRegister?.(ctx, integrationCtx);
       })
     );

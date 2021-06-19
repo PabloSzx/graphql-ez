@@ -27,12 +27,13 @@ export type InferDataLoader<V> = V extends RegisteredDataLoader<infer Name, infe
 
 export const ezDataLoader = (): EZPlugin => {
   return {
+    name: 'DataLoader',
     onRegister(ctx) {
       function registerDataLoader<Name extends string, Key, Value, Cache = Key>(
         name: Name,
         dataLoaderFactory: DataLoaderFn<Key, Value, Cache>
       ): RegisteredDataLoader<Name, Key, Value, Cache> {
-        (ctx.options.envelop.plugins ||= []).push(
+        ctx.options.envelop.plugins.push(
           useDataLoader(name, context => {
             return dataLoaderFactory(DataLoader, context);
           })

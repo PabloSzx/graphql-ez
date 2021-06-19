@@ -1,4 +1,4 @@
-import { BaseEnvelopAppOptions, BaseEnvelopBuilder, createEnvelopAppFactory, handleRequest } from '@graphql-ez/core/app';
+import { BaseEZAppOptions, BaseEnvelopBuilder, createEZAppFactory, handleRequest } from '@graphql-ez/core/app';
 import { LazyPromise } from '@graphql-ez/core/base';
 import { handleCodegen, WithCodegen } from '@graphql-ez/core/codegen/handle';
 import { handleIDE, WithIDE } from '@graphql-ez/core/ide/handle';
@@ -18,7 +18,7 @@ declare module '@graphql-ez/core/types' {
   }
 }
 
-export interface EnvelopAppOptions extends BaseEnvelopAppOptions<EnvelopContext>, WithCodegen, WithJit, WithIDE {
+export interface EZAppOptions extends BaseEZAppOptions<EnvelopContext>, WithCodegen, WithJit, WithIDE {
   /**
    * @default "/graphql"
    */
@@ -44,16 +44,16 @@ export interface BuildAppOptions {
   prepare?: (appBuilder: BaseEnvelopBuilder) => void | Promise<void>;
 }
 
-export interface EnvelopApp {
+export interface EZApp {
   plugin: Plugin<{}>;
   getEnveloped: Promise<Envelop<unknown>>;
 }
-export interface EnvelopAppBuilder extends BaseEnvelopBuilder {
-  buildApp(options?: BuildAppOptions): EnvelopApp;
+export interface EZAppBuilder extends BaseEnvelopBuilder {
+  buildApp(options?: BuildAppOptions): EZApp;
 }
 
-export function CreateApp(config: EnvelopAppOptions = {}): EnvelopAppBuilder {
-  const { appBuilder, ...commonApp } = createEnvelopAppFactory(config, {
+export function CreateApp(config: EZAppOptions = {}): EZAppBuilder {
+  const { appBuilder, ...commonApp } = createEZAppFactory(config, {
     async preBuild(plugins) {
       await handleJit(config, plugins);
     },
@@ -64,7 +64,7 @@ export function CreateApp(config: EnvelopAppOptions = {}): EnvelopAppBuilder {
     },
   });
 
-  function buildApp({ prepare }: BuildAppOptions = {}): EnvelopApp {
+  function buildApp({ prepare }: BuildAppOptions = {}): EZApp {
     const { ide, path = '/graphql', buildContext, customHandleRequest } = config;
 
     const registerApp = appBuilder({
@@ -160,7 +160,7 @@ export function CreateApp(config: EnvelopAppOptions = {}): EnvelopAppBuilder {
 
     return {
       plugin: {
-        name: 'EnvelopApp',
+        name: 'EZApp',
         async register(server) {
           await (await registerApp).app(server);
         },

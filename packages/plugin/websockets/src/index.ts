@@ -72,6 +72,8 @@ const WSDeps = {
 
 export const ezWebSockets = (options: WebSocketOptions = 'adaptive'): EZPlugin => {
   return {
+    name: 'GraphQL WebSockets',
+    compatibilityList: ['fastify-new'],
     async onRegister(ctx) {
       const enableOldTransport =
         options === 'legacy' || options === 'both' || (typeof options === 'object' && options.subscriptionsTransport);
@@ -213,8 +215,6 @@ export const ezWebSockets = (options: WebSocketOptions = 'adaptive'): EZPlugin =
 
         return;
       }
-
-      throw Error(`Unsupported implementation for WebSockets EZ Plugin: "${ctx.moduleName}"`);
     },
   };
 };

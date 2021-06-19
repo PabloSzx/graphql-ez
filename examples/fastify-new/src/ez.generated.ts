@@ -155,11 +155,13 @@ export type Scalars = {
   ObjectID: any;
   /** Represents NULL values */
   Void: any;
+  /** The `Upload` scalar type represents a file upload. */
   Upload: Promise<import('graphql-upload').FileUpload>;
 };
 
 export type Query = {
   __typename?: 'Query';
+  other: Scalars['String'];
   hello: Scalars['String'];
 };
 
@@ -237,8 +239,6 @@ export type DirectiveResolverFn<TResult = {}, TParent = {}, TContext = {}, TArgs
 
 /** Mapping between all available schema types and the resolvers types */
 export type ResolversTypes = {
-  Query: ResolverTypeWrapper<{}>;
-  String: ResolverTypeWrapper<Scalars['String']>;
   Date: ResolverTypeWrapper<Scalars['Date']>;
   Time: ResolverTypeWrapper<Scalars['Time']>;
   DateTime: ResolverTypeWrapper<Scalars['DateTime']>;
@@ -291,6 +291,8 @@ export type ResolversTypes = {
   IBAN: ResolverTypeWrapper<Scalars['IBAN']>;
   ObjectID: ResolverTypeWrapper<Scalars['ObjectID']>;
   Void: ResolverTypeWrapper<Scalars['Void']>;
+  Query: ResolverTypeWrapper<{}>;
+  String: ResolverTypeWrapper<Scalars['String']>;
   Upload: ResolverTypeWrapper<Scalars['Upload']>;
   Boolean: ResolverTypeWrapper<Scalars['Boolean']>;
   Int: ResolverTypeWrapper<Scalars['Int']>;
@@ -298,8 +300,6 @@ export type ResolversTypes = {
 
 /** Mapping between all available schema types and the resolvers parents */
 export type ResolversParentTypes = {
-  Query: {};
-  String: Scalars['String'];
   Date: Scalars['Date'];
   Time: Scalars['Time'];
   DateTime: Scalars['DateTime'];
@@ -352,16 +352,11 @@ export type ResolversParentTypes = {
   IBAN: Scalars['IBAN'];
   ObjectID: Scalars['ObjectID'];
   Void: Scalars['Void'];
+  Query: {};
+  String: Scalars['String'];
   Upload: Scalars['Upload'];
   Boolean: Scalars['Boolean'];
   Int: Scalars['Int'];
-};
-
-export type QueryResolvers<
-  ContextType = EZContext,
-  ParentType extends ResolversParentTypes['Query'] = ResolversParentTypes['Query']
-> = {
-  hello?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
 };
 
 export interface DateScalarConfig extends GraphQLScalarTypeConfig<ResolversTypes['Date'], any> {
@@ -572,12 +567,19 @@ export interface VoidScalarConfig extends GraphQLScalarTypeConfig<ResolversTypes
   name: 'Void';
 }
 
+export type QueryResolvers<
+  ContextType = EZContext,
+  ParentType extends ResolversParentTypes['Query'] = ResolversParentTypes['Query']
+> = {
+  other?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  hello?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+};
+
 export interface UploadScalarConfig extends GraphQLScalarTypeConfig<ResolversTypes['Upload'], any> {
   name: 'Upload';
 }
 
 export type Resolvers<ContextType = EZContext> = {
-  Query?: QueryResolvers<ContextType>;
   Date?: GraphQLScalarType;
   Time?: GraphQLScalarType;
   DateTime?: GraphQLScalarType;
@@ -630,6 +632,7 @@ export type Resolvers<ContextType = EZContext> = {
   IBAN?: GraphQLScalarType;
   ObjectID?: GraphQLScalarType;
   Void?: GraphQLScalarType;
+  Query?: QueryResolvers<ContextType>;
   Upload?: GraphQLScalarType;
 };
 

@@ -42,6 +42,8 @@ export function GraphiQLHandler(options: GraphiQLOptions | boolean = {}): Reques
 
 export const ezGraphiQLIDE = (options: GraphiQLOptions | boolean = true): EZPlugin => {
   return {
+    name: 'GraphiQL IDE',
+    compatibilityList: ['fastify-new'],
     onRegister(ctx) {
       const objOptions = { ...(getObjectValue(options) || {}) };
 

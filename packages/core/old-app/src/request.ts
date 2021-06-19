@@ -5,7 +5,7 @@ import type { MultipartResponse, Push, Request } from 'graphql-helix';
 import type { Envelop } from '@envelop/types';
 import type { IncomingMessage, ServerResponse } from 'http';
 import type { ExecutionResult } from 'graphql';
-import type { BaseEnvelopAppOptions } from './app';
+import type { BaseEZAppOptions } from './app';
 import type { BuildContextArgs } from './types';
 
 export type EnvelopResponse = {
@@ -18,7 +18,7 @@ export interface HandleRequestOptions<BuildContextArgs, TReturn = unknown> {
   request: Request;
   getEnveloped: Envelop<unknown>;
 
-  baseOptions: BaseEnvelopAppOptions<never>;
+  baseOptions: BaseEZAppOptions<never>;
 
   buildContextArgs: () => BuildContextArgs;
   buildContext: ((args: BuildContextArgs) => Record<string, unknown> | Promise<Record<string, unknown>>) | undefined;

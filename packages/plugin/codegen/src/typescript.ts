@@ -130,7 +130,7 @@ const CodegenDeps = LazyPromise(async () => {
 });
 
 export async function EnvelopTypeScriptCodegen(executableSchema: GraphQLSchema, ctx: InternalAppBuildContext): Promise<void> {
-  const moduleName = `@graphql-ez/${ctx.moduleName}`;
+  const moduleName = `@graphql-ez/${ctx.integrationName}`;
   const schema = parse(printSchemaWithDirectives(executableSchema));
 
   const {

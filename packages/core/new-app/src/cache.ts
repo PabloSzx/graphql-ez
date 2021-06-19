@@ -36,6 +36,7 @@ declare module '@graphql-ez/core-types' {
 
 export const ezCache = (): EZPlugin => {
   return {
+    name: 'Cache',
     async onPreBuild(ctx) {
       const {
         cache,

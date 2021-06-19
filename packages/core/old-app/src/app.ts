@@ -61,11 +61,11 @@ export interface BuiltApp<T> {
   getEnveloped: Envelop<unknown>;
 }
 
-export interface EnvelopAppFactoryType extends BaseEnvelopBuilder {
+export interface EZAppFactoryType extends BaseEnvelopBuilder {
   appBuilder<T>(opts: InternalAppBuildOptions<T>): Promise<BuiltApp<T>>;
 }
 
-export interface BaseEnvelopAppOptions<TContext = EnvelopContext>
+export interface BaseEZAppOptions<TContext = EnvelopContext>
   extends WithGraphQLModules,
     WithSchemaBuilding<TContext>,
     WithScalars,
@@ -97,8 +97,8 @@ export interface BaseEnvelopAppOptions<TContext = EnvelopContext>
   buildContext?: (args: BuildContextArgs) => Record<string, unknown> | Promise<Record<string, unknown>>;
 }
 
-export function createEnvelopAppFactory<TContext>(
-  config: BaseEnvelopAppOptions<TContext>,
+export function createEZAppFactory<TContext>(
+  config: BaseEZAppOptions<TContext>,
   {
     preBuild,
     afterBuilt,
@@ -106,7 +106,7 @@ export function createEnvelopAppFactory<TContext>(
     preBuild?: (plugins: Plugin[]) => void | Promise<void>;
     afterBuilt?: (getEnveloped: Envelop<unknown>) => void | Promise<void>;
   } = {}
-): EnvelopAppFactoryType {
+): EZAppFactoryType {
   const { mergeSchemasConfig, plugins, modules, scalars } = config;
   const factoryModules = uniqueArray(modules);
   const factoryPlugins = uniqueArray(plugins);

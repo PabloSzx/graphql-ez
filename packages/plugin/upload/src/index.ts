@@ -26,13 +26,15 @@ declare module '@graphql-ez/core-types' {
 
 export const ezUpload = (options: GraphQLUploadConfig = true): EZPlugin => {
   return {
+    name: 'GraphQL Upload',
+    compatibilityList: ['fastify-new'],
     onRegister(ctx) {
       if (options) {
         const deps = {
-          processRequest: LazyPromise(() => import('graphql-upload/public/processRequest.js')),
-          express: LazyPromise(() => import('graphql-upload/public/graphqlUploadExpress.js')),
-          koa: LazyPromise(() => import('graphql-upload/public/graphqlUploadKoa.js')),
-          scalar: LazyPromise(() => import('graphql-upload/public/GraphQLUpload.js')),
+          processRequest: LazyPromise(() => import('graphql-upload/public/processRequest.js').then(v => v.default)),
+          express: LazyPromise(() => import('graphql-upload/public/graphqlUploadExpress.js')).then(v => v.default),
+          koa: LazyPromise(() => import('graphql-upload/public/graphqlUploadKoa.js').then(v => v.default)),
+          scalar: LazyPromise(() => import('graphql-upload/public/GraphQLUpload.js').then(v => v.default)),
         };
         const definition = LazyPromise(async () => {
           return {

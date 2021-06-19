@@ -1,6 +1,6 @@
 import bodyParser from 'koa-bodyparser';
 
-import { BaseEnvelopAppOptions, BaseEnvelopBuilder, createEnvelopAppFactory, handleRequest } from '@graphql-ez/core/app';
+import { BaseEZAppOptions, BaseEnvelopBuilder, createEZAppFactory, handleRequest } from '@graphql-ez/core/app';
 import { handleCodegen, WithCodegen } from '@graphql-ez/core/codegen/handle';
 import { handleIDE, WithIDE } from '@graphql-ez/core/ide/handle';
 import { RawAltairHandlerDeps } from '@graphql-ez/core/ide/rawAltair';
@@ -22,12 +22,7 @@ declare module '@graphql-ez/core/types' {
   }
 }
 
-export interface EnvelopAppOptions
-  extends BaseEnvelopAppOptions<EnvelopContext>,
-    WithCodegen,
-    WithJit,
-    WithIDE,
-    WithGraphQLUpload {
+export interface EZAppOptions extends BaseEZAppOptions<EnvelopContext>, WithCodegen, WithJit, WithIDE, WithGraphQLUpload {
   /**
    * @default "/graphql"
    */
@@ -54,16 +49,16 @@ export interface BuildAppOptions {
   router: KoaRouter;
 }
 
-export interface EnvelopApp {
+export interface EZApp {
   getEnveloped: Envelop<unknown>;
 }
 
-export interface EnvelopAppBuilder extends BaseEnvelopBuilder {
-  buildApp(options: BuildAppOptions): Promise<EnvelopApp>;
+export interface EZAppBuilder extends BaseEnvelopBuilder {
+  buildApp(options: BuildAppOptions): Promise<EZApp>;
 }
 
-export function CreateApp(config: EnvelopAppOptions = {}): EnvelopAppBuilder {
-  const { appBuilder, ...commonApp } = createEnvelopAppFactory(config, {
+export function CreateApp(config: EZAppOptions = {}): EZAppBuilder {
+  const { appBuilder, ...commonApp } = createEZAppFactory(config, {
     async preBuild(plugins) {
       await handleJit(config, plugins);
     },
@@ -74,7 +69,7 @@ export function CreateApp(config: EnvelopAppOptions = {}): EnvelopAppBuilder {
     },
   });
 
-  async function buildApp({ router, prepare }: BuildAppOptions): Promise<EnvelopApp> {
+  async function buildApp({ router, prepare }: BuildAppOptions): Promise<EZApp> {
     const { path = '/graphql', buildContext, ide, bodyParserOptions = {}, customHandleRequest } = config;
 
     const { getEnveloped } = await appBuilder({

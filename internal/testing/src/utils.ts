@@ -20,7 +20,7 @@ import { Pool } from 'undici';
 import ws from 'ws';
 
 import {
-  BaseEnvelopAppOptions,
+  BaseEZAppOptions,
   BaseEnvelopBuilder,
   CodegenConfig,
   createDeferredPromise,
@@ -166,7 +166,7 @@ export interface TestCodegenOptions {
 }
 
 export async function Codegen(
-  options: BaseEnvelopAppOptions<never> & WithCodegen,
+  options: BaseEZAppOptions<never> & WithCodegen,
   { tmpSchemaExtension = '.gql', tmpTSGeneratedExtension = '.ts' }: TestCodegenOptions = {}
 ) {
   let tmpSchemaPath: string | undefined;
@@ -234,7 +234,7 @@ export async function startExpressServer({
   graphqlWsClientOptions,
   websocketPath,
   subscriptionsTransportClientOptions,
-}: StartTestServerOptions<import('@graphql-ez/express').EnvelopAppOptions, import('@graphql-ez/express').BuildAppOptions>) {
+}: StartTestServerOptions<import('@graphql-ez/express').EZAppOptions, import('@graphql-ez/express').BuildAppOptions>) {
   const app = (await import('express')).default();
 
   const { CreateApp } = await import('@graphql-ez/express');
@@ -274,7 +274,7 @@ export async function startFastifyServer({
   graphqlWsClientOptions,
   websocketPath,
   subscriptionsTransportClientOptions,
-}: StartTestServerOptions<import('@graphql-ez/fastify').EnvelopAppOptions, import('@graphql-ez/fastify').BuildAppOptions>) {
+}: StartTestServerOptions<import('@graphql-ez/fastify').EZAppOptions, import('@graphql-ez/fastify').BuildAppOptions>) {
   const app = (await import('fastify')).default();
 
   const { CreateApp } = await import('@graphql-ez/fastify');
@@ -314,7 +314,7 @@ export async function startHTTPServer({
   options = {},
   buildOptions,
   testCodegenOptions,
-}: StartTestServerOptions<import('@graphql-ez/http').EnvelopAppOptions, import('@graphql-ez/http').BuildAppOptions>) {
+}: StartTestServerOptions<import('@graphql-ez/http').EZAppOptions, import('@graphql-ez/http').BuildAppOptions>) {
   const { CreateApp } = await import('@graphql-ez/http');
 
   const { tmpPath, tmpSchemaPath, codegenPromise } = await Codegen(options, testCodegenOptions);
@@ -349,7 +349,7 @@ export async function startHapiServer({
   options = {},
   buildOptions,
   testCodegenOptions,
-}: StartTestServerOptions<import('@graphql-ez/hapi').EnvelopAppOptions, import('@graphql-ez/hapi').BuildAppOptions>) {
+}: StartTestServerOptions<import('@graphql-ez/hapi').EZAppOptions, import('@graphql-ez/hapi').BuildAppOptions>) {
   const { CreateApp } = await import('@graphql-ez/hapi');
 
   const port = await getPort();
@@ -388,7 +388,7 @@ export async function startKoaServer({
   options = {},
   buildOptions = {},
   testCodegenOptions,
-}: StartTestServerOptions<import('@graphql-ez/koa').EnvelopAppOptions, import('@graphql-ez/koa').BuildAppOptions>) {
+}: StartTestServerOptions<import('@graphql-ez/koa').EZAppOptions, import('@graphql-ez/koa').BuildAppOptions>) {
   const Koa = (await import('koa')).default;
   const KoaRouter = (await import('@koa/router')).default;
 

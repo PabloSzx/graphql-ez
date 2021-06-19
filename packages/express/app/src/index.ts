@@ -2,7 +2,7 @@ import assert from 'assert';
 import { Express, json, Request, RequestHandler, Response, Router } from 'express';
 import { createServer, Server } from 'http';
 
-import { BaseEnvelopAppOptions, BaseEnvelopBuilder, createEnvelopAppFactory, handleRequest } from '@graphql-ez/core/app';
+import { BaseEZAppOptions, BaseEnvelopBuilder, createEZAppFactory, handleRequest } from '@graphql-ez/core/app';
 import { handleCodegen, WithCodegen } from '@graphql-ez/core/codegen/handle';
 import { handleIDE, WithIDE } from '@graphql-ez/core/ide/handle';
 import { handleJit, WithJit } from '@graphql-ez/core/jit';
@@ -23,8 +23,8 @@ declare module '@graphql-ez/core/types' {
   }
 }
 
-export interface EnvelopAppOptions
-  extends BaseEnvelopAppOptions<EnvelopContext>,
+export interface EZAppOptions
+  extends BaseEZAppOptions<EnvelopContext>,
     WithCodegen,
     WithJit,
     WithWebSockets,
@@ -52,17 +52,17 @@ export interface BuildAppOptions {
   prepare?: (appBuilder: BaseEnvelopBuilder) => void | Promise<void>;
 }
 
-export interface EnvelopApp {
+export interface EZApp {
   router: Router;
   getEnveloped: Envelop<unknown>;
 }
 
-export interface EnvelopAppBuilder extends BaseEnvelopBuilder {
-  buildApp(options: BuildAppOptions): Promise<EnvelopApp>;
+export interface EZAppBuilder extends BaseEnvelopBuilder {
+  buildApp(options: BuildAppOptions): Promise<EZApp>;
 }
 
-export function CreateApp(config: EnvelopAppOptions = {}): EnvelopAppBuilder {
-  const { appBuilder, ...commonApp } = createEnvelopAppFactory(config, {
+export function CreateApp(config: EZAppOptions = {}): EZAppBuilder {
+  const { appBuilder, ...commonApp } = createEZAppFactory(config, {
     async preBuild(plugins) {
       await handleJit(config, plugins);
     },
@@ -110,28 +110,28 @@ export function CreateApp(config: EnvelopAppOptions = {}): EnvelopAppBuilder {
     };
   }
 
-  async function buildApp({ prepare, app, server }: BuildAppOptions): Promise<EnvelopApp> {
+  async function buildApp({ prepare, app, server }: BuildAppOptions): Promise<EZApp> {
     const { buildContext, path = '/graphql', bodyParserJSONOptions: jsonOptions = {}, ide, cors } = config;
     const { app: router, getEnveloped } = await appBuilder({
       prepare,
       async adapterFactory(getEnveloped) {
-        const EnvelopApp = Router();
+        const EZApp = Router();
 
         if (cors) {
           const corsMiddleware = (await import('cors')).default;
-          EnvelopApp.use(corsMiddleware(typeof cors !== 'boolean' ? cors : undefined));
+          EZApp.use(corsMiddleware(typeof cors !== 'boolean' ? cors : undefined));
         }
 
-        if (jsonOptions) EnvelopApp.use(json(typeof jsonOptions === 'object' ? jsonOptions : undefined));
+        if (jsonOptions) EZApp.use(json(typeof jsonOptions === 'object' ? jsonOptions : undefined));
 
         const IDEPromise = handleIDE(ide, path, {
           async handleAltair(ideOptions) {
             const { altairExpress } = await import('altair-express-middleware');
 
-            EnvelopApp.use(ideOptions.path, altairExpress(ideOptions));
+            EZApp.use(ideOptions.path, altairExpress(ideOptions));
           },
           handleGraphiQL({ path, html }) {
-            EnvelopApp.use(path, (_req, res) => {
+            EZApp.use(path, (_req, res) => {
               res.type('html').send(html);
             });
           },
@@ -177,7 +177,7 @@ export function CreateApp(config: EnvelopAppOptions = {}): EnvelopAppBuilder {
           }).catch(next);
         };
 
-        EnvelopApp.get(path, ExpressRequestHandler);
+        EZApp.get(path, ExpressRequestHandler);
         if (config.GraphQLUpload) {
           const GraphQLUploadMiddleware: typeof import('graphql-upload').graphqlUploadExpress = (
             await import('graphql-upload/public/graphqlUploadExpress.js')
@@ -185,14 +185,14 @@ export function CreateApp(config: EnvelopAppOptions = {}): EnvelopAppBuilder {
 
           const middleware = GraphQLUploadMiddleware(typeof config.GraphQLUpload === 'object' ? config.GraphQLUpload : undefined);
 
-          EnvelopApp.post(path, middleware, ExpressRequestHandler);
+          EZApp.post(path, middleware, ExpressRequestHandler);
         } else {
-          EnvelopApp.post(path, ExpressRequestHandler);
+          EZApp.post(path, ExpressRequestHandler);
         }
 
         await Promise.all([IDEPromise, subscriptionsPromise]);
 
-        return EnvelopApp;
+        return EZApp;
       },
     });
 

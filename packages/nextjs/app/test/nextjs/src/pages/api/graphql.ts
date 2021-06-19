@@ -1,6 +1,6 @@
 import { buildApp } from '../../api/app';
 
-const EnvelopApp = buildApp({
+const EZApp = buildApp({
   async prepare({ gql, registerModule }) {
     registerModule(
       gql`
@@ -21,4 +21,4 @@ const EnvelopApp = buildApp({
   },
 });
 
-export default EnvelopApp.handler;
+export default EZApp.handler;

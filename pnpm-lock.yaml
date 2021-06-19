@@ -2,7 +2,7 @@ lockfileVersion: 5.3
 
 overrides:
   graphql: 15.4.0-experimental-stream-defer.1
-  esbuild: ^0.12.8
+  esbuild: ^0.12.9
   fastify: ^3.18.0
 
 importers:
@@ -14,7 +14,7 @@ importers:
       bob-esbuild-cli: 0.1.26
       concurrently: 6.2.0
       cross-env: 7.0.3
-      esbuild: ^0.12.8
+      esbuild: ^0.12.9
       husky: 6.0.0
       prettier: 2.3.1
       pretty-quick: 3.1.1
@@ -74,6 +74,7 @@ importers:
       '@graphql-ez/fastify-new': workspace:^0.1.1
       '@graphql-ez/plugin-altair': workspace:^0.0.1
       '@graphql-ez/plugin-codegen': workspace:^0.0.1
+      '@graphql-ez/plugin-modules': workspace:^0.0.1
       '@graphql-ez/plugin-scalars': workspace:^0.0.1
       '@graphql-ez/plugin-upload': workspace:^0.0.1
       '@types/graphql-upload': ^8.0.5
@@ -87,6 +88,7 @@ importers:
       '@graphql-ez/fastify-new': link:../../packages/fastify/new
       '@graphql-ez/plugin-altair': link:../../packages/plugin/altair
       '@graphql-ez/plugin-codegen': link:../../packages/plugin/codegen
+      '@graphql-ez/plugin-modules': link:../../packages/plugin/modules
       '@graphql-ez/plugin-scalars': link:../../packages/plugin/scalars
       '@graphql-ez/plugin-upload': link:../../packages/plugin/upload
       '@types/graphql-upload': 8.0.5

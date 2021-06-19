@@ -47,8 +47,10 @@ export const ezGraphQLModules = (config: Partial<Omit<ApplicationConfig, 'module
   };
 
   return {
+    name: 'GraphQL Modules',
     onRegister(ctx) {
-      ctx.modules = [];
+      const modules: Array<Promise<Module> | Module> = (ctx.modules = []);
+      ctx.appBuilder.registerModule = registerModule;
 
       function registerModule(typeDefs: TypeDefs, config?: EnvelopModuleConfig): Promise<Module>;
       function registerModule(module: Module): Module;
@@ -64,21 +66,19 @@ export const ezGraphQLModules = (config: Partial<Omit<ApplicationConfig, 'module
             });
           });
 
-          if (autoAdd) (ctx.modules ||= []).push(promiseModule);
+          if (autoAdd) modules.push(promiseModule);
 
           return promiseModule;
         }
 
-        (ctx.modules ||= []).push(firstParam);
+        modules.push(firstParam);
         return firstParam;
       }
-
-      ctx.appBuilder.registerModule = registerModule;
 
       const modulesApplication = (ctx.modulesApplication = LazyPromise(async () => {
         const { createApplication, createModule } = await GraphQLModules;
 
-        const [scalarsModule, modules] = await Promise.all([
+        const [scalarsModule, modulesList] = await Promise.all([
           ctx.scalarsDefinition
             ? ctx.scalarsDefinition.then(scalarsDef => {
                 return createModule({
@@ -88,11 +88,11 @@ export const ezGraphQLModules = (config: Partial<Omit<ApplicationConfig, 'module
                 });
               })
             : null,
-          Promise.all(ctx.modules || []),
+          Promise.all(modules),
         ]);
 
         if (ctx.GraphQLUpload) {
-          modules.push(
+          modulesList.push(
             createModule({
               id: 'GraphQLUpload',
               ...(await ctx.GraphQLUpload.definition),
@@ -101,7 +101,7 @@ export const ezGraphQLModules = (config: Partial<Omit<ApplicationConfig, 'module
         }
 
         return createApplication({
-          modules: scalarsModule ? [scalarsModule, ...modules] : modules,
+          modules: scalarsModule ? [scalarsModule, ...modulesList] : modulesList,
           ...config,
         });
       }));

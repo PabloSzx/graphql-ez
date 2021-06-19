@@ -11,7 +11,7 @@ import type { ServerOptions as SubscriptionsTransportOptions } from 'subscriptio
 import type { ServerOptions as GraphQLWSOptions } from 'graphql-ws';
 import type { ExecutionArgs } from 'graphql';
 import type { EnvelopContext } from '../types';
-import type { BaseEnvelopAppOptions } from '../app';
+import type { BaseEZAppOptions } from '../app';
 
 declare module '../types' {
   interface BuildContextArgs {
@@ -104,7 +104,7 @@ export interface WithWebSockets {
 }
 
 export const CreateWebSocketsServer = async (
-  config: BaseEnvelopAppOptions<EnvelopContext> & WithWebSockets
+  config: BaseEZAppOptions<EnvelopContext> & WithWebSockets
 ): CommonWebSocketsServer => {
   const options = config.websockets;
 
@@ -229,7 +229,7 @@ export function handleSubscriptionsTransport(
   wsServer: WebSocket.Server,
   options: FilteredSubscriptionsTransportOptions | undefined,
   getEnveloped: Envelop<unknown>,
-  buildContext: BaseEnvelopAppOptions['buildContext']
+  buildContext: BaseEZAppOptions['buildContext']
 ): void {
   const { execute, subscribe } = getEnveloped();
   subscriptionsTransportWs.create(
@@ -265,7 +265,7 @@ export function handleGraphQLWS(
   wsServer: WebSocket.Server,
   options: FilteredGraphQLWSOptions | undefined,
   getEnveloped: Envelop<unknown>,
-  buildContext: BaseEnvelopAppOptions['buildContext']
+  buildContext: BaseEZAppOptions['buildContext']
 ): void {
   const { execute, subscribe } = getEnveloped();
   useGraphQLWSServer(

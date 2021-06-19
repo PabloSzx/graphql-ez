@@ -6,7 +6,7 @@ import type { resolvers as scalarResolvers } from 'graphql-scalars';
 import type { IScalarTypeResolver } from '@graphql-tools/utils';
 import type { DocumentNode, GraphQLScalarType } from 'graphql';
 import type { WithGraphQLUpload } from './upload';
-import type { BaseEnvelopAppOptions } from './app';
+import type { BaseEZAppOptions } from './app';
 
 export type ScalarsConfig = '*' | { [k in keyof typeof scalarResolvers]?: boolean | 1 | 0 } | Array<keyof typeof scalarResolvers>;
 
@@ -27,7 +27,7 @@ export interface ScalarsModule {
 
 export async function createScalarsModule(
   scalars: ScalarsConfig | undefined,
-  { GraphQLUpload }: BaseEnvelopAppOptions<never> & WithGraphQLUpload
+  { GraphQLUpload }: BaseEZAppOptions<never> & WithGraphQLUpload
 ): Promise<ScalarsModule | null> {
   if (!scalars) return getScalarsModule();
 

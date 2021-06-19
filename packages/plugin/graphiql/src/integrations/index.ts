@@ -10,6 +10,4 @@ export const onIntegrationRegister: NonNullable<EZPlugin['onIntegrationRegister'
 
     return;
   }
-
-  throw Error(`Unsupported implementation for GraphiQL EZ Plugin: "${ctx.moduleName}"`);
 };

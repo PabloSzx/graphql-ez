@@ -1,5 +1,6 @@
 {
   "name": "@graphql-ez/plugin-dataloader",
+  "version": "0.0.1",
   "exports": {
     ".": {
       "require": "./dist/index.js",
@@ -10,6 +11,7 @@
       "import": "./dist/*.mjs"
     }
   },
+  "types": "dist/index.d.ts",
   "scripts": {
     "prepare": "bob-esbuild build"
   },

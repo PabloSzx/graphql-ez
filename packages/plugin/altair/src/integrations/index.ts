@@ -10,6 +10,4 @@ export const onIntegrationRegister: NonNullable<EZPlugin['onIntegrationRegister'
 
     return;
   }
-
-  throw Error(`Unsupported implementation for Altair EZ Plugin: "${ctx.moduleName}"`);
 };

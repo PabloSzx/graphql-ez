@@ -1,6 +1,6 @@
 import assert from 'assert';
 
-import { BaseEnvelopAppOptions, BaseEnvelopBuilder, createEnvelopAppFactory, handleRequest } from '@graphql-ez/core/app';
+import { BaseEZAppOptions, BaseEnvelopBuilder, createEZAppFactory, handleRequest } from '@graphql-ez/core/app';
 import { LazyPromise } from '@graphql-ez/core/base';
 import { handleCodegen, WithCodegen } from '@graphql-ez/core/codegen/handle';
 import { handleIDE, WithIDE } from '@graphql-ez/core/ide/handle';
@@ -15,7 +15,7 @@ import type { EnvelopContext } from '@graphql-ez/core/types';
 import type { AltairFastifyPluginOptions } from 'altair-fastify-plugin';
 import type { WithGraphQLUpload } from '@graphql-ez/core/upload';
 
-export type EnvelopAppPlugin = FastifyPluginCallback<{}, Server>;
+export type EZAppPlugin = FastifyPluginCallback<{}, Server>;
 
 declare module '@graphql-ez/core/types' {
   interface BuildContextArgs {
@@ -26,8 +26,8 @@ declare module '@graphql-ez/core/types' {
   }
 }
 
-export interface EnvelopAppOptions
-  extends BaseEnvelopAppOptions<EnvelopContext>,
+export interface EZAppOptions
+  extends BaseEZAppOptions<EnvelopContext>,
     WithCodegen,
     WithJit,
     WithWebSockets,
@@ -59,17 +59,17 @@ export interface BuildAppOptions {
   prepare?: (appBuilder: BaseEnvelopBuilder) => void | Promise<void>;
 }
 
-export interface EnvelopApp {
-  plugin: EnvelopAppPlugin;
+export interface EZApp {
+  plugin: EZAppPlugin;
   getEnveloped: Promise<Envelop<unknown>>;
 }
 
-export interface EnvelopAppBuilder extends BaseEnvelopBuilder {
-  buildApp(options?: BuildAppOptions): EnvelopApp;
+export interface EZAppBuilder extends BaseEnvelopBuilder {
+  buildApp(options?: BuildAppOptions): EZApp;
 }
 
-export function CreateApp(config: EnvelopAppOptions = {}): EnvelopAppBuilder {
-  const { appBuilder, ...commonApp } = createEnvelopAppFactory(config, {
+export function CreateApp(config: EZAppOptions = {}): EZAppBuilder {
+  const { appBuilder, ...commonApp } = createEZAppFactory(config, {
     async preBuild(plugins) {
       await handleJit(config, plugins);
     },
@@ -117,7 +117,7 @@ export function CreateApp(config: EnvelopAppOptions = {}): EnvelopAppBuilder {
     };
   }
 
-  function buildApp({ prepare }: BuildAppOptions = {}): EnvelopApp {
+  function buildApp({ prepare }: BuildAppOptions = {}): EZApp {
     const { buildContext, path = '/graphql', ide, routeOptions = {}, customHandleRequest, cors } = config;
     const appPromise = appBuilder({
       prepare,

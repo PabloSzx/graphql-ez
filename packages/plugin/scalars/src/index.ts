@@ -22,6 +22,7 @@ export interface ScalarsDefinition {
 
 export const ezScalars = (scalars: ScalarsConfig): EZPlugin => {
   return {
+    name: 'GraphQL Scalars',
     async onRegister(ctx) {
       const { typeDefs: scalarTypeDefs, resolvers: scalarResolvers } = await import('graphql-scalars');
 

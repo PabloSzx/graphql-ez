@@ -45,6 +45,7 @@ const mergeSchemas = LazyPromise(() => import('@graphql-tools/merge').then(v => 
 
 export const ezSchema = (): EZPlugin => {
   return {
+    name: 'GraphQL Schema',
     async onPreBuild(ctx) {
       const { schema, mergeSchemasConfig } = ctx.options;
 
@@ -110,7 +111,7 @@ export const ezSchema = (): EZPlugin => {
       }
 
       if (ctx.modulesEnvelopPlugin) {
-        (ctx.options.envelop.plugins ||= []).push(await ctx.modulesEnvelopPlugin);
+        ctx.options.envelop.plugins.push(await ctx.modulesEnvelopPlugin);
       }
 
       if (finalSchema) {
@@ -124,7 +125,7 @@ export const ezSchema = (): EZPlugin => {
           });
         }
 
-        (ctx.options.envelop.plugins ||= []).push(useSchema(finalSchema));
+        ctx.options.envelop.plugins.push(useSchema(finalSchema));
       }
     },
   };

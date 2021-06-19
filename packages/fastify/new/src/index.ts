@@ -1,9 +1,9 @@
-import { BaseAppBuilder, createEnvelopAppFactory, handleRequest } from '@graphql-ez/core-app';
+import { BaseAppBuilder, createEZAppFactory, handleRequest } from '@graphql-ez/core-app';
 import { getObjectValue } from '@graphql-ez/core-utils/object';
 import { LazyPromise } from '@graphql-ez/core-utils/promise';
 
 import type { FastifyPluginCallback, FastifyInstance, RouteOptions, FastifyRequest, FastifyReply } from 'fastify';
-import type { BuildAppOptions, BaseEZApp, AppOptions, InternalAppBuildContext } from '@graphql-ez/core-types';
+import type { BuildAppOptions, BaseEZApp, AppOptions, InternalAppBuildContext, EZAppFactoryType } from '@graphql-ez/core-types';
 import type { FastifyCorsOptions, FastifyCorsOptionsDelegate, FastifyPluginOptionsDelegate } from 'fastify-cors';
 
 declare module '@graphql-ez/core-types' {
@@ -19,7 +19,7 @@ declare module '@graphql-ez/core-types' {
   }
 }
 
-interface FastifyAppOptions extends AppOptions {
+export interface FastifyAppOptions extends AppOptions {
   path?: string;
   /**
    * Enable or configure CORS
@@ -56,13 +56,22 @@ export interface EZAppBuilder extends BaseAppBuilder {
 export function CreateApp(config: FastifyAppOptions = {}): EZAppBuilder {
   const path = (config.path ||= '/graphql');
 
-  const { appBuilder, onIntegrationRegister, ...commonApp } = createEnvelopAppFactory(
-    {
-      moduleName: 'fastify-new',
-    },
-    config,
-    {}
-  );
+  let ezApp: EZAppFactoryType;
+
+  try {
+    ezApp = createEZAppFactory(
+      {
+        integrationName: 'fastify-new',
+      },
+      config,
+      {}
+    );
+  } catch (err) {
+    Error.captureStackTrace(err, CreateApp);
+    throw err;
+  }
+
+  const { appBuilder, onIntegrationRegister, ...commonApp } = ezApp;
 
   const buildApp: EZAppBuilder['buildApp'] = function buildApp(buildOptions = {}) {
     const appPromise = LazyPromise(() => {
