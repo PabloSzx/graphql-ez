@@ -163,6 +163,7 @@ export type Query = {
   __typename?: 'Query';
   other: Scalars['String'];
   hello: Scalars['String'];
+  file?: Maybe<Scalars['Upload']>;
 };
 
 export type ResolverTypeWrapper<T> = Promise<T> | T;
@@ -573,6 +574,7 @@ export type QueryResolvers<
 > = {
   other?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   hello?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  file?: Resolver<Maybe<ResolversTypes['Upload']>, ParentType, ContextType>;
 };
 
 export interface UploadScalarConfig extends GraphQLScalarTypeConfig<ResolversTypes['Upload'], any> {

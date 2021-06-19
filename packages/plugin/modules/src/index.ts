@@ -1,5 +1,6 @@
 import { useGraphQLModules } from '@envelop/graphql-modules';
 import { gql } from '@graphql-ez/core-utils/gql';
+import { toPlural } from '@graphql-ez/core-utils/object';
 import { LazyPromise } from '@graphql-ez/core-utils/promise';
 import { isDocumentNode } from '@graphql-tools/utils';
 
@@ -78,30 +79,25 @@ export const ezGraphQLModules = (config: Partial<Omit<ApplicationConfig, 'module
       const modulesApplication = (ctx.modulesApplication = LazyPromise(async () => {
         const { createApplication, createModule } = await GraphQLModules;
 
-        const [scalarsModule, modulesList] = await Promise.all([
-          ctx.scalarsDefinition
-            ? ctx.scalarsDefinition.then(scalarsDef => {
-                return createModule({
-                  id: 'ScalarsModule',
-                  dirname: 'ScalarsPlugin',
-                  ...scalarsDef,
-                });
-              })
-            : null,
+        const [extraSchemaDefs, modulesList] = await Promise.all([
+          Promise.all(ctx.extraSchemaDefinitions || []),
           Promise.all(modules),
         ]);
 
-        if (ctx.GraphQLUpload) {
-          modulesList.push(
-            createModule({
-              id: 'GraphQLUpload',
-              ...(await ctx.GraphQLUpload.definition),
+        const extraModules = extraSchemaDefs.length
+          ? extraSchemaDefs.map(({ id, resolvers, typeDefs }) => {
+              const moduleTypeDefs = toPlural(typeDefs).map(v => (typeof v === 'string' ? gql(v) : v));
+              return createModule({
+                id,
+                dirname: id,
+                typeDefs: moduleTypeDefs,
+                resolvers,
+              });
             })
-          );
-        }
+          : undefined;
 
         return createApplication({
-          modules: scalarsModule ? [scalarsModule, ...modulesList] : modulesList,
+          modules: extraModules ? [...extraModules, ...modulesList] : modulesList,
           ...config,
         });
       }));

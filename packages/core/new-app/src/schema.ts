@@ -1,4 +1,4 @@
-import { GraphQLSchema, isSchema } from 'graphql';
+import { GraphQLSchema, isSchema, DocumentNode } from 'graphql';
 
 import { useSchema } from '@envelop/core';
 import { makeExecutableSchema } from '@graphql-tools/schema';
@@ -36,8 +36,14 @@ declare module '@graphql-ez/core-types' {
     mergeSchemasConfig?: FilteredMergeSchemasConfig;
   }
 
+  interface ExtraSchemaDef {
+    id: string;
+    typeDefs: DocumentNode | string | Array<DocumentNode | string>;
+    resolvers: EZResolvers | EZResolvers[];
+  }
+
   interface InternalAppBuildContext {
-    extraSchemaDefinitions?: (EZExecutableSchemaDefinition | Promise<EZExecutableSchemaDefinition>)[];
+    extraSchemaDefinitions?: (ExtraSchemaDef | Promise<ExtraSchemaDef>)[];
   }
 }
 
@@ -49,38 +55,33 @@ export const ezSchema = (): EZPlugin => {
     async onPreBuild(ctx) {
       const { schema, mergeSchemasConfig } = ctx.options;
 
-      const scalarsDefinition = await ctx.scalarsDefinition;
+      const extraSchemaDefs = ctx.extraSchemaDefinitions ? await Promise.all(ctx.extraSchemaDefinitions) : [];
 
-      const scalarsModuleSchema =
-        scalarsDefinition &&
-        LazyPromise(() => {
-          return makeExecutableSchema({
-            typeDefs: scalarsDefinition.typeDefs,
-            resolvers: scalarsDefinition.resolvers,
-          });
-        });
+      const extraTypeDefs = [...extraSchemaDefs.flatMap(v => v.typeDefs), ...toPlural(mergeSchemasConfig?.typeDefs)];
+      const extraResolvers: EZResolvers[] = [
+        ...extraSchemaDefs.flatMap(v => v.resolvers),
+        ...toPlural(mergeSchemasConfig?.resolvers),
+      ];
+
+      const typeDefs = extraTypeDefs.length ? extraTypeDefs : undefined;
+      const resolvers = extraResolvers.length ? extraResolvers : undefined;
 
       const schemas = schema
         ? await Promise.all(
             toPlural(schema).map(async schemaValuePromise => {
               const schemaValue = await schemaValuePromise;
               if (isSchema(schemaValue)) {
-                if (!scalarsModuleSchema) return schemaValue;
-
                 return (await mergeSchemas)({
-                  ...cleanObject(mergeSchemasConfig),
-                  schemas: [await scalarsModuleSchema, schemaValue],
+                  schemas: [schemaValue],
+                  typeDefs,
+                  resolvers,
                 });
               }
 
               return makeExecutableSchema({
                 ...schemaValue,
-                typeDefs: scalarsDefinition
-                  ? [...toPlural(schemaValue.typeDefs), scalarsDefinition.typeDefs]
-                  : schemaValue.typeDefs,
-                resolvers: scalarsDefinition
-                  ? [...toPlural(schemaValue.resolvers || []), scalarsDefinition.resolvers]
-                  : schemaValue.resolvers,
+                typeDefs: [...toPlural(schemaValue.typeDefs), ...extraTypeDefs],
+                resolvers: [...toPlural(schemaValue.resolvers), ...extraResolvers],
               });
             })
           )
@@ -116,12 +117,12 @@ export const ezSchema = (): EZPlugin => {
 
       if (finalSchema) {
         if (ctx.extraSchemaDefinitions) {
-          const extraSchemaDefinitions = (await Promise.all(ctx.extraSchemaDefinitions)).map(makeExecutableSchema);
-
           finalSchema = await (
             await mergeSchemas
           )({
-            schemas: [finalSchema, ...extraSchemaDefinitions],
+            schemas: [finalSchema],
+            typeDefs,
+            resolvers,
           });
         }
 

@@ -4,7 +4,6 @@ import { LazyPromise } from '@graphql-ez/core-utils/promise';
 
 import type { EZPlugin } from '@graphql-ez/core-types';
 import type { UploadOptions, processRequest, graphqlUploadExpress, graphqlUploadKoa, GraphQLUpload } from 'graphql-upload';
-import type { DocumentNode, GraphQLScalarType } from 'graphql';
 
 export type GraphQLUploadConfig = boolean | UploadOptions;
 
@@ -16,10 +15,6 @@ declare module '@graphql-ez/core-types' {
       express: Promise<typeof graphqlUploadExpress>;
       koa: Promise<typeof graphqlUploadKoa>;
       scalar: Promise<typeof GraphQLUpload>;
-      definition: Promise<{
-        typeDefs: DocumentNode;
-        resolvers: { Upload: GraphQLScalarType };
-      }>;
     };
   }
 }
@@ -36,22 +31,23 @@ export const ezUpload = (options: GraphQLUploadConfig = true): EZPlugin => {
           koa: LazyPromise(() => import('graphql-upload/public/graphqlUploadKoa.js').then(v => v.default)),
           scalar: LazyPromise(() => import('graphql-upload/public/GraphQLUpload.js').then(v => v.default)),
         };
-        const definition = LazyPromise(async () => {
-          return {
-            typeDefs: gql('scalar Upload'),
-            resolvers: {
-              Upload: await deps.scalar,
-            },
-          };
-        });
 
         ctx.GraphQLUpload = {
           options: getObjectValue(options) || {},
           ...deps,
-          definition,
         };
 
-        (ctx.extraSchemaDefinitions ||= []).push(definition);
+        (ctx.extraSchemaDefinitions ||= []).push(
+          LazyPromise(async () => {
+            return {
+              id: 'GraphQL Upload',
+              typeDefs: gql('scalar Upload'),
+              resolvers: {
+                Upload: await deps.scalar,
+              },
+            };
+          })
+        );
       }
     },
     async onIntegrationRegister(ctx, integrationCtx) {

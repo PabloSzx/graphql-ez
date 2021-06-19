@@ -16,6 +16,7 @@ const EZApp = CreateApp({
     typeDefs: gql`
       type Query {
         hello: String!
+        file: Upload
       }
     `,
     resolvers: {

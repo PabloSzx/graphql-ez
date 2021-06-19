@@ -1,7 +1,8 @@
+import { resolvers as scalarResolvers, typeDefs as scalarTypeDefs } from 'graphql-scalars';
+
 import { gql } from '@graphql-ez/core-utils/gql';
 
 import type { EZPlugin } from '@graphql-ez/core-types';
-import type { resolvers as scalarResolvers } from 'graphql-scalars';
 import type { IScalarTypeResolver } from '@graphql-tools/utils';
 import type { DocumentNode } from 'graphql';
 
@@ -11,7 +12,7 @@ export type ScalarResolvers = Record<string, IScalarTypeResolver>;
 
 declare module '@graphql-ez/core-types' {
   interface InternalAppBuildContext {
-    scalarsDefinition?: Promise<ScalarsDefinition>;
+    scalarsDefinition?: ScalarsDefinition;
   }
 }
 
@@ -24,50 +25,60 @@ export const ezScalars = (scalars: ScalarsConfig): EZPlugin => {
   return {
     name: 'GraphQL Scalars',
     async onRegister(ctx) {
-      const { typeDefs: scalarTypeDefs, resolvers: scalarResolvers } = await import('graphql-scalars');
-
       if (scalars === '*') {
-        ctx.scalarsDefinition = getScalarsModule(scalarTypeDefs, scalarResolvers);
+        getScalarsModule(scalarTypeDefs, scalarResolvers);
         return;
       }
 
       if (Array.isArray(scalars)) {
-        const scalarsNames = scalars.reduce((acum, scalarName) => {
+        const filteredScalarTypeDefs = scalars.reduce<string[]>((acum, scalarName) => {
           if (scalarName in scalarResolvers) acum.push(`scalar ${scalarName}`);
           return acum;
-        }, [] as string[]);
+        }, []);
 
-        if (!scalarsNames.length) return;
+        if (!filteredScalarTypeDefs.length) return;
 
-        const resolvers = scalars.reduce((acum, scalarName) => {
+        const resolvers = scalars.reduce<ScalarResolvers>((acum, scalarName) => {
           const resolver = (scalarResolvers as ScalarResolvers)[scalarName];
 
           if (resolver) acum[scalarName] = resolver;
           return acum;
-        }, {} as ScalarResolvers);
+        }, {});
 
-        ctx.scalarsDefinition = getScalarsModule(scalarsNames, resolvers);
+        getScalarsModule(filteredScalarTypeDefs, resolvers);
         return;
       }
 
-      const scalarsNames = Object.entries(scalars).reduce((acum, [scalarName, value]) => {
+      const scalarsEntries = Object.entries(scalars);
+      const filteredScalarTypeDefs = scalarsEntries.reduce<string[]>((acum, [scalarName, value]) => {
         if (value && scalarName in scalarResolvers) acum.push(`scalar ${scalarName}`);
         return acum;
-      }, [] as string[]);
+      }, []);
 
-      if (!scalarsNames.length) return;
+      if (!filteredScalarTypeDefs.length) return;
 
-      const resolvers = Object.keys(scalars).reduce((acum, scalarName) => {
+      const resolvers = scalarsEntries.reduce<ScalarResolvers>((acum, [scalarName, value]) => {
         const resolver = (scalarResolvers as ScalarResolvers)[scalarName];
 
-        if (resolver) acum[scalarName] = resolver;
+        if (resolver && value) acum[scalarName] = resolver;
         return acum;
-      }, {} as ScalarResolvers);
+      }, {});
 
-      ctx.scalarsDefinition = getScalarsModule(scalarsNames, resolvers);
+      getScalarsModule(filteredScalarTypeDefs, resolvers);
 
-      async function getScalarsModule(scalarsNames: string[], resolvers: ScalarResolvers): Promise<ScalarsDefinition> {
-        const typeDefs = gql(scalarsNames.join('\n'));
+      function getScalarsModule(filteredScalarTypeDefs: string[], resolvers: ScalarResolvers): ScalarsDefinition {
+        const typeDefs = gql(filteredScalarTypeDefs.join('\n'));
+
+        (ctx.extraSchemaDefinitions ||= []).push({
+          id: 'Scalars',
+          typeDefs,
+          resolvers,
+        });
+
+        ctx.scalarsDefinition = {
+          typeDefs,
+          resolvers,
+        };
 
         return {
           typeDefs,

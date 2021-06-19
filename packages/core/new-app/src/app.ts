@@ -72,8 +72,8 @@ export function createEZAppFactory(
     if (options.prepare) await options.prepare(baseAppBuilder);
 
     await Promise.all([
-      ...ezPlugins.map(async plugin => {
-        await plugin.onPreBuild?.(ctx);
+      ...ezPlugins.map(plugin => {
+        return plugin.onPreBuild?.(ctx);
       }),
       preBuild?.(ctx),
     ]);
@@ -83,7 +83,7 @@ export function createEZAppFactory(
     });
 
     await Promise.all([
-      ...ezPlugins.map(async plugin => {
+      ...ezPlugins.map(plugin => {
         return plugin.onAfterBuild?.(getEnveloped, ctx);
       }),
       afterBuild?.(getEnveloped, ctx),
