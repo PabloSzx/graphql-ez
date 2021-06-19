@@ -79,35 +79,6 @@ export function CreateApp(config: FastifyAppOptions = {}): EZAppBuilder {
           await instance.register(fastifyCors, getObjectValue(cors));
         }
 
-        if (ctx.options.ide) {
-          const altairHandler = ctx.altairHandler || ctx.unpkgAltairHandler;
-          if (ctx.options.ide.altair && altairHandler) {
-            const handler = altairHandler(ctx.options.ide.altair);
-
-            const { path = '/altair', baseURL = '/altair/' } = getObjectValue(ctx.options.ide.altair) || {};
-
-            instance.get(path, async (req, res) => {
-              res.hijack();
-
-              await handler(req.raw, res.raw);
-            });
-
-            instance.get(baseURL, async (req, res) => {
-              res.hijack();
-              await handler(req.raw, res.raw);
-            });
-          }
-
-          if (ctx.options.ide.graphiql && ctx.graphiQLHandler) {
-            const handler = ctx.graphiQLHandler(ctx.options.ide.graphiql);
-
-            instance.get('/graphiql', async (req, res) => {
-              res.hijack();
-              await handler(req.raw, res.raw);
-            });
-          }
-        }
-
         const requestHandler = ctx.options.customHandleRequest || handleRequest;
 
         instance.route({

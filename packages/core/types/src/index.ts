@@ -8,11 +8,7 @@ export interface InternalAppBuildContext {}
 
 export interface BaseEZApp {}
 
-export interface IDEOptions {}
-
-export interface AppOptions {
-  ide?: IDEOptions;
-}
+export interface AppOptions {}
 
 export interface BuildAppOptions {}
 

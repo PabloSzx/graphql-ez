@@ -1,5 +1,9 @@
 import fetch from 'node-fetch';
 
+import { getObjectValue } from '@graphql-ez/core-utils/object';
+
+import { onIntegrationRegister } from './integrations';
+
 import type { AltairConfigOptions } from 'altair-exported-types/dist/app/modules/altair/config';
 import type { EZPlugin, RequestHandler } from '@graphql-ez/core-types';
 import type { RenderOptions } from 'altair-static';
@@ -70,8 +74,8 @@ function getObjectPropertyForOption(option: any, propertyName: keyof AltairConfi
   return '';
 }
 
-export function UnpkgAltairHandler(options: AltairOptions = {}): RequestHandler {
-  let { path = '/api/altair', endpointURL = '/api/graphql', ...renderOptions } = options;
+export function UnpkgAltairHandler(options: AltairOptions | boolean = {}): RequestHandler {
+  let { path = '/api/altair', endpointURL = '/api/graphql', ...renderOptions } = getObjectValue(options) || {};
 
   const baseURL = path.endsWith('/') ? (path = path.slice(0, path.length - 1)) + '/' : path + '/';
 
@@ -111,21 +115,26 @@ export function UnpkgAltairHandler(options: AltairOptions = {}): RequestHandler 
   };
 }
 
-declare module '@graphql-ez/core-types' {
-  interface InternalAppBuildContext {
-    unpkgAltairHandler?: typeof UnpkgAltairHandler;
-  }
-
-  interface IDEOptions {
-    altair?: AltairOptions | boolean;
-  }
-}
-
-export const UnpkgAltairIDE = (options?: AltairOptions | boolean): EZPlugin => {
+export const UnpkgAltairIDE = (options: AltairOptions | boolean = true): EZPlugin => {
   return {
     onRegister(ctx) {
-      ctx.unpkgAltairHandler = UnpkgAltairHandler;
-      (ctx.options.ide ||= {}).altair = options;
+      if (!options) return;
+
+      const objOptions = { ...(getObjectValue(options) || {}) };
+
+      objOptions.endpointURL ||= ctx.options.path;
+
+      const path = (objOptions.path ||= '/altair');
+
+      const baseURL = (objOptions.baseURL ||= '/altair/');
+
+      ctx.altair = {
+        handler: UnpkgAltairHandler,
+        options: objOptions,
+        path,
+        baseURL,
+      };
     },
+    onIntegrationRegister,
   };
 };

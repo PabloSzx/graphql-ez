@@ -1,12 +1,20 @@
 import { getObjectValue } from '@graphql-ez/core-utils/object';
 import { LazyPromise } from '@graphql-ez/core-utils/promise';
 
-import type { RenderGraphiQLOptions } from 'graphql-helix/dist/types';
-import type { EZPlugin, RequestHandler } from '@graphql-ez/core-types';
+import { onIntegrationRegister } from './integrations';
 
+import type { RenderGraphiQLOptions } from 'graphql-helix/dist/types';
+
+import type { EZPlugin, RequestHandler } from '@graphql-ez/core-types';
 export interface GraphiQLOptions extends RenderGraphiQLOptions {
   /**
-   * The endpoint requests should be sent. Defaults to `"/graphiql"`.
+   * @default "/graphiql"
+   */
+  path?: string;
+  /**
+   * The endpoint requests should be sent.
+   *
+   * @default "/graphql"
    */
   endpoint?: string;
 }
@@ -18,7 +26,7 @@ const GraphiQLDeps = LazyPromise(async () => {
 });
 
 export function GraphiQLHandler(options: GraphiQLOptions | boolean = {}): RequestHandler {
-  const { endpoint = '/graphiql', ...renderOptions } = getObjectValue(options) || {};
+  const { endpoint = '/graphql', ...renderOptions } = getObjectValue(options) || {};
 
   const html = GraphiQLDeps.then(({ renderGraphiQL }) => {
     return renderGraphiQL({ ...renderOptions, endpoint });
@@ -35,18 +43,27 @@ export function GraphiQLHandler(options: GraphiQLOptions | boolean = {}): Reques
 export const GraphiQLEZIde = (options: GraphiQLOptions | boolean = true): EZPlugin => {
   return {
     onRegister(ctx) {
-      ctx.graphiQLHandler = GraphiQLHandler;
-      (ctx.options.ide ||= {}).graphiql = options;
+      const objOptions = { ...(getObjectValue(options) || {}) };
+
+      const path = (objOptions.path ||= '/graphiql');
+      objOptions.endpoint ||= ctx.options.path;
+
+      ctx.graphiql = {
+        path,
+        handler: GraphiQLHandler,
+        options: objOptions,
+      };
     },
+    onIntegrationRegister,
   };
 };
 
 declare module '@graphql-ez/core-types' {
   interface InternalAppBuildContext {
-    graphiQLHandler?: typeof GraphiQLHandler;
-  }
-
-  interface IDEOptions {
-    graphiql?: GraphiQLOptions | boolean;
+    graphiql?: {
+      path: string;
+      handler: typeof GraphiQLHandler;
+      options: GraphiQLOptions;
+    };
   }
 }
