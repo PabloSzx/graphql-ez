@@ -20,11 +20,9 @@ export interface ScalarsDefinition {
   resolvers: ScalarResolvers;
 }
 
-export const ScalarsEZPlugin = (scalars?: ScalarsConfig): EZPlugin => {
+export const ezScalars = (scalars: ScalarsConfig): EZPlugin => {
   return {
     async onRegister(ctx) {
-      if (!scalars) return;
-
       const { typeDefs: scalarTypeDefs, resolvers: scalarResolvers } = await import('graphql-scalars');
 
       if (scalars === '*') {

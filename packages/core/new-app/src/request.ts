@@ -3,7 +3,7 @@ import { processRequest } from 'graphql-helix/dist/process-request.js';
 
 import type { MultipartResponse, Push } from 'graphql-helix';
 import type { IncomingMessage, ServerResponse } from 'http';
-import type { BuildContextArgs, HandleRequestOptions, EnvelopResponse } from '@graphql-ez/core-types';
+import type { BuildContextArgs, HandleRequestOptions, EZResponse } from '@graphql-ez/core-types';
 
 export async function handleRequest<TReturn = unknown>({
   request,
@@ -87,7 +87,7 @@ export async function handleRequest<TReturn = unknown>({
   }
 }
 
-export function defaultResponseHandle(_req: IncomingMessage, res: ServerResponse, result: EnvelopResponse): void {
+export function defaultResponseHandle(_req: IncomingMessage, res: ServerResponse, result: EZResponse): void {
   res.writeHead(result.status, {
     'content-type': 'application/json',
   });

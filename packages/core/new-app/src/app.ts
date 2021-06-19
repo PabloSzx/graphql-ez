@@ -2,8 +2,8 @@ import { envelop } from '@envelop/core';
 import { gql } from '@graphql-ez/core-utils/gql';
 import { uniqueArray } from '@graphql-ez/core-utils/object';
 
-import { CacheEZPlugin } from './cache';
-import { SchemaEZPlugin } from './schema';
+import { ezCache } from './cache';
+import { ezSchema } from './schema';
 
 import type { Envelop } from '@envelop/types';
 import type {
@@ -29,7 +29,7 @@ export function createEnvelopAppFactory(
   const options = {
     ...rawOptions,
     ez: {
-      plugins: [...(rawOptions.ez?.plugins || []), SchemaEZPlugin(), CacheEZPlugin()],
+      plugins: [...(rawOptions.ez?.plugins || []), ezSchema(), ezCache()],
     },
     envelop: {
       plugins: [...(rawOptions.envelop?.plugins || [])],
@@ -62,35 +62,31 @@ export function createEnvelopAppFactory(
     if (buildOptions.prepare) await buildOptions.prepare(baseAppBuilder);
     if (options.prepare) await options.prepare(baseAppBuilder);
 
-    return getApp();
+    await Promise.all([
+      ...options.ez.plugins.map(async plugin => {
+        await plugin.onPreBuild?.(ctx);
+      }),
+      preBuild?.(ctx),
+    ]);
 
-    async function getApp() {
-      await Promise.all([
-        ...options.ez.plugins.map(plugin => {
-          return plugin.onPreBuild?.(ctx);
-        }),
-        preBuild?.(ctx),
-      ]);
+    const getEnveloped = envelop({
+      plugins: uniqueArray(options.envelop.plugins),
+    });
 
-      const getEnveloped = envelop({
-        plugins: uniqueArray(options.envelop.plugins),
-      });
+    await Promise.all([
+      ...options.ez.plugins.map(async plugin => {
+        return plugin.onAfterBuild?.(getEnveloped, ctx);
+      }),
+      afterBuild?.(getEnveloped, ctx),
+    ]);
 
-      await Promise.all([
-        ...options.ez.plugins.map(async plugin => {
-          return plugin.onAfterBuild?.(getEnveloped, ctx);
-        }),
-        afterBuild?.(getEnveloped, ctx),
-      ]);
-
-      return {
-        app: adapterFactory({
-          getEnveloped,
-          ctx,
-        }),
+    return {
+      app: adapterFactory({
         getEnveloped,
-      };
-    }
+        ctx,
+      }),
+      getEnveloped,
+    };
   };
 
   async function onIntegrationRegister(integrationCtx: InternalAppBuildIntegrationContext) {

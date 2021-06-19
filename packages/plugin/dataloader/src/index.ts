@@ -1,9 +1,9 @@
 import DataLoader from 'dataloader';
 import { useDataLoader } from '@envelop/dataloader';
 
-import type { EZPlugin, EnvelopContext } from '@graphql-ez/core-types';
+import type { EZPlugin, EZContext } from '@graphql-ez/core-types';
 
-export type DataLoaderFn<K, V, C = K> = (DataLoaderClass: typeof DataLoader, context: EnvelopContext) => DataLoader<K, V, C>;
+export type DataLoaderFn<K, V, C = K> = (DataLoaderClass: typeof DataLoader, context: EZContext) => DataLoader<K, V, C>;
 
 export type RegisteredDataLoader<Name extends string, Key, Value, Cache = Key> = {
   name: Name;
@@ -25,7 +25,7 @@ export type InferDataLoader<V> = V extends RegisteredDataLoader<infer Name, infe
   ? { [k in Name]: DataLoader<Key, Value, Cache> }
   : {};
 
-export const DataLoaderEZPlugin = (): EZPlugin => {
+export const ezDataLoader = (): EZPlugin => {
   return {
     onRegister(ctx) {
       function registerDataLoader<Name extends string, Key, Value, Cache = Key>(

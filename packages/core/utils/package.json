@@ -11,8 +11,12 @@
       "import": "./dist/*.mjs"
     }
   },
+  "types": "dist/index.d.ts",
   "scripts": {
     "prepare": "bob-esbuild build"
+  },
+  "dependencies": {
+    "@graphql-ez/core-types": "workspace:^0.0.1"
   },
   "devDependencies": {
     "bob-esbuild-cli": "^0.1.26",

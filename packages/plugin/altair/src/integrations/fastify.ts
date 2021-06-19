@@ -13,7 +13,7 @@ export function handleFastify(
     await handler(req.raw, res.raw);
   });
 
-  instance.get(ctx.altair.baseURL, async (req, res) => {
+  instance.get(`${ctx.altair.baseURL}*`, async (req, res) => {
     res.hijack();
     await handler(req.raw, res.raw);
   });

@@ -134,7 +134,7 @@ export async function EnvelopTypeScriptCodegen(executableSchema: GraphQLSchema, 
   const schema = parse(printSchemaWithDirectives(executableSchema));
 
   const {
-    targetPath = './src/envelop.generated.ts',
+    targetPath = './src/ez.generated.ts',
     deepPartialResolvers = true,
     preImportCode = '',
     scalars: customScalars,
@@ -170,7 +170,7 @@ export async function EnvelopTypeScriptCodegen(executableSchema: GraphQLSchema, 
       ? `(parent: TParent, args: TArgs, context: TContext, info: GraphQLResolveInfo) => Promise<import("${moduleName}").DeepPartial<TResult>> | import("${moduleName}").DeepPartial<TResult>`
       : undefined,
     scalars,
-    contextType: `${moduleName}#EnvelopContext`,
+    contextType: `${moduleName}#EZContext`,
     ...codegenOptions,
   };
 
@@ -206,7 +206,7 @@ export async function EnvelopTypeScriptCodegen(executableSchema: GraphQLSchema, 
     schema,
     documents,
     config,
-    filename: 'envelop.generated.ts',
+    filename: 'ez.generated.ts',
     pluginMap,
     plugins: [
       {
@@ -237,7 +237,7 @@ export async function EnvelopTypeScriptCodegen(executableSchema: GraphQLSchema, 
   ${codegenCode}
 
   declare module "${moduleName}" {
-      interface EnvelopResolvers extends Resolvers<import("${moduleName}").EnvelopContext> { }
+      interface EZResolvers extends Resolvers<import("${moduleName}").EZContext> { }
   }
 `,
     'typescript'

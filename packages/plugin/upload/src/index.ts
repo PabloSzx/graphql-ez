@@ -24,7 +24,7 @@ declare module '@graphql-ez/core-types' {
   }
 }
 
-export const UploadEZPlugin = (options: GraphQLUploadConfig = true): EZPlugin => {
+export const ezUpload = (options: GraphQLUploadConfig = true): EZPlugin => {
   return {
     onRegister(ctx) {
       if (options) {

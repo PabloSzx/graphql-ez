@@ -44,7 +44,7 @@ export function AltairHandlerDeps(options: AltairOptions): {
   };
 }
 
-export const AltairEZIde = (options: AltairOptions | boolean = true): EZPlugin => {
+export const ezAltairIDE = (options: AltairOptions | boolean = true): EZPlugin => {
   return {
     onRegister(ctx) {
       if (!options) return;

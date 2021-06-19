@@ -70,7 +70,7 @@ const WSDeps = {
   useGraphQLWSServer: LazyPromise(() => import('graphql-ws/lib/use/ws').then(v => v.useServer)),
 };
 
-export const WebSocketsEZPlugin = (options: WebSocketOptions = 'adaptive'): EZPlugin => {
+export const ezWebSockets = (options: WebSocketOptions = 'adaptive'): EZPlugin => {
   return {
     async onRegister(ctx) {
       const enableOldTransport =
@@ -201,7 +201,7 @@ export const WebSocketsEZPlugin = (options: WebSocketOptions = 'adaptive'): EZPl
         options: { path },
       } = ctx;
 
-      assert(path, `"path" not specified!`);
+      assert(path, '"path" not specified and is required for WebSockets EZ Plugin!');
 
       if (integrationCtx.fastify) {
         const { handleFastify } = await import('./fastify');
@@ -210,7 +210,11 @@ export const WebSocketsEZPlugin = (options: WebSocketOptions = 'adaptive'): EZPl
           path,
           wsTuple,
         });
+
+        return;
       }
+
+      throw Error(`Unsupported implementation for WebSockets EZ Plugin: "${ctx.moduleName}"`);
     },
   };
 };

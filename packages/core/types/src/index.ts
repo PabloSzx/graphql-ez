@@ -14,8 +14,8 @@ export interface BuildAppOptions {}
 
 export interface BaseAppBuilder {}
 
-export interface EnvelopContext {}
+export interface EZContext {}
 
-export interface EnvelopResolvers extends Record<string, any> {}
+export interface EZResolvers extends Record<string, any> {}
 
 export interface BuildContextArgs {}

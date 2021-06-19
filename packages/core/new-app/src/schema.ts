@@ -8,35 +8,27 @@ import { LazyPromise } from '@graphql-ez/core-utils/promise';
 
 import type { IExecutableSchemaDefinition } from '@graphql-tools/schema';
 import type { MergeSchemasConfig } from '@graphql-tools/merge';
-import type { EnvelopContext, EnvelopResolvers, EZPlugin } from '@graphql-ez/core-types';
+import type { EZContext, EZResolvers, EZPlugin } from '@graphql-ez/core-types';
 
 export type FilteredMergeSchemasConfig = Omit<MergeSchemasConfig, 'schemas'>;
 
-export interface EZExecutableSchemaDefinition<TContext = EnvelopContext>
+export interface EZExecutableSchemaDefinition<TContext = EZContext>
   extends Omit<IExecutableSchemaDefinition<TContext>, 'resolvers'> {
-  resolvers?: EnvelopResolvers | EnvelopResolvers[];
+  resolvers?: EZResolvers | EZResolvers[];
 }
 
-export type EZSchemaDefinition<TContext = EnvelopContext> =
+export type EZSchema<TContext = EZContext> =
   | GraphQLSchema
   | Promise<GraphQLSchema>
   | EZExecutableSchemaDefinition<TContext>
   | Promise<EZExecutableSchemaDefinition<TContext>>;
-
-export interface SchemaBuilderFactoryOptions {
-  mergeSchemasConfig?: FilteredMergeSchemasConfig;
-}
-
-export interface PrepareSchemaOptions {
-  schema: EZSchemaDefinition<never> | EZSchemaDefinition<never>[];
-}
 
 declare module '@graphql-ez/core-types' {
   interface AppOptions {
     /**
      * Pre-built schemas
      */
-    schema?: EZSchemaDefinition<EnvelopContext> | EZSchemaDefinition<EnvelopContext>[];
+    schema?: EZSchema<EZContext> | EZSchema<EZContext>[];
 
     /**
      * Configure configuration of schema merging
@@ -51,7 +43,7 @@ declare module '@graphql-ez/core-types' {
 
 const mergeSchemas = LazyPromise(() => import('@graphql-tools/merge').then(v => v.mergeSchemasAsync));
 
-export const SchemaEZPlugin = (): EZPlugin => {
+export const ezSchema = (): EZPlugin => {
   return {
     async onPreBuild(ctx) {
       const { schema, mergeSchemasConfig } = ctx.options;

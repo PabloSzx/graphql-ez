@@ -4,13 +4,13 @@ import type { IncomingMessage, ServerResponse } from 'http';
 import type { ExecutionResult } from 'graphql';
 import type { AppOptions, BuildContextArgs } from './index';
 
-export type EnvelopResponse = {
+export type EZResponse = {
   type: 'RESPONSE';
   status: number;
   payload: ExecutionResult | ExecutionResult[];
 };
 
-export type DefaultResponseHandler = (req: IncomingMessage, res: ServerResponse, result: EnvelopResponse) => void | Promise<void>;
+export type DefaultResponseHandler = (req: IncomingMessage, res: ServerResponse, result: EZResponse) => void | Promise<void>;
 
 export type DefaultMultipartResponseHandler = (
   req: IncomingMessage,
@@ -33,7 +33,7 @@ export interface HandleRequestOptions<BuildContextArgs, TReturn = unknown> {
   buildContextArgs: () => BuildContextArgs;
   buildContext: ((args: BuildContextArgs) => Record<string, unknown> | Promise<Record<string, unknown>>) | undefined;
 
-  onResponse: (result: EnvelopResponse, defaultHandle: DefaultResponseHandler) => TReturn | Promise<TReturn>;
+  onResponse: (result: EZResponse, defaultHandle: DefaultResponseHandler) => TReturn | Promise<TReturn>;
   onMultiPartResponse: (
     result: MultipartResponse<unknown, unknown>,
     defaultHandle: DefaultMultipartResponseHandler

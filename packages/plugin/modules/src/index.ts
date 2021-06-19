@@ -4,12 +4,12 @@ import { LazyPromise } from '@graphql-ez/core-utils/promise';
 import { isDocumentNode } from '@graphql-tools/utils';
 
 import type { Plugin as EnvelopPlugin } from '@envelop/types';
-import type { EnvelopResolvers, EZPlugin } from '@graphql-ez/core-types';
+import type { EZResolvers, EZPlugin } from '@graphql-ez/core-types';
 import type { ModuleConfig, Module, TypeDefs, Application, ApplicationConfig } from 'graphql-modules';
 
 export type EnvelopModuleConfig = Omit<ModuleConfig, 'typeDefs' | 'id' | 'resolvers'> & {
   id?: string;
-  resolvers?: EnvelopResolvers;
+  resolvers?: EZResolvers;
   /**
    * Automatically add the created module in the built envelop app
    *
@@ -41,7 +41,7 @@ export interface RegisterModule {
   (typeDefs: TypeDefs, options?: EnvelopModuleConfig): Promise<Module>;
 }
 
-export const GraphQLModulesEZPlugin = (config: Partial<Omit<ApplicationConfig, 'modules'>> = {}): EZPlugin => {
+export const ezGraphQLModules = (config: Partial<Omit<ApplicationConfig, 'modules'>> = {}): EZPlugin => {
   const registerModuleState = {
     acumId: 0,
   };

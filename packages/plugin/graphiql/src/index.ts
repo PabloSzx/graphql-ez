@@ -4,8 +4,8 @@ import { LazyPromise } from '@graphql-ez/core-utils/promise';
 import { onIntegrationRegister } from './integrations';
 
 import type { RenderGraphiQLOptions } from 'graphql-helix/dist/types';
-
 import type { EZPlugin, RequestHandler } from '@graphql-ez/core-types';
+
 export interface GraphiQLOptions extends RenderGraphiQLOptions {
   /**
    * @default "/graphiql"
@@ -40,7 +40,7 @@ export function GraphiQLHandler(options: GraphiQLOptions | boolean = {}): Reques
   };
 }
 
-export const GraphiQLEZIde = (options: GraphiQLOptions | boolean = true): EZPlugin => {
+export const ezGraphiQLIDE = (options: GraphiQLOptions | boolean = true): EZPlugin => {
   return {
     onRegister(ctx) {
       const objOptions = { ...(getObjectValue(options) || {}) };

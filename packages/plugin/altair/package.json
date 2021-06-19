@@ -1,5 +1,5 @@
 {
-  "name": "@graphql-ez/core-types",
+  "name": "@graphql-ez/plugin-altair",
   "version": "0.0.1",
   "exports": {
     ".": {
@@ -16,18 +16,22 @@
     "prepare": "bob-esbuild build"
   },
   "dependencies": {
-    "@envelop/types": "^0.2.0"
+    "@graphql-ez/core-types": "workspace:^0.0.1",
+    "altair-exported-types": "^4.0.6",
+    "altair-static": "^4.0.6",
+    "mime-types": "^2.1.31",
+    "node-fetch": "^2.6.1"
   },
   "devDependencies": {
+    "@graphql-ez/core-utils": "workspace:^0.0.1",
+    "@types/mime-types": "^2.1.0",
     "@types/node": "^15.12.2",
-    "bob-esbuild-cli": "^0.1.26",
-    "graphql": "15.4.0-experimental-stream-defer.1",
-    "graphql-helix": "^1.6.1"
+    "@types/node-fetch": "^2.5.10",
+    "bob-esbuild-cli": "^0.1.26"
   },
   "peerDependencies": {
-    "@types/node": "*",
-    "graphql": "*",
-    "graphql-helix": "^1.6.1"
+    "@graphql-ez/core-utils": "workspace:^0.0.1",
+    "@types/node": "*"
   },
   "publishConfig": {
     "directory": "dist"

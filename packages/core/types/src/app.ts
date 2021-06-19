@@ -1,9 +1,9 @@
-import type { gql } from '@graphql-ez/core-utils/gql';
 import type { Envelop, Plugin } from '@envelop/types';
 import type { PickRequired } from './utils';
 import type { IncomingMessage } from 'http';
 import type { HandleRequest } from './request';
 import type { InternalAppBuildContext, BaseAppBuilder, BuildAppOptions, InternalAppBuildIntegrationContext } from './index';
+import type { DocumentNode } from 'graphql';
 
 export interface AdapterFactoryArgs {
   getEnveloped: Envelop<unknown>;
@@ -20,7 +20,7 @@ export interface EZPlugin {
 }
 
 export interface AdapterFactoryContext {
-  moduleName: 'express' | 'fastify' | 'nextjs' | 'http' | 'koa' | 'hapi' | 'core';
+  moduleName: 'express' | 'fastify-new' | 'nextjs' | 'http' | 'koa' | 'hapi' | 'core';
 }
 
 declare module './index' {
@@ -28,7 +28,7 @@ declare module './index' {
     /**
      * GraphQL Tag Parser
      */
-    gql: typeof gql;
+    gql(literals: string | readonly string[], ...args: any[]): DocumentNode;
   }
 
   interface BaseEZApp {

@@ -7,5 +7,9 @@ export const onIntegrationRegister: NonNullable<EZPlugin['onIntegrationRegister'
     const { handleFastify } = await import('./fastify');
 
     handleFastify(ctx, integrationCtx.fastify);
+
+    return;
   }
+
+  throw Error(`Unsupported implementation for Altair EZ Plugin: "${ctx.moduleName}"`);
 };
