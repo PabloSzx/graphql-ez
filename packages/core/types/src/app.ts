@@ -35,7 +35,7 @@ export type EZPlugin =
       ) => void | Promise<void>;
     });
 
-export type IntegrationsNames = 'express' | 'fastify-new' | 'nextjs' | 'http' | 'koa' | 'hapi' | 'core';
+export type IntegrationsNames = 'express-new' | 'fastify-new' | 'nextjs' | 'http' | 'koa' | 'hapi' | 'core';
 export interface AdapterFactoryContext {
   integrationName: IntegrationsNames;
 }
@@ -46,10 +46,6 @@ declare module './index' {
      * GraphQL Tag Parser
      */
     gql(literals: string | readonly string[], ...args: any[]): DocumentNode;
-  }
-
-  interface BaseEZApp {
-    getEnveloped: Promise<Envelop<unknown>>;
   }
 
   interface InternalAppBuildContext extends AdapterFactoryContext {

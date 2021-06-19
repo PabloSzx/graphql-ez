@@ -147,14 +147,11 @@ export const ezWebSockets = (options: WebSocketOptions = 'adaptive'): EZPlugin =
 
       if (enabled === 'new') {
         assert(!Array.isArray(wsServer));
-        assert(useGraphQLWSServer);
 
         handleGraphQLWS(await useGraphQLWSServer, wsServer, options.graphQLWS, getEnveloped, buildContext);
 
         wsTuple = ['new', wsServer];
       } else if (enabled === 'adaptive') {
-        assert(subscriptionsTransportWs);
-        assert(useGraphQLWSServer);
         assert(Array.isArray(wsServer));
 
         handleGraphQLWS(await useGraphQLWSServer, wsServer[0], options.graphQLWS, getEnveloped, buildContext);
@@ -179,7 +176,6 @@ export const ezWebSockets = (options: WebSocketOptions = 'adaptive'): EZPlugin =
           wsServer,
         ];
       } else {
-        assert(subscriptionsTransportWs);
         assert(!Array.isArray(wsServer));
 
         handleSubscriptionsTransport(

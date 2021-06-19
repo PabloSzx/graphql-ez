@@ -6,8 +6,6 @@ export interface InternalAppBuildIntegrationContext {}
 
 export interface InternalAppBuildContext {}
 
-export interface BaseEZApp {}
-
 export interface AppOptions {}
 
 export interface BuildAppOptions {}

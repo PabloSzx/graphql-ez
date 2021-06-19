@@ -2,8 +2,9 @@ import { BaseAppBuilder, createEZAppFactory, handleRequest } from '@graphql-ez/c
 import { getObjectValue } from '@graphql-ez/core-utils/object';
 import { LazyPromise } from '@graphql-ez/core-utils/promise';
 
+import type { Envelop } from '@envelop/types';
 import type { FastifyPluginCallback, FastifyInstance, RouteOptions, FastifyRequest, FastifyReply } from 'fastify';
-import type { BuildAppOptions, BaseEZApp, AppOptions, InternalAppBuildContext, EZAppFactoryType } from '@graphql-ez/core-types';
+import type { BuildAppOptions, AppOptions, InternalAppBuildContext, EZAppFactoryType } from '@graphql-ez/core-types';
 import type { FastifyCorsOptions, FastifyCorsOptionsDelegate, FastifyPluginOptionsDelegate } from 'fastify-cors';
 
 declare module '@graphql-ez/core-types' {
@@ -45,8 +46,10 @@ declare module 'fastify' {
   }
 }
 
-export interface EZApp extends BaseEZApp {
+export interface EZApp {
   fastifyPlugin: FastifyAppPlugin;
+
+  getEnveloped: Promise<Envelop>;
 }
 
 export interface EZAppBuilder extends BaseAppBuilder {

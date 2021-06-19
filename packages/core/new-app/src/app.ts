@@ -56,17 +56,19 @@ export function createEZAppFactory(
     appBuilder: baseAppBuilder,
   };
 
+  let registerError: unknown;
   const registerPromise = Promise.all(
     ezPlugins.map(plugin => {
       return plugin.onRegister?.(ctx);
     })
   ).catch(err => {
-    console.error(err);
-    process.exit(1);
+    registerError = err;
   });
 
-  const appBuilder: EZAppFactoryType['appBuilder'] = async function appBuilder(buildOptions, adapterFactory) {
+  const appBuilder: EZAppFactoryType['appBuilder'] = async function appBuilder(buildOptions = {}, adapterFactory) {
     await registerPromise;
+
+    if (registerError) throw registerError;
 
     if (buildOptions.prepare) await buildOptions.prepare(baseAppBuilder);
     if (options.prepare) await options.prepare(baseAppBuilder);
