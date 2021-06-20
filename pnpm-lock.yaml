@@ -764,6 +764,49 @@ importers:
       ts-jest: 27.0.3_jest@27.0.4+typescript@4.3.4
       typescript: 4.3.4
 
+  packages/http/new:
+    specifiers:
+      '@envelop/types': ^0.2.0
+      '@graphql-ez/core-app': workspace:^0.0.1
+      '@graphql-ez/core-types': workspace:^0.0.1
+      '@graphql-ez/core-utils': workspace:^0.0.1
+      '@graphql-ez/testing': workspace:^1.0.1
+      '@graphql-tools/schema': ^7.1.5
+      '@graphql-typed-document-node/core': 3.1.0
+      '@types/eventsource': 1.1.5
+      '@types/jest': 26.0.23
+      '@types/node': 15.12.4
+      bob-esbuild-cli: 0.1.26
+      changesets-github-release: 0.0.3
+      cross-env: 7.0.3
+      eventsource: 1.1.0
+      got: 11.8.2
+      graphql: 15.4.0-experimental-stream-defer.1
+      jest: 27.0.4
+      ts-jest: 27.0.3
+      typescript: 4.3.4
+    dependencies:
+      '@envelop/types': 0.2.0_34dd13c2583fe2e4418c23a0d30fc388
+      '@graphql-ez/core-app': link:../../core/new-app
+      '@graphql-ez/core-types': link:../../core/types
+      '@graphql-ez/core-utils': link:../../core/utils
+    devDependencies:
+      '@graphql-ez/testing': link:../../../internal/testing
+      '@graphql-tools/schema': 7.1.5_34dd13c2583fe2e4418c23a0d30fc388
+      '@graphql-typed-document-node/core': 3.1.0_34dd13c2583fe2e4418c23a0d30fc388
+      '@types/eventsource': 1.1.5
+      '@types/jest': 26.0.23
+      '@types/node': 15.12.4
+      bob-esbuild-cli: 0.1.26_83f53b0a0c5616d3fa00ed4e30b9ce1b
+      changesets-github-release: 0.0.3
+      cross-env: 7.0.3
+      eventsource: 1.1.0
+      got: 11.8.2
+      graphql: 15.4.0-experimental-stream-defer.1
+      jest: 27.0.4
+      ts-jest: 27.0.3_jest@27.0.4+typescript@4.3.4
+      typescript: 4.3.4
+
   packages/koa/app:
     specifiers:
       '@envelop/types': ^0.2.1
