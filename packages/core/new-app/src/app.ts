@@ -46,8 +46,12 @@ export function createEZAppFactory(
   };
   const baseAppBuilder: BaseAppBuilder = {
     gql,
-    registerDataLoader: null as unknown as BaseAppBuilder['registerDataLoader'],
-    registerModule: null as unknown as BaseAppBuilder['registerModule'],
+    registerDataLoader() {
+      throw Error(`To use "registerDataLoader" you have to add "ezDataLoader" plugin first!`);
+    },
+    registerModule() {
+      throw Error(`To use "registerModule" you have to add "ezGraphQLModules" plugin first!`);
+    },
   };
 
   const ctx: InternalAppBuildContext = {

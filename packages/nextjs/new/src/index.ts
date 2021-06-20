@@ -66,7 +66,7 @@ export function CreateApp(config: NextAppOptions = {}): EZAppBuilder {
   try {
     ezApp = createEZAppFactory(
       {
-        integrationName: 'http-new',
+        integrationName: 'nextjs-new',
       },
       config,
       {}
