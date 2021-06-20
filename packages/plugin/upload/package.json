@@ -13,7 +13,8 @@
   },
   "types": "dist/index.d.ts",
   "scripts": {
-    "prepare": "bob-esbuild build"
+    "prepare": "bob-esbuild build",
+    "dev": "bob-esbuild watch"
   },
   "dependencies": {
     "@graphql-ez/core-types": "workspace:^0.0.1",
