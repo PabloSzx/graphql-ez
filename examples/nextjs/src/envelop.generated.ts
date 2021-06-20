@@ -1,5 +1,3 @@
-/* eslint-disable no-use-before-define */
-
 import type { GraphQLResolveInfo } from 'graphql';
 import type { EnvelopContext } from '@graphql-ez/nextjs';
 import type { TypedDocumentNode as DocumentNode } from '@graphql-typed-document-node/core';

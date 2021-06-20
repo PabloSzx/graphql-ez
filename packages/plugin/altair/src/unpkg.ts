@@ -5,9 +5,9 @@ import { getObjectValue } from '@graphql-ez/core-utils/object';
 import { onIntegrationRegister } from './integrations';
 
 import type { AltairConfigOptions } from 'altair-exported-types/dist/app/modules/altair/config';
-import type { EZPlugin, RequestHandler } from '@graphql-ez/core-types';
+import type { EZPlugin } from '@graphql-ez/core-types';
 import type { RenderOptions } from 'altair-static';
-import type { AltairOptions } from './types';
+import type { AltairOptions, HandlerConfig, IDEHandler } from './types';
 
 const altairUnpkgDist = 'https://unpkg.com/altair-static@^4.0.6/build/dist/';
 
@@ -74,42 +74,75 @@ function getObjectPropertyForOption(option: any, propertyName: keyof AltairConfi
   return '';
 }
 
-export function UnpkgAltairHandler(options: AltairOptions | boolean = {}): RequestHandler {
+export function UnpkgAltairHandler(options: AltairOptions | boolean = {}, extraConfig?: HandlerConfig): IDEHandler {
   let { path = '/api/altair', endpointURL = '/api/graphql', ...renderOptions } = getObjectValue(options) || {};
 
   const baseURL = path.endsWith('/') ? (path = path.slice(0, path.length - 1)) + '/' : path + '/';
+
+  const rawHttp = extraConfig?.rawHttp ?? true;
 
   return async function (req, res) {
     switch (req.url) {
       case path:
       case baseURL: {
-        res.setHeader('content-type', 'text/html');
+        const content = await renderAltair({
+          ...renderOptions,
+          baseURL,
+          endpointURL,
+        });
 
-        return res.end(
-          await renderAltair({
-            ...renderOptions,
-            baseURL,
-            endpointURL,
-          })
-        );
+        if (rawHttp) {
+          res.setHeader('content-type', 'text/html');
+          res.end(content);
+        }
+
+        return {
+          content,
+          contentType: 'text/html',
+        };
       }
       case undefined: {
-        return res.writeHead(404).end();
+        if (rawHttp) {
+          res.writeHead(404).end();
+        }
+
+        return;
       }
       default: {
         const resolvedPath = altairUnpkgDist + req.url.slice(baseURL.length);
 
         const fetchResult = await fetch(resolvedPath).catch(() => null);
 
-        if (!fetchResult) return res.writeHead(404).end();
+        if (!fetchResult) {
+          if (rawHttp) {
+            res.writeHead(404).end();
+          }
+
+          return;
+        }
 
         const result = await fetchResult.arrayBuffer().catch(() => null);
 
-        if (!result) return res.writeHead(404).end();
-
         const contentType = fetchResult.headers.get('content-type');
-        if (contentType) res.setHeader('content-type', contentType);
-        res.end(Buffer.from(result));
+
+        if (!result || !contentType) {
+          if (rawHttp) {
+            res.writeHead(404).end();
+          }
+          return;
+        }
+
+        const content = Buffer.from(result);
+
+        if (rawHttp) {
+          res.setHeader('content-type', contentType);
+          res.end(content);
+        }
+
+        return {
+          content,
+          contentType,
+        };
       }
     }
   };

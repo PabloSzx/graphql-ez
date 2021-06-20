@@ -1,5 +1,3 @@
-/* eslint-disable no-use-before-define */
-
 import type { GraphQLResolveInfo, GraphQLScalarType, GraphQLScalarTypeConfig } from 'graphql';
 import type { EnvelopContext } from '@graphql-ez/express';
 export type Maybe<T> = T | null;

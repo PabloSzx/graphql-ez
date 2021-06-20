@@ -1,5 +1,3 @@
-/* eslint-disable no-console */
-
 import { createServer } from 'http';
 
 import { buildApp } from './app';

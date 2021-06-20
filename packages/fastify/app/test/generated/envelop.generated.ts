@@ -1,4 +1,3 @@
-/* eslint-disable no-use-before-define */
 /* istanbul ignore file */
 
 import type { GraphQLResolveInfo, GraphQLScalarType, GraphQLScalarTypeConfig } from 'graphql';

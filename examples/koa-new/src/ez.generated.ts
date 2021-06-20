@@ -1,5 +1,5 @@
 import type { GraphQLResolveInfo, GraphQLScalarType, GraphQLScalarTypeConfig } from 'graphql';
-import type { EnvelopContext } from '@graphql-ez/http';
+import type { EZContext } from '@graphql-ez/koa-new';
 import type { TypedDocumentNode as DocumentNode } from '@graphql-typed-document-node/core';
 export type Maybe<T> = T | null;
 export type Exact<T extends { [key: string]: unknown }> = { [K in keyof T]: T[K] };
@@ -10,7 +10,8 @@ export type ResolverFn<TResult, TParent, TContext, TArgs> = (
   args: TArgs,
   context: TContext,
   info: GraphQLResolveInfo
-) => Promise<import('@graphql-ez/http').DeepPartial<TResult>> | import('@graphql-ez/http').DeepPartial<TResult>;
+) => Promise<import('@graphql-ez/koa-new').DeepPartial<TResult>> | import('@graphql-ez/koa-new').DeepPartial<TResult>;
+export type RequireFields<T, K extends keyof T> = { [X in Exclude<keyof T, K>]?: T[X] } & { [P in K]-?: NonNullable<T[P]> };
 /** All built-in and custom scalars, mapped to their actual values */
 export type Scalars = {
   ID: string;
@@ -18,6 +19,8 @@ export type Scalars = {
   Boolean: boolean;
   Int: number;
   Float: number;
+  /** The `Upload` scalar type represents a file upload. */
+  Upload: Promise<import('graphql-upload').FileUpload>;
   /** A date-time string at UTC, such as 2007-12-03T10:15:30Z, compliant with the `date-time` format outlined in section 5.6 of the RFC 3339 profile of the ISO 8601 standard for representation of dates and times using the Gregorian calendar. */
   DateTime: string;
   _FieldSet: any;
@@ -33,6 +36,15 @@ export type Query = {
 export type Subscription = {
   __typename?: 'Subscription';
   hello: Scalars['String'];
+};
+
+export type Mutation = {
+  __typename?: 'Mutation';
+  uploadFileToBase64: Scalars['String'];
+};
+
+export type MutationUploadFileToBase64Args = {
+  file: Scalars['Upload'];
 };
 
 export type ResolverTypeWrapper<T> = Promise<T> | T;
@@ -109,26 +121,38 @@ export type DirectiveResolverFn<TResult = {}, TParent = {}, TContext = {}, TArgs
 
 /** Mapping between all available schema types and the resolvers types */
 export type ResolversTypes = {
+  Upload: ResolverTypeWrapper<Scalars['Upload']>;
+  DateTime: ResolverTypeWrapper<Scalars['DateTime']>;
   Query: ResolverTypeWrapper<{}>;
   String: ResolverTypeWrapper<Scalars['String']>;
   Subscription: ResolverTypeWrapper<{}>;
-  DateTime: ResolverTypeWrapper<Scalars['DateTime']>;
+  Mutation: ResolverTypeWrapper<{}>;
   Boolean: ResolverTypeWrapper<Scalars['Boolean']>;
   Int: ResolverTypeWrapper<Scalars['Int']>;
 };
 
 /** Mapping between all available schema types and the resolvers parents */
 export type ResolversParentTypes = {
+  Upload: Scalars['Upload'];
+  DateTime: Scalars['DateTime'];
   Query: {};
   String: Scalars['String'];
   Subscription: {};
-  DateTime: Scalars['DateTime'];
+  Mutation: {};
   Boolean: Scalars['Boolean'];
   Int: Scalars['Int'];
 };
 
+export interface UploadScalarConfig extends GraphQLScalarTypeConfig<ResolversTypes['Upload'], any> {
+  name: 'Upload';
+}
+
+export interface DateTimeScalarConfig extends GraphQLScalarTypeConfig<ResolversTypes['DateTime'], any> {
+  name: 'DateTime';
+}
+
 export type QueryResolvers<
-  ContextType = EnvelopContext,
+  ContextType = EZContext,
   ParentType extends ResolversParentTypes['Query'] = ResolversParentTypes['Query']
 > = {
   hello?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -137,27 +161,37 @@ export type QueryResolvers<
 };
 
 export type SubscriptionResolvers<
-  ContextType = EnvelopContext,
+  ContextType = EZContext,
   ParentType extends ResolversParentTypes['Subscription'] = ResolversParentTypes['Subscription']
 > = {
   hello?: SubscriptionResolver<ResolversTypes['String'], 'hello', ParentType, ContextType>;
 };
 
-export interface DateTimeScalarConfig extends GraphQLScalarTypeConfig<ResolversTypes['DateTime'], any> {
-  name: 'DateTime';
-}
+export type MutationResolvers<
+  ContextType = EZContext,
+  ParentType extends ResolversParentTypes['Mutation'] = ResolversParentTypes['Mutation']
+> = {
+  uploadFileToBase64?: Resolver<
+    ResolversTypes['String'],
+    ParentType,
+    ContextType,
+    RequireFields<MutationUploadFileToBase64Args, 'file'>
+  >;
+};
 
-export type Resolvers<ContextType = EnvelopContext> = {
+export type Resolvers<ContextType = EZContext> = {
+  Upload?: GraphQLScalarType;
+  DateTime?: GraphQLScalarType;
   Query?: QueryResolvers<ContextType>;
   Subscription?: SubscriptionResolvers<ContextType>;
-  DateTime?: GraphQLScalarType;
+  Mutation?: MutationResolvers<ContextType>;
 };
 
 /**
  * @deprecated
  * Use "Resolvers" root object instead. If you wish to get "IResolvers", add "typesPrefix: I" to your config.
  */
-export type IResolvers<ContextType = EnvelopContext> = Resolvers<ContextType>;
+export type IResolvers<ContextType = EZContext> = Resolvers<ContextType>;
 
 export type HelloQueryQueryVariables = Exact<{ [key: string]: never }>;
 
@@ -175,6 +209,6 @@ export const HelloQueryDocument = {
   ],
 } as unknown as DocumentNode<HelloQueryQuery, HelloQueryQueryVariables>;
 
-declare module '@graphql-ez/http' {
-  interface EnvelopResolvers extends Resolvers<import('@graphql-ez/http').EnvelopContext> {}
+declare module '@graphql-ez/koa-new' {
+  interface EZResolvers extends Resolvers<import('@graphql-ez/koa-new').EZContext> {}
 }

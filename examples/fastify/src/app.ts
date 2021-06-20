@@ -14,9 +14,7 @@ export const { registerModule, buildApp, registerDataLoader } = CreateApp({
     federation: true,
     deepPartialResolvers: true,
     targetPath: './src/envelop.generated.ts',
-    preImportCode: `
-    /* eslint-disable no-use-before-define */
-    `,
+
     scalars: {
       DateTime: 'string',
     },

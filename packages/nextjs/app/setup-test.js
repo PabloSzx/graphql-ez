@@ -30,7 +30,7 @@ module.exports = async () => {
     {
       enableCodegen: true,
       codegen: {
-        preImportCode: `/* eslint-disable no-use-before-define */\n/* istanbul ignore file */\n\n`,
+        preImportCode: `\n/* istanbul ignore file */\n\n`,
         targetPath: resolve(__dirname, `./test/generated/envelop.generated.ts`),
         documents: resolve(__dirname, './test/graphql/*.gql'),
         transformGenerated(code) {

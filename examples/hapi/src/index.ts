@@ -1,5 +1,3 @@
-/* eslint-disable no-console */
-
 import Hapi from '@hapi/hapi';
 
 import { buildApp } from './app';

@@ -3,9 +3,9 @@ import { LazyPromise } from '@graphql-ez/core-utils/promise';
 
 import { onIntegrationRegister } from './integrations';
 
-import type { EZPlugin, RequestHandler } from '@graphql-ez/core-types';
+import type { EZPlugin } from '@graphql-ez/core-types';
 import type { RenderOptions } from 'altair-static';
-import type { AltairOptions } from './types';
+import type { AltairOptions, HandlerConfig, IDEHandler } from './types';
 
 const AltairDeps = LazyPromise(async () => {
   const [
@@ -70,8 +70,10 @@ export const ezAltairIDE = (options: AltairOptions | boolean = true): EZPlugin =
   };
 };
 
-export function AltairHandler(options: AltairOptions | boolean): RequestHandler {
+export function AltairHandler(options: AltairOptions | boolean, extraConfig?: HandlerConfig): IDEHandler {
   const { path, baseURL, renderOptions } = AltairHandlerDeps(getObjectValue(options) || {});
+
+  const rawHttp = extraConfig?.rawHttp ?? true;
 
   return async function (req, res) {
     try {
@@ -80,36 +82,62 @@ export function AltairHandler(options: AltairOptions | boolean): RequestHandler 
       switch ((req.url ||= '_')) {
         case path:
         case baseURL: {
-          res.setHeader('content-type', 'text/html');
-          return res.end(
-            renderAltair({
-              ...renderOptions,
-              baseURL,
-            })
-          );
+          const content = renderAltair({
+            ...renderOptions,
+            baseURL,
+          });
+
+          if (rawHttp) {
+            res.setHeader('content-type', 'text/html');
+            res.end(content);
+          }
+
+          return {
+            content,
+            contentType: 'text/html',
+          };
         }
         default: {
           const resolvedPath = resolve(getDistDirectory(), req.url.slice(baseURL.length));
 
           const result = await readFile(resolvedPath).catch(() => {});
 
-          if (!result) return res.writeHead(404).end();
-
           const contentType = lookup(resolvedPath);
-          if (contentType) res.setHeader('content-type', contentType);
-          return res.end(result);
+
+          if (!result || !contentType) {
+            if (rawHttp) {
+              res.writeHead(404).end();
+            }
+
+            return;
+          }
+
+          if (rawHttp) {
+            res.setHeader('content-type', contentType);
+
+            res.end(result);
+          }
+
+          return {
+            content: result,
+            contentType,
+          };
         }
       }
     } catch (err) /* istanbul ignore next */ {
-      res
-        .writeHead(500, {
-          'content-type': 'application/json',
-        })
-        .end(
-          JSON.stringify({
-            message: err.message,
+      if (rawHttp) {
+        res
+          .writeHead(500, {
+            'content-type': 'application/json',
           })
-        );
+          .end(
+            JSON.stringify({
+              message: err.message,
+            })
+          );
+      }
     }
+
+    return;
   };
 }

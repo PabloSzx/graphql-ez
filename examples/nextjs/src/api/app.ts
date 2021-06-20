@@ -13,9 +13,6 @@ declare module '@graphql-ez/nextjs' {
 export const { buildApp, registerModule, gql } = CreateApp({
   buildContext,
   codegen: {
-    preImportCode: `
-    /* eslint-disable no-use-before-define */
-    `,
     documents: 'src/graphql/*',
   },
 });
