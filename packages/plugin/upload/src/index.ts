@@ -1,3 +1,5 @@
+import assert from 'assert';
+
 import { gql } from '@graphql-ez/core-utils/gql';
 import { getObjectValue } from '@graphql-ez/core-utils/object';
 import { LazyPromise } from '@graphql-ez/core-utils/promise';
@@ -22,7 +24,7 @@ declare module '@graphql-ez/core-types' {
 export const ezUpload = (options: GraphQLUploadConfig = true): EZPlugin => {
   return {
     name: 'GraphQL Upload',
-    compatibilityList: ['fastify-new', 'koa-new', 'hapi-new'],
+    compatibilityList: ['fastify-new', 'koa-new', 'hapi-new', 'express-new'],
     onRegister(ctx) {
       if (options) {
         const deps = {
@@ -67,6 +69,19 @@ export const ezUpload = (options: GraphQLUploadConfig = true): EZPlugin => {
 
           request.body = await processRequest(request.raw, reply.raw, ctx.GraphQLUpload?.options);
         });
+
+        return;
+      }
+
+      if (integrationCtx.express) {
+        const instance = integrationCtx.express.router;
+
+        const graphqlUploadExpress = (await ctx.GraphQLUpload.express)(ctx.GraphQLUpload.options);
+
+        assert(ctx.options.path, "Path not specified and it's required for GraphQL Upload");
+        instance.post(ctx.options.path, graphqlUploadExpress, (_req, _res, next) => next());
+
+        return;
       }
     },
   };

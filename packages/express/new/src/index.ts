@@ -1,4 +1,4 @@
-import { json, Request, RequestHandler, Response, Router } from 'express';
+import { json, Request, RequestHandler, Response, Router, Express } from 'express';
 
 import {
   AppOptions,
@@ -54,8 +54,12 @@ export interface EZApp {
   getEnveloped: Envelop;
 }
 
+export interface ExpressBuildAppOptions extends BuildAppOptions {
+  app: Express;
+}
+
 export interface EZAppBuilder extends BaseAppBuilder {
-  buildApp(options?: BuildAppOptions): Promise<EZApp>;
+  buildApp(options: ExpressBuildAppOptions): Promise<EZApp>;
 }
 
 export function CreateApp(config: ExpressAppOptions = {}): EZAppBuilder {
@@ -78,11 +82,11 @@ export function CreateApp(config: ExpressAppOptions = {}): EZAppBuilder {
 
   const { appBuilder, onIntegrationRegister, ...commonApp } = ezApp;
 
-  const buildApp: EZAppBuilder['buildApp'] = async function buildApp(buildOptions = {}) {
+  const buildApp: EZAppBuilder['buildApp'] = async function buildApp(buildOptions) {
     const { app: router, getEnveloped } = await appBuilder(buildOptions, async ({ ctx, getEnveloped }) => {
       const router = Router();
 
-      const { cors, bodyParserJSONOptions, customHandleRequest, buildContext, onAppRegister } = config;
+      const { cors, bodyParserJSONOptions = {}, customHandleRequest, buildContext, onAppRegister } = config;
 
       if (onAppRegister) await onAppRegister(ctx, router);
 
