@@ -93,7 +93,7 @@ export interface WebSocketObjectOptions {
 export type WebSocketOptions = WebSocketObjectOptions | boolean | 'legacy' | 'both';
 
 export type CommonWebSocketsServer = Promise<
-  ((getEnveloped: Envelop<unknown>) => (httpServer: HttpServer, path: string) => WebSocketsState) | null
+  ((getEnveloped: Envelop) => (httpServer: HttpServer, path: string) => WebSocketsState) | null
 >;
 
 export interface WithWebSockets {
@@ -228,7 +228,7 @@ export function handleSubscriptionsTransport(
   subscriptionsTransportWs: typeof import('subscriptions-transport-ws-envelop/server').SubscriptionServer,
   wsServer: WebSocket.Server,
   options: FilteredSubscriptionsTransportOptions | undefined,
-  getEnveloped: Envelop<unknown>,
+  getEnveloped: Envelop,
   buildContext: BaseEZAppOptions['buildContext']
 ): void {
   const { execute, subscribe } = getEnveloped();
@@ -264,7 +264,7 @@ export function handleGraphQLWS(
   useGraphQLWSServer: typeof import('graphql-ws/lib/use/ws').useServer,
   wsServer: WebSocket.Server,
   options: FilteredGraphQLWSOptions | undefined,
-  getEnveloped: Envelop<unknown>,
+  getEnveloped: Envelop,
   buildContext: BaseEZAppOptions['buildContext']
 ): void {
   const { execute, subscribe } = getEnveloped();

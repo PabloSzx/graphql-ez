@@ -50,7 +50,7 @@ export interface BuildAppOptions {
 }
 
 export interface EZApp {
-  getEnveloped: Envelop<unknown>;
+  getEnveloped: Envelop;
 }
 
 export interface EZAppBuilder extends BaseEnvelopBuilder {

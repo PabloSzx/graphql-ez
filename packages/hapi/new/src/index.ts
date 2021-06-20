@@ -151,3 +151,6 @@ export function CreateApp(config: HapiAppOptions = {}): EZAppBuilder {
     buildApp,
   };
 }
+
+export * from '@graphql-ez/core-app';
+export * from '@graphql-ez/core-utils';

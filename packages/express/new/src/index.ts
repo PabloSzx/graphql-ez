@@ -149,3 +149,6 @@ export function CreateApp(config: ExpressAppOptions = {}): EZAppBuilder {
     buildApp,
   };
 }
+
+export * from '@graphql-ez/core-app';
+export * from '@graphql-ez/core-utils';

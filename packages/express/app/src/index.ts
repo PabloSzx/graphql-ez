@@ -54,7 +54,7 @@ export interface BuildAppOptions {
 
 export interface EZApp {
   router: Router;
-  getEnveloped: Envelop<unknown>;
+  getEnveloped: Envelop;
 }
 
 export interface EZAppBuilder extends BaseEnvelopBuilder {
@@ -77,7 +77,7 @@ export function CreateApp(config: EZAppOptions = {}): EZAppBuilder {
 
   const websocketsFactoryPromise = CreateWebSocketsServer(config);
 
-  async function handleSubscriptions(getEnveloped: Envelop<unknown>, appInstance: Express, optionsServer: Server | undefined) {
+  async function handleSubscriptions(getEnveloped: Envelop, appInstance: Express, optionsServer: Server | undefined) {
     if (!websockets) return;
 
     const websocketsHandler = await websocketsFactoryPromise;

@@ -29,7 +29,7 @@ export interface InternalCodegenConfig {
   moduleName: 'express' | 'fastify' | 'nextjs' | 'http' | 'koa' | 'hapi' | 'core';
 }
 
-export function handleCodegen(getEnveloped: Envelop<unknown>, config: WithCodegen, internalConfig: InternalCodegenConfig): void {
+export function handleCodegen(getEnveloped: Envelop, config: WithCodegen, internalConfig: InternalCodegenConfig): void {
   const {
     codegen: {
       // eslint-disable-next-line no-console

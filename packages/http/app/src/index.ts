@@ -44,7 +44,7 @@ export type RequestHandler = (req: IncomingMessage, res: ServerResponse) => void
 
 export interface EZApp {
   requestHandler: AsyncRequestHandler;
-  getEnveloped: Promise<Envelop<unknown>>;
+  getEnveloped: Promise<Envelop>;
 }
 
 export interface EZAppBuilder extends BaseEnvelopBuilder {

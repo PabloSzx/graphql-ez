@@ -13,7 +13,7 @@ import type { Application, Module } from 'graphql-modules';
 import type { handleRequest } from './request';
 import type { BuildContextArgs, EnvelopContext } from './types';
 
-export type AdapterFactory<T> = (envelop: Envelop<unknown>, modulesApplication: Application | undefined) => T;
+export type AdapterFactory<T> = (envelop: Envelop, modulesApplication: Application | undefined) => T;
 
 export interface BaseEnvelopBuilder {
   /**
@@ -58,7 +58,7 @@ export interface InternalAppBuildOptions<T> {
 
 export interface BuiltApp<T> {
   app: T;
-  getEnveloped: Envelop<unknown>;
+  getEnveloped: Envelop;
 }
 
 export interface EZAppFactoryType extends BaseEnvelopBuilder {
@@ -104,7 +104,7 @@ export function createEZAppFactory<TContext>(
     afterBuilt,
   }: {
     preBuild?: (plugins: Plugin[]) => void | Promise<void>;
-    afterBuilt?: (getEnveloped: Envelop<unknown>) => void | Promise<void>;
+    afterBuilt?: (getEnveloped: Envelop) => void | Promise<void>;
   } = {}
 ): EZAppFactoryType {
   const { mergeSchemasConfig, plugins, modules, scalars } = config;

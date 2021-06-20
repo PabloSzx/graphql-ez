@@ -27,7 +27,7 @@ export interface BuildAppOptions {
 
 export interface EZApp {
   handler: NextApiHandler<unknown>;
-  getEnveloped: Promise<Envelop<unknown>>;
+  getEnveloped: Promise<Envelop>;
 }
 
 export interface EZAppBuilder extends BaseEnvelopBuilder {

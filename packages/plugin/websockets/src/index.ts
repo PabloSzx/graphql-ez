@@ -35,7 +35,7 @@ export interface WebSocketObjectOptionsConfig {
 export type WebSocketOptions = WebSocketObjectOptions | 'new' | 'legacy' | 'adaptive';
 
 export type CommonWebSocketsServer = Promise<
-  ((getEnveloped: Envelop<unknown>) => (httpServer: HttpServer, path: string) => WebSocketsState) | null
+  ((getEnveloped: Envelop) => (httpServer: HttpServer, path: string) => WebSocketsState) | null
 >;
 
 export type WebSocketsEnabledState = 'new' | 'adaptive' | 'legacy';

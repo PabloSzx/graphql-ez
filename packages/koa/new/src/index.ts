@@ -51,7 +51,7 @@ export interface KoaAppOptions extends AppOptions {
 }
 
 export interface EZApp {
-  getEnveloped: Envelop<unknown>;
+  getEnveloped: Envelop;
 }
 
 export interface KoaBuildAppOptions extends BuildAppOptions {
@@ -159,3 +159,6 @@ export function CreateApp(config: KoaAppOptions = {}): EZAppBuilder {
     buildApp,
   };
 }
+
+export * from '@graphql-ez/core-app';
+export * from '@graphql-ez/core-utils';

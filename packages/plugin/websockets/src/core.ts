@@ -43,7 +43,7 @@ export function handleSubscriptionsTransport(
   subscriptionsTransportWs: typeof import('subscriptions-transport-ws-envelop/server').SubscriptionServer,
   wsServer: WebSocket.Server,
   options: FilteredSubscriptionsTransportOptions | undefined,
-  getEnveloped: Envelop<unknown>,
+  getEnveloped: Envelop,
   buildContext: AppOptions['buildContext']
 ): void {
   const { execute, subscribe } = getEnveloped();
@@ -79,7 +79,7 @@ export function handleGraphQLWS(
   useGraphQLWSServer: typeof import('graphql-ws/lib/use/ws').useServer,
   wsServer: WebSocket.Server,
   options: FilteredGraphQLWSOptions | undefined,
-  getEnveloped: Envelop<unknown>,
+  getEnveloped: Envelop,
   buildContext: AppOptions['buildContext']
 ): void {
   const { execute, subscribe } = getEnveloped();

@@ -26,7 +26,7 @@ export type DefaultPushResponseHandler = (
 
 export interface HandleRequestOptions<BuildContextArgs, TReturn = unknown> {
   request: Request;
-  getEnveloped: Envelop<unknown>;
+  getEnveloped: Envelop;
 
   baseOptions: AppOptions;
 

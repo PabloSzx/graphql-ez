@@ -5,7 +5,7 @@ import type { InternalAppBuildContext, BaseAppBuilder, BuildAppOptions, Internal
 import type { DocumentNode } from 'graphql';
 
 export interface AdapterFactoryArgs {
-  getEnveloped: Envelop<unknown>;
+  getEnveloped: Envelop;
   ctx: InternalAppBuildContext;
 }
 
@@ -108,7 +108,7 @@ declare module './index' {
 
 export interface BuiltEZApp<T> {
   app: T;
-  getEnveloped: Envelop<unknown>;
+  getEnveloped: Envelop;
 }
 
 export interface EZAppFactoryType extends BaseAppBuilder {
