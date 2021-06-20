@@ -1,0 +1,105 @@
+{
+  "name": "@graphql-ez/koa-new",
+  "version": "0.1.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/PabloSzx/graphql-ez",
+    "directory": "packages/koa"
+  },
+  "license": "MIT",
+  "author": "PabloSz <pablosaez1995@gmail.com>",
+  "exports": {
+    ".": {
+      "require": "./dist/index.js",
+      "import": "./dist/index.mjs"
+    },
+    "./*": {
+      "require": "./dist/*.js",
+      "import": "./dist/*.mjs"
+    }
+  },
+  "scripts": {
+    "dev": "bob-esbuild watch",
+    "prepare": "bob-esbuild build",
+    "postpublish": "gh-release",
+    "test": "jest"
+  },
+  "dependencies": {
+    "@envelop/types": "^0.2.0",
+    "@graphql-ez/core-app": "workspace:^0.0.1",
+    "@graphql-ez/core-types": "workspace:^0.0.1",
+    "@graphql-ez/core-utils": "workspace:^0.0.1",
+    "@koa/cors": "^3.1.0",
+    "@types/koa__cors": "^3.0.2"
+  },
+  "devDependencies": {
+    "@graphql-ez/testing": "workspace:^1.0.1",
+    "@graphql-tools/schema": "^7.1.5",
+    "@graphql-typed-document-node/core": "3.1.0",
+    "@koa/router": "10.0.0",
+    "@types/eventsource": "1.1.5",
+    "@types/graphql-upload": "8.0.5",
+    "@types/jest": "26.0.23",
+    "@types/koa": "2.13.3",
+    "@types/koa-bodyparser": "4.3.1",
+    "@types/koa__router": "8.0.4",
+    "@types/node": "15.12.4",
+    "@types/node-fetch": "2.5.10",
+    "bob-esbuild-cli": "0.1.26",
+    "changesets-github-release": "0.0.3",
+    "cross-env": "7.0.3",
+    "eventsource": "1.1.0",
+    "got": "11.8.2",
+    "graphql": "15.4.0-experimental-stream-defer.1",
+    "graphql-upload": "12.0.0",
+    "jest": "27.0.4",
+    "koa": "2.13.1",
+    "koa-bodyparser": "4.3.0",
+    "node-fetch": "2.6.1",
+    "ts-jest": "27.0.3",
+    "typescript": "4.3.4"
+  },
+  "peerDependencies": {
+    "@koa/router": "^10.0.0",
+    "@types/graphql-upload": "*",
+    "@types/koa-bodyparser": "*",
+    "@types/koa__router": "*",
+    "@types/node": "*",
+    "graphql": "*",
+    "graphql-upload": "^12.0.0",
+    "koa-bodyparser": "^4.3.0"
+  },
+  "peerDependenciesMeta": {
+    "@koa/router": {
+      "optional": true
+    },
+    "@types/graphql-upload": {
+      "optional": true
+    },
+    "@types/koa-bodyparser": {
+      "optional": true
+    },
+    "@types/koa__router": {
+      "optional": true
+    },
+    "graphql": {
+      "optional": true
+    },
+    "graphql-upload": {
+      "optional": true
+    },
+    "koa-bodyparser": {
+      "optional": true
+    }
+  },
+  "publishConfig": {
+    "directory": "dist"
+  },
+  "typesVersions": {
+    "*": {
+      "*": [
+        "dist/*"
+      ]
+    }
+  }
+}

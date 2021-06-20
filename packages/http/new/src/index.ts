@@ -70,8 +70,12 @@ export interface EZApp {
   getEnveloped: Envelop<unknown>;
 }
 
+export interface HTTPBuildAppOptions extends BuildAppOptions {
+  server: HTTPServer;
+}
+
 export interface EZAppBuilder extends BaseAppBuilder {
-  buildApp(options: BuildAppOptions & { server: HTTPServer }): Promise<EZApp>;
+  buildApp(options: HTTPBuildAppOptions): Promise<EZApp>;
 }
 
 export function CreateApp(config: HttpAppOptions = {}): EZAppBuilder {
