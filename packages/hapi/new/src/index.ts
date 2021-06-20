@@ -21,7 +21,10 @@ declare module '@graphql-ez/core-types' {
   }
 
   interface InternalAppBuildIntegrationContext {
-    hapiServer?: Server;
+    hapi?: {
+      server: Server;
+      ideRouteOptions?: RouteOptions;
+    };
   }
 }
 
@@ -42,6 +45,11 @@ export interface HapiAppOptions extends AppOptions {
    * Custom on app register callback with access to internal build context
    */
   onAppRegister?(ctx: InternalAppBuildContext, server: Server): void | Promise<void>;
+
+  /**
+   * Configure IDE route options
+   */
+  ideRouteOptions?: RouteOptions;
 }
 
 export interface EZApp {
@@ -80,7 +88,7 @@ export function CreateApp(config: HapiAppOptions = {}): EZAppBuilder {
       return async function register(server: Server) {
         if (onAppRegister) await onAppRegister?.(ctx, server);
         await onIntegrationRegister({
-          hapiServer: server,
+          hapi: { server, ideRouteOptions: config.ideRouteOptions },
         });
 
         const requestHandler = customHandleRequest || handleRequest;

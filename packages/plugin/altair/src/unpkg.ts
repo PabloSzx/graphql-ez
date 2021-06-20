@@ -118,7 +118,7 @@ export function UnpkgAltairHandler(options: AltairOptions | boolean = {}): Reque
 export const UnpkgAltairIDE = (options: AltairOptions | boolean = true): EZPlugin => {
   return {
     name: 'Altair GraphQL Client UNPKG',
-    compatibilityList: ['fastify-new'],
+    compatibilityList: ['fastify-new', 'express-new', 'hapi-new', 'http-new', 'koa-new', 'nextjs-new'],
     onRegister(ctx) {
       if (!options) return;
 

@@ -24,7 +24,9 @@ declare module '@graphql-ez/core-types' {
   }
 
   interface InternalAppBuildIntegrationContext {
-    koaRouter?: KoaRouter;
+    koa?: {
+      router: KoaRouter;
+    };
   }
 }
 
@@ -97,7 +99,7 @@ export function CreateApp(config: KoaAppOptions = {}): EZAppBuilder {
       if (onAppRegister) await onAppRegister(ctx, router);
 
       await onIntegrationRegister({
-        koaRouter: router,
+        koa: { router },
       });
 
       if (cors) {

@@ -24,7 +24,9 @@ declare module '@graphql-ez/core-types' {
   }
 
   interface InternalAppBuildIntegrationContext {
-    expressRouter?: Router;
+    express?: {
+      router: Router;
+    };
   }
 }
 
@@ -85,7 +87,7 @@ export function CreateApp(config: ExpressAppOptions = {}): EZAppBuilder {
       if (onAppRegister) await onAppRegister(ctx, router);
 
       await onIntegrationRegister({
-        expressRouter: router,
+        express: { router },
       });
 
       if (cors) {
