@@ -1,3 +1,4 @@
+import type { PickRequired } from '@graphql-ez/core-app';
 import type { RenderOptions } from 'altair-static';
 import type { IncomingMessage, ServerResponse } from 'http';
 
@@ -33,7 +34,7 @@ declare module '@graphql-ez/core-types' {
 
   interface InternalAppBuildContext {
     altair?: {
-      handler: (options: AltairOptions | boolean, extraConfig?: HandlerConfig) => IDEHandler;
+      handler: (options: PickRequired<AltairOptions, 'path'>, extraConfig?: HandlerConfig) => IDEHandler;
       options: AltairOptions;
       path: string;
       baseURL: string;

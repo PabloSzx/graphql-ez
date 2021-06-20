@@ -5,7 +5,7 @@ import { getObjectValue } from '@graphql-ez/core-utils/object';
 import { onIntegrationRegister } from './integrations';
 
 import type { AltairConfigOptions } from 'altair-exported-types/dist/app/modules/altair/config';
-import type { EZPlugin } from '@graphql-ez/core-types';
+import type { EZPlugin, PickRequired } from '@graphql-ez/core-types';
 import type { RenderOptions } from 'altair-static';
 import type { AltairOptions, HandlerConfig, IDEHandler } from './types';
 
@@ -74,10 +74,10 @@ function getObjectPropertyForOption(option: any, propertyName: keyof AltairConfi
   return '';
 }
 
-export function UnpkgAltairHandler(options: AltairOptions | boolean = {}, extraConfig?: HandlerConfig): IDEHandler {
-  let { path = '/api/altair', endpointURL = '/api/graphql', ...renderOptions } = getObjectValue(options) || {};
+export function UnpkgAltairHandler(options: PickRequired<AltairOptions, 'path'>, extraConfig?: HandlerConfig): IDEHandler {
+  let { path, baseURL: baseURLOpt, endpointURL = '/api/graphql', ...renderOptions } = options;
 
-  const baseURL = path.endsWith('/') ? (path = path.slice(0, path.length - 1)) + '/' : path + '/';
+  const baseURL = baseURLOpt || path + '/';
 
   const rawHttp = extraConfig?.rawHttp ?? true;
 
@@ -148,7 +148,7 @@ export function UnpkgAltairHandler(options: AltairOptions | boolean = {}, extraC
   };
 }
 
-export const UnpkgAltairIDE = (options: AltairOptions | boolean = true): EZPlugin => {
+export const ezUnpkgAltairIDE = (options: AltairOptions | boolean = true): EZPlugin => {
   return {
     name: 'Altair GraphQL Client UNPKG',
     compatibilityList: ['fastify-new', 'express-new', 'hapi-new', 'http-new', 'koa-new', 'nextjs-new'],
@@ -160,8 +160,7 @@ export const UnpkgAltairIDE = (options: AltairOptions | boolean = true): EZPlugi
       objOptions.endpointURL ||= ctx.options.path;
 
       const path = (objOptions.path ||= '/altair');
-
-      const baseURL = (objOptions.baseURL ||= '/altair/');
+      const baseURL = (objOptions.baseURL ||= path + '/');
 
       ctx.altair = {
         handler: UnpkgAltairHandler,

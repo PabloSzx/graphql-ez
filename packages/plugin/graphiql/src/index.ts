@@ -25,7 +25,7 @@ const GraphiQLDeps = LazyPromise(async () => {
   return { renderGraphiQL };
 });
 
-export function GraphiQLHandler(options: GraphiQLOptions | boolean = {}): RequestHandler {
+export function GraphiQLHandler(options: GraphiQLOptions): RequestHandler {
   const { endpoint = '/graphql', ...renderOptions } = getObjectValue(options) || {};
 
   const html = GraphiQLDeps.then(({ renderGraphiQL }) => {

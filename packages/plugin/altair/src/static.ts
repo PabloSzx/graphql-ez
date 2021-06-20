@@ -3,7 +3,7 @@ import { LazyPromise } from '@graphql-ez/core-utils/promise';
 
 import { onIntegrationRegister } from './integrations';
 
-import type { EZPlugin } from '@graphql-ez/core-types';
+import type { EZPlugin, PickRequired } from '@graphql-ez/core-types';
 import type { RenderOptions } from 'altair-static';
 import type { AltairOptions, HandlerConfig, IDEHandler } from './types';
 
@@ -32,9 +32,9 @@ export function AltairHandlerDeps(options: AltairOptions): {
   renderOptions: RenderOptions;
   deps: typeof AltairDeps;
 } {
-  let { path = '/altair', ...renderOptions } = options;
+  let { path = '/altair', baseURL: baseURLOpt, ...renderOptions } = options;
 
-  const baseURL = path.endsWith('/') ? (path = path.slice(0, path.length - 1)) + '/' : path + '/';
+  const baseURL = baseURLOpt || path + '/';
 
   return {
     path,
@@ -56,8 +56,7 @@ export const ezAltairIDE = (options: AltairOptions | boolean = true): EZPlugin =
       objOptions.endpointURL ||= ctx.options.path;
 
       const path = (objOptions.path ||= '/altair');
-
-      const baseURL = (objOptions.baseURL ||= '/altair/');
+      const baseURL = (objOptions.baseURL ||= path + '/');
 
       ctx.altair = {
         handler: AltairHandler,
@@ -70,8 +69,8 @@ export const ezAltairIDE = (options: AltairOptions | boolean = true): EZPlugin =
   };
 };
 
-export function AltairHandler(options: AltairOptions | boolean, extraConfig?: HandlerConfig): IDEHandler {
-  const { path, baseURL, renderOptions } = AltairHandlerDeps(getObjectValue(options) || {});
+export function AltairHandler(options: PickRequired<AltairOptions, 'path'>, extraConfig?: HandlerConfig): IDEHandler {
+  const { path, baseURL, renderOptions } = AltairHandlerDeps(options);
 
   const rawHttp = extraConfig?.rawHttp ?? true;
 
@@ -79,7 +78,7 @@ export function AltairHandler(options: AltairOptions | boolean, extraConfig?: Ha
     try {
       const { renderAltair, getDistDirectory, readFile, resolve, lookup } = await AltairDeps;
 
-      switch ((req.url ||= '_')) {
+      switch (req.url) {
         case path:
         case baseURL: {
           const content = renderAltair({
@@ -96,6 +95,13 @@ export function AltairHandler(options: AltairOptions | boolean, extraConfig?: Ha
             content,
             contentType: 'text/html',
           };
+        }
+        case undefined: {
+          if (rawHttp) {
+            res.writeHead(404).end();
+          }
+
+          return;
         }
         default: {
           const resolvedPath = resolve(getDistDirectory(), req.url.slice(baseURL.length));

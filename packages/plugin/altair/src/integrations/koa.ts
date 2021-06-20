@@ -3,13 +3,17 @@ import type { InternalAppBuildContext, InternalAppBuildIntegrationContext } from
 export function handleKoa(ctx: InternalAppBuildContext, instance: NonNullable<InternalAppBuildIntegrationContext['koa']>) {
   if (!ctx.altair) return;
 
-  const handler = ctx.altair.handler(ctx.altair.options, {
-    rawHttp: false,
-  });
+  const path = ctx.altair.path;
+  const baseURL = ctx.altair.baseURL;
 
-  const basePath = ctx.altair.path.endsWith('/') ? ctx.altair.path.slice(0, ctx.altair.path.length - 1) : ctx.altair.path;
+  const handler = ctx.altair.handler(
+    { ...ctx.altair.options, path },
+    {
+      rawHttp: false,
+    }
+  );
 
-  instance.router.get([basePath, basePath + '/(.*)'], async ctx => {
+  instance.router.get([path, baseURL, baseURL + '/(.*)'], async ctx => {
     const result = await handler(ctx.req, ctx.res);
 
     if (!result) {

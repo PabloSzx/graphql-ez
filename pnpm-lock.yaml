@@ -320,6 +320,47 @@ importers:
       '@types/react-dom': 17.0.8
       typescript: 4.3.4
 
+  examples/nextjs-new:
+    specifiers:
+      '@graphql-ez/nextjs-new': workspace:^0.1.0
+      '@graphql-ez/plugin-altair': workspace:^0.0.1
+      '@graphql-ez/plugin-codegen': workspace:^0.0.1
+      '@graphql-ez/plugin-graphiql': workspace:^0.0.1
+      '@graphql-ez/plugin-modules': workspace:^0.0.1
+      '@graphql-ez/plugin-scalars': workspace:^0.0.1
+      '@graphql-ez/plugin-upload': workspace:^0.0.1
+      '@graphql-typed-document-node/core': ^3.1.0
+      '@types/node': ^15.12.4
+      '@types/react': ^17.0.11
+      '@types/react-dom': ^17.0.8
+      graphql: 15.4.0-experimental-stream-defer.1
+      graphql-request: ^3.4.0
+      next: ^11.0.0
+      react: ^17.0.2
+      react-dom: ^17.0.2
+      react-query: ^3.17.2
+      typescript: ^4.3.4
+    dependencies:
+      '@graphql-ez/nextjs-new': link:../../packages/nextjs/new
+      '@graphql-ez/plugin-altair': link:../../packages/plugin/altair
+      '@graphql-ez/plugin-codegen': link:../../packages/plugin/codegen
+      '@graphql-ez/plugin-graphiql': link:../../packages/plugin/graphiql
+      '@graphql-ez/plugin-modules': link:../../packages/plugin/modules
+      '@graphql-ez/plugin-scalars': link:../../packages/plugin/scalars
+      '@graphql-ez/plugin-upload': link:../../packages/plugin/upload
+      '@graphql-typed-document-node/core': 3.1.0_34dd13c2583fe2e4418c23a0d30fc388
+      graphql: 15.4.0-experimental-stream-defer.1
+      graphql-request: 3.4.0_34dd13c2583fe2e4418c23a0d30fc388
+      next: 11.0.0_2dbe935e140170ce01c975771f1adcbd
+      react: 17.0.2
+      react-dom: 17.0.2_react@17.0.2
+      react-query: 3.17.2_react-dom@17.0.2+react@17.0.2
+    devDependencies:
+      '@types/node': 15.12.4
+      '@types/react': 17.0.11
+      '@types/react-dom': 17.0.8
+      typescript: 4.3.4
+
   internal/testing:
     specifiers:
       '@graphql-ez/core-utils': workspace:^0.0.1

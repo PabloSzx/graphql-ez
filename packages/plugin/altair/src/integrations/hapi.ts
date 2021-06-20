@@ -3,11 +3,11 @@ import type { InternalAppBuildContext, InternalAppBuildIntegrationContext } from
 export function handleHapi(ctx: InternalAppBuildContext, instance: NonNullable<InternalAppBuildIntegrationContext['hapi']>) {
   if (!ctx.altair) return;
 
-  const handler = ctx.altair.handler(ctx.altair.options);
+  const path = ctx.altair.path;
 
-  const basePath = ctx.altair.path.endsWith('/') ? ctx.altair.path.slice(0, ctx.altair.path.length - 1) : ctx.altair.path;
+  const handler = ctx.altair.handler({ ...ctx.altair.options, path });
 
-  const wildCardPath = `${basePath}/{any*}`;
+  const wildCardPath = `${ctx.altair.baseURL}/{any*}`;
 
   instance.server.route({
     path: wildCardPath,

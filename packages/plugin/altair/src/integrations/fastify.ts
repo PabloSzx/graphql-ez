@@ -6,9 +6,11 @@ export function handleFastify(
 ) {
   if (!ctx.altair) return;
 
-  const handler = ctx.altair.handler(ctx.altair.options);
+  const path = ctx.altair.path;
 
-  instance.get(ctx.altair.path, async (req, res) => {
+  const handler = ctx.altair.handler({ ...ctx.altair.options, path });
+
+  instance.get(path, async (req, res) => {
     res.hijack();
     await handler(req.raw, res.raw);
   });
