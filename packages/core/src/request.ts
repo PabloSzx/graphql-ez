@@ -41,7 +41,9 @@ export async function handleRequest<TReturn = unknown>({
   onPushResponse,
   baseOptions,
 }: HandleRequestOptions<BuildContextArgs, TReturn>): Promise<TReturn> {
-  const { parse, validate, contextFactory, execute, schema, subscribe } = getEnveloped(buildContext?.(buildContextArgs()));
+  const { parse, validate, contextFactory, execute, schema, subscribe } = getEnveloped(
+    buildContext ? await buildContext(buildContextArgs()) : undefined
+  );
 
   if (Array.isArray(request.body)) {
     const allowBatchedQueries = baseOptions.allowBatchedQueries;
