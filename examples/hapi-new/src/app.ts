@@ -4,7 +4,6 @@ import { ezCodegen } from '@graphql-ez/plugin-codegen';
 import { ezGraphiQLIDE } from '@graphql-ez/plugin-graphiql';
 import { ezGraphQLModules } from '@graphql-ez/plugin-modules';
 import { ezScalars } from '@graphql-ez/plugin-scalars';
-import { ezUpload } from '@graphql-ez/plugin-upload';
 
 function buildContext({ req }: BuildContextArgs) {
   return {
@@ -33,7 +32,6 @@ export const { registerModule, buildApp } = CreateApp({
         },
         outputSchema: './schema.gql',
       }),
-      ezUpload(),
       ezGraphQLModules(),
       ezScalars({
         DateTime: 1,

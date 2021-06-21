@@ -24,7 +24,7 @@ declare module '@graphql-ez/core-types' {
 export const ezUpload = (options: GraphQLUploadConfig = true): EZPlugin => {
   return {
     name: 'GraphQL Upload',
-    compatibilityList: ['fastify-new', 'koa-new', 'hapi-new', 'express-new', 'http-new'],
+    compatibilityList: ['fastify-new', 'koa-new', 'express-new'],
     onRegister(ctx) {
       if (options) {
         const deps = {
@@ -82,6 +82,14 @@ export const ezUpload = (options: GraphQLUploadConfig = true): EZPlugin => {
         instance.post(ctx.options.path, graphqlUploadExpress, (_req, _res, next) => next());
 
         return;
+      }
+
+      if (integrationCtx.koa) {
+        assert(ctx.options.path, "Path not specified and it's required for GraphQL Upload");
+
+        const koaMiddleware = (await ctx.GraphQLUpload.koa)(ctx.GraphQLUpload.options);
+
+        integrationCtx.koa.router.post(ctx.options.path, koaMiddleware);
       }
     },
   };
