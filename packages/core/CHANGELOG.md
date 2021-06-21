@@ -1,5 +1,11 @@
 # @graphql-ez/core
 
+## 0.1.5
+
+### Patch Changes
+
+- 617af91: hotfix buildContext & websockets implementation (LAST RELEASE BEFORE REFACTOR)
+
 ## 0.1.4
 
 ### Patch Changes

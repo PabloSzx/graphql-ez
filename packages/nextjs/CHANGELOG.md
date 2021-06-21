@@ -1,5 +1,13 @@
 # @graphql-ez/nextjs
 
+## 0.1.3
+
+### Patch Changes
+
+- 617af91: hotfix buildContext & websockets implementation (LAST RELEASE BEFORE REFACTOR)
+- Updated dependencies [617af91]
+  - @graphql-ez/core@0.1.5
+
 ## 0.1.2
 
 ### Patch Changes
