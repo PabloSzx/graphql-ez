@@ -1,3 +1,5 @@
+import { withTrailingSlash } from '@graphql-ez/core-utils/url';
+
 import type { InternalAppBuildContext, InternalAppBuildIntegrationContext } from '@graphql-ez/core-app';
 
 export function handleFastify(
@@ -15,7 +17,7 @@ export function handleFastify(
     await handler(req.raw, res.raw);
   });
 
-  instance.get(`${ctx.altair.baseURL}*`, async (req, res) => {
+  instance.get(`${withTrailingSlash(ctx.altair.baseURL)}*`, async (req, res) => {
     res.hijack();
     await handler(req.raw, res.raw);
   });

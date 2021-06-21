@@ -1,3 +1,5 @@
+import { withoutTrailingSlash } from '@graphql-ez/core-utils/url';
+
 import type { InternalAppBuildContext, InternalAppBuildIntegrationContext } from '@graphql-ez/core-app';
 
 export function handleKoa(ctx: InternalAppBuildContext, instance: NonNullable<InternalAppBuildIntegrationContext['koa']>) {
@@ -13,7 +15,7 @@ export function handleKoa(ctx: InternalAppBuildContext, instance: NonNullable<In
     }
   );
 
-  instance.router.get([path, baseURL, baseURL + '/(.*)'], async ctx => {
+  instance.router.get([path, baseURL, withoutTrailingSlash(baseURL) + '/(.*)'], async ctx => {
     const result = await handler(ctx.req, ctx.res);
 
     if (!result) {

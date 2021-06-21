@@ -19,7 +19,7 @@
     }
   },
   "scripts": {
-    "dev": "bob-esbuild watch --skipTsc --onSuccess \"node dist/utils/gql.js\"",
+    "dev": "bob-esbuild watch",
     "prepare": "bob-esbuild build",
     "postpublish": "gh-release",
     "test": "jest"

@@ -56,4 +56,4 @@ app.ready(err => {
   process.exit(1);
 });
 
-app.listen(3030);
+app.listen(process.env.PORT || 3000);

@@ -17,6 +17,8 @@ export type Scalars = {
   Boolean: boolean;
   Int: number;
   Float: number;
+  /** The `Upload` scalar type represents a file upload. */
+  Upload: Promise<import('graphql-upload').FileUpload>;
   /** A date string, such as 2007-12-03, compliant with the `full-date` format outlined in section 5.6 of the RFC 3339 profile of the ISO 8601 standard for representation of dates and times using the Gregorian calendar. */
   Date: any;
   /** A time string at UTC, such as 10:15:30Z, compliant with the `full-time` format outlined in section 5.6 of the RFC 3339profile of the ISO 8601 standard for representation of dates and times using the Gregorian calendar. */
@@ -155,8 +157,6 @@ export type Scalars = {
   ObjectID: any;
   /** Represents NULL values */
   Void: any;
-  /** The `Upload` scalar type represents a file upload. */
-  Upload: Promise<import('graphql-upload').FileUpload>;
 };
 
 export type Query = {
@@ -240,6 +240,7 @@ export type DirectiveResolverFn<TResult = {}, TParent = {}, TContext = {}, TArgs
 
 /** Mapping between all available schema types and the resolvers types */
 export type ResolversTypes = {
+  Upload: ResolverTypeWrapper<Scalars['Upload']>;
   Date: ResolverTypeWrapper<Scalars['Date']>;
   Time: ResolverTypeWrapper<Scalars['Time']>;
   DateTime: ResolverTypeWrapper<Scalars['DateTime']>;
@@ -294,13 +295,13 @@ export type ResolversTypes = {
   Void: ResolverTypeWrapper<Scalars['Void']>;
   Query: ResolverTypeWrapper<{}>;
   String: ResolverTypeWrapper<Scalars['String']>;
-  Upload: ResolverTypeWrapper<Scalars['Upload']>;
   Boolean: ResolverTypeWrapper<Scalars['Boolean']>;
   Int: ResolverTypeWrapper<Scalars['Int']>;
 };
 
 /** Mapping between all available schema types and the resolvers parents */
 export type ResolversParentTypes = {
+  Upload: Scalars['Upload'];
   Date: Scalars['Date'];
   Time: Scalars['Time'];
   DateTime: Scalars['DateTime'];
@@ -355,10 +356,13 @@ export type ResolversParentTypes = {
   Void: Scalars['Void'];
   Query: {};
   String: Scalars['String'];
-  Upload: Scalars['Upload'];
   Boolean: Scalars['Boolean'];
   Int: Scalars['Int'];
 };
+
+export interface UploadScalarConfig extends GraphQLScalarTypeConfig<ResolversTypes['Upload'], any> {
+  name: 'Upload';
+}
 
 export interface DateScalarConfig extends GraphQLScalarTypeConfig<ResolversTypes['Date'], any> {
   name: 'Date';
@@ -577,11 +581,8 @@ export type QueryResolvers<
   file?: Resolver<Maybe<ResolversTypes['Upload']>, ParentType, ContextType>;
 };
 
-export interface UploadScalarConfig extends GraphQLScalarTypeConfig<ResolversTypes['Upload'], any> {
-  name: 'Upload';
-}
-
 export type Resolvers<ContextType = EZContext> = {
+  Upload?: GraphQLScalarType;
   Date?: GraphQLScalarType;
   Time?: GraphQLScalarType;
   DateTime?: GraphQLScalarType;
@@ -635,7 +636,6 @@ export type Resolvers<ContextType = EZContext> = {
   ObjectID?: GraphQLScalarType;
   Void?: GraphQLScalarType;
   Query?: QueryResolvers<ContextType>;
-  Upload?: GraphQLScalarType;
 };
 
 /**

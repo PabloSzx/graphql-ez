@@ -1,5 +1,6 @@
 import { getObjectValue } from '@graphql-ez/core-utils/object';
 import { LazyPromise } from '@graphql-ez/core-utils/promise';
+import { withoutTrailingSlash, withTrailingSlash } from '@graphql-ez/core-utils/url';
 
 import { onIntegrationRegister } from './integrations';
 
@@ -51,12 +52,15 @@ export const ezAltairIDE = (options: AltairOptions | boolean = true): EZPlugin =
     onRegister(ctx) {
       if (!options) return;
 
-      const objOptions = { ...(getObjectValue(options) || {}) };
+      const objOptions = { ...getObjectValue(options) };
 
       objOptions.endpointURL ||= ctx.options.path;
 
+      objOptions.path &&= withoutTrailingSlash(objOptions.path);
+      objOptions.baseURL &&= withTrailingSlash(objOptions.baseURL);
+
       const path = (objOptions.path ||= '/altair');
-      const baseURL = (objOptions.baseURL ||= path + '/');
+      const baseURL = (objOptions.baseURL ||= withTrailingSlash(path));
 
       ctx.altair = {
         handler: AltairHandler,
