@@ -1,3 +1,5 @@
+import { createApplication, createModule } from 'graphql-modules';
+
 import { useGraphQLModules } from '@envelop/graphql-modules';
 import { gql } from '@graphql-ez/core-utils/gql';
 import { toPlural } from '@graphql-ez/core-utils/object';
@@ -31,15 +33,10 @@ declare module '@graphql-ez/core-types' {
   }
 }
 
-const GraphQLModules = LazyPromise(async () => {
-  const { createModule, createApplication } = await import('graphql-modules');
-
-  return { createModule, createApplication };
-});
-
 export interface RegisterModule {
   (module: Module): Module;
-  (typeDefs: TypeDefs, options?: EnvelopModuleConfig): Promise<Module>;
+  (module: Promise<Module>): Promise<Module>;
+  (typeDefs: TypeDefs, options?: EnvelopModuleConfig): Module;
 }
 
 export const ezGraphQLModules = (config: Partial<Omit<ApplicationConfig, 'modules'>> = {}): EZPlugin => {
@@ -53,23 +50,22 @@ export const ezGraphQLModules = (config: Partial<Omit<ApplicationConfig, 'module
       const modules: Array<Promise<Module> | Module> = (ctx.modules = []);
       ctx.appBuilder.registerModule = registerModule;
 
-      function registerModule(typeDefs: TypeDefs, config?: EnvelopModuleConfig): Promise<Module>;
+      function registerModule(typeDefs: TypeDefs, config?: EnvelopModuleConfig): Module;
       function registerModule(module: Module): Module;
-      function registerModule(firstParam: TypeDefs | Module, options?: EnvelopModuleConfig) {
+      function registerModule(module: Promise<Module>): Promise<Module>;
+      function registerModule(firstParam: TypeDefs | Module | Promise<Module>, options?: EnvelopModuleConfig) {
         if (Array.isArray(firstParam) || isDocumentNode(firstParam)) {
           const { id = `module${++registerModuleState.acumId}`, autoAdd = true } = options || {};
 
-          const promiseModule = GraphQLModules.then(({ createModule }) => {
-            return createModule({
-              typeDefs: firstParam,
-              id,
-              ...options,
-            });
+          const createdModule = createModule({
+            typeDefs: firstParam,
+            id,
+            ...options,
           });
 
-          if (autoAdd) modules.push(promiseModule);
+          if (autoAdd) modules.push(createdModule);
 
-          return promiseModule;
+          return createdModule;
         }
 
         modules.push(firstParam);
@@ -77,8 +73,6 @@ export const ezGraphQLModules = (config: Partial<Omit<ApplicationConfig, 'module
       }
 
       const modulesApplication = (ctx.modulesApplication = LazyPromise(async () => {
-        const { createApplication, createModule } = await GraphQLModules;
-
         const [extraSchemaDefs, modulesList] = await Promise.all([
           Promise.all(ctx.extraSchemaDefinitions || []),
           Promise.all(modules),

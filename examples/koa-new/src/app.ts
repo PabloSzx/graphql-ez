@@ -1,9 +1,11 @@
-import { CreateApp, BuildContextArgs, InferFunctionReturn, gql, readStreamToBuffer } from '@graphql-ez/koa-new';
-import { ezCodegen } from '@graphql-ez/plugin-codegen';
-import { ezGraphQLModules } from '@graphql-ez/plugin-modules';
-import { ezUpload } from '@graphql-ez/plugin-upload';
-import { ezScalars } from '@graphql-ez/plugin-scalars';
+import { BuildContextArgs, CreateApp, gql, InferFunctionReturn, readStreamToBuffer } from '@graphql-ez/koa-new';
 import { ezAltairIDE } from '@graphql-ez/plugin-altair';
+import { ezCodegen } from '@graphql-ez/plugin-codegen';
+import { ezGraphiQLIDE } from '@graphql-ez/plugin-graphiql';
+import { ezGraphQLModules } from '@graphql-ez/plugin-modules';
+import { ezScalars } from '@graphql-ez/plugin-scalars';
+import { ezUpload } from '@graphql-ez/plugin-upload';
+
 function buildContext({ req }: BuildContextArgs) {
   return {
     req,
@@ -37,6 +39,7 @@ export const { registerModule, buildApp } = CreateApp({
         DateTime: 1,
       }),
       ezAltairIDE(),
+      ezGraphiQLIDE(),
     ],
   },
   schema: {

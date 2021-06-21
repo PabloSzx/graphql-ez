@@ -1,9 +1,10 @@
-import { CreateApp, BuildContextArgs, InferFunctionReturn, gql } from '@graphql-ez/hapi-new';
-import { ezCodegen } from '@graphql-ez/plugin-codegen';
-import { ezGraphQLModules } from '@graphql-ez/plugin-modules';
-import { ezUpload } from '@graphql-ez/plugin-upload';
-import { ezScalars } from '@graphql-ez/plugin-scalars';
+import { BuildContextArgs, CreateApp, gql, InferFunctionReturn } from '@graphql-ez/hapi-new';
 import { ezAltairIDE } from '@graphql-ez/plugin-altair';
+import { ezCodegen } from '@graphql-ez/plugin-codegen';
+import { ezGraphiQLIDE } from '@graphql-ez/plugin-graphiql';
+import { ezGraphQLModules } from '@graphql-ez/plugin-modules';
+import { ezScalars } from '@graphql-ez/plugin-scalars';
+import { ezUpload } from '@graphql-ez/plugin-upload';
 
 function buildContext({ req }: BuildContextArgs) {
   return {
@@ -38,6 +39,7 @@ export const { registerModule, buildApp } = CreateApp({
         DateTime: 1,
       }),
       ezAltairIDE(),
+      ezGraphiQLIDE(),
     ],
   },
   schema: {

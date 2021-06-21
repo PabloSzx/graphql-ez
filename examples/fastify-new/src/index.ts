@@ -3,6 +3,7 @@ import Fastify from 'fastify';
 import { CreateApp, gql } from '@graphql-ez/fastify-new';
 import { ezAltairIDE } from '@graphql-ez/plugin-altair';
 import { ezCodegen } from '@graphql-ez/plugin-codegen';
+import { ezGraphiQLIDE } from '@graphql-ez/plugin-graphiql';
 import { ezGraphQLModules } from '@graphql-ez/plugin-modules';
 import { ezScalars } from '@graphql-ez/plugin-scalars';
 import { ezUpload } from '@graphql-ez/plugin-upload';
@@ -37,6 +38,7 @@ const EZApp = CreateApp({
       ezScalars('*'),
       ezAltairIDE(),
       ezGraphQLModules(),
+      ezGraphiQLIDE(),
     ],
   },
 });

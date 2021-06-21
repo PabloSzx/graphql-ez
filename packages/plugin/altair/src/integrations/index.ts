@@ -34,10 +34,8 @@ export const onIntegrationRegister: NonNullable<EZPlugin['onIntegrationRegister'
   }
 
   if (integrationCtx.next) {
-    console.log(
-      `You don't need to add Altair plugins in your EZ App for Next.js, directly use "UnpkgAltairHandler" in your API Routes.`
+    return console.warn(
+      `You don't need to add Altair plugin in your EZ App for Next.js, use "UnpkgAltairHandler" directly in your API Routes.`
     );
-
-    return;
   }
 };
