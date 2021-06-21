@@ -14,7 +14,7 @@ function buildContext({ req }: BuildContextArgs) {
 }
 
 declare module '@graphql-ez/koa-new' {
-  interface EnvelopContext extends InferFunctionReturn<typeof buildContext> {}
+  interface EZContext extends InferFunctionReturn<typeof buildContext> {}
 }
 
 export const { registerModule, buildApp } = CreateApp({

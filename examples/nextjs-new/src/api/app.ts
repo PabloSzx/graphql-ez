@@ -9,7 +9,7 @@ function buildContext(_args: BuildContextArgs) {
 }
 
 declare module '@graphql-ez/nextjs-new' {
-  interface EnvelopContext extends InferFunctionReturn<typeof buildContext> {}
+  interface EZContext extends InferFunctionReturn<typeof buildContext> {}
 }
 
 export const { buildApp, registerModule, gql } = CreateApp({

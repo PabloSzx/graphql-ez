@@ -14,7 +14,7 @@ function buildContext({ req }: BuildContextArgs) {
 }
 
 declare module '@graphql-ez/express-new' {
-  interface EnvelopContext extends InferFunctionReturn<typeof buildContext> {}
+  interface EZContext extends InferFunctionReturn<typeof buildContext> {}
 }
 
 export const { registerModule, buildApp } = CreateApp({
@@ -41,7 +41,6 @@ export const { registerModule, buildApp } = CreateApp({
       ezGraphiQLIDE(),
     ],
   },
-
   schema: {
     typeDefs: gql`
       type Mutation {
@@ -50,7 +49,7 @@ export const { registerModule, buildApp } = CreateApp({
     `,
     resolvers: {
       Mutation: {
-        async uploadFileToBase64(_root, { file }) {
+        async uploadFileToBase64(_root, { file }, ctx) {
           const fileBuffer = await readStreamToBuffer(file);
 
           return fileBuffer.toString('base64');
