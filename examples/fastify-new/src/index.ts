@@ -7,10 +7,13 @@ import { ezGraphiQLIDE } from '@graphql-ez/plugin-graphiql';
 import { ezGraphQLModules } from '@graphql-ez/plugin-modules';
 import { ezScalars } from '@graphql-ez/plugin-scalars';
 import { ezUpload } from '@graphql-ez/plugin-upload';
+import { ezWebSockets } from '@graphql-ez/plugin-websockets';
 
 const app = Fastify({
   logger: true,
 });
+
+const sleep = (ms: number) => new Promise<void>(resolve => setTimeout(resolve, ms));
 
 const EZApp = CreateApp({
   schema: {
@@ -19,11 +22,30 @@ const EZApp = CreateApp({
         hello: String!
         file: Upload
       }
+      type Subscription {
+        hello: String!
+      }
     `,
     resolvers: {
       Query: {
         hello() {
           return 'hello world';
+        },
+      },
+      Subscription: {
+        hello: {
+          async *subscribe(_root, _args, _ctx) {
+            for (let i = 1; i <= 5; ++i) {
+              await sleep(500);
+
+              yield {
+                hello: 'Hello World ' + i,
+              };
+            }
+            yield {
+              hello: 'Done!',
+            };
+          },
         },
       },
     },
@@ -39,6 +61,7 @@ const EZApp = CreateApp({
       ezAltairIDE(),
       ezGraphQLModules(),
       ezGraphiQLIDE(),
+      ezWebSockets('adaptive'),
     ],
   },
 });

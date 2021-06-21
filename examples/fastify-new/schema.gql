@@ -1,5 +1,6 @@
 schema {
   query: Query
+  subscription: Subscription
 }
 
 """
@@ -301,4 +302,8 @@ type Query {
   other: String!
   hello: String!
   file: Upload
+}
+
+type Subscription {
+  hello: String!
 }

@@ -76,7 +76,7 @@ export const ezWebSockets = (options: WebSocketOptions = 'adaptive'): EZPlugin =
     compatibilityList: ['fastify-new'],
     async onRegister(ctx) {
       const enableOldTransport =
-        options === 'legacy' || options === 'both' || (typeof options === 'object' && options.subscriptionsTransport);
+        options === 'legacy' || options === 'adaptive' || (typeof options === 'object' && options.subscriptionsTransport);
 
       const enableGraphQLWS = options === true || options === 'adaptive' || (typeof options === 'object' && options.graphQLWS);
 
@@ -169,9 +169,9 @@ export const ezWebSockets = (options: WebSocketOptions = 'adaptive'): EZPlugin =
           (protocol: string | string[] | undefined) => {
             const protocols = Array.isArray(protocol) ? protocol : protocol?.split(',').map(p => p.trim());
 
-            return protocols?.includes(GRAPHQL_WS_PROTOCOL) && !protocols.includes(GRAPHQL_TRANSPORT_WS_PROTOCOL)
-              ? wsServer[1]
-              : wsServer[0];
+            const isLegacy = protocols?.includes(GRAPHQL_WS_PROTOCOL) && !protocols.includes(GRAPHQL_TRANSPORT_WS_PROTOCOL);
+
+            return isLegacy ? wsServer[1] : wsServer[0];
           },
           wsServer,
         ];

@@ -166,6 +166,11 @@ export type Query = {
   file?: Maybe<Scalars['Upload']>;
 };
 
+export type Subscription = {
+  __typename?: 'Subscription';
+  hello: Scalars['String'];
+};
+
 export type ResolverTypeWrapper<T> = Promise<T> | T;
 
 export type LegacyStitchingResolver<TResult, TParent, TContext, TArgs> = {
@@ -295,6 +300,7 @@ export type ResolversTypes = {
   Void: ResolverTypeWrapper<Scalars['Void']>;
   Query: ResolverTypeWrapper<{}>;
   String: ResolverTypeWrapper<Scalars['String']>;
+  Subscription: ResolverTypeWrapper<{}>;
   Boolean: ResolverTypeWrapper<Scalars['Boolean']>;
   Int: ResolverTypeWrapper<Scalars['Int']>;
 };
@@ -356,6 +362,7 @@ export type ResolversParentTypes = {
   Void: Scalars['Void'];
   Query: {};
   String: Scalars['String'];
+  Subscription: {};
   Boolean: Scalars['Boolean'];
   Int: Scalars['Int'];
 };
@@ -581,6 +588,13 @@ export type QueryResolvers<
   file?: Resolver<Maybe<ResolversTypes['Upload']>, ParentType, ContextType>;
 };
 
+export type SubscriptionResolvers<
+  ContextType = EZContext,
+  ParentType extends ResolversParentTypes['Subscription'] = ResolversParentTypes['Subscription']
+> = {
+  hello?: SubscriptionResolver<ResolversTypes['String'], 'hello', ParentType, ContextType>;
+};
+
 export type Resolvers<ContextType = EZContext> = {
   Upload?: GraphQLScalarType;
   Date?: GraphQLScalarType;
@@ -636,6 +650,7 @@ export type Resolvers<ContextType = EZContext> = {
   ObjectID?: GraphQLScalarType;
   Void?: GraphQLScalarType;
   Query?: QueryResolvers<ContextType>;
+  Subscription?: SubscriptionResolvers<ContextType>;
 };
 
 /**
