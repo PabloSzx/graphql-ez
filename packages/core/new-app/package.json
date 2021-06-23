@@ -14,7 +14,8 @@
   "types": "dist/index.d.ts",
   "scripts": {
     "dev": "bob-esbuild watch",
-    "prepare": "bob-esbuild build"
+    "prepare": "bob-esbuild build",
+    "test": "jest"
   },
   "dependencies": {
     "@envelop/core": "^0.3.1",
@@ -28,8 +29,13 @@
     "graphql-helix": "^1.6.1"
   },
   "devDependencies": {
+    "@graphql-ez/testing-new": "workspace:^0.0.1",
     "bob-esbuild-cli": "^0.1.27",
-    "graphql": "15.4.0-experimental-stream-defer.1"
+    "eventsource": "^1.1.0",
+    "got": "^11.8.2",
+    "graphql": "15.4.0-experimental-stream-defer.1",
+    "jest": "^27.0.5",
+    "ts-jest": "^27.0.3"
   },
   "peerDependencies": {
     "graphql": "*"

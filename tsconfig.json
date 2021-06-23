@@ -23,13 +23,20 @@
       "@graphql-ez/core-types": ["packages/core/types/src/index.ts"],
       "@graphql-ez/core-app": ["packages/core/new-app/src/index.ts"],
       "@graphql-ez/testing/*": ["internal/testing/src/*"],
-      "@graphql-ez/*": ["packages/*/app/src/index.ts"],
+      "@graphql-ez/testing-new/*": ["internal/testing-new/src/*"],
+      "@graphql-ez/testing-new": ["internal/testing-new/src/index.ts"],
       "@graphql-ez/fastify-new": ["packages/fastify/new/src/index.ts"],
       "@graphql-ez/express-new": ["packages/express/new/src/index.ts"],
       "@graphql-ez/hapi-new": ["packages/hapi/new/src/index.ts"],
       "@graphql-ez/koa-new": ["packages/koa/new/src/index.ts"],
       "@graphql-ez/http-new": ["packages/http/new/src/index.ts"],
-      "@graphql-ez/nextjs-new": ["packages/nextjs/new/src/index.ts"]
+      "@graphql-ez/nextjs-new": ["packages/nextjs/new/src/index.ts"],
+      "@graphql-ez/koa": ["packages/koa/app/src/index.ts"],
+      "@graphql-ez/fastify": ["packages/fastify/app/src/index.ts"],
+      "@graphql-ez/express": ["packages/express/app/src/index.ts"],
+      "@graphql-ez/hapi": ["packages/hapi/app/src/index.ts"],
+      "@graphql-ez/http": ["packages/http/app/src/index.ts"],
+      "@graphql-ez/nextjs": ["packages/nextjs/app/src/index.ts"]
     },
     "importsNotUsedAsValues": "error"
   },
