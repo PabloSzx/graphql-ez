@@ -155,5 +155,5 @@ export function handleUpgrade(httpServer: HttpServer, path: string, wsTuple: Com
   return state;
 }
 
-export const GRAPHQL_TRANSPORT_WS_PROTOCOL = 'graphql-transport-ws';
-export const GRAPHQL_WS_PROTOCOL = 'graphql-ws';
+export const NEW_PROTOCOL = 'graphql-transport-ws';
+export const LEGACY_PROTOCOL = 'graphql-ws';

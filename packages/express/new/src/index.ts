@@ -11,6 +11,7 @@ import {
 } from '@graphql-ez/core-app';
 import { getObjectValue } from '@graphql-ez/core-utils/object';
 
+import type { Server as HttpServer } from 'http';
 import type { OptionsJson as BodyParserOptions } from 'body-parser';
 import type { CorsOptions, CorsOptionsDelegate } from 'cors';
 import type { Envelop } from '@envelop/types';
@@ -26,6 +27,8 @@ declare module '@graphql-ez/core-types' {
   interface InternalAppBuildIntegrationContext {
     express?: {
       router: Router;
+      app: Express;
+      server?: HttpServer;
     };
   }
 }
@@ -56,6 +59,7 @@ export interface EZApp {
 
 export interface ExpressBuildAppOptions extends BuildAppOptions {
   app: Express;
+  server?: HttpServer;
 }
 
 export interface EZAppBuilder extends BaseAppBuilder {
@@ -91,7 +95,7 @@ export function CreateApp(config: ExpressAppOptions = {}): EZAppBuilder {
       if (onAppRegister) await onAppRegister(ctx, router);
 
       await onIntegrationRegister({
-        express: { router },
+        express: { router, app: buildOptions.app, server: buildOptions.server },
       });
 
       if (cors) {

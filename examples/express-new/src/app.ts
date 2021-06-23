@@ -5,6 +5,7 @@ import { ezGraphiQLIDE } from '@graphql-ez/plugin-graphiql';
 import { ezGraphQLModules } from '@graphql-ez/plugin-modules';
 import { ezScalars } from '@graphql-ez/plugin-scalars';
 import { ezUpload } from '@graphql-ez/plugin-upload';
+import { ezWebSockets } from '@graphql-ez/plugin-websockets';
 
 function buildContext({ req }: BuildContextArgs) {
   return {
@@ -12,6 +13,8 @@ function buildContext({ req }: BuildContextArgs) {
     foo: 'bar',
   };
 }
+
+const sleep = (ms: number) => new Promise<void>(resolve => setTimeout(resolve, ms));
 
 declare module '@graphql-ez/express-new' {
   interface EZContext extends InferFunctionReturn<typeof buildContext> {}
@@ -39,12 +42,16 @@ export const { registerModule, buildApp } = CreateApp({
       }),
       ezAltairIDE(),
       ezGraphiQLIDE(),
+      ezWebSockets('adaptive'),
     ],
   },
   schema: {
     typeDefs: gql`
       type Mutation {
         uploadFileToBase64(file: Upload!): String!
+      }
+      type Subscription {
+        hello: String!
       }
     `,
     resolvers: {
@@ -53,6 +60,22 @@ export const { registerModule, buildApp } = CreateApp({
           const fileBuffer = await readStreamToBuffer(file);
 
           return fileBuffer.toString('base64');
+        },
+      },
+      Subscription: {
+        hello: {
+          async *subscribe(_root, _args, _ctx) {
+            for (let i = 1; i <= 5; ++i) {
+              await sleep(500);
+
+              yield {
+                hello: 'Hello World ' + i,
+              };
+            }
+            yield {
+              hello: 'Done!',
+            };
+          },
         },
       },
     },

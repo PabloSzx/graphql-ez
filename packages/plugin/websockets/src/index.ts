@@ -7,8 +7,8 @@ import {
   CommonWebSocketsServerTuple,
   FilteredGraphQLWSOptions,
   FilteredSubscriptionsTransportOptions,
-  GRAPHQL_TRANSPORT_WS_PROTOCOL,
-  GRAPHQL_WS_PROTOCOL,
+  NEW_PROTOCOL,
+  LEGACY_PROTOCOL,
   handleGraphQLWS,
   handleSubscriptionsTransport,
   WebSocketsState,
@@ -73,7 +73,7 @@ const WSDeps = {
 export const ezWebSockets = (options: WebSocketOptions = 'adaptive'): EZPlugin => {
   return {
     name: 'GraphQL WebSockets',
-    compatibilityList: ['fastify-new'],
+    compatibilityList: ['fastify-new', 'express-new'],
     async onRegister(ctx) {
       const enableOldTransport =
         options === 'legacy' || options === 'adaptive' || (typeof options === 'object' && options.subscriptionsTransport);
@@ -169,7 +169,7 @@ export const ezWebSockets = (options: WebSocketOptions = 'adaptive'): EZPlugin =
           (protocol: string | string[] | undefined) => {
             const protocols = Array.isArray(protocol) ? protocol : protocol?.split(',').map(p => p.trim());
 
-            const isLegacy = protocols?.includes(GRAPHQL_WS_PROTOCOL) && !protocols.includes(GRAPHQL_TRANSPORT_WS_PROTOCOL);
+            const isLegacy = protocols?.includes(LEGACY_PROTOCOL) && !protocols.includes(NEW_PROTOCOL);
 
             return isLegacy ? wsServer[1] : wsServer[0];
           },
@@ -202,14 +202,21 @@ export const ezWebSockets = (options: WebSocketOptions = 'adaptive'): EZPlugin =
       assert(path, '"path" not specified and is required for WebSockets EZ Plugin!');
 
       if (integrationCtx.fastify) {
-        const { handleFastify } = await import('./fastify');
+        const { handleFastify } = await import('./integrations/fastify');
 
-        handleFastify(integrationCtx.fastify, {
+        return handleFastify(integrationCtx.fastify, {
           path,
           wsTuple,
         });
+      }
 
-        return;
+      if (integrationCtx.express) {
+        const { handleExpress } = await import('./integrations/express');
+
+        return handleExpress(integrationCtx.express, {
+          path,
+          wsTuple,
+        });
       }
     },
   };

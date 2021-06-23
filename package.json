@@ -13,6 +13,7 @@
     "changesets": "changeset",
     "ci:release": "pnpm -r publish --access public --no-git-checks",
     "ci:version": "changeset version && pnpm i --no-frozen-lockfile --lockfile-only --ignore-scripts",
+    "clean": "rimraf \"**/{node_modules,dist}\"",
     "dev:cjs": "pnpm -w dev:cjs:all",
     "dev:cjs:all": "bob-esbuild tsc && concurrently pnpm:dev:core pnpm:dev:cjs:express pnpm:dev:cjs:fastify pnpm:dev:cjs:http pnpm:dev:cjs:koa pnpm:dev:cjs:hapi pnpm:dev:next",
     "dev:cjs:express": "pnpm -r --filter @graphql-ez/express-new dev -- --onSuccess \"cross-env PORT=3001 pnpm -r --filter example-new-express dev:cjs -- --silent\"",

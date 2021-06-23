@@ -1,4 +1,4 @@
-import { CommonData, handleUpgrade } from './core';
+import { CommonData, handleUpgrade } from '../core';
 
 import type { InternalAppBuildIntegrationContext } from '@graphql-ez/core-app';
 
