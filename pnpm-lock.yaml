@@ -432,6 +432,90 @@ importers:
       '@types/ws': 7.4.5
       bob-esbuild-cli: 0.1.27
 
+  internal/testing-new:
+    specifiers:
+      '@graphql-ez/core-app': workspace:^0.0.1
+      '@graphql-ez/core-types': workspace:^0.0.1
+      '@graphql-ez/core-utils': workspace:^0.0.1
+      '@graphql-ez/express-new': workspace:^0.1.1
+      '@graphql-ez/fastify-new': workspace:^0.1.1
+      '@graphql-ez/hapi-new': workspace:^0.1.0
+      '@graphql-ez/http-new': workspace:^0.1.0
+      '@graphql-ez/koa-new': workspace:^0.1.0
+      '@graphql-ez/nextjs-new': workspace:^0.1.0
+      '@graphql-ez/plugin-altair': workspace:^0.0.1
+      '@graphql-ez/plugin-codegen': workspace:^0.0.1
+      '@graphql-ez/plugin-graphiql': workspace:^0.0.1
+      '@graphql-ez/plugin-modules': workspace:^0.0.1
+      '@graphql-ez/plugin-scalars': workspace:^0.0.1
+      '@graphql-ez/plugin-upload': workspace:^0.0.1
+      '@graphql-ez/plugin-websockets': workspace:^0.0.1
+      '@graphql-tools/schema': ^7.1.5
+      '@graphql-tools/utils': ^7.10.0
+      '@graphql-typed-document-node/core': ^3.1.0
+      '@hapi/hapi': ^20.1.4
+      '@koa/router': ^10.0.0
+      '@types/express': ^4.17.12
+      '@types/hapi__hapi': ^20.0.8
+      '@types/koa': ^2.13.3
+      '@types/koa__router': ^8.0.4
+      '@types/node': ^15.12.4
+      '@types/ws': ^7.4.5
+      bob-esbuild-cli: ^0.1.27
+      express: ^4.17.1
+      fastify: ^3.18.0
+      fastify-nextjs: ^5.4.1
+      form-data: ^4.0.0
+      get-port: ^5.1.1
+      graphql: 15.4.0-experimental-stream-defer.1
+      graphql-modules: ^1.4.2
+      graphql-ws: ^5.2.0
+      koa: ^2.13.1
+      subscriptions-transport-ws-envelop: ^1.0.5
+      undici: ^4.0.0
+      ws: ^7.5.0
+    devDependencies:
+      '@graphql-ez/core-app': link:../../packages/core/new-app
+      '@graphql-ez/core-types': link:../../packages/core/types
+      '@graphql-ez/core-utils': link:../../packages/core/utils
+      '@graphql-ez/express-new': link:../../packages/express/new
+      '@graphql-ez/fastify-new': link:../../packages/fastify/new
+      '@graphql-ez/hapi-new': link:../../packages/hapi/new
+      '@graphql-ez/http-new': link:../../packages/http/new
+      '@graphql-ez/koa-new': link:../../packages/koa/new
+      '@graphql-ez/nextjs-new': link:../../packages/nextjs/new
+      '@graphql-ez/plugin-altair': link:../../packages/plugin/altair
+      '@graphql-ez/plugin-codegen': link:../../packages/plugin/codegen
+      '@graphql-ez/plugin-graphiql': link:../../packages/plugin/graphiql
+      '@graphql-ez/plugin-modules': link:../../packages/plugin/modules
+      '@graphql-ez/plugin-scalars': link:../../packages/plugin/scalars
+      '@graphql-ez/plugin-upload': link:../../packages/plugin/upload
+      '@graphql-ez/plugin-websockets': link:../../packages/plugin/websockets
+      '@graphql-tools/schema': 7.1.5_34dd13c2583fe2e4418c23a0d30fc388
+      '@graphql-tools/utils': 7.10.0_34dd13c2583fe2e4418c23a0d30fc388
+      '@graphql-typed-document-node/core': 3.1.0_34dd13c2583fe2e4418c23a0d30fc388
+      '@hapi/hapi': 20.1.4
+      '@koa/router': 10.0.0
+      '@types/express': 4.17.12
+      '@types/hapi__hapi': 20.0.8
+      '@types/koa': 2.13.3
+      '@types/koa__router': 8.0.4
+      '@types/node': 15.12.4
+      '@types/ws': 7.4.5
+      bob-esbuild-cli: 0.1.27_@types+node@15.12.4
+      express: 4.17.1
+      fastify: 3.18.0
+      fastify-nextjs: 5.4.1
+      form-data: 4.0.0
+      get-port: 5.1.1
+      graphql: 15.4.0-experimental-stream-defer.1
+      graphql-modules: 1.4.2_34dd13c2583fe2e4418c23a0d30fc388
+      graphql-ws: 5.2.0_34dd13c2583fe2e4418c23a0d30fc388
+      koa: 2.13.1
+      subscriptions-transport-ws-envelop: 1.0.5_bc91500fcdcc6646074b1e062e169748
+      undici: 4.0.0
+      ws: 7.5.0
+
   packages/core/new-app:
     specifiers:
       '@envelop/core': ^0.3.1
@@ -2394,7 +2478,6 @@ packages:
       graphql: 15.4.0-experimental-stream-defer.1
       tslib: 2.2.0
       value-or-promise: 1.0.6
-    dev: false
 
   /@graphql-tools/delegate/7.1.5_34dd13c2583fe2e4418c23a0d30fc388:
     resolution: {integrity: sha512-bQu+hDd37e+FZ0CQGEEczmRSfQRnnXeUxI/0miDV+NV/zCbEdIJj5tYFNrKT03W6wgdqx8U06d8L23LxvGri/g==}
@@ -2409,7 +2492,6 @@ packages:
       graphql: 15.4.0-experimental-stream-defer.1
       tslib: 2.2.0
       value-or-promise: 1.0.6
-    dev: false
 
   /@graphql-tools/graphql-file-loader/6.2.7_34dd13c2583fe2e4418c23a0d30fc388:
     resolution: {integrity: sha512-5k2SNz0W87tDcymhEMZMkd6/vs6QawDyjQXWtqkuLTBF3vxjxPD1I4dwHoxgWPIjjANhXybvulD7E+St/7s9TQ==}
@@ -2524,7 +2606,6 @@ packages:
       graphql: 15.4.0-experimental-stream-defer.1
       tslib: 2.2.0
       value-or-promise: 1.0.6
-    dev: false
 
   /@graphql-typed-document-node/core/3.1.0:
     resolution: {integrity: sha512-wYn6r8zVZyQJ6rQaALBEln5B1pzxb9shV5Ef97kTvn6yVGrqyXVnDqnU24MXnFubR+rZjBY9NWuxX3FB2sTsjg==}
@@ -2549,7 +2630,6 @@ packages:
     resolution: {integrity: sha512-FbCNwcTbnQP4VYYhLNGZmA76xb2aHg9AMPiy18NZyWMG310P5KdFGyA9v2rm5ujrIny77dEEIkMOwl0Xv+fSSA==}
     dependencies:
       '@hapi/hoek': 9.2.0
-    dev: false
 
   /@hapi/b64/5.0.0:
     resolution: {integrity: sha512-ngu0tSEmrezoiIaNGG6rRvKOUkUuDdf4XTPnONHGYfSGRmDqPZX5oJL6HAdKTo1UQHECbdB4OzhWrfgVppjHUw==}
@@ -2566,7 +2646,6 @@ packages:
     dependencies:
       '@hapi/boom': 9.1.2
       '@hapi/hoek': 9.2.0
-    dev: false
 
   /@hapi/bourne/2.0.0:
     resolution: {integrity: sha512-WEezM1FWztfbzqIUbsDzFRVMxSoLy3HugVcux6KDDtTqzPsLE8NDRHfXvev66aH1i2oOKKar3/XDjbvh/OUBdg==}
@@ -2576,14 +2655,12 @@ packages:
     dependencies:
       '@hapi/boom': 9.1.2
       '@hapi/hoek': 9.2.0
-    dev: false
 
   /@hapi/catbox-memory/5.0.1:
     resolution: {integrity: sha512-QWw9nOYJq5PlvChLWV8i6hQHJYfvdqiXdvTupJFh0eqLZ64Xir7mKNi96d5/ZMUAqXPursfNDIDxjFgoEDUqeQ==}
     dependencies:
       '@hapi/boom': 9.1.2
       '@hapi/hoek': 9.2.0
-    dev: false
 
   /@hapi/catbox/11.1.1:
     resolution: {integrity: sha512-u/8HvB7dD/6X8hsZIpskSDo4yMKpHxFd7NluoylhGrL6cUfYxdQPnvUp9YU2C6F9hsyBVLGulBd9vBN1ebfXOQ==}
@@ -2592,13 +2669,11 @@ packages:
       '@hapi/hoek': 9.2.0
       '@hapi/podium': 4.1.3
       '@hapi/validate': 1.1.3
-    dev: false
 
   /@hapi/content/5.0.2:
     resolution: {integrity: sha512-mre4dl1ygd4ZyOH3tiYBrOUBzV7Pu/EOs8VLGf58vtOEECWed8Uuw6B4iR9AN/8uQt42tB04qpVaMyoMQh0oMw==}
     dependencies:
       '@hapi/boom': 9.1.2
-    dev: false
 
   /@hapi/cryptiles/5.1.0:
     resolution: {integrity: sha512-fo9+d1Ba5/FIoMySfMqPBR/7Pa29J2RsiPrl7bkwo5W5o+AN1dAYQRi4SPrPwwVxVGKjgLOEWrsvt1BonJSfLA==}
@@ -2608,7 +2683,6 @@ packages:
 
   /@hapi/file/2.0.0:
     resolution: {integrity: sha512-WSrlgpvEqgPWkI18kkGELEZfXr0bYLtr16iIN4Krh9sRnzBZN6nnWxHFxtsnP684wueEySBbXPDg/WfA9xJdBQ==}
-    dev: false
 
   /@hapi/hapi/20.1.4:
     resolution: {integrity: sha512-5nG6w7aruj9j/p5XSRylbXKlsO4qCNJ1t/VAJZJVbVXLqCNNYIjTHsm0OFQysuLLCqDGsmrpreI3UyV2qC0ICg==}
@@ -2632,7 +2706,6 @@ packages:
       '@hapi/teamwork': 5.1.0
       '@hapi/topo': 5.0.0
       '@hapi/validate': 1.1.3
-    dev: false
 
   /@hapi/heavy/7.0.1:
     resolution: {integrity: sha512-vJ/vzRQ13MtRzz6Qd4zRHWS3FaUc/5uivV2TIuExGTM9Qk+7Zzqj0e2G7EpE6KztO9SalTbiIkTh7qFKj/33cA==}
@@ -2640,7 +2713,6 @@ packages:
       '@hapi/boom': 9.1.2
       '@hapi/hoek': 9.2.0
       '@hapi/validate': 1.1.3
-    dev: false
 
   /@hapi/hoek/9.2.0:
     resolution: {integrity: sha512-sqKVVVOe5ivCaXDWivIJYVSaEgdQK9ul7a4Kity5Iw7u9+wBAPbX1RMSnLLmp7O4Vzj0WOWwMAJsTL00xwaNug==}
@@ -2659,7 +2731,6 @@ packages:
     dependencies:
       '@hapi/hoek': 9.2.0
       mime-db: 1.48.0
-    dev: false
 
   /@hapi/nigel/4.0.2:
     resolution: {integrity: sha512-ht2KoEsDW22BxQOEkLEJaqfpoKPXxi7tvabXy7B/77eFtOyG5ZEstfZwxHQcqAiZhp58Ae5vkhEqI03kawkYNw==}
@@ -2667,7 +2738,6 @@ packages:
     dependencies:
       '@hapi/hoek': 9.2.0
       '@hapi/vise': 4.0.0
-    dev: false
 
   /@hapi/pez/5.0.3:
     resolution: {integrity: sha512-mpikYRJjtrbJgdDHG/H9ySqYqwJ+QU/D7FXsYciS9P7NYBXE2ayKDAy3H0ou6CohOCaxPuTV4SZ0D936+VomHA==}
@@ -2677,7 +2747,6 @@ packages:
       '@hapi/content': 5.0.2
       '@hapi/hoek': 9.2.0
       '@hapi/nigel': 4.0.2
-    dev: false
 
   /@hapi/podium/4.1.3:
     resolution: {integrity: sha512-ljsKGQzLkFqnQxE7qeanvgGj4dejnciErYd30dbrYzUOF/FyS/DOF97qcrT3bhoVwCYmxa6PEMhxfCPlnUcD2g==}
@@ -2691,14 +2760,12 @@ packages:
     dependencies:
       '@hapi/hoek': 9.2.0
       '@hapi/validate': 1.1.3
-    dev: false
 
   /@hapi/somever/3.0.1:
     resolution: {integrity: sha512-4ZTSN3YAHtgpY/M4GOtHUXgi6uZtG9nEZfNI6QrArhK0XN/RDVgijlb9kOmXwCR5VclDSkBul9FBvhSuKXx9+w==}
     dependencies:
       '@hapi/bounce': 2.0.0
       '@hapi/hoek': 9.2.0
-    dev: false
 
   /@hapi/statehood/7.0.3:
     resolution: {integrity: sha512-pYB+pyCHkf2Amh67QAXz7e/DN9jcMplIL7Z6N8h0K+ZTy0b404JKPEYkbWHSnDtxLjJB/OtgElxocr2fMH4G7w==}
@@ -2710,7 +2777,6 @@ packages:
       '@hapi/hoek': 9.2.0
       '@hapi/iron': 6.0.0
       '@hapi/validate': 1.1.3
-    dev: false
 
   /@hapi/subtext/7.0.3:
     resolution: {integrity: sha512-CekDizZkDGERJ01C0+TzHlKtqdXZxzSWTOaH6THBrbOHnsr3GY+yiMZC+AfNCypfE17RaIakGIAbpL2Tk1z2+A==}
@@ -2722,7 +2788,6 @@ packages:
       '@hapi/hoek': 9.2.0
       '@hapi/pez': 5.0.3
       '@hapi/wreck': 17.1.0
-    dev: false
 
   /@hapi/teamwork/5.1.0:
     resolution: {integrity: sha512-llqoQTrAJDTXxG3c4Kz/uzhBS1TsmSBa/XG5SPcVXgmffHE1nFtyLIK0hNJHCB3EuBKT84adzd1hZNY9GJLWtg==}
@@ -2743,7 +2808,6 @@ packages:
     resolution: {integrity: sha512-eYyLkuUiFZTer59h+SGy7hUm+qE9p+UemePTHLlIWppEd+wExn3Df5jO04bFQTm7nleF5V8CtuYQYb+VFpZ6Sg==}
     dependencies:
       '@hapi/hoek': 9.2.0
-    dev: false
 
   /@hapi/wreck/17.1.0:
     resolution: {integrity: sha512-nx6sFyfqOpJ+EFrHX+XWwJAxs3ju4iHdbB/bwR8yTNZOiYmuhA8eCe7lYPtYmb4j7vyK/SlbaQsmTtUrMvPEBw==}
@@ -2751,7 +2815,6 @@ packages:
       '@hapi/boom': 9.1.2
       '@hapi/bourne': 2.0.0
       '@hapi/hoek': 9.2.0
-    dev: false
 
   /@istanbuljs/load-nyc-config/1.1.0:
     resolution: {integrity: sha512-VjeHSlIzpv/NyD3N0YuHfXOPDIixcA1q2ZV98wsMqcYlPmv2n3Yb2lYP9XMElnaFVXg5A7YLTeLu6V84uQDjmQ==}
@@ -4361,7 +4424,6 @@ packages:
 
   /backo2/1.0.2:
     resolution: {integrity: sha1-MasayLEpNjRj41s+u2n038+6eUc=}
-    dev: false
 
   /balanced-match/1.0.2:
     resolution: {integrity: sha512-3oSeUO0TMV67hN1AmbXsK4yaqU7tjiHlbxRDZOpH0KW9+CeX4bRAaX0Anxt0tx2MrpRpWwQaPwIlISEJhYU5Pw==}
@@ -5739,7 +5801,6 @@ packages:
 
   /dataloader/2.0.0:
     resolution: {integrity: sha512-YzhyDAwA4TaQIhM5go+vCLmU0UikghC/t9DTQYZR2M/UvZ1MdOhPezSDZcjj9uqQJOMqjLcpWtyW2iNINdlatQ==}
-    dev: false
 
   /date-fns/1.30.1:
     resolution: {integrity: sha512-hBSVCvSmWC+QypYObzwGOd9wqdDpOt+0wl0KbU+R+uuZBS1jN8VsD1ss3irQDknRj5NvxiTF6oj/nDRnN/UQNw==}
@@ -6249,7 +6310,6 @@ packages:
 
   /eventemitter3/4.0.7:
     resolution: {integrity: sha512-8guHBZCwKnFhYdHr2ysuRWErTwhoN2X8XELRlrRwpmfeY2jjuUN4taQMsULKUVo1K4DvZl+0pgfyoysHxvmvEw==}
-    dev: false
 
   /events/3.3.0:
     resolution: {integrity: sha512-mQw+2fkQbALzQ7V0MY0IqdnXNOeTtP4r0lN9z7AAawCXgqea7bDii20AYrIBrFd/Hx0M2Ocz6S111CaFkUcb0Q==}
@@ -6528,7 +6588,6 @@ packages:
     dependencies:
       fastify-plugin: 3.0.0
       under-pressure: 5.7.0
-    dev: false
 
   /fastify-plugin/2.3.4:
     resolution: {integrity: sha512-I+Oaj6p9oiRozbam30sh39BiuiqBda7yK2nmSPVwDCfIBlKnT8YB3MY+pRQc2Fcd07bf6KPGklHJaQ2Qu81TYQ==}
@@ -6538,7 +6597,6 @@ packages:
 
   /fastify-plugin/3.0.0:
     resolution: {integrity: sha512-ZdCvKEEd92DNLps5n0v231Bha8bkz1DjnPP/aEz37rz/q42Z5JVLmgnqR4DYuNn3NXAO3IDCPyRvgvxtJ4Ym4w==}
-    dev: false
 
   /fastify-static/3.4.0:
     resolution: {integrity: sha512-5y9xTNiPTj6/jDwzH6CqBIcI3/yZtocUiHoLud2NYPfHSOLlS6eW6DTheiU8b9WWlfmHfqOjwFFBdhiH1+nBhg==}
@@ -6764,7 +6822,6 @@ packages:
       asynckit: 0.4.0
       combined-stream: 1.0.8
       mime-types: 2.1.31
-    dev: false
 
   /forwarded/0.2.0:
     resolution: {integrity: sha512-buRG0fpBtRHSTCOASe6hD258tEubFoRLb4ZNA6NxMVHNw2gOcwHo9wyablzMzOA5z9xA9L1KNjk/Nt6MT9aYow==}
@@ -6870,7 +6927,6 @@ packages:
   /get-port/5.1.1:
     resolution: {integrity: sha512-g/Q1aTSDOxFpchXC4i8ZWvxA1lnPqx/JHqcpIw0/LX9T8x/GBbi6YnlN5nhaKIFkT8oFsscUKgDJYxfwfS6QsQ==}
     engines: {node: '>=8'}
-    dev: false
 
   /get-stdin/4.0.1:
     resolution: {integrity: sha1-uWjGsKBDhDJJAui/Gl3zJXmkUP4=}
@@ -7185,7 +7241,6 @@ packages:
       '@graphql-typed-document-node/core': 3.1.0_34dd13c2583fe2e4418c23a0d30fc388
       graphql: 15.4.0-experimental-stream-defer.1
       ramda: 0.27.1
-    dev: false
 
   /graphql-request/3.4.0_34dd13c2583fe2e4418c23a0d30fc388:
     resolution: {integrity: sha512-acrTzidSlwAj8wBNO7Q/UQHS8T+z5qRGquCQRv9J1InwR01BBWV9ObnoE+JS5nCCEj8wSGS0yrDXVDoRiKZuOg==}
@@ -7238,7 +7293,6 @@ packages:
       graphql: '>=0.11 <=15'
     dependencies:
       graphql: 15.4.0-experimental-stream-defer.1
-    dev: false
 
   /graphql/15.4.0-experimental-stream-defer.1:
     resolution: {integrity: sha512-zlGgY7aLlIofjO0CfTpCYK/tMccnj+5jvjnkTnW5qOxYhgEltuCvpMNYOJ67gz6L1flTIigt5BVEM8JExgtW3w==}
@@ -8055,7 +8109,6 @@ packages:
       ws: '*'
     dependencies:
       ws: 7.5.0
-    dev: false
 
   /istanbul-lib-coverage/3.0.0:
     resolution: {integrity: sha512-UiUIqxMgRDET6eR+o5HbfRYP1l0hqkWOs7vNxC/mggutCMUIhWMm8gAHb8tHlyfD3/l6rlgNA5cKdDzEAf6hEg==}
@@ -8121,7 +8174,6 @@ packages:
 
   /iterall/1.3.0:
     resolution: {integrity: sha512-QZ9qOMdF+QLHxy1QIpUHUU1D5pS2CG2P69LF6L6CPjPYA/XMOmKV3PZpawHoAjHNyB0swdVTRxdYT4tbBbxqwg==}
-    dev: false
 
   /jake/10.8.2:
     resolution: {integrity: sha512-eLpKyrfG3mzvGE2Du8VoPbeSkRry093+tyNjdYaBbJS9v17knImYGNXQCUV0gLxQtF82m3E8iRb/wdSQZLoq7A==}
@@ -9045,7 +9097,7 @@ packages:
   /lower-case/2.0.2:
     resolution: {integrity: sha512-7fm3l3NAF9WfN6W3JOmf5drwpVqX78JtoGJ3A6W0a6ZnldM41w2fV5D490psKFTpMds8TJse/eHLFFsNHHjHgg==}
     dependencies:
-      tslib: 2.3.0
+      tslib: 2.2.0
 
   /lowercase-keys/1.0.1:
     resolution: {integrity: sha512-G2Lj61tXDnVFFOi8VZds+SoQjtQC3dgokKdDG2mTm1tx4m50NUHBOZSBwQQHyy0V12A0JTG4icfZQH+xPyh8VA==}
@@ -11620,7 +11672,6 @@ packages:
       iterall: 1.3.0
       symbol-observable: 4.0.0
       ws: 7.5.0
-    dev: false
 
   /sucrase/3.18.2:
     resolution: {integrity: sha512-xCFP35OA6uAtBUVB8jPSftiR2Udjh0d9JkQnUOYppILpN4rBSk0yxiy67GVzD3XsFGIB6LlyIfhCABtwlopMSw==}
@@ -11690,7 +11741,6 @@ packages:
   /symbol-observable/4.0.0:
     resolution: {integrity: sha512-b19dMThMV4HVFynSAM1++gBHAbk2Tc/osgLIBZMKsyqh34jb2e8Os7T6ZW/Bt3pJFdBTd2JwAnAAEQV7rSNvcQ==}
     engines: {node: '>=0.10'}
-    dev: false
 
   /symbol-tree/3.2.4:
     resolution: {integrity: sha512-9QNk5KwDF+Bvz+PyObkmSYjI5ksVUYtjW7AU22r2NKcfLJcXp96hkDWU3+XndOsUb+AQ9QhfzfCT2O+CNWT5Tw==}
@@ -12139,12 +12189,10 @@ packages:
     dependencies:
       fastify-error: 0.3.1
       fastify-plugin: 3.0.0
-    dev: false
 
   /undici/4.0.0:
     resolution: {integrity: sha512-bVXZKTcQPECj2yYWgVWk1tDw3T24Bzfbp5H5bivcVCpklpqoGvJ842mCA54bExFzuCZcIPrwsVJXWt215/qRIg==}
     engines: {node: '>=12.18'}
-    dev: false
 
   /union-value/1.0.1:
     resolution: {integrity: sha512-tJfXmxMeWYnczCVs7XAEvIV7ieppALdyepWMkHkwciRpZraG/xwT+s2JN8+pr1+8jCRf80FFzvr+MpQeeoF4Xg==}
