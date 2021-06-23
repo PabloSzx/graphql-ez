@@ -398,8 +398,8 @@ importers:
       form-data: ^4.0.0
       get-port: ^5.1.1
       graphql: 15.4.0-experimental-stream-defer.1
-      graphql-modules: ^1.4.2
-      graphql-ws: ^5.2.0
+      graphql-modules: ^1.4.3
+      graphql-ws: ^5.3.0
       koa: ^2.13.1
       lodash: ^4.17.21
       subscriptions-transport-ws-envelop: ^1.0.5
@@ -419,8 +419,8 @@ importers:
       form-data: 4.0.0
       get-port: 5.1.1
       graphql: 15.4.0-experimental-stream-defer.1
-      graphql-modules: 1.4.2_34dd13c2583fe2e4418c23a0d30fc388
-      graphql-ws: 5.2.0_34dd13c2583fe2e4418c23a0d30fc388
+      graphql-modules: 1.4.3_34dd13c2583fe2e4418c23a0d30fc388
+      graphql-ws: 5.3.0_34dd13c2583fe2e4418c23a0d30fc388
       koa: 2.13.1
       lodash: 4.17.21
       subscriptions-transport-ws-envelop: 1.0.5_bc91500fcdcc6646074b1e062e169748
@@ -468,8 +468,8 @@ importers:
       form-data: ^4.0.0
       get-port: ^5.1.1
       graphql: 15.4.0-experimental-stream-defer.1
-      graphql-modules: ^1.4.2
-      graphql-ws: ^5.2.0
+      graphql-modules: ^1.4.3
+      graphql-ws: ^5.3.0
       koa: ^2.13.1
       subscriptions-transport-ws-envelop: ^1.0.5
       undici: ^4.0.0
@@ -509,8 +509,8 @@ importers:
       form-data: 4.0.0
       get-port: 5.1.1
       graphql: 15.4.0-experimental-stream-defer.1
-      graphql-modules: 1.4.2_34dd13c2583fe2e4418c23a0d30fc388
-      graphql-ws: 5.2.0_34dd13c2583fe2e4418c23a0d30fc388
+      graphql-modules: 1.4.3_34dd13c2583fe2e4418c23a0d30fc388
+      graphql-ws: 5.3.0_34dd13c2583fe2e4418c23a0d30fc388
       koa: 2.13.1
       subscriptions-transport-ws-envelop: 1.0.5_bc91500fcdcc6646074b1e062e169748
       undici: 4.0.0
@@ -583,10 +583,10 @@ importers:
       dataloader: ^2.0.0
       graphql: 15.4.0-experimental-stream-defer.1
       graphql-helix: ^1.6.1
-      graphql-modules: ^1.4.2
+      graphql-modules: ^1.4.3
       graphql-scalars: ^1.10.0
       graphql-upload: 12.0.0
-      graphql-ws: ^5.2.0
+      graphql-ws: ^5.3.0
       jest: 27.0.4
       mime-types: ^2.1.31
       mkdirp: ^1.0.4
@@ -600,7 +600,7 @@ importers:
       '@envelop/core': 0.3.1_34dd13c2583fe2e4418c23a0d30fc388
       '@envelop/dataloader': 0.2.0_1e69ec074ba37991a02dc0e22dcbc7f5
       '@envelop/graphql-jit': 0.2.0_34dd13c2583fe2e4418c23a0d30fc388
-      '@envelop/graphql-modules': 0.2.0_3a7a576ebbc898d3083991e1811491a6
+      '@envelop/graphql-modules': 0.2.0_d6fb7a771350ff5d48937d5b1759471f
       '@envelop/parser-cache': 0.2.0_34dd13c2583fe2e4418c23a0d30fc388
       '@envelop/types': 0.2.1_34dd13c2583fe2e4418c23a0d30fc388
       '@envelop/validation-cache': 0.2.0_34dd13c2583fe2e4418c23a0d30fc388
@@ -623,9 +623,9 @@ importers:
       cors: 2.8.5
       dataloader: 2.0.0
       graphql-helix: 1.6.1_34dd13c2583fe2e4418c23a0d30fc388
-      graphql-modules: 1.4.2_34dd13c2583fe2e4418c23a0d30fc388
+      graphql-modules: 1.4.3_34dd13c2583fe2e4418c23a0d30fc388
       graphql-scalars: 1.10.0_34dd13c2583fe2e4418c23a0d30fc388
-      graphql-ws: 5.2.0_34dd13c2583fe2e4418c23a0d30fc388
+      graphql-ws: 5.3.0_34dd13c2583fe2e4418c23a0d30fc388
       mime-types: 2.1.31
       mkdirp: 1.0.4
       prettier: 2.3.1
@@ -1407,14 +1407,14 @@ importers:
       '@graphql-tools/utils': ^7.10.0
       bob-esbuild-cli: ^0.1.27
       graphql: 15.4.0-experimental-stream-defer.1
-      graphql-modules: ^1.4.2
+      graphql-modules: ^1.4.3
     dependencies:
-      '@envelop/graphql-modules': 0.2.0_3a7a576ebbc898d3083991e1811491a6
+      '@envelop/graphql-modules': 0.2.0_d6fb7a771350ff5d48937d5b1759471f
       '@envelop/types': 0.2.1_34dd13c2583fe2e4418c23a0d30fc388
       '@graphql-ez/core-types': link:../../core/types
       '@graphql-ez/core-utils': link:../../core/utils
       '@graphql-tools/utils': 7.10.0_34dd13c2583fe2e4418c23a0d30fc388
-      graphql-modules: 1.4.2_34dd13c2583fe2e4418c23a0d30fc388
+      graphql-modules: 1.4.3_34dd13c2583fe2e4418c23a0d30fc388
     devDependencies:
       bob-esbuild-cli: 0.1.27
       graphql: 15.4.0-experimental-stream-defer.1
@@ -1462,14 +1462,14 @@ importers:
       '@graphql-ez/core-utils': workspace:^0.0.1
       bob-esbuild-cli: ^0.1.27
       graphql: 15.4.0-experimental-stream-defer.1
-      graphql-ws: ^5.2.0
+      graphql-ws: ^5.3.0
       subscriptions-transport-ws-envelop: ^1.0.5
       ws: ^7.5.0
     dependencies:
       '@envelop/types': 0.2.1_34dd13c2583fe2e4418c23a0d30fc388
       '@graphql-ez/core-types': link:../../core/types
       '@graphql-ez/core-utils': link:../../core/utils
-      graphql-ws: 5.2.0_34dd13c2583fe2e4418c23a0d30fc388
+      graphql-ws: 5.3.0_34dd13c2583fe2e4418c23a0d30fc388
       subscriptions-transport-ws-envelop: 1.0.5_bc91500fcdcc6646074b1e062e169748
       ws: 7.5.0
     devDependencies:
@@ -2322,14 +2322,14 @@ packages:
       tiny-lru: 7.0.6
     dev: false
 
-  /@envelop/graphql-modules/0.2.0_3a7a576ebbc898d3083991e1811491a6:
+  /@envelop/graphql-modules/0.2.0_d6fb7a771350ff5d48937d5b1759471f:
     resolution: {integrity: sha512-FGYEM7W69hr1Ry5BCcIKjLbg1JaDZLKY9OD7w2lpwRW3gdxkgGMECkLXDDKx+qCwxbAn2f3leA4N8478dhgXFQ==}
     peerDependencies:
       graphql: ^14.0.0 || ^15.0.0
       graphql-modules: ^1
     dependencies:
       graphql: 15.4.0-experimental-stream-defer.1
-      graphql-modules: 1.4.2_34dd13c2583fe2e4418c23a0d30fc388
+      graphql-modules: 1.4.3_34dd13c2583fe2e4418c23a0d30fc388
     dev: false
 
   /@envelop/parser-cache/0.2.0_34dd13c2583fe2e4418c23a0d30fc388:
@@ -3462,13 +3462,13 @@ packages:
     engines: {node: '>=12.17'}
     dev: true
 
-  /@pnpm/exportable-manifest/2.1.4:
-    resolution: {integrity: sha512-Us3vUJLalhlGe+rg1OaHHqHjjOA/hhYwhp8Ip0TTuFPYMat4YV8/b77wDp1KwKXu0gOCn5pBgv6XY2awccoIow==}
+  /@pnpm/exportable-manifest/2.1.5:
+    resolution: {integrity: sha512-ePXZPVZcFI0RQaoZN+NKFqMnqLxk+QJ0G56uBt46maG2ub/6/8Kl99arkDa7CKDVHfyPxYWPGZNrT/pYUzrgPg==}
     engines: {node: '>=12.17'}
     dependencies:
       '@pnpm/error': 2.0.0
-      '@pnpm/read-project-manifest': 2.0.3
-      '@pnpm/types': 7.2.0
+      '@pnpm/read-project-manifest': 2.0.4
+      '@pnpm/types': 7.3.0
       ramda: 0.27.1
     dev: true
 
@@ -3479,14 +3479,14 @@ packages:
       graceful-fs: 4.2.6
     dev: true
 
-  /@pnpm/read-project-manifest/2.0.3:
-    resolution: {integrity: sha512-r3Gz4Gmqf9ujrulQzA1e1pMhpzfdWAElgsuvT6OqoANijL4J4UIjE47Eq3WW4nTmfewxS6RFlgcyk2eYWrK1rA==}
+  /@pnpm/read-project-manifest/2.0.4:
+    resolution: {integrity: sha512-4yZmdlPKXqXoEuiyUVgXRYv8WNvz8vJ8h8T1X87Ox8Vfnjl8n/4Z3ZF7u3szU+LGF45rHu8CUknzlqchttD6HA==}
     engines: {node: '>=12.17'}
     dependencies:
       '@pnpm/error': 2.0.0
       '@pnpm/graceful-fs': 1.0.0
-      '@pnpm/types': 7.2.0
-      '@pnpm/write-project-manifest': 2.0.2
+      '@pnpm/types': 7.3.0
+      '@pnpm/write-project-manifest': 2.0.3
       detect-indent: 6.1.0
       fast-deep-equal: 3.1.3
       is-windows: 1.0.2
@@ -3497,16 +3497,16 @@ packages:
       strip-bom: 4.0.0
     dev: true
 
-  /@pnpm/types/7.2.0:
-    resolution: {integrity: sha512-+2qKtCG5QhpXNw72Y74tkNrxxoyQmDBZcgI1/xDprQrKhZBByMXaQWPxeCmS8BP8xE20BEh7hLlm3tgZNChvwA==}
+  /@pnpm/types/7.3.0:
+    resolution: {integrity: sha512-CQEG7RGrHQ5fo9ZtJsEKW5lxIjyiO0tQQNoWGNBLkIts665CnSIh1OAN/irlraV/v1mmg7LHDDDX3FbelEqXGw==}
     engines: {node: '>=12.17'}
     dev: true
 
-  /@pnpm/write-project-manifest/2.0.2:
-    resolution: {integrity: sha512-bFyDtxa1BZOrYJWEz3KMPqKkY1/oVkw5V15hAyut38z6yk5MQO2T4y28nGFfJaptGcmElDwsBhrhtsBCg4M7Qg==}
+  /@pnpm/write-project-manifest/2.0.3:
+    resolution: {integrity: sha512-m01lDBH3MckdFZzm20j2cYR0XzhrWLxSBPuVYvw0tiQxCn5xNs0+GA4f4xK2knLCjCb0W4cS3nejsCgPkZwy+Q==}
     engines: {node: '>=12.17'}
     dependencies:
-      '@pnpm/types': 7.2.0
+      '@pnpm/types': 7.3.0
       json5: 2.2.0
       write-file-atomic: 3.0.3
       write-yaml-file: 4.2.0
@@ -4586,7 +4586,7 @@ packages:
     peerDependencies:
       typescript: ^4.3.2
     dependencies:
-      '@pnpm/exportable-manifest': 2.1.4
+      '@pnpm/exportable-manifest': 2.1.5
       bob-esbuild-plugin: 0.1.21_rollup@2.52.2
       builtin-modules: 3.2.0
       chalk: 4.1.1
@@ -4603,7 +4603,7 @@ packages:
       rollup: 2.52.2
       rollup-plugin-delete: 2.0.0
       rollup-plugin-node-externals: 2.2.0_builtin-modules@3.2.0
-      sucrase: 3.18.2
+      sucrase: 3.19.0
       tree-kill: 1.2.2
       tsconfig: 7.0.0
     transitivePeerDependencies:
@@ -4616,7 +4616,7 @@ packages:
     peerDependencies:
       typescript: ^4.3.2
     dependencies:
-      '@pnpm/exportable-manifest': 2.1.4
+      '@pnpm/exportable-manifest': 2.1.5
       bob-esbuild-plugin: 0.1.21_1e35f35a16d635c43eb64d2f4b618dd2
       builtin-modules: 3.2.0
       chalk: 4.1.1
@@ -4633,7 +4633,7 @@ packages:
       rollup: 2.52.2
       rollup-plugin-delete: 2.0.0
       rollup-plugin-node-externals: 2.2.0_builtin-modules@3.2.0
-      sucrase: 3.18.2
+      sucrase: 3.19.0
       tree-kill: 1.2.2
       tsconfig: 7.0.0
       typescript: 4.3.4
@@ -4647,7 +4647,7 @@ packages:
     peerDependencies:
       typescript: ^4.3.3
     dependencies:
-      '@pnpm/exportable-manifest': 2.1.4
+      '@pnpm/exportable-manifest': 2.1.5
       bob-esbuild-plugin: 0.1.21_rollup@2.52.2
       builtin-modules: 3.2.0
       chalk: 4.1.1
@@ -4664,7 +4664,7 @@ packages:
       rollup: 2.52.2
       rollup-plugin-delete: 2.0.0
       rollup-plugin-node-externals: 2.2.0_builtin-modules@3.2.0
-      sucrase: 3.18.2
+      sucrase: 3.19.0
       tree-kill: 1.2.2
       tsconfig: 7.0.0
     transitivePeerDependencies:
@@ -4677,7 +4677,7 @@ packages:
     peerDependencies:
       typescript: ^4.3.3
     dependencies:
-      '@pnpm/exportable-manifest': 2.1.4
+      '@pnpm/exportable-manifest': 2.1.5
       bob-esbuild-plugin: 0.1.21_1e35f35a16d635c43eb64d2f4b618dd2
       builtin-modules: 3.2.0
       chalk: 4.1.1
@@ -4694,7 +4694,7 @@ packages:
       rollup: 2.52.2
       rollup-plugin-delete: 2.0.0
       rollup-plugin-node-externals: 2.2.0_builtin-modules@3.2.0
-      sucrase: 3.18.2
+      sucrase: 3.19.0
       tree-kill: 1.2.2
       tsconfig: 7.0.0
     transitivePeerDependencies:
@@ -4840,7 +4840,7 @@ packages:
     dependencies:
       caniuse-lite: 1.0.30001239
       colorette: 1.2.2
-      electron-to-chromium: 1.3.754
+      electron-to-chromium: 1.3.755
       escalade: 3.1.1
       node-releases: 1.1.73
 
@@ -6133,8 +6133,8 @@ packages:
       jake: 10.8.2
     dev: true
 
-  /electron-to-chromium/1.3.754:
-    resolution: {integrity: sha512-Q50dJbfYYRtwK3G9mFP/EsJVzlgcYwKxFjbXmvVa1lDAbdviPcT9QOpFoufDApub4j0hBfDRL6v3lWNLEdEDXQ==}
+  /electron-to-chromium/1.3.755:
+    resolution: {integrity: sha512-BJ1s/kuUuOeo1bF/EM2E4yqW9te0Hpof3wgwBx40AWJE18zsD1Tqo0kr7ijnOc+lRsrlrqKPauJAHqaxOItoUA==}
 
   /elliptic/6.5.4:
     resolution: {integrity: sha512-iLhC6ULemrljPZb+QutR5TQGB+pdW6KGD5RSegS+8sorOZT+rdQFbsQFJgvN3eRqNALqJer4oQ16YvJHlU8hzQ==}
@@ -7231,8 +7231,8 @@ packages:
       lodash.mergewith: 4.6.2
     dev: false
 
-  /graphql-modules/1.4.2_34dd13c2583fe2e4418c23a0d30fc388:
-    resolution: {integrity: sha512-sw0jPou+DGv2BscbkTcd2VjfXNq45ALIFVEfgjKVhpMPraUDgddqG3RxQdGC16SbNJgpGovLKQd96zft6pVuaA==}
+  /graphql-modules/1.4.3_34dd13c2583fe2e4418c23a0d30fc388:
+    resolution: {integrity: sha512-ArkkqJvrhIsXHZVs89vkjjmHFDRjt3Y1zfayJLt73qSdOG/VNfTt5bEkXcvJ5P1hP+ywj6ODzJqFq8HbJcBHKQ==}
     peerDependencies:
       graphql: ^14.0.0 || ^15.0.0
     dependencies:
@@ -7286,8 +7286,8 @@ packages:
       isobject: 4.0.0
       object-path: 0.11.5
 
-  /graphql-ws/5.2.0_34dd13c2583fe2e4418c23a0d30fc388:
-    resolution: {integrity: sha512-7Mm8H8vEuT8LQCSeok4M92uE9LSMHNVHTdPV74bTQJZfKK4jnPmv3Iv26fMOhJaju54lvTY2mPlCzdb/uux82w==}
+  /graphql-ws/5.3.0_34dd13c2583fe2e4418c23a0d30fc388:
+    resolution: {integrity: sha512-53MbSTOmgx5i6hf3DHVD5PrXix1drDmt2ja8MW7NG+aTpKGzkXVLyNcyNpxme4SK8jVtIV6ZIHkiwirqN0efpw==}
     engines: {node: '>=10'}
     peerDependencies:
       graphql: '>=0.11 <=15'
@@ -9097,7 +9097,7 @@ packages:
   /lower-case/2.0.2:
     resolution: {integrity: sha512-7fm3l3NAF9WfN6W3JOmf5drwpVqX78JtoGJ3A6W0a6ZnldM41w2fV5D490psKFTpMds8TJse/eHLFFsNHHjHgg==}
     dependencies:
-      tslib: 2.2.0
+      tslib: 2.3.0
 
   /lowercase-keys/1.0.1:
     resolution: {integrity: sha512-G2Lj61tXDnVFFOi8VZds+SoQjtQC3dgokKdDG2mTm1tx4m50NUHBOZSBwQQHyy0V12A0JTG4icfZQH+xPyh8VA==}
@@ -11673,8 +11673,8 @@ packages:
       symbol-observable: 4.0.0
       ws: 7.5.0
 
-  /sucrase/3.18.2:
-    resolution: {integrity: sha512-xCFP35OA6uAtBUVB8jPSftiR2Udjh0d9JkQnUOYppILpN4rBSk0yxiy67GVzD3XsFGIB6LlyIfhCABtwlopMSw==}
+  /sucrase/3.19.0:
+    resolution: {integrity: sha512-FeMelydANPRMiOo/lxbf7NxN8bQmMVBQmKOa69BifwVhteMJzRoJNHaVBoCYmE/kpnx6VPg9ckaLumwtuAzmEA==}
     engines: {node: '>=8'}
     hasBin: true
     dependencies:
@@ -12078,7 +12078,7 @@ packages:
       postcss-load-config: 3.1.0
       resolve-from: 5.0.0
       rollup: 2.52.2
-      sucrase: 3.18.2
+      sucrase: 3.19.0
       tree-kill: 1.2.2
       typescript: 4.3.4
     transitivePeerDependencies:
