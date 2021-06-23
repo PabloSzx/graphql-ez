@@ -49,6 +49,7 @@ export function getJSONFromStream<T>(stream: import('stream').Readable): Promise
 
 export function getRequestPool(port: number, path = '/graphql') {
   const address = `http://127.0.0.1:${port}`;
+  const addressWithoutProtocol = `127.0.0.1:${port}`;
   const requestPool = new Pool(address, {
     connections: 5,
   });
@@ -57,6 +58,7 @@ export function getRequestPool(port: number, path = '/graphql') {
 
   return {
     address,
+    addressWithoutProtocol,
     async request(options: Omit<RequestOptions, 'origin'>) {
       const { body } = await requestPool.request({ ...options, origin: address });
 
@@ -68,7 +70,7 @@ export function getRequestPool(port: number, path = '/graphql') {
 
       return { body: getStringFromStream(body), ...rest };
     },
-    async query<TData, TVariables>(
+    async query<TData, TVariables = {}>(
       document: TypedDocumentNode<TData, TVariables> | string,
       variables?: TVariables
     ): Promise<ExecutionResult<TData>> {

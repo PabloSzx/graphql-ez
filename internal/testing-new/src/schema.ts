@@ -48,6 +48,7 @@ export const CommonSchema = {
       hello: String!
       users: [User!]!
       stream: [String!]!
+      context: String!
     }
     type User {
       id: Int!
@@ -62,6 +63,9 @@ export const CommonSchema = {
         return [...Array(3).keys()].map(id => ({
           id,
         }));
+      },
+      context(_root: unknown, _args: unknown, ctx: unknown) {
+        return JSON.stringify(ctx);
       },
       stream: {
         resolve: async function* () {
