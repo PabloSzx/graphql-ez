@@ -12,6 +12,7 @@ buildApp({
     await import('./modules');
   },
   router,
+  app,
 }).then(() => {
   app.use(router.routes()).use(router.allowedMethods());
 

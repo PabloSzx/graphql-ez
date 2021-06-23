@@ -10,7 +10,7 @@ import {
   InternalAppBuildContext,
 } from '@graphql-ez/core-app';
 
-import type { Request, Response } from 'koa';
+import type { Request, Response, default as KoaApp } from 'koa';
 import type { Options as CorsOptions } from '@koa/cors';
 import type { Envelop } from '@envelop/types';
 import type * as KoaRouter from '@koa/router';
@@ -26,6 +26,7 @@ declare module '@graphql-ez/core-types' {
   interface InternalAppBuildIntegrationContext {
     koa?: {
       router: KoaRouter;
+      app: KoaApp<any, any>;
     };
   }
 }
@@ -58,6 +59,7 @@ export interface EZApp {
 
 export interface KoaBuildAppOptions extends BuildAppOptions {
   router: KoaRouter;
+  app: KoaApp;
 }
 
 export interface EZAppBuilder extends BaseAppBuilder {
@@ -99,7 +101,7 @@ export function CreateApp(config: KoaAppOptions = {}): EZAppBuilder {
       if (onAppRegister) await onAppRegister(ctx, router);
 
       await onIntegrationRegister({
-        koa: { router },
+        koa: { router, app: buildOptions.app },
       });
 
       if (cors) {

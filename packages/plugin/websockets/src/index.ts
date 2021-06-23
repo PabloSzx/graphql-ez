@@ -12,6 +12,7 @@ import {
   handleGraphQLWS,
   handleSubscriptionsTransport,
   WebSocketsState,
+  CommonData,
 } from './core';
 
 import type { Envelop } from '@envelop/types';
@@ -190,7 +191,7 @@ export const ezWebSockets = (options: WebSocketOptions = 'adaptive'): EZPlugin =
 
       ctx.ws.wsTuple = wsTuple;
     },
-    compatibilityList: ['fastify-new', 'express-new', 'hapi-new'],
+    compatibilityList: ['fastify-new', 'express-new', 'hapi-new', 'koa-new'],
     async onIntegrationRegister(ctx, integrationCtx) {
       if (!ctx.ws || !ctx.ws.wsTuple) return;
 
@@ -201,31 +202,33 @@ export const ezWebSockets = (options: WebSocketOptions = 'adaptive'): EZPlugin =
 
       assert(path, '"path" not specified and is required for WebSockets EZ Plugin!');
 
+      const commonData: CommonData = {
+        wsTuple,
+        path,
+      };
+
       if (integrationCtx.fastify) {
         const { handleFastify } = await import('./integrations/fastify');
 
-        return handleFastify(integrationCtx.fastify, {
-          path,
-          wsTuple,
-        });
+        return handleFastify(integrationCtx.fastify, commonData);
       }
 
       if (integrationCtx.express) {
         const { handleExpress } = await import('./integrations/express');
 
-        return handleExpress(integrationCtx.express, {
-          path,
-          wsTuple,
-        });
+        return handleExpress(integrationCtx.express, commonData);
       }
 
       if (integrationCtx.hapi) {
         const { handleHapi } = await import('./integrations/hapi');
 
-        return handleHapi(integrationCtx.hapi, {
-          path,
-          wsTuple,
-        });
+        return handleHapi(integrationCtx.hapi, commonData);
+      }
+
+      if (integrationCtx.koa) {
+        const { handleKoa } = await import('./integrations/koa');
+
+        return handleKoa(integrationCtx.koa, commonData);
       }
     },
   };
