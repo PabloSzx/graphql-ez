@@ -177,7 +177,7 @@ importers:
       form-data: ^4.0.0
       get-port: ^5.1.1
       graphql: 15.4.0-experimental-stream-defer.1
-      graphql-modules: ^1.4.2
+      graphql-modules: ^1.4.3
       graphql-ws: ^5.2.0
       koa: ^2.13.1
       lodash: ^4.17.21
@@ -197,7 +197,7 @@ importers:
       form-data: 4.0.0
       get-port: 5.1.1
       graphql: 15.4.0-experimental-stream-defer.1
-      graphql-modules: 1.4.2_34dd13c2583fe2e4418c23a0d30fc388
+      graphql-modules: 1.4.3_34dd13c2583fe2e4418c23a0d30fc388
       graphql-ws: 5.2.0_34dd13c2583fe2e4418c23a0d30fc388
       koa: 2.13.1
       lodash: 4.17.21
@@ -250,7 +250,7 @@ importers:
       dataloader: ^2.0.0
       graphql: 15.4.0-experimental-stream-defer.1
       graphql-helix: ^1.6.1
-      graphql-modules: ^1.4.2
+      graphql-modules: ^1.4.3
       graphql-scalars: ^1.10.0
       graphql-upload: 12.0.0
       graphql-ws: ^5.2.0
@@ -267,7 +267,7 @@ importers:
       '@envelop/core': 0.3.1_34dd13c2583fe2e4418c23a0d30fc388
       '@envelop/dataloader': 0.2.0_1e69ec074ba37991a02dc0e22dcbc7f5
       '@envelop/graphql-jit': 0.2.0_34dd13c2583fe2e4418c23a0d30fc388
-      '@envelop/graphql-modules': 0.2.0_3a7a576ebbc898d3083991e1811491a6
+      '@envelop/graphql-modules': 0.2.0_d6fb7a771350ff5d48937d5b1759471f
       '@envelop/parser-cache': 0.2.0_34dd13c2583fe2e4418c23a0d30fc388
       '@envelop/types': 0.2.1_34dd13c2583fe2e4418c23a0d30fc388
       '@envelop/validation-cache': 0.2.0_34dd13c2583fe2e4418c23a0d30fc388
@@ -290,7 +290,7 @@ importers:
       cors: 2.8.5
       dataloader: 2.0.0
       graphql-helix: 1.6.1_34dd13c2583fe2e4418c23a0d30fc388
-      graphql-modules: 1.4.2_34dd13c2583fe2e4418c23a0d30fc388
+      graphql-modules: 1.4.3_34dd13c2583fe2e4418c23a0d30fc388
       graphql-scalars: 1.10.0_34dd13c2583fe2e4418c23a0d30fc388
       graphql-ws: 5.2.0_34dd13c2583fe2e4418c23a0d30fc388
       mime-types: 2.1.31
@@ -1473,14 +1473,14 @@ packages:
       tiny-lru: 7.0.6
     dev: false
 
-  /@envelop/graphql-modules/0.2.0_3a7a576ebbc898d3083991e1811491a6:
+  /@envelop/graphql-modules/0.2.0_d6fb7a771350ff5d48937d5b1759471f:
     resolution: {integrity: sha512-FGYEM7W69hr1Ry5BCcIKjLbg1JaDZLKY9OD7w2lpwRW3gdxkgGMECkLXDDKx+qCwxbAn2f3leA4N8478dhgXFQ==}
     peerDependencies:
       graphql: ^14.0.0 || ^15.0.0
       graphql-modules: ^1
     dependencies:
       graphql: 15.4.0-experimental-stream-defer.1
-      graphql-modules: 1.4.2_34dd13c2583fe2e4418c23a0d30fc388
+      graphql-modules: 1.4.3_34dd13c2583fe2e4418c23a0d30fc388
     dev: false
 
   /@envelop/parser-cache/0.2.0_34dd13c2583fe2e4418c23a0d30fc388:
@@ -6321,8 +6321,8 @@ packages:
       lodash.mergewith: 4.6.2
     dev: false
 
-  /graphql-modules/1.4.2_34dd13c2583fe2e4418c23a0d30fc388:
-    resolution: {integrity: sha512-sw0jPou+DGv2BscbkTcd2VjfXNq45ALIFVEfgjKVhpMPraUDgddqG3RxQdGC16SbNJgpGovLKQd96zft6pVuaA==}
+  /graphql-modules/1.4.3_34dd13c2583fe2e4418c23a0d30fc388:
+    resolution: {integrity: sha512-ArkkqJvrhIsXHZVs89vkjjmHFDRjt3Y1zfayJLt73qSdOG/VNfTt5bEkXcvJ5P1hP+ywj6ODzJqFq8HbJcBHKQ==}
     peerDependencies:
       graphql: ^14.0.0 || ^15.0.0
     dependencies:
