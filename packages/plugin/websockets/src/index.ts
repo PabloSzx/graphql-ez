@@ -191,7 +191,7 @@ export const ezWebSockets = (options: WebSocketOptions = 'adaptive'): EZPlugin =
 
       ctx.ws.wsTuple = wsTuple;
     },
-    compatibilityList: ['fastify-new', 'express-new', 'hapi-new', 'koa-new'],
+    compatibilityList: ['fastify-new', 'express-new', 'hapi-new', 'koa-new', 'http-new'],
     async onIntegrationRegister(ctx, integrationCtx) {
       if (!ctx.ws || !ctx.ws.wsTuple) return;
 
@@ -229,6 +229,12 @@ export const ezWebSockets = (options: WebSocketOptions = 'adaptive'): EZPlugin =
         const { handleKoa } = await import('./integrations/koa');
 
         return handleKoa(integrationCtx.koa, commonData);
+      }
+
+      if (integrationCtx.http) {
+        const { handleHttp } = await import('./integrations/http');
+
+        return handleHttp(integrationCtx.http, commonData);
       }
     },
   };
