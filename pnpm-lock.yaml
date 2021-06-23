@@ -765,6 +765,7 @@ importers:
       '@graphql-ez/core-types': workspace:^0.0.1
       '@graphql-ez/core-utils': workspace:^0.0.1
       '@graphql-ez/testing': workspace:^1.0.1
+      '@graphql-ez/testing-new': workspace:^0.0.1
       '@graphql-tools/schema': ^7.1.5
       '@graphql-typed-document-node/core': 3.1.0
       '@types/cors': ^2.8.10
@@ -794,6 +795,7 @@ importers:
       cors: 2.8.5
     devDependencies:
       '@graphql-ez/testing': link:../../../internal/testing
+      '@graphql-ez/testing-new': link:../../../internal/testing-new
       '@graphql-tools/schema': 7.1.5_34dd13c2583fe2e4418c23a0d30fc388
       '@graphql-typed-document-node/core': 3.1.0_34dd13c2583fe2e4418c23a0d30fc388
       '@types/eventsource': 1.1.5
@@ -970,6 +972,7 @@ importers:
       '@graphql-ez/core-types': workspace:^0.0.1
       '@graphql-ez/core-utils': workspace:^0.0.1
       '@graphql-ez/testing': workspace:^1.0.1
+      '@graphql-ez/testing-new': workspace:^0.0.1
       '@graphql-tools/schema': ^7.1.5
       '@graphql-typed-document-node/core': 3.1.0
       '@types/eventsource': 1.1.5
@@ -992,6 +995,7 @@ importers:
       '@graphql-ez/core-utils': link:../../core/utils
     devDependencies:
       '@graphql-ez/testing': link:../../../internal/testing
+      '@graphql-ez/testing-new': link:../../../internal/testing-new
       '@graphql-tools/schema': 7.1.5_34dd13c2583fe2e4418c23a0d30fc388
       '@graphql-typed-document-node/core': 3.1.0_34dd13c2583fe2e4418c23a0d30fc388
       '@types/eventsource': 1.1.5
@@ -1058,6 +1062,7 @@ importers:
       '@graphql-ez/core-types': workspace:^0.0.1
       '@graphql-ez/core-utils': workspace:^0.0.1
       '@graphql-ez/testing': workspace:^1.0.1
+      '@graphql-ez/testing-new': workspace:^0.0.1
       '@graphql-tools/schema': ^7.1.5
       '@graphql-typed-document-node/core': 3.1.0
       '@types/eventsource': 1.1.5
@@ -1079,6 +1084,7 @@ importers:
       '@graphql-ez/core-utils': link:../../core/utils
     devDependencies:
       '@graphql-ez/testing': link:../../../internal/testing
+      '@graphql-ez/testing-new': link:../../../internal/testing-new
       '@graphql-tools/schema': 7.1.5_34dd13c2583fe2e4418c23a0d30fc388
       '@graphql-typed-document-node/core': 3.1.0_34dd13c2583fe2e4418c23a0d30fc388
       '@types/eventsource': 1.1.5
@@ -1164,6 +1170,7 @@ importers:
       '@graphql-ez/core-types': workspace:^0.0.1
       '@graphql-ez/core-utils': workspace:^0.0.1
       '@graphql-ez/testing': workspace:^1.0.1
+      '@graphql-ez/testing-new': workspace:^0.0.1
       '@graphql-tools/schema': ^7.1.5
       '@graphql-typed-document-node/core': 3.1.0
       '@koa/cors': ^3.1.0
@@ -1199,6 +1206,7 @@ importers:
       '@types/koa__cors': 3.0.2
     devDependencies:
       '@graphql-ez/testing': link:../../../internal/testing
+      '@graphql-ez/testing-new': link:../../../internal/testing-new
       '@graphql-tools/schema': 7.1.5_34dd13c2583fe2e4418c23a0d30fc388
       '@graphql-typed-document-node/core': 3.1.0_34dd13c2583fe2e4418c23a0d30fc388
       '@koa/router': 10.0.0
@@ -1284,8 +1292,10 @@ importers:
       '@graphql-ez/core-types': workspace:^0.0.1
       '@graphql-ez/core-utils': workspace:^0.0.1
       '@graphql-ez/testing': workspace:^1.0.1
+      '@graphql-ez/testing-new': workspace:^0.0.1
       '@graphql-tools/schema': ^7.1.5
       '@graphql-typed-document-node/core': 3.1.0
+      '@types/eventsource': ^1.1.5
       '@types/jest': 26.0.23
       '@types/mime-types': 2.1.0
       '@types/node': 15.12.4
@@ -1295,6 +1305,8 @@ importers:
       bob-esbuild-cli: 0.1.26
       changesets-github-release: 0.0.3
       cross-env: 7.0.3
+      eventsource: ^1.1.0
+      got: ^11.8.2
       graphql: 15.4.0-experimental-stream-defer.1
       jest: 27.0.4
       mime-types: ^2.1.31
@@ -1312,8 +1324,10 @@ importers:
       mime-types: 2.1.31
     devDependencies:
       '@graphql-ez/testing': link:../../../internal/testing
+      '@graphql-ez/testing-new': link:../../../internal/testing-new
       '@graphql-tools/schema': 7.1.5_34dd13c2583fe2e4418c23a0d30fc388
       '@graphql-typed-document-node/core': 3.1.0_34dd13c2583fe2e4418c23a0d30fc388
+      '@types/eventsource': 1.1.5
       '@types/jest': 26.0.23
       '@types/mime-types': 2.1.0
       '@types/node': 15.12.4
@@ -1322,6 +1336,8 @@ importers:
       bob-esbuild-cli: 0.1.26_83f53b0a0c5616d3fa00ed4e30b9ce1b
       changesets-github-release: 0.0.3
       cross-env: 7.0.3
+      eventsource: 1.1.0
+      got: 11.8.2
       graphql: 15.4.0-experimental-stream-defer.1
       jest: 27.0.4
       next: 11.0.0_2dbe935e140170ce01c975771f1adcbd

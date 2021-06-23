@@ -271,18 +271,48 @@ export async function startNextJSServer(dir: string) {
 
   const NextJSDir = resolve(process.cwd(), dir);
 
-  app
-    .register(FastifyNext, {
-      dir: NextJSDir,
-      dev: false,
-      logLevel: 'warn',
-    })
-    .after(err => {
-      if (err) throw err;
-      if (!app.next) throw Error(`Next.js could not be registered successfully`);
+  const prevWarn = console.warn;
+  const warnSpy = jest.spyOn(console, 'warn').mockImplementation((...message) => {
+    if (!message[0]) return;
 
-      app.next('*', { method: 'POST', schema: {} });
-    });
+    if (
+      message.some(str => {
+        if (typeof str === 'string') {
+          return (
+            str.includes('Experimental features are not covered by semver') ||
+            str.includes('You have enabled experimental feature(s)')
+          );
+        }
+
+        return false;
+      })
+    ) {
+      return;
+    }
+
+    prevWarn(...message);
+  });
+
+  TearDownPromises.push(LazyPromise(() => warnSpy.mockRestore()));
+
+  await app.register(FastifyNext, {
+    dir: NextJSDir,
+    dev: false,
+    logLevel: 'warn',
+  });
+
+  app.after(err => {
+    if (err) {
+      console.error(err);
+      process.exit(1);
+    }
+    if (!app.next) {
+      console.error(Error(`Next.js could not be registered successfully`));
+      process.exit(1);
+    }
+
+    app.next('*', { method: 'POST', schema: {} });
+  });
 
   await app.ready();
 

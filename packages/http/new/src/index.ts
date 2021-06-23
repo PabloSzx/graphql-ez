@@ -164,7 +164,10 @@ export function CreateApp(config: HttpAppOptions = {}): EZAppBuilder {
                 buildContextArgs() {
                   return {
                     req,
-                    res,
+                    http: {
+                      request: req,
+                      response: res,
+                    },
                   };
                 },
                 buildContext,

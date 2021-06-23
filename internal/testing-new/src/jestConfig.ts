@@ -1,13 +1,37 @@
 import { pathsToModuleNameMapper } from 'ts-jest/utils';
 import { relative, resolve } from 'path';
-import { readJSONSync } from 'fs-extra';
-
+import { readJSONSync, writeFileSync } from 'fs-extra';
+import { execSync } from 'child_process';
 import type { Config } from '@jest/types';
 
 const rootPath = resolve(__dirname, '../../../');
 
-export function getConfig(): Config.InitialOptions {
+export function getConfig({
+  nextJsDirs,
+}: {
+  nextJsDirs?: string[];
+} = {}): Config.InitialOptions {
   const prefix = `<rootDir>/${relative(process.cwd(), rootPath)}`;
+
+  if (nextJsDirs) {
+    writeFileSync(
+      './setup-test.js',
+      `const { execSync } = require('child_process');
+
+      module.exports = async () => {
+      ${nextJsDirs
+        .map(dir => {
+          return `execSync(\`node \${require.resolve('next/dist/bin/next')} build "${dir}"\`, {
+          stdio: 'inherit',
+        });`;
+        })
+        .join('\n')}
+      }`
+    );
+
+    execSync('prettier -w "./setup-test.js"');
+  }
+
   return {
     preset: 'ts-jest',
     testEnvironment: 'node',
@@ -21,5 +45,6 @@ export function getConfig(): Config.InitialOptions {
     },
     moduleNameMapper: pathsToModuleNameMapper(readJSONSync(resolve(rootPath, 'tsconfig.json')).compilerOptions.paths, { prefix }),
     collectCoverage: true,
+    globalSetup: nextJsDirs ? './setup-test.js' : undefined,
   };
 }
