@@ -4,6 +4,7 @@ import { ezCodegen } from '@graphql-ez/plugin-codegen';
 import { ezGraphiQLIDE } from '@graphql-ez/plugin-graphiql';
 import { ezGraphQLModules } from '@graphql-ez/plugin-modules';
 import { ezScalars } from '@graphql-ez/plugin-scalars';
+import { ezWebSockets } from '@graphql-ez/plugin-websockets';
 
 function buildContext({ req }: BuildContextArgs) {
   return {
@@ -15,6 +16,8 @@ function buildContext({ req }: BuildContextArgs) {
 declare module '@graphql-ez/hapi-new' {
   interface EZContext extends InferFunctionReturn<typeof buildContext> {}
 }
+
+const sleep = (ms: number) => new Promise<void>(resolve => setTimeout(resolve, ms));
 
 export const { registerModule, buildApp } = CreateApp({
   buildContext,
@@ -38,6 +41,7 @@ export const { registerModule, buildApp } = CreateApp({
       }),
       ezAltairIDE(),
       ezGraphiQLIDE(),
+      ezWebSockets(),
     ],
   },
   schema: {
@@ -45,11 +49,30 @@ export const { registerModule, buildApp } = CreateApp({
       type Query {
         hello3: String!
       }
+      type Subscription {
+        hello: String!
+      }
     `,
     resolvers: {
       Query: {
         hello3(_root, _args, _ctx) {
           return 'zzz';
+        },
+      },
+      Subscription: {
+        hello: {
+          async *subscribe(_root, _args, _ctx) {
+            for (let i = 1; i <= 5; ++i) {
+              await sleep(500);
+
+              yield {
+                hello: 'Hello World ' + i,
+              };
+            }
+            yield {
+              hello: 'Done!',
+            };
+          },
         },
       },
     },

@@ -73,7 +73,6 @@ const WSDeps = {
 export const ezWebSockets = (options: WebSocketOptions = 'adaptive'): EZPlugin => {
   return {
     name: 'GraphQL WebSockets',
-    compatibilityList: ['fastify-new', 'express-new'],
     async onRegister(ctx) {
       const enableOldTransport =
         options === 'legacy' || options === 'adaptive' || (typeof options === 'object' && options.subscriptionsTransport);
@@ -191,6 +190,7 @@ export const ezWebSockets = (options: WebSocketOptions = 'adaptive'): EZPlugin =
 
       ctx.ws.wsTuple = wsTuple;
     },
+    compatibilityList: ['fastify-new', 'express-new', 'hapi-new'],
     async onIntegrationRegister(ctx, integrationCtx) {
       if (!ctx.ws || !ctx.ws.wsTuple) return;
 
@@ -214,6 +214,15 @@ export const ezWebSockets = (options: WebSocketOptions = 'adaptive'): EZPlugin =
         const { handleExpress } = await import('./integrations/express');
 
         return handleExpress(integrationCtx.express, {
+          path,
+          wsTuple,
+        });
+      }
+
+      if (integrationCtx.hapi) {
+        const { handleHapi } = await import('./integrations/hapi');
+
+        return handleHapi(integrationCtx.hapi, {
           path,
           wsTuple,
         });
