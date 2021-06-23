@@ -1,6 +1,6 @@
-import { envelop } from '@envelop/core';
+import { envelop, useEnvelop } from '@envelop/core';
 import { gql } from '@graphql-ez/core-utils/gql';
-import { uniqueArray } from '@graphql-ez/core-utils/object';
+import { toPlural, uniqueArray } from '@graphql-ez/core-utils/object';
 
 import { ezCache } from './cache';
 import { ezSchema } from './schema';
@@ -42,6 +42,7 @@ export function createEZAppFactory(
     },
     envelop: {
       plugins: [...(rawOptions.envelop?.plugins || [])],
+      presets: rawOptions.envelop?.presets || [],
     },
   };
   const baseAppBuilder: BaseAppBuilder = {
@@ -84,8 +85,12 @@ export function createEZAppFactory(
       preBuild?.(ctx),
     ]);
 
+    const envelopPlugins = uniqueArray(options.envelop.plugins);
+
+    envelopPlugins.unshift(...toPlural(options.envelop.presets).map(useEnvelop));
+
     const getEnveloped = envelop({
-      plugins: uniqueArray(options.envelop.plugins),
+      plugins: envelopPlugins,
     });
 
     await Promise.all([

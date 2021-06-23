@@ -70,6 +70,8 @@ declare module './index' {
      */
     envelop?: {
       plugins?: Plugin[];
+
+      presets?: Envelop | Envelop[];
     };
 
     /**
