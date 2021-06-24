@@ -1,9 +1,8 @@
 import { getGraphQLParameters } from 'graphql-helix/dist/get-graphql-parameters.js';
 import { processRequest } from 'graphql-helix/dist/process-request.js';
 
-import type { MultipartResponse, Push } from 'graphql-helix';
 import type { IncomingMessage, ServerResponse } from 'http';
-import type { BuildContextArgs, HandleRequestOptions, EZResponse } from '@graphql-ez/core-types';
+import type { BuildContextArgs, HandleRequestOptions, EZResponse, MultipartResponse, Push } from '@graphql-ez/core-types';
 
 export async function handleRequest<TReturn = unknown>({
   request,

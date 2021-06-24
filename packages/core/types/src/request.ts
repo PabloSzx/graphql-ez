@@ -1,4 +1,4 @@
-import type { MultipartResponse, Push, Request } from 'graphql-helix';
+import type { MultipartResponse, Push, Request } from './helixTypes';
 import type { Envelop } from '@envelop/types';
 import type { IncomingMessage, ServerResponse } from 'http';
 import type { ExecutionResult } from 'graphql';

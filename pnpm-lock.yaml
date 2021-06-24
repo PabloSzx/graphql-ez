@@ -358,14 +358,12 @@ importers:
       '@types/node': ^15.12.4
       bob-esbuild-cli: ^0.1.27
       graphql: 15.4.0-experimental-stream-defer.1
-      graphql-helix: 1.6.1
     dependencies:
       '@envelop/types': 0.2.1_34dd13c2583fe2e4418c23a0d30fc388
     devDependencies:
       '@types/node': 15.12.4
       bob-esbuild-cli: 0.1.27_@types+node@15.12.4
       graphql: 15.4.0-experimental-stream-defer.1
-      graphql-helix: 1.6.1_34dd13c2583fe2e4418c23a0d30fc388
 
   packages/core/utils:
     specifiers:
@@ -6520,6 +6518,7 @@ packages:
       graphql: ^15.3.0
     dependencies:
       graphql: 15.4.0-experimental-stream-defer.1
+    dev: false
 
   /graphql-modules/1.4.3_34dd13c2583fe2e4418c23a0d30fc388:
     resolution: {integrity: sha512-ArkkqJvrhIsXHZVs89vkjjmHFDRjt3Y1zfayJLt73qSdOG/VNfTt5bEkXcvJ5P1hP+ywj6ODzJqFq8HbJcBHKQ==}
