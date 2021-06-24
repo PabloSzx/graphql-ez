@@ -1,3 +1,5 @@
+import { toPlural } from '@graphql-ez/core-utils/object';
+
 import type { EZPlugin } from '@graphql-ez/core-types';
 import type { CodegenConfig } from './typescript';
 
@@ -22,7 +24,7 @@ export interface CodegenOptions {
    *
    * @default false
    */
-  outputSchema?: boolean | string;
+  outputSchema?: boolean | string | string[];
 }
 
 declare module '@graphql-ez/core-types' {
@@ -51,7 +53,7 @@ export const ezCodegen = (options: CodegenOptions = {}): EZPlugin => {
       Promise.all([
         outputSchema
           ? import('./outputSchema').then(({ writeOutputSchema }) => {
-              return writeOutputSchema(schema, outputSchema).catch(onError);
+              return Promise.all(toPlural(outputSchema).map(format => writeOutputSchema(schema, format))).catch(onError);
             })
           : null,
 
