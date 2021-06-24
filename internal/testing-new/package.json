@@ -23,22 +23,6 @@
     "prepare": "bob-esbuild build"
   },
   "devDependencies": {
-    "@graphql-ez/core-app": "workspace:^0.0.1",
-    "@graphql-ez/core-types": "workspace:^0.0.1",
-    "@graphql-ez/core-utils": "workspace:^0.0.1",
-    "@graphql-ez/express-new": "workspace:^0.1.1",
-    "@graphql-ez/fastify-new": "workspace:^0.1.1",
-    "@graphql-ez/hapi-new": "workspace:^0.1.0",
-    "@graphql-ez/http-new": "workspace:^0.1.0",
-    "@graphql-ez/koa-new": "workspace:^0.1.0",
-    "@graphql-ez/nextjs-new": "workspace:^0.1.0",
-    "@graphql-ez/plugin-altair": "workspace:^0.0.1",
-    "@graphql-ez/plugin-codegen": "workspace:^0.0.1",
-    "@graphql-ez/plugin-graphiql": "workspace:^0.0.1",
-    "@graphql-ez/plugin-modules": "workspace:^0.0.1",
-    "@graphql-ez/plugin-scalars": "workspace:^0.0.1",
-    "@graphql-ez/plugin-upload": "workspace:^0.0.1",
-    "@graphql-ez/plugin-websockets": "workspace:^0.0.1",
     "@graphql-tools/schema": "^7.1.5",
     "@graphql-tools/utils": "^7.10.0",
     "@graphql-typed-document-node/core": "^3.1.0",
@@ -68,6 +52,24 @@
     "ts-jest": "^27.0.3",
     "undici": "^4.0.0",
     "ws": "^7.5.0"
+  },
+  "peerDependencies": {
+    "@graphql-ez/core-app": "workspace:^0.0.1",
+    "@graphql-ez/core-types": "workspace:^0.0.1",
+    "@graphql-ez/core-utils": "workspace:^0.0.1",
+    "@graphql-ez/express-new": "workspace:^0.1.1",
+    "@graphql-ez/fastify-new": "workspace:^0.1.1",
+    "@graphql-ez/hapi-new": "workspace:^0.1.0",
+    "@graphql-ez/http-new": "workspace:^0.1.0",
+    "@graphql-ez/koa-new": "workspace:^0.1.0",
+    "@graphql-ez/nextjs-new": "workspace:^0.1.0",
+    "@graphql-ez/plugin-altair": "workspace:^0.0.1",
+    "@graphql-ez/plugin-codegen": "workspace:^0.0.1",
+    "@graphql-ez/plugin-graphiql": "workspace:^0.0.1",
+    "@graphql-ez/plugin-modules": "workspace:^0.0.1",
+    "@graphql-ez/plugin-scalars": "workspace:^0.0.1",
+    "@graphql-ez/plugin-upload": "workspace:^0.0.1",
+    "@graphql-ez/plugin-websockets": "workspace:^0.0.1"
   },
   "publishConfig": {
     "directory": "dist"

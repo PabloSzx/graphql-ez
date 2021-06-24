@@ -1,6 +1,6 @@
 import { CreateApp, gql } from '@graphql-ez/nextjs-new';
 import { ezUnpkgAltairIDE } from '../../../../src';
-function buildContext(_args: import('../../../../../../nextjs/new').BuildContextArgs) {
+function buildContext(_args: import('@graphql-ez/nextjs-new').BuildContextArgs) {
   return {
     foo: 'bar',
   };

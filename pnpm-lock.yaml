@@ -434,22 +434,6 @@ importers:
 
   internal/testing-new:
     specifiers:
-      '@graphql-ez/core-app': workspace:^0.0.1
-      '@graphql-ez/core-types': workspace:^0.0.1
-      '@graphql-ez/core-utils': workspace:^0.0.1
-      '@graphql-ez/express-new': workspace:^0.1.1
-      '@graphql-ez/fastify-new': workspace:^0.1.1
-      '@graphql-ez/hapi-new': workspace:^0.1.0
-      '@graphql-ez/http-new': workspace:^0.1.0
-      '@graphql-ez/koa-new': workspace:^0.1.0
-      '@graphql-ez/nextjs-new': workspace:^0.1.0
-      '@graphql-ez/plugin-altair': workspace:^0.0.1
-      '@graphql-ez/plugin-codegen': workspace:^0.0.1
-      '@graphql-ez/plugin-graphiql': workspace:^0.0.1
-      '@graphql-ez/plugin-modules': workspace:^0.0.1
-      '@graphql-ez/plugin-scalars': workspace:^0.0.1
-      '@graphql-ez/plugin-upload': workspace:^0.0.1
-      '@graphql-ez/plugin-websockets': workspace:^0.0.1
       '@graphql-tools/schema': ^7.1.5
       '@graphql-tools/utils': ^7.10.0
       '@graphql-typed-document-node/core': ^3.1.0
@@ -480,22 +464,6 @@ importers:
       undici: ^4.0.0
       ws: ^7.5.0
     devDependencies:
-      '@graphql-ez/core-app': link:../../packages/core/new-app
-      '@graphql-ez/core-types': link:../../packages/core/types
-      '@graphql-ez/core-utils': link:../../packages/core/utils
-      '@graphql-ez/express-new': link:../../packages/express/new
-      '@graphql-ez/fastify-new': link:../../packages/fastify/new
-      '@graphql-ez/hapi-new': link:../../packages/hapi/new
-      '@graphql-ez/http-new': link:../../packages/http/new
-      '@graphql-ez/koa-new': link:../../packages/koa/new
-      '@graphql-ez/nextjs-new': link:../../packages/nextjs/new
-      '@graphql-ez/plugin-altair': link:../../packages/plugin/altair
-      '@graphql-ez/plugin-codegen': link:../../packages/plugin/codegen
-      '@graphql-ez/plugin-graphiql': link:../../packages/plugin/graphiql
-      '@graphql-ez/plugin-modules': link:../../packages/plugin/modules
-      '@graphql-ez/plugin-scalars': link:../../packages/plugin/scalars
-      '@graphql-ez/plugin-upload': link:../../packages/plugin/upload
-      '@graphql-ez/plugin-websockets': link:../../packages/plugin/websockets
       '@graphql-tools/schema': 7.1.5_34dd13c2583fe2e4418c23a0d30fc388
       '@graphql-tools/utils': 7.10.0_34dd13c2583fe2e4418c23a0d30fc388
       '@graphql-typed-document-node/core': 3.1.0_34dd13c2583fe2e4418c23a0d30fc388
