@@ -64,6 +64,7 @@ export const startFastifyServer = async ({
   return {
     appBuilder,
     ezApp,
+    server,
     ...pool,
     GraphQLWSWebsocketsClient: createGraphQLWSWebsocketsClient(pool.address, websocketPath, graphqlWsClientOptions),
     SubscriptionsTransportWebsocketsClient: createSubscriptionsTransportWebsocketsClient(

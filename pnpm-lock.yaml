@@ -1497,10 +1497,12 @@ importers:
       '@graphql-ez/testing-new': workspace:^0.0.1
       '@graphql-tools/utils': ^7.10.0
       '@types/graphql-upload': ^8.0.5
+      '@types/node-fetch': ^2.5.10
       bob-esbuild-cli: ^0.1.27
       graphql: 15.4.0-experimental-stream-defer.1
       graphql-upload: ^12.0.0
       jest: ^27.0.5
+      node-fetch: ^2.6.1
       ts-jest: ^27.0.3
     dependencies:
       '@graphql-ez/core-types': link:../../core/types
@@ -1509,10 +1511,12 @@ importers:
     devDependencies:
       '@graphql-ez/testing-new': link:../../../internal/testing-new
       '@types/graphql-upload': 8.0.5
+      '@types/node-fetch': 2.5.10
       bob-esbuild-cli: 0.1.27
       graphql: 15.4.0-experimental-stream-defer.1
       graphql-upload: 12.0.0_34dd13c2583fe2e4418c23a0d30fc388
       jest: 27.0.5
+      node-fetch: 2.6.1
       ts-jest: 27.0.3_jest@27.0.5
 
   packages/plugin/websockets:
