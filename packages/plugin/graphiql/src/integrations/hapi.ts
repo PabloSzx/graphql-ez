@@ -11,7 +11,7 @@ export function handleHapi(ctx: InternalAppBuildContext, instance: NonNullable<I
     options: instance.ideRouteOptions,
     async handler(req, h) {
       await ideHandler(req.raw.req, req.raw.res);
-      h.abandon;
+      return h.abandon;
     },
   });
 }

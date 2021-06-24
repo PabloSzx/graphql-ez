@@ -1,7 +1,7 @@
 import type { EZPlugin } from '@graphql-ez/core-app';
 
 export const onIntegrationRegister: NonNullable<EZPlugin['onIntegrationRegister']> = async (ctx, integrationCtx) => {
-  if (!ctx.altair) return;
+  if (!ctx.graphiql) return;
 
   if (integrationCtx.fastify) {
     const { handleFastify } = await import('./fastify');
@@ -35,7 +35,7 @@ export const onIntegrationRegister: NonNullable<EZPlugin['onIntegrationRegister'
 
   if (integrationCtx.next) {
     return console.warn(
-      `You don't need to add GraphiQL plugin in your EZ App for Next.js, use "GraphiQLHandler" directly in your API Routes.`
+      `[graphql-ez] You don't need to add GraphiQL plugin in your EZ App for Next.js, use "GraphiQLHandler" directly in your API Routes.`
     );
   }
 };

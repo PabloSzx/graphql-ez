@@ -52,6 +52,7 @@ export function getRequestPool(port: number, path = '/graphql') {
   const addressWithoutProtocol = `127.0.0.1:${port}`;
   const requestPool = new Pool(address, {
     connections: 5,
+    bodyTimeout: 0,
   });
 
   TearDownPromises.push(LazyPromise(() => requestPool.close()));

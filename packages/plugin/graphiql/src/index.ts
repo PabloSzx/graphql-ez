@@ -33,12 +33,9 @@ declare module '@graphql-ez/core-types' {
 export type IDEHandler = (
   req: IncomingMessage,
   res: ServerResponse
-) => Promise<
-  | {
-      content: string;
-    }
-  | undefined
->;
+) => Promise<{
+  content: string;
+}>;
 
 export interface HandlerConfig {
   /**
@@ -62,14 +59,7 @@ export function GraphiQLHandler(options: GraphiQLOptions, extraConfig?: HandlerC
 
   const rawHttp = extraConfig?.rawHttp ?? true;
 
-  return async function (req, res) {
-    if (req.method?.toUpperCase() !== 'GET') {
-      if (rawHttp) {
-        res.writeHead(404).end();
-      }
-      return;
-    }
-
+  return async function (_req, res) {
     const content = await html;
 
     if (rawHttp) {

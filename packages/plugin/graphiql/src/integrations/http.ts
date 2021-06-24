@@ -8,14 +8,12 @@ export function handleHttp(ctx: InternalAppBuildContext, instance: NonNullable<I
   const path = ctx.graphiql.path;
 
   instance.handlers.push(async (req, res) => {
-    if (req.method === 'GET' && req.url?.startsWith(path)) {
-      await handler(req, res);
+    if (req.method !== 'GET' || !req.url?.startsWith(path)) return;
 
-      return {
-        stop: true,
-      };
-    }
+    await handler(req, res);
 
-    return;
+    return {
+      stop: true,
+    };
   });
 }

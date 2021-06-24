@@ -10,11 +10,6 @@ export function handleKoa(ctx: InternalAppBuildContext, instance: NonNullable<In
   instance.router.get(ctx.graphiql.path, async ctx => {
     const result = await handler(ctx.req, ctx.res);
 
-    if (!result) {
-      ctx.status = 404;
-      return;
-    }
-
     ctx.type = 'text/html';
     ctx.body = result.content;
   });
