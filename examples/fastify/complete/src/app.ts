@@ -1,4 +1,4 @@
-import { BuildContextArgs, CreateApp, gql, InferFunctionReturn, readStreamToBuffer } from '@graphql-ez/express';
+import { BuildContextArgs, CreateApp, gql, InferFunctionReturn, readStreamToBuffer } from '@graphql-ez/fastify';
 import { ezAltairIDE } from '@graphql-ez/plugin-altair';
 import { ezCodegen } from '@graphql-ez/plugin-codegen';
 import { ezGraphiQLIDE } from '@graphql-ez/plugin-graphiql';
@@ -14,9 +14,7 @@ function buildContext({ req }: BuildContextArgs) {
   };
 }
 
-const sleep = (ms: number) => new Promise<void>(resolve => setTimeout(resolve, ms));
-
-declare module '@graphql-ez/express' {
+declare module '@graphql-ez/fastify' {
   interface EZContext extends InferFunctionReturn<typeof buildContext> {}
 }
 
@@ -50,9 +48,6 @@ export const { registerModule, buildApp } = CreateApp({
       type Mutation {
         uploadFileToBase64(file: Upload!): String!
       }
-      type Subscription {
-        hello: String!
-      }
     `,
     resolvers: {
       Mutation: {
@@ -60,22 +55,6 @@ export const { registerModule, buildApp } = CreateApp({
           const fileBuffer = await readStreamToBuffer(file);
 
           return fileBuffer.toString('base64');
-        },
-      },
-      Subscription: {
-        hello: {
-          async *subscribe(_root, _args, _ctx) {
-            for (let i = 1; i <= 5; ++i) {
-              await sleep(500);
-
-              yield {
-                hello: 'Hello World ' + i,
-              };
-            }
-            yield {
-              hello: 'Done!',
-            };
-          },
         },
       },
     },

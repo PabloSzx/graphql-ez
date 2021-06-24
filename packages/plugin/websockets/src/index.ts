@@ -71,6 +71,12 @@ const WSDeps = {
   useGraphQLWSServer: LazyPromise(() => import('graphql-ws/lib/use/ws').then(v => v.useServer)),
 };
 
+/**
+ * ### WebSockets plugin
+ *
+ * By default the configuration is set to `"adaptive"`,
+ * which automatically uses `graphql-ws` or `subscriptions-transport-ws` depending on usage
+ */
 export const ezWebSockets = (options: WebSocketOptions = 'adaptive'): EZPlugin => {
   return {
     name: 'GraphQL WebSockets',
