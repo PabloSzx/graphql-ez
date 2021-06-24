@@ -1,6 +1,6 @@
 {
   "name": "@graphql-ez/plugin-codegen",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "repository": {
     "type": "git",
     "url": "https://github.com/PabloSzx/graphql-ez",
@@ -33,8 +33,8 @@
     "@graphql-codegen/typescript": "^1.22.3",
     "@graphql-codegen/typescript-operations": "^1.18.2",
     "@graphql-codegen/typescript-resolvers": "^1.19.4",
-    "@graphql-ez/core-types": "workspace:^0.1.0",
-    "@graphql-ez/core-utils": "workspace:^0.1.0",
+    "@graphql-ez/core-types": "workspace:^0.2.0",
+    "@graphql-ez/core-utils": "workspace:^0.2.0",
     "@graphql-tools/graphql-file-loader": "^6.2.7",
     "@graphql-tools/load": "^6.2.8",
     "@graphql-tools/utils": "^7.10.0",
@@ -42,7 +42,7 @@
     "prettier": "^2.3.1"
   },
   "devDependencies": {
-    "@graphql-ez/testing": "workspace:^0.0.1",
+    "@graphql-ez/testing": "workspace:^1.0.0",
     "@types/mkdirp": "^1.0.1",
     "@types/prettier": "^2.3.0",
     "bob-esbuild-cli": "^0.1.27",
