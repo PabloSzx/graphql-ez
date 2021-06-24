@@ -323,7 +323,7 @@ importers:
       '@envelop/parser-cache': ^0.2.0
       '@envelop/types': ^0.2.1
       '@envelop/validation-cache': ^0.2.0
-      '@graphql-ez/core-types': workspace:^0.2.0
+      '@graphql-ez/core-types': workspace:^0.2.1
       '@graphql-ez/core-utils': workspace:^0.2.0
       '@graphql-tools/merge': ^6.2.14
       '@graphql-tools/schema': ^7.1.5
@@ -367,7 +367,7 @@ importers:
 
   packages/core/utils:
     specifiers:
-      '@graphql-ez/core-types': workspace:^0.2.0
+      '@graphql-ez/core-types': workspace:^0.2.1
       bob-esbuild-cli: ^0.1.27
       graphql: 15.4.0-experimental-stream-defer.1
     dependencies:
@@ -379,7 +379,7 @@ importers:
   packages/express/main:
     specifiers:
       '@envelop/types': ^0.2.1
-      '@graphql-ez/core': workspace:^0.2.0
+      '@graphql-ez/core': workspace:^0.2.1
       '@graphql-ez/core-utils': workspace:^0.2.0
       '@types/body-parser': ^1.19.0
       '@types/cors': ^2.8.10
@@ -420,8 +420,8 @@ importers:
   packages/fastify/main:
     specifiers:
       '@envelop/types': ^0.2.1
-      '@graphql-ez/core': workspace:^0.2.0
-      '@graphql-ez/core-types': workspace:^0.2.0
+      '@graphql-ez/core': workspace:^0.2.1
+      '@graphql-ez/core-types': workspace:^0.2.1
       '@graphql-ez/core-utils': workspace:^0.2.0
       '@types/eventsource': 1.1.5
       '@types/node': 15.12.4
@@ -457,7 +457,7 @@ importers:
   packages/hapi/main:
     specifiers:
       '@envelop/types': ^0.2.1
-      '@graphql-ez/core': workspace:^0.2.0
+      '@graphql-ez/core': workspace:^0.2.1
       '@graphql-ez/core-utils': workspace:^0.2.0
       '@types/eventsource': 1.1.5
       '@types/hapi__hapi': 20.0.8
@@ -490,7 +490,7 @@ importers:
   packages/http/main:
     specifiers:
       '@envelop/types': ^0.2.1
-      '@graphql-ez/core': workspace:^0.2.0
+      '@graphql-ez/core': workspace:^0.2.1
       '@graphql-ez/core-utils': workspace:^0.2.0
       '@types/eventsource': 1.1.5
       '@types/node': 15.12.4
@@ -521,7 +521,7 @@ importers:
   packages/koa/main:
     specifiers:
       '@envelop/types': ^0.2.1
-      '@graphql-ez/core': workspace:^0.2.0
+      '@graphql-ez/core': workspace:^0.2.1
       '@graphql-ez/core-utils': workspace:^0.2.0
       '@koa/cors': ^3.1.0
       '@koa/router': 10.0.0
@@ -568,7 +568,7 @@ importers:
   packages/nextjs/main:
     specifiers:
       '@envelop/types': ^0.2.1
-      '@graphql-ez/core': workspace:^0.2.0
+      '@graphql-ez/core': workspace:^0.2.1
       '@graphql-ez/core-utils': workspace:^0.2.0
       '@graphql-tools/schema': ^7.1.5
       '@types/eventsource': ^1.1.5
@@ -610,7 +610,7 @@ importers:
 
   packages/plugin/altair:
     specifiers:
-      '@graphql-ez/core-types': workspace:^0.2.0
+      '@graphql-ez/core-types': workspace:^0.2.1
       '@graphql-ez/core-utils': workspace:^0.2.0
       '@types/mime-types': ^2.1.0
       '@types/node': ^15.12.4
@@ -649,7 +649,7 @@ importers:
       '@graphql-codegen/typescript': ^1.22.3
       '@graphql-codegen/typescript-operations': ^1.18.2
       '@graphql-codegen/typescript-resolvers': ^1.19.4
-      '@graphql-ez/core-types': workspace:^0.2.0
+      '@graphql-ez/core-types': workspace:^0.2.1
       '@graphql-ez/core-utils': workspace:^0.2.0
       '@graphql-tools/graphql-file-loader': ^6.2.7
       '@graphql-tools/load': ^6.2.8
@@ -691,7 +691,7 @@ importers:
   packages/plugin/dataloader:
     specifiers:
       '@envelop/dataloader': ^0.2.0
-      '@graphql-ez/core-types': workspace:^0.2.0
+      '@graphql-ez/core-types': workspace:^0.2.1
       bob-esbuild-cli: ^0.1.27
       changesets-github-release: ^0.0.3
       dataloader: ^2.0.0
@@ -711,7 +711,7 @@ importers:
 
   packages/plugin/graphiql:
     specifiers:
-      '@graphql-ez/core-types': workspace:^0.2.0
+      '@graphql-ez/core-types': workspace:^0.2.1
       '@graphql-ez/core-utils': workspace:^0.2.0
       '@types/node': ^15.12.4
       bob-esbuild-cli: ^0.1.27
@@ -736,7 +736,7 @@ importers:
     specifiers:
       '@envelop/graphql-modules': ^0.2.0
       '@envelop/types': ^0.2.1
-      '@graphql-ez/core-types': workspace:^0.2.0
+      '@graphql-ez/core-types': workspace:^0.2.1
       '@graphql-ez/core-utils': workspace:^0.2.0
       '@graphql-tools/utils': ^7.10.0
       bob-esbuild-cli: ^0.1.27
@@ -761,7 +761,7 @@ importers:
 
   packages/plugin/scalars:
     specifiers:
-      '@graphql-ez/core-types': workspace:^0.2.0
+      '@graphql-ez/core-types': workspace:^0.2.1
       '@graphql-ez/core-utils': workspace:^0.2.0
       '@graphql-tools/utils': ^7.10.0
       bob-esbuild-cli: ^0.1.27
@@ -784,7 +784,7 @@ importers:
 
   packages/plugin/upload:
     specifiers:
-      '@graphql-ez/core-types': workspace:^0.2.0
+      '@graphql-ez/core-types': workspace:^0.2.1
       '@graphql-ez/core-utils': workspace:^0.2.0
       '@types/graphql-upload': ^8.0.5
       '@types/node-fetch': ^2.5.10
@@ -812,7 +812,7 @@ importers:
   packages/plugin/websockets:
     specifiers:
       '@envelop/types': ^0.2.1
-      '@graphql-ez/core-types': workspace:^0.2.0
+      '@graphql-ez/core-types': workspace:^0.2.1
       '@graphql-ez/core-utils': workspace:^0.2.0
       bob-esbuild-cli: ^0.1.27
       changesets-github-release: ^0.0.3
