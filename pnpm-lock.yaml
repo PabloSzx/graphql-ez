@@ -633,6 +633,7 @@ importers:
       altair-exported-types: ^4.0.6
       altair-static: ^4.0.6
       bob-esbuild-cli: ^0.1.27
+      changesets-github-release: ^0.0.3
       jest: ^27.0.5
       mime-types: ^2.1.31
       next: ^11.0.1
@@ -651,6 +652,7 @@ importers:
       '@types/node': 15.12.4
       '@types/node-fetch': 2.5.10
       bob-esbuild-cli: 0.1.27_@types+node@15.12.4
+      changesets-github-release: 0.0.3
       jest: 27.0.5
       next: 11.0.1
       ts-jest: 27.0.3_jest@27.0.5
@@ -672,6 +674,7 @@ importers:
       '@types/mkdirp': ^1.0.1
       '@types/prettier': ^2.3.0
       bob-esbuild-cli: ^0.1.27
+      changesets-github-release: ^0.0.3
       graphql: 15.4.0-experimental-stream-defer.1
       jest: ^27.0.5
       mkdirp: ^1.0.4
@@ -697,6 +700,7 @@ importers:
       '@types/mkdirp': 1.0.1
       '@types/prettier': 2.3.0
       bob-esbuild-cli: 0.1.27
+      changesets-github-release: 0.0.3
       graphql: 15.4.0-experimental-stream-defer.1
       jest: 27.0.5
       tmp-promise: 3.0.2
@@ -708,6 +712,7 @@ importers:
       '@graphql-ez/core-types': workspace:^0.2.0
       '@graphql-ez/testing': workspace:^1.0.0
       bob-esbuild-cli: ^0.1.27
+      changesets-github-release: ^0.0.3
       dataloader: ^2.0.0
       graphql: 15.4.0-experimental-stream-defer.1
       jest: ^27.0.5
@@ -719,6 +724,7 @@ importers:
     devDependencies:
       '@graphql-ez/testing': link:../../../internal/testing
       bob-esbuild-cli: 0.1.27
+      changesets-github-release: 0.0.3
       graphql: 15.4.0-experimental-stream-defer.1
       jest: 27.0.5
       ts-jest: 27.0.3_jest@27.0.5
@@ -730,6 +736,7 @@ importers:
       '@graphql-ez/testing': workspace:^1.0.0
       '@types/node': ^15.12.4
       bob-esbuild-cli: ^0.1.27
+      changesets-github-release: ^0.0.3
       graphql-helix: 1.6.1
       jest: ^27.0.5
       next: ^11.0.1
@@ -742,6 +749,7 @@ importers:
       '@graphql-ez/testing': link:../../../internal/testing
       '@types/node': 15.12.4
       bob-esbuild-cli: 0.1.27_@types+node@15.12.4
+      changesets-github-release: 0.0.3
       jest: 27.0.5
       next: 11.0.1
       ts-jest: 27.0.3_jest@27.0.5
@@ -755,6 +763,7 @@ importers:
       '@graphql-ez/testing': workspace:^1.0.0
       '@graphql-tools/utils': ^7.10.0
       bob-esbuild-cli: ^0.1.27
+      changesets-github-release: ^0.0.3
       graphql: 15.4.0-experimental-stream-defer.1
       graphql-modules: ^1.4.3
       jest: ^27.0.5
@@ -769,6 +778,7 @@ importers:
     devDependencies:
       '@graphql-ez/testing': link:../../../internal/testing
       bob-esbuild-cli: 0.1.27
+      changesets-github-release: 0.0.3
       graphql: 15.4.0-experimental-stream-defer.1
       jest: 27.0.5
       ts-jest: 27.0.3_jest@27.0.5
@@ -780,6 +790,7 @@ importers:
       '@graphql-ez/testing': workspace:^1.0.0
       '@graphql-tools/utils': ^7.10.0
       bob-esbuild-cli: ^0.1.27
+      changesets-github-release: ^0.0.3
       graphql: 15.4.0-experimental-stream-defer.1
       graphql-scalars: ^1.10.0
       jest: ^27.0.5
@@ -792,6 +803,7 @@ importers:
     devDependencies:
       '@graphql-ez/testing': link:../../../internal/testing
       bob-esbuild-cli: 0.1.27
+      changesets-github-release: 0.0.3
       graphql: 15.4.0-experimental-stream-defer.1
       jest: 27.0.5
       ts-jest: 27.0.3_jest@27.0.5
@@ -804,6 +816,7 @@ importers:
       '@types/graphql-upload': ^8.0.5
       '@types/node-fetch': ^2.5.10
       bob-esbuild-cli: ^0.1.27
+      changesets-github-release: ^0.0.3
       graphql: 15.4.0-experimental-stream-defer.1
       graphql-upload: ^12.0.0
       jest: ^27.0.5
@@ -817,6 +830,7 @@ importers:
       '@types/graphql-upload': 8.0.5
       '@types/node-fetch': 2.5.10
       bob-esbuild-cli: 0.1.27
+      changesets-github-release: 0.0.3
       graphql: 15.4.0-experimental-stream-defer.1
       graphql-upload: 12.0.0_34dd13c2583fe2e4418c23a0d30fc388
       jest: 27.0.5
@@ -830,6 +844,7 @@ importers:
       '@graphql-ez/core-utils': workspace:^0.2.0
       '@graphql-ez/testing': workspace:^1.0.0
       bob-esbuild-cli: ^0.1.27
+      changesets-github-release: ^0.0.3
       graphql: 15.4.0-experimental-stream-defer.1
       graphql-ws: ^5.3.0
       jest: ^27.0.5
@@ -846,6 +861,7 @@ importers:
     devDependencies:
       '@graphql-ez/testing': link:../../../internal/testing
       bob-esbuild-cli: 0.1.27
+      changesets-github-release: 0.0.3
       graphql: 15.4.0-experimental-stream-defer.1
       jest: 27.0.5
       ts-jest: 27.0.3_jest@27.0.5
@@ -2724,7 +2740,7 @@ packages:
   /@octokit/auth-token/2.4.5:
     resolution: {integrity: sha512-BpGYsPgJt05M7/L/5FoE1PiAbdxXFZkX/3kDYcsvd1v6UhlnE5e96dTDr0ezX/EFwciQxf3cNV0loipsURU+WA==}
     dependencies:
-      '@octokit/types': 6.16.5
+      '@octokit/types': 6.16.6
     dev: true
 
   /@octokit/core/3.5.1:
@@ -2734,7 +2750,7 @@ packages:
       '@octokit/graphql': 4.6.4
       '@octokit/request': 5.6.0
       '@octokit/request-error': 2.1.0
-      '@octokit/types': 6.16.5
+      '@octokit/types': 6.16.6
       before-after-hook: 2.2.2
       universal-user-agent: 6.0.0
     dev: true
@@ -2742,7 +2758,7 @@ packages:
   /@octokit/endpoint/6.0.12:
     resolution: {integrity: sha512-lF3puPwkQWGfkMClXb4k/eUT/nZKQfxinRWJrdZaJO85Dqwo/G0yOC434Jr2ojwafWJMYqFGFa5ms4jJUgujdA==}
     dependencies:
-      '@octokit/types': 6.16.5
+      '@octokit/types': 6.16.6
       is-plain-object: 5.0.0
       universal-user-agent: 6.0.0
     dev: true
@@ -2751,12 +2767,12 @@ packages:
     resolution: {integrity: sha512-SWTdXsVheRmlotWNjKzPOb6Js6tjSqA2a8z9+glDJng0Aqjzti8MEWOtuT8ZSu6wHnci7LZNuarE87+WJBG4vg==}
     dependencies:
       '@octokit/request': 5.6.0
-      '@octokit/types': 6.16.5
+      '@octokit/types': 6.16.6
       universal-user-agent: 6.0.0
     dev: true
 
-  /@octokit/openapi-types/7.3.3:
-    resolution: {integrity: sha512-/tpvcWCjYUHtvdc/t/bX6pxaOoeYPhfPCyvUaSWP29YkRcdZmlhRaMsXudZhvXm8GBPBxmCOsf1Ye/FpkszOHw==}
+  /@octokit/openapi-types/7.3.4:
+    resolution: {integrity: sha512-binmLrMQWBG0CvUE/jS3/XXrZbX3oN/6gF7ocSsb/ZJ0xfox2isJN4ZhGeL91SDJVzFK7XuUYBm2mlIDedkxsg==}
     dev: true
 
   /@octokit/plugin-paginate-rest/2.13.5_@octokit+core@3.5.1:
@@ -2765,7 +2781,7 @@ packages:
       '@octokit/core': '>=2'
     dependencies:
       '@octokit/core': 3.5.1
-      '@octokit/types': 6.16.5
+      '@octokit/types': 6.16.6
     dev: true
 
   /@octokit/plugin-request-log/1.0.4_@octokit+core@3.5.1:
@@ -2782,14 +2798,14 @@ packages:
       '@octokit/core': '>=3'
     dependencies:
       '@octokit/core': 3.5.1
-      '@octokit/types': 6.16.5
+      '@octokit/types': 6.16.6
       deprecation: 2.3.1
     dev: true
 
   /@octokit/request-error/2.1.0:
     resolution: {integrity: sha512-1VIvgXxs9WHSjicsRwq8PlR2LR2x6DwsJAaFgzdi0JfJoGSO8mYI/cHJQ+9FbN21aa+DrgNLnwObmyeSC8Rmpg==}
     dependencies:
-      '@octokit/types': 6.16.5
+      '@octokit/types': 6.16.6
       deprecation: 2.3.1
       once: 1.4.0
     dev: true
@@ -2799,7 +2815,7 @@ packages:
     dependencies:
       '@octokit/endpoint': 6.0.12
       '@octokit/request-error': 2.1.0
-      '@octokit/types': 6.16.5
+      '@octokit/types': 6.16.6
       is-plain-object: 5.0.0
       node-fetch: 2.6.1
       universal-user-agent: 6.0.0
@@ -2814,10 +2830,10 @@ packages:
       '@octokit/plugin-rest-endpoint-methods': 5.3.2_@octokit+core@3.5.1
     dev: true
 
-  /@octokit/types/6.16.5:
-    resolution: {integrity: sha512-2v30UzgezzVZNCZlEryr8ujqaFW0EEH0fyuNxz5QdE3rlkCG2SXz8RTCT1V4q7inEI2kd2xTcROlq9OkEvY0TQ==}
+  /@octokit/types/6.16.6:
+    resolution: {integrity: sha512-PrEGjMnEhLlNttsuLadEWqXdMYJX3icHHaRs/ChJebRT79VDh/cNkk8bURx05BEEwr7QvaLsRzjt3hNxUJZfXA==}
     dependencies:
-      '@octokit/openapi-types': 7.3.3
+      '@octokit/openapi-types': 7.3.4
     dev: true
 
   /@pnpm/error/2.0.0:

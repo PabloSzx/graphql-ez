@@ -24,6 +24,7 @@
   "scripts": {
     "dev": "bob-esbuild watch",
     "prepare": "bob-esbuild build",
+    "postpublish": "gh-release",
     "test": "jest"
   },
   "dependencies": {
@@ -35,6 +36,7 @@
   "devDependencies": {
     "@graphql-ez/testing": "workspace:^1.0.0",
     "bob-esbuild-cli": "^0.1.27",
+    "changesets-github-release": "^0.0.3",
     "graphql": "15.4.0-experimental-stream-defer.1",
     "jest": "^27.0.5",
     "ts-jest": "^27.0.3"
