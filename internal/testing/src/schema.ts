@@ -69,6 +69,7 @@ export const CommonSchema = {
       },
       stream: {
         resolve: async function* () {
+          await sleep(100);
           yield 'A';
           await sleep(100);
           yield 'B';

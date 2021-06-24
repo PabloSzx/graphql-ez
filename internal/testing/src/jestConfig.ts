@@ -47,5 +47,6 @@ export function getConfig({
     moduleNameMapper: pathsToModuleNameMapper(readJSONSync(resolve(rootPath, 'tsconfig.json')).compilerOptions.paths, { prefix }),
     collectCoverage: true,
     globalSetup: nextjs ? './setup-test.js' : undefined,
+    watchman: false,
   };
 }
