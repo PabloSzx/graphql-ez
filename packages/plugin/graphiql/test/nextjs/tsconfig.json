@@ -1,0 +1,26 @@
+{
+  "compilerOptions": {
+    "target": "es2019",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "baseUrl": "../../../../",
+    "paths": {
+      "@graphql-ez/core-utils/*": ["core/utils/src/*"],
+      "@graphql-ez/core": ["core/new-app/src"],
+      "@graphql-ez/core-types": ["core/types/src"],
+      "@graphql-ez/nextjs": ["nextjs/main/src"]
+    }
+  },
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "../../../../**/*.ts"],
+  "exclude": ["node_modules"]
+}

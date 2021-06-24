@@ -1,0 +1,29 @@
+{
+  "name": "example-complete-fastify",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "yarn dev:mjs",
+    "dev:cjs": "tsup-node src/index.ts --format cjs --sourcemap --no-splitting --watch src --onSuccess \"node dist/index.js\"",
+    "dev:mjs": "tsup-node src/index.ts --format esm --sourcemap --no-splitting --watch src --onSuccess \"node dist/index.mjs\"",
+    "start": "node dist/index.js"
+  },
+  "dependencies": {
+    "@graphql-ez/fastify": "workspace:^0.1.0",
+    "@graphql-ez/plugin-altair": "workspace:^0.0.1",
+    "@graphql-ez/plugin-codegen": "workspace:^0.0.1",
+    "@graphql-ez/plugin-graphiql": "workspace:^0.0.1",
+    "@graphql-ez/plugin-modules": "workspace:^0.0.1",
+    "@graphql-ez/plugin-scalars": "workspace:^0.0.1",
+    "@graphql-ez/plugin-upload": "workspace:^0.0.1",
+    "@graphql-ez/plugin-websockets": "workspace:^0.0.1",
+    "@types/graphql-upload": "^8.0.5",
+    "fastify": "^3.18.0",
+    "graphql": "15.4.0-experimental-stream-defer.1",
+    "graphql-upload": "^12.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^15.12.4",
+    "tsup": "^4.11.2",
+    "typescript": "^4.3.4"
+  }
+}

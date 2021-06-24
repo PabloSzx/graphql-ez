@@ -1,0 +1,51 @@
+{
+  "name": "@graphql-ez/plugin-codegen",
+  "version": "0.0.1",
+  "exports": {
+    ".": {
+      "require": "./dist/index.js",
+      "import": "./dist/index.mjs"
+    },
+    "./*": {
+      "require": "./dist/*.js",
+      "import": "./dist/*.mjs"
+    }
+  },
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "dev": "bob-esbuild watch",
+    "prepare": "bob-esbuild build",
+    "test": "jest"
+  },
+  "dependencies": {
+    "@graphql-codegen/core": "^1.17.10",
+    "@graphql-codegen/plugin-helpers": "^1.18.7",
+    "@graphql-codegen/typed-document-node": "^1.18.8",
+    "@graphql-codegen/typescript": "^1.22.3",
+    "@graphql-codegen/typescript-operations": "^1.18.2",
+    "@graphql-codegen/typescript-resolvers": "^1.19.4",
+    "@graphql-ez/core-types": "workspace:^0.1.0",
+    "@graphql-ez/core-utils": "workspace:^0.1.0",
+    "@graphql-tools/graphql-file-loader": "^6.2.7",
+    "@graphql-tools/load": "^6.2.8",
+    "@graphql-tools/utils": "^7.10.0",
+    "mkdirp": "^1.0.4",
+    "prettier": "^2.3.1"
+  },
+  "devDependencies": {
+    "@graphql-ez/testing": "workspace:^0.0.1",
+    "@types/mkdirp": "^1.0.1",
+    "@types/prettier": "^2.3.0",
+    "bob-esbuild-cli": "^0.1.27",
+    "graphql": "15.4.0-experimental-stream-defer.1",
+    "jest": "^27.0.5",
+    "tmp-promise": "^3.0.2",
+    "ts-jest": "^27.0.3"
+  },
+  "peerDependencies": {
+    "graphql": "*"
+  },
+  "publishConfig": {
+    "directory": "dist"
+  }
+}

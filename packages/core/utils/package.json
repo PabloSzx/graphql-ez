@@ -1,0 +1,32 @@
+{
+  "name": "@graphql-ez/core-utils",
+  "version": "0.1.0",
+  "exports": {
+    ".": {
+      "require": "./dist/index.js",
+      "import": "./dist/index.mjs"
+    },
+    "./*": {
+      "require": "./dist/*.js",
+      "import": "./dist/*.mjs"
+    }
+  },
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "dev": "bob-esbuild watch",
+    "prepare": "bob-esbuild build"
+  },
+  "dependencies": {
+    "@graphql-ez/core-types": "workspace:^0.1.0"
+  },
+  "devDependencies": {
+    "bob-esbuild-cli": "^0.1.27",
+    "graphql": "15.4.0-experimental-stream-defer.1"
+  },
+  "peerDependencies": {
+    "graphql": "*"
+  },
+  "publishConfig": {
+    "directory": "dist"
+  }
+}
