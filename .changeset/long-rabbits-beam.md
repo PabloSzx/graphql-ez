@@ -18,4 +18,4 @@
 '@graphql-ez/plugin-websockets': minor
 ---
 
-plugin based complete restructure
+[BREAKING CHANGE] Plugin based complete restructure - Please check https://github.com/PabloSzx/graphql-ez/tree/main/examples
