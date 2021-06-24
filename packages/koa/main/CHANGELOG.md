@@ -1,6 +1,13 @@
 # @graphql-ez/koa
 
+## 0.2.1
+
+### Patch Changes
+
+- 7b1c8d2: improve dependencies
+
 ## 0.2.0
+
 ### Minor Changes
 
 - 28ca48d: [BREAKING CHANGE] Plugin based complete restructure - Please check https://github.com/PabloSzx/graphql-ez/tree/main/examples
