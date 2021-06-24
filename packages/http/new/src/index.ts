@@ -9,7 +9,7 @@ import {
   handleRequest,
   InternalAppBuildContext,
   LazyPromise,
-} from '@graphql-ez/core-app';
+} from '@graphql-ez/core';
 import { getPathname } from '@graphql-ez/core-utils/url';
 
 import type { ServerResponse, IncomingMessage, Server as HTTPServer } from 'http';
@@ -91,7 +91,7 @@ export function CreateApp(config: HttpAppOptions = {}): EZAppBuilder {
   try {
     ezApp = createEZAppFactory(
       {
-        integrationName: 'http-new',
+        integrationName: 'http',
       },
       config,
       {}
@@ -231,5 +231,5 @@ export function CreateApp(config: HttpAppOptions = {}): EZAppBuilder {
   };
 }
 
-export * from '@graphql-ez/core-app';
+export * from '@graphql-ez/core';
 export * from '@graphql-ez/core-utils';

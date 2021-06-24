@@ -7,7 +7,7 @@ import {
   handleRequest,
   InternalAppBuildContext,
   LazyPromise,
-} from '@graphql-ez/core-app';
+} from '@graphql-ez/core';
 
 import type { NextApiRequest, NextApiResponse, NextApiHandler } from 'next';
 import type { Envelop } from '@envelop/types';
@@ -66,7 +66,7 @@ export function CreateApp(config: NextAppOptions = {}): EZAppBuilder {
   try {
     ezApp = createEZAppFactory(
       {
-        integrationName: 'nextjs-new',
+        integrationName: 'nextjs',
       },
       config,
       {}
@@ -161,5 +161,5 @@ export function CreateApp(config: NextAppOptions = {}): EZAppBuilder {
   };
 }
 
-export * from '@graphql-ez/core-app';
+export * from '@graphql-ez/core';
 export * from '@graphql-ez/core-utils';

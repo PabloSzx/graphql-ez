@@ -1,8 +1,8 @@
-import { CreateApp, gql } from '@graphql-ez/nextjs-new';
+import { CreateApp, gql } from '@graphql-ez/nextjs';
 
 import { ezGraphiQLIDE } from '../../../../src';
 
-function buildContext(_args: import('@graphql-ez/nextjs-new').BuildContextArgs) {
+function buildContext(_args: import('@graphql-ez/nextjs').BuildContextArgs) {
   return {
     foo: 'bar',
   };

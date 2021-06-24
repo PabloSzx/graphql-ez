@@ -7,7 +7,7 @@ import {
   startHTTPServer,
   startKoaServer,
   startNextJSServer,
-} from '@graphql-ez/testing-new';
+} from '@graphql-ez/testing';
 
 import { ezGraphiQLIDE } from '../src';
 

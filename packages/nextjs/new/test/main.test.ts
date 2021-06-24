@@ -2,7 +2,7 @@ import EventSource from 'eventsource';
 import got from 'got';
 import { printSchema } from 'graphql';
 
-import { CommonSchema, startNextJSServer } from '@graphql-ez/testing-new';
+import { CommonSchema, startNextJSServer } from '@graphql-ez/testing';
 
 export { EventSource, got, printSchema, CommonSchema };
 

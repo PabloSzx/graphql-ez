@@ -48,7 +48,7 @@ export function AltairHandlerDeps(options: AltairOptions): {
 export const ezAltairIDE = (options: AltairOptions | boolean = true): EZPlugin => {
   return {
     name: 'Altair GraphQL Client IDE',
-    compatibilityList: ['fastify-new', 'express-new', 'hapi-new', 'http-new', 'koa-new', 'nextjs-new'],
+    compatibilityList: ['fastify', 'express', 'hapi', 'http', 'koa', 'nextjs'],
     onRegister(ctx) {
       if (!options) return;
 

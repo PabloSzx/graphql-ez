@@ -9,7 +9,7 @@ export type ResolverFn<TResult, TParent, TContext, TArgs> = (
   args: TArgs,
   context: TContext,
   info: GraphQLResolveInfo
-) => Promise<import('@graphql-ez/fastify-new').DeepPartial<TResult>> | import('@graphql-ez/fastify-new').DeepPartial<TResult>;
+) => Promise<import('@graphql-ez/fastify').DeepPartial<TResult>> | import('@graphql-ez/fastify').DeepPartial<TResult>;
 /** All built-in and custom scalars, mapped to their actual values */
 export type Scalars = {
   ID: string;

@@ -1,4 +1,4 @@
-import type { PickRequired } from '@graphql-ez/core-app';
+import type { PickRequired } from '@graphql-ez/core';
 import type { RenderOptions } from 'altair-static';
 import type { IncomingMessage, ServerResponse } from 'http';
 

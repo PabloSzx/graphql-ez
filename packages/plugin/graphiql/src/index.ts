@@ -76,7 +76,7 @@ export function GraphiQLHandler(options: GraphiQLOptions, extraConfig?: HandlerC
 export const ezGraphiQLIDE = (options: GraphiQLOptions | boolean = true): EZPlugin => {
   return {
     name: 'GraphiQL IDE',
-    compatibilityList: ['fastify-new', 'koa-new', 'express-new', 'hapi-new', 'http-new', 'nextjs-new'],
+    compatibilityList: ['fastify', 'koa', 'express', 'hapi', 'http', 'nextjs'],
     onRegister(ctx) {
       const objOptions = { ...(getObjectValue(options) || {}) };
 

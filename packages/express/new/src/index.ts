@@ -8,7 +8,7 @@ import {
   EZAppFactoryType,
   handleRequest,
   InternalAppBuildContext,
-} from '@graphql-ez/core-app';
+} from '@graphql-ez/core';
 import { getObjectValue } from '@graphql-ez/core-utils/object';
 
 import type { Server as HttpServer } from 'http';
@@ -74,7 +74,7 @@ export function CreateApp(config: ExpressAppOptions = {}): EZAppBuilder {
   try {
     ezApp = createEZAppFactory(
       {
-        integrationName: 'express-new',
+        integrationName: 'express',
       },
       config,
       {}
@@ -160,5 +160,5 @@ export function CreateApp(config: ExpressAppOptions = {}): EZAppBuilder {
   };
 }
 
-export * from '@graphql-ez/core-app';
+export * from '@graphql-ez/core';
 export * from '@graphql-ez/core-utils';

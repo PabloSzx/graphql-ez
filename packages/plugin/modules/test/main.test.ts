@@ -1,7 +1,7 @@
 import { buildClientSchema, getIntrospectionQuery, IntrospectionQuery, printSchema } from 'graphql';
 
 import { ezUpload } from '@graphql-ez/plugin-upload';
-import { CommonSchema, startFastifyServer } from '@graphql-ez/testing-new';
+import { CommonSchema, startFastifyServer } from '@graphql-ez/testing';
 
 import { ezGraphQLModules } from '../src';
 

@@ -24,7 +24,7 @@ declare module '@graphql-ez/core-types' {
 export const ezUpload = (options: GraphQLUploadConfig = true): EZPlugin => {
   return {
     name: 'GraphQL Upload',
-    compatibilityList: ['fastify-new', 'koa-new', 'express-new'],
+    compatibilityList: ['fastify', 'koa', 'express'],
     onRegister(ctx) {
       if (options) {
         const deps = {

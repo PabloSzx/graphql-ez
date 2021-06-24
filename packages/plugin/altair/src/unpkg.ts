@@ -152,7 +152,7 @@ export function UnpkgAltairHandler(options: PickRequired<AltairOptions, 'path'>,
 export const ezUnpkgAltairIDE = (options: AltairOptions | boolean = true): EZPlugin => {
   return {
     name: 'Altair GraphQL Client UNPKG',
-    compatibilityList: ['fastify-new', 'express-new', 'hapi-new', 'http-new', 'koa-new', 'nextjs-new'],
+    compatibilityList: ['fastify', 'express', 'hapi', 'http', 'koa', 'nextjs'],
     onRegister(ctx) {
       if (!options) return;
 

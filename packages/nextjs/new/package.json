@@ -1,5 +1,5 @@
 {
-  "name": "@graphql-ez/nextjs-new",
+  "name": "@graphql-ez/nextjs",
   "version": "0.1.0",
   "repository": {
     "type": "git",
@@ -26,14 +26,14 @@
   },
   "dependencies": {
     "@envelop/types": "^0.2.1",
-    "@graphql-ez/core-app": "workspace:^0.0.1",
+    "@graphql-ez/core": "workspace:^0.0.1",
     "@graphql-ez/core-types": "workspace:^0.0.1",
     "@graphql-ez/core-utils": "workspace:^0.0.1",
     "altair-exported-types": "^4.0.6",
     "mime-types": "^2.1.31"
   },
   "devDependencies": {
-    "@graphql-ez/testing-new": "workspace:^0.0.1",
+    "@graphql-ez/testing": "workspace:^0.0.1",
     "@graphql-tools/schema": "^7.1.5",
     "@graphql-typed-document-node/core": "3.1.0",
     "@types/eventsource": "^1.1.5",

@@ -43,13 +43,10 @@ export const startFastifyServer = async ({
   subscriptionsTransportClientOptions,
   clientWebsocketPath,
   autoClose = true,
-}: StartTestServerOptions<
-  import('@graphql-ez/fastify-new').FastifyAppOptions,
-  import('@graphql-ez/fastify-new').BuildAppOptions
->) => {
+}: StartTestServerOptions<import('@graphql-ez/fastify').FastifyAppOptions, import('@graphql-ez/fastify').BuildAppOptions>) => {
   const server = (await import('fastify')).default();
 
-  const { CreateApp } = await import('@graphql-ez/fastify-new');
+  const { CreateApp } = await import('@graphql-ez/fastify');
 
   const appBuilder = CreateApp(createOptions);
 
@@ -93,12 +90,12 @@ export const startExpressServer = async ({
   clientWebsocketPath,
   autoClose = true,
 }: StartTestServerOptions<
-  import('@graphql-ez/express-new').ExpressAppOptions,
-  import('@graphql-ez/express-new').ExpressBuildAppOptions
+  import('@graphql-ez/express').ExpressAppOptions,
+  import('@graphql-ez/express').ExpressBuildAppOptions
 >) => {
   const server = (await import('express')).default();
 
-  const { CreateApp } = await import('@graphql-ez/express-new');
+  const { CreateApp } = await import('@graphql-ez/express');
 
   const appBuilder = CreateApp(createOptions);
 
@@ -139,8 +136,8 @@ export async function startHTTPServer({
   subscriptionsTransportClientOptions,
   clientWebsocketPath,
   autoClose = true,
-}: StartTestServerOptions<import('@graphql-ez/http-new').HttpAppOptions, import('@graphql-ez/http-new').HTTPBuildAppOptions>) {
-  const { CreateApp } = await import('@graphql-ez/http-new');
+}: StartTestServerOptions<import('@graphql-ez/http').HttpAppOptions, import('@graphql-ez/http').HTTPBuildAppOptions>) {
+  const { CreateApp } = await import('@graphql-ez/http');
 
   const appBuilder = CreateApp(createOptions);
 
@@ -191,7 +188,7 @@ export const startHapiServer = async ({
   subscriptionsTransportClientOptions,
   clientWebsocketPath,
   autoClose = true,
-}: StartTestServerOptions<import('@graphql-ez/hapi-new').HapiAppOptions, import('@graphql-ez/hapi-new').BuildAppOptions>) => {
+}: StartTestServerOptions<import('@graphql-ez/hapi').HapiAppOptions, import('@graphql-ez/hapi').BuildAppOptions>) => {
   const port = await getPort();
 
   const server = (await import('@hapi/hapi')).server({
@@ -199,7 +196,7 @@ export const startHapiServer = async ({
     host: 'localhost',
   });
 
-  const { CreateApp } = await import('@graphql-ez/hapi-new');
+  const { CreateApp } = await import('@graphql-ez/hapi');
 
   const appBuilder = CreateApp(createOptions);
 
@@ -239,7 +236,7 @@ export const startKoaServer = async ({
   subscriptionsTransportClientOptions,
   clientWebsocketPath,
   autoClose = true,
-}: StartTestServerOptions<import('@graphql-ez/koa-new').KoaAppOptions, import('@graphql-ez/koa-new').KoaBuildAppOptions>) => {
+}: StartTestServerOptions<import('@graphql-ez/koa').KoaAppOptions, import('@graphql-ez/koa').KoaBuildAppOptions>) => {
   const Koa = (await import('koa')).default;
   const KoaRouter = (await import('@koa/router')).default;
 
@@ -247,7 +244,7 @@ export const startKoaServer = async ({
 
   const router = new KoaRouter();
 
-  const { CreateApp } = await import('@graphql-ez/koa-new');
+  const { CreateApp } = await import('@graphql-ez/koa');
 
   const appBuilder = CreateApp(createOptions);
 

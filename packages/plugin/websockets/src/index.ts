@@ -191,7 +191,7 @@ export const ezWebSockets = (options: WebSocketOptions = 'adaptive'): EZPlugin =
 
       ctx.ws.wsTuple = wsTuple;
     },
-    compatibilityList: ['fastify-new', 'express-new', 'hapi-new', 'koa-new', 'http-new'],
+    compatibilityList: ['fastify', 'express', 'hapi', 'koa', 'http'],
     async onIntegrationRegister(ctx, integrationCtx) {
       if (!ctx.ws || !ctx.ws.wsTuple) return;
 

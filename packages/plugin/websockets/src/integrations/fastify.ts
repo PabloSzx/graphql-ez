@@ -1,6 +1,6 @@
 import { CommonData, handleUpgrade } from '../core';
 
-import type { InternalAppBuildIntegrationContext } from '@graphql-ez/core-app';
+import type { InternalAppBuildIntegrationContext } from '@graphql-ez/core';
 
 export function handleFastify(
   instance: NonNullable<InternalAppBuildIntegrationContext['fastify']>,

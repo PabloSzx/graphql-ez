@@ -1,6 +1,6 @@
 import { CommonData, handleUpgrade } from '../core';
 
-import type { InternalAppBuildIntegrationContext } from '@graphql-ez/core-app';
+import type { InternalAppBuildIntegrationContext } from '@graphql-ez/core';
 
 export function handleHttp(instance: NonNullable<InternalAppBuildIntegrationContext['http']>, { path, wsTuple }: CommonData) {
   const server = instance.server;

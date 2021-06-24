@@ -1,7 +1,7 @@
 import { resolve } from 'path';
 
 import { ezCodegen } from '@graphql-ez/plugin-codegen';
-import { CommonSchema, createDeferredPromise, gql, startFastifyServer } from '@graphql-ez/testing-new';
+import { CommonSchema, createDeferredPromise, gql, startFastifyServer } from '@graphql-ez/testing';
 
 import { ezDataLoader, InferDataLoader, RegisteredDataLoader } from '../src';
 
@@ -28,13 +28,10 @@ test('works', async () => {
               onError: codegenDone.reject,
               transformGenerated(code) {
                 return code
+                  .replace("import type { EZContext } from '@graphql-ez/fastify'", "import type { EZContext } from './main.test'")
+                  .replace("declare module '@graphql-ez/fastify'", "declare module './main.test'")
                   .replace(
-                    "import type { EZContext } from '@graphql-ez/fastify-new'",
-                    "import type { EZContext } from './main.test'"
-                  )
-                  .replace("declare module '@graphql-ez/fastify-new'", "declare module './main.test'")
-                  .replace(
-                    "extends Resolvers<import('@graphql-ez/fastify-new').EZContext>",
+                    "extends Resolvers<import('@graphql-ez/fastify').EZContext>",
                     "extends Resolvers<import('./main.test').EZContext>"
                   );
               },

@@ -7,7 +7,7 @@ import {
   startKoaServer,
   startNextJSServer,
   createDeferredPromise,
-} from '@graphql-ez/testing-new';
+} from '@graphql-ez/testing';
 
 import { ezAltairIDE } from '../src';
 

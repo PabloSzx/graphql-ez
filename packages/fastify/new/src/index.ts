@@ -1,4 +1,4 @@
-import { BaseAppBuilder, createEZAppFactory, handleRequest } from '@graphql-ez/core-app';
+import { BaseAppBuilder, createEZAppFactory, handleRequest } from '@graphql-ez/core';
 import { getObjectValue } from '@graphql-ez/core-utils/object';
 import { LazyPromise } from '@graphql-ez/core-utils/promise';
 
@@ -64,7 +64,7 @@ export function CreateApp(config: FastifyAppOptions = {}): EZAppBuilder {
   try {
     ezApp = createEZAppFactory(
       {
-        integrationName: 'fastify-new',
+        integrationName: 'fastify',
       },
       config,
       {}
@@ -153,5 +153,5 @@ export function CreateApp(config: FastifyAppOptions = {}): EZAppBuilder {
   };
 }
 
-export * from '@graphql-ez/core-app';
+export * from '@graphql-ez/core';
 export * from '@graphql-ez/core-utils';

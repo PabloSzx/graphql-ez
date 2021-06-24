@@ -1,4 +1,4 @@
-import { BuildContextArgs, CreateApp, InferFunctionReturn } from '@graphql-ez/nextjs-new';
+import { BuildContextArgs, CreateApp, InferFunctionReturn } from '@graphql-ez/nextjs';
 import { ezCodegen } from '@graphql-ez/plugin-codegen';
 import { ezGraphQLModules } from '@graphql-ez/plugin-modules';
 
@@ -8,7 +8,7 @@ function buildContext(_args: BuildContextArgs) {
   };
 }
 
-declare module '@graphql-ez/nextjs-new' {
+declare module '@graphql-ez/nextjs' {
   interface EZContext extends InferFunctionReturn<typeof buildContext> {}
 }
 

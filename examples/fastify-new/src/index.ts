@@ -1,6 +1,6 @@
 import Fastify from 'fastify';
 
-import { CreateApp, gql } from '@graphql-ez/fastify-new';
+import { CreateApp, gql } from '@graphql-ez/fastify';
 import { ezAltairIDE } from '@graphql-ez/plugin-altair';
 import { ezCodegen } from '@graphql-ez/plugin-codegen';
 import { ezGraphiQLIDE } from '@graphql-ez/plugin-graphiql';

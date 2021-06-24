@@ -1,5 +1,5 @@
 import type { GraphQLResolveInfo } from 'graphql';
-import type { EZContext } from '@graphql-ez/nextjs-new';
+import type { EZContext } from '@graphql-ez/nextjs';
 import type { TypedDocumentNode as DocumentNode } from '@graphql-typed-document-node/core';
 export type Maybe<T> = T | null;
 export type Exact<T extends { [key: string]: unknown }> = { [K in keyof T]: T[K] };
@@ -10,7 +10,7 @@ export type ResolverFn<TResult, TParent, TContext, TArgs> = (
   args: TArgs,
   context: TContext,
   info: GraphQLResolveInfo
-) => Promise<import('@graphql-ez/nextjs-new').DeepPartial<TResult>> | import('@graphql-ez/nextjs-new').DeepPartial<TResult>;
+) => Promise<import('@graphql-ez/nextjs').DeepPartial<TResult>> | import('@graphql-ez/nextjs').DeepPartial<TResult>;
 /** All built-in and custom scalars, mapped to their actual values */
 export type Scalars = {
   ID: string;
@@ -163,6 +163,6 @@ export const HelloDocument = {
   ],
 } as unknown as DocumentNode<HelloQuery, HelloQueryVariables>;
 
-declare module '@graphql-ez/nextjs-new' {
-  interface EZResolvers extends Resolvers<import('@graphql-ez/nextjs-new').EZContext> {}
+declare module '@graphql-ez/nextjs' {
+  interface EZResolvers extends Resolvers<import('@graphql-ez/nextjs').EZContext> {}
 }

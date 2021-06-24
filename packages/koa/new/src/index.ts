@@ -8,7 +8,7 @@ import {
   EZAppFactoryType,
   handleRequest,
   InternalAppBuildContext,
-} from '@graphql-ez/core-app';
+} from '@graphql-ez/core';
 
 import type { Request, Response, default as KoaApp } from 'koa';
 import type { Options as CorsOptions } from '@koa/cors';
@@ -74,7 +74,7 @@ export function CreateApp(config: KoaAppOptions = {}): EZAppBuilder {
   try {
     ezApp = createEZAppFactory(
       {
-        integrationName: 'koa-new',
+        integrationName: 'koa',
       },
       config,
       {}
@@ -164,5 +164,5 @@ export function CreateApp(config: KoaAppOptions = {}): EZAppBuilder {
   };
 }
 
-export * from '@graphql-ez/core-app';
+export * from '@graphql-ez/core';
 export * from '@graphql-ez/core-utils';

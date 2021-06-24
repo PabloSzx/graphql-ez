@@ -1,4 +1,4 @@
-import { BuildContextArgs, CreateApp, gql, InferFunctionReturn } from '@graphql-ez/http-new';
+import { BuildContextArgs, CreateApp, gql, InferFunctionReturn } from '@graphql-ez/http';
 import { ezAltairIDE } from '@graphql-ez/plugin-altair';
 import { ezCodegen } from '@graphql-ez/plugin-codegen';
 import { ezGraphiQLIDE } from '@graphql-ez/plugin-graphiql';
@@ -13,7 +13,7 @@ function buildContext({ req }: BuildContextArgs) {
   };
 }
 
-declare module '@graphql-ez/http-new' {
+declare module '@graphql-ez/http' {
   interface EZContext extends InferFunctionReturn<typeof buildContext> {}
 }
 

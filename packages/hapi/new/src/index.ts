@@ -6,7 +6,7 @@ import {
   EZAppFactoryType,
   handleRequest,
   InternalAppBuildContext,
-} from '@graphql-ez/core-app';
+} from '@graphql-ez/core';
 
 import type { Request, ResponseToolkit, Plugin, Server, Lifecycle, RouteOptionsCors, RouteOptions } from '@hapi/hapi';
 
@@ -69,7 +69,7 @@ export function CreateApp(config: HapiAppOptions = {}): EZAppBuilder {
   try {
     ezApp = createEZAppFactory(
       {
-        integrationName: 'hapi-new',
+        integrationName: 'hapi',
       },
       config,
       {}
@@ -160,5 +160,5 @@ export function CreateApp(config: HapiAppOptions = {}): EZAppBuilder {
   };
 }
 
-export * from '@graphql-ez/core-app';
+export * from '@graphql-ez/core';
 export * from '@graphql-ez/core-utils';

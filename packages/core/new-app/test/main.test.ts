@@ -1,7 +1,7 @@
 import EventSource from 'eventsource';
 import got from 'got';
 
-import { CommonSchema, PingSubscription, startFastifyServer } from '@graphql-ez/testing-new';
+import { CommonSchema, PingSubscription, startFastifyServer } from '@graphql-ez/testing';
 
 test.concurrent('basic', async () => {
   const { query } = await startFastifyServer({

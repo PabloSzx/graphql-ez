@@ -1,6 +1,6 @@
 import { withTrailingSlash } from '@graphql-ez/core-utils/url';
 
-import type { InternalAppBuildContext, InternalAppBuildIntegrationContext } from '@graphql-ez/core-app';
+import type { InternalAppBuildContext, InternalAppBuildIntegrationContext } from '@graphql-ez/core';
 
 export function handleHapi(ctx: InternalAppBuildContext, instance: NonNullable<InternalAppBuildIntegrationContext['hapi']>) {
   if (!ctx.altair) return;

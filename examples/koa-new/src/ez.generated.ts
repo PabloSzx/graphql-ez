@@ -1,5 +1,5 @@
 import type { GraphQLResolveInfo, GraphQLScalarType, GraphQLScalarTypeConfig } from 'graphql';
-import type { EZContext } from '@graphql-ez/koa-new';
+import type { EZContext } from '@graphql-ez/koa';
 import type { TypedDocumentNode as DocumentNode } from '@graphql-typed-document-node/core';
 export type Maybe<T> = T | null;
 export type Exact<T extends { [key: string]: unknown }> = { [K in keyof T]: T[K] };
@@ -10,7 +10,7 @@ export type ResolverFn<TResult, TParent, TContext, TArgs> = (
   args: TArgs,
   context: TContext,
   info: GraphQLResolveInfo
-) => Promise<import('@graphql-ez/koa-new').DeepPartial<TResult>> | import('@graphql-ez/koa-new').DeepPartial<TResult>;
+) => Promise<import('@graphql-ez/koa').DeepPartial<TResult>> | import('@graphql-ez/koa').DeepPartial<TResult>;
 export type RequireFields<T, K extends keyof T> = { [X in Exclude<keyof T, K>]?: T[X] } & { [P in K]-?: NonNullable<T[P]> };
 /** All built-in and custom scalars, mapped to their actual values */
 export type Scalars = {
@@ -209,6 +209,6 @@ export const HelloQueryDocument = {
   ],
 } as unknown as DocumentNode<HelloQueryQuery, HelloQueryQueryVariables>;
 
-declare module '@graphql-ez/koa-new' {
-  interface EZResolvers extends Resolvers<import('@graphql-ez/koa-new').EZContext> {}
+declare module '@graphql-ez/koa' {
+  interface EZResolvers extends Resolvers<import('@graphql-ez/koa').EZContext> {}
 }

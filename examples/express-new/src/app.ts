@@ -1,4 +1,4 @@
-import { BuildContextArgs, CreateApp, gql, InferFunctionReturn, readStreamToBuffer } from '@graphql-ez/express-new';
+import { BuildContextArgs, CreateApp, gql, InferFunctionReturn, readStreamToBuffer } from '@graphql-ez/express';
 import { ezAltairIDE } from '@graphql-ez/plugin-altair';
 import { ezCodegen } from '@graphql-ez/plugin-codegen';
 import { ezGraphiQLIDE } from '@graphql-ez/plugin-graphiql';
@@ -16,7 +16,7 @@ function buildContext({ req }: BuildContextArgs) {
 
 const sleep = (ms: number) => new Promise<void>(resolve => setTimeout(resolve, ms));
 
-declare module '@graphql-ez/express-new' {
+declare module '@graphql-ez/express' {
   interface EZContext extends InferFunctionReturn<typeof buildContext> {}
 }
 

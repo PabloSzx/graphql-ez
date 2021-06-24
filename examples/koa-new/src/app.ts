@@ -1,4 +1,4 @@
-import { BuildContextArgs, CreateApp, gql, InferFunctionReturn, readStreamToBuffer } from '@graphql-ez/koa-new';
+import { BuildContextArgs, CreateApp, gql, InferFunctionReturn, readStreamToBuffer } from '@graphql-ez/koa';
 import { ezAltairIDE } from '@graphql-ez/plugin-altair';
 import { ezCodegen } from '@graphql-ez/plugin-codegen';
 import { ezGraphiQLIDE } from '@graphql-ez/plugin-graphiql';
@@ -14,7 +14,7 @@ function buildContext({ req }: BuildContextArgs) {
   };
 }
 
-declare module '@graphql-ez/koa-new' {
+declare module '@graphql-ez/koa' {
   interface EZContext extends InferFunctionReturn<typeof buildContext> {}
 }
 
