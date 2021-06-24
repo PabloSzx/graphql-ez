@@ -58,22 +58,22 @@ npm install -D @types/express @types/node
 ### Koa
 
 ```sh
-pnpm add @koa/router koa koa-bodyparser graphql @graphql-ez/koa
-pnpm add -D @types/koa @types/koa__router @types/koa-bodyparser @types/node
+pnpm add @koa/router koa graphql @graphql-ez/koa
+pnpm add -D @types/koa @types/koa__router @types/node
 ```
 
 or
 
 ```sh
 yarn add @koa/router koa graphql @graphql-ez/koa
-yarn add -D @types/koa @types/koa__router @types/koa-bodyparser @types/node
+yarn add -D @types/koa @types/koa__router @types/node
 ```
 
 or
 
 ```sh
 npm install @koa/router koa graphql @graphql-ez/koa
-npm install -D @types/koa @types/koa__router @types/koa-bodyparser @types/node
+npm install -D @types/koa @types/koa__router @types/node
 ```
 
 ### Hapi

@@ -540,7 +540,7 @@ importers:
       '@types/koa': 2.13.3
       '@types/koa__cors': ^3.0.2
       '@types/koa__router': 8.0.4
-      '@types/koa-bodyparser': 4.3.1
+      '@types/koa-bodyparser': ^4.3.1
       '@types/node': 15.12.4
       bob-esbuild-cli: 0.1.26
       changesets-github-release: 0.0.3
@@ -549,7 +549,7 @@ importers:
       graphql: 15.4.0-experimental-stream-defer.1
       jest: 27.0.4
       koa: 2.13.1
-      koa-bodyparser: 4.3.0
+      koa-bodyparser: ^4.3.0
       ts-jest: 27.0.3
       typescript: 4.3.4
     dependencies:
@@ -558,13 +558,14 @@ importers:
       '@graphql-ez/core-utils': link:../../core/utils
       '@koa/cors': 3.1.0
       '@types/koa__cors': 3.0.2
+      '@types/koa-bodyparser': 4.3.1
+      koa-bodyparser: 4.3.0
     devDependencies:
       '@graphql-ez/testing': link:../../../internal/testing
       '@koa/router': 10.0.0
       '@types/eventsource': 1.1.5
       '@types/koa': 2.13.3
       '@types/koa__router': 8.0.4
-      '@types/koa-bodyparser': 4.3.1
       '@types/node': 15.12.4
       bob-esbuild-cli: 0.1.26_83f53b0a0c5616d3fa00ed4e30b9ce1b
       changesets-github-release: 0.0.3
@@ -573,7 +574,6 @@ importers:
       graphql: 15.4.0-experimental-stream-defer.1
       jest: 27.0.4
       koa: 2.13.1
-      koa-bodyparser: 4.3.0
       ts-jest: 27.0.3_jest@27.0.4+typescript@4.3.4
       typescript: 4.3.4
 
@@ -3140,7 +3140,6 @@ packages:
     resolution: {integrity: sha512-N1cw6UpYYW01rGanfC0guqkyqKKavXygGBeSgsJOe7EkkSlRH7BNRjzyqv1TzJ3Au69aNeagpzzqAzTo6I08ow==}
     dependencies:
       '@types/koa': 2.13.3
-    dev: true
 
   /@types/koa-compose/3.2.5:
     resolution: {integrity: sha512-B8nG/OoE1ORZqCkBVsup/AKcvjdgoHnfi4pZMn5UwAPCbhk/96xyv284eBYW8JlQbQ7zDmnpFr68I/40mFoIBQ==}
@@ -4727,6 +4726,7 @@ packages:
       qs: 6.10.1
       raw-body: 2.4.1
       type-is: 1.6.18
+    dev: false
 
   /co/4.6.0:
     resolution: {integrity: sha1-bqa989hTrlTMuOR7+gvz+QMfsYQ=}
@@ -4910,6 +4910,7 @@ packages:
 
   /copy-to/2.0.1:
     resolution: {integrity: sha1-JoD7uAaKSNCGVrYJgJK9r8kG9KU=}
+    dev: false
 
   /core-js/2.6.12:
     resolution: {integrity: sha512-Kb2wC0fvsWfQrgk8HU5lW6U/Lcs8+9aaYcy4ZFc6DDlo4nZ7n70dEgE5rtR0oG6ufKDUnrwfWL1mXR5ljDatrQ==}
@@ -6970,6 +6971,7 @@ packages:
   /inflation/2.0.0:
     resolution: {integrity: sha1-i0F+R8KPklpFEz2RTKH9OJEH8w8=}
     engines: {node: '>= 0.8.0'}
+    dev: false
 
   /inflight/1.0.6:
     resolution: {integrity: sha1-Sb1jMdfQLQwJvJEKEHW6gWW1bfk=}
@@ -8194,6 +8196,7 @@ packages:
     dependencies:
       co-body: 6.1.0
       copy-to: 2.0.1
+    dev: false
 
   /koa-compose/3.2.1:
     resolution: {integrity: sha1-qFzLQLfZhtjlo0Wzoazo6rz1Tec=}
@@ -9944,6 +9947,7 @@ packages:
     engines: {node: '>=0.6'}
     dependencies:
       side-channel: 1.0.4
+    dev: false
 
   /qs/6.7.0:
     resolution: {integrity: sha512-VCdBRNFTX1fyE7Nb6FYoURo/SPe62QCaAyzJvUjwRaIsc+NePBEniHlvxFmmX56+HZphIGtV0XeCirBtpDrTyQ==}
@@ -10626,6 +10630,7 @@ packages:
       call-bind: 1.0.2
       get-intrinsic: 1.1.1
       object-inspect: 1.10.3
+    dev: false
 
   /signal-exit/3.0.3:
     resolution: {integrity: sha512-VUJ49FC8U1OxwZLxIbTTrDvLnf/6TDgxZcK8wxR8zs13xpx7xbG60ndBlhNrFi2EMuFRoeDoJO7wthSLq42EjA==}
