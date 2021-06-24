@@ -18,6 +18,9 @@
       "import": "./dist/*.mjs"
     }
   },
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
   "scripts": {
     "dev": "bob-esbuild watch",
     "prepare": "bob-esbuild build",

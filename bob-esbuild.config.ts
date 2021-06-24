@@ -3,4 +3,7 @@ export const config: import('bob-esbuild').BobConfig = {
     dirs: ['packages/*/*', 'internal/*'],
   },
   verbose: true,
+  outputOptions: {
+    sourcemap: false,
+  },
 };

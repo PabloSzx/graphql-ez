@@ -1,6 +1,13 @@
 {
   "name": "@graphql-ez/core",
   "version": "0.1.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/PabloSzx/graphql-ez",
+    "directory": "packages/core/app"
+  },
+  "license": "MIT",
+  "author": "PabloSz <pablosaez1995@gmail.com>",
   "exports": {
     ".": {
       "require": "./dist/index.js",
@@ -11,6 +18,8 @@
       "import": "./dist/*.mjs"
     }
   },
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
   "scripts": {
     "dev": "bob-esbuild watch",
