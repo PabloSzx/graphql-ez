@@ -78,7 +78,7 @@ export const ezWebSockets = (options: WebSocketOptions = 'adaptive'): EZPlugin =
       const enableOldTransport =
         options === 'legacy' || options === 'adaptive' || (typeof options === 'object' && options.subscriptionsTransport);
 
-      const enableGraphQLWS = options === true || options === 'adaptive' || (typeof options === 'object' && options.graphQLWS);
+      const enableGraphQLWS = options === 'new' || options === 'adaptive' || (typeof options === 'object' && options.graphQLWS);
 
       const enableAll = enableOldTransport && enableGraphQLWS;
 

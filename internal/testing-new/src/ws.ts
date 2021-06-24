@@ -26,6 +26,8 @@ export function createGraphQLWSWebsocketsClient(
   const client = createGraphQLWSClient({
     url: url.href,
     webSocketImpl: ws,
+    lazy: true,
+    retryAttempts: 0,
     ...options,
   });
 
@@ -75,6 +77,7 @@ export function createSubscriptionsTransportWebsocketsClient(
     url.href,
     {
       lazy: true,
+      reconnectionAttempts: 0,
       ...options,
     },
     ws
@@ -94,6 +97,10 @@ export function createSubscriptionsTransportWebsocketsClient(
         query: isDocumentNode(query) ? print(query) : query,
       });
 
+      client.onError(err => {
+        reject(err);
+      });
+
       const result = subscribe({
         // @ts-expect-error
         next: onData,
@@ -111,3 +118,20 @@ export function createSubscriptionsTransportWebsocketsClient(
 
   return { subscribe };
 }
+
+export const PingSubscriptionDocument = {
+  kind: 'Document',
+  definitions: [
+    {
+      kind: 'OperationDefinition',
+      operation: 'subscription',
+      name: { kind: 'Name', value: 'pingSubscription' },
+      selectionSet: { kind: 'SelectionSet', selections: [{ kind: 'Field', name: { kind: 'Name', value: 'ping' } }] },
+    },
+  ],
+} as unknown as TypedDocumentNode<
+  {
+    ping: string;
+  },
+  {}
+>;

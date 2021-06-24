@@ -124,24 +124,36 @@ export function handleUpgrade(httpServer: HttpServer, path: string, wsTuple: Com
     wsServers,
   };
 
+  function closeSocket(rawRequest: IncomingMessage, socket: Socket, head: Buffer, code: number) {
+    return (wsServers[1] || wsServers[0]).handleUpgrade(rawRequest, socket, head, webSocket => {
+      webSocket.close(code);
+    });
+  }
+
   httpServer.on('upgrade', (rawRequest: IncomingMessage, socket: Socket, head: Buffer) => {
     const requestUrl = getPathname(rawRequest.url);
 
     if (state.closing || requestUrl !== path) {
-      return wsServers[0].handleUpgrade(rawRequest, socket, head, webSocket => {
-        webSocket.close(1001);
-      });
+      return closeSocket(rawRequest, socket, head, 1001);
     }
+
+    const protocol = rawRequest.headers['sec-websocket-protocol'];
 
     switch (wsTuple[0]) {
       case 'both': {
-        const server = wsTuple[1](rawRequest.headers['sec-websocket-protocol']);
+        const server = wsTuple[1](protocol);
 
         return server.handleUpgrade(rawRequest, socket, head, ws => {
           server.emit('connection', ws, rawRequest);
         });
       }
-      case 'new':
+      case 'new': {
+        const server = wsTuple[1];
+
+        return server.handleUpgrade(rawRequest, socket, head, ws => {
+          server.emit('connection', ws, rawRequest);
+        });
+      }
       case 'legacy': {
         const server = wsTuple[1];
 

@@ -5,10 +5,6 @@ import type { InternalAppBuildIntegrationContext } from '@graphql-ez/core-app';
 export function handleHttp(instance: NonNullable<InternalAppBuildIntegrationContext['http']>, { path, wsTuple }: CommonData) {
   const server = instance.server;
 
-  server.listen = (...args: any[]) => {
-    return server.listen(...args);
-  };
-
   const state = handleUpgrade(server, path, wsTuple);
 
   const oldClose = server.close;

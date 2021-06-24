@@ -12,6 +12,8 @@ import {
   SubscriptionsTransportClientOptions,
 } from './ws';
 
+export * from './ws';
+
 import type { BuildAppOptions, AppOptions } from '@graphql-ez/core-types';
 
 export * from './upload';
@@ -25,8 +27,13 @@ export interface StartTestServerOptions<CreateOptions extends AppOptions, BuildO
   /**
    * @default "/graphql"
    */
-  websocketPath?: string;
+  clientWebsocketPath?: string;
   subscriptionsTransportClientOptions?: Partial<SubscriptionsTransportClientOptions>;
+
+  /**
+   * @default true
+   */
+  autoClose?: boolean;
 }
 
 export const startFastifyServer = async ({
@@ -34,7 +41,8 @@ export const startFastifyServer = async ({
   buildOptions,
   graphqlWsClientOptions,
   subscriptionsTransportClientOptions,
-  websocketPath,
+  clientWebsocketPath,
+  autoClose = true,
 }: StartTestServerOptions<
   import('@graphql-ez/fastify-new').FastifyAppOptions,
   import('@graphql-ez/fastify-new').BuildAppOptions
@@ -56,7 +64,7 @@ export const startFastifyServer = async ({
   await new Promise<unknown>((resolve, reject) => {
     server.listen(port).then(resolve, reject);
 
-    TearDownPromises.push(new PLazy<void>(resolve => server.close(resolve)));
+    autoClose && TearDownPromises.push(new PLazy<void>(resolve => server.close(resolve)));
   });
 
   const pool = getRequestPool(port);
@@ -66,21 +74,24 @@ export const startFastifyServer = async ({
     ezApp,
     server,
     ...pool,
-    GraphQLWSWebsocketsClient: createGraphQLWSWebsocketsClient(pool.address, websocketPath, graphqlWsClientOptions),
+    GraphQLWSWebsocketsClient: createGraphQLWSWebsocketsClient(pool.address, clientWebsocketPath, graphqlWsClientOptions),
     SubscriptionsTransportWebsocketsClient: createSubscriptionsTransportWebsocketsClient(
       pool.address,
-      websocketPath,
+      clientWebsocketPath,
       subscriptionsTransportClientOptions
     ),
   };
 };
+
+export type {} from 'express-serve-static-core';
 
 export const startExpressServer = async ({
   createOptions,
   buildOptions,
   graphqlWsClientOptions,
   subscriptionsTransportClientOptions,
-  websocketPath,
+  clientWebsocketPath,
+  autoClose = true,
 }: StartTestServerOptions<
   import('@graphql-ez/express-new').ExpressAppOptions,
   import('@graphql-ez/express-new').ExpressBuildAppOptions
@@ -102,7 +113,7 @@ export const startExpressServer = async ({
       resolve();
     });
 
-    TearDownPromises.push(new PLazy<unknown>(resolve => httpServer.close(resolve)));
+    autoClose && TearDownPromises.push(new PLazy<unknown>(resolve => httpServer.close(resolve)));
   });
 
   const pool = getRequestPool(port);
@@ -110,11 +121,12 @@ export const startExpressServer = async ({
   return {
     appBuilder,
     ezApp,
+    server,
     ...pool,
-    GraphQLWSWebsocketsClient: createGraphQLWSWebsocketsClient(pool.address, websocketPath, graphqlWsClientOptions),
+    GraphQLWSWebsocketsClient: createGraphQLWSWebsocketsClient(pool.address, clientWebsocketPath, graphqlWsClientOptions),
     SubscriptionsTransportWebsocketsClient: createSubscriptionsTransportWebsocketsClient(
       pool.address,
-      websocketPath,
+      clientWebsocketPath,
       subscriptionsTransportClientOptions
     ),
   };
@@ -125,7 +137,8 @@ export async function startHTTPServer({
   buildOptions,
   graphqlWsClientOptions,
   subscriptionsTransportClientOptions,
-  websocketPath,
+  clientWebsocketPath,
+  autoClose = true,
 }: StartTestServerOptions<import('@graphql-ez/http-new').HttpAppOptions, import('@graphql-ez/http-new').HTTPBuildAppOptions>) {
   const { CreateApp } = await import('@graphql-ez/http-new');
 
@@ -144,14 +157,15 @@ export async function startHTTPServer({
       resolve();
     });
 
-    TearDownPromises.push(
-      new PLazy<void>((resolve, reject) =>
-        server.close(err => {
-          if (err) return reject(err);
-          resolve();
-        })
-      )
-    );
+    autoClose &&
+      TearDownPromises.push(
+        new PLazy<void>((resolve, reject) =>
+          server.close(err => {
+            if (err) return reject(err);
+            resolve();
+          })
+        )
+      );
   });
 
   const pool = getRequestPool(port);
@@ -159,11 +173,12 @@ export async function startHTTPServer({
   return {
     appBuilder,
     ezApp,
+    server,
     ...pool,
-    GraphQLWSWebsocketsClient: createGraphQLWSWebsocketsClient(pool.address, websocketPath, graphqlWsClientOptions),
+    GraphQLWSWebsocketsClient: createGraphQLWSWebsocketsClient(pool.address, clientWebsocketPath, graphqlWsClientOptions),
     SubscriptionsTransportWebsocketsClient: createSubscriptionsTransportWebsocketsClient(
       pool.address,
-      websocketPath,
+      clientWebsocketPath,
       subscriptionsTransportClientOptions
     ),
   };
@@ -174,7 +189,8 @@ export const startHapiServer = async ({
   buildOptions,
   graphqlWsClientOptions,
   subscriptionsTransportClientOptions,
-  websocketPath,
+  clientWebsocketPath,
+  autoClose = true,
 }: StartTestServerOptions<import('@graphql-ez/hapi-new').HapiAppOptions, import('@graphql-ez/hapi-new').BuildAppOptions>) => {
   const port = await getPort();
 
@@ -193,22 +209,24 @@ export const startHapiServer = async ({
 
   await server.start();
 
-  TearDownPromises.push(
-    LazyPromise(async () => {
-      await server.stop();
-    })
-  );
+  autoClose &&
+    TearDownPromises.push(
+      LazyPromise(async () => {
+        await server.stop();
+      })
+    );
 
   const pool = getRequestPool(port);
 
   return {
     appBuilder,
     ezApp,
+    server,
     ...pool,
-    GraphQLWSWebsocketsClient: createGraphQLWSWebsocketsClient(pool.address, websocketPath, graphqlWsClientOptions),
+    GraphQLWSWebsocketsClient: createGraphQLWSWebsocketsClient(pool.address, clientWebsocketPath, graphqlWsClientOptions),
     SubscriptionsTransportWebsocketsClient: createSubscriptionsTransportWebsocketsClient(
       pool.address,
-      websocketPath,
+      clientWebsocketPath,
       subscriptionsTransportClientOptions
     ),
   };
@@ -219,7 +237,8 @@ export const startKoaServer = async ({
   buildOptions,
   graphqlWsClientOptions,
   subscriptionsTransportClientOptions,
-  websocketPath,
+  clientWebsocketPath,
+  autoClose = true,
 }: StartTestServerOptions<import('@graphql-ez/koa-new').KoaAppOptions, import('@graphql-ez/koa-new').KoaBuildAppOptions>) => {
   const Koa = (await import('koa')).default;
   const KoaRouter = (await import('@koa/router')).default;
@@ -241,7 +260,7 @@ export const startKoaServer = async ({
   await new Promise<void>(resolve => {
     const httpServer = server.listen(port, resolve);
 
-    TearDownPromises.push(new PLazy(resolve => httpServer.close(resolve)));
+    autoClose && TearDownPromises.push(new PLazy(resolve => httpServer.close(resolve)));
   });
 
   const pool = getRequestPool(port);
@@ -249,17 +268,18 @@ export const startKoaServer = async ({
   return {
     appBuilder,
     ezApp,
+    server,
     ...pool,
-    GraphQLWSWebsocketsClient: createGraphQLWSWebsocketsClient(pool.address, websocketPath, graphqlWsClientOptions),
+    GraphQLWSWebsocketsClient: createGraphQLWSWebsocketsClient(pool.address, clientWebsocketPath, graphqlWsClientOptions),
     SubscriptionsTransportWebsocketsClient: createSubscriptionsTransportWebsocketsClient(
       pool.address,
-      websocketPath,
+      clientWebsocketPath,
       subscriptionsTransportClientOptions
     ),
   };
 };
 
-export async function startNextJSServer(dir: string) {
+export async function startNextJSServer(dir: string, autoClose: boolean = true) {
   const app = (await import('fastify')).default({
     pluginTimeout: 20000,
   });
@@ -323,12 +343,12 @@ export async function startNextJSServer(dir: string) {
   await new Promise((resolve, reject) => {
     app.listen(port).then(resolve, reject);
 
-    TearDownPromises.push(new PLazy<void>(resolve => app.close(resolve)));
+    autoClose && TearDownPromises.push(new PLazy<void>(resolve => app.close(resolve)));
   });
 
   const pool = getRequestPool(port, '/api/graphql');
 
-  return { ...pool, NextJSDir };
+  return { ...pool, app, NextJSDir };
 }
 
 export type {} from 'graphql';

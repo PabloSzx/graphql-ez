@@ -129,7 +129,7 @@ test.concurrent('basic', async () => {
     }
   `);
 
-  expect(printSchema((await ezApp.getEnveloped)().schema)).toMatchInlineSnapshot(`
+  expect(printSchema(ezApp.getEnveloped().schema)).toMatchInlineSnapshot(`
     "type Query {
       hello: String!
       users: [User!]!
@@ -213,9 +213,8 @@ test.concurrent('SSE subscription', async () => {
           throw Error('Unexpected event');
       }
     });
-  }).catch(err => {
+  }).finally(() => {
     eventSource.close();
-    throw err;
   });
   eventSource.close();
   expect(payload).toBe('OK');
