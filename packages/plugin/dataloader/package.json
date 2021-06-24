@@ -19,8 +19,7 @@
   },
   "dependencies": {
     "@envelop/dataloader": "^0.2.0",
-    "@graphql-ez/core-types": "workspace:^0.0.1",
-    "@graphql-ez/core-utils": "workspace:^0.0.1",
+    "@graphql-ez/core-types": "workspace:^0.1.0",
     "dataloader": "^2.0.0"
   },
   "devDependencies": {
@@ -29,9 +28,6 @@
     "graphql": "15.4.0-experimental-stream-defer.1",
     "jest": "^27.0.5",
     "ts-jest": "^27.0.3"
-  },
-  "peerDependencies": {
-    "graphql": "*"
   },
   "publishConfig": {
     "directory": "dist"

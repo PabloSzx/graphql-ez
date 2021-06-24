@@ -13,19 +13,19 @@
   },
   "types": "dist/index.d.ts",
   "scripts": {
-    "prepare": "bob-esbuild build",
     "dev": "bob-esbuild watch",
+    "prepare": "bob-esbuild build",
     "test": "jest"
   },
   "dependencies": {
-    "@graphql-ez/core-types": "workspace:^0.0.1",
+    "@graphql-ez/core-types": "workspace:^0.1.0",
+    "@graphql-ez/core-utils": "workspace:^0.1.0",
     "altair-exported-types": "^4.0.6",
     "altair-static": "^4.0.6",
     "mime-types": "^2.1.31",
     "node-fetch": "^2.6.1"
   },
   "devDependencies": {
-    "@graphql-ez/core-utils": "workspace:^0.0.1",
     "@graphql-ez/testing": "workspace:^0.0.1",
     "@types/mime-types": "^2.1.0",
     "@types/node": "^15.12.4",
@@ -36,7 +36,6 @@
     "ts-jest": "^27.0.3"
   },
   "peerDependencies": {
-    "@graphql-ez/core-utils": "workspace:^0.0.1",
     "@types/node": "*"
   },
   "publishConfig": {

@@ -18,9 +18,8 @@
     "test": "jest"
   },
   "dependencies": {
-    "@graphql-ez/core-types": "workspace:^0.0.1",
-    "@graphql-ez/core-utils": "workspace:^0.0.1",
-    "@graphql-tools/utils": "^7.10.0"
+    "@graphql-ez/core-types": "workspace:^0.1.0",
+    "@graphql-ez/core-utils": "workspace:^0.1.0"
   },
   "devDependencies": {
     "@graphql-ez/testing": "workspace:^0.0.1",
@@ -37,6 +36,11 @@
     "@types/graphql-upload": "*",
     "graphql": "*",
     "graphql-upload": "^12.0.0"
+  },
+  "peerDependenciesMeta": {
+    "graphql-upload": {
+      "optional": true
+    }
   },
   "publishConfig": {
     "directory": "dist"

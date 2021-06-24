@@ -18,8 +18,9 @@
     "test": "jest"
   },
   "dependencies": {
-    "@graphql-ez/core-utils": "workspace:^0.0.1",
-    "graphql-helix": "^1.6.1"
+    "@graphql-ez/core-types": "workspace:^0.1.0",
+    "@graphql-ez/core-utils": "workspace:^0.1.0",
+    "graphql-helix": "1.6.1"
   },
   "devDependencies": {
     "@graphql-ez/testing": "workspace:^0.0.1",
@@ -27,7 +28,6 @@
     "bob-esbuild-cli": "^0.1.27",
     "jest": "^27.0.5",
     "next": "^11.0.1",
-    "prettier": "^2.3.1",
     "ts-jest": "^27.0.3"
   },
   "publishConfig": {

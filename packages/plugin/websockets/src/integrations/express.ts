@@ -1,7 +1,7 @@
 import { CommonData, handleUpgrade } from '../core';
 import { createServer } from 'http';
 
-import type { InternalAppBuildIntegrationContext } from '@graphql-ez/core';
+import type { InternalAppBuildIntegrationContext } from '@graphql-ez/core-types';
 
 export function handleExpress(
   instance: NonNullable<InternalAppBuildIntegrationContext['express']>,

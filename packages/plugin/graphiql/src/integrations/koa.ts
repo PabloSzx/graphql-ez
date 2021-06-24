@@ -1,4 +1,4 @@
-import type { InternalAppBuildContext, InternalAppBuildIntegrationContext } from '@graphql-ez/core';
+import type { InternalAppBuildContext, InternalAppBuildIntegrationContext } from '@graphql-ez/core-types';
 
 export function handleKoa(ctx: InternalAppBuildContext, instance: NonNullable<InternalAppBuildIntegrationContext['koa']>) {
   if (!ctx.graphiql) return;

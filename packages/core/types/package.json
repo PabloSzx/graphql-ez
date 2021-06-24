@@ -1,6 +1,6 @@
 {
   "name": "@graphql-ez/core-types",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "exports": {
     ".": {
       "require": "./dist/index.js",
@@ -23,12 +23,12 @@
     "@types/node": "^15.12.4",
     "bob-esbuild-cli": "^0.1.27",
     "graphql": "15.4.0-experimental-stream-defer.1",
-    "graphql-helix": "^1.6.1"
+    "graphql-helix": "1.6.1"
   },
   "peerDependencies": {
     "@types/node": "*",
     "graphql": "*",
-    "graphql-helix": "^1.6.1"
+    "graphql-helix": "1.6.1"
   },
   "publishConfig": {
     "directory": "dist"
