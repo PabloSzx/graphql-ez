@@ -29,7 +29,7 @@ importers:
       prettier: 2.3.1
       pretty-quick: 3.1.1_prettier@2.3.1
 
-  examples/express-new:
+  examples/express/complete:
     specifiers:
       '@graphql-ez/express': workspace:^0.1.1
       '@graphql-ez/plugin-altair': workspace:^0.0.1
@@ -47,14 +47,14 @@ importers:
       tsup: ^4.11.2
       typescript: ^4.3.4
     dependencies:
-      '@graphql-ez/express': link:../../packages/express/new
-      '@graphql-ez/plugin-altair': link:../../packages/plugin/altair
-      '@graphql-ez/plugin-codegen': link:../../packages/plugin/codegen
-      '@graphql-ez/plugin-graphiql': link:../../packages/plugin/graphiql
-      '@graphql-ez/plugin-modules': link:../../packages/plugin/modules
-      '@graphql-ez/plugin-scalars': link:../../packages/plugin/scalars
-      '@graphql-ez/plugin-upload': link:../../packages/plugin/upload
-      '@graphql-ez/plugin-websockets': link:../../packages/plugin/websockets
+      '@graphql-ez/express': link:../../../packages/express/new
+      '@graphql-ez/plugin-altair': link:../../../packages/plugin/altair
+      '@graphql-ez/plugin-codegen': link:../../../packages/plugin/codegen
+      '@graphql-ez/plugin-graphiql': link:../../../packages/plugin/graphiql
+      '@graphql-ez/plugin-modules': link:../../../packages/plugin/modules
+      '@graphql-ez/plugin-scalars': link:../../../packages/plugin/scalars
+      '@graphql-ez/plugin-upload': link:../../../packages/plugin/upload
+      '@graphql-ez/plugin-websockets': link:../../../packages/plugin/websockets
       '@graphql-typed-document-node/core': 3.1.0_34dd13c2583fe2e4418c23a0d30fc388
       express: 4.17.1
       graphql: 15.4.0-experimental-stream-defer.1
@@ -64,7 +64,7 @@ importers:
       tsup: 4.11.2_typescript@4.3.4
       typescript: 4.3.4
 
-  examples/fastify-new:
+  examples/fastify/complete:
     specifiers:
       '@graphql-ez/fastify': workspace:^0.1.1
       '@graphql-ez/plugin-altair': workspace:^0.0.1
@@ -82,14 +82,14 @@ importers:
       tsup: ^4.11.2
       typescript: ^4.3.4
     dependencies:
-      '@graphql-ez/fastify': link:../../packages/fastify/new
-      '@graphql-ez/plugin-altair': link:../../packages/plugin/altair
-      '@graphql-ez/plugin-codegen': link:../../packages/plugin/codegen
-      '@graphql-ez/plugin-graphiql': link:../../packages/plugin/graphiql
-      '@graphql-ez/plugin-modules': link:../../packages/plugin/modules
-      '@graphql-ez/plugin-scalars': link:../../packages/plugin/scalars
-      '@graphql-ez/plugin-upload': link:../../packages/plugin/upload
-      '@graphql-ez/plugin-websockets': link:../../packages/plugin/websockets
+      '@graphql-ez/fastify': link:../../../packages/fastify/new
+      '@graphql-ez/plugin-altair': link:../../../packages/plugin/altair
+      '@graphql-ez/plugin-codegen': link:../../../packages/plugin/codegen
+      '@graphql-ez/plugin-graphiql': link:../../../packages/plugin/graphiql
+      '@graphql-ez/plugin-modules': link:../../../packages/plugin/modules
+      '@graphql-ez/plugin-scalars': link:../../../packages/plugin/scalars
+      '@graphql-ez/plugin-upload': link:../../../packages/plugin/upload
+      '@graphql-ez/plugin-websockets': link:../../../packages/plugin/websockets
       '@types/graphql-upload': 8.0.5
       fastify: 3.18.0
       graphql: 15.4.0-experimental-stream-defer.1
@@ -99,7 +99,7 @@ importers:
       tsup: 4.11.2_typescript@4.3.4
       typescript: 4.3.4
 
-  examples/hapi-new:
+  examples/hapi/complete:
     specifiers:
       '@graphql-ez/hapi': workspace:^0.1.0
       '@graphql-ez/plugin-altair': workspace:^0.0.1
@@ -117,14 +117,14 @@ importers:
       tsup: ^4.11.2
       typescript: ^4.3.4
     dependencies:
-      '@graphql-ez/hapi': link:../../packages/hapi/new
-      '@graphql-ez/plugin-altair': link:../../packages/plugin/altair
-      '@graphql-ez/plugin-codegen': link:../../packages/plugin/codegen
-      '@graphql-ez/plugin-graphiql': link:../../packages/plugin/graphiql
-      '@graphql-ez/plugin-modules': link:../../packages/plugin/modules
-      '@graphql-ez/plugin-scalars': link:../../packages/plugin/scalars
-      '@graphql-ez/plugin-upload': link:../../packages/plugin/upload
-      '@graphql-ez/plugin-websockets': link:../../packages/plugin/websockets
+      '@graphql-ez/hapi': link:../../../packages/hapi/new
+      '@graphql-ez/plugin-altair': link:../../../packages/plugin/altair
+      '@graphql-ez/plugin-codegen': link:../../../packages/plugin/codegen
+      '@graphql-ez/plugin-graphiql': link:../../../packages/plugin/graphiql
+      '@graphql-ez/plugin-modules': link:../../../packages/plugin/modules
+      '@graphql-ez/plugin-scalars': link:../../../packages/plugin/scalars
+      '@graphql-ez/plugin-upload': link:../../../packages/plugin/upload
+      '@graphql-ez/plugin-websockets': link:../../../packages/plugin/websockets
       '@graphql-typed-document-node/core': 3.1.0_34dd13c2583fe2e4418c23a0d30fc388
       '@hapi/hapi': 20.1.4
       graphql: 15.4.0-experimental-stream-defer.1
@@ -134,7 +134,7 @@ importers:
       tsup: 4.11.2_typescript@4.3.4
       typescript: 4.3.4
 
-  examples/http-new:
+  examples/http/complete:
     specifiers:
       '@graphql-ez/http': workspace:^0.1.0
       '@graphql-ez/plugin-altair': workspace:^0.0.1
@@ -150,14 +150,14 @@ importers:
       tsup: ^4.11.2
       typescript: ^4.3.4
     dependencies:
-      '@graphql-ez/http': link:../../packages/http/new
-      '@graphql-ez/plugin-altair': link:../../packages/plugin/altair
-      '@graphql-ez/plugin-codegen': link:../../packages/plugin/codegen
-      '@graphql-ez/plugin-graphiql': link:../../packages/plugin/graphiql
-      '@graphql-ez/plugin-modules': link:../../packages/plugin/modules
-      '@graphql-ez/plugin-scalars': link:../../packages/plugin/scalars
-      '@graphql-ez/plugin-upload': link:../../packages/plugin/upload
-      '@graphql-ez/plugin-websockets': link:../../packages/plugin/websockets
+      '@graphql-ez/http': link:../../../packages/http/new
+      '@graphql-ez/plugin-altair': link:../../../packages/plugin/altair
+      '@graphql-ez/plugin-codegen': link:../../../packages/plugin/codegen
+      '@graphql-ez/plugin-graphiql': link:../../../packages/plugin/graphiql
+      '@graphql-ez/plugin-modules': link:../../../packages/plugin/modules
+      '@graphql-ez/plugin-scalars': link:../../../packages/plugin/scalars
+      '@graphql-ez/plugin-upload': link:../../../packages/plugin/upload
+      '@graphql-ez/plugin-websockets': link:../../../packages/plugin/websockets
       '@graphql-typed-document-node/core': 3.1.0_34dd13c2583fe2e4418c23a0d30fc388
       graphql: 15.4.0-experimental-stream-defer.1
     devDependencies:
@@ -165,7 +165,7 @@ importers:
       tsup: 4.11.2_typescript@4.3.4
       typescript: 4.3.4
 
-  examples/koa-new:
+  examples/koa/complete:
     specifiers:
       '@graphql-ez/koa': workspace:^0.1.0
       '@graphql-ez/plugin-altair': workspace:^0.0.1
@@ -187,14 +187,14 @@ importers:
       tsup: ^4.11.2
       typescript: ^4.3.4
     dependencies:
-      '@graphql-ez/koa': link:../../packages/koa/new
-      '@graphql-ez/plugin-altair': link:../../packages/plugin/altair
-      '@graphql-ez/plugin-codegen': link:../../packages/plugin/codegen
-      '@graphql-ez/plugin-graphiql': link:../../packages/plugin/graphiql
-      '@graphql-ez/plugin-modules': link:../../packages/plugin/modules
-      '@graphql-ez/plugin-scalars': link:../../packages/plugin/scalars
-      '@graphql-ez/plugin-upload': link:../../packages/plugin/upload
-      '@graphql-ez/plugin-websockets': link:../../packages/plugin/websockets
+      '@graphql-ez/koa': link:../../../packages/koa/new
+      '@graphql-ez/plugin-altair': link:../../../packages/plugin/altair
+      '@graphql-ez/plugin-codegen': link:../../../packages/plugin/codegen
+      '@graphql-ez/plugin-graphiql': link:../../../packages/plugin/graphiql
+      '@graphql-ez/plugin-modules': link:../../../packages/plugin/modules
+      '@graphql-ez/plugin-scalars': link:../../../packages/plugin/scalars
+      '@graphql-ez/plugin-upload': link:../../../packages/plugin/upload
+      '@graphql-ez/plugin-websockets': link:../../../packages/plugin/websockets
       '@graphql-typed-document-node/core': 3.1.0_34dd13c2583fe2e4418c23a0d30fc388
       '@koa/router': 10.0.0
       graphql: 15.4.0-experimental-stream-defer.1
@@ -208,7 +208,7 @@ importers:
       tsup: 4.11.2_typescript@4.3.4
       typescript: 4.3.4
 
-  examples/nextjs-new:
+  examples/nextjs/complete:
     specifiers:
       '@graphql-ez/nextjs': workspace:^0.1.0
       '@graphql-ez/plugin-altair': workspace:^0.0.1
@@ -229,13 +229,13 @@ importers:
       react-query: ^3.17.2
       typescript: ^4.3.4
     dependencies:
-      '@graphql-ez/nextjs': link:../../packages/nextjs/new
-      '@graphql-ez/plugin-altair': link:../../packages/plugin/altair
-      '@graphql-ez/plugin-codegen': link:../../packages/plugin/codegen
-      '@graphql-ez/plugin-graphiql': link:../../packages/plugin/graphiql
-      '@graphql-ez/plugin-modules': link:../../packages/plugin/modules
-      '@graphql-ez/plugin-scalars': link:../../packages/plugin/scalars
-      '@graphql-ez/plugin-upload': link:../../packages/plugin/upload
+      '@graphql-ez/nextjs': link:../../../packages/nextjs/new
+      '@graphql-ez/plugin-altair': link:../../../packages/plugin/altair
+      '@graphql-ez/plugin-codegen': link:../../../packages/plugin/codegen
+      '@graphql-ez/plugin-graphiql': link:../../../packages/plugin/graphiql
+      '@graphql-ez/plugin-modules': link:../../../packages/plugin/modules
+      '@graphql-ez/plugin-scalars': link:../../../packages/plugin/scalars
+      '@graphql-ez/plugin-upload': link:../../../packages/plugin/upload
       '@graphql-typed-document-node/core': 3.1.0_34dd13c2583fe2e4418c23a0d30fc388
       graphql: 15.4.0-experimental-stream-defer.1
       graphql-request: 3.4.0_34dd13c2583fe2e4418c23a0d30fc388
