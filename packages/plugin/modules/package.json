@@ -14,7 +14,8 @@
   "types": "dist/index.d.ts",
   "scripts": {
     "dev": "bob-esbuild watch",
-    "prepare": "bob-esbuild build"
+    "prepare": "bob-esbuild build",
+    "test": "jest"
   },
   "dependencies": {
     "@envelop/graphql-modules": "^0.2.0",
