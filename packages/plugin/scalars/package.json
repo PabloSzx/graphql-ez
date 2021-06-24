@@ -23,8 +23,11 @@
     "graphql-scalars": "^1.10.0"
   },
   "devDependencies": {
+    "@graphql-ez/testing-new": "workspace:^0.0.1",
     "bob-esbuild-cli": "^0.1.27",
-    "graphql": "15.4.0-experimental-stream-defer.1"
+    "graphql": "15.4.0-experimental-stream-defer.1",
+    "jest": "^27.0.5",
+    "ts-jest": "^27.0.3"
   },
   "peerDependencies": {
     "graphql": "*"

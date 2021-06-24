@@ -14,7 +14,8 @@
   "types": "dist/index.d.ts",
   "scripts": {
     "prepare": "bob-esbuild build",
-    "dev": "bob-esbuild watch"
+    "dev": "bob-esbuild watch",
+    "test": "jest"
   },
   "dependencies": {
     "@graphql-ez/core-types": "workspace:^0.0.1",
@@ -25,10 +26,14 @@
   },
   "devDependencies": {
     "@graphql-ez/core-utils": "workspace:^0.0.1",
+    "@graphql-ez/testing-new": "workspace:^0.0.1",
     "@types/mime-types": "^2.1.0",
     "@types/node": "^15.12.4",
     "@types/node-fetch": "^2.5.10",
-    "bob-esbuild-cli": "^0.1.27"
+    "bob-esbuild-cli": "^0.1.27",
+    "jest": "^27.0.5",
+    "next": "^11.0.1",
+    "ts-jest": "^27.0.3"
   },
   "peerDependencies": {
     "@graphql-ez/core-utils": "workspace:^0.0.1",

@@ -7,19 +7,19 @@ import type { Config } from '@jest/types';
 const rootPath = resolve(__dirname, '../../../');
 
 export function getConfig({
-  nextJsDirs,
+  nextjs,
 }: {
-  nextJsDirs?: string[];
+  nextjs?: string[];
 } = {}): Config.InitialOptions {
   const prefix = `<rootDir>/${relative(process.cwd(), rootPath)}`;
 
-  if (nextJsDirs) {
+  if (nextjs) {
     writeFileSync(
       './setup-test.js',
       `const { execSync } = require('child_process');
 
       module.exports = async () => {
-      ${nextJsDirs
+      ${nextjs
         .map(dir => {
           return `execSync(\`node \${require.resolve('next/dist/bin/next')} build "${dir}"\`, {
           stdio: 'inherit',
@@ -45,6 +45,6 @@ export function getConfig({
     },
     moduleNameMapper: pathsToModuleNameMapper(readJSONSync(resolve(rootPath, 'tsconfig.json')).compilerOptions.paths, { prefix }),
     collectCoverage: true,
-    globalSetup: nextJsDirs ? './setup-test.js' : undefined,
+    globalSetup: nextjs ? './setup-test.js' : undefined,
   };
 }

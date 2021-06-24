@@ -312,6 +312,7 @@ export async function startNextJSServer(dir: string) {
     }
 
     app.next('*', { method: 'POST', schema: {} });
+    app.next('*', { method: 'GET', schema: {} });
   });
 
   await app.ready();
@@ -332,3 +333,5 @@ export async function startNextJSServer(dir: string) {
 export type {} from 'graphql';
 export type {} from '@graphql-typed-document-node/core';
 export type {} from 'undici/types/dispatcher';
+
+export * from '@graphql-ez/core-utils';

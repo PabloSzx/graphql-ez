@@ -21,7 +21,10 @@
     "graphql-helix": "^1.6.1"
   },
   "devDependencies": {
-    "bob-esbuild-cli": "^0.1.27"
+    "@graphql-ez/testing-new": "workspace:^0.0.1",
+    "bob-esbuild-cli": "^0.1.27",
+    "jest": "^27.0.5",
+    "ts-jest": "^27.0.3"
   },
   "publishConfig": {
     "directory": "dist"

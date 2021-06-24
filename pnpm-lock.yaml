@@ -1350,14 +1350,18 @@ importers:
     specifiers:
       '@graphql-ez/core-types': workspace:^0.0.1
       '@graphql-ez/core-utils': workspace:^0.0.1
+      '@graphql-ez/testing-new': workspace:^0.0.1
       '@types/mime-types': ^2.1.0
       '@types/node': ^15.12.4
       '@types/node-fetch': ^2.5.10
       altair-exported-types: ^4.0.6
       altair-static: ^4.0.6
       bob-esbuild-cli: ^0.1.27
+      jest: ^27.0.5
       mime-types: ^2.1.31
+      next: ^11.0.1
       node-fetch: ^2.6.1
+      ts-jest: ^27.0.3
     dependencies:
       '@graphql-ez/core-types': link:../../core/types
       altair-exported-types: 4.0.6
@@ -1366,10 +1370,14 @@ importers:
       node-fetch: 2.6.1
     devDependencies:
       '@graphql-ez/core-utils': link:../../core/utils
+      '@graphql-ez/testing-new': link:../../../internal/testing-new
       '@types/mime-types': 2.1.0
       '@types/node': 15.12.4
       '@types/node-fetch': 2.5.10
       bob-esbuild-cli: 0.1.27_@types+node@15.12.4
+      jest: 27.0.5
+      next: 11.0.1
+      ts-jest: 27.0.3_jest@27.0.5
 
   packages/plugin/codegen:
     specifiers:
@@ -1381,6 +1389,7 @@ importers:
       '@graphql-codegen/typescript-resolvers': ^1.19.4
       '@graphql-ez/core-types': workspace:^0.0.1
       '@graphql-ez/core-utils': workspace:^0.0.1
+      '@graphql-ez/testing-new': workspace:^0.0.1
       '@graphql-tools/graphql-file-loader': ^6.2.7
       '@graphql-tools/load': ^6.2.8
       '@graphql-tools/utils': ^7.10.0
@@ -1388,8 +1397,10 @@ importers:
       '@types/prettier': ^2.3.0
       bob-esbuild-cli: ^0.1.27
       graphql: 15.4.0-experimental-stream-defer.1
+      jest: ^27.0.5
       mkdirp: ^1.0.4
       prettier: ^2.3.1
+      ts-jest: ^27.0.3
     dependencies:
       '@graphql-codegen/core': 1.17.10_34dd13c2583fe2e4418c23a0d30fc388
       '@graphql-codegen/plugin-helpers': 1.18.7_34dd13c2583fe2e4418c23a0d30fc388
@@ -1405,38 +1416,53 @@ importers:
       mkdirp: 1.0.4
       prettier: 2.3.1
     devDependencies:
+      '@graphql-ez/testing-new': link:../../../internal/testing-new
       '@types/mkdirp': 1.0.1
       '@types/prettier': 2.3.0
       bob-esbuild-cli: 0.1.27
       graphql: 15.4.0-experimental-stream-defer.1
+      jest: 27.0.5
+      ts-jest: 27.0.3_jest@27.0.5
 
   packages/plugin/dataloader:
     specifiers:
       '@envelop/dataloader': ^0.2.0
       '@graphql-ez/core-types': workspace:^0.0.1
       '@graphql-ez/core-utils': workspace:^0.0.1
+      '@graphql-ez/testing-new': workspace:^0.0.1
       bob-esbuild-cli: ^0.1.27
       dataloader: ^2.0.0
       graphql: 15.4.0-experimental-stream-defer.1
+      jest: ^27.0.5
+      ts-jest: ^27.0.3
     dependencies:
       '@envelop/dataloader': 0.2.0_1e69ec074ba37991a02dc0e22dcbc7f5
       '@graphql-ez/core-types': link:../../core/types
       '@graphql-ez/core-utils': link:../../core/utils
       dataloader: 2.0.0
     devDependencies:
+      '@graphql-ez/testing-new': link:../../../internal/testing-new
       bob-esbuild-cli: 0.1.27
       graphql: 15.4.0-experimental-stream-defer.1
+      jest: 27.0.5
+      ts-jest: 27.0.3_jest@27.0.5
 
   packages/plugin/graphiql:
     specifiers:
       '@graphql-ez/core-utils': workspace:^0.0.1
+      '@graphql-ez/testing-new': workspace:^0.0.1
       bob-esbuild-cli: ^0.1.27
       graphql-helix: ^1.6.1
+      jest: ^27.0.5
+      ts-jest: ^27.0.3
     dependencies:
       '@graphql-ez/core-utils': link:../../core/utils
       graphql-helix: 1.6.1
     devDependencies:
+      '@graphql-ez/testing-new': link:../../../internal/testing-new
       bob-esbuild-cli: 0.1.27
+      jest: 27.0.5
+      ts-jest: 27.0.3_jest@27.0.5
 
   packages/plugin/modules:
     specifiers:
@@ -1444,10 +1470,13 @@ importers:
       '@envelop/types': ^0.2.1
       '@graphql-ez/core-types': workspace:^0.0.1
       '@graphql-ez/core-utils': workspace:^0.0.1
+      '@graphql-ez/testing-new': workspace:^0.0.1
       '@graphql-tools/utils': ^7.10.0
       bob-esbuild-cli: ^0.1.27
       graphql: 15.4.0-experimental-stream-defer.1
       graphql-modules: ^1.4.3
+      jest: ^27.0.5
+      ts-jest: ^27.0.3
     dependencies:
       '@envelop/graphql-modules': 0.2.0_d6fb7a771350ff5d48937d5b1759471f
       '@envelop/types': 0.2.1_34dd13c2583fe2e4418c23a0d30fc388
@@ -1456,54 +1485,72 @@ importers:
       '@graphql-tools/utils': 7.10.0_34dd13c2583fe2e4418c23a0d30fc388
       graphql-modules: 1.4.3_34dd13c2583fe2e4418c23a0d30fc388
     devDependencies:
+      '@graphql-ez/testing-new': link:../../../internal/testing-new
       bob-esbuild-cli: 0.1.27
       graphql: 15.4.0-experimental-stream-defer.1
+      jest: 27.0.5
+      ts-jest: 27.0.3_jest@27.0.5
 
   packages/plugin/scalars:
     specifiers:
       '@graphql-ez/core-types': workspace:^0.0.1
       '@graphql-ez/core-utils': workspace:^0.0.1
+      '@graphql-ez/testing-new': workspace:^0.0.1
       '@graphql-tools/utils': ^7.10.0
       bob-esbuild-cli: ^0.1.27
       graphql: 15.4.0-experimental-stream-defer.1
       graphql-scalars: ^1.10.0
+      jest: ^27.0.5
+      ts-jest: ^27.0.3
     dependencies:
       '@graphql-ez/core-types': link:../../core/types
       '@graphql-ez/core-utils': link:../../core/utils
       '@graphql-tools/utils': 7.10.0_34dd13c2583fe2e4418c23a0d30fc388
       graphql-scalars: 1.10.0_34dd13c2583fe2e4418c23a0d30fc388
     devDependencies:
+      '@graphql-ez/testing-new': link:../../../internal/testing-new
       bob-esbuild-cli: 0.1.27
       graphql: 15.4.0-experimental-stream-defer.1
+      jest: 27.0.5
+      ts-jest: 27.0.3_jest@27.0.5
 
   packages/plugin/upload:
     specifiers:
       '@graphql-ez/core-types': workspace:^0.0.1
       '@graphql-ez/core-utils': workspace:^0.0.1
+      '@graphql-ez/testing-new': workspace:^0.0.1
       '@graphql-tools/utils': ^7.10.0
       '@types/graphql-upload': ^8.0.5
       bob-esbuild-cli: ^0.1.27
       graphql: 15.4.0-experimental-stream-defer.1
       graphql-upload: ^12.0.0
+      jest: ^27.0.5
+      ts-jest: ^27.0.3
     dependencies:
       '@graphql-ez/core-types': link:../../core/types
       '@graphql-ez/core-utils': link:../../core/utils
       '@graphql-tools/utils': 7.10.0_34dd13c2583fe2e4418c23a0d30fc388
     devDependencies:
+      '@graphql-ez/testing-new': link:../../../internal/testing-new
       '@types/graphql-upload': 8.0.5
       bob-esbuild-cli: 0.1.27
       graphql: 15.4.0-experimental-stream-defer.1
       graphql-upload: 12.0.0_34dd13c2583fe2e4418c23a0d30fc388
+      jest: 27.0.5
+      ts-jest: 27.0.3_jest@27.0.5
 
   packages/plugin/websockets:
     specifiers:
       '@envelop/types': ^0.2.1
       '@graphql-ez/core-types': workspace:^0.0.1
       '@graphql-ez/core-utils': workspace:^0.0.1
+      '@graphql-ez/testing-new': workspace:^0.0.1
       bob-esbuild-cli: ^0.1.27
       graphql: 15.4.0-experimental-stream-defer.1
       graphql-ws: ^5.3.0
+      jest: ^27.0.5
       subscriptions-transport-ws-envelop: ^1.0.5
+      ts-jest: ^27.0.3
       ws: ^7.5.0
     dependencies:
       '@envelop/types': 0.2.1_34dd13c2583fe2e4418c23a0d30fc388
@@ -1513,8 +1560,11 @@ importers:
       subscriptions-transport-ws-envelop: 1.0.5_bc91500fcdcc6646074b1e062e169748
       ws: 7.5.0
     devDependencies:
+      '@graphql-ez/testing-new': link:../../../internal/testing-new
       bob-esbuild-cli: 0.1.27
       graphql: 15.4.0-experimental-stream-defer.1
+      jest: 27.0.5
+      ts-jest: 27.0.3_jest@27.0.5
 
 packages:
 
@@ -3126,7 +3176,6 @@ packages:
 
   /@next/env/11.0.1:
     resolution: {integrity: sha512-yZfKh2U6R9tEYyNUrs2V3SBvCMufkJ07xMH5uWy8wqcl5gAXoEw6A/1LDqwX3j7pUutF9d1ZxpdGDA3Uag+aQQ==}
-    dev: false
 
   /@next/polyfill-module/11.0.0:
     resolution: {integrity: sha512-gydtFzRqsT549U8+sY8382I/f4HFcelD8gdUGnAofQJa/jEU1jkxmjCHC8tmEiyeMLidl7iDZgchfSCpmMzzUg==}
@@ -3134,7 +3183,6 @@ packages:
 
   /@next/polyfill-module/11.0.1:
     resolution: {integrity: sha512-Cjs7rrKCg4CF4Jhri8PCKlBXhszTfOQNl9AjzdNy4K5jXFyxyoSzuX2rK4IuoyE+yGp5A3XJCBEmOQ4xbUp9Mg==}
-    dev: false
 
   /@next/react-dev-overlay/11.0.0_react-dom@17.0.2+react@17.0.2:
     resolution: {integrity: sha512-q+Wp+eStEMThe77zxdeJ/nbuODkHR6P+/dfUqYXZSqbLf6x5c5xwLBauwwVbkCYFZpAlDuL8Jk8QSAH1OsqC2w==}
@@ -3151,6 +3199,25 @@ packages:
       platform: 1.3.6
       react: 17.0.2
       react-dom: 17.0.2_react@17.0.2
+      shell-quote: 1.7.2
+      source-map: 0.8.0-beta.0
+      stacktrace-parser: 0.1.10
+      strip-ansi: 6.0.0
+    dev: true
+
+  /@next/react-dev-overlay/11.0.1:
+    resolution: {integrity: sha512-lvUjMVpLsgzADs9Q8wtC5LNqvfdN+M0BDMSrqr04EDWAyyX0vURHC9hkvLbyEYWyh+WW32pwjKBXdkMnJhoqMg==}
+    peerDependencies:
+      react: ^17.0.2
+      react-dom: ^17.0.2
+    dependencies:
+      '@babel/code-frame': 7.12.11
+      anser: 1.4.9
+      chalk: 4.0.0
+      classnames: 2.2.6
+      css.escape: 1.5.1
+      data-uri-to-buffer: 3.0.1
+      platform: 1.3.6
       shell-quote: 1.7.2
       source-map: 0.8.0-beta.0
       stacktrace-parser: 0.1.10
@@ -3200,7 +3267,6 @@ packages:
         optional: true
     dependencies:
       react-refresh: 0.8.3
-    dev: false
 
   /@nodelib/fs.scandir/2.1.5:
     resolution: {integrity: sha512-vq24Bq3ym5HEQm2NKCr3yXDwjc7vTsEThRDnkp2DK9p1uqLR+DHurm/NOTo0KG7HYHU7eppKZj3MyqYuMBf62g==}
@@ -4886,7 +4952,7 @@ packages:
     dependencies:
       caniuse-lite: 1.0.30001239
       colorette: 1.2.2
-      electron-to-chromium: 1.3.755
+      electron-to-chromium: 1.3.756
       escalade: 3.1.1
       node-releases: 1.1.73
 
@@ -6179,8 +6245,8 @@ packages:
       jake: 10.8.2
     dev: true
 
-  /electron-to-chromium/1.3.755:
-    resolution: {integrity: sha512-BJ1s/kuUuOeo1bF/EM2E4yqW9te0Hpof3wgwBx40AWJE18zsD1Tqo0kr7ijnOc+lRsrlrqKPauJAHqaxOItoUA==}
+  /electron-to-chromium/1.3.756:
+    resolution: {integrity: sha512-WsmJym1TMeHVndjPjczTFbnRR/c4sbzg8fBFtuhlb2Sru3i/S1VGpzDSrv/It8ctMU2bj8G7g7/O3FzYMGw6eA==}
 
   /elliptic/6.5.4:
     resolution: {integrity: sha512-iLhC6ULemrljPZb+QutR5TQGB+pdW6KGD5RSegS+8sorOZT+rdQFbsQFJgvN3eRqNALqJer4oQ16YvJHlU8hzQ==}
@@ -9665,6 +9731,79 @@ packages:
       - webpack
     dev: true
 
+  /next/11.0.1:
+    resolution: {integrity: sha512-yR7be7asNbvpVNpi6xxEg28wZ7Gqmj1nOt0sABH9qORmF3+pms2KZ7Cng33oK5nqPIzEEFJD0pp2PCe3/ueMIg==}
+    engines: {node: '>=12.0.0'}
+    hasBin: true
+    peerDependencies:
+      fibers: '>= 3.1.0'
+      node-sass: ^4.0.0 || ^5.0.0
+      react: ^17.0.2
+      react-dom: ^17.0.2
+      sass: ^1.3.0
+    peerDependenciesMeta:
+      fibers:
+        optional: true
+      node-sass:
+        optional: true
+      sass:
+        optional: true
+    dependencies:
+      '@babel/runtime': 7.12.5
+      '@hapi/accept': 5.0.2
+      '@next/env': 11.0.1
+      '@next/polyfill-module': 11.0.1
+      '@next/react-dev-overlay': 11.0.1
+      '@next/react-refresh-utils': 11.0.1_react-refresh@0.8.3
+      assert: 2.0.0
+      ast-types: 0.13.2
+      browserify-zlib: 0.2.0
+      browserslist: 4.16.6
+      buffer: 5.6.0
+      caniuse-lite: 1.0.30001239
+      chalk: 2.4.2
+      chokidar: 3.5.1
+      constants-browserify: 1.0.0
+      crypto-browserify: 3.12.0
+      cssnano-simple: 2.0.0_postcss@8.2.13
+      domain-browser: 4.19.0
+      encoding: 0.1.13
+      etag: 1.8.1
+      find-cache-dir: 3.3.1
+      get-orientation: 1.1.2
+      https-browserify: 1.0.0
+      image-size: 1.0.0
+      jest-worker: 27.0.0-next.5
+      native-url: 0.3.4
+      node-fetch: 2.6.1
+      node-html-parser: 1.4.9
+      node-libs-browser: 2.2.1
+      os-browserify: 0.3.0
+      p-limit: 3.1.0
+      path-browserify: 1.0.1
+      pnp-webpack-plugin: 1.6.4
+      postcss: 8.2.13
+      process: 0.11.10
+      prop-types: 15.7.2
+      querystring-es3: 0.2.1
+      raw-body: 2.4.1
+      react-is: 17.0.2
+      react-refresh: 0.8.3
+      stream-browserify: 3.0.0
+      stream-http: 3.1.1
+      string_decoder: 1.3.0
+      styled-jsx: 3.3.2
+      timers-browserify: 2.0.12
+      tty-browserify: 0.0.1
+      use-subscription: 1.5.1
+      util: 0.12.3
+      vm-browserify: 1.1.2
+      watchpack: 2.1.1
+    transitivePeerDependencies:
+      - typescript
+      - webpack
+    dev: true
+
   /next/11.0.1_2dbe935e140170ce01c975771f1adcbd:
     resolution: {integrity: sha512-yR7be7asNbvpVNpi6xxEg28wZ7Gqmj1nOt0sABH9qORmF3+pms2KZ7Cng33oK5nqPIzEEFJD0pp2PCe3/ueMIg==}
     engines: {node: '>=12.0.0'}
@@ -10407,6 +10546,15 @@ packages:
 
   /platform/1.3.6:
     resolution: {integrity: sha512-fnWVljUchTro6RiCFvCXBbNhJc2NijN7oIQxbwsyL0buWJPG85v81ehlHI9fXrJsMNgTofEoWIQeClKpgxFLrg==}
+
+  /pnp-webpack-plugin/1.6.4:
+    resolution: {integrity: sha512-7Wjy+9E3WwLOEL30D+m8TSTF7qJJUJLONBnwQp0518siuMxUQUbgZwssaFX+QKlZkjHZcw/IpZCt/H0srrntSg==}
+    engines: {node: '>=6'}
+    dependencies:
+      ts-pnp: 1.2.0
+    transitivePeerDependencies:
+      - typescript
+    dev: true
 
   /pnp-webpack-plugin/1.6.4_typescript@4.3.4:
     resolution: {integrity: sha512-7Wjy+9E3WwLOEL30D+m8TSTF7qJJUJLONBnwQp0518siuMxUQUbgZwssaFX+QKlZkjHZcw/IpZCt/H0srrntSg==}
@@ -11701,6 +11849,21 @@ packages:
     engines: {node: '>=0.10.0'}
     dev: true
 
+  /styled-jsx/3.3.2:
+    resolution: {integrity: sha512-daAkGd5mqhbBhLd6jYAjYBa9LpxYCzsgo/f6qzPdFxVB8yoGbhxvzQgkC0pfmCVvW3JuAEBn0UzFLBfkHVZG1g==}
+    peerDependencies:
+      react: 15.x.x || 16.x.x || 17.x.x
+    dependencies:
+      '@babel/types': 7.8.3
+      babel-plugin-syntax-jsx: 6.18.0
+      convert-source-map: 1.7.0
+      loader-utils: 1.2.3
+      source-map: 0.7.3
+      string-hash: 1.1.3
+      stylis: 3.5.4
+      stylis-rule-sheet: 0.0.10_stylis@3.5.4
+    dev: true
+
   /styled-jsx/3.3.2_react@17.0.2:
     resolution: {integrity: sha512-daAkGd5mqhbBhLd6jYAjYBa9LpxYCzsgo/f6qzPdFxVB8yoGbhxvzQgkC0pfmCVvW3JuAEBn0UzFLBfkHVZG1g==}
     peerDependencies:
@@ -12125,6 +12288,16 @@ packages:
       yargs-parser: 20.2.9
     dev: true
 
+  /ts-pnp/1.2.0:
+    resolution: {integrity: sha512-csd+vJOb/gkzvcCHgTGSChYpy5f1/XKNsmvBGO4JXS+z1v2HobugDz4s1IeFXM3wZB44uczs+eazB5Q/ccdhQw==}
+    engines: {node: '>=6'}
+    peerDependencies:
+      typescript: '*'
+    peerDependenciesMeta:
+      typescript:
+        optional: true
+    dev: true
+
   /ts-pnp/1.2.0_typescript@4.3.4:
     resolution: {integrity: sha512-csd+vJOb/gkzvcCHgTGSChYpy5f1/XKNsmvBGO4JXS+z1v2HobugDz4s1IeFXM3wZB44uczs+eazB5Q/ccdhQw==}
     engines: {node: '>=6'}
@@ -12408,6 +12581,14 @@ packages:
     dependencies:
       punycode: 1.3.2
       querystring: 0.2.0
+
+  /use-subscription/1.5.1:
+    resolution: {integrity: sha512-Xv2a1P/yReAjAbhylMfFplFKj9GssgTwN7RlcTxBujFQcloStWNDQdc4g4NRWH9xS4i/FDk04vQBptAXoF3VcA==}
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0
+    dependencies:
+      object-assign: 4.1.1
+    dev: true
 
   /use-subscription/1.5.1_react@17.0.2:
     resolution: {integrity: sha512-Xv2a1P/yReAjAbhylMfFplFKj9GssgTwN7RlcTxBujFQcloStWNDQdc4g4NRWH9xS4i/FDk04vQBptAXoF3VcA==}
