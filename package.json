@@ -13,7 +13,7 @@
     "changesets": "changeset",
     "ci:release": "pnpm -r publish --access public --no-git-checks",
     "ci:version": "changeset version && pnpm i --no-frozen-lockfile --lockfile-only --ignore-scripts",
-    "clean": "rimraf \"**/{node_modules,dist,.next}\"",
+    "clean": "rimraf \"**/{node_modules,dist,.next,coverage}\"",
     "dev:cjs": "pnpm -w dev:cjs:all",
     "dev:cjs:all": "bob-esbuild tsc && concurrently pnpm:dev:core pnpm:dev:cjs:express pnpm:dev:cjs:fastify pnpm:dev:cjs:http pnpm:dev:cjs:koa pnpm:dev:cjs:hapi pnpm:dev:next",
     "dev:cjs:express": "pnpm -r --filter @graphql-ez/express-new dev -- --onSuccess \"cross-env PORT=3001 pnpm -r --filter example-new-express dev:cjs -- --silent\"",
@@ -31,7 +31,7 @@
     "dev:mjs:koa": "pnpm -r --filter @graphql-ez/koa-new dev -- --onSuccess \"cross-env PORT=3005 pnpm -r --filter example-new-koa dev:mjs -- --silent\"",
     "dev:next": "pnpm -r --filter example-app-nextjs dev -- -p 3006",
     "prepare": "husky install",
-    "pretty": "prettier --write \"**/*{.ts,.tsx}\"",
+    "pretty": "prettier --write \"**/*{.ts,.tsx,.json,.yaml}\"",
     "test": "pnpm -r --no-sort --no-bail test -- ",
     "test:ci": "pnpm -r --workspace-concurrency=1 --no-sort --no-bail --filter=!graphql-ez-monorepo test -- "
   },
