@@ -6,6 +6,7 @@ import { makeExecutableSchema } from '@graphql-tools/schema';
 import { cleanObject, toPlural } from '@graphql-ez/core-utils/object';
 import { LazyPromise } from '@graphql-ez/core-utils/promise';
 
+import type { IResolvers } from '@graphql-tools/utils';
 import type { IExecutableSchemaDefinition } from '@graphql-tools/schema';
 import type { MergeSchemasConfig } from '@graphql-tools/merge';
 import type { EZContext, EZResolvers, EZPlugin } from '@graphql-ez/core-types';
@@ -45,6 +46,8 @@ declare module '@graphql-ez/core-types' {
   interface InternalAppBuildContext {
     extraSchemaDefinitions?: (ExtraSchemaDef | Promise<ExtraSchemaDef>)[];
   }
+
+  interface EZResolvers extends IResolvers<any, EZContext> {}
 }
 
 const mergeSchemas = LazyPromise(() => import('@graphql-tools/merge').then(v => v.mergeSchemasAsync));
@@ -59,7 +62,7 @@ export const ezSchema = (): EZPlugin => {
 
       const extraTypeDefs = [...extraSchemaDefs.flatMap(v => v.typeDefs), ...toPlural(mergeSchemasConfig?.typeDefs)];
       const extraResolvers: EZResolvers[] = [
-        ...extraSchemaDefs.flatMap(v => v.resolvers),
+        ...extraSchemaDefs.flatMap<EZResolvers>(v => v.resolvers),
         ...toPlural(mergeSchemasConfig?.resolvers),
       ];
 

@@ -16,6 +16,6 @@ export interface BaseAppBuilder {}
 
 export interface EZContext {}
 
-export interface EZResolvers extends Record<string, any> {}
+export interface EZResolvers {}
 
 export interface BuildContextArgs {}

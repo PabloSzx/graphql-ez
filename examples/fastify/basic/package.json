@@ -1,0 +1,19 @@
+{
+  "name": "example-basic-fastify",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "yarn dev:mjs",
+    "dev:cjs": "tsup-node src/index.ts --format cjs --sourcemap --no-splitting --watch src --onSuccess \"node dist/index.js\"",
+    "dev:mjs": "tsup-node src/index.ts --format esm --sourcemap --no-splitting --watch src --onSuccess \"node dist/index.mjs\""
+  },
+  "dependencies": {
+    "@graphql-ez/fastify": "workspace:^0.2.1",
+    "@graphql-ez/plugin-codegen": "workspace:^0.1.0",
+    "fastify": "^3.18.0",
+    "graphql": "15.4.0-experimental-stream-defer.1"
+  },
+  "devDependencies": {
+    "@types/node": "^15.12.4",
+    "tsup": "^4.11.2"
+  }
+}
