@@ -43,6 +43,14 @@
   "peerDependencies": {
     "graphql": "*"
   },
+  "peerDependenciesMeta": {
+    "graphql": {
+      "optional": true
+    }
+  },
+  "engines": {
+    "node": "^12.20.0 || ^14.13.0 || ^15.0.0 || ^16.0.0"
+  },
   "publishConfig": {
     "directory": "dist"
   }
