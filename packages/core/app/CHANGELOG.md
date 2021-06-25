@@ -1,5 +1,15 @@
 # @graphql-ez/core
 
+## 0.2.2
+
+### Patch Changes
+
+- 0d71f33: re-export Envelop from core
+- 3c3d047: add HelixContext types
+- Updated dependencies [0d71f33]
+- Updated dependencies [9a7038b]
+  - @graphql-ez/core-types@0.2.2
+
 ## 0.2.1
 
 ### Patch Changes
