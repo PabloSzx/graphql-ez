@@ -272,7 +272,7 @@ importers:
       bob-esbuild-cli: ^0.1.27
       express: ^4.17.1
       fastify: ^3.18.0
-      fastify-nextjs: ^5.4.1
+      fastify-nextjs: ^6.0.0
       form-data: ^4.0.0
       fs-extra: ^10.0.0
       get-port: ^5.1.1
@@ -304,7 +304,7 @@ importers:
       bob-esbuild-cli: 0.1.27_@types+node@15.12.4
       express: 4.17.1
       fastify: 3.18.0
-      fastify-nextjs: 5.4.1
+      fastify-nextjs: 6.0.0
       form-data: 4.0.0
       fs-extra: 10.0.0
       get-port: 5.1.1
@@ -5882,11 +5882,11 @@ packages:
   /fastify-error/0.3.1:
     resolution: {integrity: sha512-oCfpcsDndgnDVgiI7bwFKAun2dO+4h84vBlkWsWnz/OUK9Reff5UFoFl241xTiLeHWX/vU9zkDVXqYUxjOwHcQ==}
 
-  /fastify-nextjs/5.4.1:
-    resolution: {integrity: sha512-Qy3kbp95iyajuh89leNlv7xYQzvo7xR6K4WZ6C9cF35y5KLNcG+5mzmO0uxBeC05iwr+3hjE1GuItTAb5JD0JQ==}
+  /fastify-nextjs/6.0.0:
+    resolution: {integrity: sha512-57lS13W4K5kymq8LsnGeYT37zSAMGkEeZaiKGY8CiiMulPmDwain1xK9WG/ELizpxHzhYVj9vTnITdGU3gWO6Q==}
     engines: {node: '>=10'}
     peerDependencies:
-      next: 9.x.x || 10.x.x
+      next: 9.x.x || 10.x.x || 11.x.x
     dependencies:
       fastify-plugin: 3.0.0
       under-pressure: 5.7.0
