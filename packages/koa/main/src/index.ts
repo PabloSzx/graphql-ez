@@ -8,7 +8,7 @@ import {
   Envelop,
   EZAppFactoryType,
   handleRequest,
-  InternalAppBuildContext,
+  InternalAppBuildIntegrationContext,
 } from '@graphql-ez/core';
 
 import type { Request, Response, default as KoaApp } from 'koa';
@@ -46,11 +46,6 @@ export interface KoaAppOptions extends AppOptions {
    * Enable CORS or configure it
    */
   cors?: boolean | CorsOptions;
-
-  /**
-   * Custom on app register callback with access to internal build context
-   */
-  onAppRegister?(ctx: InternalAppBuildContext, router: KoaRouter): void | Promise<void>;
 }
 
 export interface EZApp {
@@ -76,8 +71,7 @@ export function CreateApp(config: KoaAppOptions = {}): EZAppBuilder {
       {
         integrationName: 'koa',
       },
-      config,
-      {}
+      config
     );
   } catch (err) {
     Error.captureStackTrace(err, CreateApp);
@@ -98,11 +92,13 @@ export function CreateApp(config: KoaAppOptions = {}): EZAppBuilder {
         buildContext,
       } = config;
 
-      if (onAppRegister) await onAppRegister(ctx, router);
-
-      await onIntegrationRegister({
+      const integration: InternalAppBuildIntegrationContext = {
         koa: { router, app: buildOptions.app },
-      });
+      };
+
+      if (onAppRegister) await onAppRegister({ ctx, integration, getEnveloped });
+
+      await onIntegrationRegister(integration);
 
       if (cors) {
         const koaCors = (await import('@koa/cors')).default;

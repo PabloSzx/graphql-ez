@@ -101,6 +101,15 @@ declare module './index' {
      * Build Context
      */
     buildContext?: (args: BuildContextArgs) => Record<string, unknown> | Promise<Record<string, unknown>>;
+
+    /**
+     * Custom on app register callback with access to internal build context
+     */
+    onAppRegister?: (args: {
+      ctx: InternalAppBuildContext;
+      integration: InternalAppBuildIntegrationContext;
+      getEnveloped: Envelop;
+    }) => void | Promise<void>;
   }
 
   interface BuildContextArgs {

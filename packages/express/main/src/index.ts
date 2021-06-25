@@ -8,7 +8,7 @@ import {
   Envelop,
   EZAppFactoryType,
   handleRequest,
-  InternalAppBuildContext,
+  InternalAppBuildIntegrationContext,
 } from '@graphql-ez/core';
 import { getObjectValue } from '@graphql-ez/core-utils/object';
 
@@ -45,11 +45,6 @@ export interface ExpressAppOptions extends AppOptions {
    * Enable or configure CORS
    */
   cors?: boolean | CorsOptions | CorsOptionsDelegate;
-
-  /**
-   * Custom on app register callback with access to internal build context
-   */
-  onAppRegister?(ctx: InternalAppBuildContext, router: Router): void | Promise<void>;
 }
 
 export interface EZApp {
@@ -76,8 +71,7 @@ export function CreateApp(config: ExpressAppOptions = {}): EZAppBuilder {
       {
         integrationName: 'express',
       },
-      config,
-      {}
+      config
     );
   } catch (err) {
     Error.captureStackTrace(err, CreateApp);
@@ -92,11 +86,12 @@ export function CreateApp(config: ExpressAppOptions = {}): EZAppBuilder {
 
       const { cors, bodyParserJSONOptions = {}, customHandleRequest, buildContext, onAppRegister } = config;
 
-      if (onAppRegister) await onAppRegister(ctx, router);
-
-      await onIntegrationRegister({
+      const integration: InternalAppBuildIntegrationContext = {
         express: { router, app: buildOptions.app, server: buildOptions.server },
-      });
+      };
+      if (onAppRegister) await onAppRegister({ ctx, integration, getEnveloped });
+
+      await onIntegrationRegister(integration);
 
       if (cors) {
         const corsMiddleware = (await import('cors')).default;

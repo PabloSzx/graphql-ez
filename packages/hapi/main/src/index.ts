@@ -6,7 +6,7 @@ import {
   Envelop,
   EZAppFactoryType,
   handleRequest,
-  InternalAppBuildContext,
+  InternalAppBuildIntegrationContext,
 } from '@graphql-ez/core';
 
 import type { Request, ResponseToolkit, Plugin, Server, Lifecycle, RouteOptionsCors, RouteOptions } from '@hapi/hapi';
@@ -41,11 +41,6 @@ export interface HapiAppOptions extends AppOptions {
   routeOptions?: RouteOptions;
 
   /**
-   * Custom on app register callback with access to internal build context
-   */
-  onAppRegister?(ctx: InternalAppBuildContext, server: Server): void | Promise<void>;
-
-  /**
    * Configure IDE route options
    */
   ideRouteOptions?: RouteOptions;
@@ -70,8 +65,7 @@ export function CreateApp(config: HapiAppOptions = {}): EZAppBuilder {
       {
         integrationName: 'hapi',
       },
-      config,
-      {}
+      config
     );
   } catch (err) {
     Error.captureStackTrace(err, CreateApp);
@@ -85,10 +79,13 @@ export function CreateApp(config: HapiAppOptions = {}): EZAppBuilder {
       const { customHandleRequest, buildContext, onAppRegister } = config;
 
       return async function register(server: Server) {
-        if (onAppRegister) await onAppRegister?.(ctx, server);
-        await onIntegrationRegister({
+        const integration: InternalAppBuildIntegrationContext = {
           hapi: { server, ideRouteOptions: config.ideRouteOptions },
-        });
+        };
+
+        if (onAppRegister) await onAppRegister({ ctx, integration, getEnveloped });
+
+        await onIntegrationRegister(integration);
 
         const requestHandler = customHandleRequest || handleRequest;
 

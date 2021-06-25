@@ -8,7 +8,7 @@ import {
   Envelop,
   EZAppFactoryType,
   handleRequest,
-  InternalAppBuildContext,
+  InternalAppBuildIntegrationContext,
   LazyPromise,
 } from '@graphql-ez/core';
 import { getPathname } from '@graphql-ez/core-utils/url';
@@ -57,11 +57,6 @@ export interface HttpAppOptions extends AppOptions {
   handleNotFound?: boolean;
 
   /**
-   * Custom on app register callback with access to internal build context
-   */
-  onAppRegister?(ctx: InternalAppBuildContext, httpCtx: HTTPHandlerContext): void | Promise<void>;
-
-  /**
    * By default it calls `console.error` and `process.exit(1)`
    */
   onBuildPromiseError?(err: unknown): unknown | never | void;
@@ -92,8 +87,7 @@ export function CreateApp(config: HttpAppOptions = {}): EZAppBuilder {
       {
         integrationName: 'http',
       },
-      config,
-      {}
+      config
     );
   } catch (err) {
     Error.captureStackTrace(err, CreateApp);
@@ -120,14 +114,16 @@ export function CreateApp(config: HttpAppOptions = {}): EZAppBuilder {
     const appPromise = appBuilder(buildOptions, async ({ ctx, getEnveloped }) => {
       const httpHandlers: HTTPHandlerContext['handlers'] = [];
 
-      const httpCtx: HTTPHandlerContext = {
-        handlers: httpHandlers,
-        server: buildOptions.server,
+      const integration: InternalAppBuildIntegrationContext = {
+        http: {
+          handlers: httpHandlers,
+          server: buildOptions.server,
+        },
       };
-      if (onAppRegister) await onAppRegister(ctx, httpCtx);
-      await onIntegrationRegister({
-        http: httpCtx,
-      });
+
+      if (onAppRegister) await onAppRegister({ ctx, integration, getEnveloped });
+
+      await onIntegrationRegister(integration);
 
       const EZHandler: AsyncRequestHandler = async function (req, res) {
         if (httpHandlers.length) {

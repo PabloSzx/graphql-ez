@@ -6,7 +6,7 @@ import {
   Envelop,
   EZAppFactoryType,
   handleRequest,
-  InternalAppBuildContext,
+  InternalAppBuildIntegrationContext,
   LazyPromise,
 } from '@graphql-ez/core';
 
@@ -41,11 +41,6 @@ export interface NextHandlerContext {
 
 export interface NextAppOptions extends AppOptions {
   /**
-   * Custom on app register callback with access to internal build context
-   */
-  onAppRegister?(ctx: InternalAppBuildContext, httpCtx: NextHandlerContext): void | Promise<void>;
-
-  /**
    * By default it calls `console.error` and `process.exit(1)`
    */
   onBuildPromiseError?(err: unknown): unknown | never | void;
@@ -68,8 +63,7 @@ export function CreateApp(config: NextAppOptions = {}): EZAppBuilder {
       {
         integrationName: 'nextjs',
       },
-      config,
-      {}
+      config
     );
   } catch (err) {
     Error.captureStackTrace(err, CreateApp);
@@ -95,13 +89,15 @@ export function CreateApp(config: NextAppOptions = {}): EZAppBuilder {
     const appPromise = appBuilder(buildOptions, async ({ ctx, getEnveloped }) => {
       const nextHandlers: NextHandlerContext['handlers'] = [];
 
-      const nextCtx: NextHandlerContext = {
-        handlers: nextHandlers,
+      const integration: InternalAppBuildIntegrationContext = {
+        next: {
+          handlers: nextHandlers,
+        },
       };
-      if (onAppRegister) await onAppRegister(ctx, nextCtx);
-      await onIntegrationRegister({
-        next: nextCtx,
-      });
+
+      if (onAppRegister) await onAppRegister({ ctx, integration, getEnveloped });
+
+      await onIntegrationRegister(integration);
 
       const EZHandler: NextApiHandler = async function EZHandler(req, res) {
         if (nextHandlers.length) {

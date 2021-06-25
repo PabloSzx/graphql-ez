@@ -30,11 +30,6 @@ export interface FastifyAppOptions extends AppOptions {
    * Custom Fastify Route options
    */
   routeOptions?: Omit<RouteOptions, 'method' | 'url' | 'handler'>;
-
-  /**
-   * Custom on app register callback with access to internal build context
-   */
-  onAppRegister?(ctx: InternalAppBuildContext, instance: FastifyInstance): void | Promise<void>;
 }
 
 export type FastifyAppPlugin = FastifyPluginCallback<{}>;
@@ -65,8 +60,7 @@ export function CreateApp(config: FastifyAppOptions = {}): EZAppBuilder {
       {
         integrationName: 'fastify',
       },
-      config,
-      {}
+      config
     );
   } catch (err) {
     Error.captureStackTrace(err, CreateApp);
@@ -80,10 +74,13 @@ export function CreateApp(config: FastifyAppOptions = {}): EZAppBuilder {
       return appBuilder(buildOptions, ({ ctx, getEnveloped }) => {
         const { cors, routeOptions, buildContext, onAppRegister } = config;
         return async function FastifyPlugin(instance: FastifyInstance) {
-          if (onAppRegister) await onAppRegister?.(ctx, instance);
-          await onIntegrationRegister({
+          const integration = {
             fastify: instance,
-          });
+          };
+
+          if (onAppRegister) await onAppRegister({ ctx, integration, getEnveloped });
+
+          await onIntegrationRegister(integration);
 
           if (cors) {
             const fastifyCors = (await import('fastify-cors')).default;
