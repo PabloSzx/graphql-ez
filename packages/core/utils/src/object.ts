@@ -13,6 +13,6 @@ export function toPlural<T>(value: undefined | T | T[]): T[] {
 }
 
 export function getObjectValue<Obj extends object>(value: Obj | number | string | boolean | null | undefined): Obj | undefined {
-  if (value != null && typeof value === 'object') return value as Obj;
+  if (value != null && typeof value === 'object') return value;
   return undefined;
 }

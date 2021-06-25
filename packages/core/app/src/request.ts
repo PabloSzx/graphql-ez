@@ -2,7 +2,23 @@ import { getGraphQLParameters } from 'graphql-helix/dist/get-graphql-parameters.
 import { processRequest } from 'graphql-helix/dist/process-request.js';
 
 import type { IncomingMessage, ServerResponse } from 'http';
-import type { BuildContextArgs, HandleRequestOptions, EZResponse, MultipartResponse, Push } from '@graphql-ez/core-types';
+import type {
+  BuildContextArgs,
+  HandleRequestOptions,
+  EZResponse,
+  MultipartResponse,
+  Push,
+  Request,
+} from '@graphql-ez/core-types';
+import type { ExecutionContext } from 'graphql-helix';
+
+export interface HelixContext extends Omit<ExecutionContext, 'request'> {
+  request: Request;
+}
+
+declare module '@graphql-ez/core-types' {
+  interface EZContext extends Partial<HelixContext> {}
+}
 
 export async function handleRequest<TReturn = unknown>({
   request,

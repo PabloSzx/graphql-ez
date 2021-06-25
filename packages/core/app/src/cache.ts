@@ -40,7 +40,7 @@ export const ezCache = (): EZPlugin => {
     async onPreBuild(ctx) {
       const {
         cache,
-        envelop: { plugins = [] },
+        envelop: { plugins },
       } = ctx.options;
       if (!cache) return;
 
@@ -49,19 +49,15 @@ export const ezCache = (): EZPlugin => {
 
       const cacheObj = getObjectValue(cache);
 
-      const parserOptions = getObjectValue(cacheObj?.parse) || {};
-
-      const validationOptions = getObjectValue(cacheObj?.validation) || {};
-
       await Promise.all([
         isParserEnabled
           ? import('@envelop/parser-cache').then(({ useParserCache }) => {
-              plugins.push(useParserCache(parserOptions));
+              plugins.push(useParserCache(getObjectValue(cacheObj?.parse)));
             })
           : null,
         isValidationEnabled
           ? import('@envelop/validation-cache').then(({ useValidationCache }) => {
-              plugins.push(useValidationCache(validationOptions));
+              plugins.push(useValidationCache(getObjectValue(cacheObj?.validation)));
             })
           : null,
       ]);

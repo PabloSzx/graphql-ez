@@ -321,7 +321,6 @@ importers:
     specifiers:
       '@envelop/core': ^0.3.1
       '@envelop/parser-cache': ^0.2.0
-      '@envelop/types': ^0.2.1
       '@envelop/validation-cache': ^0.2.0
       '@graphql-ez/core-types': workspace:^0.2.1
       '@graphql-ez/core-utils': workspace:^0.2.0
@@ -337,7 +336,6 @@ importers:
     dependencies:
       '@envelop/core': 0.3.1_34dd13c2583fe2e4418c23a0d30fc388
       '@envelop/parser-cache': 0.2.0_34dd13c2583fe2e4418c23a0d30fc388
-      '@envelop/types': 0.2.1_34dd13c2583fe2e4418c23a0d30fc388
       '@envelop/validation-cache': 0.2.0_34dd13c2583fe2e4418c23a0d30fc388
       '@graphql-ez/core-types': link:../types
       '@graphql-ez/core-utils': link:../utils
@@ -378,7 +376,6 @@ importers:
 
   packages/express/main:
     specifiers:
-      '@envelop/types': ^0.2.1
       '@graphql-ez/core': workspace:^0.2.1
       '@graphql-ez/core-utils': workspace:^0.2.0
       '@types/body-parser': ^1.19.0
@@ -397,7 +394,6 @@ importers:
       ts-jest: 27.0.3
       typescript: 4.3.4
     dependencies:
-      '@envelop/types': 0.2.1_34dd13c2583fe2e4418c23a0d30fc388
       '@graphql-ez/core': link:../../core/app
       '@graphql-ez/core-utils': link:../../core/utils
       '@types/body-parser': 1.19.0
@@ -419,7 +415,6 @@ importers:
 
   packages/fastify/main:
     specifiers:
-      '@envelop/types': ^0.2.1
       '@graphql-ez/core': workspace:^0.2.1
       '@graphql-ez/core-types': workspace:^0.2.1
       '@graphql-ez/core-utils': workspace:^0.2.0
@@ -436,7 +431,6 @@ importers:
       ts-jest: 27.0.3
       typescript: 4.3.4
     dependencies:
-      '@envelop/types': 0.2.1_34dd13c2583fe2e4418c23a0d30fc388
       '@graphql-ez/core': link:../../core/app
       '@graphql-ez/core-types': link:../../core/types
       '@graphql-ez/core-utils': link:../../core/utils
@@ -456,7 +450,6 @@ importers:
 
   packages/hapi/main:
     specifiers:
-      '@envelop/types': ^0.2.1
       '@graphql-ez/core': workspace:^0.2.1
       '@graphql-ez/core-utils': workspace:^0.2.0
       '@types/eventsource': 1.1.5
@@ -471,7 +464,6 @@ importers:
       ts-jest: 27.0.3
       typescript: 4.3.4
     dependencies:
-      '@envelop/types': 0.2.1_34dd13c2583fe2e4418c23a0d30fc388
       '@graphql-ez/core': link:../../core/app
       '@graphql-ez/core-utils': link:../../core/utils
     devDependencies:
@@ -489,7 +481,6 @@ importers:
 
   packages/http/main:
     specifiers:
-      '@envelop/types': ^0.2.1
       '@graphql-ez/core': workspace:^0.2.1
       '@graphql-ez/core-utils': workspace:^0.2.0
       '@types/eventsource': 1.1.5
@@ -503,7 +494,6 @@ importers:
       ts-jest: 27.0.3
       typescript: 4.3.4
     dependencies:
-      '@envelop/types': 0.2.1_34dd13c2583fe2e4418c23a0d30fc388
       '@graphql-ez/core': link:../../core/app
       '@graphql-ez/core-utils': link:../../core/utils
     devDependencies:
@@ -520,7 +510,6 @@ importers:
 
   packages/koa/main:
     specifiers:
-      '@envelop/types': ^0.2.1
       '@graphql-ez/core': workspace:^0.2.1
       '@graphql-ez/core-utils': workspace:^0.2.0
       '@koa/cors': ^3.1.0
@@ -542,7 +531,6 @@ importers:
       ts-jest: 27.0.3
       typescript: 4.3.4
     dependencies:
-      '@envelop/types': 0.2.1_34dd13c2583fe2e4418c23a0d30fc388
       '@graphql-ez/core': link:../../core/app
       '@graphql-ez/core-utils': link:../../core/utils
       '@koa/cors': 3.1.0
@@ -567,7 +555,6 @@ importers:
 
   packages/nextjs/main:
     specifiers:
-      '@envelop/types': ^0.2.1
       '@graphql-ez/core': workspace:^0.2.1
       '@graphql-ez/core-utils': workspace:^0.2.0
       '@graphql-tools/schema': ^7.1.5
@@ -587,7 +574,6 @@ importers:
       ts-jest: 27.0.3
       typescript: 4.3.4
     dependencies:
-      '@envelop/types': 0.2.1_34dd13c2583fe2e4418c23a0d30fc388
       '@graphql-ez/core': link:../../core/app
       '@graphql-ez/core-utils': link:../../core/utils
     devDependencies:
@@ -735,7 +721,6 @@ importers:
   packages/plugin/modules:
     specifiers:
       '@envelop/graphql-modules': ^0.2.0
-      '@envelop/types': ^0.2.1
       '@graphql-ez/core-types': workspace:^0.2.1
       '@graphql-ez/core-utils': workspace:^0.2.0
       '@graphql-tools/utils': ^7.10.0
@@ -747,7 +732,6 @@ importers:
       ts-jest: ^27.0.3
     dependencies:
       '@envelop/graphql-modules': 0.2.0_d6fb7a771350ff5d48937d5b1759471f
-      '@envelop/types': 0.2.1_34dd13c2583fe2e4418c23a0d30fc388
       '@graphql-ez/core-types': link:../../core/types
       '@graphql-ez/core-utils': link:../../core/utils
       '@graphql-tools/utils': 7.10.0_34dd13c2583fe2e4418c23a0d30fc388
@@ -811,7 +795,6 @@ importers:
 
   packages/plugin/websockets:
     specifiers:
-      '@envelop/types': ^0.2.1
       '@graphql-ez/core-types': workspace:^0.2.1
       '@graphql-ez/core-utils': workspace:^0.2.0
       bob-esbuild-cli: ^0.1.27
@@ -823,7 +806,6 @@ importers:
       ts-jest: ^27.0.3
       ws: ^7.5.0
     dependencies:
-      '@envelop/types': 0.2.1_34dd13c2583fe2e4418c23a0d30fc388
       '@graphql-ez/core-types': link:../../core/types
       '@graphql-ez/core-utils': link:../../core/utils
       graphql-ws: 5.3.0_34dd13c2583fe2e4418c23a0d30fc388
