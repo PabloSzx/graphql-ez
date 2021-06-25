@@ -1,5 +1,12 @@
 # @graphql-ez/core-types
 
+## 0.2.3
+
+### Patch Changes
+
+- 8c8389a: improve vanilla EZResolvers using graphql-tools types
+- 6f05eab: set required Node.js engines
+
 ## 0.2.2
 
 ### Patch Changes
