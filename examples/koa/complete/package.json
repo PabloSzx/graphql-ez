@@ -2,11 +2,10 @@
   "name": "example-complete-koa",
   "version": "1.0.0",
   "license": "MIT",
-  "main": "index.js",
   "scripts": {
-    "dev": "yarn dev:mjs",
-    "dev:cjs": "tsup-node src/index.ts --format cjs --sourcemap --no-splitting --watch src --onSuccess \"node dist/index.js\"",
-    "dev:mjs": "tsup-node src/index.ts --format esm --sourcemap --no-splitting --watch src --onSuccess \"node dist/index.mjs\"",
+    "dev": "pnpm dev:mjs",
+    "dev:cjs": "tsup-node --watch src --onSuccess \"node dist/index.js\"",
+    "dev:mjs": "tsup-node --watch src --onSuccess \"node dist/index.mjs\"",
     "start": "node dist/index.js"
   },
   "dependencies": {
