@@ -5,6 +5,7 @@ import {
   BaseAppBuilder,
   BuildAppOptions,
   createEZAppFactory,
+  Envelop,
   EZAppFactoryType,
   handleRequest,
   InternalAppBuildContext,
@@ -13,8 +14,6 @@ import {
 import { getPathname } from '@graphql-ez/core-utils/url';
 
 import type { ServerResponse, IncomingMessage, Server as HTTPServer } from 'http';
-
-import type { Envelop } from '@envelop/types';
 
 declare module '@graphql-ez/core-types' {
   interface BuildContextArgs {

@@ -15,11 +15,10 @@ import {
   CommonData,
 } from './core';
 
-import type { Envelop } from '@envelop/types';
 import type WebSocket from 'ws';
 import type { Server as HttpServer } from 'http';
 
-import type { EZPlugin, InternalAppBuildContext } from '@graphql-ez/core-types';
+import type { EZPlugin, InternalAppBuildContext, Envelop } from '@graphql-ez/core-types';
 
 export interface WebSocketObjectOptions {
   subscriptionsTransport?: FilteredSubscriptionsTransportOptions | boolean;

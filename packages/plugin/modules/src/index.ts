@@ -6,8 +6,7 @@ import { toPlural } from '@graphql-ez/core-utils/object';
 import { LazyPromise } from '@graphql-ez/core-utils/promise';
 import { isDocumentNode } from '@graphql-tools/utils';
 
-import type { Plugin as EnvelopPlugin } from '@envelop/types';
-import type { EZResolvers, EZPlugin } from '@graphql-ez/core-types';
+import type { EZResolvers, EZPlugin, Plugin as EnvelopPlugin } from '@graphql-ez/core-types';
 import type { ModuleConfig, Module, TypeDefs, Application, ApplicationConfig } from 'graphql-modules';
 
 export type EnvelopModuleConfig = Omit<ModuleConfig, 'typeDefs' | 'id' | 'resolvers'> & {

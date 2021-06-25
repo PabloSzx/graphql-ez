@@ -5,6 +5,7 @@ import {
   BaseAppBuilder,
   BuildAppOptions,
   createEZAppFactory,
+  Envelop,
   EZAppFactoryType,
   handleRequest,
   InternalAppBuildContext,
@@ -12,7 +13,6 @@ import {
 
 import type { Request, Response, default as KoaApp } from 'koa';
 import type { Options as CorsOptions } from '@koa/cors';
-import type { Envelop } from '@envelop/types';
 import type * as KoaRouter from '@koa/router';
 
 declare module '@graphql-ez/core-types' {

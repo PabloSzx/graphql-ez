@@ -3,6 +3,7 @@ import {
   BaseAppBuilder,
   BuildAppOptions,
   createEZAppFactory,
+  Envelop,
   EZAppFactoryType,
   handleRequest,
   InternalAppBuildContext,
@@ -10,7 +11,6 @@ import {
 } from '@graphql-ez/core';
 
 import type { NextApiRequest, NextApiResponse, NextApiHandler } from 'next';
-import type { Envelop } from '@envelop/types';
 
 declare module '@graphql-ez/core-types' {
   interface BuildContextArgs {

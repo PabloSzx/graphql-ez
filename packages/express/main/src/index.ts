@@ -1,10 +1,11 @@
-import { json, Request, RequestHandler, Response, Router, Express } from 'express';
+import { Express, json, Request, RequestHandler, Response, Router } from 'express';
 
 import {
   AppOptions,
   BaseAppBuilder,
   BuildAppOptions,
   createEZAppFactory,
+  Envelop,
   EZAppFactoryType,
   handleRequest,
   InternalAppBuildContext,
@@ -14,7 +15,6 @@ import { getObjectValue } from '@graphql-ez/core-utils/object';
 import type { Server as HttpServer } from 'http';
 import type { OptionsJson as BodyParserOptions } from 'body-parser';
 import type { CorsOptions, CorsOptionsDelegate } from 'cors';
-import type { Envelop } from '@envelop/types';
 
 declare module '@graphql-ez/core-types' {
   interface BuildContextArgs {

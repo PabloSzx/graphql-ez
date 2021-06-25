@@ -3,14 +3,13 @@ import {
   BaseAppBuilder,
   BuildAppOptions,
   createEZAppFactory,
+  Envelop,
   EZAppFactoryType,
   handleRequest,
   InternalAppBuildContext,
 } from '@graphql-ez/core';
 
 import type { Request, ResponseToolkit, Plugin, Server, Lifecycle, RouteOptionsCors, RouteOptions } from '@hapi/hapi';
-
-import type { Envelop } from '@envelop/types';
 
 declare module '@graphql-ez/core-types' {
   interface BuildContextArgs {

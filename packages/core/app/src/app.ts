@@ -5,7 +5,6 @@ import { toPlural, uniqueArray } from '@graphql-ez/core-utils/object';
 import { ezCache } from './cache';
 import { ezSchema } from './schema';
 
-import type { Envelop } from '@envelop/types';
 import type {
   AppOptions,
   BaseAppBuilder,
@@ -13,6 +12,7 @@ import type {
   InternalAppBuildIntegrationContext,
   EZAppFactoryType,
   AdapterFactoryContext,
+  Envelop,
 } from '@graphql-ez/core-types';
 
 export function createEZAppFactory(
