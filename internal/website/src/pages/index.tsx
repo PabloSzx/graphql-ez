@@ -45,6 +45,7 @@ function IntegrationItemTitle({
           layout="intrinsic"
           width="110px"
           height="50px"
+          placeholder="blur"
         />
       </Box>
     </HStack>
