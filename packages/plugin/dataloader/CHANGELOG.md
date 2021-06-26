@@ -1,5 +1,15 @@
 # @graphql-ez/plugin-dataloader
 
+## 0.1.2
+
+### Patch Changes
+
+- d2d11b2: reference https://www.graphql-ez.com website
+- 89e875c: add support for presets
+- Updated dependencies [d2d11b2]
+- Updated dependencies [89e875c]
+  - @graphql-ez/core-types@0.2.4
+
 ## 0.1.1
 
 ### Patch Changes
