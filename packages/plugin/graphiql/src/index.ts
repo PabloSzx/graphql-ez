@@ -64,7 +64,7 @@ export function GraphiQLHandler(options: GraphiQLOptions, extraConfig?: HandlerC
 
     if (rawHttp) {
       res.setHeader('content-type', 'text/html');
-      res.end(await html);
+      res.end(content);
     }
 
     return {
@@ -78,6 +78,8 @@ export const ezGraphiQLIDE = (options: GraphiQLOptions | boolean = true): EZPlug
     name: 'GraphiQL IDE',
     compatibilityList: ['fastify', 'koa', 'express', 'hapi', 'http', 'nextjs'],
     onRegister(ctx) {
+      if (!options) return;
+
       const objOptions = { ...(getObjectValue(options) || {}) };
 
       const path = (objOptions.path ||= '/graphiql');

@@ -301,7 +301,7 @@ test.concurrent('nextjs', async () => {
 
   expect(await warnCalled.promise).toMatchInlineSnapshot(`
 Array [
-  "[graphql-ez] You don't need to add Altair plugin in your EZ App for Next.js, use \\"UnpkgAltairHandler\\" directly in your API Routes.",
+  "[graphql-ez] You don't need to add the Altair plugin in your EZ App for Next.js, use \\"UnpkgAltairHandler\\" directly in your API Routes.",
 ]
 `);
 });

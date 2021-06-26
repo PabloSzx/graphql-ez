@@ -231,7 +231,7 @@ test('nextjs', async () => {
 
   expect(await warnCalled.promise).toMatchInlineSnapshot(`
     Array [
-      "[graphql-ez] You don't need to add GraphiQL plugin in your EZ App for Next.js, use \\"GraphiQLHandler\\" directly in your API Routes.",
+      "[graphql-ez] You don't need to add the GraphiQL plugin in your EZ App for Next.js, use \\"GraphiQLHandler\\" directly in your API Routes.",
     ]
   `);
 });
