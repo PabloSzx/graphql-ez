@@ -1,0 +1,23 @@
+code[class*='language-'],
+pre[class*='language-'] {
+  white-space: pre-wrap !important;
+  word-break: break-word !important;
+}
+
+code,
+code * {
+  font-family: 'SF Mono', 'Source Code Pro', Menlo, monospace !important;
+}
+
+article {
+  width: 100%;
+  overflow-x: auto;
+}
+
+body {
+  font-family: Poppins, sans-serif !important;
+}
+
+.hidden {
+  visibility: hidden;
+}

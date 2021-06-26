@@ -5,6 +5,7 @@
     "declaration": true,
     "outDir": "dist",
     "rootDir": ".",
+    "jsx": "preserve",
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
@@ -33,6 +34,6 @@
     },
     "importsNotUsedAsValues": "error"
   },
-  "exclude": ["**/dist"],
+  "exclude": ["**/dist", "**/website"],
   "include": ["packages", "internal", "bob-esbuild.config.ts"]
 }
