@@ -1,5 +1,16 @@
 # @graphql-ez/core
 
+## 0.2.4
+
+### Patch Changes
+
+- d2d11b2: reference https://www.graphql-ez.com website
+- 89e875c: add support for presets
+- Updated dependencies [d2d11b2]
+- Updated dependencies [89e875c]
+  - @graphql-ez/core-types@0.2.4
+  - @graphql-ez/core-utils@0.2.2
+
 ## 0.2.3
 
 ### Patch Changes
