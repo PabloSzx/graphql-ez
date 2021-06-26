@@ -21,7 +21,7 @@ interface BaseEZPlugin {
 
 export type EZPlugin =
   | (BaseEZPlugin & {
-      readonly compatibilityList?: undefined;
+      readonly compatibilityList?: readonly IntegrationsNames[];
       readonly onIntegrationRegister?: undefined;
     })
   | (BaseEZPlugin & {
@@ -34,6 +34,13 @@ export type EZPlugin =
         integrationCtx: InternalAppBuildIntegrationContext
       ) => void | Promise<void>;
     });
+
+export type EZPreset = {
+  self?: EZPlugin;
+
+  ezPlugins?: EZPlugin[];
+  envelopPlugins?: Plugin[];
+};
 
 export type IntegrationsNames = 'express' | 'fastify' | 'nextjs' | 'http' | 'koa' | 'hapi' | 'core';
 export interface AdapterFactoryContext {
@@ -48,8 +55,18 @@ declare module './index' {
     gql(literals: string | readonly string[], ...args: any[]): DocumentNode;
   }
 
+  interface ContextAppOptions extends Omit<AppOptions, 'ez' | 'envelop'> {
+    ez: {
+      plugins: EZPlugin[];
+    };
+    envelop: {
+      plugins: Plugin[];
+      presets: Envelop[];
+    };
+  }
+
   interface InternalAppBuildContext extends AdapterFactoryContext {
-    options: Omit<AppOptions, 'ez' | 'envelop'> & RequiredCtxAppOptions;
+    options: ContextAppOptions;
     appBuilder: BaseAppBuilder;
   }
 
@@ -71,7 +88,7 @@ declare module './index' {
     envelop?: {
       plugins?: Plugin[];
 
-      presets?: Envelop | Envelop[];
+      preset?: Envelop | Envelop[];
     };
 
     /**
@@ -79,6 +96,8 @@ declare module './index' {
      */
     ez?: {
       plugins?: EZPlugin[];
+
+      preset?: EZPreset | EZPreset[];
     };
 
     /**

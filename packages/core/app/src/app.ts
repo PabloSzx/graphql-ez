@@ -1,6 +1,6 @@
 import { envelop, useEnvelop } from '@envelop/core';
 import { gql } from '@graphql-ez/core-utils/gql';
-import { toPlural, uniqueArray } from '@graphql-ez/core-utils/object';
+import { toPlural } from '@graphql-ez/core-utils/object';
 
 import { ezCache } from './cache';
 import { ezSchema } from './schema';
@@ -26,14 +26,32 @@ export function createEZAppFactory(
     afterBuild?: (getEnveloped: Envelop, ctx: InternalAppBuildContext) => void | Promise<void>;
   } = {}
 ): EZAppFactoryType {
-  const ezPlugins = [...(rawOptions.ez?.plugins || []), ezSchema(), ezCache()];
+  const envelopPlugins = [...(rawOptions.envelop?.plugins || [])];
+  const ezPluginsDirty = [...(rawOptions.ez?.plugins || []), ezSchema(), ezCache()];
+
+  for (const preset of toPlural(rawOptions.ez?.preset)) {
+    if (preset.self) ezPluginsDirty.push(preset.self);
+
+    if (preset.ezPlugins) ezPluginsDirty.push(...preset.ezPlugins);
+
+    if (preset.envelopPlugins) envelopPlugins.push(...preset.envelopPlugins);
+  }
 
   const integrationName = factoryCtx.integrationName;
-  for (const { name, compatibilityList } of ezPlugins) {
+
+  const ezPlugins = ezPluginsDirty.filter(({ name, compatibilityList }, index) => {
     if (compatibilityList && !compatibilityList.includes(integrationName)) {
-      throw Error(`EZ Plugin "${name}" is not compatible with "${integrationName}"`);
+      throw Error(`[graphql-ez] "${name}" is not compatible with "${integrationName}"`);
     }
-  }
+
+    if (ezPluginsDirty.findIndex(plugin => plugin.name === name) === index) return true;
+
+    console.warn(`[graphql-ez] Warning! Plugin "${name}" is duplicated! Make sure to specify the same plugin only once.`);
+
+    return false;
+  });
+
+  const envelopPresets = toPlural(rawOptions.envelop?.preset);
 
   const options: InternalAppBuildContext['options'] = {
     ...rawOptions,
@@ -41,8 +59,8 @@ export function createEZAppFactory(
       plugins: ezPlugins,
     },
     envelop: {
-      plugins: [...(rawOptions.envelop?.plugins || [])],
-      presets: rawOptions.envelop?.presets || [],
+      plugins: envelopPlugins,
+      presets: envelopPresets,
     },
   };
   const baseAppBuilder: BaseAppBuilder = {
@@ -85,9 +103,7 @@ export function createEZAppFactory(
       preBuild?.(ctx),
     ]);
 
-    const envelopPlugins = uniqueArray(options.envelop.plugins);
-
-    envelopPlugins.unshift(...toPlural(options.envelop.presets).map(useEnvelop));
+    envelopPlugins.unshift(...envelopPresets.map(useEnvelop));
 
     const getEnveloped = envelop({
       plugins: envelopPlugins,
