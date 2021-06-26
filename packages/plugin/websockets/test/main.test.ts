@@ -9,7 +9,7 @@ import {
   PingSubscriptionDocument,
   CommonSchema,
   PingSubscription,
-} from '@graphql-ez/testing';
+} from 'graphql-ez-testing';
 import { ezWebSockets } from '../src/index';
 
 async function checkSubscription(

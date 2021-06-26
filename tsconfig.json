@@ -7,6 +7,8 @@
     "rootDir": ".",
     "jsx": "preserve",
     "strict": true,
+    "allowJs": true,
+    "checkJs": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noImplicitReturns": true,
@@ -21,8 +23,8 @@
       "@graphql-ez/core-utils": ["packages/core/utils/src/index.ts"],
       "@graphql-ez/core-types": ["packages/core/types/src/index.ts"],
       "@graphql-ez/core": ["packages/core/app/src/index.ts"],
-      "@graphql-ez/testing/*": ["internal/testing/src/*"],
-      "@graphql-ez/testing": ["internal/testing/src/index.ts"],
+      "graphql-ez-testing/*": ["internal/testing/src/*"],
+      "graphql-ez-testing": ["internal/testing/src/index.ts"],
       "@graphql-ez/fastify": ["packages/fastify/main/src/index.ts"],
       "@graphql-ez/express": ["packages/express/main/src/index.ts"],
       "@graphql-ez/hapi": ["packages/hapi/main/src/index.ts"],
@@ -34,6 +36,6 @@
     },
     "importsNotUsedAsValues": "error"
   },
-  "exclude": ["**/dist", "**/website"],
+  "exclude": ["**/dist", "**/website", "**/coverage", "**/.next"],
   "include": ["packages", "internal", "bob-esbuild.config.ts"]
 }

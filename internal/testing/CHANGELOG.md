@@ -1,6 +1,7 @@
-# @graphql-ez/testing
+# graphql-ez-testing
 
 ## 1.0.0
+
 ### Patch Changes
 
 - Updated dependencies [28ca48d]

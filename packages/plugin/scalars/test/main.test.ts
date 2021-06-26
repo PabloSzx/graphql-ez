@@ -1,6 +1,6 @@
 import { buildClientSchema, getIntrospectionQuery, IntrospectionQuery, printSchema } from 'graphql';
 
-import { CommonSchema, startFastifyServer } from '@graphql-ez/testing';
+import { CommonSchema, startFastifyServer } from 'graphql-ez-testing';
 
 import { ezScalars } from '../src';
 

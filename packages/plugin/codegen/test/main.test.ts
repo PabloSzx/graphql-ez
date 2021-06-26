@@ -2,7 +2,7 @@ import { outputFile, readFile } from 'fs-extra';
 import { resolve } from 'path';
 import tmp from 'tmp-promise';
 
-import { CommonSchema, createDeferredPromise, LazyPromise, startFastifyServer, TearDownPromises } from '@graphql-ez/testing';
+import { CommonSchema, createDeferredPromise, LazyPromise, startFastifyServer, TearDownPromises } from 'graphql-ez-testing';
 
 import { ezCodegen } from '../src';
 

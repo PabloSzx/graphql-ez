@@ -8,9 +8,10 @@ const rootPath = resolve(__dirname, '../../../');
 
 export function getConfig({
   nextjs,
+  ...rest
 }: {
   nextjs?: string[];
-} = {}): Config.InitialOptions {
+} & Config.InitialOptions = {}): Config.InitialOptions {
   const prefix = `<rootDir>/${relative(process.cwd(), rootPath)}`;
 
   if (nextjs) {
@@ -48,5 +49,6 @@ export function getConfig({
     collectCoverage: true,
     globalSetup: nextjs ? './setup-test.js' : undefined,
     watchman: false,
+    ...rest,
   };
 }

@@ -1,7 +1,7 @@
 import { resolve } from 'path';
 
 import { ezCodegen } from '@graphql-ez/plugin-codegen';
-import { CommonSchema, createDeferredPromise, gql, startFastifyServer } from '@graphql-ez/testing';
+import { CommonSchema, createDeferredPromise, gql, startFastifyServer } from 'graphql-ez-testing';
 
 import { ezDataLoader, InferDataLoader, RegisteredDataLoader } from '../src';
 

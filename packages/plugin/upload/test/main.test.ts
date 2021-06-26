@@ -7,7 +7,7 @@ import {
   startExpressServer,
   startFastifyServer,
   startKoaServer,
-} from '@graphql-ez/testing';
+} from 'graphql-ez-testing';
 
 import { ezUpload } from '../src/index';
 

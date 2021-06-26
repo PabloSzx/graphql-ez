@@ -1,3 +1,5 @@
-const { getConfig } = require('@graphql-ez/testing/jestConfig');
+const { getConfig } = require('graphql-ez-testing/jestConfig');
 
-module.exports = getConfig();
+module.exports = getConfig({
+  testTimeout: 15000,
+});

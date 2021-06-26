@@ -7,7 +7,7 @@ import {
   startHTTPServer,
   startKoaServer,
   startNextJSServer,
-} from '@graphql-ez/testing';
+} from 'graphql-ez-testing';
 
 import { ezVoyager } from '../src';
 
