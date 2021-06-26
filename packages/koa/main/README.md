@@ -1,3 +1,3 @@
 # @graphql-ez/koa
 
-Please check https://github.com/PabloSzx/graphql-ez
+Check https://www.graphql-ez.com for more information

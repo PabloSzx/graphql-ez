@@ -2,4 +2,4 @@
 
 Integration with [Altair GraphQL Client IDE](https://altair.sirmuel.design/)
 
-Please check https://github.com/PabloSzx/graphql-ez
+Check https://www.graphql-ez.com for more information

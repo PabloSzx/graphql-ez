@@ -2,4 +2,4 @@
 
 Integration with [GraphQL Upload](https://github.com/jaydenseric/graphql-upload)
 
-Please check https://github.com/PabloSzx/graphql-ez
+Check https://www.graphql-ez.com for more information

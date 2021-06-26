@@ -2,4 +2,4 @@
 
 Integration with [GraphQL Modules](https://www.graphql-modules.com/)
 
-Please check https://github.com/PabloSzx/graphql-ez
+Check https://www.graphql-ez.com for more information
