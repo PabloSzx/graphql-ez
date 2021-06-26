@@ -5,6 +5,7 @@ import { ezGraphiQLIDE } from '@graphql-ez/plugin-graphiql';
 import { ezGraphQLModules } from '@graphql-ez/plugin-modules';
 import { ezScalars } from '@graphql-ez/plugin-scalars';
 import { ezUpload } from '@graphql-ez/plugin-upload';
+import { ezVoyager } from '@graphql-ez/plugin-voyager';
 import { ezWebSockets } from '@graphql-ez/plugin-websockets';
 
 function buildContext({ req }: BuildContextArgs) {
@@ -41,6 +42,13 @@ export const { registerModule, buildApp } = CreateApp({
       ezAltairIDE(),
       ezGraphiQLIDE(),
       ezWebSockets('adaptive'),
+      ezVoyager({
+        displayOptions: {
+          sortByAlphabet: true,
+        },
+        headers: {},
+        credentials: 'include',
+      }),
     ],
   },
   schema: {

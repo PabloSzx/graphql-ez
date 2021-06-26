@@ -1,0 +1,50 @@
+{
+  "name": "@graphql-ez/plugin-voyager",
+  "version": "0.0.1",
+  "homepage": "https://www.graphql-ez.com",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/PabloSzx/graphql-ez",
+    "directory": "packages/plugin/voyager"
+  },
+  "license": "MIT",
+  "author": "PabloSz <pablosaez1995@gmail.com>",
+  "exports": {
+    ".": {
+      "require": "./dist/index.js",
+      "import": "./dist/index.mjs"
+    },
+    "./*": {
+      "require": "./dist/*.js",
+      "import": "./dist/*.mjs"
+    }
+  },
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "dev": "bob-esbuild watch",
+    "prepare": "bob-esbuild build",
+    "postpublish": "gh-release",
+    "test": "jest"
+  },
+  "dependencies": {
+    "@graphql-ez/core-types": "workspace:^0.2.3",
+    "@graphql-ez/core-utils": "workspace:^0.2.1"
+  },
+  "devDependencies": {
+    "@types/node": "^15.12.4",
+    "bob-esbuild-cli": "^0.1.27",
+    "changesets-github-release": "^0.0.3",
+    "graphql-voyager": "^1.0.0-rc.31",
+    "jest": "^27.0.5",
+    "next": "^11.0.1",
+    "ts-jest": "^27.0.3"
+  },
+  "engines": {
+    "node": "^12.20.0 || ^14.13.0 || >=15.0.0"
+  },
+  "publishConfig": {
+    "directory": "dist"
+  }
+}
