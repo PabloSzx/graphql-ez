@@ -49,6 +49,7 @@ export function getConfig({
     collectCoverage: true,
     globalSetup: nextjs ? './setup-test.js' : undefined,
     watchman: false,
+    testTimeout: 10000,
     ...rest,
   };
 }
