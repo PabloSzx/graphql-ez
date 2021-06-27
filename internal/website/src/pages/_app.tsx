@@ -95,6 +95,13 @@ function AppContent(appProps: AppProps) {
             href: '/docs',
             onClick: e => handlePushRoute('/docs', e),
           },
+          {
+            children: 'GitHub',
+            href: 'https://github.com/PabloSzx/graphql-ez',
+            target: '_blank',
+            rel: 'noopener norefereer',
+            title: "Head to the project's GitHub",
+          },
         ]}
         cta={{
           children: 'Get Started',

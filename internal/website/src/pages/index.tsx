@@ -1,6 +1,6 @@
 import Image from 'next/image';
 
-import { Box, Heading, HStack, Link, Text, useColorModeValue } from '@chakra-ui/react';
+import { Box, Heading, HStack, Image as ChakraImage, Link, Text, useColorModeValue, VStack } from '@chakra-ui/react';
 import { ClassNames } from '@emotion/react';
 import { handlePushRoute } from '@guild-docs/client';
 import { HeroGradient, InfoList } from '@theguild/components';
@@ -12,6 +12,18 @@ import KoaLogo from '../../public/koa-logo.png';
 import NextjsLogo from '../../public/nextjs-logo.png';
 import NodeLogo from '../../public/nodejs-logo.png';
 
+function ItemDescription({ description, packageName }: { description: string; packageName: string }) {
+  const encodedPackage = encodeURIComponent(packageName);
+  return (
+    <VStack height="100%" align="flex-start" justify="space-around">
+      <Text fontSize={description.length > 80 ? '0.8em !important' : undefined}>{description}</Text>
+      <Link alignSelf="flex-end" justifySelf="flex-end" href={`https://www.npmjs.com/package/${encodedPackage}`} target="_blank">
+        <ChakraImage src={`https://badge.fury.io/js/${encodedPackage}.svg`} alt="npm version" height="18" />
+      </Link>
+    </VStack>
+  );
+}
+
 function IntegrationItemTitle({
   name,
   logoSrc,
@@ -22,7 +34,7 @@ function IntegrationItemTitle({
   integrationWebsite: string;
 }) {
   return (
-    <HStack spacing="1.1em" justifyContent="space-around !important">
+    <HStack spacing="1.1em" justifyContent="space-around">
       <Heading as="h3">{name}</Heading>
       <Box
         as="a"
@@ -74,6 +86,11 @@ export default function Index() {
               onClick: e => handlePushRoute('/docs', e),
             }}
             colors={['#000000', '#1CC8EE']}
+            version={
+              <a href="https://www.npmjs.com/package/graphql-ez" target="_blank">
+                <img src="https://badge.fury.io/js/graphql-ez.svg" alt="npm version" height="18" />
+              </a>
+            }
           />
 
           <InfoList
@@ -93,8 +110,10 @@ export default function Index() {
                   transition: box-shadow 0.5s;
                   border-radius: 10px;
                   margin: 0.3rem;
-                  padding: 0.5rem;
+                  padding: 1rem;
                   max-width: 300px;
+                  height: 250px;
+                  overflow-y: hidden;
                 }
 
                 article:hover {
@@ -107,12 +126,21 @@ export default function Index() {
                 div {
                   justify-content: space-between;
                 }
+
+                a {
+                  font-weight: bold;
+                }
               `,
             }}
             items={[
               {
                 title: <IntegrationItemTitle name="Fastify" integrationWebsite="https://fastify.io" logoSrc={FastifyLogo} />,
-                description: 'Fast and low overhead web framework, for Node.js',
+                description: (
+                  <ItemDescription
+                    description="Fast and low overhead web framework, for Node.js"
+                    packageName="@graphql-ez/fastify"
+                  />
+                ),
                 link: {
                   href: '/docs/fastify',
                   title: 'Fastify Docs',
@@ -122,7 +150,12 @@ export default function Index() {
               },
               {
                 title: <IntegrationItemTitle name="Express" integrationWebsite="https://expressjs.com/" logoSrc={ExpressLogo} />,
-                description: 'Fast, unopinionated, minimalist web framework for Node.js',
+                description: (
+                  <ItemDescription
+                    description="Fast, unopinionated, minimalist web framework for Node.js"
+                    packageName="@graphql-ez/express"
+                  />
+                ),
                 link: {
                   href: '/docs/express',
                   title: 'Express Docs',
@@ -132,7 +165,12 @@ export default function Index() {
               },
               {
                 title: <IntegrationItemTitle name="Hapi" integrationWebsite="https://hapi.dev/" logoSrc={HapiLogo} />,
-                description: 'Build powerful, scalable applications, with minimal overhead and full out-of-the-box functionality',
+                description: (
+                  <ItemDescription
+                    description="Build powerful, scalable applications, with minimal overhead and full out-of-the-box functionality"
+                    packageName="@graphql-ez/hapi"
+                  />
+                ),
                 link: {
                   href: '/docs/hapi',
                   title: 'Hapi Docs',
@@ -142,7 +180,9 @@ export default function Index() {
               },
               {
                 title: <IntegrationItemTitle name="Koa" integrationWebsite="https://koajs.com/" logoSrc={KoaLogo} />,
-                description: 'Next generation web framework for Node.js',
+                description: (
+                  <ItemDescription description="Next generation web framework for Node.js" packageName="@graphql-ez/koa" />
+                ),
                 link: {
                   href: '/docs/koa',
                   title: 'Koa Docs',
@@ -158,7 +198,7 @@ export default function Index() {
                     logoSrc={NodeLogo}
                   />
                 ),
-                description: 'Core Node.js HTTP server',
+                description: <ItemDescription description="Core Node.js HTTP server" packageName="@graphql-ez/http" />,
                 link: {
                   href: '/docs/http',
                   title: 'HTTP Docs',
@@ -174,7 +214,9 @@ export default function Index() {
                     logoSrc={NextjsLogo}
                   />
                 ),
-                description: 'The React Framework for Production',
+                description: (
+                  <ItemDescription description="The React Framework for Production" packageName="@graphql-ez/nextjs" />
+                ),
                 link: {
                   href: '/docs/nextjs',
                   title: 'Next.js Docs',
