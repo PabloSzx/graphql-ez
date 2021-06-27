@@ -22,7 +22,7 @@
     "dev:cjs:hapi": "pnpm -r --filter @graphql-ez/hapi dev -- --onSuccess \"cross-env PORT=3003 pnpm -r --filter example-complete-hapi dev:cjs -- --silent\"",
     "dev:cjs:http": "pnpm -r --filter @graphql-ez/express dev -- --onSuccess \"cross-env PORT=3004 pnpm -r --filter example-complete-http dev:cjs -- --silent\"",
     "dev:cjs:koa": "pnpm -r --filter @graphql-ez/express dev -- --onSuccess \"cross-env PORT=3005 pnpm -r --filter example-complete-koa dev:cjs -- --silent\"",
-    "dev:core": "pnpm -r --filter \"@graphql-ez/core-*\" --filter \"@graphql-ez/plugin-*\" --no-sort dev",
+    "dev:core": "pnpm -r --filter \"graphql-ez\" --filter \"@graphql-ez/plugin-*\" --no-sort dev",
     "dev:mjs": "pnpm -w dev:mjs:all",
     "dev:mjs:all": "bob-esbuild tsc && concurrently pnpm:dev:core pnpm:dev:mjs:express pnpm:dev:mjs:fastify pnpm:dev:mjs:http pnpm:dev:mjs:koa pnpm:dev:mjs:hapi pnpm:dev:next",
     "dev:mjs:express": "pnpm -r --filter @graphql-ez/express dev -- --onSuccess \"cross-env PORT=3001 pnpm -r --filter example-complete-express dev:mjs -- --silent\"",
@@ -38,15 +38,17 @@
   },
   "devDependencies": {
     "@changesets/cli": "2.16.0",
-    "graphql-ez-testing": "workspace:^1.0.0",
+    "@types/node": "^15.12.5",
     "bob-esbuild": "^0.1.27",
     "bob-esbuild-cli": "^0.1.27",
     "concurrently": "6.2.0",
     "cross-env": "7.0.3",
     "esbuild": "^0.12.9",
+    "graphql-ez-testing": "workspace:^1.0.0",
     "husky": "6.0.0",
     "prettier": "2.3.2",
-    "pretty-quick": "3.1.1"
+    "pretty-quick": "3.1.1",
+    "typescript": "^4.3.4"
   },
   "engines": {
     "pnpm": ">=6.7.1",

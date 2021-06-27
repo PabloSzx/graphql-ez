@@ -1,6 +1,6 @@
-import { withTrailingSlash } from '@graphql-ez/core-utils/url';
+import { withTrailingSlash } from 'graphql-ez/utils/url';
 
-import type { InternalAppBuildContext, InternalAppBuildIntegrationContext } from '@graphql-ez/core';
+import type { InternalAppBuildContext, InternalAppBuildIntegrationContext } from 'graphql-ez';
 
 export function handleExpress(
   ctx: InternalAppBuildContext,

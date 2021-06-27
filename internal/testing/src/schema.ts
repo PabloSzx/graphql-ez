@@ -1,5 +1,5 @@
 import { makeExecutableSchema } from '@graphql-tools/schema';
-import { gql } from '@graphql-ez/core-utils/gql';
+import { gql } from 'graphql-ez/utils/gql';
 import { createModule } from 'graphql-modules';
 
 export type {} from 'graphql';

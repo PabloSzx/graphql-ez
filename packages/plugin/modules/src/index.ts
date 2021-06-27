@@ -1,12 +1,12 @@
 import { createApplication, createModule } from 'graphql-modules';
 
 import { useGraphQLModules } from '@envelop/graphql-modules';
-import { gql } from '@graphql-ez/core-utils/gql';
-import { toPlural } from '@graphql-ez/core-utils/object';
-import { LazyPromise } from '@graphql-ez/core-utils/promise';
+import { gql } from 'graphql-ez/utils/gql';
+import { toPlural } from 'graphql-ez/utils/object';
+import { LazyPromise } from 'graphql-ez/utils/promise';
 import { isDocumentNode } from '@graphql-tools/utils';
 
-import type { EZResolvers, EZPlugin, Plugin as EnvelopPlugin } from '@graphql-ez/core-types';
+import type { EZResolvers, EZPlugin, Plugin as EnvelopPlugin } from 'graphql-ez';
 import type { ModuleConfig, Module, TypeDefs, Application, ApplicationConfig } from 'graphql-modules';
 
 export type EnvelopModuleConfig = Omit<ModuleConfig, 'typeDefs' | 'id' | 'resolvers'> & {
@@ -20,7 +20,7 @@ export type EnvelopModuleConfig = Omit<ModuleConfig, 'typeDefs' | 'id' | 'resolv
   autoAdd?: boolean;
 };
 
-declare module '@graphql-ez/core-types' {
+declare module 'graphql-ez/types' {
   interface BaseAppBuilder {
     registerModule: RegisterModule;
   }

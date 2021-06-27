@@ -1,10 +1,10 @@
-import { getObjectValue } from '@graphql-ez/core-utils/object';
-import { LazyPromise } from '@graphql-ez/core-utils/promise';
-import { withoutTrailingSlash, withTrailingSlash } from '@graphql-ez/core-utils/url';
+import { getObjectValue } from 'graphql-ez/utils/object';
+import { LazyPromise } from 'graphql-ez/utils/promise';
+import { withoutTrailingSlash, withTrailingSlash } from 'graphql-ez/utils/url';
 
 import { onIntegrationRegister } from './integrations';
 
-import type { EZPlugin, PickRequired } from '@graphql-ez/core-types';
+import type { EZPlugin, PickRequired } from 'graphql-ez';
 import type { RenderOptions } from 'altair-static';
 import type { AltairOptions, HandlerConfig, IDEHandler } from './types';
 

@@ -1,8 +1,8 @@
-import { getObjectValue } from '@graphql-ez/core-utils/object';
+import { getObjectValue } from './utils/object';
 
 import type { ParserCacheOptions } from '@envelop/parser-cache';
 import type { ValidationCacheOptions } from '@envelop/validation-cache';
-import type { EZPlugin } from '@graphql-ez/core-types';
+import type { EZPlugin } from './types';
 
 export type CacheOptions =
   | boolean
@@ -19,7 +19,7 @@ export type CacheOptions =
       validation?: boolean | ValidationCacheOptions;
     };
 
-declare module '@graphql-ez/core-types' {
+declare module './types' {
   interface AppOptions {
     /**
      * Enable/Disable/Configure in-memory cache that improves performance

@@ -1,4 +1,4 @@
-import type { EZPlugin } from '@graphql-ez/core-types';
+import type { EZPlugin } from 'graphql-ez';
 
 export const onIntegrationRegister: NonNullable<EZPlugin['onIntegrationRegister']> = async (ctx, integrationCtx) => {
   if (!ctx.graphiql) return;

@@ -1,7 +1,7 @@
 import getPort from 'get-port';
 import { resolve } from 'path';
 
-import { LazyPromise, PLazy } from '@graphql-ez/core-utils/promise';
+import { LazyPromise, PLazy } from 'graphql-ez/utils/promise';
 
 import { TearDownPromises } from './common';
 import { getRequestPool } from './request';
@@ -14,7 +14,7 @@ import {
 
 export * from './ws';
 
-import type { BuildAppOptions, AppOptions } from '@graphql-ez/core-types';
+import type { BuildAppOptions, AppOptions } from 'graphql-ez';
 
 export * from './upload';
 export * from './schema';
@@ -352,5 +352,5 @@ export type {} from 'graphql';
 export type {} from '@graphql-typed-document-node/core';
 export type {} from 'undici/types/dispatcher';
 
-export * from '@graphql-ez/core-utils';
+export * from 'graphql-ez';
 export * from './common';

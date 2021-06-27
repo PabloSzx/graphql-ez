@@ -3,8 +3,8 @@ import { resolve } from 'path';
 
 import { printSchemaWithDirectives, Loader, SingleFileOptions } from '@graphql-tools/utils';
 
-import { cleanObject } from '@graphql-ez/core-utils/object';
-import { LazyPromise } from '@graphql-ez/core-utils/promise';
+import { cleanObject } from 'graphql-ez/utils/object';
+import { LazyPromise } from 'graphql-ez/utils/promise';
 import { formatPrettier } from './prettier';
 import { writeFileIfChanged } from './write';
 
@@ -14,7 +14,7 @@ import type { LoadTypedefsOptions, UnnormalizedTypeDefPointer } from '@graphql-t
 import type { TypeScriptPluginConfig } from '@graphql-codegen/typescript';
 import type { TypeScriptResolversPluginConfig } from '@graphql-codegen/typescript-resolvers/config';
 
-import type { InternalAppBuildContext } from '@graphql-ez/core-types';
+import type { InternalAppBuildContext } from 'graphql-ez';
 
 export interface CodegenDocumentsConfig {
   /**

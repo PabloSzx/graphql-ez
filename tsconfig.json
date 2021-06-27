@@ -19,20 +19,17 @@
     "forceConsistentCasingInFileNames": true,
     "baseUrl": "./",
     "paths": {
-      "@graphql-ez/core-utils/*": ["packages/core/utils/src/*"],
-      "@graphql-ez/core-utils": ["packages/core/utils/src/index.ts"],
-      "@graphql-ez/core-types": ["packages/core/types/src/index.ts"],
-      "@graphql-ez/core": ["packages/core/app/src/index.ts"],
+      "graphql-ez": ["packages/core/main/src/index.ts"],
+      "graphql-ez/*": ["packages/core/main/src/*"],
       "graphql-ez-testing/*": ["internal/testing/src/*"],
       "graphql-ez-testing": ["internal/testing/src/index.ts"],
+      "@graphql-ez/plugin-*": ["packages/plugin/*/src/index.ts"],
       "@graphql-ez/fastify": ["packages/fastify/main/src/index.ts"],
       "@graphql-ez/express": ["packages/express/main/src/index.ts"],
-      "@graphql-ez/hapi": ["packages/hapi/main/src/index.ts"],
       "@graphql-ez/koa": ["packages/koa/main/src/index.ts"],
-      "@graphql-ez/http": ["packages/http/main/src/index.ts"],
+      "@graphql-ez/hapi": ["packages/hapi/main/src/index.ts"],
       "@graphql-ez/nextjs": ["packages/nextjs/main/src/index.ts"],
-      "@graphql-ez/plugin-codegen": ["packages/plugin/codegen/src/index.ts"],
-      "@graphql-ez/plugin-upload": ["packages/plugin/upload/src/index.ts"]
+      "@graphql-ez/http": ["packages/http/main/src/index.ts"]
     },
     "importsNotUsedAsValues": "error"
   },

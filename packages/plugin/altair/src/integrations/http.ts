@@ -1,4 +1,4 @@
-import type { InternalAppBuildContext, InternalAppBuildIntegrationContext } from '@graphql-ez/core';
+import type { InternalAppBuildContext, InternalAppBuildIntegrationContext } from 'graphql-ez';
 
 export function handleHttp(ctx: InternalAppBuildContext, instance: NonNullable<InternalAppBuildIntegrationContext['http']>) {
   if (!ctx.altair) return;

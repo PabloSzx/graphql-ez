@@ -1,11 +1,11 @@
-import { getObjectValue } from '@graphql-ez/core-utils/object';
-import { LazyPromise } from '@graphql-ez/core-utils/promise';
+import { getObjectValue } from 'graphql-ez/utils/object';
+import { LazyPromise } from 'graphql-ez/utils/promise';
 
 import { onIntegrationRegister } from './integrations';
 
 import type { IncomingMessage, ServerResponse } from 'http';
 import type { RenderGraphiQLOptions } from 'graphql-helix/dist/types';
-import type { EZPlugin } from '@graphql-ez/core-types';
+import type { EZPlugin } from 'graphql-ez';
 
 export interface GraphiQLOptions extends RenderGraphiQLOptions {
   /**
@@ -20,7 +20,7 @@ export interface GraphiQLOptions extends RenderGraphiQLOptions {
   endpoint?: string;
 }
 
-declare module '@graphql-ez/core-types' {
+declare module 'graphql-ez/types' {
   interface InternalAppBuildContext {
     graphiql?: {
       path: string;

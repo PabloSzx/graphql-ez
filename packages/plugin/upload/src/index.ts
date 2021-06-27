@@ -1,15 +1,15 @@
 import assert from 'assert';
 
-import { gql } from '@graphql-ez/core-utils/gql';
-import { getObjectValue } from '@graphql-ez/core-utils/object';
-import { LazyPromise } from '@graphql-ez/core-utils/promise';
+import { gql } from 'graphql-ez/utils/gql';
+import { getObjectValue } from 'graphql-ez/utils/object';
+import { LazyPromise } from 'graphql-ez/utils/promise';
 
-import type { EZPlugin } from '@graphql-ez/core-types';
+import type { EZPlugin } from 'graphql-ez';
 import type { UploadOptions, processRequest, graphqlUploadExpress, graphqlUploadKoa, GraphQLUpload } from 'graphql-upload';
 
 export type GraphQLUploadConfig = boolean | UploadOptions;
 
-declare module '@graphql-ez/core-types' {
+declare module 'graphql-ez/types' {
   interface InternalAppBuildContext {
     GraphQLUpload?: {
       options: UploadOptions;

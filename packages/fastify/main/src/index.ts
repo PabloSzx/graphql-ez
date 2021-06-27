@@ -1,12 +1,12 @@
-import { BaseAppBuilder, createEZAppFactory, handleRequest } from '@graphql-ez/core';
-import { getObjectValue } from '@graphql-ez/core-utils/object';
-import { LazyPromise } from '@graphql-ez/core-utils/promise';
+import { BaseAppBuilder, createEZAppFactory, handleRequest } from 'graphql-ez';
+import { getObjectValue } from 'graphql-ez/utils/object';
+import { LazyPromise } from 'graphql-ez/utils/promise';
 
 import type { FastifyPluginCallback, FastifyInstance, RouteOptions, FastifyRequest, FastifyReply } from 'fastify';
-import type { BuildAppOptions, AppOptions, EZAppFactoryType, Envelop } from '@graphql-ez/core-types';
+import type { BuildAppOptions, AppOptions, EZAppFactoryType, Envelop } from 'graphql-ez';
 import type { FastifyCorsOptions, FastifyCorsOptionsDelegate, FastifyPluginOptionsDelegate } from 'fastify-cors';
 
-declare module '@graphql-ez/core-types' {
+declare module 'graphql-ez/types' {
   interface BuildContextArgs {
     fastify?: {
       request: FastifyRequest;
@@ -149,5 +149,4 @@ export function CreateApp(config: FastifyAppOptions = {}): EZAppBuilder {
   };
 }
 
-export * from '@graphql-ez/core';
-export * from '@graphql-ez/core-utils';
+export * from 'graphql-ez';

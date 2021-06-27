@@ -7,11 +7,11 @@ import {
   EZAppFactoryType,
   handleRequest,
   InternalAppBuildIntegrationContext,
-} from '@graphql-ez/core';
+} from 'graphql-ez';
 
 import type { Request, ResponseToolkit, Plugin, Server, Lifecycle, RouteOptionsCors, RouteOptions } from '@hapi/hapi';
 
-declare module '@graphql-ez/core-types' {
+declare module 'graphql-ez/types' {
   interface BuildContextArgs {
     hapi?: {
       request: Request;
@@ -156,5 +156,4 @@ export function CreateApp(config: HapiAppOptions = {}): EZAppBuilder {
   };
 }
 
-export * from '@graphql-ez/core';
-export * from '@graphql-ez/core-utils';
+export * from 'graphql-ez';

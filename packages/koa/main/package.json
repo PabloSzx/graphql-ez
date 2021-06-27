@@ -29,8 +29,6 @@
     "test": "jest"
   },
   "dependencies": {
-    "@graphql-ez/core": "workspace:^0.2.4",
-    "@graphql-ez/core-utils": "workspace:^0.2.2",
     "@koa/cors": "^3.1.0",
     "@types/koa-bodyparser": "^4.3.1",
     "@types/koa__cors": "^3.0.2",
@@ -41,12 +39,13 @@
     "@types/eventsource": "1.1.5",
     "@types/koa": "2.13.3",
     "@types/koa__router": "8.0.4",
-    "@types/node": "15.12.4",
+    "@types/node": "^15.12.5",
     "bob-esbuild-cli": "^0.1.27",
     "changesets-github-release": "0.0.3",
     "eventsource": "1.1.0",
     "got": "11.8.2",
     "graphql": "15.4.0-experimental-stream-defer.1",
+    "graphql-ez": "workspace:^0.3.0",
     "jest": "27.0.5",
     "koa": "2.13.1",
     "ts-jest": "27.0.3",
@@ -58,6 +57,7 @@
     "@types/koa__router": "*",
     "@types/node": "*",
     "graphql": "*",
+    "graphql-ez": "workspace:^0.3.0",
     "koa": "*"
   },
   "peerDependenciesMeta": {

@@ -30,8 +30,6 @@
   },
   "dependencies": {
     "@envelop/graphql-modules": "^0.2.0",
-    "@graphql-ez/core-types": "workspace:^0.2.4",
-    "@graphql-ez/core-utils": "workspace:^0.2.2",
     "@graphql-tools/utils": "^7.10.0",
     "graphql-modules": "^1.4.3"
   },
@@ -39,11 +37,13 @@
     "bob-esbuild-cli": "^0.1.27",
     "changesets-github-release": "^0.0.3",
     "graphql": "15.4.0-experimental-stream-defer.1",
+    "graphql-ez": "workspace:^0.3.0",
     "jest": "^27.0.5",
     "ts-jest": "^27.0.3"
   },
   "peerDependencies": {
-    "graphql": "*"
+    "graphql": "*",
+    "graphql-ez": "workspace:^0.3.0"
   },
   "peerDependenciesMeta": {
     "graphql": {

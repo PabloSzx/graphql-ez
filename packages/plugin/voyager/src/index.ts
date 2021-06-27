@@ -1,10 +1,10 @@
-import { getObjectValue } from '@graphql-ez/core-utils/object';
-import { LazyPromise } from '@graphql-ez/core-utils/promise';
+import { getObjectValue } from 'graphql-ez/utils/object';
+import { LazyPromise } from 'graphql-ez/utils/promise';
 
 import { onIntegrationRegister } from './integrations';
 
 import type { IncomingMessage, ServerResponse } from 'http';
-import type { EZPlugin } from '@graphql-ez/core-types';
+import type { EZPlugin } from 'graphql-ez';
 import type { RenderVoyagerOptions } from './render';
 
 export interface VoyagerPluginOptions extends VoyagerOptions {
@@ -18,7 +18,7 @@ export interface VoyagerOptions extends RenderVoyagerOptions {
   transformHtml?: (html: string) => string;
 }
 
-declare module '@graphql-ez/core-types' {
+declare module 'graphql-ez/types' {
   interface InternalAppBuildContext {
     voyager?: {
       path: string;

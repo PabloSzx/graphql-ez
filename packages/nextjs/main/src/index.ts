@@ -8,11 +8,11 @@ import {
   handleRequest,
   InternalAppBuildIntegrationContext,
   LazyPromise,
-} from '@graphql-ez/core';
+} from 'graphql-ez';
 
 import type { NextApiRequest, NextApiResponse, NextApiHandler } from 'next';
 
-declare module '@graphql-ez/core-types' {
+declare module 'graphql-ez/types' {
   interface BuildContextArgs {
     next?: {
       req: NextApiRequest;
@@ -157,5 +157,4 @@ export function CreateApp(config: NextAppOptions = {}): EZAppBuilder {
   };
 }
 
-export * from '@graphql-ez/core';
-export * from '@graphql-ez/core-utils';
+export * from 'graphql-ez';

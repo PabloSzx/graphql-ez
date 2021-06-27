@@ -1,6 +1,6 @@
-import { toPlural } from '@graphql-ez/core-utils/object';
+import { toPlural } from 'graphql-ez/utils/object';
 
-import type { EZPlugin } from '@graphql-ez/core-types';
+import type { EZPlugin } from 'graphql-ez';
 import type { CodegenConfig } from './typescript';
 
 export interface CodegenOptions {
@@ -27,7 +27,7 @@ export interface CodegenOptions {
   outputSchema?: boolean | string | string[];
 }
 
-declare module '@graphql-ez/core-types' {
+declare module 'graphql-ez/types' {
   interface InternalAppBuildContext {
     codegen?: CodegenOptions;
   }

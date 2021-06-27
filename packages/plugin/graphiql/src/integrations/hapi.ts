@@ -1,4 +1,4 @@
-import type { InternalAppBuildContext, InternalAppBuildIntegrationContext } from '@graphql-ez/core-types';
+import type { InternalAppBuildContext, InternalAppBuildIntegrationContext } from 'graphql-ez';
 
 export function handleHapi(ctx: InternalAppBuildContext, instance: NonNullable<InternalAppBuildIntegrationContext['hapi']>) {
   if (!ctx.graphiql) return;

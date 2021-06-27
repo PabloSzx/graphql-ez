@@ -1,6 +1,6 @@
-import { withoutTrailingSlash } from '@graphql-ez/core-utils/url';
+import { withoutTrailingSlash } from 'graphql-ez/utils/url';
 
-import type { InternalAppBuildContext, InternalAppBuildIntegrationContext } from '@graphql-ez/core';
+import type { InternalAppBuildContext, InternalAppBuildIntegrationContext } from 'graphql-ez';
 
 export function handleKoa(ctx: InternalAppBuildContext, instance: NonNullable<InternalAppBuildIntegrationContext['koa']>) {
   if (!ctx.altair) return;

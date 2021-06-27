@@ -1,7 +1,7 @@
 import { CommonData, handleUpgrade } from '../core';
 import { createServer } from 'http';
 
-import type { InternalAppBuildIntegrationContext } from '@graphql-ez/core-types';
+import type { InternalAppBuildIntegrationContext } from 'graphql-ez';
 
 export function handleKoa(instance: NonNullable<InternalAppBuildIntegrationContext['koa']>, { path, wsTuple }: CommonData) {
   const server = createServer(instance.app.callback());

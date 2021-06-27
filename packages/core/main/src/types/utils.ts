@@ -1,6 +1,7 @@
 export type PromiseType<T> = T extends PromiseLike<infer U> ? U : T;
 
 export type InferFunctionReturn<TFunction extends (...args: any) => any> = PromiseType<ReturnType<TFunction>>;
+export type InferContext<TFunction extends (...args: any) => any> = PromiseType<ReturnType<TFunction>>;
 
 export type PickRequired<T, TKey extends keyof T> = T & Required<Pick<T, TKey>>;
 

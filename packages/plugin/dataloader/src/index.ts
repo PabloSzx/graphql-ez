@@ -1,7 +1,7 @@
 import DataLoader from 'dataloader';
 import { useDataLoader } from '@envelop/dataloader';
 
-import type { EZPlugin, EZContext } from '@graphql-ez/core-types';
+import type { EZPlugin, EZContext } from 'graphql-ez';
 
 export type DataLoaderFn<K, V, C = K> = (DataLoaderClass: typeof DataLoader, context: EZContext) => DataLoader<K, V, C>;
 
@@ -15,7 +15,7 @@ export type RegisterDataLoader = <Name extends string, Key, Value, Cache = Key>(
   dataLoaderFactory: DataLoaderFn<Key, Value, Cache>
 ) => RegisteredDataLoader<Name, Key, Value, Cache>;
 
-declare module '@graphql-ez/core-types' {
+declare module 'graphql-ez/types' {
   interface BaseAppBuilder {
     registerDataLoader: RegisterDataLoader;
   }

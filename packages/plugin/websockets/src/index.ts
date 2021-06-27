@@ -1,7 +1,7 @@
 import assert from 'assert';
 
-import { cleanObject, getObjectValue } from '@graphql-ez/core-utils/object';
-import { LazyPromise } from '@graphql-ez/core-utils/promise';
+import { cleanObject, getObjectValue } from 'graphql-ez/utils/object';
+import { LazyPromise } from 'graphql-ez/utils/promise';
 
 import {
   CommonWebSocketsServerTuple,
@@ -18,7 +18,7 @@ import {
 import type WebSocket from 'ws';
 import type { Server as HttpServer } from 'http';
 
-import type { EZPlugin, InternalAppBuildContext, Envelop } from '@graphql-ez/core-types';
+import type { EZPlugin, InternalAppBuildContext, Envelop } from 'graphql-ez';
 
 export interface WebSocketObjectOptions {
   subscriptionsTransport?: FilteredSubscriptionsTransportOptions | boolean;
@@ -40,7 +40,7 @@ export type CommonWebSocketsServer = Promise<
 
 export type WebSocketsEnabledState = 'new' | 'adaptive' | 'legacy';
 
-declare module '@graphql-ez/core-types' {
+declare module 'graphql-ez/types' {
   interface BuildContextArgs {
     ws?: {
       socket: WebSocket;

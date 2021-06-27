@@ -6,7 +6,7 @@ import {
 } from 'subscriptions-transport-ws-envelop/client';
 import ws from 'ws';
 
-import { LazyPromise } from '@graphql-ez/core-utils/promise';
+import { LazyPromise } from 'graphql-ez/utils/promise';
 import { isDocumentNode } from '@graphql-tools/utils';
 
 import { TearDownPromises } from './common';

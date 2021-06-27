@@ -1,4 +1,4 @@
-import type { PickRequired } from '@graphql-ez/core';
+import type { PickRequired } from 'graphql-ez';
 import type { RenderOptions } from 'altair-static';
 import type { IncomingMessage, ServerResponse } from 'http';
 
@@ -27,7 +27,7 @@ export interface HandlerConfig {
   rawHttp?: boolean;
 }
 
-declare module '@graphql-ez/core-types' {
+declare module 'graphql-ez/types' {
   interface IDEOptions {
     altair?: AltairOptions | boolean;
   }

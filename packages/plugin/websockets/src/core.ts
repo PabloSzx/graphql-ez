@@ -1,5 +1,5 @@
-import { cleanObject } from '@graphql-ez/core-utils/object';
-import { getPathname } from '@graphql-ez/core-utils/url';
+import { cleanObject } from 'graphql-ez/utils/object';
+import { getPathname } from 'graphql-ez/utils/url';
 
 import type WebSocket from 'ws';
 import type { IncomingMessage, Server as HttpServer } from 'http';
@@ -7,7 +7,7 @@ import type { Socket } from 'net';
 import type { ServerOptions as SubscriptionsTransportOptions } from 'subscriptions-transport-ws-envelop/server';
 import type { ServerOptions as GraphQLWSOptions } from 'graphql-ws';
 import type { ExecutionArgs } from 'graphql';
-import type { AppOptions, Envelop } from '@graphql-ez/core-types';
+import type { AppOptions, Envelop } from 'graphql-ez';
 
 export type FilteredSubscriptionsTransportOptions = Omit<
   SubscriptionsTransportOptions,

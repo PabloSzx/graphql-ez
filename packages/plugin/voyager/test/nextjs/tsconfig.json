@@ -13,13 +13,14 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
-    "baseUrl": "../../../../",
+    "baseUrl": "../../../../../",
     "paths": {
-      "@graphql-ez/core-utils/*": ["core/utils/src/*"],
-      "@graphql-ez/core": ["core/app/src/index.ts"],
-      "@graphql-ez/core-types": ["core/types/src/index.ts"],
-      "@graphql-ez/core-utils": ["core/utils/src/index.ts"],
-      "@graphql-ez/nextjs": ["nextjs/main/src/index.ts"]
+      "graphql-ez": ["packages/core/main/src/index.ts"],
+      "graphql-ez/*": ["packages/core/main/src/*"],
+      "graphql-ez-testing/*": ["internal/testing/src/*"],
+      "graphql-ez-testing": ["internal/testing/src/index.ts"],
+      "@graphql-ez/plugin-*": ["packages/plugin/*/src/index.ts"],
+      "@graphql-ez/*": ["packages/*/main/src/index.ts"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "../../../../**/*.ts"],

@@ -10,12 +10,12 @@ import {
   handleRequest,
   InternalAppBuildIntegrationContext,
   LazyPromise,
-} from '@graphql-ez/core';
-import { getPathname } from '@graphql-ez/core-utils/url';
+} from 'graphql-ez';
+import { getPathname } from 'graphql-ez/utils/url';
 
 import type { ServerResponse, IncomingMessage, Server as HTTPServer } from 'http';
 
-declare module '@graphql-ez/core-types' {
+declare module 'graphql-ez/types' {
   interface BuildContextArgs {
     http?: {
       request: IncomingMessage;
@@ -226,5 +226,4 @@ export function CreateApp(config: HttpAppOptions = {}): EZAppBuilder {
   };
 }
 
-export * from '@graphql-ez/core';
-export * from '@graphql-ez/core-utils';
+export * from 'graphql-ez';

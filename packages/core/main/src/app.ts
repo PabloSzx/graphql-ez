@@ -1,6 +1,6 @@
 import { envelop, useEnvelop } from '@envelop/core';
-import { gql } from '@graphql-ez/core-utils/gql';
-import { toPlural } from '@graphql-ez/core-utils/object';
+import { gql } from './utils/gql';
+import { toPlural } from './utils/object';
 
 import { ezCache } from './cache';
 import { ezSchema } from './schema';
@@ -13,7 +13,7 @@ import type {
   EZAppFactoryType,
   AdapterFactoryContext,
   Envelop,
-} from '@graphql-ez/core-types';
+} from './types';
 
 export function createEZAppFactory(
   factoryCtx: AdapterFactoryContext,
@@ -136,4 +136,4 @@ export function createEZAppFactory(
   return { ...baseAppBuilder, appBuilder, onIntegrationRegister };
 }
 
-export * from '@graphql-ez/core-types';
+export * from './types';

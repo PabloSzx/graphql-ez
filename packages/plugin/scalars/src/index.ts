@@ -1,8 +1,8 @@
 import { resolvers as scalarResolvers, typeDefs as scalarTypeDefs } from 'graphql-scalars';
 
-import { gql } from '@graphql-ez/core-utils/gql';
+import { gql } from 'graphql-ez/utils/gql';
 
-import type { EZPlugin } from '@graphql-ez/core-types';
+import type { EZPlugin } from 'graphql-ez';
 import type { IScalarTypeResolver } from '@graphql-tools/utils';
 import type { DocumentNode } from 'graphql';
 
@@ -10,7 +10,7 @@ export type ScalarsConfig = '*' | { [k in keyof typeof scalarResolvers]?: boolea
 
 export type ScalarResolvers = Record<string, IScalarTypeResolver>;
 
-declare module '@graphql-ez/core-types' {
+declare module 'graphql-ez/types' {
   interface InternalAppBuildContext {
     scalarsDefinition?: ScalarsDefinition;
   }

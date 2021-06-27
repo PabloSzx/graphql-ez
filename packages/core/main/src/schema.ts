@@ -3,13 +3,13 @@ import { GraphQLSchema, isSchema, DocumentNode } from 'graphql';
 import { useSchema } from '@envelop/core';
 import { makeExecutableSchema } from '@graphql-tools/schema';
 
-import { cleanObject, toPlural } from '@graphql-ez/core-utils/object';
-import { LazyPromise } from '@graphql-ez/core-utils/promise';
+import { cleanObject, toPlural } from './utils/object';
+import { LazyPromise } from './utils/promise';
 
 import type { IResolvers } from '@graphql-tools/utils';
 import type { IExecutableSchemaDefinition } from '@graphql-tools/schema';
 import type { MergeSchemasConfig } from '@graphql-tools/merge';
-import type { EZContext, EZResolvers, EZPlugin } from '@graphql-ez/core-types';
+import type { EZContext, EZResolvers, EZPlugin } from './types';
 
 export type FilteredMergeSchemasConfig = Omit<MergeSchemasConfig, 'schemas'>;
 
@@ -24,7 +24,7 @@ export type EZSchema<TContext = EZContext> =
   | EZExecutableSchemaDefinition<TContext>
   | Promise<EZExecutableSchemaDefinition<TContext>>;
 
-declare module '@graphql-ez/core-types' {
+declare module './types' {
   interface AppOptions {
     /**
      * Pre-built schemas

@@ -29,8 +29,6 @@
     "test": "jest"
   },
   "dependencies": {
-    "@graphql-ez/core-types": "workspace:^0.2.4",
-    "@graphql-ez/core-utils": "workspace:^0.2.2",
     "altair-exported-types": "^4.0.6",
     "altair-static": "^4.0.6",
     "mime-types": "^2.1.31",
@@ -38,16 +36,18 @@
   },
   "devDependencies": {
     "@types/mime-types": "^2.1.0",
-    "@types/node": "^15.12.4",
+    "@types/node": "^15.12.5",
     "@types/node-fetch": "^2.5.10",
     "bob-esbuild-cli": "^0.1.27",
     "changesets-github-release": "^0.0.3",
+    "graphql-ez": "workspace:^0.3.0",
     "jest": "^27.0.5",
     "next": "^11.0.1",
     "ts-jest": "^27.0.3"
   },
   "peerDependencies": {
-    "@types/node": "*"
+    "@types/node": "*",
+    "graphql-ez": "workspace:^0.3.0"
   },
   "engines": {
     "node": "^12.20.0 || ^14.13.0 || >=15.0.0"

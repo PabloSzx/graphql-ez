@@ -2,7 +2,7 @@ import { ExecutionResult, print } from 'graphql';
 import { Readable } from 'stream';
 import { Pool } from 'undici';
 
-import { LazyPromise } from '@graphql-ez/core-utils/promise';
+import { LazyPromise } from 'graphql-ez/utils/promise';
 
 import { TearDownPromises } from './common';
 

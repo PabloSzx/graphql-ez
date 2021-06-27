@@ -1,12 +1,12 @@
 import fetch from 'node-fetch';
 
-import { getObjectValue } from '@graphql-ez/core-utils/object';
-import { withoutTrailingSlash, withTrailingSlash } from '@graphql-ez/core-utils/url';
+import { getObjectValue } from 'graphql-ez/utils/object';
+import { withoutTrailingSlash, withTrailingSlash } from 'graphql-ez/utils/url';
 
 import { onIntegrationRegister } from './integrations';
 
 import type { AltairConfigOptions } from 'altair-exported-types/dist/app/modules/altair/config';
-import type { EZPlugin, PickRequired } from '@graphql-ez/core-types';
+import type { EZPlugin, PickRequired } from 'graphql-ez';
 import type { RenderOptions } from 'altair-static';
 import type { AltairOptions, HandlerConfig, IDEHandler } from './types';
 

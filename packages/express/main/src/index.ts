@@ -9,14 +9,14 @@ import {
   EZAppFactoryType,
   handleRequest,
   InternalAppBuildIntegrationContext,
-} from '@graphql-ez/core';
-import { getObjectValue } from '@graphql-ez/core-utils/object';
+} from 'graphql-ez';
+import { getObjectValue } from 'graphql-ez/utils/object';
 
 import type { Server as HttpServer } from 'http';
 import type { OptionsJson as BodyParserOptions } from 'body-parser';
 import type { CorsOptions, CorsOptionsDelegate } from 'cors';
 
-declare module '@graphql-ez/core-types' {
+declare module 'graphql-ez/types' {
   interface BuildContextArgs {
     express?: {
       req: Request;
@@ -155,5 +155,4 @@ export function CreateApp(config: ExpressAppOptions = {}): EZAppBuilder {
   };
 }
 
-export * from '@graphql-ez/core';
-export * from '@graphql-ez/core-utils';
+export * from 'graphql-ez';
