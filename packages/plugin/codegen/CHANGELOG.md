@@ -1,5 +1,11 @@
 # @graphql-ez/plugin-codegen
 
+## 0.2.0
+
+### Minor Changes
+
+- 74b7f2b: restructure all core packages into graphql-ez and move into peerDependencies (now it's required to manually install graphql-ez in projects)
+
 ## 0.1.2
 
 ### Patch Changes

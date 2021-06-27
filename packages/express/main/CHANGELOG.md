@@ -1,5 +1,11 @@
 # @graphql-ez/express
 
+## 0.3.0
+
+### Minor Changes
+
+- 74b7f2b: restructure all core packages into graphql-ez and move into peerDependencies (now it's required to manually install graphql-ez in projects)
+
 ## 0.2.3
 
 ### Patch Changes
