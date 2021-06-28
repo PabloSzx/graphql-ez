@@ -9,7 +9,7 @@ import { LazyPromise } from './utils/promise';
 import type { IResolvers } from '@graphql-tools/utils';
 import type { IExecutableSchemaDefinition } from '@graphql-tools/schema';
 import type { MergeSchemasConfig } from '@graphql-tools/merge';
-import type { EZContext, EZResolvers, EZPlugin } from './types';
+import type { EZContext, EZResolvers, InternalAppBuildContext } from './types';
 
 export type FilteredMergeSchemasConfig = Omit<MergeSchemasConfig, 'schemas'>;
 
@@ -52,85 +52,83 @@ declare module './types' {
 
 const mergeSchemas = LazyPromise(() => import('@graphql-tools/merge').then(v => v.mergeSchemasAsync));
 
-export const ezSchema = (): EZPlugin => {
-  return {
-    name: 'GraphQL Schema',
-    async onPreBuild(ctx) {
-      const { schema, mergeSchemasConfig } = ctx.options;
+/**
+ * `onPreBuild`
+ */
+export const ezCoreSchema = async (ctx: InternalAppBuildContext) => {
+  const { schema, mergeSchemasConfig } = ctx.options;
 
-      const extraSchemaDefs = ctx.extraSchemaDefinitions ? await Promise.all(ctx.extraSchemaDefinitions) : [];
+  const extraSchemaDefs = ctx.extraSchemaDefinitions ? await Promise.all(ctx.extraSchemaDefinitions) : [];
 
-      const extraTypeDefs = [...extraSchemaDefs.flatMap(v => v.typeDefs), ...toPlural(mergeSchemasConfig?.typeDefs)];
-      const extraResolvers: EZResolvers[] = [
-        ...extraSchemaDefs.flatMap<EZResolvers>(v => v.resolvers),
-        ...toPlural(mergeSchemasConfig?.resolvers),
-      ];
+  const extraTypeDefs = [...extraSchemaDefs.flatMap(v => v.typeDefs), ...toPlural(mergeSchemasConfig?.typeDefs)];
+  const extraResolvers: EZResolvers[] = [
+    ...extraSchemaDefs.flatMap<EZResolvers>(v => v.resolvers),
+    ...toPlural(mergeSchemasConfig?.resolvers),
+  ];
 
-      const typeDefs = extraTypeDefs.length ? extraTypeDefs : undefined;
-      const resolvers = extraResolvers.length ? extraResolvers : undefined;
+  const typeDefs = extraTypeDefs.length ? extraTypeDefs : undefined;
+  const resolvers = extraResolvers.length ? extraResolvers : undefined;
 
-      const schemas = schema
-        ? await Promise.all(
-            toPlural(schema).map(async schemaValuePromise => {
-              const schemaValue = await schemaValuePromise;
-              if (isSchema(schemaValue)) {
-                return (await mergeSchemas)({
-                  schemas: [schemaValue],
-                  typeDefs,
-                  resolvers,
-                });
-              }
+  const schemas = schema
+    ? await Promise.all(
+        toPlural(schema).map(async schemaValuePromise => {
+          const schemaValue = await schemaValuePromise;
+          if (isSchema(schemaValue)) {
+            return (await mergeSchemas)({
+              schemas: [schemaValue],
+              typeDefs,
+              resolvers,
+            });
+          }
 
-              return makeExecutableSchema({
-                ...schemaValue,
-                typeDefs: [...toPlural(schemaValue.typeDefs), ...extraTypeDefs],
-                resolvers: [...toPlural(schemaValue.resolvers), ...extraResolvers],
-              });
-            })
-          )
-        : [];
+          return makeExecutableSchema({
+            ...schemaValue,
+            typeDefs: [...toPlural(schemaValue.typeDefs), ...extraTypeDefs],
+            resolvers: [...toPlural(schemaValue.resolvers), ...extraResolvers],
+          });
+        })
+      )
+    : [];
 
-      let finalSchema: GraphQLSchema | undefined;
+  let finalSchema: GraphQLSchema | undefined;
 
-      const modulesSchemaList = ctx.modules?.length && ctx.modulesApplication ? [(await ctx.modulesApplication).schema] : [];
+  const modulesSchemaList = ctx.modules?.length && ctx.modulesApplication ? [(await ctx.modulesApplication).schema] : [];
 
-      if (schemas.length > 1) {
-        finalSchema = await (
+  if (schemas.length > 1) {
+    finalSchema = await (
+      await mergeSchemas
+    )({
+      ...cleanObject(mergeSchemasConfig),
+      schemas: [...modulesSchemaList, ...schemas],
+    });
+  } else if (schemas[0]) {
+    finalSchema = modulesSchemaList[0]
+      ? await (
           await mergeSchemas
         )({
           ...cleanObject(mergeSchemasConfig),
-          schemas: [...modulesSchemaList, ...schemas],
-        });
-      } else if (schemas[0]) {
-        finalSchema = modulesSchemaList[0]
-          ? await (
-              await mergeSchemas
-            )({
-              ...cleanObject(mergeSchemasConfig),
-              schemas: [...modulesSchemaList, schemas[0]],
-            })
-          : schemas[0];
-      }
+          schemas: [...modulesSchemaList, schemas[0]],
+        })
+      : schemas[0];
+  }
 
-      if (ctx.modulesEnvelopPlugin) {
-        ctx.options.envelop.plugins.push(await ctx.modulesEnvelopPlugin);
-      }
+  if (ctx.modulesEnvelopPlugin) {
+    ctx.options.envelop.plugins.push(await ctx.modulesEnvelopPlugin);
+  }
 
-      if (finalSchema) {
-        if (ctx.extraSchemaDefinitions) {
-          finalSchema = await (
-            await mergeSchemas
-          )({
-            schemas: [finalSchema],
-            typeDefs,
-            resolvers,
-          });
-        }
+  if (finalSchema) {
+    if (ctx.extraSchemaDefinitions) {
+      finalSchema = await (
+        await mergeSchemas
+      )({
+        schemas: [finalSchema],
+        typeDefs,
+        resolvers,
+      });
+    }
 
-        ctx.options.envelop.plugins.push(useSchema(finalSchema));
-      }
-    },
-  };
+    ctx.options.envelop.plugins.push(useSchema(finalSchema));
+  }
 };
 
 export { makeExecutableSchema };

@@ -1,7 +1,13 @@
 import type { Envelop, Plugin } from '@envelop/types';
 import type { IncomingMessage } from 'http';
 import type { HandleRequest } from './request';
-import type { InternalAppBuildContext, BaseAppBuilder, BuildAppOptions, InternalAppBuildIntegrationContext } from './index';
+import type {
+  InternalAppBuildContext,
+  BaseAppBuilder,
+  BuildAppOptions,
+  InternalAppBuildIntegrationContext,
+  AppOptions,
+} from './index';
 import type { DocumentNode } from 'graphql';
 
 export interface AdapterFactoryArgs {
@@ -38,6 +44,8 @@ export type EZPlugin =
 export type EZPreset = {
   self?: EZPlugin;
 
+  options?: AppOptions & { ez?: never; envelop?: never };
+
   ezPlugins?: EZPlugin[];
   envelopPlugins?: Plugin[];
 };
@@ -53,6 +61,11 @@ declare module './index' {
      * GraphQL Tag Parser
      */
     gql(literals: string | readonly string[], ...args: any[]): DocumentNode;
+
+    /**
+     * Get EZ Application back as a preset to be used in another app instance
+     */
+    asPreset(): EZPreset;
   }
 
   interface ContextAppOptions extends Omit<AppOptions, 'ez' | 'envelop'> {

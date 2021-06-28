@@ -2,7 +2,7 @@ import { getObjectValue } from './utils/object';
 
 import type { ParserCacheOptions } from '@envelop/parser-cache';
 import type { ValidationCacheOptions } from '@envelop/validation-cache';
-import type { EZPlugin } from './types';
+import type { InternalAppBuildContext } from './types';
 
 export type CacheOptions =
   | boolean
@@ -34,33 +34,31 @@ declare module './types' {
   }
 }
 
-export const ezCache = (): EZPlugin => {
-  return {
-    name: 'Cache',
-    async onPreBuild(ctx) {
-      const {
-        cache,
-        envelop: { plugins },
-      } = ctx.options;
-      if (!cache) return;
+/**
+ * `onPreBuild`
+ */
+export const ezCoreCache = async (ctx: InternalAppBuildContext) => {
+  const {
+    cache,
+    envelop: { plugins },
+  } = ctx.options;
+  if (!cache) return;
 
-      const isParserEnabled = cache === true || !!cache.parse;
-      const isValidationEnabled = cache === true || !!cache.validation;
+  const isParserEnabled = cache === true || !!cache.parse;
+  const isValidationEnabled = cache === true || !!cache.validation;
 
-      const cacheObj = getObjectValue(cache);
+  const cacheObj = getObjectValue(cache);
 
-      await Promise.all([
-        isParserEnabled
-          ? import('@envelop/parser-cache').then(({ useParserCache }) => {
-              plugins.push(useParserCache(getObjectValue(cacheObj?.parse)));
-            })
-          : null,
-        isValidationEnabled
-          ? import('@envelop/validation-cache').then(({ useValidationCache }) => {
-              plugins.push(useValidationCache(getObjectValue(cacheObj?.validation)));
-            })
-          : null,
-      ]);
-    },
-  };
+  await Promise.all([
+    isParserEnabled
+      ? import('@envelop/parser-cache').then(({ useParserCache }) => {
+          plugins.push(useParserCache(getObjectValue(cacheObj?.parse)));
+        })
+      : null,
+    isValidationEnabled
+      ? import('@envelop/validation-cache').then(({ useValidationCache }) => {
+          plugins.push(useValidationCache(getObjectValue(cacheObj?.validation)));
+        })
+      : null,
+  ]);
 };
