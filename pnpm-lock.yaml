@@ -297,7 +297,7 @@ importers:
       '@jest/types': ^27.0.2
       '@koa/router': ^10.0.0
       '@types/express': ^4.17.12
-      '@types/express-serve-static-core': ^4.17.21
+      '@types/express-serve-static-core': ^4.17.22
       '@types/fs-extra': ^9.0.11
       '@types/hapi__hapi': ^20.0.8
       '@types/jest': ^26.0.23
@@ -329,7 +329,7 @@ importers:
       '@jest/types': 27.0.2
       '@koa/router': 10.0.0
       '@types/express': 4.17.12
-      '@types/express-serve-static-core': 4.17.21
+      '@types/express-serve-static-core': 4.17.22
       '@types/fs-extra': 9.0.11
       '@types/hapi__hapi': 20.0.8
       '@types/jest': 26.0.23
@@ -4421,6 +4421,14 @@ packages:
       '@types/node': 15.12.5
       '@types/qs': 6.9.6
       '@types/range-parser': 1.2.3
+
+  /@types/express-serve-static-core/4.17.22:
+    resolution: {integrity: sha512-WdqmrUsRS4ootGha6tVwk/IVHM1iorU8tGehftQD2NWiPniw/sm7xdJOIlXLwqdInL9wBw/p7oO8vaYEF3NDmA==}
+    dependencies:
+      '@types/node': 15.12.5
+      '@types/qs': 6.9.6
+      '@types/range-parser': 1.2.3
+    dev: true
 
   /@types/express/4.17.12:
     resolution: {integrity: sha512-pTYas6FrP15B1Oa0bkN5tQMNqOcVXa9j4FTFtO8DWI9kppKib+6NJtfTOOLcwxuuYvcX2+dVG6et1SxW/Kc17Q==}
