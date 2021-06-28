@@ -140,3 +140,21 @@ test.concurrent('SSE subscription', async () => {
   eventSource.close();
   expect(payload).toBe('OK');
 });
+
+test('no schema', async () => {
+  const { query } = await startFastifyServer({
+    createOptions: {},
+  });
+
+  const response = await query('{hello}');
+
+  expect(response).toMatchInlineSnapshot(`
+Object {
+  "errors": Array [
+    Object {
+      "message": "Expected null to be a GraphQL schema.",
+    },
+  ],
+}
+`);
+});

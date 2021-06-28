@@ -110,8 +110,6 @@ export const ezSchema = (): EZPlugin => {
               schemas: [...modulesSchemaList, schemas[0]],
             })
           : schemas[0];
-      } else if (!ctx.modulesEnvelopPlugin) {
-        throw Error('No GraphQL Schema specified!');
       }
 
       if (ctx.modulesEnvelopPlugin) {
