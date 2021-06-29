@@ -83,14 +83,14 @@ importers:
       '@graphql-ez/fastify': workspace:^0.3.0
       '@graphql-ez/plugin-codegen': workspace:^0.2.0
       '@types/node': ^15.12.5
-      fastify: ^3.18.0
+      fastify: ^3.18.1
       graphql: 15.4.0-experimental-stream-defer.1
       graphql-ez: workspace:^0.3.1
       tsup: ^4.12.0
     dependencies:
       '@graphql-ez/fastify': link:../../../packages/fastify/main
       '@graphql-ez/plugin-codegen': link:../../../packages/plugin/codegen
-      fastify: 3.18.0
+      fastify: 3.18.1
       graphql: 15.4.0-experimental-stream-defer.1
       graphql-ez: link:../../../packages/core/main
     devDependencies:
@@ -111,7 +111,7 @@ importers:
       '@graphql-ez/plugin-websockets': workspace:^0.2.0
       '@types/graphql-upload': ^8.0.5
       '@types/node': ^15.12.5
-      fastify: ^3.18.0
+      fastify: ^3.18.1
       graphql: 15.4.0-experimental-stream-defer.1
       graphql-ez: workspace:^0.3.1
       graphql-upload: ^12.0.0
@@ -129,7 +129,7 @@ importers:
       '@graphql-ez/plugin-voyager': link:../../../packages/plugin/voyager
       '@graphql-ez/plugin-websockets': link:../../../packages/plugin/websockets
       '@types/graphql-upload': 8.0.5
-      fastify: 3.18.0
+      fastify: 3.18.1
       graphql: 15.4.0-experimental-stream-defer.1
       graphql-ez: link:../../../packages/core/main
       graphql-upload: 12.0.0_34dd13c2583fe2e4418c23a0d30fc388
@@ -317,7 +317,7 @@ importers:
       '@types/ws': ^7.4.5
       bob-esbuild-cli: ^0.1.27
       express: ^4.17.1
-      fastify: ^3.18.0
+      fastify: ^3.18.1
       fastify-nextjs: ^6.0.0
       form-data: ^4.0.0
       fs-extra: ^10.0.0
@@ -349,7 +349,7 @@ importers:
       '@types/ws': 7.4.5
       bob-esbuild-cli: 0.1.27_50b8209fc428c75f5de073e8ad631fde
       express: 4.17.1
-      fastify: 3.18.0
+      fastify: 3.18.1
       fastify-nextjs: 6.0.0
       form-data: 4.0.0
       fs-extra: 10.0.0
@@ -520,7 +520,7 @@ importers:
       bob-esbuild-cli: ^0.1.27
       changesets-github-release: 0.0.3
       eventsource: 1.1.0
-      fastify: ^3.18.0
+      fastify: ^3.18.1
       fastify-cors: ^6.0.1
       got: 11.8.2
       graphql: 15.4.0-experimental-stream-defer.1
@@ -536,7 +536,7 @@ importers:
       bob-esbuild-cli: 0.1.27_50b8209fc428c75f5de073e8ad631fde
       changesets-github-release: 0.0.3
       eventsource: 1.1.0
-      fastify: 3.18.0
+      fastify: 3.18.1
       got: 11.8.2
       graphql: 15.4.0-experimental-stream-defer.1
       graphql-ez: link:../../core/main
@@ -3185,7 +3185,7 @@ packages:
       react-intersection-observer: 8.32.0_react@17.0.2
       react-use: 17.2.4_react-dom@17.0.2+react@17.0.2
       use-immer: 0.6.0_immer@9.0.3+react@17.0.2
-      zustand: 3.5.4_react@17.0.2
+      zustand: 3.5.5_react@17.0.2
     transitivePeerDependencies:
       - '@types/react'
       - supports-color
@@ -4057,7 +4057,7 @@ packages:
   /@octokit/auth-token/2.4.5:
     resolution: {integrity: sha512-BpGYsPgJt05M7/L/5FoE1PiAbdxXFZkX/3kDYcsvd1v6UhlnE5e96dTDr0ezX/EFwciQxf3cNV0loipsURU+WA==}
     dependencies:
-      '@octokit/types': 6.17.0
+      '@octokit/types': 6.17.1
     dev: true
 
   /@octokit/core/3.5.1:
@@ -4067,7 +4067,7 @@ packages:
       '@octokit/graphql': 4.6.4
       '@octokit/request': 5.6.0
       '@octokit/request-error': 2.1.0
-      '@octokit/types': 6.17.0
+      '@octokit/types': 6.17.1
       before-after-hook: 2.2.2
       universal-user-agent: 6.0.0
     dev: true
@@ -4075,7 +4075,7 @@ packages:
   /@octokit/endpoint/6.0.12:
     resolution: {integrity: sha512-lF3puPwkQWGfkMClXb4k/eUT/nZKQfxinRWJrdZaJO85Dqwo/G0yOC434Jr2ojwafWJMYqFGFa5ms4jJUgujdA==}
     dependencies:
-      '@octokit/types': 6.17.0
+      '@octokit/types': 6.17.1
       is-plain-object: 5.0.0
       universal-user-agent: 6.0.0
     dev: true
@@ -4084,7 +4084,7 @@ packages:
     resolution: {integrity: sha512-SWTdXsVheRmlotWNjKzPOb6Js6tjSqA2a8z9+glDJng0Aqjzti8MEWOtuT8ZSu6wHnci7LZNuarE87+WJBG4vg==}
     dependencies:
       '@octokit/request': 5.6.0
-      '@octokit/types': 6.17.0
+      '@octokit/types': 6.17.1
       universal-user-agent: 6.0.0
     dev: true
 
@@ -4098,7 +4098,7 @@ packages:
       '@octokit/core': '>=2'
     dependencies:
       '@octokit/core': 3.5.1
-      '@octokit/types': 6.17.0
+      '@octokit/types': 6.17.1
     dev: true
 
   /@octokit/plugin-request-log/1.0.4_@octokit+core@3.5.1:
@@ -4115,14 +4115,14 @@ packages:
       '@octokit/core': '>=3'
     dependencies:
       '@octokit/core': 3.5.1
-      '@octokit/types': 6.17.0
+      '@octokit/types': 6.17.1
       deprecation: 2.3.1
     dev: true
 
   /@octokit/request-error/2.1.0:
     resolution: {integrity: sha512-1VIvgXxs9WHSjicsRwq8PlR2LR2x6DwsJAaFgzdi0JfJoGSO8mYI/cHJQ+9FbN21aa+DrgNLnwObmyeSC8Rmpg==}
     dependencies:
-      '@octokit/types': 6.17.0
+      '@octokit/types': 6.17.1
       deprecation: 2.3.1
       once: 1.4.0
     dev: true
@@ -4132,7 +4132,7 @@ packages:
     dependencies:
       '@octokit/endpoint': 6.0.12
       '@octokit/request-error': 2.1.0
-      '@octokit/types': 6.17.0
+      '@octokit/types': 6.17.1
       is-plain-object: 5.0.0
       node-fetch: 2.6.1
       universal-user-agent: 6.0.0
@@ -4147,8 +4147,8 @@ packages:
       '@octokit/plugin-rest-endpoint-methods': 5.3.4_@octokit+core@3.5.1
     dev: true
 
-  /@octokit/types/6.17.0:
-    resolution: {integrity: sha512-AHJ9H9pxL4JY3c/RyeK/yhh2qVWSCUcLX0l/5H9TtLUog7edcq+WMve+yPV+ciIyxWddPLI6xbOofXAf1Oepvg==}
+  /@octokit/types/6.17.1:
+    resolution: {integrity: sha512-x1RDwjjSzGHK8hfwyNa4Gz0t5YtwUfIxEtejFpm2cjH1gMMk6XDv8La3gUAPzYpDgdzTEF8Lpz+7BGv9aZR/0w==}
     dependencies:
       '@octokit/openapi-types': 7.4.0
     dev: true
@@ -4313,7 +4313,7 @@ packages:
       '@emotion/react': 11.4.0_189cc19b8edfe5959338b863f6e5c247
       '@emotion/styled': 11.3.0_3d30eb7fe446b0e582df4c9643515bd8
       algoliasearch: 4.10.2
-      core-js: 3.15.1
+      core-js: 3.15.2
       focus-trap-react: 8.6.0_react-dom@17.0.2+react@17.0.2
       polished: 4.1.3
       react: 17.0.2
@@ -4826,8 +4826,8 @@ packages:
     resolution: {integrity: sha512-OPdCF6GsMIP+Az+aWfAAOEt2/+iVDKE7oy6lJ098aoe59oAmK76qV6Gw60SbZ8jHuG2wH058GF4pLFbYamYrVA==}
     engines: {node: '>=0.4.0'}
 
-  /acorn-walk/8.1.0:
-    resolution: {integrity: sha512-mjmzmv12YIG/G8JQdQuz2MUDShEJ6teYpT5bmWA4q7iwoGen8xtt3twF3OvzIUl+Q06aWIjvnwQUKvQ6TtMRjg==}
+  /acorn-walk/8.1.1:
+    resolution: {integrity: sha512-FbJdceMlPHEAWJOILDk1fXD8lnTlEIWFkqtfk+MvmL5q/qlHfN7GEHcsFZWt/Tea9jRNPWUZG4G976nqAAmU9w==}
     engines: {node: '>=0.4.0'}
     dev: true
 
@@ -5629,7 +5629,7 @@ packages:
     dependencies:
       caniuse-lite: 1.0.30001241
       colorette: 1.2.2
-      electron-to-chromium: 1.3.760
+      electron-to-chromium: 1.3.761
       escalade: 3.1.1
       node-releases: 1.1.73
 
@@ -6440,8 +6440,8 @@ packages:
     requiresBuild: true
     dev: true
 
-  /core-js/3.15.1:
-    resolution: {integrity: sha512-h8VbZYnc9pDzueiS2610IULDkpFFPunHwIpl8yRwFahAEEdSpHlTy3h3z3rKq5h11CaUdBEeRViu9AYvbxiMeg==}
+  /core-js/3.15.2:
+    resolution: {integrity: sha512-tKs41J7NJVuaya8DxIOCnl8QuPHx5/ZVbFo1oKgVl1qHFBBrDctzQGtuLjPpRdNTWmKPH6oEvgN/MUID+l485Q==}
     requiresBuild: true
     dev: false
 
@@ -7154,8 +7154,8 @@ packages:
       jake: 10.8.2
     dev: true
 
-  /electron-to-chromium/1.3.760:
-    resolution: {integrity: sha512-XPKwjX6pHezJWB4FLVuSil9gGmU6XYl27ahUwEHODXF4KjCEB8RuIT05MkU1au2Tdye57o49yY0uCMK+bwUt+A==}
+  /electron-to-chromium/1.3.761:
+    resolution: {integrity: sha512-7a/wV/plM/b95XjTdA2Q4zAxxExTDKkNQpTiaU/nVT8tGCQVtX9NsnTjhALBFICpOB58hU6xg5fFC3CT2Bybpg==}
 
   /elliptic/6.5.4:
     resolution: {integrity: sha512-iLhC6ULemrljPZb+QutR5TQGB+pdW6KGD5RSegS+8sorOZT+rdQFbsQFJgvN3eRqNALqJer4oQ16YvJHlU8hzQ==}
@@ -7637,9 +7637,8 @@ packages:
   /fastify-warning/0.2.0:
     resolution: {integrity: sha512-s1EQguBw/9qtc1p/WTY4eq9WMRIACkj+HTcOIK1in4MV5aFaQC9ZCIt0dJ7pr5bIf4lPpHvAtP2ywpTNgs7hqw==}
 
-  /fastify/3.18.0:
-    resolution: {integrity: sha512-D4A5ns+j1NW1PUCYZ0KwThcNCB13JVAXol/zdFFr59A4fIstlk0XACu1Yun0Sxe2a86vd2rG2Q3OmsFVqsQ0LQ==}
-    engines: {node: '>=10.16.0'}
+  /fastify/3.18.1:
+    resolution: {integrity: sha512-OA0imy/bQCMzf7LUCb/1JI3ZSoA0Jo0MLpYULxV7gpppOpJ8NBxDp2PQoQ0FDqJevZPb7tlZf5JacIQft8x9yw==}
     dependencies:
       '@fastify/ajv-compiler': 1.1.0
       abstract-logging: 2.0.1
@@ -11035,7 +11034,7 @@ packages:
       '@babel/runtime': 7.14.6
       '@types/hoist-non-react-statics': 3.3.1
       '@types/i18next-fs-backend': 1.0.0
-      core-js: 3.15.1
+      core-js: 3.15.2
       hoist-non-react-statics: 3.3.2
       i18next: 20.3.2
       i18next-fs-backend: 1.1.1
@@ -15137,7 +15136,7 @@ packages:
     hasBin: true
     dependencies:
       acorn: 8.4.1
-      acorn-walk: 8.1.0
+      acorn-walk: 8.1.1
       chalk: 4.1.1
       commander: 6.2.1
       gzip-size: 6.0.0
@@ -15518,8 +15517,8 @@ packages:
       wrap-ansi: 2.1.0
     dev: true
 
-  /zustand/3.5.4_react@17.0.2:
-    resolution: {integrity: sha512-EtS3D83il8eiydRS+xUcpczffT0MpD9ePIqAT10ns2tfzPvq85nmMmYJl9mOLOJjPLaXAMK8lgk0iCz2h7CxGg==}
+  /zustand/3.5.5_react@17.0.2:
+    resolution: {integrity: sha512-iTiJoxzYFtiD7DhscgwK2P4Kft1JcZEI2U7mG8IxiOFM4KpBAiJZfFop3r/3wbCuyltXI6ph1Fx90e4j/S43XA==}
     peerDependencies:
       react: '>=16.8'
     peerDependenciesMeta:
