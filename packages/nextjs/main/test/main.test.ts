@@ -7,7 +7,7 @@ import { CommonSchema, startNextJSServer } from 'graphql-ez-testing';
 export { EventSource, got, printSchema, CommonSchema };
 
 test.concurrent('basic', async () => {
-  const { query, addressWithoutProtocol } = await startNextJSServer('test/main');
+  const { query, addressWithoutProtocol } = await startNextJSServer([__dirname, 'main']);
 
   expect(
     JSON.parse(

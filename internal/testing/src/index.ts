@@ -276,7 +276,7 @@ export const startKoaServer = async ({
   };
 };
 
-export async function startNextJSServer(dir: string, autoClose: boolean = true) {
+export async function startNextJSServer(dir: string[], autoClose: boolean = true) {
   const app = (await import('fastify')).default({
     pluginTimeout: 20000,
   });
@@ -287,7 +287,7 @@ export async function startNextJSServer(dir: string, autoClose: boolean = true) 
 
   const FastifyNext = (await import('fastify-nextjs')).default;
 
-  const NextJSDir = resolve(process.cwd(), dir);
+  const NextJSDir = resolve(...dir);
 
   const prevWarn = console.warn;
   const warnSpy = jest.spyOn(console, 'warn').mockImplementation((...message) => {

@@ -254,7 +254,7 @@ test.concurrent('nextjs', async () => {
   };
   console.warn = warnWatcher;
 
-  const { request, query } = await startNextJSServer('test/nextjs');
+  const { request, query } = await startNextJSServer([__dirname, 'nextjs']);
 
   expect(await query('{hello}')).toMatchInlineSnapshot(`
     Object {

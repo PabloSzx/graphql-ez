@@ -26,7 +26,8 @@
     "dev": "bob-esbuild watch",
     "prepare": "bob-esbuild build",
     "postpublish": "gh-release",
-    "test": "jest"
+    "test": "jest",
+    "test:build": "next build test/nextjs"
   },
   "dependencies": {
     "graphql-helix": "1.6.1"

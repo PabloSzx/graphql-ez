@@ -26,7 +26,8 @@
     "dev": "bob-esbuild watch",
     "prepare": "bob-esbuild build",
     "postpublish": "gh-release",
-    "test": "jest"
+    "test": "jest",
+    "test:build": "next build test/nextjs"
   },
   "dependencies": {
     "altair-exported-types": "^4.0.6",

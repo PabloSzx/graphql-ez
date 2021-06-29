@@ -39,6 +39,6 @@ jobs:
       - name: Install Dependencies
         run: pnpm i
       - name: Test
-        run: pnpm test:ci -- --logHeapUsage
+        run: pnpm test -- --logHeapUsage
         env:
           CI: true
