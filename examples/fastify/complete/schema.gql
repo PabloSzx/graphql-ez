@@ -17,6 +17,7 @@ scalar DateTime
 type Query {
   hello: String!
   hello2: String!
+  multiply(n: Float!): Float!
 }
 
 type Subscription {

@@ -29,6 +29,11 @@ export type Query = {
   __typename?: 'Query';
   hello: Scalars['String'];
   hello2: Scalars['String'];
+  multiply: Scalars['Float'];
+};
+
+export type QueryMultiplyArgs = {
+  n: Scalars['Float'];
 };
 
 export type Subscription = {
@@ -123,6 +128,7 @@ export type ResolversTypes = {
   DateTime: ResolverTypeWrapper<Scalars['DateTime']>;
   Query: ResolverTypeWrapper<{}>;
   String: ResolverTypeWrapper<Scalars['String']>;
+  Float: ResolverTypeWrapper<Scalars['Float']>;
   Subscription: ResolverTypeWrapper<{}>;
   Mutation: ResolverTypeWrapper<{}>;
   Boolean: ResolverTypeWrapper<Scalars['Boolean']>;
@@ -135,6 +141,7 @@ export type ResolversParentTypes = {
   DateTime: Scalars['DateTime'];
   Query: {};
   String: Scalars['String'];
+  Float: Scalars['Float'];
   Subscription: {};
   Mutation: {};
   Boolean: Scalars['Boolean'];
@@ -155,6 +162,7 @@ export type QueryResolvers<
 > = {
   hello?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   hello2?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  multiply?: Resolver<ResolversTypes['Float'], ParentType, ContextType, RequireFields<QueryMultiplyArgs, 'n'>>;
 };
 
 export type SubscriptionResolvers<

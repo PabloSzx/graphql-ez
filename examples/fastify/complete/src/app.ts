@@ -1,6 +1,7 @@
 import { BuildContextArgs, CreateApp, gql, InferFunctionReturn, readStreamToBuffer } from '@graphql-ez/fastify';
 import { ezAltairIDE } from '@graphql-ez/plugin-altair';
 import { ezCodegen } from '@graphql-ez/plugin-codegen';
+import { ezDataLoader } from '@graphql-ez/plugin-dataloader';
 import { ezGraphiQLIDE } from '@graphql-ez/plugin-graphiql';
 import { ezGraphQLModules } from '@graphql-ez/plugin-modules';
 import { ezScalars } from '@graphql-ez/plugin-scalars';
@@ -19,7 +20,7 @@ declare module '@graphql-ez/fastify' {
   interface EZContext extends InferFunctionReturn<typeof buildContext> {}
 }
 
-export const { registerModule, buildApp } = CreateApp({
+export const { registerModule, buildApp, registerDataLoader } = CreateApp({
   buildContext,
   ez: {
     plugins: [
@@ -49,6 +50,7 @@ export const { registerModule, buildApp } = CreateApp({
         headers: {},
         credentials: 'include',
       }),
+      ezDataLoader(),
     ],
   },
   schema: {
