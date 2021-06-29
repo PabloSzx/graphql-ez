@@ -58,7 +58,7 @@ test('typescript resolvers', async () => {
     })
   ).toMatchInlineSnapshot(`
     "import type { GraphQLResolveInfo } from 'graphql';
-    import type { EZContext } from '@graphql-ez/fastify';
+    import type { EZContext } from 'graphql-ez';
     import type { TypedDocumentNode as DocumentNode } from '@graphql-typed-document-node/core';
     export type Maybe<T> = T | null;
     export type Exact<T extends { [key: string]: unknown }> = { [K in keyof T]: T[K] };
@@ -69,7 +69,7 @@ test('typescript resolvers', async () => {
       args: TArgs,
       context: TContext,
       info: GraphQLResolveInfo
-    ) => Promise<import('@graphql-ez/fastify').DeepPartial<TResult>> | import('@graphql-ez/fastify').DeepPartial<TResult>;
+    ) => Promise<import('graphql-ez').DeepPartial<TResult>> | import('graphql-ez').DeepPartial<TResult>;
     /** All built-in and custom scalars, mapped to their actual values */
     export type Scalars = {
       ID: string;
@@ -227,8 +227,8 @@ test('typescript resolvers', async () => {
       ],
     } as unknown as DocumentNode<HelloQuery, HelloQueryVariables>;
 
-    declare module '@graphql-ez/fastify' {
-      interface EZResolvers extends Resolvers<import('@graphql-ez/fastify').EZContext> {}
+    declare module 'graphql-ez' {
+      interface EZResolvers extends Resolvers<import('graphql-ez').EZContext> {}
     }
     "
   `);

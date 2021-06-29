@@ -1,7 +1,7 @@
 import { request } from 'graphql-request';
 import { useQuery } from 'react-query';
 
-import { HelloDocument, HelloQuery } from '../envelop.generated';
+import { HelloDocument, HelloQuery } from '../ez.generated';
 
 export default function Index() {
   const { data, isLoading } = useQuery('hello', async () => {

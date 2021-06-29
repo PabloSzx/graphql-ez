@@ -28,10 +28,10 @@ test('works', async () => {
               onError: codegenDone.reject,
               transformGenerated(code) {
                 return code
-                  .replace("import type { EZContext } from '@graphql-ez/fastify'", "import type { EZContext } from './main.test'")
-                  .replace("declare module '@graphql-ez/fastify'", "declare module './main.test'")
+                  .replace("import type { EZContext } from 'graphql-ez'", "import type { EZContext } from './main.test'")
+                  .replace("declare module 'graphql-ez'", "declare module './main.test'")
                   .replace(
-                    "extends Resolvers<import('@graphql-ez/fastify').EZContext>",
+                    "extends Resolvers<import('graphql-ez').EZContext>",
                     "extends Resolvers<import('./main.test').EZContext>"
                   );
               },

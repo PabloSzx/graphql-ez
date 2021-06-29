@@ -1,4 +1,4 @@
-import { BuildContextArgs, CreateApp, InferFunctionReturn } from '@graphql-ez/nextjs';
+import { BuildContextArgs, CreateApp, InferContext } from '@graphql-ez/nextjs';
 import { ezCodegen } from '@graphql-ez/plugin-codegen';
 import { ezGraphQLModules } from '@graphql-ez/plugin-modules';
 
@@ -8,8 +8,8 @@ function buildContext(_args: BuildContextArgs) {
   };
 }
 
-declare module '@graphql-ez/nextjs' {
-  interface EZContext extends InferFunctionReturn<typeof buildContext> {}
+declare module 'graphql-ez' {
+  interface EZContext extends InferContext<typeof buildContext> {}
 }
 
 export const { buildApp, registerModule, gql } = CreateApp({

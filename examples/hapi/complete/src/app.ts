@@ -1,4 +1,4 @@
-import { BuildContextArgs, CreateApp, gql, InferFunctionReturn } from '@graphql-ez/hapi';
+import { BuildContextArgs, CreateApp, gql, InferContext } from '@graphql-ez/hapi';
 import { ezAltairIDE } from '@graphql-ez/plugin-altair';
 import { ezCodegen } from '@graphql-ez/plugin-codegen';
 import { ezGraphiQLIDE } from '@graphql-ez/plugin-graphiql';
@@ -13,8 +13,8 @@ function buildContext({ req }: BuildContextArgs) {
   };
 }
 
-declare module '@graphql-ez/hapi' {
-  interface EZContext extends InferFunctionReturn<typeof buildContext> {}
+declare module 'graphql-ez' {
+  interface EZContext extends InferContext<typeof buildContext> {}
 }
 
 const sleep = (ms: number) => new Promise<void>(resolve => setTimeout(resolve, ms));

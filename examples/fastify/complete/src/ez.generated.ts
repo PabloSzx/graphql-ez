@@ -1,5 +1,5 @@
 import type { GraphQLResolveInfo, GraphQLScalarType, GraphQLScalarTypeConfig } from 'graphql';
-import type { EZContext } from '@graphql-ez/fastify';
+import type { EZContext } from 'graphql-ez';
 export type Maybe<T> = T | null;
 export type Exact<T extends { [key: string]: unknown }> = { [K in keyof T]: T[K] };
 export type MakeOptional<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]?: Maybe<T[SubKey]> };
@@ -9,7 +9,7 @@ export type ResolverFn<TResult, TParent, TContext, TArgs> = (
   args: TArgs,
   context: TContext,
   info: GraphQLResolveInfo
-) => Promise<import('@graphql-ez/fastify').DeepPartial<TResult>> | import('@graphql-ez/fastify').DeepPartial<TResult>;
+) => Promise<import('graphql-ez').DeepPartial<TResult>> | import('graphql-ez').DeepPartial<TResult>;
 export type RequireFields<T, K extends keyof T> = { [X in Exclude<keyof T, K>]?: T[X] } & { [P in K]-?: NonNullable<T[P]> };
 /** All built-in and custom scalars, mapped to their actual values */
 export type Scalars = {
@@ -198,6 +198,6 @@ export type Resolvers<ContextType = EZContext> = {
  */
 export type IResolvers<ContextType = EZContext> = Resolvers<ContextType>;
 
-declare module '@graphql-ez/fastify' {
-  interface EZResolvers extends Resolvers<import('@graphql-ez/fastify').EZContext> {}
+declare module 'graphql-ez' {
+  interface EZResolvers extends Resolvers<import('graphql-ez').EZContext> {}
 }

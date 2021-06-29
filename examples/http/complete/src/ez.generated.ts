@@ -1,5 +1,5 @@
 import type { GraphQLResolveInfo, GraphQLScalarType, GraphQLScalarTypeConfig } from 'graphql';
-import type { EZContext } from '@graphql-ez/http';
+import type { EZContext } from 'graphql-ez';
 import type { TypedDocumentNode as DocumentNode } from '@graphql-typed-document-node/core';
 export type Maybe<T> = T | null;
 export type Exact<T extends { [key: string]: unknown }> = { [K in keyof T]: T[K] };
@@ -10,7 +10,7 @@ export type ResolverFn<TResult, TParent, TContext, TArgs> = (
   args: TArgs,
   context: TContext,
   info: GraphQLResolveInfo
-) => Promise<import('@graphql-ez/http').DeepPartial<TResult>> | import('@graphql-ez/http').DeepPartial<TResult>;
+) => Promise<import('graphql-ez').DeepPartial<TResult>> | import('graphql-ez').DeepPartial<TResult>;
 /** All built-in and custom scalars, mapped to their actual values */
 export type Scalars = {
   ID: string;
@@ -175,6 +175,6 @@ export const HelloQueryDocument = {
   ],
 } as unknown as DocumentNode<HelloQueryQuery, HelloQueryQueryVariables>;
 
-declare module '@graphql-ez/http' {
-  interface EZResolvers extends Resolvers<import('@graphql-ez/http').EZContext> {}
+declare module 'graphql-ez' {
+  interface EZResolvers extends Resolvers<import('graphql-ez').EZContext> {}
 }

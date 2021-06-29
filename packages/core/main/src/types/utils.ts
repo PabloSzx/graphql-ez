@@ -8,11 +8,9 @@ export type PickRequired<T, TKey extends keyof T> = T & Required<Pick<T, TKey>>;
 export type DeepPartial<T> = T extends Function
   ? T
   : T extends Array<infer U>
-  ? // eslint-disable-next-line no-use-before-define
-    DeepPartialArray<U>
+  ? DeepPartialArray<U>
   : T extends object
-  ? // eslint-disable-next-line no-use-before-define
-    DeepPartialObject<T>
+  ? DeepPartialObject<T>
   : T | undefined;
 
 interface DeepPartialArray<T> extends Array<PromiseOrValue<DeepPartial<PromiseOrValue<T>>>> {}

@@ -1,4 +1,4 @@
-import { BuildContextArgs, CreateApp, gql, InferFunctionReturn, readStreamToBuffer } from '@graphql-ez/fastify';
+import { BuildContextArgs, CreateApp, gql, InferContext, readStreamToBuffer } from '@graphql-ez/fastify';
 import { ezAltairIDE } from '@graphql-ez/plugin-altair';
 import { ezCodegen } from '@graphql-ez/plugin-codegen';
 import { ezDataLoader } from '@graphql-ez/plugin-dataloader';
@@ -16,8 +16,8 @@ function buildContext({ req }: BuildContextArgs) {
   };
 }
 
-declare module '@graphql-ez/fastify' {
-  interface EZContext extends InferFunctionReturn<typeof buildContext> {}
+declare module 'graphql-ez' {
+  interface EZContext extends InferContext<typeof buildContext> {}
 }
 
 export const { registerModule, buildApp, registerDataLoader } = CreateApp({

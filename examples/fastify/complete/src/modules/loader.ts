@@ -10,7 +10,7 @@ const multiplierDataLoader = registerDataLoader(
     })
 );
 
-declare module '@graphql-ez/fastify' {
+declare module 'graphql-ez' {
   interface EZContext extends InferDataLoader<typeof multiplierDataLoader> {}
 }
 

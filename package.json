@@ -34,7 +34,7 @@
     "prepare": "husky install",
     "pretty": "prettier --write \"**/*{.ts,.tsx,.json,.yaml}\"",
     "test": "pnpm -r --no-sort --no-bail test -- ",
-    "test:ci": "pnpm -r --workspace-concurrency=2 --no-sort --no-bail --filter=!graphql-ez-monorepo test -- "
+    "test:ci": "pnpm -r --workspace-concurrency=1 --no-sort --no-bail --filter=!graphql-ez-monorepo test -- "
   },
   "devDependencies": {
     "@changesets/cli": "2.16.0",
