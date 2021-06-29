@@ -1,5 +1,12 @@
 # graphql-ez
 
+## 0.3.1
+
+### Patch Changes
+
+- 8a4dc83: allow no explicit schema
+- ea3dd48: get EZ App back as preset
+
 ## 0.2.4
 
 ### Patch Changes
