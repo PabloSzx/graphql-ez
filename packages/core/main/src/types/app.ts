@@ -65,7 +65,7 @@ declare module './index' {
     /**
      * Get EZ Application back as a preset to be used in another app instance
      */
-    asPreset(): EZPreset;
+    asPreset: EZPreset;
   }
 
   interface ContextAppOptions extends Omit<AppOptions, 'ez' | 'envelop'> {

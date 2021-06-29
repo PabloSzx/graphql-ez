@@ -68,7 +68,7 @@ export function createEZAppFactory(
     registerModule() {
       throw Error(`To use "registerModule" you have to add "ezGraphQLModules" plugin first!`);
     },
-    asPreset() {
+    get asPreset() {
       return {
         options: { ...rawOptions, ez: undefined, envelop: undefined },
         ezPlugins: ezPluginsPre,
