@@ -12,7 +12,7 @@ import {
 
 import type { NextApiRequest, NextApiResponse, NextApiHandler } from 'next';
 
-declare module 'graphql-ez/types/index' {
+declare module 'graphql-ez' {
   interface BuildContextArgs {
     next?: {
       req: NextApiRequest;

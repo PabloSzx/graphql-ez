@@ -27,7 +27,7 @@ export interface HandlerConfig {
   rawHttp?: boolean;
 }
 
-declare module 'graphql-ez/types/index' {
+declare module 'graphql-ez' {
   interface IDEOptions {
     altair?: AltairOptions | boolean;
   }

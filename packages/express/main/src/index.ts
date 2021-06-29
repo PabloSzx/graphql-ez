@@ -16,7 +16,7 @@ import type { Server as HttpServer } from 'http';
 import type { OptionsJson as BodyParserOptions } from 'body-parser';
 import type { CorsOptions, CorsOptionsDelegate } from 'cors';
 
-declare module 'graphql-ez/types/index' {
+declare module 'graphql-ez' {
   interface BuildContextArgs {
     express?: {
       req: Request;

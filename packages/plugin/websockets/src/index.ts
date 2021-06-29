@@ -40,7 +40,7 @@ export type CommonWebSocketsServer = Promise<
 
 export type WebSocketsEnabledState = 'new' | 'adaptive' | 'legacy';
 
-declare module 'graphql-ez/types/index' {
+declare module 'graphql-ez' {
   interface BuildContextArgs {
     ws?: {
       socket: WebSocket;

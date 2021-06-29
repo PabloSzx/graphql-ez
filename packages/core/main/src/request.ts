@@ -2,14 +2,14 @@ import { getGraphQLParameters } from 'graphql-helix/dist/get-graphql-parameters.
 import { processRequest } from 'graphql-helix/dist/process-request.js';
 
 import type { IncomingMessage, ServerResponse } from 'http';
-import type { BuildContextArgs, HandleRequestOptions, EZResponse, MultipartResponse, Push, Request } from './types';
+import type { BuildContextArgs, HandleRequestOptions, EZResponse, MultipartResponse, Push, Request } from './index';
 import type { ExecutionContext } from 'graphql-helix';
 
 export interface HelixContext extends Omit<ExecutionContext, 'request'> {
   request: Request;
 }
 
-declare module './types' {
+declare module './index' {
   interface EZContext extends Partial<HelixContext> {}
 }
 

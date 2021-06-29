@@ -20,7 +20,7 @@ export type EnvelopModuleConfig = Omit<ModuleConfig, 'typeDefs' | 'id' | 'resolv
   autoAdd?: boolean;
 };
 
-declare module 'graphql-ez/types/index' {
+declare module 'graphql-ez' {
   interface BaseAppBuilder {
     registerModule: RegisterModule;
   }

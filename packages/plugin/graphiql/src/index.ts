@@ -20,7 +20,7 @@ export interface GraphiQLOptions extends RenderGraphiQLOptions {
   endpoint?: string;
 }
 
-declare module 'graphql-ez/types/index' {
+declare module 'graphql-ez' {
   interface InternalAppBuildContext {
     graphiql?: {
       path: string;

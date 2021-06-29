@@ -11,7 +11,7 @@ import {
 
 import type { Request, ResponseToolkit, Plugin, Server, Lifecycle, RouteOptionsCors, RouteOptions } from '@hapi/hapi';
 
-declare module 'graphql-ez/types/index' {
+declare module 'graphql-ez' {
   interface BuildContextArgs {
     hapi?: {
       request: Request;

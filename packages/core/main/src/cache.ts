@@ -2,7 +2,7 @@ import { getObjectValue } from './utils/object';
 
 import type { ParserCacheOptions } from '@envelop/parser-cache';
 import type { ValidationCacheOptions } from '@envelop/validation-cache';
-import type { InternalAppBuildContext } from './types';
+import type { InternalAppBuildContext } from './index';
 
 export type CacheOptions =
   | boolean
@@ -19,7 +19,7 @@ export type CacheOptions =
       validation?: boolean | ValidationCacheOptions;
     };
 
-declare module './types' {
+declare module './index' {
   interface AppOptions {
     /**
      * Enable/Disable/Configure in-memory cache that improves performance

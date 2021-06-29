@@ -13,7 +13,7 @@ import type {
   EZAppFactoryType,
   AdapterFactoryContext,
   Envelop,
-} from './types';
+} from './index';
 
 export function createEZAppFactory(
   factoryCtx: AdapterFactoryContext,

@@ -2,7 +2,7 @@ import type { MultipartResponse, Push, Request } from './helixTypes';
 import type { Envelop } from '@envelop/types';
 import type { IncomingMessage, ServerResponse } from 'http';
 import type { ExecutionResult } from 'graphql';
-import type { AppOptions, BuildContextArgs } from './index';
+import type { AppOptions, BuildContextArgs } from '../index';
 
 export type EZResponse = {
   type: 'RESPONSE';

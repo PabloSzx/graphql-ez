@@ -15,7 +15,7 @@ import { getPathname } from 'graphql-ez/utils/url';
 
 import type { ServerResponse, IncomingMessage, Server as HTTPServer } from 'http';
 
-declare module 'graphql-ez/types/index' {
+declare module 'graphql-ez' {
   interface BuildContextArgs {
     http?: {
       request: IncomingMessage;

@@ -9,7 +9,7 @@ import type { UploadOptions, processRequest, graphqlUploadExpress, graphqlUpload
 
 export type GraphQLUploadConfig = boolean | UploadOptions;
 
-declare module 'graphql-ez/types/index' {
+declare module 'graphql-ez' {
   interface InternalAppBuildContext {
     GraphQLUpload?: {
       options: UploadOptions;

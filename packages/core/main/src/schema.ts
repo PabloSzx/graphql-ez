@@ -9,7 +9,7 @@ import { LazyPromise } from './utils/promise';
 import type { IResolvers } from '@graphql-tools/utils';
 import type { IExecutableSchemaDefinition } from '@graphql-tools/schema';
 import type { MergeSchemasConfig } from '@graphql-tools/merge';
-import type { EZContext, EZResolvers, InternalAppBuildContext } from './types';
+import type { EZContext, EZResolvers, InternalAppBuildContext } from './index';
 
 export type FilteredMergeSchemasConfig = Omit<MergeSchemasConfig, 'schemas'>;
 
@@ -24,7 +24,7 @@ export type EZSchema<TContext = EZContext> =
   | EZExecutableSchemaDefinition<TContext>
   | Promise<EZExecutableSchemaDefinition<TContext>>;
 
-declare module './types' {
+declare module './index' {
   interface AppOptions {
     /**
      * Pre-built schemas

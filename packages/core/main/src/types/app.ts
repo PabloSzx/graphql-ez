@@ -2,12 +2,12 @@ import type { Envelop, Plugin } from '@envelop/types';
 import type { IncomingMessage } from 'http';
 import type { HandleRequest } from './request';
 import type {
+  InternalAppBuildIntegrationContext,
   InternalAppBuildContext,
   BaseAppBuilder,
   BuildAppOptions,
-  InternalAppBuildIntegrationContext,
   AppOptions,
-} from './index';
+} from '../index';
 import type { DocumentNode } from 'graphql';
 
 export interface AdapterFactoryArgs {
@@ -55,7 +55,7 @@ export interface AdapterFactoryContext {
   integrationName: IntegrationsNames;
 }
 
-declare module './index' {
+declare module '../index' {
   interface BaseAppBuilder {
     /**
      * GraphQL Tag Parser
