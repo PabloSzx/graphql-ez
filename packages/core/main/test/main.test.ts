@@ -1,7 +1,10 @@
 import EventSource from 'eventsource';
 import got from 'got';
+import { CommonSchema, gql, makeExecutableSchema, PingSubscription, startFastifyServer, useSchema } from 'graphql-ez-testing';
 
-import { CommonSchema, PingSubscription, startFastifyServer } from 'graphql-ez-testing';
+import { CreateApp } from '@graphql-ez/fastify';
+import { ezGraphiQLIDE } from '@graphql-ez/plugin-graphiql';
+import { ezVoyager } from '@graphql-ez/plugin-voyager';
 
 test.concurrent('basic', async () => {
   const { query } = await startFastifyServer({
@@ -141,20 +144,93 @@ test.concurrent('SSE subscription', async () => {
   expect(payload).toBe('OK');
 });
 
-test('no schema', async () => {
+test.concurrent('no schema', async () => {
+  await expect(startFastifyServer({})).rejects.toMatchInlineSnapshot(`[Error: [graphql-ez] No GraphQL Schema specified!]`);
+});
+
+test.concurrent('external schema', async () => {
+  const schema = makeExecutableSchema({
+    typeDefs: gql`
+      type Query {
+        ok: String!
+      }
+    `,
+    resolvers: {
+      Query: {
+        ok(_root, _args, _ctx) {
+          return 'OK';
+        },
+      },
+    },
+  });
   const { query } = await startFastifyServer({
-    createOptions: {},
+    createOptions: {
+      envelop: {
+        plugins: [useSchema(schema)],
+      },
+    },
   });
 
-  const response = await query('{hello}');
+  expect((await query<{ ok: string }>('{ok}')).data?.ok).toBe('OK');
+});
 
-  expect(response).toMatchInlineSnapshot(`
-Object {
-  "errors": Array [
-    Object {
-      "message": "Expected null to be a GraphQL schema.",
+test.concurrent('presets', async () => {
+  const schema = makeExecutableSchema({
+    typeDefs: gql`
+      type Query {
+        ok: String!
+      }
+    `,
+    resolvers: {
+      Query: {
+        ok(_root, _args, _ctx) {
+          return 'OK';
+        },
+      },
     },
-  ],
-}
-`);
+  });
+  const { asPreset } = CreateApp({
+    schema,
+    ez: {
+      plugins: [ezGraphiQLIDE()],
+    },
+  });
+
+  const { query, requestRaw } = await startFastifyServer({
+    createOptions: {
+      ez: {
+        preset: asPreset,
+        plugins: [ezVoyager()],
+      },
+    },
+  });
+
+  expect((await query<{ ok: string }>('{ok}')).data?.ok).toBe('OK');
+
+  expect(
+    (
+      await requestRaw({
+        path: '/graphiql',
+        method: 'GET',
+      })
+    ).statusCode
+  ).toBe(200);
+
+  expect(
+    (
+      await requestRaw({
+        path: '/voyager',
+        method: 'GET',
+      })
+    ).statusCode
+  ).toBe(200);
+
+  expect(
+    (
+      await requestRaw({
+        path: '/other',
+        method: 'GET',
+      })
+    ).statusCode
+  ).toBe(404);
 });
