@@ -1,5 +1,16 @@
 # @graphql-ez/fastify
 
+## 0.4.0
+
+### Minor Changes
+
+- 83b5c31: move augmented interfaces to graphql-ez index
+
+### Patch Changes
+
+- Updated dependencies [83b5c31]
+  - graphql-ez@0.4.0
+
 ## 0.3.0
 
 ### Minor Changes
