@@ -1,5 +1,17 @@
 # @graphql-ez/plugin-codegen
 
+## 0.3.0
+
+### Minor Changes
+
+- 83b5c31: move augmented interfaces to graphql-ez index
+
+### Patch Changes
+
+- 603ed04: use "graphql-ez" package for types imports
+- Updated dependencies [83b5c31]
+  - graphql-ez@0.4.0
+
 ## 0.2.0
 
 ### Minor Changes

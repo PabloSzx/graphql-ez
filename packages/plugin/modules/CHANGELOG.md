@@ -1,5 +1,18 @@
 # @graphql-ez/plugin-modules
 
+## 0.3.0
+
+### Minor Changes
+
+- 83b5c31: move augmented interfaces to graphql-ez index
+
+### Patch Changes
+
+- aa68d46: add GraphQLModules context to EZContext
+- 1f3086b: improve generic type names & fix recursive context reference
+- Updated dependencies [83b5c31]
+  - graphql-ez@0.4.0
+
 ## 0.2.0
 
 ### Minor Changes
