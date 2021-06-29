@@ -31,12 +31,14 @@
     "dev:mjs:http": "pnpm -r --filter @graphql-ez/http dev -- --onSuccess \"cross-env PORT=3004 pnpm -r --filter example-complete-http dev:mjs -- --silent\"",
     "dev:mjs:koa": "pnpm -r --filter @graphql-ez/koa dev -- --onSuccess \"cross-env PORT=3005 pnpm -r --filter example-complete-koa dev:mjs -- --silent\"",
     "dev:next": "pnpm -r --filter @graphql-ez/nextjs dev -- --onSuccess \"pnpm -r --filter example-complete-nextjs dev -- -p 3006\"",
+    "postinstall": "node patch.js",
     "prepare": "husky install",
     "pretty": "prettier --write \"**/*{.ts,.tsx,.json,.yaml}\"",
     "test": "jest",
     "test:separate": "pnpm -r --filter=\"!graphql-ez-monorepo\" --no-sort --no-bail test -- "
   },
   "devDependencies": {
+    "@changesets/assemble-release-plan": "^5.0.0",
     "@changesets/cli": "2.16.0",
     "@types/node": "^15.12.5",
     "bob-esbuild": "^0.1.27",
