@@ -130,7 +130,6 @@ const CodegenDeps = LazyPromise(async () => {
 });
 
 export async function EnvelopTypeScriptCodegen(executableSchema: GraphQLSchema, ctx: InternalAppBuildContext): Promise<void> {
-  const moduleName = `@graphql-ez/${ctx.integrationName}`;
   const schema = parse(printSchemaWithDirectives(executableSchema));
 
   const {
@@ -167,10 +166,10 @@ export async function EnvelopTypeScriptCodegen(executableSchema: GraphQLSchema, 
   const config: TypeScriptPluginConfig & TypeScriptResolversPluginConfig = {
     useTypeImports: true,
     customResolverFn: deepPartialResolvers
-      ? `(parent: TParent, args: TArgs, context: TContext, info: GraphQLResolveInfo) => Promise<import("${moduleName}").DeepPartial<TResult>> | import("${moduleName}").DeepPartial<TResult>`
+      ? `(parent: TParent, args: TArgs, context: TContext, info: GraphQLResolveInfo) => Promise<import("graphql-ez").DeepPartial<TResult>> | import("graphql-ez").DeepPartial<TResult>`
       : undefined,
     scalars,
-    contextType: `${moduleName}#EZContext`,
+    contextType: `graphql-ez#EZContext`,
     ...codegenOptions,
   };
 
@@ -236,8 +235,8 @@ export async function EnvelopTypeScriptCodegen(executableSchema: GraphQLSchema, 
   ${preImportCode}
   ${codegenCode}
 
-  declare module "${moduleName}" {
-      interface EZResolvers extends Resolvers<import("${moduleName}").EZContext> { }
+  declare module "graphql-ez" {
+      interface EZResolvers extends Resolvers<import("graphql-ez").EZContext> { }
   }
 `,
     'typescript'
