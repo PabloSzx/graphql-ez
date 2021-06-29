@@ -10,7 +10,7 @@ export type ScalarsConfig = '*' | { [k in keyof typeof scalarResolvers]?: boolea
 
 export type ScalarResolvers = Record<string, IScalarTypeResolver>;
 
-declare module 'graphql-ez/types' {
+declare module 'graphql-ez/types/index' {
   interface InternalAppBuildContext {
     scalarsDefinition?: ScalarsDefinition;
   }

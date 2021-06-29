@@ -60,9 +60,6 @@ export function createEZAppFactory(
     return false;
   });
 
-  const envelopPlugins = [...envelopPluginsPre];
-  const ezPlugins = [...ezPluginsPre];
-
   const baseAppBuilder: BaseAppBuilder = {
     gql,
     registerDataLoader() {
@@ -79,6 +76,9 @@ export function createEZAppFactory(
       };
     },
   };
+
+  const envelopPlugins = [...envelopPluginsPre];
+  const ezPlugins = [...ezPluginsPre];
 
   const options: InternalAppBuildContext['options'] = {
     ...rawOptions,

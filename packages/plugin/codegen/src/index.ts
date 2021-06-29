@@ -27,7 +27,7 @@ export interface CodegenOptions {
   outputSchema?: boolean | string | string[];
 }
 
-declare module 'graphql-ez/types' {
+declare module 'graphql-ez/types/index' {
   interface InternalAppBuildContext {
     codegen?: CodegenOptions;
   }

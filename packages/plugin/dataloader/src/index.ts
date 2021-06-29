@@ -15,7 +15,7 @@ export type RegisterDataLoader = <Name extends string, Key, Value, Cache = Key>(
   dataLoaderFactory: DataLoaderFn<Key, Value, Cache>
 ) => RegisteredDataLoader<Name, Key, Value, Cache>;
 
-declare module 'graphql-ez/types' {
+declare module 'graphql-ez/types/index' {
   interface BaseAppBuilder {
     registerDataLoader: RegisterDataLoader;
   }

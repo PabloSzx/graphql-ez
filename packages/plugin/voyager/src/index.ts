@@ -18,7 +18,7 @@ export interface VoyagerOptions extends RenderVoyagerOptions {
   transformHtml?: (html: string) => string;
 }
 
-declare module 'graphql-ez/types' {
+declare module 'graphql-ez/types/index' {
   interface InternalAppBuildContext {
     voyager?: {
       path: string;

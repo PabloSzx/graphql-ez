@@ -6,7 +6,7 @@ import type { FastifyPluginCallback, FastifyInstance, RouteOptions, FastifyReque
 import type { BuildAppOptions, AppOptions, EZAppFactoryType, Envelop } from 'graphql-ez';
 import type { FastifyCorsOptions, FastifyCorsOptionsDelegate, FastifyPluginOptionsDelegate } from 'fastify-cors';
 
-declare module 'graphql-ez/types' {
+declare module 'graphql-ez/types/index' {
   interface BuildContextArgs {
     fastify?: {
       request: FastifyRequest;

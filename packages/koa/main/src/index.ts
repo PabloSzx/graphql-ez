@@ -15,7 +15,7 @@ import type { Request, Response, default as KoaApp } from 'koa';
 import type { Options as CorsOptions } from '@koa/cors';
 import type * as KoaRouter from '@koa/router';
 
-declare module 'graphql-ez/types' {
+declare module 'graphql-ez/types/index' {
   interface BuildContextArgs {
     koa?: {
       request: Request;
