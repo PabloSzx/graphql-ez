@@ -30,6 +30,8 @@ declare module 'graphql-ez/types/index' {
     modulesApplication?: Promise<Application>;
     modulesEnvelopPlugin?: Promise<EnvelopPlugin>;
   }
+
+  interface EZContext extends GraphQLModules.Context {}
 }
 
 export interface RegisterModule {
