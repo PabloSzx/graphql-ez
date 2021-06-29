@@ -127,6 +127,10 @@ export function createEZAppFactory(
       plugins: envelopPlugins,
     });
 
+    if (!getEnveloped().schema) {
+      throw Error('[graphql-ez] No GraphQL Schema specified!');
+    }
+
     await Promise.all([
       ...ezPlugins.map(plugin => {
         return plugin.onAfterBuild?.(getEnveloped, ctx);
