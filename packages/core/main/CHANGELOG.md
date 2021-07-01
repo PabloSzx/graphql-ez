@@ -1,5 +1,12 @@
 # graphql-ez
 
+## 0.4.1
+
+### Patch Changes
+
+- df3415c: add "envelopPlugins" and "ezPlugins" in app builder
+- 23c0287: allow customize helix processRequest options
+
 ## 0.4.0
 
 ### Minor Changes
