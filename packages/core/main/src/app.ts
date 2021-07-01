@@ -60,6 +60,9 @@ export function createEZAppFactory(
     return false;
   });
 
+  const envelopPlugins = [...envelopPluginsPre];
+  const ezPlugins = [...ezPluginsPre];
+
   const baseAppBuilder: BaseAppBuilder = {
     gql,
     registerDataLoader() {
@@ -75,10 +78,9 @@ export function createEZAppFactory(
         envelopPlugins: envelopPluginsPre,
       };
     },
+    envelopPlugins,
+    ezPlugins,
   };
-
-  const envelopPlugins = [...envelopPluginsPre];
-  const ezPlugins = [...ezPluginsPre];
 
   const options: InternalAppBuildContext['options'] = {
     ...rawOptions,
@@ -126,6 +128,9 @@ export function createEZAppFactory(
     const getEnveloped = envelop({
       plugins: envelopPlugins,
     });
+
+    Object.freeze(envelopPlugins);
+    Object.freeze(ezPlugins);
 
     if (!getEnveloped().schema) {
       throw Error('[graphql-ez] No GraphQL Schema specified!');

@@ -50,7 +50,7 @@ export type EZPreset = {
   envelopPlugins?: Plugin[];
 };
 
-export type IntegrationsNames = 'express' | 'fastify' | 'nextjs' | 'http' | 'koa' | 'hapi' | 'core';
+export type IntegrationsNames = 'express' | 'fastify' | 'nextjs' | 'http' | 'koa' | 'hapi';
 export interface AdapterFactoryContext {
   integrationName: IntegrationsNames;
 }
@@ -64,8 +64,26 @@ declare module '../index' {
 
     /**
      * Get EZ Application back as a preset to be used in another app instance
+     *
+     * `It only includes the options, plugins and presets of the original configuration.`
+     *
+     * `Modules and Plugins added by mutating "ezPlugins", "envelopPlugins" or calling "register___" helpers are not included.`
      */
     asPreset: EZPreset;
+
+    /**
+     * Mutate this array to add EZ plugins on the fly
+     *
+     * `You can only mutate this array before calling "buildApp" or in the "prepare" option.`
+     */
+    ezPlugins: EZPlugin[];
+
+    /**
+     * Mutate this array to add Envelop plugins on the fly
+     *
+     * `You can only mutate this array before calling "buildApp" on in the "prepare" option.`
+     */
+    envelopPlugins: Plugin[];
   }
 
   interface ContextAppOptions extends Omit<AppOptions, 'ez' | 'envelop'> {
