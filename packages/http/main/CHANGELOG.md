@@ -1,5 +1,14 @@
 # @graphql-ez/http
 
+## 0.4.1
+
+### Patch Changes
+
+- 23c0287: allow customize helix processRequest options
+- Updated dependencies [df3415c]
+- Updated dependencies [23c0287]
+  - graphql-ez@0.4.1
+
 ## 0.4.0
 
 ### Minor Changes
