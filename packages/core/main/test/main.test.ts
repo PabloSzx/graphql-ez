@@ -2,7 +2,9 @@ import EventSource from 'eventsource';
 import got from 'got';
 import { CommonSchema, gql, makeExecutableSchema, PingSubscription, startFastifyServer, useSchema } from 'graphql-ez-testing';
 
+import { useExtendContext } from '@envelop/core';
 import { CreateApp } from '@graphql-ez/fastify';
+import { ezAltairIDE } from '@graphql-ez/plugin-altair';
 import { ezGraphiQLIDE } from '@graphql-ez/plugin-graphiql';
 import { ezVoyager } from '@graphql-ez/plugin-voyager';
 
@@ -189,14 +191,129 @@ test.concurrent('presets', async () => {
       },
     },
   });
-  const { asPreset } = CreateApp({
+  const { asPreset, ezPlugins, envelopPlugins } = CreateApp({
     schema,
     ez: {
       plugins: [ezGraphiQLIDE()],
     },
+    envelop: {
+      plugins: [useExtendContext(() => {})],
+    },
   });
 
-  const { query, requestRaw } = await startFastifyServer({
+  expect(ezPlugins).toMatchInlineSnapshot(`
+Array [
+  Object {
+    "compatibilityList": Array [
+      "fastify",
+      "koa",
+      "express",
+      "hapi",
+      "http",
+      "nextjs",
+    ],
+    "name": "GraphiQL IDE",
+    "onIntegrationRegister": [Function],
+    "onRegister": [Function],
+  },
+]
+`);
+
+  expect(envelopPlugins).toMatchInlineSnapshot(`
+Array [
+  Object {
+    "onContextBuilding": [Function],
+  },
+]
+`);
+
+  expect(asPreset.ezPlugins).toMatchInlineSnapshot(`
+Array [
+  Object {
+    "compatibilityList": Array [
+      "fastify",
+      "koa",
+      "express",
+      "hapi",
+      "http",
+      "nextjs",
+    ],
+    "name": "GraphiQL IDE",
+    "onIntegrationRegister": [Function],
+    "onRegister": [Function],
+  },
+]
+`);
+
+  ezPlugins.push(ezAltairIDE());
+  envelopPlugins.push(useExtendContext(() => {}));
+
+  expect(ezPlugins).toMatchInlineSnapshot(`
+Array [
+  Object {
+    "compatibilityList": Array [
+      "fastify",
+      "koa",
+      "express",
+      "hapi",
+      "http",
+      "nextjs",
+    ],
+    "name": "GraphiQL IDE",
+    "onIntegrationRegister": [Function],
+    "onRegister": [Function],
+  },
+  Object {
+    "compatibilityList": Array [
+      "fastify",
+      "express",
+      "hapi",
+      "http",
+      "koa",
+      "nextjs",
+    ],
+    "name": "Altair GraphQL Client IDE",
+    "onIntegrationRegister": [Function],
+    "onRegister": [Function],
+  },
+]
+`);
+  expect(envelopPlugins).toMatchInlineSnapshot(`
+Array [
+  Object {
+    "onContextBuilding": [Function],
+  },
+  Object {
+    "onContextBuilding": [Function],
+  },
+]
+`);
+  expect(asPreset.ezPlugins).toMatchInlineSnapshot(`
+Array [
+  Object {
+    "compatibilityList": Array [
+      "fastify",
+      "koa",
+      "express",
+      "hapi",
+      "http",
+      "nextjs",
+    ],
+    "name": "GraphiQL IDE",
+    "onIntegrationRegister": [Function],
+    "onRegister": [Function],
+  },
+]
+`);
+  expect(asPreset.envelopPlugins).toMatchInlineSnapshot(`
+Array [
+  Object {
+    "onContextBuilding": [Function],
+  },
+]
+`);
+
+  const { query, requestRaw, appBuilder } = await startFastifyServer({
     createOptions: {
       ez: {
         preset: asPreset,
@@ -204,6 +321,55 @@ test.concurrent('presets', async () => {
       },
     },
   });
+
+  expect(appBuilder.ezPlugins).toMatchInlineSnapshot(`
+Array [
+  Object {
+    "compatibilityList": Array [
+      "fastify",
+      "koa",
+      "express",
+      "hapi",
+      "http",
+      "nextjs",
+    ],
+    "name": "GraphQL Voyager",
+    "onIntegrationRegister": [Function],
+    "onRegister": [Function],
+  },
+  Object {
+    "compatibilityList": Array [
+      "fastify",
+      "koa",
+      "express",
+      "hapi",
+      "http",
+      "nextjs",
+    ],
+    "name": "GraphiQL IDE",
+    "onIntegrationRegister": [Function],
+    "onRegister": [Function],
+  },
+]
+`);
+
+  expect(appBuilder.envelopPlugins).toMatchInlineSnapshot(`
+Array [
+  Object {
+    "onContextBuilding": [Function],
+  },
+  Object {
+    "onPluginInit": [Function],
+  },
+]
+`);
+
+  expect(() => {
+    appBuilder.ezPlugins.push(ezAltairIDE());
+  }).toThrowErrorMatchingInlineSnapshot(`"Cannot add property 2, object is not extensible"`);
+  expect(() => {
+    appBuilder.envelopPlugins.push(useExtendContext(() => {}));
+  }).toThrowErrorMatchingInlineSnapshot(`"Cannot add property 2, object is not extensible"`);
 
   expect((await query<{ ok: string }>('{ok}')).data?.ok).toBe('OK');
 
