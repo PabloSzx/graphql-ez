@@ -1,4 +1,5 @@
-import type { MultipartResponse, Push, Request } from './helixTypes';
+import type { MultipartResponse, Push } from 'graphql-helix';
+import type { Request, ProcessRequestOptions } from './helixTypes';
 import type { Envelop } from '@envelop/types';
 import type { IncomingMessage, ServerResponse } from 'http';
 import type { ExecutionResult } from 'graphql';
@@ -39,6 +40,8 @@ export interface HandleRequestOptions<BuildContextArgs, TReturn = unknown> {
     defaultHandle: DefaultMultipartResponseHandler
   ) => TReturn | Promise<TReturn>;
   onPushResponse: (result: Push<unknown, unknown>, defaultHandle: DefaultPushResponseHandler) => TReturn | Promise<TReturn>;
+
+  processRequestOptions: (() => ProcessRequestOptions) | undefined;
 }
 
 export type HandleRequest = <TReturn = unknown>(options: HandleRequestOptions<BuildContextArgs, TReturn>) => Promise<TReturn>;

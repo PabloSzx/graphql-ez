@@ -3,7 +3,7 @@ import { getObjectValue } from 'graphql-ez/utils/object';
 import { LazyPromise } from 'graphql-ez/utils/promise';
 
 import type { FastifyPluginCallback, FastifyInstance, RouteOptions, FastifyRequest, FastifyReply } from 'fastify';
-import type { BuildAppOptions, AppOptions, EZAppFactoryType, Envelop } from 'graphql-ez';
+import type { BuildAppOptions, AppOptions, EZAppFactoryType, Envelop, ProcessRequestOptions } from 'graphql-ez';
 import type { FastifyCorsOptions, FastifyCorsOptionsDelegate, FastifyPluginOptionsDelegate } from 'fastify-cors';
 
 declare module 'graphql-ez' {
@@ -30,6 +30,11 @@ export interface FastifyAppOptions extends AppOptions {
    * Custom Fastify Route options
    */
   routeOptions?: Omit<RouteOptions, 'method' | 'url' | 'handler'>;
+
+  /**
+   * Customize some Helix processRequest options
+   */
+  processRequestOptions?: (req: FastifyRequest, reply: FastifyReply) => ProcessRequestOptions;
 }
 
 export type FastifyAppPlugin = FastifyPluginCallback<{}>;
@@ -72,7 +77,7 @@ export function CreateApp(config: FastifyAppOptions = {}): EZAppBuilder {
   const buildApp: EZAppBuilder['buildApp'] = function buildApp(buildOptions = {}) {
     const appPromise = LazyPromise(() => {
       return appBuilder(buildOptions, ({ ctx, getEnveloped }) => {
-        const { cors, routeOptions, buildContext, onAppRegister } = config;
+        const { cors, routeOptions, buildContext, onAppRegister, processRequestOptions } = config;
         return async function FastifyPlugin(instance: FastifyInstance) {
           const integration = {
             fastify: instance,
@@ -128,6 +133,7 @@ export function CreateApp(config: FastifyAppOptions = {}): EZAppBuilder {
                   reply.hijack();
                   return defaultHandle(req.raw, reply.raw, result);
                 },
+                processRequestOptions: processRequestOptions && (() => processRequestOptions(req, reply)),
               });
             },
           });

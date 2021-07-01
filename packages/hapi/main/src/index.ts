@@ -7,6 +7,7 @@ import {
   EZAppFactoryType,
   handleRequest,
   InternalAppBuildIntegrationContext,
+  ProcessRequestOptions,
 } from 'graphql-ez';
 
 import type { Request, ResponseToolkit, Plugin, Server, Lifecycle, RouteOptionsCors, RouteOptions } from '@hapi/hapi';
@@ -44,6 +45,11 @@ export interface HapiAppOptions extends AppOptions {
    * Configure IDE route options
    */
   ideRouteOptions?: RouteOptions;
+
+  /**
+   * Customize some Helix processRequest options
+   */
+  processRequestOptions?: (req: Request, h: ResponseToolkit) => ProcessRequestOptions;
 }
 
 export interface EZApp {
@@ -76,7 +82,7 @@ export function CreateApp(config: HapiAppOptions = {}): EZAppBuilder {
 
   const buildApp: EZAppBuilder['buildApp'] = async function buildApp(buildOptions = {}) {
     const { app: registerApp, getEnveloped } = await appBuilder(buildOptions, async ({ ctx, getEnveloped }) => {
-      const { customHandleRequest, buildContext, onAppRegister } = config;
+      const { customHandleRequest, buildContext, onAppRegister, processRequestOptions } = config;
 
       return async function register(server: Server) {
         const integration: InternalAppBuildIntegrationContext = {
@@ -131,6 +137,7 @@ export function CreateApp(config: HapiAppOptions = {}): EZAppBuilder {
 
                 return h.abandon;
               },
+              processRequestOptions: processRequestOptions && (() => processRequestOptions(req, h)),
             });
           },
         });

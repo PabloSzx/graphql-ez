@@ -9,6 +9,7 @@ import {
   EZAppFactoryType,
   handleRequest,
   InternalAppBuildIntegrationContext,
+  ProcessRequestOptions,
 } from 'graphql-ez';
 
 import type { Request, Response, default as KoaApp } from 'koa';
@@ -46,6 +47,11 @@ export interface KoaAppOptions extends AppOptions {
    * Enable CORS or configure it
    */
   cors?: boolean | CorsOptions;
+
+  /**
+   * Customize some Helix processRequest options
+   */
+  processRequestOptions?: (req: Request, res: Response) => ProcessRequestOptions;
 }
 
 export interface EZApp {
@@ -90,6 +96,8 @@ export function CreateApp(config: KoaAppOptions = {}): EZAppBuilder {
 
         bodyParserOptions = {},
         buildContext,
+
+        processRequestOptions,
       } = config;
 
       const integration: InternalAppBuildIntegrationContext = {
@@ -143,6 +151,7 @@ export function CreateApp(config: KoaAppOptions = {}): EZAppBuilder {
           onPushResponse(result, defaultHandle) {
             return defaultHandle(ctx.req, ctx.res, result);
           },
+          processRequestOptions: processRequestOptions && (() => processRequestOptions(ctx.request, ctx.response)),
         });
       };
 

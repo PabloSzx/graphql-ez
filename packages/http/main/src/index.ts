@@ -10,6 +10,7 @@ import {
   handleRequest,
   InternalAppBuildIntegrationContext,
   LazyPromise,
+  ProcessRequestOptions,
 } from 'graphql-ez';
 import { getPathname } from 'graphql-ez/utils/url';
 
@@ -60,6 +61,11 @@ export interface HttpAppOptions extends AppOptions {
    * By default it calls `console.error` and `process.exit(1)`
    */
   onBuildPromiseError?(err: unknown): unknown | never | void;
+
+  /**
+   * Customize some Helix processRequest options
+   */
+  processRequestOptions?: (req: IncomingMessage, res: ServerResponse) => ProcessRequestOptions;
 }
 
 export type AsyncRequestHandler = (req: IncomingMessage, res: ServerResponse) => Promise<void>;
@@ -106,6 +112,7 @@ export function CreateApp(config: HttpAppOptions = {}): EZAppBuilder {
         console.error(err);
         process.exit(1);
       },
+      processRequestOptions,
     } = config;
 
     const requestHandler = customHandleRequest || handleRequest;
@@ -175,6 +182,7 @@ export function CreateApp(config: HttpAppOptions = {}): EZAppBuilder {
                 onPushResponse(result, defaultHandle) {
                   return defaultHandle(req, res, result);
                 },
+                processRequestOptions: processRequestOptions && (() => processRequestOptions(req, res)),
               });
             } catch (err) /* istanbul ignore next */ {
               res

@@ -9,6 +9,7 @@ import {
   EZAppFactoryType,
   handleRequest,
   InternalAppBuildIntegrationContext,
+  ProcessRequestOptions,
 } from 'graphql-ez';
 import { getObjectValue } from 'graphql-ez/utils/object';
 
@@ -45,6 +46,11 @@ export interface ExpressAppOptions extends AppOptions {
    * Enable or configure CORS
    */
   cors?: boolean | CorsOptions | CorsOptionsDelegate;
+
+  /**
+   * Customize some Helix processRequest options
+   */
+  processRequestOptions?: (req: Request, res: Response) => ProcessRequestOptions;
 }
 
 export interface EZApp {
@@ -84,7 +90,14 @@ export function CreateApp(config: ExpressAppOptions = {}): EZAppBuilder {
     const { app: router, getEnveloped } = await appBuilder(buildOptions, async ({ ctx, getEnveloped }) => {
       const router = Router();
 
-      const { cors, bodyParserJSONOptions = {}, customHandleRequest, buildContext, onAppRegister } = config;
+      const {
+        cors,
+        bodyParserJSONOptions = {},
+        customHandleRequest,
+        buildContext,
+        onAppRegister,
+        processRequestOptions,
+      } = config;
 
       const integration: InternalAppBuildIntegrationContext = {
         express: { router, app: buildOptions.app, server: buildOptions.server },
@@ -135,6 +148,7 @@ export function CreateApp(config: ExpressAppOptions = {}): EZAppBuilder {
           onPushResponse(result, defaultHandle) {
             return defaultHandle(req, res, result);
           },
+          processRequestOptions: processRequestOptions && (() => processRequestOptions(req, res)),
         }).catch(next);
       };
 

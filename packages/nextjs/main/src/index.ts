@@ -8,6 +8,7 @@ import {
   handleRequest,
   InternalAppBuildIntegrationContext,
   LazyPromise,
+  ProcessRequestOptions,
 } from 'graphql-ez';
 
 import type { NextApiRequest, NextApiResponse, NextApiHandler } from 'next';
@@ -44,6 +45,11 @@ export interface NextAppOptions extends AppOptions {
    * By default it calls `console.error` and `process.exit(1)`
    */
   onBuildPromiseError?(err: unknown): unknown | never | void;
+
+  /**
+   * Customize some Helix processRequest options
+   */
+  processRequestOptions?: (req: NextApiRequest, res: NextApiResponse) => ProcessRequestOptions;
 }
 
 export interface EZApp {
@@ -81,6 +87,7 @@ export function CreateApp(config: NextAppOptions = {}): EZAppBuilder {
         console.error(err);
         process.exit(1);
       },
+      processRequestOptions,
     } = config;
 
     const requestHandler = customHandleRequest || handleRequest;
@@ -133,6 +140,7 @@ export function CreateApp(config: NextAppOptions = {}): EZAppBuilder {
           onPushResponse(result, defaultHandle) {
             return defaultHandle(req, res, result);
           },
+          processRequestOptions: processRequestOptions && (() => processRequestOptions(req, res)),
         });
       };
 
