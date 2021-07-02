@@ -9,6 +9,7 @@ export * from './utils';
 
 export type { EZExecutableSchemaDefinition, EZSchema, FilteredMergeSchemasConfig } from './schema';
 export type { CacheOptions } from './cache';
+export type { EZIntrospectionOptions } from './introspection';
 
 export interface InternalAppBuildIntegrationContext {}
 

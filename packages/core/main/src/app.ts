@@ -1,9 +1,10 @@
 import { envelop, useEnvelop } from '@envelop/core';
-import { gql } from './utils/gql';
-import { toPlural, cleanObject } from './utils/object';
 
 import { ezCoreCache } from './cache';
+import { ezCoreDisableIntrospection } from './introspection';
 import { ezCoreSchema } from './schema';
+import { gql } from './utils/gql';
+import { cleanObject, toPlural } from './utils/object';
 
 import type {
   AppOptions,
@@ -123,6 +124,7 @@ export function createEZAppFactory(
       preBuild?.(ctx),
       ezCoreSchema(ctx),
       ezCoreCache(ctx),
+      ezCoreDisableIntrospection(ctx),
     ]);
 
     const getEnveloped = envelop({
