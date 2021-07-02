@@ -1,4 +1,4 @@
-import { CreateApp, gql } from '../../../../src';
+import { CreateApp, gql, EZContext } from '../../../../src';
 
 function buildContext(_args: import('../../../../src').BuildContextArgs) {
   return {
@@ -20,7 +20,7 @@ export const { buildApp } = CreateApp({
         hello() {
           return 'Hello World!';
         },
-        context(_root: unknown, _args: unknown, ctx: unknown) {
+        context(_root: unknown, _args: unknown, { req, ...ctx }: EZContext) {
           return JSON.stringify(ctx);
         },
       },

@@ -1,7 +1,9 @@
 import { makeExecutableSchema } from '@graphql-tools/schema';
 import { gql } from 'graphql-ez/utils/gql';
 import { createModule } from 'graphql-modules';
+import safeStringify from 'fast-safe-stringify';
 
+import type { EZContext } from 'graphql-ez';
 export type {} from 'graphql';
 
 export const sleep = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
@@ -64,8 +66,8 @@ export const CommonSchema = {
           id,
         }));
       },
-      context(_root: unknown, _args: unknown, ctx: unknown) {
-        return JSON.stringify(ctx);
+      context(_root: unknown, _args: unknown, { req, ...ctx }: EZContext) {
+        return safeStringify(ctx);
       },
       stream: {
         resolve: async function* () {

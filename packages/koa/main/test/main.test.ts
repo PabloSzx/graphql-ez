@@ -21,12 +21,10 @@ test.concurrent('basic', async () => {
   expect(
     JSON.parse(
       (
-        (
-          await query<{
-            context: string;
-          }>(`{context}`)
-        ).data?.context || '{}'
-      ).replace(new RegExp(addressWithoutProtocol, 'g'), '__host__')
+        await query<{
+          context: string;
+        }>(`{context}`)
+      ).data!.context.replace(new RegExp(addressWithoutProtocol, 'g'), '__host__')
     )
   ).toMatchInlineSnapshot(`
     Object {

@@ -121,6 +121,7 @@ export function CreateApp(config: NextAppOptions = {}): EZAppBuilder {
         };
 
         return requestHandler({
+          req,
           request,
           getEnveloped,
           baseOptions: config,

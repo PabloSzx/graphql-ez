@@ -53,13 +53,20 @@ export function handleSubscriptionsTransport(
       subscribe,
       async onConnect(connectionParams, { socket, request }) {
         const { contextFactory, parse, validate, schema } = getEnveloped(
-          await buildContext?.({
-            req: request,
-            ws: {
-              connectionParams,
-              socket,
+          Object.assign(
+            {
+              req: request,
             },
-          })
+            buildContext
+              ? await buildContext({
+                  req: request,
+                  ws: {
+                    connectionParams,
+                    socket,
+                  },
+                })
+              : undefined
+          )
         );
 
         return {
@@ -89,13 +96,20 @@ export function handleGraphQLWS(
       subscribe,
       async onSubscribe({ connectionParams, extra: { request, socket } }, { payload: { operationName, query, variables } }) {
         const { schema, contextFactory, parse, validate } = getEnveloped(
-          await buildContext?.({
-            req: request,
-            ws: {
-              connectionParams,
-              socket,
+          Object.assign(
+            {
+              req: request,
             },
-          })
+            buildContext
+              ? await buildContext({
+                  req: request,
+                  ws: {
+                    connectionParams,
+                    socket,
+                  },
+                })
+              : undefined
+          )
         );
         const args: ExecutionArgs = {
           schema,

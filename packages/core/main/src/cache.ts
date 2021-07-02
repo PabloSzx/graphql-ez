@@ -37,11 +37,12 @@ declare module './index' {
 /**
  * `onPreBuild`
  */
-export const ezCoreCache = async (ctx: InternalAppBuildContext) => {
-  const {
+export const ezCoreCache = async ({
+  options: {
     cache,
     envelop: { plugins },
-  } = ctx.options;
+  },
+}: InternalAppBuildContext) => {
   if (!cache) return;
 
   const isParserEnabled = cache === true || !!cache.parse;

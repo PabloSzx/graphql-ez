@@ -165,6 +165,10 @@ declare module '../index' {
   interface BuildContextArgs {
     req: IncomingMessage;
   }
+
+  interface EZContext {
+    req: IncomingMessage;
+  }
 }
 
 export interface BuiltEZApp<T> {

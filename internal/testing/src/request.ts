@@ -8,6 +8,7 @@ import { TearDownPromises } from './common';
 
 import type { RequestOptions } from 'undici/types/dispatcher';
 import type { TypedDocumentNode } from '@graphql-typed-document-node/core';
+import type { IncomingHttpHeaders } from 'http';
 
 export type { RequestOptions, TypedDocumentNode };
 
@@ -73,13 +74,15 @@ export function getRequestPool(port: number, path = '/graphql') {
     },
     async query<TData, TVariables = {}>(
       document: TypedDocumentNode<TData, TVariables> | string,
-      variables?: TVariables
+      variables?: TVariables,
+      headersArg?: IncomingHttpHeaders
     ): Promise<ExecutionResult<TData>> {
       const { body, headers } = await requestPool.request({
         origin: address,
         method: 'POST',
         headers: {
           'content-type': 'application/json',
+          ...headersArg,
         },
         body: Readable.from(JSON.stringify({ query: typeof document === 'string' ? document : print(document), variables }), {
           objectMode: false,

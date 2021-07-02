@@ -126,13 +126,16 @@ export function CreateApp(config: KoaAppOptions = {}): EZAppBuilder {
           query: ctx.request.query,
         };
 
+        const req = ctx.req;
+
         return requestHandler({
+          req,
           request,
           baseOptions: config,
           buildContext,
           buildContextArgs() {
             return {
-              req: ctx.req,
+              req,
               koa: {
                 request: ctx.request,
                 response: ctx.response,
@@ -146,10 +149,10 @@ export function CreateApp(config: KoaAppOptions = {}): EZAppBuilder {
             ctx.response.body = result.payload;
           },
           onMultiPartResponse(result, defaultHandle) {
-            return defaultHandle(ctx.req, ctx.res, result);
+            return defaultHandle(req, ctx.res, result);
           },
           onPushResponse(result, defaultHandle) {
-            return defaultHandle(ctx.req, ctx.res, result);
+            return defaultHandle(req, ctx.res, result);
           },
           processRequestOptions: processRequestOptions && (() => processRequestOptions(ctx.request, ctx.response)),
         });

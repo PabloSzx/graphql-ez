@@ -160,6 +160,7 @@ export function CreateApp(config: HttpAppOptions = {}): EZAppBuilder {
               };
 
               await requestHandler({
+                req,
                 request,
                 getEnveloped,
                 baseOptions: config,

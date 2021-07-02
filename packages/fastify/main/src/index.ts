@@ -99,23 +99,26 @@ export function CreateApp(config: FastifyAppOptions = {}): EZAppBuilder {
             ...routeOptions,
             method: ['GET', 'POST'],
             url: path,
-            handler(req, reply) {
+            handler(fastifyReq, reply) {
               const request = {
-                body: req.body,
-                headers: req.headers,
-                method: req.method,
-                query: req.query,
+                body: fastifyReq.body,
+                headers: fastifyReq.headers,
+                method: fastifyReq.method,
+                query: fastifyReq.query,
               };
 
+              const req = fastifyReq.raw;
+
               return requestHandler({
+                req,
                 request,
                 getEnveloped,
                 baseOptions: config,
                 buildContextArgs() {
                   return {
-                    req: req.raw,
+                    req,
                     fastify: {
-                      request: req,
+                      request: fastifyReq,
                       reply,
                     },
                   };
@@ -127,13 +130,13 @@ export function CreateApp(config: FastifyAppOptions = {}): EZAppBuilder {
                 },
                 onMultiPartResponse(result, defaultHandle) {
                   reply.hijack();
-                  return defaultHandle(req.raw, reply.raw, result);
+                  return defaultHandle(req, reply.raw, result);
                 },
                 onPushResponse(result, defaultHandle) {
                   reply.hijack();
-                  return defaultHandle(req.raw, reply.raw, result);
+                  return defaultHandle(req, reply.raw, result);
                 },
-                processRequestOptions: processRequestOptions && (() => processRequestOptions(req, reply)),
+                processRequestOptions: processRequestOptions && (() => processRequestOptions(fastifyReq, reply)),
               });
             },
           });

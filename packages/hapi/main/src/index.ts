@@ -110,14 +110,16 @@ export function CreateApp(config: HapiAppOptions = {}): EZAppBuilder {
               query: req.query,
             };
 
+            const rawReq = req.raw.req;
             return requestHandler<Lifecycle.ReturnValueTypes>({
               request,
+              req: rawReq,
               getEnveloped,
               baseOptions: config,
               buildContext,
               buildContextArgs() {
                 return {
-                  req: req.raw.req,
+                  req: rawReq,
                   hapi: {
                     request: req,
                     h,
@@ -128,12 +130,12 @@ export function CreateApp(config: HapiAppOptions = {}): EZAppBuilder {
                 return h.response(result.payload).code(result.status).type('application/json');
               },
               async onMultiPartResponse(result, defaultHandle) {
-                await defaultHandle(req.raw.req, req.raw.res, result);
+                await defaultHandle(rawReq, req.raw.res, result);
 
                 return h.abandon;
               },
               async onPushResponse(result, defaultHandle) {
-                await defaultHandle(req.raw.req, req.raw.res, result);
+                await defaultHandle(rawReq, req.raw.res, result);
 
                 return h.abandon;
               },

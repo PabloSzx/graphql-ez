@@ -29,6 +29,8 @@ export interface HandleRequestOptions<BuildContextArgs, TReturn = unknown> {
   request: Request;
   getEnveloped: Envelop;
 
+  req: IncomingMessage;
+
   baseOptions: AppOptions;
 
   buildContextArgs: () => BuildContextArgs;
