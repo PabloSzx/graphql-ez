@@ -1,5 +1,17 @@
 # @graphql-ez/fastify
 
+## 0.5.0
+
+### Minor Changes
+
+- 1fb2078: always add "req" IncomingMessage to context
+
+### Patch Changes
+
+- Updated dependencies [1a91791]
+- Updated dependencies [1fb2078]
+  - graphql-ez@0.5.0
+
 ## 0.4.1
 
 ### Patch Changes

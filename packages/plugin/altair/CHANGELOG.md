@@ -1,5 +1,13 @@
 # @graphql-ez/plugin-altair
 
+## 0.3.1
+
+### Patch Changes
+
+- Updated dependencies [1a91791]
+- Updated dependencies [1fb2078]
+  - graphql-ez@0.5.0
+
 ## 0.3.0
 
 ### Minor Changes
