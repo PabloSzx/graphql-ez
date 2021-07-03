@@ -1,5 +1,11 @@
 # @graphql-ez/fastify
 
+## 0.5.1
+
+### Patch Changes
+
+- f8b5802: add 'skip-override' to keep current scope in plugin
+
 ## 0.5.0
 
 ### Minor Changes
