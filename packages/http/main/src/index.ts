@@ -164,7 +164,7 @@ export function CreateApp(config: HttpAppOptions = {}): EZAppBuilder {
                 request,
                 getEnveloped,
                 baseOptions: config,
-                buildContextArgs() {
+                contextArgs() {
                   return {
                     req,
                     http: {

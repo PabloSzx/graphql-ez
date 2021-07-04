@@ -114,7 +114,7 @@ export function CreateApp(config: FastifyAppOptions = {}): EZAppBuilder {
                 request,
                 getEnveloped,
                 baseOptions: config,
-                buildContextArgs() {
+                contextArgs() {
                   return {
                     req,
                     fastify: {

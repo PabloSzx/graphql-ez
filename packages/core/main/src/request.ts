@@ -21,7 +21,7 @@ declare module './index' {
 export async function handleRequest<TReturn = unknown>({
   request,
   getEnveloped,
-  buildContextArgs,
+  contextArgs,
   buildContext,
   onResponse,
   onMultiPartResponse,
@@ -31,7 +31,7 @@ export async function handleRequest<TReturn = unknown>({
   req,
 }: HandleRequestOptions<BuildContextArgs, TReturn>): Promise<TReturn> {
   const { parse, validate, contextFactory, execute, schema, subscribe } = getEnveloped(
-    Object.assign({ req }, buildContext ? await buildContext(buildContextArgs()) : undefined)
+    Object.assign({ req }, buildContext ? await buildContext(contextArgs()) : undefined)
   );
 
   if (Array.isArray(request.body)) {

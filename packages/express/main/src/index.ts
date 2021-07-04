@@ -128,7 +128,7 @@ export function CreateApp(config: ExpressAppOptions = {}): EZAppBuilder {
           request,
           getEnveloped,
           baseOptions: config,
-          buildContextArgs() {
+          contextArgs() {
             return {
               req,
               express: {

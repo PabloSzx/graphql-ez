@@ -117,7 +117,7 @@ export function CreateApp(config: HapiAppOptions = {}): EZAppBuilder {
               getEnveloped,
               baseOptions: config,
               buildContext,
-              buildContextArgs() {
+              contextArgs() {
                 return {
                   req: rawReq,
                   hapi: {

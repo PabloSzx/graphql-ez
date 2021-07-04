@@ -33,7 +33,7 @@ export interface HandleRequestOptions<BuildContextArgs, TReturn = unknown> {
 
   baseOptions: AppOptions;
 
-  buildContextArgs: () => BuildContextArgs;
+  contextArgs: () => BuildContextArgs;
   buildContext: ((args: BuildContextArgs) => Record<string, unknown> | Promise<Record<string, unknown>>) | undefined;
 
   onResponse: (result: EZResponse, defaultHandle: DefaultResponseHandler) => TReturn | Promise<TReturn>;

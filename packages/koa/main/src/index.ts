@@ -133,7 +133,7 @@ export function CreateApp(config: KoaAppOptions = {}): EZAppBuilder {
           request,
           baseOptions: config,
           buildContext,
-          buildContextArgs() {
+          contextArgs() {
             return {
               req,
               koa: {
