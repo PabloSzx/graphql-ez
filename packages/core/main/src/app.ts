@@ -92,6 +92,7 @@ export function createEZAppFactory(
     envelop: {
       plugins: envelopPlugins,
       presets: envelopPresets,
+      enableInternalTracing: rawOptions.envelop?.enableInternalTracing,
     },
   };
 

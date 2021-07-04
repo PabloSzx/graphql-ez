@@ -93,6 +93,8 @@ declare module '../index' {
     envelop: {
       plugins: Plugin[];
       presets: Envelop[];
+
+      enableInternalTracing?: boolean;
     };
   }
 
@@ -120,6 +122,8 @@ declare module '../index' {
       plugins?: Plugin[];
 
       preset?: Envelop | Envelop[];
+
+      enableInternalTracing?: boolean;
     };
 
     /**
