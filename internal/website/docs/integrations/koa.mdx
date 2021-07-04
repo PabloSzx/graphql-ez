@@ -1,0 +1,108 @@
+---
+title: Koa
+sidebar_label: Koa
+---
+
+# Koa Integration
+
+## Install
+
+<PackageInstall
+  packages={['@koa/router koa graphql graphql-ez @graphql-ez/koa', '-D @types/koa @types/koa__router @types/node']}
+/>
+
+## Usage
+
+`Server module`
+
+```ts
+import Koa from 'koa';
+import KoaRouter from '@koa/router';
+
+import { ezApp } from './ez';
+
+const app = new Koa();
+
+const router = new KoaRouter();
+
+ezApp
+  .buildApp({
+    app,
+    router,
+    // ...
+  })
+  .then(() => {
+    app.use(router.routes()).use(router.allowedMethods());
+
+    const port = 8080;
+    app.listen(port, () => {
+      console.log(`Koa Listening on port ${port}!`);
+    });
+  });
+```
+
+`EZ App module`
+
+```ts
+import { CreateApp, gql } from '@graphql-ez/koa';
+
+export const ezApp = createApp({
+  // You can use any valid GraphQL Schema, or build it in-line
+  schema: {
+    typeDefs: gql`
+      type Query {
+        hello: String!
+      }
+    `,
+    resolvers: {
+      Query: {
+        hello() {
+          return 'Hello World';
+        },
+      },
+    },
+  },
+  ez: {
+    plugins: [
+      // EZ Plugins
+    ],
+  },
+  envelop: {
+    plugins: [
+      // Envelop Plugins
+    ],
+  },
+  // Other Options
+});
+```
+
+### Build Custom Context
+
+The Koa specific arguments are optional since, in some specific contexts, those might not available,
+but you can always use the `HTTP's IncomingMessage` `req`
+
+```ts
+import { CreateApp, BuildContextArgs, InferContext } from '@graphql-ez/koa';
+
+function buildContext({ req, koa }: BuildContextArgs) {
+  // IncomingMessage
+  req;
+
+  // Request | undefined
+  koa?.request;
+
+  return {
+    foo: 'bar',
+  };
+}
+
+// This snippet allows you infer the context returned by your 'buildContext' and add it to the EZContext interface
+declare module 'graphql-ez' {
+  interface EZContext extends InferContext<typeof buildContext> {}
+}
+
+export const ezApp = CreateApp({
+  // ...
+  buildContext,
+});
+```

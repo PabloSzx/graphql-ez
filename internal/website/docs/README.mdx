@@ -5,13 +5,27 @@ sidebar_label: Introduction
 
 # GraphQL EZ
 
-Easy and feature complete **GraphQL APIs** using [Envelop](https://www.envelop.dev/).
+`GraphQL EZ` is a Plugin-Based `GraphQL API Server` designed to be **Easy** and **Powerful**,
+with big customization in mind.
 
-With integrations for:
+This library is based on [**Envelop**](https://www.envelop.dev/),
+which is a very powerful Plugin-Based `GraphQL Execution orchestrator` that allows developers to build,
+share and collaborate on GraphQL-related plugins while filling the missing pieces in GraphQL implementations.
+You can read more about it [**here**](https://www.envelop.dev/docs).
 
-- [Fastify](https://www.fastify.io/)
-- [Express](https://expressjs.com/)
-- [Hapi](https://hapi.dev/)
-- [Koa](https://koajs.com/)
-- [Next.js API Routes](https://nextjs.org/docs/api-routes/introduction)
-- [Node.js HTTP](https://nodejs.org/api/http.html)
+With integrations for [**Fastify**](https://www.fastify.io/), [**Express**](https://expressjs.com/),
+[**Hapi**](https://hapi.dev/), [**Koa Website**](https://koajs.com/), [**Next.js API Routes**](https://nextjs.org/docs/api-routes/introduction) and
+[**Node.js HTTP**](https://nodejs.org/api/http.html):
+
+## Features
+
+Many of the features of GraphQL EZ are enabled through its plugin-based platform, it allows for one-line integrations of:
+
+- [x] First Class support for [TypeScript](https://www.typescriptlang.org/) using [Module Augmentation](https://www.typescriptlang.org/docs/handbook/declaration-merging.html#module-augmentation)
+- [x] Websockets support with both [graphql-ws](https://github.com/enisdenjo/graphql-ws) and [legacy subscriptions-transport-ws](https://github.com/apollographql/subscriptions-transport-ws) via [**Plugin**](#)
+- [x] [GraphQL Code Generator](https://www.graphql-code-generator.com/) via [**Plugin**](#)
+- [x] [GraphiQL IDE](https://github.com/graphql/graphiql) via [**Plugin**](#)
+- [x] [Altair GraphQL Client](https://altair.sirmuel.design/) via [**Plugin**](#)
+- [x] [GraphQL Scalars](https://www.graphql-scalars.dev/) via [**Plugin**](#)
+- [x] [GraphQL Voyager](https://apis.guru/graphql-voyager/) via [**Plugin**](#)
+- [x] And many more, check the **<Link color="blue.500" href="/plugins">Plugin Hub</Link>** for more information

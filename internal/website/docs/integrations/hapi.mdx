@@ -1,0 +1,106 @@
+---
+title: Hapi
+sidebar_label: Hapi
+---
+
+# Hapi Integration
+
+## Install
+
+<PackageInstall packages={['@hapi/hapi graphql graphql-ez @graphql-ez/hapi', '-D @types/node @types/hapi__hapi']} />
+
+## Usage
+
+`Server module`
+
+```ts
+import Hapi from '@hapi/hapi';
+
+import { ezApp } from './ez';
+
+async function init() {
+  const port = 8080;
+  const server = Hapi.server({
+    port,
+    host: 'localhost',
+  });
+
+  const { hapiPlugin } = await ezApp.buildApp({
+    // ...
+  });
+
+  await server.register(hapiPlugin);
+
+  await server.start();
+
+  console.log(`Listening on port ${port}!`);
+}
+
+init().catch(console.error);
+```
+
+`EZ App module`
+
+```ts
+import { CreateApp, gql } from '@graphql-ez/hapi';
+
+export const ezApp = createApp({
+  // You can use any valid GraphQL Schema, or build it in-line
+  schema: {
+    typeDefs: gql`
+      type Query {
+        hello: String!
+      }
+    `,
+    resolvers: {
+      Query: {
+        hello() {
+          return 'Hello World';
+        },
+      },
+    },
+  },
+  ez: {
+    plugins: [
+      // EZ Plugins
+    ],
+  },
+  envelop: {
+    plugins: [
+      // Envelop Plugins
+    ],
+  },
+  // Other Options
+});
+```
+
+### Build Custom Context
+
+The Hapi specific arguments are optional since, in some specific contexts, those might not available,
+but you can always use the `HTTP's IncomingMessage` `req`
+
+```ts
+import { CreateApp, BuildContextArgs, InferContext } from '@graphql-ez/hapi';
+
+function buildContext({ req, hapi }: BuildContextArgs) {
+  // IncomingMessage
+  req;
+
+  // Request | undefined
+  hapi?.request;
+
+  return {
+    foo: 'bar',
+  };
+}
+
+// This snippet allows you infer the context returned by your 'buildContext' and add it to the EZContext interface
+declare module 'graphql-ez' {
+  interface EZContext extends InferContext<typeof buildContext> {}
+}
+
+export const ezApp = CreateApp({
+  // ...
+  buildContext,
+});
+```

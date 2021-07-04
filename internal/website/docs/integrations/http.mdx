@@ -1,0 +1,94 @@
+---
+title: Node.js HTTP
+sidebar_label: Node.js HTTP
+---
+
+# Node.js HTTP Integration
+
+## Install
+
+<PackageInstall packages={['graphql graphql-ez @graphql-ez/http', '-D @types/node']} />
+
+## Usage
+
+`Server module`
+
+```ts
+import { createServer } from 'http';
+
+import { ezApp } from './ez';
+
+const server = createServer((req, res) => {
+  EZApp.requestHandler(req, res);
+});
+
+const EZApp = buildApp({
+  server,
+  // ...
+});
+
+const port = 8080;
+server.listen(port, () => {
+  console.log(`Listening on port ${port}!`);
+});
+```
+
+`EZ App module`
+
+```ts
+import { CreateApp, gql } from '@graphql-ez/http';
+
+export const ezApp = createApp({
+  // You can use any valid GraphQL Schema, or build it in-line
+  schema: {
+    typeDefs: gql`
+      type Query {
+        hello: String!
+      }
+    `,
+    resolvers: {
+      Query: {
+        hello() {
+          return 'Hello World';
+        },
+      },
+    },
+  },
+  ez: {
+    plugins: [
+      // EZ Plugins
+    ],
+  },
+  envelop: {
+    plugins: [
+      // Envelop Plugins
+    ],
+  },
+  // Other Options
+});
+```
+
+### Build Custom Context
+
+```ts
+import { CreateApp, BuildContextArgs, InferContext } from '@graphql-ez/http';
+
+function buildContext({ req }: BuildContextArgs) {
+  // IncomingMessage
+  req;
+
+  return {
+    foo: 'bar',
+  };
+}
+
+// This snippet allows you infer the context returned by your 'buildContext' and add it to the EZContext interface
+declare module 'graphql-ez' {
+  interface EZContext extends InferContext<typeof buildContext> {}
+}
+
+export const ezApp = CreateApp({
+  // ...
+  buildContext,
+});
+```

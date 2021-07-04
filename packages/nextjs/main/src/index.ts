@@ -128,7 +128,10 @@ export function CreateApp(config: NextAppOptions = {}): EZAppBuilder {
           contextArgs() {
             return {
               req,
-              res,
+              next: {
+                req,
+                res,
+              },
             };
           },
           buildContext,

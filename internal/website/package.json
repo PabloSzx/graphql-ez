@@ -2,7 +2,7 @@
   "name": "graphql-ez-website",
   "scripts": {
     "build": "next build",
-    "dev": "concurrently -r \"next-remote-watch ./docs ./src/pages/_app.tsx ./src/pages/_document.tsx\" \"wait-on -s 1 http://localhost:3000 && open-cli http://localhost:3000\"",
+    "dev": "concurrently -r \"next-remote-watch ./docs/**/* ./src/pages/_app.tsx ./src/pages/_document.tsx\" \"wait-on -s 1 http://localhost:3000 && open-cli http://localhost:3000\"",
     "next": "next",
     "start": "next start",
     "analyze": "cross-env ANALYZE=true next build"

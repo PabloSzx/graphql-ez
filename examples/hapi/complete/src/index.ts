@@ -9,13 +9,13 @@ async function init() {
     host: 'localhost',
   });
 
-  const EnvelopApp = await buildApp({
+  const EZApp = await buildApp({
     async prepare() {
       await import('./modules');
     },
   });
 
-  await server.register(EnvelopApp.hapiPlugin);
+  await server.register(EZApp.hapiPlugin);
 
   await server.start();
 

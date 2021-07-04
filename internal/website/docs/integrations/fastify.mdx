@@ -1,0 +1,98 @@
+---
+title: Fastify
+sidebar_label: Fastify
+---
+
+# Fastify Integration
+
+## Install
+
+<PackageInstall packages={['fastify graphql graphql-ez @graphql-ez/fastify', '-D @types/node']} />
+
+## Usage
+
+`Server module`
+
+```ts
+import Fastify from 'fastify';
+
+import { ezApp } from './ez';
+
+const app = Fastify({
+  logger: true,
+});
+
+const { fastifyPlugin } = ezApp.buildApp({
+  // ...
+});
+
+app.register(fastifyPlugin);
+
+app.listen(8080);
+```
+
+`EZ App module`
+
+```ts
+import { CreateApp, gql } from '@graphql-ez/fastify';
+
+export const ezApp = createApp({
+  // You can use any valid GraphQL Schema, or build it in-line
+  schema: {
+    typeDefs: gql`
+      type Query {
+        hello: String!
+      }
+    `,
+    resolvers: {
+      Query: {
+        hello() {
+          return 'Hello World';
+        },
+      },
+    },
+  },
+  ez: {
+    plugins: [
+      // EZ Plugins
+    ],
+  },
+  envelop: {
+    plugins: [
+      // Envelop Plugins
+    ],
+  },
+  // Other Options
+});
+```
+
+### Build Custom Context
+
+The Fastify specific arguments are optional since, in some specific contexts, those might not available,
+but you can always use the `HTTP's IncomingMessage` `req`
+
+```ts
+import { CreateApp, BuildContextArgs, InferContext } from '@graphql-ez/fastify';
+
+function buildContext({ req, fastify }: BuildContextArgs) {
+  // IncomingMessage
+  req;
+
+  // FastifyRequest | undefined
+  fastify?.request;
+
+  return {
+    foo: 'bar',
+  };
+}
+
+// This snippet allows you infer the context returned by your 'buildContext' and add it to the EZContext interface
+declare module 'graphql-ez' {
+  interface EZContext extends InferContext<typeof buildContext> {}
+}
+
+export const ezApp = CreateApp({
+  // ...
+  buildContext,
+});
+```

@@ -90,10 +90,17 @@ function AppContent(appProps: AppProps) {
             onClick: e => handlePushRoute('/', e),
           },
           {
-            children: 'Docs',
+            children: 'Docs & API',
             title: 'Read more about GraphQL EZ',
             href: '/docs',
             onClick: e => handlePushRoute('/docs', e),
+          },
+          {
+            children: 'Envelop',
+            href: 'https://www.envelop.dev/',
+            target: '_blank',
+            rel: 'noopener',
+            title: 'Read more about Envelop. The underlying GraphQL Engine',
           },
           {
             children: 'GitHub',
@@ -118,6 +125,11 @@ function AppContent(appProps: AppProps) {
           mdxNavigationProps={{
             defaultOpenDepth: 2,
             summaryProps() {
+              return {
+                textTransform: 'none',
+              };
+            },
+            linkProps() {
               return {
                 textTransform: 'none',
               };

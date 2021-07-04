@@ -1,0 +1,92 @@
+---
+title: Next.js
+sidebar_label: Next.js
+---
+
+# Next.js API Routes Integration
+
+## Install
+
+Assuming you already have a [Next.js setup with TypeScript](https://nextjs.org/docs/basic-features/typescript)
+
+<PackageInstall packages={['graphql graphql-ez @graphql-ez/nextjs']} />
+
+## Usage
+
+`Server module` `/src/pages/api/graphql.ts`
+
+```ts
+import { ezApp } from '../../ez';
+
+const { apiHandler } = ezApp.buildApp({
+  // ...
+});
+
+export default apiHandler;
+```
+
+`EZ App module` `/src/ez.ts`
+
+```ts
+import { CreateApp, gql } from '@graphql-ez/nextjs';
+
+export const ezApp = createApp({
+  // You can use any valid GraphQL Schema, or build it in-line
+  schema: {
+    typeDefs: gql`
+      type Query {
+        hello: String!
+      }
+    `,
+    resolvers: {
+      Query: {
+        hello() {
+          return 'Hello World';
+        },
+      },
+    },
+  },
+  ez: {
+    plugins: [
+      // EZ Plugins
+    ],
+  },
+  envelop: {
+    plugins: [
+      // Envelop Plugins
+    ],
+  },
+  // Other Options
+});
+```
+
+### Build Custom Context
+
+The Next.js specific arguments are optional since, in some specific contexts, those might not available,
+but you can always use the `HTTP's IncomingMessage` `req`
+
+```ts
+import { CreateApp, BuildContextArgs, InferContext } from '@graphql-ez/nextjs';
+
+function buildContext({ req, next }: BuildContextArgs) {
+  // IncomingMessage
+  req;
+
+  // NextApiRequest | undefined
+  next?.req;
+
+  return {
+    foo: 'bar',
+  };
+}
+
+// This snippet allows you infer the context returned by your 'buildContext' and add it to the EZContext interface
+declare module 'graphql-ez' {
+  interface EZContext extends InferContext<typeof buildContext> {}
+}
+
+export const ezApp = CreateApp({
+  // ...
+  buildContext,
+});
+```

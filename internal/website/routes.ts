@@ -7,23 +7,9 @@ export function getRoutes(): IRoutes {
         $name: 'Docs',
         $routes: ['README'],
         _: {
-          fastify: {
-            $name: 'Fastify',
-          },
-          express: {
-            $name: 'Express',
-          },
-          hapi: {
-            $name: 'Hapi',
-          },
-          koa: {
-            $name: 'Koa',
-          },
-          http: {
-            $name: 'Node.js HTTP',
-          },
-          nextjs: {
-            $name: 'Next.js',
+          integrations: {
+            $name: 'Integrations',
+            $routes: ['fastify', 'express', 'hapi', 'koa', 'http', 'nextjs'],
           },
         },
       },

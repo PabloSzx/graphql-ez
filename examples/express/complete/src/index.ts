@@ -9,8 +9,8 @@ buildApp({
   async prepare() {
     await import('./modules');
   },
-}).then(EnvelopApp => {
-  app.use(EnvelopApp.router);
+}).then(EZApp => {
+  app.use(EZApp.router);
 
   const port = process.env.PORT || 3000;
   app.listen(port, () => {

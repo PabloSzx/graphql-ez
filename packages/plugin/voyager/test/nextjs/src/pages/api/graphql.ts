@@ -1,5 +1,5 @@
 import { buildApp } from '../../api/app';
 
-const EnvelopApp = buildApp();
+const EZApp = buildApp();
 
-export default EnvelopApp.apiHandler;
+export default EZApp.apiHandler;

@@ -1,16 +1,11 @@
-import Image from 'next/image';
-
 import { Box, Heading, HStack, Image as ChakraImage, Link, Text, useColorModeValue, VStack } from '@chakra-ui/react';
 import { ClassNames } from '@emotion/react';
 import { handlePushRoute } from '@guild-docs/client';
 import { HeroGradient, InfoList } from '@theguild/components';
 
-import ExpressLogo from '../../public/express-logo.png';
-import FastifyLogo from '../../public/fastify-logo.png';
-import HapiLogo from '../../public/hapi-logo.png';
-import KoaLogo from '../../public/koa-logo.png';
-import NextjsLogo from '../../public/nextjs-logo.png';
-import NodeLogo from '../../public/nodejs-logo.png';
+import { ExpressLogo, FastifyLogo, HapiLogo, KoaLogo, NextjsLogo, NodeLogo } from '../components/logos';
+
+import type { ReactNode } from 'react';
 
 function ItemDescription({ description, packageName }: { description: string; packageName: string }) {
   const encodedPackage = encodeURIComponent(packageName);
@@ -24,15 +19,7 @@ function ItemDescription({ description, packageName }: { description: string; pa
   );
 }
 
-function IntegrationItemTitle({
-  name,
-  logoSrc,
-  integrationWebsite,
-}: {
-  name: string;
-  logoSrc: StaticImageData;
-  integrationWebsite: string;
-}) {
+function IntegrationItemTitle({ name, logo, integrationWebsite }: { name: string; logo: ReactNode; integrationWebsite: string }) {
   return (
     <HStack spacing="1.1em" justifyContent="space-around">
       <Heading as="h3">{name}</Heading>
@@ -46,19 +33,7 @@ function IntegrationItemTitle({
           borderRadius: '10px',
         }}
       >
-        <Image
-          src={logoSrc}
-          css={{
-            backgroundColor: 'white',
-            borderRadius: '10px',
-            objectFit: 'contain',
-            padding: '3px !important',
-          }}
-          layout="intrinsic"
-          width="110px"
-          height="50px"
-          placeholder="blur"
-        />
+        {logo}
       </Box>
     </HStack>
   );
@@ -134,7 +109,7 @@ export default function Index() {
             }}
             items={[
               {
-                title: <IntegrationItemTitle name="Fastify" integrationWebsite="https://fastify.io" logoSrc={FastifyLogo} />,
+                title: <IntegrationItemTitle name="Fastify" integrationWebsite="https://fastify.io" logo={<FastifyLogo />} />,
                 description: (
                   <ItemDescription
                     description="Fast and low overhead web framework, for Node.js"
@@ -142,14 +117,14 @@ export default function Index() {
                   />
                 ),
                 link: {
-                  href: '/docs/fastify',
+                  href: '/docs/integrations/fastify',
                   title: 'Fastify Docs',
                   children: 'Docs',
-                  onClick: e => handlePushRoute('/docs/fastify', e),
+                  onClick: e => handlePushRoute('/docs/integrations/fastify', e),
                 },
               },
               {
-                title: <IntegrationItemTitle name="Express" integrationWebsite="https://expressjs.com/" logoSrc={ExpressLogo} />,
+                title: <IntegrationItemTitle name="Express" integrationWebsite="https://expressjs.com/" logo={<ExpressLogo />} />,
                 description: (
                   <ItemDescription
                     description="Fast, unopinionated, minimalist web framework for Node.js"
@@ -157,14 +132,14 @@ export default function Index() {
                   />
                 ),
                 link: {
-                  href: '/docs/express',
+                  href: '/docs/integrations/express',
                   title: 'Express Docs',
                   children: 'Docs',
-                  onClick: e => handlePushRoute('/docs/express', e),
+                  onClick: e => handlePushRoute('/docs/integrations/express', e),
                 },
               },
               {
-                title: <IntegrationItemTitle name="Hapi" integrationWebsite="https://hapi.dev/" logoSrc={HapiLogo} />,
+                title: <IntegrationItemTitle name="Hapi" integrationWebsite="https://hapi.dev/" logo={<HapiLogo />} />,
                 description: (
                   <ItemDescription
                     description="Build powerful, scalable applications, with minimal overhead and full out-of-the-box functionality"
@@ -172,22 +147,22 @@ export default function Index() {
                   />
                 ),
                 link: {
-                  href: '/docs/hapi',
+                  href: '/docs/integrations/hapi',
                   title: 'Hapi Docs',
                   children: 'Docs',
-                  onClick: e => handlePushRoute('/docs/hapi', e),
+                  onClick: e => handlePushRoute('/docs/integrations/hapi', e),
                 },
               },
               {
-                title: <IntegrationItemTitle name="Koa" integrationWebsite="https://koajs.com/" logoSrc={KoaLogo} />,
+                title: <IntegrationItemTitle name="Koa" integrationWebsite="https://koajs.com/" logo={<KoaLogo />} />,
                 description: (
                   <ItemDescription description="Next generation web framework for Node.js" packageName="@graphql-ez/koa" />
                 ),
                 link: {
-                  href: '/docs/koa',
+                  href: '/docs/integrations/koa',
                   title: 'Koa Docs',
                   children: 'Docs',
-                  onClick: e => handlePushRoute('/docs/koa', e),
+                  onClick: e => handlePushRoute('/docs/integrations/koa', e),
                 },
               },
               {
@@ -195,15 +170,15 @@ export default function Index() {
                   <IntegrationItemTitle
                     name="Node.js HTTP"
                     integrationWebsite="https://nodejs.org/api/http.html"
-                    logoSrc={NodeLogo}
+                    logo={<NodeLogo />}
                   />
                 ),
                 description: <ItemDescription description="Core Node.js HTTP server" packageName="@graphql-ez/http" />,
                 link: {
-                  href: '/docs/http',
+                  href: '/docs/integrations/http',
                   title: 'HTTP Docs',
                   children: 'Docs',
-                  onClick: e => handlePushRoute('/docs/http', e),
+                  onClick: e => handlePushRoute('/docs/integrations/http', e),
                 },
               },
               {
@@ -211,17 +186,17 @@ export default function Index() {
                   <IntegrationItemTitle
                     name="Next.js API Routes"
                     integrationWebsite="https://nextjs.org/docs/api-routes/introduction"
-                    logoSrc={NextjsLogo}
+                    logo={<NextjsLogo />}
                   />
                 ),
                 description: (
                   <ItemDescription description="The React Framework for Production" packageName="@graphql-ez/nextjs" />
                 ),
                 link: {
-                  href: '/docs/nextjs',
+                  href: '/docs/integrations/nextjs',
                   title: 'Next.js Docs',
                   children: 'Docs',
-                  onClick: e => handlePushRoute('/docs/nextjs', e),
+                  onClick: e => handlePushRoute('/docs/integrations/nextjs', e),
                 },
               },
             ]}
