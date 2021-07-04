@@ -86,7 +86,7 @@ function buildContext({ req, fastify }: BuildContextArgs) {
   };
 }
 
-// This snippet allows you infer the context returned by your 'buildContext' and add it to the EZContext interface
+// This snippet allows you to infer the context returned by your 'buildContext' and add it to the EZContext interface
 declare module 'graphql-ez' {
   interface EZContext extends InferContext<typeof buildContext> {}
 }

@@ -14,7 +14,7 @@ sidebar_label: Express
 `Server module`
 
 ```ts
-import express from 'fastify';
+import express from 'express';
 
 import { ezApp } from './ez';
 
@@ -90,7 +90,7 @@ function buildContext({ req, express }: BuildContextArgs) {
   };
 }
 
-// This snippet allows you infer the context returned by your 'buildContext' and add it to the EZContext interface
+// This snippet allows you to infer the context returned by your 'buildContext' and add it to the EZContext interface
 declare module 'graphql-ez' {
   interface EZContext extends InferContext<typeof buildContext> {}
 }
