@@ -110,7 +110,23 @@ function AppContent(appProps: AppProps) {
           onClick: e => handlePushRoute('/docs', e),
         }}
       />
-      {isDocs ? <DocsPage appProps={appProps} accentColor={accentColor} mdxRoutes={mdxRoutes} /> : <Component {...pageProps} />}
+      {isDocs ? (
+        <DocsPage
+          appProps={appProps}
+          accentColor={accentColor}
+          mdxRoutes={mdxRoutes}
+          mdxNavigationProps={{
+            defaultOpenDepth: 2,
+            summaryProps() {
+              return {
+                textTransform: 'none',
+              };
+            },
+          }}
+        />
+      ) : (
+        <Component {...pageProps} />
+      )}
       <Footer />
     </>
   );

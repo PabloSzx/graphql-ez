@@ -16,7 +16,7 @@ function ItemDescription({ description, packageName }: { description: string; pa
   const encodedPackage = encodeURIComponent(packageName);
   return (
     <VStack height="100%" align="flex-start" justify="space-around">
-      <Text fontSize={description.length > 80 ? '0.8em !important' : undefined}>{description}</Text>
+      <Text maxHeight="50px">{description}</Text>
       <Link alignSelf="flex-end" justifySelf="flex-end" href={`https://www.npmjs.com/package/${encodedPackage}`} target="_blank">
         <ChakraImage src={`https://badge.fury.io/js/${encodedPackage}.svg`} alt="npm version" height="18" />
       </Link>
