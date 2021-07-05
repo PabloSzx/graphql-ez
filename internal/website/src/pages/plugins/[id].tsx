@@ -1,6 +1,6 @@
 import format from 'date-fns/format';
 
-import { Box, Center, Code, Container, Grid, Heading, SimpleGrid } from '@chakra-ui/react';
+import { Box, Center, Code, Container, Grid, Heading, SimpleGrid, Image } from '@chakra-ui/react';
 import { PackageInstall, RemoteGHMarkdown } from '@guild-docs/client';
 import { buildMDX, CompiledMDX } from '@guild-docs/server';
 import { getPackagesData, PackageWithStats } from '@guild-docs/server/npm';
@@ -81,11 +81,12 @@ export default function PluginPageContent({ data }: PluginPageProps) {
     <Box as="section">
       <Container p={'1.5rem'} maxWidth={1200}>
         <Heading as="h2" fontSize="2xl" fontWeight="bold" marginBottom="1em">
-          <a href="/plugins">Plugin Hub</a> {'>'} {pluginData.title}
+          <a href="/plugins">Plugin Hub</a> {'>'} {pluginData.title}{' '}
+          {pluginData.iconUrl ? <Image display="inline-block" src={pluginData.iconUrl} boxSize="50px" fit="contain" /> : null}
         </Heading>
         <Grid templateColumns={['1fr', '1fr', '1fr 350px']} gap={4}>
           <Box>
-            <PackageInstall packages={packageInstallList(pluginData)} maxW="50ch" />
+            <PackageInstall packages={packageInstallList(pluginData)} />
             <RemoteGHMarkdown
               directory={pluginData.stats?.collected?.metadata?.repository?.directory}
               repo={pluginData.stats?.collected?.metadata?.links?.repository}

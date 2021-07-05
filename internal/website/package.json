@@ -2,8 +2,10 @@
   "name": "graphql-ez-website",
   "scripts": {
     "build": "next build",
-    "dev": "concurrently -r \"next-remote-watch ./docs/**/* ./src/pages/_app.tsx ./src/pages/_document.tsx\" \"wait-on -s 1 http://localhost:3000 && open-cli http://localhost:3000\"",
+    "dev": "concurrently -r pnpm:dev:watch pnpm:open",
     "next": "next",
+    "open": "wait-on -s 1 http://localhost:3000 && open-cli http://localhost:3000",
+    "dev:watch": "next-remote-watch -p ./plugins.ts ./routes.ts \"./docs/**/*\" ./src/pages/_app.tsx ./src/pages/_document.tsx",
     "start": "next start",
     "analyze": "cross-env ANALYZE=true next build"
   },

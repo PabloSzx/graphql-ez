@@ -24,7 +24,9 @@ export const getStaticProps: GetStaticProps<MarketplaceProps> = async () => {
   const data = await Promise.all(
     pluginsData.map(async plugin => {
       const [description, content] = await buildMultipleMDX([
-        `${plugin.stats?.collected?.metadata?.version || ''}\n\n${plugin.stats?.collected?.metadata?.description || ''}`,
+        `${plugin.stats?.collected?.metadata?.version || ''}\n\n${
+          plugin.descriptionMarkdown || plugin.stats?.collected?.metadata?.description || ''
+        }`,
         plugin.readme || plugin.stats?.collected?.metadata?.readme || '',
       ]);
       return {
@@ -135,6 +137,9 @@ export default function Marketplace({ data }: MarketplaceProps) {
       <MarketplaceSearch
         title="Explore Plugin Hub"
         placeholder="Find plugins..."
+        wrapperProps={{
+          className: 'patch-image-margin',
+        }}
         primaryList={{
           title: 'Trending',
           items: trendingItems,
