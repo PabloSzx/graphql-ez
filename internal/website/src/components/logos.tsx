@@ -1,11 +1,11 @@
 import Image, { ImageProps } from 'next/image';
 
-import ExpressLogoImage from '../../public/express-logo.png';
-import FastifyLogoImage from '../../public/fastify-logo.png';
-import HapiLogoImage from '../../public/hapi-logo.png';
-import KoaLogoImage from '../../public/koa-logo.png';
-import NextjsLogoImage from '../../public/nextjs-logo.png';
-import NodeLogoImage from '../../public/nodejs-logo.png';
+import ExpressLogoImage from '../../public/assets/logos/express.png';
+import FastifyLogoImage from '../../public/assets/logos/fastify.png';
+import HapiLogoImage from '../../public/assets/logos/hapi.png';
+import KoaLogoImage from '../../public/assets/logos/koa.png';
+import NextjsLogoImage from '../../public/assets/logos/nextjs.png';
+import NodeLogoImage from '../../public/assets/logos/nodejs.png';
 
 export type LogoImageProps = Partial<Omit<ImageProps, 'src' | 'blurDataURL'>>;
 

@@ -96,6 +96,12 @@ function AppContent(appProps: AppProps) {
             onClick: e => handlePushRoute('/docs', e),
           },
           {
+            children: 'Plugin Hub',
+            title: 'Check all the available plugins',
+            href: '/plugins',
+            onClick: e => handlePushRoute('/plugins', e),
+          },
+          {
             children: 'Envelop',
             href: 'https://www.envelop.dev/',
             target: '_blank',
