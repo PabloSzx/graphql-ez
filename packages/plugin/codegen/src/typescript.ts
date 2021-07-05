@@ -13,6 +13,8 @@ import type { Source } from '@graphql-tools/utils';
 import type { LoadTypedefsOptions, UnnormalizedTypeDefPointer } from '@graphql-tools/load';
 import type { TypeScriptPluginConfig } from '@graphql-codegen/typescript';
 import type { TypeScriptResolversPluginConfig } from '@graphql-codegen/typescript-resolvers/config';
+import type { TypeScriptDocumentsPluginConfig } from '@graphql-codegen/typescript-operations';
+import type { TypeScriptTypedDocumentNodesConfig } from '@graphql-codegen/typed-document-node/config';
 
 import type { InternalAppBuildContext } from 'graphql-ez';
 
@@ -28,7 +30,11 @@ export interface CodegenDocumentsConfig {
   loadDocuments?: Partial<LoadTypedefsOptions>;
 }
 
-export interface CodegenConfig extends TypeScriptPluginConfig, TypeScriptResolversPluginConfig {
+export interface CodegenConfig
+  extends TypeScriptPluginConfig,
+    TypeScriptResolversPluginConfig,
+    TypeScriptDocumentsPluginConfig,
+    TypeScriptTypedDocumentNodesConfig {
   /**
    * @description
    * Will use import type {} rather than import {} when importing only types.
@@ -49,12 +55,12 @@ export interface CodegenConfig extends TypeScriptPluginConfig, TypeScriptResolve
   /**
    * Generated target path
    *
-   * @default "./src/envelop.generated.ts"
+   * @default "./src/ez.generated.ts"
    */
   targetPath?: string;
 
   /**
-   * Add arbitrary code at the beggining of the generated code
+   * Add arbitrary code at the beginning of the generated code
    */
   preImportCode?: string;
 
@@ -163,7 +169,10 @@ export async function EnvelopTypeScriptCodegen(executableSchema: GraphQLSchema, 
             : {}),
         };
 
-  const config: TypeScriptPluginConfig & TypeScriptResolversPluginConfig = {
+  const config: TypeScriptPluginConfig &
+    TypeScriptResolversPluginConfig &
+    TypeScriptDocumentsPluginConfig &
+    TypeScriptTypedDocumentNodesConfig = {
     useTypeImports: true,
     customResolverFn: deepPartialResolvers
       ? `(parent: TParent, args: TArgs, context: TContext, info: GraphQLResolveInfo) => Promise<import("graphql-ez").DeepPartial<TResult>> | import("graphql-ez").DeepPartial<TResult>`
