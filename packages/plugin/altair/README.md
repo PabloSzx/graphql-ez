@@ -149,7 +149,7 @@ const ezApp = CreateApp({
 
 ### Next.js Usage
 
-In Next.js you need to use this plugin handler explicitly in your API routes,
+In Next.js you need to use this plugin's handler explicitly in your API routes,
 for example, following the file structure: `/pages/api/altair/[[...any]].ts`, and using this snippet:
 
 ```ts
