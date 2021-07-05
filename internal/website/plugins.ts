@@ -73,14 +73,14 @@ Integration of Websockets using [graphql-ws](https://github.com/enisdenjo/graphq
     iconUrl: '/assets/logos/voyager.png',
   },
   {
-    identifier: 'GraphQL Modules',
+    identifier: 'graphql-modules',
     npmPackage: '@graphql-ez/plugin-modules',
     tags: ['codegen', 'schema-building'],
     title: 'GraphQL Modules',
     iconUrl: '/assets/logos/modules.svg',
   },
   {
-    identifier: 'GraphQL Scalars',
+    identifier: 'graphql-scalars',
     npmPackage: '@graphql-ez/plugin-scalars',
     tags: ['schema-building'],
     title: 'GraphQL Scalars',

@@ -4,7 +4,7 @@ Integration with [DataLoader](https://github.com/graphql/dataloader)
 
 Check https://www.graphql-ez.com for more information
 
-## Usage
+## Usage
 
 This plugins adds an extra `registerDataLoader` in your `ezApp`, which will automatically add the specified dataloader in your GraphQL EZ Application Context.
 
