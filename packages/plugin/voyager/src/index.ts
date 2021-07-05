@@ -15,6 +15,9 @@ export interface VoyagerPluginOptions extends VoyagerOptions {
 }
 
 export interface VoyagerOptions extends RenderVoyagerOptions {
+  /**
+   * Manually transform the rendered HTML
+   */
   transformHtml?: (html: string) => string;
 }
 
