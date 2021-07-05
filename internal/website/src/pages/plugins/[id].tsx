@@ -5,7 +5,7 @@ import { PackageInstall, RemoteGHMarkdown } from '@guild-docs/client';
 import { buildMDX, CompiledMDX } from '@guild-docs/server';
 import { getPackagesData, PackageWithStats } from '@guild-docs/server/npm';
 
-import { pluginsList } from '../../../plugins';
+import { packageInstallList, pluginsList } from '../../../plugins';
 
 import type { GetStaticPaths, GetStaticProps } from 'next';
 
@@ -83,17 +83,17 @@ export default function PluginPageContent({ data }: PluginPageProps) {
         <Heading as="h2" fontSize="2xl" fontWeight="bold" marginBottom="1em">
           <a href="/plugins">Plugin Hub</a> {'>'} {pluginData.title}
         </Heading>
-        <Grid templateColumns="1fr 350px" gap={4}>
+        <Grid templateColumns={['1fr', '1fr', '1fr 350px']} gap={4}>
           <Box>
-            <PackageInstall packages={pluginData.npmPackage} />
+            <PackageInstall packages={packageInstallList(pluginData)} maxW="50ch" />
             <RemoteGHMarkdown
               directory={pluginData.stats?.collected?.metadata?.repository?.directory}
               repo={pluginData.stats?.collected?.metadata?.links?.repository}
               content={pluginData.mdx}
             />
           </Box>
-          <Box>
-            <Heading as="h2" fontSize="xl" fontWeight="bold">
+          <Box gridRow={['1', '1', 'auto']}>
+            <Heading as="h2" fontSize="xl" fontWeight="bold" marginBottom="0.5em">
               Plugin Details
             </Heading>
             <SimpleGrid columns={2}>

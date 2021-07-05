@@ -2,7 +2,7 @@ import compareDesc from 'date-fns/compareDesc';
 import Head from 'next/head';
 import { useMemo } from 'react';
 
-import { MDX, PackageInstall, RemoteGHMarkdown } from '@guild-docs/client';
+import { MDX, PackageInstall, RemoteGHMarkdown, handlePushRoute } from '@guild-docs/client';
 import { buildMultipleMDX, CompiledMDX } from '@guild-docs/server';
 import { getPackagesData, PackageWithStats } from '@guild-docs/server/npm';
 import { MarketplaceSearch } from '@theguild/components';
@@ -48,12 +48,14 @@ export default function Marketplace({ data }: MarketplaceProps) {
   const marketplaceItems: Array<IMarketplaceItemProps & { raw: PackageWithStats }> = useMemo(() => {
     if (data && data.length > 0) {
       return data.map<IMarketplaceItemProps & { raw: PackageWithStats }>(rawPlugin => {
+        const linkHref = `/plugins/${rawPlugin.identifier}`;
         return {
           raw: rawPlugin,
           title: rawPlugin.title,
           link: {
-            href: `/plugins/${rawPlugin.identifier}`,
+            href: linkHref,
             title: `${rawPlugin.title} plugin details`,
+            onClick: ev => handlePushRoute(linkHref, ev),
           },
           description: <MDX mdx={rawPlugin.description.mdx} />,
           modal: {
