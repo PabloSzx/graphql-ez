@@ -6,7 +6,7 @@ Check https://www.graphql-ez.com for more information
 
 ## Usage
 
-This plugins adds an extra `registerDataLoader` in your `ezApp`, which will automatically add the specified dataloader in your GraphQL EZ Application Context.
+This plugin adds an extra `registerDataLoader` in your `ezApp`, which will automatically add the specified dataloader in your GraphQL EZ Application Context.
 
 This EZ Plugin uses [@envelop/dataloader](https://github.com/dotansimha/envelop/tree/main/packages/plugins/dataloader) plugin seamlessly while you code
 
