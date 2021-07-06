@@ -11,9 +11,6 @@ import { Footer, Header, Subheader } from '@theguild/components';
 import type { AppProps } from 'next/app';
 
 ExtendComponents({
-  HelloWorld() {
-    return <p>Hello World!</p>;
-  },
   a: chakra('a', {
     baseStyle: {
       color: '#2f77c9',

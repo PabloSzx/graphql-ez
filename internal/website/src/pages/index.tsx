@@ -1,20 +1,19 @@
-import { Box, Heading, HStack, Image as ChakraImage, Link, Text, useColorModeValue, VStack } from '@chakra-ui/react';
+import Router from 'next/router';
+import { ReactNode, useEffect } from 'react';
+
+import { Box, Heading, HStack, Link, Text, useColorModeValue, VStack } from '@chakra-ui/react';
 import { ClassNames } from '@emotion/react';
 import { handlePushRoute } from '@guild-docs/client';
 import { HeroGradient, InfoList } from '@theguild/components';
 
 import { ExpressLogo, FastifyLogo, HapiLogo, KoaLogo, NextjsLogo, NodeLogo } from '../components/logos';
-
-import type { ReactNode } from 'react';
+import { NPMBadge } from '../components/npmBadge';
 
 function ItemDescription({ description, packageName }: { description: string; packageName: string }) {
-  const encodedPackage = encodeURIComponent(packageName);
   return (
     <VStack height="100%" align="flex-start" justify="space-around">
       <Text maxHeight="50px">{description}</Text>
-      <Link alignSelf="flex-end" justifySelf="flex-end" href={`https://www.npmjs.com/package/${encodedPackage}`} target="_blank">
-        <ChakraImage src={`https://badge.fury.io/js/${encodedPackage}.svg`} alt="npm version" height="18" />
-      </Link>
+      <NPMBadge name={packageName} />
     </VStack>
   );
 }
@@ -40,6 +39,10 @@ function IntegrationItemTitle({ name, logo, integrationWebsite }: { name: string
 }
 
 export default function Index() {
+  useEffect(() => {
+    Router.prefetch('/docs');
+    Router.prefetch('/plugins');
+  }, []);
   return (
     <ClassNames>
       {({ css }) => (
@@ -61,11 +64,7 @@ export default function Index() {
               onClick: e => handlePushRoute('/docs', e),
             }}
             colors={['#000000', '#1CC8EE']}
-            version={
-              <a href="https://www.npmjs.com/package/graphql-ez" target="_blank">
-                <img src="https://badge.fury.io/js/graphql-ez.svg" alt="npm version" height="18" />
-              </a>
-            }
+            version={<NPMBadge name="graphql-ez" />}
           />
 
           <InfoList
