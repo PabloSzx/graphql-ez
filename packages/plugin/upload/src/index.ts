@@ -9,6 +9,8 @@ import type { UploadOptions, processRequest, graphqlUploadExpress, graphqlUpload
 
 export type GraphQLUploadConfig = boolean | UploadOptions;
 
+export { readStreamToBuffer } from 'graphql-ez/utils/buffer';
+
 declare module 'graphql-ez' {
   interface InternalAppBuildContext {
     GraphQLUpload?: {
