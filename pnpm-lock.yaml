@@ -375,7 +375,7 @@ importers:
       '@emotion/babel-plugin': ^11.3.0
       '@emotion/react': ^11.4.0
       '@emotion/styled': ^11.3.0
-      '@guild-docs/client': ^0.2.18
+      '@guild-docs/client': ^0.2.19
       '@guild-docs/server': ^0.2.18
       '@mdx-js/react': ^1.6.22
       '@next/bundle-analyzer': ^11.0.1
@@ -413,7 +413,7 @@ importers:
       '@emotion/babel-plugin': 11.3.0
       '@emotion/react': 11.4.0_43559efe81628b42e1e465743e6a3ffa
       '@emotion/styled': 11.3.0_042eebaef67fba5da1c045d32f8c9a23
-      '@guild-docs/client': 0.2.18_6794be868a624ec6b0432b2dd409866f
+      '@guild-docs/client': 0.2.19_6794be868a624ec6b0432b2dd409866f
       '@guild-docs/server': 0.2.18_2293055a78333a7925b76b49a589d265
       '@mdx-js/react': 1.6.22_react@17.0.2
       '@theguild/components': 1.4.2_7042bb3c71a64c9ee0ea6af36e0e4b2c
@@ -1258,7 +1258,7 @@ packages:
       '@babel/core': ^7.0.0-0
     dependencies:
       '@babel/core': 7.12.9
-      '@babel/helper-plugin-utils': 7.10.4
+      '@babel/helper-plugin-utils': 7.14.5
       '@babel/plugin-syntax-object-rest-spread': 7.8.3_@babel+core@7.12.9
       '@babel/plugin-transform-parameters': 7.14.5_@babel+core@7.12.9
     dev: false
@@ -3162,8 +3162,8 @@ packages:
     dependencies:
       graphql: 15.4.0-experimental-stream-defer.1
 
-  /@guild-docs/client/0.2.18_6794be868a624ec6b0432b2dd409866f:
-    resolution: {integrity: sha512-O+Q3GKVhSCYRMO3CCkHb21vSJTW8HPH2yEXONZHiwPTr/zhOilTYq/MP2P66JjY5I17eIka7JYLLO3meYXkBlQ==}
+  /@guild-docs/client/0.2.19_6794be868a624ec6b0432b2dd409866f:
+    resolution: {integrity: sha512-qwWlxwF5UNjYoZqHD0eWbHGsJ8ino+kjtKdKFDytpoMF96k+YESzNY0n5QtCVVtcJHYF3dEE3kwAoRv1UCuqwQ==}
     peerDependencies:
       '@chakra-ui/icons': ^1.0.13
       '@chakra-ui/react': ^1.6.4
@@ -3174,7 +3174,7 @@ packages:
       '@types/mdx-js__react': ^1.5.3
       framer-motion: ^4.1.17
       next: ^11.0.1
-      next-i18next: ^8.5.1
+      next-i18next: ^8.5.3
       react: ^17.0.2
       react-dom: ^17.0.2
     dependencies:
