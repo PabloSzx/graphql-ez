@@ -1,0 +1,49 @@
+---
+title: Plugins
+sidebar_label: Introduction
+---
+
+# Plugins
+
+## GraphQL EZ Plugins
+
+`GraphQL EZ` supports development and web-server level plugins through its platform.
+You can check all the public available plugins in the <Link color="blue.500" href="/plugins">Plugin Hub</Link>.
+
+All these plugins can be specified in your configuration in the `ez.plugins` property:
+
+By convention, all the EZ Plugins start with `ez` followed by the capitalized name.
+
+```ts
+CreateApp({
+  //...
+  ez: {
+    plugins: [
+      ezPlugin(),
+      // ...
+    ],
+  },
+});
+```
+
+Check <Link color="blue.500" href="/docs/plugins/">How EZ Plugins work?</Link> for information about how they work and how you can create your plugins and contribute on the ecosystem.
+
+## Envelop Plugins
+
+`GraphQL EZ` is based on [**Envelop**](https://www.envelop.dev/), and therefore, all its functionality is available here.
+
+To specify your **Envelop Plugins**, use the property `envelop.plugins` in your configuration.
+
+```ts
+CreateApp({
+  //...
+  envelop: {
+    plugins: [
+      usePlugin(),
+      // ...
+    ],
+  },
+});
+```
+
+Check [Envelop Plugin Hub](https://www.envelop.dev/plugins) for more information.

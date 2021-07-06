@@ -11,6 +11,9 @@ export function getRoutes(): IRoutes {
             $name: 'Integrations',
             $routes: ['fastify', 'express', 'hapi', 'koa', 'http', 'nextjs'],
           },
+          plugins: {
+            $name: 'Plugins',
+          },
         },
       },
     },

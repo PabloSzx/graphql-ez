@@ -1,0 +1,140 @@
+---
+title: How EZ Plugins work?
+sidebar_label: How EZ Plugins work?
+---
+
+# How EZ Plugins work?
+
+## Diagram
+
+<Link href="/assets/plugins-architecture.png" target="_blank">
+  <Image src="/assets/plugins-architecture.png" layout="responsive" width="800" height="400" objectFit="contain" />
+</Link>
+
+## Lifecycle
+
+`EZ Plugins` execute around the lifecycle of the app creation:
+
+### register
+
+This step is called right away when `CreateApp` is called, and plugins hook into this step with the callback `onRegister`.
+
+Usually, in this step, the `InternalAppBuildContext` is populated with the required configuration or modules
+
+```ts
+declare module 'graphql-ez' {
+  interface InternalAppBuildContext {
+    fooBar?: FooBarOptions;
+  }
+}
+
+export const ezFooBar = (options?: FooBarOptions) => {
+  return {
+    name: 'Foo Bar',
+    onRegister(ctx) {
+      ctx.fooBar = options;
+    },
+  };
+};
+```
+
+You also can add helpers in the App Builder
+
+```ts
+declare module 'graphql-ez' {
+  interface BaseAppBuilder {
+    registerFooBar: RegisterFooBar;
+  }
+}
+
+export const ezFooBar = (options?: FooBarOptions) => {
+  return {
+    name: 'Foo Bar',
+    onRegister(ctx) {
+      ctx.appBuilder.fooBar = args => {
+        // ...
+      };
+    },
+  };
+};
+```
+
+### preBuild
+
+This step is called right before `.buildApp` is called, and plugins hook into this step with the callback `onPreBuild`.
+
+Usually, in this step, the `Envelop Plugins` are populated with whatever the plugin does
+
+```ts
+export const ezFooBar = (options?: FooBarOptions) => {
+  return {
+    name: 'Foo Bar',
+    onPreBuild(ctx) {
+      // ...
+
+      const {
+        fooBar,
+        envelop: { plugins },
+      } = ctx.options;
+
+      plugins.push(useFooBar(fooBar));
+    },
+  };
+};
+```
+
+### afterBuild
+
+This step is called right after `.buildApp` is called, and plugins hook into this step with the callback `onAfterBuild`.
+
+This plugin receives not only the `InternalAppBuildContext`, but also the created `Envelop` instance.
+
+Usually, the plugins use this to add logic depending on the resulting schema or adding logic that depends on the `Envelop` instance
+
+```ts
+export const ezFooBar = (options?: FooBarOptions) => {
+  return {
+    name: 'Foo Bar',
+    onAfterBuild(getEnveloped, ctx) {
+      // ...
+
+      const { schema } = getEnveloped();
+
+      // ...
+    },
+  };
+};
+```
+
+### integrationRegister
+
+This step is called right at the beginning of the web-server integration register, having access to the integration-specific context.
+
+Here the plugin has to check the presence of every relevant integration supported.
+
+The plugin also has to mention the supported integrations explicitly with the `compatibilityList` property.
+
+```ts
+export const ezFooBar = (options?: FooBarOptions) => {
+  return {
+    name: 'Foo Bar',
+    compatibilityList: ['fastify', 'express'],
+    onIntegrationRegister(integrationCtx, ctx) {
+      // ...
+
+      if (integrationCtx.fastify) {
+        // ...
+
+        return;
+      }
+
+      if (integrationCtx.express) {
+        // ...
+
+        return;
+      }
+      // ...
+    },
+  };
+};
+```
