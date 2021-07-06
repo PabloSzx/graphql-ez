@@ -42,8 +42,8 @@ export const getStaticProps: GetStaticProps<PluginPageProps, PluginPageParams> =
     props: {
       data,
     },
-    // Revalidate at most once every 1 hour
-    revalidate: 60 * 60,
+    // // Revalidate at most once every 1 hour
+    // revalidate: 60 * 60,
   };
 };
 
