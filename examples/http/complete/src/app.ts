@@ -20,6 +20,7 @@ declare module 'graphql-ez' {
 const sleep = (ms: number) => new Promise<void>(resolve => setTimeout(resolve, ms));
 
 export const { registerModule, buildApp } = CreateApp({
+  cors: true,
   ez: {
     plugins: [
       ezCodegen({

@@ -24,4 +24,5 @@ export const { buildApp, registerModule, gql } = CreateApp({
       ezGraphQLModules(),
     ],
   },
+  cors: true,
 });
