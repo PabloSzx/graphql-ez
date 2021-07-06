@@ -1,5 +1,18 @@
 # @graphql-ez/http
 
+## 0.6.0
+
+### Minor Changes
+
+- b2dd453: rename internal handle request option "buildContextArgs" to "contextArgs"
+
+### Patch Changes
+
+- 5096b79: re-add CORS
+- Updated dependencies [b2dd453]
+- Updated dependencies [0f4c31b]
+  - graphql-ez@0.6.0
+
 ## 0.5.0
 
 ### Minor Changes

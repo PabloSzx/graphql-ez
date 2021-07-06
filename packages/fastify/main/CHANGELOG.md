@@ -1,5 +1,17 @@
 # @graphql-ez/fastify
 
+## 0.6.0
+
+### Minor Changes
+
+- b2dd453: rename internal handle request option "buildContextArgs" to "contextArgs"
+
+### Patch Changes
+
+- Updated dependencies [b2dd453]
+- Updated dependencies [0f4c31b]
+  - graphql-ez@0.6.0
+
 ## 0.5.1
 
 ### Patch Changes

@@ -1,5 +1,15 @@
 # graphql-ez
 
+## 0.6.0
+
+### Minor Changes
+
+- b2dd453: rename internal handle request option "buildContextArgs" to "contextArgs"
+
+### Patch Changes
+
+- 0f4c31b: add Envelop "enableInternalTracing" option
+
 ## 0.5.0
 
 ### Minor Changes
