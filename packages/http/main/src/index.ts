@@ -1,5 +1,3 @@
-import querystring from 'querystring';
-
 import {
   AppOptions,
   BaseAppBuilder,
@@ -13,6 +11,9 @@ import {
   ProcessRequestOptions,
 } from 'graphql-ez';
 import { getPathname } from 'graphql-ez/utils/url';
+import querystring from 'querystring';
+
+import { EZCors, handleCors } from './cors';
 
 import type { ServerResponse, IncomingMessage, Server as HTTPServer } from 'http';
 
@@ -66,6 +67,11 @@ export interface HttpAppOptions extends AppOptions {
    * Customize some Helix processRequest options
    */
   processRequestOptions?: (req: IncomingMessage, res: ServerResponse) => ProcessRequestOptions;
+
+  /**
+   * Enable/Customize CORS
+   */
+  cors?: EZCors;
 }
 
 export type AsyncRequestHandler = (req: IncomingMessage, res: ServerResponse) => Promise<void>;
@@ -113,6 +119,7 @@ export function CreateApp(config: HttpAppOptions = {}): EZAppBuilder {
         process.exit(1);
       },
       processRequestOptions,
+      cors,
     } = config;
 
     const requestHandler = customHandleRequest || handleRequest;
@@ -132,6 +139,8 @@ export function CreateApp(config: HttpAppOptions = {}): EZAppBuilder {
 
       await onIntegrationRegister(integration);
 
+      const corsMiddleware = await handleCors(cors);
+
       const EZHandler: AsyncRequestHandler = async function (req, res) {
         if (httpHandlers.length) {
           const result = await Promise.all(httpHandlers.map(cb => cb(req, res)));
@@ -140,6 +149,8 @@ export function CreateApp(config: HttpAppOptions = {}): EZAppBuilder {
         }
 
         if (getPathname(req.url) === path) {
+          corsMiddleware && (await corsMiddleware(req, res));
+
           let payload = '';
 
           req.on('data', (chunk: Buffer) => {
