@@ -131,7 +131,7 @@ export default function Marketplace({ data }: MarketplaceProps) {
   return (
     <>
       <Head>
-        <title>Plugin Hub</title>
+        <title>Plugin Hub - GraphQL EZ</title>
       </Head>
 
       <MarketplaceSearch

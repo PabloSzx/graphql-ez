@@ -11,24 +11,41 @@ sidebar_label: How EZ Plugins work?
   <Image src="/assets/plugins-architecture.png" layout="responsive" width="800" height="400" objectFit="contain" />
 </Link>
 
+## Dependencies
+
+Every EZ Plugin should add as [Peer Dependency](https://nodejs.org/es/blog/npm/peer-dependencies/) the common package [graphql-ez](https://npm.im/graphql-ez)
+
+```json
+{
+  "devDependencies": {
+    "graphql-ez": "*"
+  },
+  "peerDependencies": {
+    "graphql-ez": "*"
+  }
+}
+```
+
 ## Lifecycle
 
 `EZ Plugins` execute around the lifecycle of the app creation:
 
 ### register
 
-This step is called right away when `CreateApp` is called, and plugins hook into this step with the callback `onRegister`.
+This step happens right away when `CreateApp` is called, and plugins hook into this step with the callback `onRegister`.
 
 Usually, in this step, the `InternalAppBuildContext` is populated with the required configuration or modules
 
 ```ts
+import type { EZPlugin } from 'graphql-ez';
+
 declare module 'graphql-ez' {
   interface InternalAppBuildContext {
     fooBar?: FooBarOptions;
   }
 }
 
-export const ezFooBar = (options?: FooBarOptions) => {
+export const ezFooBar = (options?: FooBarOptions): EZPlugin => {
   return {
     name: 'Foo Bar',
     onRegister(ctx) {
@@ -41,13 +58,15 @@ export const ezFooBar = (options?: FooBarOptions) => {
 You also can add helpers in the App Builder
 
 ```ts
+import type { EZPlugin } from 'graphql-ez';
+
 declare module 'graphql-ez' {
   interface BaseAppBuilder {
     registerFooBar: RegisterFooBar;
   }
 }
 
-export const ezFooBar = (options?: FooBarOptions) => {
+export const ezFooBar = (options?: FooBarOptions): EZPlugin => {
   return {
     name: 'Foo Bar',
     onRegister(ctx) {
@@ -61,12 +80,14 @@ export const ezFooBar = (options?: FooBarOptions) => {
 
 ### preBuild
 
-This step is called right before `.buildApp` is called, and plugins hook into this step with the callback `onPreBuild`.
+This step happens right before `.buildApp` is called, and plugins hook into this step with the callback `onPreBuild`.
 
 Usually, in this step, the `Envelop Plugins` are populated with whatever the plugin does
 
 ```ts
-export const ezFooBar = (options?: FooBarOptions) => {
+import type { EZPlugin } from 'graphql-ez';
+
+export const ezFooBar = (options?: FooBarOptions): EZPlugin => {
   return {
     name: 'Foo Bar',
     onPreBuild(ctx) {
@@ -85,14 +106,16 @@ export const ezFooBar = (options?: FooBarOptions) => {
 
 ### afterBuild
 
-This step is called right after `.buildApp` is called, and plugins hook into this step with the callback `onAfterBuild`.
+This step happens right after `.buildApp` is called, and plugins hook into this step with the callback `onAfterBuild`.
 
 This plugin receives not only the `InternalAppBuildContext`, but also the created `Envelop` instance.
 
 Usually, the plugins use this to add logic depending on the resulting schema or adding logic that depends on the `Envelop` instance
 
 ```ts
-export const ezFooBar = (options?: FooBarOptions) => {
+import type { EZPlugin } from 'graphql-ez';
+
+export const ezFooBar = (options?: FooBarOptions): EZPlugin => {
   return {
     name: 'Foo Bar',
     onAfterBuild(getEnveloped, ctx) {
@@ -108,14 +131,16 @@ export const ezFooBar = (options?: FooBarOptions) => {
 
 ### integrationRegister
 
-This step is called right at the beginning of the web-server integration register, having access to the integration-specific context.
+This step happens right at the beginning of the web-server integration register, having access to the integration-specific context.
 
 Here the plugin has to check the presence of every relevant integration supported.
 
 The plugin also has to mention the supported integrations explicitly with the `compatibilityList` property.
 
 ```ts
-export const ezFooBar = (options?: FooBarOptions) => {
+import type { EZPlugin } from 'graphql-ez';
+
+export const ezFooBar = (options?: FooBarOptions): EZPlugin => {
   return {
     name: 'Foo Bar',
     compatibilityList: ['fastify', 'express'],

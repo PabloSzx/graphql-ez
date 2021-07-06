@@ -1,9 +1,10 @@
 import 'prism-themes/themes/prism-atom-dark.css';
 import '../../public/style.css';
+import '../components/logos';
 
 import { appWithTranslation } from 'next-i18next';
 
-import { chakra, extendTheme, theme as chakraTheme } from '@chakra-ui/react';
+import { chakra, extendTheme, LinkBox, LinkOverlay, theme as chakraTheme, HStack, VStack, Heading } from '@chakra-ui/react';
 import { mode } from '@chakra-ui/theme-tools';
 import { AppSeoProps, CombinedThemeProvider, DocsPage, ExtendComponents, handlePushRoute } from '@guild-docs/client';
 import { Footer, Header, Subheader } from '@theguild/components';
@@ -11,6 +12,9 @@ import { Footer, Header, Subheader } from '@theguild/components';
 import type { AppProps } from 'next/app';
 
 ExtendComponents({
+  Heading,
+  HStack,
+  VStack,
   a: chakra('a', {
     baseStyle: {
       color: '#2f77c9',
@@ -19,6 +23,8 @@ ExtendComponents({
       },
     },
   }),
+  LinkBox,
+  LinkOverlay,
 });
 
 const styles: typeof chakraTheme['styles'] = {

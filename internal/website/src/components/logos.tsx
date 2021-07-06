@@ -1,5 +1,7 @@
 import Image, { ImageProps } from 'next/image';
 
+import { ExtendComponents } from '@guild-docs/client';
+
 import ExpressLogoImage from '../../public/assets/logos/express.png';
 import FastifyLogoImage from '../../public/assets/logos/fastify.png';
 import HapiLogoImage from '../../public/assets/logos/hapi.png';
@@ -40,3 +42,12 @@ export const NextjsLogo = (props: LogoImageProps) => {
 export const NodeLogo = (props: LogoImageProps) => {
   return <Image src={NodeLogoImage} {...baseLogoStyles} {...props} />;
 };
+
+ExtendComponents({
+  ExpressLogo,
+  FastifyLogo,
+  HapiLogo,
+  KoaLogo,
+  NextjsLogo,
+  NodeLogo,
+});

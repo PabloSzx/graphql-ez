@@ -1,0 +1,194 @@
+---
+title: Configuration & Core Features
+sidebar_label: Configuration & Core Features
+---
+
+# Configuration & Core Features
+
+`GraphQL EZ` allows deep configuration of everything and comes with some basic baked-in functionality that enables you to ship minimal GraphQL APIs without extra plugins
+
+Some options depend on the integration, but the majority of the configuration applies to any application.
+
+> It's important to note that some more advanced configurations are not mentioned here, but you can always check the types of everything.
+
+## Schema
+
+You can specify a built schema (or a promise of a schema),
+for example, coming from [TypeGraphQL](https://typegraphql.com/) or [GraphQL Nexus](https://nexusjs.org/),
+or you can leverage [@graphql-tools/schema](https://www.graphql-tools.com/docs/generate-schema/) and make executable schemas right away.
+
+```ts
+// ...
+import { buildSchema } from 'type-graphql';
+
+const schema = buildSchema({
+  // ...
+});
+
+CreateApp({
+  //...
+  schema,
+});
+```
+
+```ts
+// ...
+import { makeSchema } from 'nexus';
+
+const schema = makeSchema({
+  // ...
+});
+
+CreateApp({
+  //...
+  schema,
+});
+```
+
+```ts
+import { gql, EZSchema } from 'graphql-ez';
+
+const schema: EZSchema = {
+  typeDefs: gql`
+    type Query {
+      hello: String!
+    }
+  `,
+  resolvers: {
+    Query: {
+      hello(_root, _args, ctx) {
+        return 'world';
+      },
+    },
+  },
+};
+
+CreateApp({
+  schema,
+});
+```
+
+### Multiple schemas
+
+You can specify multiple schemas, and it will automatically merge the schemas.
+
+```ts
+CreateApp({
+  // ...
+  schema: [schema1, schema2, schema3],
+});
+```
+
+You can customize the merging behavior following the [@graphql-tools/merge](https://www.graphql-tools.com/docs/schema-merging) options
+
+```ts
+CreateApp({
+  // ...
+  schema: [schema1, schema2, schema3],
+
+  // Check https://www.graphql-tools.com/docs/schema-merging
+  mergeSchemasConfig: {
+    // ...
+  },
+});
+```
+
+## Cache
+
+To have a good performance on a GraphQL API is always essential to leverage caching.
+
+`graphql-ez` has built-in caching for `parse` and `validation` in the GraphQL API.
+
+```ts
+CreateApp({
+  // ...
+
+  // Enable cache in 'parse' and 'validation'
+  cache: true,
+});
+```
+
+```ts
+CreateApp({
+  // ...
+
+  // Enable cache in 'parse' but not in 'validation'
+  cache: {
+    parse: true,
+
+    validation: false,
+  },
+});
+```
+
+```ts
+CreateApp({
+  // ...
+
+  // Enable cache in 'parse' and 'validation' with custom options
+  cache: {
+    // Default values
+    parse: {
+      max: 1000,
+      ttl: 3600000,
+    },
+
+    // Default values
+    validation: {
+      max: 1000,
+      ttl: 3600000,
+    },
+  },
+});
+```
+
+## Introspection
+
+For APIs that are not publicly open, it's always valuable to be able to disable the GraphQL Introspection
+
+```ts
+CreateApp({
+  //...
+
+  introspection: {
+    disable: process.env.NODE_ENV === 'production',
+  },
+});
+```
+
+### Conditionally
+
+```ts
+CreateApp({
+  //...
+
+  introspection: {
+    disable: {
+      disableIf({ context }) {
+        return context.req.headers.authorization !== 'SECRET';
+      },
+    },
+  },
+});
+```
+
+## Batched Queries
+
+You can enable (and also limit) **Batched Queries** in your API using `allowBatchedQueries`:
+
+```ts
+CreateApp({
+  //...
+
+  allowBatchedQueries: true,
+});
+```
+
+```ts
+CreateApp({
+  //...
+
+  // Allow at most, five queries in a single request
+  allowBatchedQueries: 5,
+});
+```
