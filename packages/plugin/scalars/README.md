@@ -4,7 +4,7 @@ Integration with [GraphQL Scalars](https://www.graphql-scalars.dev/)
 
 ## Usage
 
-Check the [website docs](https://www.graphql-scalars.dev/docs/introduction) to see all available scalars, of you can inspect the types of the plugin
+Check the [GraphQL Scalars website docs](https://www.graphql-scalars.dev/docs/introduction) to see all available scalars, of you can inspect the types of the plugin
 
 ```ts
 import { ezScalars } from '@graphql-ez/plugin-scalars';
@@ -12,12 +12,13 @@ import { ezScalars } from '@graphql-ez/plugin-scalars';
 const ezApp = CreateApp({
   ez: {
     plugins: [
+      // ...
       ezScalars({
         // ...
       }),
-      // ...
     ],
   },
+  // ...
 });
 ```
 
