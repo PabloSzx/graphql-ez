@@ -1,5 +1,18 @@
 # @graphql-ez/nextjs
 
+## 0.6.0
+
+### Minor Changes
+
+- b2dd453: rename internal handle request option "buildContextArgs" to "contextArgs"
+
+### Patch Changes
+
+- e4bbd0a: re-add CORS
+- Updated dependencies [b2dd453]
+- Updated dependencies [0f4c31b]
+  - graphql-ez@0.6.0
+
 ## 0.5.0
 
 ### Minor Changes

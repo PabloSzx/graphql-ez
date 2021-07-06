@@ -1,5 +1,14 @@
 # @graphql-ez/plugin-upload
 
+## 0.3.2
+
+### Patch Changes
+
+- c11afff: re-export readStreamToBuffer from graphql-ez
+- Updated dependencies [b2dd453]
+- Updated dependencies [0f4c31b]
+  - graphql-ez@0.6.0
+
 ## 0.3.1
 
 ### Patch Changes
