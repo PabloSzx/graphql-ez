@@ -57,7 +57,7 @@ importers:
       express: ^4.17.1
       graphql: 15.4.0-experimental-stream-defer.1
       graphql-ez: workspace:^0.5.0
-      tsup: ^4.12.2
+      tsup: ^4.12.4
       typescript: ^4.3.5
     dependencies:
       '@graphql-ez/express': link:../../../packages/express/main
@@ -75,7 +75,7 @@ importers:
     devDependencies:
       '@types/express': 4.17.12
       '@types/node': 16.0.0
-      tsup: 4.12.2_typescript@4.3.5
+      tsup: 4.12.4_typescript@4.3.5
       typescript: 4.3.5
 
   examples/fastify/basic:
@@ -86,7 +86,7 @@ importers:
       fastify: ^3.18.1
       graphql: 15.4.0-experimental-stream-defer.1
       graphql-ez: workspace:^0.5.0
-      tsup: ^4.12.2
+      tsup: ^4.12.4
     dependencies:
       '@graphql-ez/fastify': link:../../../packages/fastify/main
       '@graphql-ez/plugin-codegen': link:../../../packages/plugin/codegen
@@ -95,7 +95,7 @@ importers:
       graphql-ez: link:../../../packages/core/main
     devDependencies:
       '@types/node': 16.0.0
-      tsup: 4.12.2_typescript@4.3.5
+      tsup: 4.12.4_typescript@4.3.5
 
   examples/fastify/complete:
     specifiers:
@@ -115,7 +115,7 @@ importers:
       graphql: 15.4.0-experimental-stream-defer.1
       graphql-ez: workspace:^0.5.0
       graphql-upload: ^12.0.0
-      tsup: ^4.12.2
+      tsup: ^4.12.4
       typescript: ^4.3.5
     dependencies:
       '@graphql-ez/fastify': link:../../../packages/fastify/main
@@ -135,7 +135,7 @@ importers:
       graphql-upload: 12.0.0_34dd13c2583fe2e4418c23a0d30fc388
     devDependencies:
       '@types/node': 16.0.0
-      tsup: 4.12.2_typescript@4.3.5
+      tsup: 4.12.4_typescript@4.3.5
       typescript: 4.3.5
 
   examples/hapi/complete:
@@ -154,7 +154,7 @@ importers:
       '@types/node': ^16.0.0
       graphql: 15.4.0-experimental-stream-defer.1
       graphql-ez: workspace:^0.5.0
-      tsup: ^4.12.2
+      tsup: ^4.12.4
       typescript: ^4.3.5
     dependencies:
       '@graphql-ez/hapi': link:../../../packages/hapi/main
@@ -172,7 +172,7 @@ importers:
     devDependencies:
       '@types/hapi__hapi': 20.0.8
       '@types/node': 16.0.0
-      tsup: 4.12.2_typescript@4.3.5
+      tsup: 4.12.4_typescript@4.3.5
       typescript: 4.3.5
 
   examples/http/complete:
@@ -189,7 +189,7 @@ importers:
       '@types/node': ^16.0.0
       graphql: 15.4.0-experimental-stream-defer.1
       graphql-ez: workspace:^0.5.0
-      tsup: ^4.12.2
+      tsup: ^4.12.4
       typescript: ^4.3.5
     dependencies:
       '@graphql-ez/http': link:../../../packages/http/main
@@ -205,7 +205,7 @@ importers:
       graphql-ez: link:../../../packages/core/main
     devDependencies:
       '@types/node': 16.0.0
-      tsup: 4.12.2_typescript@4.3.5
+      tsup: 4.12.4_typescript@4.3.5
       typescript: 4.3.5
 
   examples/koa/complete:
@@ -228,7 +228,7 @@ importers:
       graphql-ez: workspace:^0.5.0
       koa: ^2.13.1
       koa-bodyparser: ^4.3.0
-      tsup: ^4.12.2
+      tsup: ^4.12.4
       typescript: ^4.3.5
     dependencies:
       '@graphql-ez/koa': link:../../../packages/koa/main
@@ -250,7 +250,7 @@ importers:
       '@types/koa__router': 8.0.4
       '@types/koa-bodyparser': 4.3.1
       '@types/node': 16.0.0
-      tsup: 4.12.2_typescript@4.3.5
+      tsup: 4.12.4_typescript@4.3.5
       typescript: 4.3.5
 
   examples/nextjs/complete:
@@ -375,7 +375,7 @@ importers:
       '@emotion/babel-plugin': ^11.3.0
       '@emotion/react': ^11.4.0
       '@emotion/styled': ^11.3.0
-      '@guild-docs/client': ^0.2.18
+      '@guild-docs/client': ^0.2.19
       '@guild-docs/server': ^0.2.18
       '@mdx-js/react': ^1.6.22
       '@next/bundle-analyzer': ^11.0.1
@@ -413,7 +413,7 @@ importers:
       '@emotion/babel-plugin': 11.3.0
       '@emotion/react': 11.4.0_43559efe81628b42e1e465743e6a3ffa
       '@emotion/styled': 11.3.0_042eebaef67fba5da1c045d32f8c9a23
-      '@guild-docs/client': 0.2.18_6794be868a624ec6b0432b2dd409866f
+      '@guild-docs/client': 0.2.19_6794be868a624ec6b0432b2dd409866f
       '@guild-docs/server': 0.2.18_2293055a78333a7925b76b49a589d265
       '@mdx-js/react': 1.6.22_react@17.0.2
       '@theguild/components': 1.4.2_7042bb3c71a64c9ee0ea6af36e0e4b2c
@@ -3162,8 +3162,8 @@ packages:
     dependencies:
       graphql: 15.4.0-experimental-stream-defer.1
 
-  /@guild-docs/client/0.2.18_6794be868a624ec6b0432b2dd409866f:
-    resolution: {integrity: sha512-O+Q3GKVhSCYRMO3CCkHb21vSJTW8HPH2yEXONZHiwPTr/zhOilTYq/MP2P66JjY5I17eIka7JYLLO3meYXkBlQ==}
+  /@guild-docs/client/0.2.19_6794be868a624ec6b0432b2dd409866f:
+    resolution: {integrity: sha512-qwWlxwF5UNjYoZqHD0eWbHGsJ8ino+kjtKdKFDytpoMF96k+YESzNY0n5QtCVVtcJHYF3dEE3kwAoRv1UCuqwQ==}
     peerDependencies:
       '@chakra-ui/icons': ^1.0.13
       '@chakra-ui/react': ^1.6.4
@@ -3174,7 +3174,7 @@ packages:
       '@types/mdx-js__react': ^1.5.3
       framer-motion: ^4.1.17
       next: ^11.0.1
-      next-i18next: ^8.5.1
+      next-i18next: ^8.5.3
       react: ^17.0.2
       react-dom: ^17.0.2
     dependencies:
@@ -4721,7 +4721,7 @@ packages:
     resolution: {integrity: sha512-D/G3PiuqTfE3IMNjLn/DCp6umjVCSvtZTPdtAFy5+Ved6CsdRvivfKeCzw79W4AatShtU4nGqgvOv5Gro534vQ==}
     dependencies:
       '@types/prop-types': 15.7.3
-      '@types/scheduler': 0.16.1
+      '@types/scheduler': 0.16.2
       csstype: 3.0.8
 
   /@types/readable-stream/2.3.10:
@@ -4737,8 +4737,8 @@ packages:
       '@types/node': 16.0.0
     dev: true
 
-  /@types/scheduler/0.16.1:
-    resolution: {integrity: sha512-EaCxbanVeyxDRTQBkdLb3Bvl/HK7PBK6UJjsSixB0iHKoWxE5uu2Q/DgtpOhPIojN0Zl1whvOd7PoHs2P0s5eA==}
+  /@types/scheduler/0.16.2:
+    resolution: {integrity: sha512-hppQEBDmlwhFAXKJX2KnWLYu5yMfi91yazPb2l+lbJiwW+wdo1gNeRA+3RgNSO39WYX2euey41KEwnqesU2Jew==}
 
   /@types/semver/6.2.2:
     resolution: {integrity: sha512-RxAwYt4rGwK5GyoRwuP0jT6ZHAVTdz2EqgsHmX0PYNjGsko+OeT4WFXXTs/lM3teJUJodM+SNtAL5/pXIJ61IQ==}
@@ -14526,8 +14526,8 @@ packages:
     resolution: {integrity: sha512-LxhtAkPDTkVCMQjt2h6eBVY28KCjikZqZfMcC15YBeNjkgUpdCfBu5HoiOTDu86v6smE8yOjyEktJ8hlbANHQA==}
     engines: {node: '>=0.6.x'}
 
-  /tsup/4.12.2_typescript@4.3.5:
-    resolution: {integrity: sha512-iVj6fJrWta7bilb5QGGgwv5uLGTlYkOnksVB86sP6NA6lsxmpSTf3sSFP9x0No/Thdw7JgNQIUI0yGbjB0t6Mg==}
+  /tsup/4.12.4_typescript@4.3.5:
+    resolution: {integrity: sha512-4fs0ijdZ2o/lrg3OAitFYySvND/mEiEbHADNfBlrwd22Vz4iNB1p7y5BX8vkPrZJXeZ4cGAwYlkruy5oRwIy9g==}
     hasBin: true
     peerDependencies:
       typescript: ^4.2.3

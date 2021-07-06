@@ -3,11 +3,10 @@ import { ReactNode, useEffect } from 'react';
 
 import { Box, Heading, HStack, Link, Text, useColorModeValue, VStack } from '@chakra-ui/react';
 import { ClassNames } from '@emotion/react';
-import { handlePushRoute } from '@guild-docs/client';
+import { handlePushRoute, NPMBadge } from '@guild-docs/client';
 import { HeroGradient, InfoList } from '@theguild/components';
 
 import { ExpressLogo, FastifyLogo, HapiLogo, KoaLogo, NextjsLogo, NodeLogo } from '../components/logos';
-import { NPMBadge } from '../components/npmBadge';
 
 function ItemDescription({ description, packageName }: { description: string; packageName: string }) {
   return (
