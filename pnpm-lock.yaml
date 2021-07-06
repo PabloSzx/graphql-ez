@@ -580,10 +580,12 @@ importers:
 
   packages/http/main:
     specifiers:
+      '@types/cors': ^2.8.11
       '@types/eventsource': 1.1.6
       '@types/node': ^16.0.0
       bob-esbuild-cli: ^0.1.27
       changesets-github-release: 0.0.3
+      cors: ^2.8.5
       eventsource: 1.1.0
       got: 11.8.2
       graphql: 15.4.0-experimental-stream-defer.1
@@ -591,6 +593,9 @@ importers:
       jest: 27.0.6
       ts-jest: 27.0.3
       typescript: 4.3.5
+    dependencies:
+      '@types/cors': 2.8.11
+      cors: 2.8.5
     devDependencies:
       '@types/eventsource': 1.1.6
       '@types/node': 16.0.0
@@ -650,12 +655,14 @@ importers:
   packages/nextjs/main:
     specifiers:
       '@graphql-tools/schema': ^7.1.5
+      '@types/cors': ^2.8.11
       '@types/eventsource': ^1.1.6
       '@types/node': ^16.0.0
       '@types/react': ^17.0.13
       '@types/react-dom': ^17.0.8
       bob-esbuild-cli: ^0.1.27
       changesets-github-release: 0.0.3
+      cors: ^2.8.5
       eventsource: ^1.1.0
       got: ^11.8.2
       graphql: 15.4.0-experimental-stream-defer.1
@@ -666,6 +673,9 @@ importers:
       react-dom: 17.0.2
       ts-jest: 27.0.3
       typescript: 4.3.5
+    dependencies:
+      '@types/cors': 2.8.11
+      cors: 2.8.5
     devDependencies:
       '@graphql-tools/schema': 7.1.5_34dd13c2583fe2e4418c23a0d30fc388
       '@types/eventsource': 1.1.6

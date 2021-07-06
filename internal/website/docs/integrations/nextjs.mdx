@@ -90,3 +90,24 @@ export const ezApp = CreateApp({
   buildContext,
 });
 ```
+
+### Cross-Origin Resource Sharing (CORS)
+
+To enable **CORS**, specify the `cors` property in your configuration
+
+```ts
+CreateApp({
+  cors: true,
+});
+```
+
+Check the [cors package](https://npm.im/cors#configuration-options) for all the available options.
+
+```ts
+CreateApp({
+  // Check https://npm.im/cors#configuration-options
+  cors: {
+    // ...
+  },
+});
+```

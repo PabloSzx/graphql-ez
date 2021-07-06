@@ -11,6 +11,8 @@ import {
   ProcessRequestOptions,
 } from 'graphql-ez';
 
+import { EZCors, handleCors } from './cors';
+
 import type { NextApiRequest, NextApiResponse, NextApiHandler } from 'next';
 
 declare module 'graphql-ez' {
@@ -50,6 +52,11 @@ export interface NextAppOptions extends AppOptions {
    * Customize some Helix processRequest options
    */
   processRequestOptions?: (req: NextApiRequest, res: NextApiResponse) => ProcessRequestOptions;
+
+  /**
+   * Enable/Customize CORS
+   */
+  cors?: EZCors;
 }
 
 export interface EZApp {
@@ -88,6 +95,7 @@ export function CreateApp(config: NextAppOptions = {}): EZAppBuilder {
         process.exit(1);
       },
       processRequestOptions,
+      cors,
     } = config;
 
     const requestHandler = customHandleRequest || handleRequest;
@@ -106,12 +114,16 @@ export function CreateApp(config: NextAppOptions = {}): EZAppBuilder {
 
       await onIntegrationRegister(integration);
 
+      const corsMiddleware = await handleCors(cors);
+
       const EZHandler: NextApiHandler = async function EZHandler(req, res) {
         if (nextHandlers.length) {
           const result = await Promise.all(nextHandlers.map(cb => cb(req, res)));
 
           if (result.some(v => v?.stop)) return;
         }
+
+        corsMiddleware && (await corsMiddleware(req, res));
 
         const request = {
           body: req.body,

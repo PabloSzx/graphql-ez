@@ -29,6 +29,10 @@
     "test": "jest",
     "test:build": "next build test/main"
   },
+  "dependencies": {
+    "@types/cors": "^2.8.11",
+    "cors": "^2.8.5"
+  },
   "devDependencies": {
     "@graphql-tools/schema": "^7.1.5",
     "@types/eventsource": "^1.1.6",
