@@ -96,3 +96,24 @@ export const ezApp = CreateApp({
   buildContext,
 });
 ```
+
+### Cross-Origin Resource Sharing (CORS)
+
+To enable **CORS**, specify the `cors` property in your configuration
+
+```ts
+CreateApp({
+  cors: true,
+});
+```
+
+Check [fastify-cors](https://github.com/fastify/fastify-cors#options) for all the available options.
+
+```ts
+CreateApp({
+  // Check https://github.com/fastify/fastify-cors#options
+  cors: {
+    // ...
+  },
+});
+```
