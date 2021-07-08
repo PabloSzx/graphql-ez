@@ -1,5 +1,11 @@
 # graphql-ez
 
+## 0.7.0
+
+### Minor Changes
+
+- 75683b8: minize core graphql-ez schema logic, release @graphql-ez/plugin-schema with the removed features
+
 ## 0.6.0
 
 ### Minor Changes
