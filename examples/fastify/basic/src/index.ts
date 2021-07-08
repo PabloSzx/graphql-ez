@@ -1,6 +1,8 @@
 import Fastify from 'fastify';
+import { ezSchema, EZSchema } from '@graphql-ez/plugin-schema';
 
-import { CreateApp, gql, EZSchema } from '@graphql-ez/fastify';
+import { CreateApp, gql } from '@graphql-ez/fastify';
+
 const server = Fastify({
   logger: true,
 });
@@ -22,7 +24,13 @@ const schema: EZSchema = {
 };
 
 const ezApp = CreateApp({
-  schema,
+  ez: {
+    plugins: [
+      ezSchema({
+        schema,
+      }),
+    ],
+  },
 });
 
 const { fastifyPlugin } = ezApp.buildApp({});

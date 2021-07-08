@@ -5,6 +5,7 @@ import { ezDataLoader } from '@graphql-ez/plugin-dataloader';
 import { ezGraphiQLIDE } from '@graphql-ez/plugin-graphiql';
 import { ezGraphQLModules } from '@graphql-ez/plugin-modules';
 import { ezScalars } from '@graphql-ez/plugin-scalars';
+import { ezSchema } from '@graphql-ez/plugin-schema';
 import { ezUpload } from '@graphql-ez/plugin-upload';
 import { ezVoyager } from '@graphql-ez/plugin-voyager';
 import { ezWebSockets } from '@graphql-ez/plugin-websockets';
@@ -51,23 +52,25 @@ export const { registerModule, buildApp, registerDataLoader } = CreateApp({
         credentials: 'include',
       }),
       ezDataLoader(),
-    ],
-  },
-  schema: {
-    typeDefs: gql`
-      type Mutation {
-        uploadFileToBase64(file: Upload!): String!
-      }
-    `,
-    resolvers: {
-      Mutation: {
-        async uploadFileToBase64(_root, { file }, _ctx) {
-          const fileBuffer = await readStreamToBuffer(file);
+      ezSchema({
+        schema: {
+          typeDefs: gql`
+            type Mutation {
+              uploadFileToBase64(file: Upload!): String!
+            }
+          `,
+          resolvers: {
+            Mutation: {
+              async uploadFileToBase64(_root, { file }, _ctx) {
+                const fileBuffer = await readStreamToBuffer(file);
 
-          return fileBuffer.toString('base64');
+                return fileBuffer.toString('base64');
+              },
+            },
+          },
         },
-      },
-    },
+      }),
+    ],
   },
 });
 

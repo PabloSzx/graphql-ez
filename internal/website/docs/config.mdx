@@ -15,7 +15,8 @@ Some options depend on the integration, but the majority of the configuration ap
 
 You can specify a built schema (or a promise of a schema),
 for example, coming from [TypeGraphQL](https://typegraphql.com/) or [GraphQL Nexus](https://nexusjs.org/),
-or you can leverage [@graphql-tools/schema](https://www.graphql-tools.com/docs/generate-schema/) and make executable schemas right away.
+or you can use <Link href="/plugins/schema" color="blue.500" fontWeight="bold">@graphql-ez/plugin-schema</Link>
+and make executable schemas that play well between other `EZ Plugins`.
 
 ```ts
 // ...
@@ -42,54 +43,6 @@ const schema = makeSchema({
 CreateApp({
   //...
   schema,
-});
-```
-
-```ts
-import { gql, EZSchema } from 'graphql-ez';
-
-const schema: EZSchema = {
-  typeDefs: gql`
-    type Query {
-      hello: String!
-    }
-  `,
-  resolvers: {
-    Query: {
-      hello(_root, _args, ctx) {
-        return 'world';
-      },
-    },
-  },
-};
-
-CreateApp({
-  schema,
-});
-```
-
-### Multiple schemas
-
-You can specify multiple schemas, and it will automatically merge the schemas.
-
-```ts
-CreateApp({
-  // ...
-  schema: [schema1, schema2, schema3],
-});
-```
-
-You can customize the merging behavior following the [@graphql-tools/merge](https://www.graphql-tools.com/docs/schema-merging) options
-
-```ts
-CreateApp({
-  // ...
-  schema: [schema1, schema2, schema3],
-
-  // Check https://www.graphql-tools.com/docs/schema-merging
-  mergeSchemasConfig: {
-    // ...
-  },
 });
 ```
 

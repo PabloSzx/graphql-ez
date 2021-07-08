@@ -2,6 +2,8 @@
 
 Integration with [GraphQL Scalars](https://www.graphql-scalars.dev/)
 
+Currently this plugin requires the presence of [Schema Plugin](https://www.graphql-ez.com/plugins/schema) or [GraphQL Modules Plugin](https://www.graphql-ez.com/plugins/graphql-scalars) in the same EZ App.
+
 ## Usage
 
 Check the [GraphQL Scalars website docs](https://www.graphql-scalars.dev/docs/introduction) to see all available scalars, of you can inspect the types of the plugin

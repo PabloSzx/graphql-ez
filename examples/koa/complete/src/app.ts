@@ -4,6 +4,7 @@ import { ezCodegen } from '@graphql-ez/plugin-codegen';
 import { ezGraphiQLIDE } from '@graphql-ez/plugin-graphiql';
 import { ezGraphQLModules } from '@graphql-ez/plugin-modules';
 import { ezScalars } from '@graphql-ez/plugin-scalars';
+import { ezSchema } from '@graphql-ez/plugin-schema';
 import { ezUpload } from '@graphql-ez/plugin-upload';
 import { ezWebSockets } from '@graphql-ez/plugin-websockets';
 
@@ -44,50 +45,52 @@ export const { registerModule, buildApp } = CreateApp({
       ezAltairIDE(),
       ezGraphiQLIDE(),
       ezWebSockets(),
-    ],
-  },
-  schema: {
-    typeDefs: gql`
-      type Query {
-        hello3: String!
-      }
-      type Mutation {
-        uploadFileToBase64(file: Upload!): String!
-      }
-      type Subscription {
-        hello: String!
-      }
-    `,
-    resolvers: {
-      Query: {
-        hello3(_root, _args, _ctx) {
-          return 'zzz';
-        },
-      },
-      Mutation: {
-        async uploadFileToBase64(_root, { file }) {
-          const fileBuffer = await readStreamToBuffer(file);
-
-          return fileBuffer.toString('base64');
-        },
-      },
-      Subscription: {
-        hello: {
-          async *subscribe(_root, _args, _ctx) {
-            for (let i = 1; i <= 5; ++i) {
-              await sleep(500);
-
-              yield {
-                hello: 'Hello World ' + i,
-              };
+      ezSchema({
+        schema: {
+          typeDefs: gql`
+            type Query {
+              hello3: String!
             }
-            yield {
-              hello: 'Done!',
-            };
+            type Mutation {
+              uploadFileToBase64(file: Upload!): String!
+            }
+            type Subscription {
+              hello: String!
+            }
+          `,
+          resolvers: {
+            Query: {
+              hello3(_root, _args, _ctx) {
+                return 'zzz';
+              },
+            },
+            Mutation: {
+              async uploadFileToBase64(_root, { file }) {
+                const fileBuffer = await readStreamToBuffer(file);
+
+                return fileBuffer.toString('base64');
+              },
+            },
+            Subscription: {
+              hello: {
+                async *subscribe(_root, _args, _ctx) {
+                  for (let i = 1; i <= 5; ++i) {
+                    await sleep(500);
+
+                    yield {
+                      hello: 'Hello World ' + i,
+                    };
+                  }
+                  yield {
+                    hello: 'Done!',
+                  };
+                },
+              },
+            },
           },
         },
-      },
-    },
+      }),
+    ],
   },
 });
 

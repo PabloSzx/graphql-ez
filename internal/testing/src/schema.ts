@@ -1,12 +1,17 @@
-import { makeExecutableSchema } from '@graphql-tools/schema';
+import safeStringify from 'fast-safe-stringify';
 import { gql } from 'graphql-ez/utils/gql';
 import { createModule } from 'graphql-modules';
-import safeStringify from 'fast-safe-stringify';
+
+import { makeExecutableSchema } from '@graphql-tools/schema';
 
 import type { EZContext } from 'graphql-ez';
 export type {} from 'graphql';
 
 export const sleep = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
+
+export * from '@graphql-ez/plugin-schema';
+
+export { makeExecutableSchema };
 
 export const PingSubscription = {
   typeDefs: gql`

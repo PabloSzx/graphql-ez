@@ -4,6 +4,7 @@ import { ezCodegen } from '@graphql-ez/plugin-codegen';
 import { ezGraphiQLIDE } from '@graphql-ez/plugin-graphiql';
 import { ezGraphQLModules } from '@graphql-ez/plugin-modules';
 import { ezScalars } from '@graphql-ez/plugin-scalars';
+import { ezSchema } from '@graphql-ez/plugin-schema';
 import { ezWebSockets } from '@graphql-ez/plugin-websockets';
 
 function buildContext({ req }: BuildContextArgs) {
@@ -42,40 +43,42 @@ export const { registerModule, buildApp } = CreateApp({
       ezAltairIDE(),
       ezGraphiQLIDE(),
       ezWebSockets(),
-    ],
-  },
-  schema: {
-    typeDefs: gql`
-      type Query {
-        hello3: String!
-      }
-      type Subscription {
-        hello: String!
-      }
-    `,
-    resolvers: {
-      Query: {
-        hello3(_root, _args, _ctx) {
-          return 'zzz';
-        },
-      },
-      Subscription: {
-        hello: {
-          async *subscribe(_root, _args, _ctx) {
-            for (let i = 1; i <= 5; ++i) {
-              await sleep(500);
-
-              yield {
-                hello: 'Hello World ' + i,
-              };
+      ezSchema({
+        schema: {
+          typeDefs: gql`
+            type Query {
+              hello3: String!
             }
-            yield {
-              hello: 'Done!',
-            };
+            type Subscription {
+              hello: String!
+            }
+          `,
+          resolvers: {
+            Query: {
+              hello3(_root, _args, _ctx) {
+                return 'zzz';
+              },
+            },
+            Subscription: {
+              hello: {
+                async *subscribe(_root, _args, _ctx) {
+                  for (let i = 1; i <= 5; ++i) {
+                    await sleep(500);
+
+                    yield {
+                      hello: 'Hello World ' + i,
+                    };
+                  }
+                  yield {
+                    hello: 'Done!',
+                  };
+                },
+              },
+            },
           },
         },
-      },
-    },
+      }),
+    ],
   },
 });
 

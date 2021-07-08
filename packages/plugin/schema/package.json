@@ -1,11 +1,10 @@
 {
-  "name": "graphql-ez",
-  "version": "0.6.0",
-  "homepage": "https://www.graphql-ez.com",
+  "name": "@graphql-ez/plugin-schema",
+  "version": "0.0.1",
   "repository": {
     "type": "git",
     "url": "https://github.com/PabloSzx/graphql-ez",
-    "directory": "packages/core/main"
+    "directory": "packages/plugin/schema"
   },
   "license": "MIT",
   "author": "PabloSz <pablosaez1995@gmail.com>",
@@ -23,31 +22,28 @@
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
   "scripts": {
-    "dev": "bob-esbuild watch",
     "prepare": "bob-esbuild build",
-    "postpublish": "gh-release",
-    "test": "jest"
+    "dev": "bob-esbuild watch",
+    "postpublish": "gh-release"
   },
   "dependencies": {
-    "@envelop/core": "^0.3.1",
-    "@envelop/disable-introspection": "^0.2.0",
-    "@envelop/parser-cache": "^0.2.0",
-    "@envelop/types": "^0.2.1",
-    "@envelop/validation-cache": "^0.2.0",
-    "@graphql-tools/utils": "^7.10.0",
-    "graphql-helix": "1.6.1"
+    "@graphql-tools/merge": "^6.2.14",
+    "@graphql-tools/schema": "^7.1.5",
+    "@graphql-tools/utils": "^7.10.0"
   },
   "devDependencies": {
-    "bob-esbuild-cli": "^0.1.27",
-    "changesets-github-release": "0.0.3",
-    "eventsource": "^1.1.0",
-    "got": "^11.8.2",
+    "@types/node": "^16.0.1",
+    "bob-esbuild": "^0.1.27",
+    "changesets-github-release": "^0.0.3",
     "graphql": "15.4.0-experimental-stream-defer.1",
+    "graphql-ez": "workspace:^0.6.0",
     "jest": "^27.0.6",
-    "ts-jest": "^27.0.3"
+    "ts-jest": "^27.0.3",
+    "typescript": "^4.3.5"
   },
   "peerDependencies": {
-    "graphql": "*"
+    "graphql": "*",
+    "graphql-ez": "workspace:^0.6.0"
   },
   "peerDependenciesMeta": {
     "graphql": {
@@ -59,16 +55,5 @@
   },
   "publishConfig": {
     "directory": "dist"
-  },
-  "typesVersions": {
-    "*": {
-      "dist/index.d.ts": [
-        "dist/index.d.ts"
-      ],
-      "*": [
-        "dist/*",
-        "dist/*/index.d.ts"
-      ]
-    }
   }
 }

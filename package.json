@@ -35,7 +35,8 @@
     "prepare": "husky install",
     "pretty": "prettier --write \"**/*{.ts,.tsx,.json,.yaml}\"",
     "test": "jest",
-    "test:separate": "pnpm -r --filter=\"!graphql-ez-monorepo\" --no-sort --no-bail test -- "
+    "test:separate": "pnpm -r --filter=\"!graphql-ez-monorepo\" --no-sort --no-bail test -- ",
+    "typecheck": "bob-esbuild tsc"
   },
   "devDependencies": {
     "@changesets/assemble-release-plan": "^5.0.0",

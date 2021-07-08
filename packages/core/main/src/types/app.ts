@@ -8,7 +8,7 @@ import type {
   BuildAppOptions,
   AppOptions,
 } from '../index';
-import type { DocumentNode } from 'graphql';
+import type { DocumentNode, GraphQLSchema } from 'graphql';
 
 export interface AdapterFactoryArgs {
   getEnveloped: Envelop;
@@ -113,6 +113,14 @@ declare module '../index' {
   }
 
   interface AppOptions {
+    /**
+     * Set GraphQL Schema
+     */
+    schema?: GraphQLSchema | Promise<GraphQLSchema>;
+
+    /**
+     * Callback to be called right before building app
+     */
     prepare?: (appBuilder: BaseAppBuilder) => void | Promise<void>;
 
     /**

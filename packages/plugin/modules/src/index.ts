@@ -1,9 +1,9 @@
-import { createApplication, createModule } from 'graphql-modules';
-
-import { useGraphQLModules } from '@envelop/graphql-modules';
 import { gql } from 'graphql-ez/utils/gql';
 import { toPlural } from 'graphql-ez/utils/object';
 import { LazyPromise } from 'graphql-ez/utils/promise';
+import { createApplication, createModule } from 'graphql-modules';
+
+import { useGraphQLModules } from '@envelop/graphql-modules';
 import { isDocumentNode } from '@graphql-tools/utils';
 
 import type { EZResolvers, EZPlugin, Plugin as EnvelopPlugin } from 'graphql-ez';
@@ -100,6 +100,11 @@ export const ezGraphQLModules = (config: Partial<Omit<ApplicationConfig, 'module
       ctx.modulesEnvelopPlugin = LazyPromise(async () => {
         return useGraphQLModules(await modulesApplication);
       });
+    },
+    async onPreBuild(ctx) {
+      if (!ctx.schemaPlugin && ctx.modulesEnvelopPlugin) {
+        ctx.options.envelop.plugins.push(await ctx.modulesEnvelopPlugin);
+      }
     },
   };
 };
