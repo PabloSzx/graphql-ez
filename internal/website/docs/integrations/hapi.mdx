@@ -44,7 +44,7 @@ init().catch(console.error);
 ```ts
 import { CreateApp, gql } from '@graphql-ez/hapi';
 
-export const ezApp = createApp({
+export const ezApp = CreateApp({
   // You can use any valid GraphQL Schema, or build it in-line
   schema: {
     typeDefs: gql`

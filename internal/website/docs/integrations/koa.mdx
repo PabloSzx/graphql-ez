@@ -46,7 +46,7 @@ ezApp
 ```ts
 import { CreateApp, gql } from '@graphql-ez/koa';
 
-export const ezApp = createApp({
+export const ezApp = CreateApp({
   // You can use any valid GraphQL Schema, or build it in-line
   schema: {
     typeDefs: gql`

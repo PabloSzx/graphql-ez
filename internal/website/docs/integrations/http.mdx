@@ -38,7 +38,7 @@ server.listen(port, () => {
 ```ts
 import { CreateApp, gql } from '@graphql-ez/http';
 
-export const ezApp = createApp({
+export const ezApp = CreateApp({
   // You can use any valid GraphQL Schema, or build it in-line
   schema: {
     typeDefs: gql`

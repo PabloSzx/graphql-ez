@@ -36,7 +36,7 @@ app.listen(8080);
 ```ts
 import { CreateApp, gql } from '@graphql-ez/fastify';
 
-export const ezApp = createApp({
+export const ezApp = CreateApp({
   // You can use any valid GraphQL Schema, or build it in-line
   schema: {
     typeDefs: gql`
