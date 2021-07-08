@@ -319,7 +319,7 @@ importers:
       '@jest/types': ^27.0.6
       '@koa/router': ^10.0.0
       '@types/express': ^4.17.13
-      '@types/express-serve-static-core': ^4.17.23
+      '@types/express-serve-static-core': ^4.17.24
       '@types/fs-extra': ^9.0.12
       '@types/hapi__hapi': ^20.0.9
       '@types/jest': ^26.0.24
@@ -352,7 +352,7 @@ importers:
       '@jest/types': 27.0.6
       '@koa/router': 10.0.0
       '@types/express': 4.17.13
-      '@types/express-serve-static-core': 4.17.23
+      '@types/express-serve-static-core': 4.17.24
       '@types/fs-extra': 9.0.12
       '@types/hapi__hapi': 20.0.9
       '@types/jest': 26.0.24
@@ -387,7 +387,7 @@ importers:
       '@emotion/babel-plugin': ^11.3.0
       '@emotion/react': ^11.4.0
       '@emotion/styled': ^11.3.0
-      '@guild-docs/client': ^0.2.19
+      '@guild-docs/client': ^0.2.20
       '@guild-docs/server': ^0.2.18
       '@mdx-js/react': ^1.6.22
       '@next/bundle-analyzer': ^11.0.1
@@ -425,7 +425,7 @@ importers:
       '@emotion/babel-plugin': 11.3.0
       '@emotion/react': 11.4.0_b2f98f1a44929e460196386bafc39b6a
       '@emotion/styled': 11.3.0_da675241f78bb54d4f9123e607fbb27c
-      '@guild-docs/client': 0.2.19_2446e1ae7234466359e7543d4bc1966d
+      '@guild-docs/client': 0.2.20_2446e1ae7234466359e7543d4bc1966d
       '@guild-docs/server': 0.2.18_87bbe0675baa4d870d4e0565bdcc7f5e
       '@mdx-js/react': 1.6.22_react@17.0.2
       '@theguild/components': 1.4.3_28c0df05a9559c3217649c6005b51123
@@ -3207,15 +3207,15 @@ packages:
     dependencies:
       graphql: 15.4.0-experimental-stream-defer.1
 
-  /@guild-docs/client/0.2.19_2446e1ae7234466359e7543d4bc1966d:
-    resolution: {integrity: sha512-qwWlxwF5UNjYoZqHD0eWbHGsJ8ino+kjtKdKFDytpoMF96k+YESzNY0n5QtCVVtcJHYF3dEE3kwAoRv1UCuqwQ==}
+  /@guild-docs/client/0.2.20_2446e1ae7234466359e7543d4bc1966d:
+    resolution: {integrity: sha512-zh/wvRuhpbk2GqD7aCUrwmP47FW25xAo94zeN0q5NwNRD8TYT1szglkPofuSESreYazwxmjGlpttzxmyYPdyyw==}
     peerDependencies:
       '@chakra-ui/icons': ^1.0.13
       '@chakra-ui/react': ^1.6.4
       '@chakra-ui/utils': ^1.8.0
       '@emotion/react': ^11.4.0
       '@mdx-js/react': ^1.6.22
-      '@theguild/components': ^1.4.2
+      '@theguild/components': ^1.4.3
       '@types/mdx-js__react': ^1.5.3
       framer-motion: ^4.1.17
       next: ^11.0.1
@@ -4487,8 +4487,8 @@ packages:
     resolution: {integrity: sha512-y4xcLJ+lcoZ6mN9ndSdKOWg24Nj5uQc4Z/NRdy3HbiGGt5hfH3RLwAXr6V+RzGzOljAk48a09n6iY4BMNumEng==}
     dev: true
 
-  /@types/express-serve-static-core/4.17.23:
-    resolution: {integrity: sha512-WYqTtTPTJn9kXMdnAH5HPPb7ctXvBpP4PfuOb8MV4OHPQWHhDZixGlhgR159lJPpKm23WOdoCkt2//cCEaOJkw==}
+  /@types/express-serve-static-core/4.17.24:
+    resolution: {integrity: sha512-3UJuW+Qxhzwjq3xhwXm2onQcFHn76frIYVbTu+kn24LFxI+dEhdfISDFovPB8VpEgW8oQCTpRuCe+0zJxB7NEA==}
     dependencies:
       '@types/node': 16.0.1
       '@types/qs': 6.9.7
@@ -4498,7 +4498,7 @@ packages:
     resolution: {integrity: sha512-6bSZTPaTIACxn48l50SR+axgrqm6qXFIxrdAKaG6PaJk3+zuUr35hBlgT7vOmJcum+OEaIBLtHV/qloEAFITeA==}
     dependencies:
       '@types/body-parser': 1.19.1
-      '@types/express-serve-static-core': 4.17.23
+      '@types/express-serve-static-core': 4.17.24
       '@types/qs': 6.9.7
       '@types/serve-static': 1.13.10
 
