@@ -232,7 +232,7 @@ importers:
       '@graphql-typed-document-node/core': ^3.1.0
       '@koa/router': ^10.0.0
       '@types/koa': ^2.13.4
-      '@types/koa__router': ^8.0.5
+      '@types/koa__router': ^8.0.6
       '@types/koa-bodyparser': ^4.3.2
       '@types/node': ^16.0.1
       graphql: 15.4.0-experimental-stream-defer.1
@@ -259,7 +259,7 @@ importers:
       koa-bodyparser: 4.3.0
     devDependencies:
       '@types/koa': 2.13.4
-      '@types/koa__router': 8.0.5
+      '@types/koa__router': 8.0.6
       '@types/koa-bodyparser': 4.3.2
       '@types/node': 16.0.1
       tsup: 4.12.5_typescript@4.3.5
@@ -324,7 +324,7 @@ importers:
       '@types/hapi__hapi': ^20.0.9
       '@types/jest': ^26.0.24
       '@types/koa': ^2.13.4
-      '@types/koa__router': ^8.0.5
+      '@types/koa__router': ^8.0.6
       '@types/node': ^16.0.1
       '@types/ws': ^7.4.6
       bob-esbuild-cli: ^0.1.27
@@ -357,7 +357,7 @@ importers:
       '@types/hapi__hapi': 20.0.9
       '@types/jest': 26.0.24
       '@types/koa': 2.13.4
-      '@types/koa__router': 8.0.5
+      '@types/koa__router': 8.0.6
       '@types/node': 16.0.1
       '@types/ws': 7.4.6
       bob-esbuild-cli: 0.1.27_fccbb94b0fcbb19a3ea87c1e7ea84727
@@ -393,7 +393,7 @@ importers:
       '@next/bundle-analyzer': ^11.0.1
       '@theguild/components': ^1.4.3
       '@types/concurrently': ^6.2.1
-      '@types/mdx-js__react': ^1.5.3
+      '@types/mdx-js__react': ^1.5.4
       '@types/node': ^16.0.1
       '@types/react': ^17.0.14
       '@types/react-dom': ^17.0.9
@@ -425,7 +425,7 @@ importers:
       '@emotion/babel-plugin': 11.3.0
       '@emotion/react': 11.4.0_b2f98f1a44929e460196386bafc39b6a
       '@emotion/styled': 11.3.0_da675241f78bb54d4f9123e607fbb27c
-      '@guild-docs/client': 0.2.20_2446e1ae7234466359e7543d4bc1966d
+      '@guild-docs/client': 0.2.20_e76e4b66e3dfe07b01a02736576bdb97
       '@guild-docs/server': 0.2.18_87bbe0675baa4d870d4e0565bdcc7f5e
       '@mdx-js/react': 1.6.22_react@17.0.2
       '@theguild/components': 1.4.3_28c0df05a9559c3217649c6005b51123
@@ -444,7 +444,7 @@ importers:
     devDependencies:
       '@next/bundle-analyzer': 11.0.1
       '@types/concurrently': 6.2.1
-      '@types/mdx-js__react': 1.5.3
+      '@types/mdx-js__react': 1.5.4
       '@types/node': 16.0.1
       '@types/react': 17.0.14
       '@types/react-dom': 17.0.9
@@ -464,7 +464,6 @@ importers:
       '@envelop/parser-cache': ^0.2.0
       '@envelop/types': ^0.2.1
       '@envelop/validation-cache': ^0.2.0
-      '@graphql-tools/utils': ^7.10.0
       bob-esbuild-cli: ^0.1.27
       changesets-github-release: 0.0.3
       eventsource: ^1.1.0
@@ -479,7 +478,6 @@ importers:
       '@envelop/parser-cache': 0.2.0_34dd13c2583fe2e4418c23a0d30fc388
       '@envelop/types': 0.2.1_34dd13c2583fe2e4418c23a0d30fc388
       '@envelop/validation-cache': 0.2.0_34dd13c2583fe2e4418c23a0d30fc388
-      '@graphql-tools/utils': 7.10.0_34dd13c2583fe2e4418c23a0d30fc388
       graphql-helix: 1.6.1_34dd13c2583fe2e4418c23a0d30fc388
     devDependencies:
       bob-esbuild-cli: 0.1.27_fccbb94b0fcbb19a3ea87c1e7ea84727
@@ -624,7 +622,7 @@ importers:
       '@types/eventsource': 1.1.6
       '@types/koa': 2.13.4
       '@types/koa__cors': ^3.0.3
-      '@types/koa__router': 8.0.5
+      '@types/koa__router': 8.0.6
       '@types/koa-bodyparser': ^4.3.2
       '@types/node': ^16.0.1
       bob-esbuild-cli: ^0.1.27
@@ -647,7 +645,7 @@ importers:
       '@koa/router': 10.0.0
       '@types/eventsource': 1.1.6
       '@types/koa': 2.13.4
-      '@types/koa__router': 8.0.5
+      '@types/koa__router': 8.0.6
       '@types/node': 16.0.1
       bob-esbuild-cli: 0.1.27_fccbb94b0fcbb19a3ea87c1e7ea84727
       changesets-github-release: 0.0.3
@@ -3207,7 +3205,7 @@ packages:
     dependencies:
       graphql: 15.4.0-experimental-stream-defer.1
 
-  /@guild-docs/client/0.2.20_2446e1ae7234466359e7543d4bc1966d:
+  /@guild-docs/client/0.2.20_e76e4b66e3dfe07b01a02736576bdb97:
     resolution: {integrity: sha512-zh/wvRuhpbk2GqD7aCUrwmP47FW25xAo94zeN0q5NwNRD8TYT1szglkPofuSESreYazwxmjGlpttzxmyYPdyyw==}
     peerDependencies:
       '@chakra-ui/icons': ^1.0.13
@@ -3230,7 +3228,7 @@ packages:
       '@guild-docs/types': 0.2.17_7577f5ff740deff1d27857df17320be8
       '@mdx-js/react': 1.6.22_react@17.0.2
       '@theguild/components': 1.4.3_28c0df05a9559c3217649c6005b51123
-      '@types/mdx-js__react': 1.5.3
+      '@types/mdx-js__react': 1.5.4
       framer-motion: 4.1.17_react-dom@17.0.2+react@17.0.2
       immer: 9.0.5
       next: 11.0.1_f31b35bdaa3b7c2fce82404f09d2dac4
@@ -4663,8 +4661,8 @@ packages:
       '@types/koa': 2.13.4
     dev: false
 
-  /@types/koa__router/8.0.5:
-    resolution: {integrity: sha512-OteVNltmeAlzf7YZfXQ1gKBFxZiCr8/EByjKd+eIkN673p70LqaetBevbHx4cQuWk/7ZHfcoLoVQvTsIm4elWA==}
+  /@types/koa__router/8.0.6:
+    resolution: {integrity: sha512-4ZZ0vnp9OOC/E6YZETIBaODW6KpaUbLnY6FWE2SqIIUFUT7vvyKfLsfW34moGWyaEgk5ezOqMKr5dD4qUq4YVw==}
     dependencies:
       '@types/koa': 2.13.4
     dev: true
@@ -4685,8 +4683,8 @@ packages:
       '@types/unist': 2.0.5
     dev: false
 
-  /@types/mdx-js__react/1.5.3:
-    resolution: {integrity: sha512-flP0BpS5rXnEbkU5ih79ARaI/+rK10Iee+zxTaWYtoiyc2+f1EJ8EnYgMmXHdAuI7OX4J9/hdoXfrfrri0AT+Q==}
+  /@types/mdx-js__react/1.5.4:
+    resolution: {integrity: sha512-hce+Hymj3cEMOma13eQRhpT3mhQrOkN4CAYEwKWB/qj2BiuUrrTpCkOShEERGmLVgDc3nxF4Dc0k7W999EQxnQ==}
     dependencies:
       '@types/react': 17.0.14
     dev: true
