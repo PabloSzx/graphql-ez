@@ -16,7 +16,8 @@
     "baseUrl": "../../../../",
     "paths": {
       "graphql-ez": ["core/main/src/index.ts"],
-      "graphql-ez/*": ["core/main/src/*"]
+      "graphql-ez/*": ["core/main/src/*"],
+      "@graphql-ez/plugin-*": ["plugin/*/src/index.ts"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],

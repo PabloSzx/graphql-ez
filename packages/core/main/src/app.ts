@@ -1,9 +1,7 @@
-import { envelop, useEnvelop } from '@envelop/core';
+import { envelop, useEnvelop, useSchema } from '@envelop/core';
 
 import { ezCoreCache } from './cache';
 import { ezCoreDisableIntrospection } from './introspection';
-import { ezCoreSchema } from './schema';
-
 import { gql } from './utils/gql';
 import { cleanObject, toPlural } from './utils/object';
 
@@ -124,10 +122,13 @@ export function createEZAppFactory(
         return plugin.onPreBuild?.(ctx);
       }),
       preBuild?.(ctx),
-      ezCoreSchema(ctx),
       ezCoreCache(ctx),
       ezCoreDisableIntrospection(ctx),
     ]);
+
+    if (!ctx.schemaPlugin && options.schema) {
+      envelopPlugins.push(useSchema(await options.schema));
+    }
 
     const getEnveloped = envelop({
       plugins: envelopPlugins,

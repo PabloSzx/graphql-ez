@@ -86,5 +86,12 @@ export const ezScalars = (scalars: ScalarsConfig): EZPlugin => {
         };
       }
     },
+    onPreBuild(ctx) {
+      if (!ctx.schemaPlugin && !ctx.modulesEnvelopPlugin) {
+        console.warn(
+          `[@graphql-ez/plugin-scalars] No "@graphql-ez/plugin-schema" or "@graphql-ez/plugin-modules" found! GraphQL Scalar resolvers couldn't be added!`
+        );
+      }
+    },
   };
 };

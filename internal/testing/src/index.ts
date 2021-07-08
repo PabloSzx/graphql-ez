@@ -1,7 +1,9 @@
 import getPort from 'get-port';
+import { LazyPromise, PLazy } from 'graphql-ez/utils/promise';
+import defaultsDeep from 'lodash/defaultsDeep';
 import { resolve } from 'path';
 
-import { LazyPromise, PLazy } from 'graphql-ez/utils/promise';
+import { ezSchema, EZSchemaOptions } from '@graphql-ez/plugin-schema';
 
 import { TearDownPromises } from './common';
 import { getRequestPool } from './request';
@@ -20,7 +22,7 @@ export * from './upload';
 export * from './schema';
 
 export interface StartTestServerOptions<CreateOptions extends AppOptions, BuildOptions extends BuildAppOptions> {
-  createOptions?: CreateOptions;
+  createOptions?: Omit<CreateOptions, 'schema'> & EZSchemaOptions;
   buildOptions?: Partial<BuildOptions>;
 
   graphqlWsClientOptions?: Partial<GraphQLWSClientOptions>;
@@ -48,7 +50,19 @@ export const startFastifyServer = async ({
 
   const { CreateApp } = await import('@graphql-ez/fastify');
 
-  const appBuilder = CreateApp(createOptions);
+  const { schema, mergeSchemasConfig, ...opts } = createOptions || {};
+
+  if (schema) {
+    defaultsDeep(opts, {
+      ez: {
+        plugins: [],
+      },
+    } as AppOptions);
+
+    opts.ez?.plugins?.push(ezSchema({ schema, mergeSchemasConfig }));
+  }
+
+  const appBuilder = CreateApp({ ...opts });
 
   const ezApp = appBuilder.buildApp(buildOptions);
 
@@ -97,7 +111,19 @@ export const startExpressServer = async ({
 
   const { CreateApp } = await import('@graphql-ez/express');
 
-  const appBuilder = CreateApp(createOptions);
+  const { schema, mergeSchemasConfig, ...opts } = createOptions || {};
+
+  if (schema) {
+    defaultsDeep(opts, {
+      ez: {
+        plugins: [],
+      },
+    } as AppOptions);
+
+    opts.ez?.plugins?.push(ezSchema({ schema, mergeSchemasConfig }));
+  }
+
+  const appBuilder = CreateApp(opts);
 
   const ezApp = await appBuilder.buildApp({ ...buildOptions, app: server });
 
@@ -139,7 +165,18 @@ export async function startHTTPServer({
 }: StartTestServerOptions<import('@graphql-ez/http').HttpAppOptions, import('@graphql-ez/http').HTTPBuildAppOptions>) {
   const { CreateApp } = await import('@graphql-ez/http');
 
-  const appBuilder = CreateApp(createOptions);
+  const { schema, mergeSchemasConfig, ...opts } = createOptions || {};
+
+  if (schema) {
+    defaultsDeep(opts, {
+      ez: {
+        plugins: [],
+      },
+    } as AppOptions);
+
+    opts.ez?.plugins?.push(ezSchema({ schema, mergeSchemasConfig }));
+  }
+  const appBuilder = CreateApp(opts);
 
   const server = (await import('http')).createServer((req, res) => {
     ezApp.requestHandler(req, res);
@@ -198,7 +235,18 @@ export const startHapiServer = async ({
 
   const { CreateApp } = await import('@graphql-ez/hapi');
 
-  const appBuilder = CreateApp(createOptions);
+  const { schema, mergeSchemasConfig, ...opts } = createOptions || {};
+
+  if (schema) {
+    defaultsDeep(opts, {
+      ez: {
+        plugins: [],
+      },
+    } as AppOptions);
+
+    opts.ez?.plugins?.push(ezSchema({ schema, mergeSchemasConfig }));
+  }
+  const appBuilder = CreateApp(opts);
 
   const ezApp = await appBuilder.buildApp(buildOptions);
 
@@ -246,7 +294,18 @@ export const startKoaServer = async ({
 
   const { CreateApp } = await import('@graphql-ez/koa');
 
-  const appBuilder = CreateApp(createOptions);
+  const { schema, mergeSchemasConfig, ...opts } = createOptions || {};
+
+  if (schema) {
+    defaultsDeep(opts, {
+      ez: {
+        plugins: [],
+      },
+    } as AppOptions);
+
+    opts.ez?.plugins?.push(ezSchema({ schema, mergeSchemasConfig }));
+  }
+  const appBuilder = CreateApp(opts);
 
   const ezApp = await appBuilder.buildApp({ ...buildOptions, app: server, router });
 
