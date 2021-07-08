@@ -93,6 +93,13 @@ Integration of Websockets using [graphql-ws](https://github.com/enisdenjo/graphq
     title: 'DataLoader',
     iconUrl: '/assets/logos/graphql.png',
   },
+  {
+    identifier: 'schema',
+    npmPackage: '@graphql-ez/plugin-schema',
+    tags: ['schema-building'],
+    title: 'Schema',
+    iconUrl: '/assets/logos/tools.svg',
+  },
 ];
 
 export function packageInstallList(pkg: Package): string[] {

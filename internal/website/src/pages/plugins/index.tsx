@@ -42,7 +42,7 @@ export const getStaticProps: GetStaticProps<MarketplaceProps> = async () => {
       data,
     },
     // Revalidate at most once every 1 hour
-    revalidate: 60 * 60,
+    // revalidate: 60 * 60,
   };
 };
 
