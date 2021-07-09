@@ -324,7 +324,7 @@ importers:
       '@types/hapi__hapi': ^20.0.9
       '@types/jest': ^26.0.24
       '@types/koa': ^2.13.4
-      '@types/koa__router': ^8.0.6
+      '@types/koa__router': ^8.0.7
       '@types/node': ^16.0.1
       '@types/ws': ^7.4.6
       bob-esbuild-cli: ^0.1.27
@@ -357,7 +357,7 @@ importers:
       '@types/hapi__hapi': 20.0.9
       '@types/jest': 26.0.24
       '@types/koa': 2.13.4
-      '@types/koa__router': 8.0.6
+      '@types/koa__router': 8.0.7
       '@types/node': 16.0.1
       '@types/ws': 7.4.6
       bob-esbuild-cli: 0.1.27_fccbb94b0fcbb19a3ea87c1e7ea84727
@@ -622,7 +622,7 @@ importers:
       '@types/eventsource': 1.1.6
       '@types/koa': 2.13.4
       '@types/koa__cors': ^3.0.3
-      '@types/koa__router': 8.0.6
+      '@types/koa__router': 8.0.7
       '@types/koa-bodyparser': ^4.3.2
       '@types/node': ^16.0.1
       bob-esbuild-cli: ^0.1.27
@@ -645,7 +645,7 @@ importers:
       '@koa/router': 10.0.0
       '@types/eventsource': 1.1.6
       '@types/koa': 2.13.4
-      '@types/koa__router': 8.0.6
+      '@types/koa__router': 8.0.7
       '@types/node': 16.0.1
       bob-esbuild-cli: 0.1.27_fccbb94b0fcbb19a3ea87c1e7ea84727
       changesets-github-release: 0.0.3
@@ -4663,6 +4663,12 @@ packages:
 
   /@types/koa__router/8.0.6:
     resolution: {integrity: sha512-4ZZ0vnp9OOC/E6YZETIBaODW6KpaUbLnY6FWE2SqIIUFUT7vvyKfLsfW34moGWyaEgk5ezOqMKr5dD4qUq4YVw==}
+    dependencies:
+      '@types/koa': 2.13.4
+    dev: true
+
+  /@types/koa__router/8.0.7:
+    resolution: {integrity: sha512-OB3Ax75nmTP+WR9AgdzA42DI7YmBtiNKN2g1Wxl+d5Dyek9SWt740t+ukwXSmv/jMBCUPyV3YEI93vZHgdP7UQ==}
     dependencies:
       '@types/koa': 2.13.4
     dev: true
