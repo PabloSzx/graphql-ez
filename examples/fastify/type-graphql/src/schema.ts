@@ -1,4 +1,4 @@
-import { Query, Resolver } from 'type-graphql';
+import { buildSchema, Query, Resolver } from 'type-graphql';
 
 @Resolver()
 export class QueryResolver {
@@ -7,3 +7,8 @@ export class QueryResolver {
     return 'Hello World!';
   }
 }
+
+export const schema = buildSchema({
+  resolvers: [QueryResolver],
+  emitSchemaFile: true,
+});

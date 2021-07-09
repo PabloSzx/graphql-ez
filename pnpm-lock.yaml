@@ -144,6 +144,29 @@ importers:
       tsup: 4.12.5_typescript@4.3.5
       typescript: 4.3.5
 
+  examples/fastify/nexus:
+    specifiers:
+      '@graphql-ez/fastify': workspace:^0.6.1
+      '@graphql-ez/plugin-altair': workspace:^0.3.3
+      '@types/node': ^16.3.0
+      fastify: ^3.19.0
+      graphql: 15.4.0-experimental-stream-defer.1
+      graphql-ez: workspace:^0.7.0
+      nexus: ^1.1.0
+      tsup: ^4.12.5
+      typescript: ^4.3.5
+    dependencies:
+      '@graphql-ez/fastify': link:../../../packages/fastify/main
+      '@graphql-ez/plugin-altair': link:../../../packages/plugin/altair
+      fastify: 3.19.0
+      graphql: 15.4.0-experimental-stream-defer.1
+      graphql-ez: link:../../../packages/core/main
+      nexus: 1.1.0_34dd13c2583fe2e4418c23a0d30fc388
+    devDependencies:
+      '@types/node': 16.3.0
+      tsup: 4.12.5_typescript@4.3.5
+      typescript: 4.3.5
+
   examples/fastify/type-graphql:
     specifiers:
       '@graphql-ez/fastify': workspace:^0.6.1
@@ -11365,6 +11388,16 @@ packages:
       - typescript
       - webpack
     dev: true
+
+  /nexus/1.1.0_34dd13c2583fe2e4418c23a0d30fc388:
+    resolution: {integrity: sha512-jUhbg22gKVY2YwZm726BrbfHaQ7Xzc0hNXklygDhuqaVxCuHCgFMhWa2svNWd1npe8kfeiu5nbwnz+UnhNXzCQ==}
+    peerDependencies:
+      graphql: ^14.5.8 || 15.x
+    dependencies:
+      graphql: 15.4.0-experimental-stream-defer.1
+      iterall: 1.3.0
+      tslib: 2.3.0
+    dev: false
 
   /nice-try/1.0.5:
     resolution: {integrity: sha512-1nh45deeb5olNY7eX82BkPO7SSxR5SSYJiPTrTdFUVYwAl8CKMA5N9PjTYkHiRjisVcxcQ1HXdLhx2qxxJzLNQ==}

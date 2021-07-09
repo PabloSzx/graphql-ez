@@ -1,5 +1,3 @@
-import 'reflect-metadata';
-
 import Fastify from 'fastify';
 
 import { CreateApp } from '@graphql-ez/fastify';
@@ -11,7 +9,7 @@ const app = Fastify({
   logger: true,
 });
 
-const ezApp = CreateApp({
+const { buildApp } = CreateApp({
   schema,
   ez: {
     plugins: [
@@ -22,13 +20,6 @@ const ezApp = CreateApp({
   },
 });
 
-app.register(ezApp.buildApp().fastifyPlugin);
+app.register(buildApp().fastifyPlugin);
 
-app.ready(err => {
-  if (err) {
-    console.error(err);
-    return;
-  }
-
-  app.listen(8060);
-});
+app.listen(8070);
