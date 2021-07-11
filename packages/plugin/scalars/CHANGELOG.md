@@ -1,5 +1,11 @@
 # @graphql-ez/plugin-scalars
 
+## 0.4.1
+
+### Patch Changes
+
+- 81a2f4b: add Custom Scalars / Override resolvers
+
 ## 0.4.0
 
 ### Minor Changes
