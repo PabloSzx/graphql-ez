@@ -1,11 +1,10 @@
-import { resolvers as scalarResolvers, typeDefs as scalarTypeDefs } from 'graphql-scalars';
-
 import { gql } from 'graphql-ez/utils/gql';
+import { uniqueArray } from 'graphql-ez/utils/object';
+import { resolvers as scalarResolvers, typeDefs as scalarTypeDefs } from 'graphql-scalars';
 
 import type { EZPlugin } from 'graphql-ez';
 import type { IScalarTypeResolver } from '@graphql-tools/utils';
-import type { DocumentNode } from 'graphql';
-
+import type { DocumentNode, GraphQLScalarType } from 'graphql';
 export type ScalarsConfig = '*' | { [k in keyof typeof scalarResolvers]?: boolean | 1 | 0 } | Array<keyof typeof scalarResolvers>;
 
 export type ScalarResolvers = Record<string, IScalarTypeResolver>;
@@ -21,7 +20,7 @@ export interface ScalarsDefinition {
   resolvers: ScalarResolvers;
 }
 
-export const ezScalars = (scalars: ScalarsConfig): EZPlugin => {
+export const ezScalars = (scalars: ScalarsConfig, customScalars: Record<string, GraphQLScalarType> = {}): EZPlugin => {
   return {
     name: 'GraphQL Scalars',
     async onRegister(ctx) {
@@ -66,8 +65,20 @@ export const ezScalars = (scalars: ScalarsConfig): EZPlugin => {
 
       getScalarsModule(filteredScalarTypeDefs, resolvers);
 
-      function getScalarsModule(filteredScalarTypeDefs: string[], resolvers: ScalarResolvers): ScalarsDefinition {
-        const typeDefs = gql(filteredScalarTypeDefs.join('\n'));
+      function getScalarsModule(filteredScalarTypeDefs: string[], filteredResolvers: ScalarResolvers): ScalarsDefinition {
+        const customScalarsEntries = Object.entries(customScalars);
+
+        const typeDefs = gql(
+          uniqueArray([...filteredScalarTypeDefs, ...customScalarsEntries.map(([name]) => `scalar ${name}`)]).join('\n')
+        );
+
+        const resolvers: ScalarResolvers = {
+          ...filteredResolvers,
+          ...customScalarsEntries.reduce<Record<string, GraphQLScalarType>>((acum, [name, resolver]) => {
+            acum[name] = resolver;
+            return acum;
+          }, {}),
+        };
 
         (ctx.extraSchemaDefinitions ||= []).push({
           id: 'Scalars',

@@ -50,3 +50,30 @@ ezScalars({
   JSONObject: true,
 });
 ```
+
+### Custom Scalars / Override Resolvers
+
+You can specify `custom scalars` or `override the existing scalars resolvers` with the second options parameter:
+
+```ts
+import { GraphQLScalarType } from 'graphql';
+
+ezScalars(
+  {
+    DateTime: 1,
+  },
+  // Custom Scalars / Override
+  {
+    DateTime: new GraphQLScalarType({
+      name: 'DateTime',
+      // ...
+    }),
+
+    // New Custom Scalar
+    IntID: new GraphQLScalarType({
+      name: 'IntID',
+      // ...
+    }),
+  }
+);
+```
