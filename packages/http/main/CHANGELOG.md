@@ -1,5 +1,16 @@
 # @graphql-ez/http
 
+## 0.7.0
+
+### Minor Changes
+
+- 9d5b497: Update Envelop
+
+### Patch Changes
+
+- Updated dependencies [9d5b497]
+  - graphql-ez@0.8.0
+
 ## 0.6.1
 
 ### Patch Changes
