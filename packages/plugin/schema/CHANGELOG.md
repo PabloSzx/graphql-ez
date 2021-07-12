@@ -1,6 +1,14 @@
 # @graphql-ez/plugin-schema
 
+## 0.1.1
+
+### Patch Changes
+
+- Updated dependencies [9d5b497]
+  - graphql-ez@0.8.0
+
 ## 0.1.0
+
 ### Minor Changes
 
 - cda5ea6: re-use `AppOptions` schema option

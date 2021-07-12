@@ -1,5 +1,11 @@
 # graphql-ez
 
+## 0.8.0
+
+### Minor Changes
+
+- 9d5b497: Update Envelop
+
 ## 0.7.0
 
 ### Minor Changes

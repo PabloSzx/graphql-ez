@@ -1,5 +1,16 @@
 # @graphql-ez/plugin-dataloader
 
+## 0.4.0
+
+### Minor Changes
+
+- 9d5b497: Update Envelop
+
+### Patch Changes
+
+- Updated dependencies [9d5b497]
+  - graphql-ez@0.8.0
+
 ## 0.3.3
 
 ### Patch Changes
