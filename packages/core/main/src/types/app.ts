@@ -1,4 +1,4 @@
-import type { Envelop, Plugin } from '@envelop/types';
+import type { GetEnvelopedFn, Plugin } from '@envelop/types';
 import type { IncomingMessage } from 'http';
 import type { HandleRequest } from './request';
 import type {
@@ -11,7 +11,7 @@ import type {
 import type { DocumentNode, GraphQLSchema } from 'graphql';
 
 export interface AdapterFactoryArgs {
-  getEnveloped: Envelop;
+  getEnveloped: GetEnvelopedFn<unknown>;
   ctx: InternalAppBuildContext;
 }
 
@@ -22,7 +22,7 @@ interface BaseEZPlugin {
 
   readonly onRegister?: (ctx: InternalAppBuildContext) => void | Promise<void>;
   readonly onPreBuild?: (ctx: InternalAppBuildContext) => void | Promise<void>;
-  readonly onAfterBuild?: (getEnveloped: Envelop, ctx: InternalAppBuildContext) => void | Promise<void>;
+  readonly onAfterBuild?: (getEnveloped: GetEnvelopedFn<unknown>, ctx: InternalAppBuildContext) => void | Promise<void>;
 }
 
 export type EZPlugin =
@@ -91,8 +91,8 @@ declare module '../index' {
       plugins: EZPlugin[];
     };
     envelop: {
-      plugins: Plugin[];
-      presets: Envelop[];
+      plugins: Plugin<any>[];
+      presets: GetEnvelopedFn<unknown>[];
 
       enableInternalTracing?: boolean;
     };
@@ -129,7 +129,7 @@ declare module '../index' {
     envelop?: {
       plugins?: Plugin[];
 
-      preset?: Envelop | Envelop[];
+      preset?: GetEnvelopedFn<unknown> | GetEnvelopedFn<unknown>[];
 
       enableInternalTracing?: boolean;
     };
@@ -170,7 +170,7 @@ declare module '../index' {
     onAppRegister?: (args: {
       ctx: InternalAppBuildContext;
       integration: InternalAppBuildIntegrationContext;
-      getEnveloped: Envelop;
+      getEnveloped: GetEnvelopedFn<unknown>;
     }) => void | Promise<void>;
   }
 
@@ -185,7 +185,7 @@ declare module '../index' {
 
 export interface BuiltEZApp<T> {
   app: T;
-  getEnveloped: Envelop;
+  getEnveloped: GetEnvelopedFn<unknown>;
 }
 
 export interface EZAppFactoryType extends BaseAppBuilder {

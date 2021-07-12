@@ -3,8 +3,8 @@ import {
   BaseAppBuilder,
   BuildAppOptions,
   createEZAppFactory,
-  Envelop,
   EZAppFactoryType,
+  GetEnvelopedFn,
   handleRequest,
   InternalAppBuildIntegrationContext,
   LazyPromise,
@@ -78,7 +78,7 @@ export type AsyncRequestHandler = (req: IncomingMessage, res: ServerResponse) =>
 
 export interface EZApp {
   requestHandler: AsyncRequestHandler;
-  getEnveloped: Promise<Envelop>;
+  getEnveloped: Promise<GetEnvelopedFn<unknown>>;
 }
 
 export interface HTTPBuildAppOptions extends BuildAppOptions {

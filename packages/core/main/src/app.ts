@@ -12,7 +12,7 @@ import type {
   InternalAppBuildIntegrationContext,
   EZAppFactoryType,
   AdapterFactoryContext,
-  Envelop,
+  GetEnvelopedFn,
 } from './index';
 
 export function createEZAppFactory(
@@ -23,7 +23,7 @@ export function createEZAppFactory(
     afterBuild,
   }: {
     preBuild?: (ctx: InternalAppBuildContext) => void | Promise<void>;
-    afterBuild?: (getEnveloped: Envelop, ctx: InternalAppBuildContext) => void | Promise<void>;
+    afterBuild?: (getEnveloped: GetEnvelopedFn<unknown>, ctx: InternalAppBuildContext) => void | Promise<void>;
   } = {}
 ): EZAppFactoryType {
   const presets = toPlural(rawOptionsArg.ez?.preset);

@@ -3,8 +3,8 @@ import {
   BaseAppBuilder,
   BuildAppOptions,
   createEZAppFactory,
-  Envelop,
   EZAppFactoryType,
+  GetEnvelopedFn,
   handleRequest,
   InternalAppBuildIntegrationContext,
   ProcessRequestOptions,
@@ -54,7 +54,7 @@ export interface HapiAppOptions extends AppOptions {
 
 export interface EZApp {
   hapiPlugin: Plugin<{}>;
-  getEnveloped: Envelop;
+  getEnveloped: GetEnvelopedFn<unknown>;
 }
 
 export interface EZAppBuilder extends BaseAppBuilder {

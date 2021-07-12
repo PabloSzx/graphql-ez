@@ -1,3 +1,5 @@
+import type { PromiseOrValue } from '@envelop/types';
+
 export type PromiseType<T> = T extends PromiseLike<infer U> ? U : T;
 
 export type InferFunctionReturn<TFunction extends (...args: any) => any> = PromiseType<ReturnType<TFunction>>;
@@ -18,4 +20,4 @@ type DeepPartialObject<T> = {
   [P in keyof T]?: PromiseOrValue<DeepPartial<PromiseOrValue<T[P]>>>;
 };
 
-export type PromiseOrValue<T> = T | Promise<T>;
+export type { PromiseOrValue };

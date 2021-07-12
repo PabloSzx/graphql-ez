@@ -197,7 +197,7 @@ test.concurrent('presets', async () => {
       plugins: [ezGraphiQLIDE()],
     },
     envelop: {
-      plugins: [useExtendContext(() => {})],
+      plugins: [useExtendContext(() => ({}))],
     },
   });
 
@@ -246,7 +246,7 @@ Array [
 `);
 
   ezPlugins.push(ezAltairIDE());
-  envelopPlugins.push(useExtendContext(() => {}));
+  envelopPlugins.push(useExtendContext(() => ({})));
 
   expect(ezPlugins).toMatchInlineSnapshot(`
 Array [
@@ -368,7 +368,7 @@ Array [
     appBuilder.ezPlugins.push(ezAltairIDE());
   }).toThrowErrorMatchingInlineSnapshot(`"Cannot add property 2, object is not extensible"`);
   expect(() => {
-    appBuilder.envelopPlugins.push(useExtendContext(() => {}));
+    appBuilder.envelopPlugins.push(useExtendContext(() => ({})));
   }).toThrowErrorMatchingInlineSnapshot(`"Cannot add property 2, object is not extensible"`);
 
   expect((await query<{ ok: string }>('{ok}')).data?.ok).toBe('OK');

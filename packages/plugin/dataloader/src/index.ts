@@ -39,7 +39,7 @@ export const ezDataLoader = (): EZPlugin => {
         dataLoaderFactory: DataLoaderFn<Key, Value, CacheKey>
       ): RegisteredDataLoader<Name, Key, Value, CacheKey> {
         ctx.options.envelop.plugins.push(
-          useDataLoader<Key, Value, CacheKey, EZContext>(name, context => {
+          useDataLoader<Name, Key, Value, CacheKey, EZContext>(name, context => {
             return dataLoaderFactory(DataLoader, context);
           })
         );

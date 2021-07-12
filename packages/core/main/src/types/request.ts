@@ -1,6 +1,6 @@
 import type { MultipartResponse, Push } from 'graphql-helix';
 import type { Request, ProcessRequestOptions } from './helixTypes';
-import type { Envelop } from '@envelop/types';
+import type { GetEnvelopedFn } from '@envelop/types';
 import type { IncomingMessage, ServerResponse } from 'http';
 import type { ExecutionResult } from 'graphql';
 import type { AppOptions, BuildContextArgs } from '../index';
@@ -27,7 +27,7 @@ export type DefaultPushResponseHandler = (
 
 export interface HandleRequestOptions<BuildContextArgs, TReturn = unknown> {
   request: Request;
-  getEnveloped: Envelop;
+  getEnveloped: GetEnvelopedFn<unknown>;
 
   req: IncomingMessage;
 

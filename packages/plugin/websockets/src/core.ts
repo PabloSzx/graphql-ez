@@ -7,7 +7,7 @@ import type { Socket } from 'net';
 import type { ServerOptions as SubscriptionsTransportOptions } from 'subscriptions-transport-ws-envelop/server';
 import type { ServerOptions as GraphQLWSOptions } from 'graphql-ws';
 import type { ExecutionArgs } from 'graphql';
-import type { AppOptions, Envelop } from 'graphql-ez';
+import type { AppOptions, GetEnvelopedFn } from 'graphql-ez';
 
 export type FilteredSubscriptionsTransportOptions = Omit<
   SubscriptionsTransportOptions,
@@ -42,7 +42,7 @@ export function handleSubscriptionsTransport(
   subscriptionsTransportWs: typeof import('subscriptions-transport-ws-envelop/server').SubscriptionServer,
   wsServer: WebSocket.Server,
   options: FilteredSubscriptionsTransportOptions | undefined,
-  getEnveloped: Envelop,
+  getEnveloped: GetEnvelopedFn<unknown>,
   buildContext: AppOptions['buildContext']
 ): void {
   const { execute, subscribe } = getEnveloped();
@@ -85,7 +85,7 @@ export function handleGraphQLWS(
   useGraphQLWSServer: typeof import('graphql-ws/lib/use/ws').useServer,
   wsServer: WebSocket.Server,
   options: FilteredGraphQLWSOptions | undefined,
-  getEnveloped: Envelop,
+  getEnveloped: GetEnvelopedFn<unknown>,
   buildContext: AppOptions['buildContext']
 ): void {
   const { execute, subscribe } = getEnveloped();

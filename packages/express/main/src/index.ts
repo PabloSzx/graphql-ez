@@ -1,12 +1,11 @@
 import { Express, json, Request, RequestHandler, Response, Router } from 'express';
-
 import {
   AppOptions,
   BaseAppBuilder,
   BuildAppOptions,
   createEZAppFactory,
-  Envelop,
   EZAppFactoryType,
+  GetEnvelopedFn,
   handleRequest,
   InternalAppBuildIntegrationContext,
   ProcessRequestOptions,
@@ -55,7 +54,7 @@ export interface ExpressAppOptions extends AppOptions {
 
 export interface EZApp {
   router: Router;
-  getEnveloped: Envelop;
+  getEnveloped: GetEnvelopedFn<unknown>;
 }
 
 export interface ExpressBuildAppOptions extends BuildAppOptions {

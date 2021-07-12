@@ -18,7 +18,7 @@ import {
 import type WebSocket from 'ws';
 import type { Server as HttpServer } from 'http';
 
-import type { EZPlugin, InternalAppBuildContext, Envelop } from 'graphql-ez';
+import type { EZPlugin, InternalAppBuildContext, GetEnvelopedFn } from 'graphql-ez';
 
 export interface WebSocketObjectOptions {
   subscriptionsTransport?: FilteredSubscriptionsTransportOptions | boolean;
@@ -35,7 +35,7 @@ export interface WebSocketObjectOptionsConfig {
 export type WebSocketOptions = WebSocketObjectOptions | 'new' | 'legacy' | 'adaptive';
 
 export type CommonWebSocketsServer = Promise<
-  ((getEnveloped: Envelop) => (httpServer: HttpServer, path: string) => WebSocketsState) | null
+  ((getEnveloped: GetEnvelopedFn<unknown>) => (httpServer: HttpServer, path: string) => WebSocketsState) | null
 >;
 
 export type WebSocketsEnabledState = 'new' | 'adaptive' | 'legacy';

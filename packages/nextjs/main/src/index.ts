@@ -3,8 +3,8 @@ import {
   BaseAppBuilder,
   BuildAppOptions,
   createEZAppFactory,
-  Envelop,
   EZAppFactoryType,
+  GetEnvelopedFn,
   handleRequest,
   InternalAppBuildIntegrationContext,
   LazyPromise,
@@ -61,7 +61,7 @@ export interface NextAppOptions extends AppOptions {
 
 export interface EZApp {
   apiHandler: NextApiHandler;
-  getEnveloped: Promise<Envelop>;
+  getEnveloped: Promise<GetEnvelopedFn<unknown>>;
 }
 
 export interface EZAppBuilder extends BaseAppBuilder {

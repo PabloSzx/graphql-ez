@@ -5,7 +5,7 @@ import {
   BaseAppBuilder,
   BuildAppOptions,
   createEZAppFactory,
-  Envelop,
+  GetEnvelopedFn,
   EZAppFactoryType,
   handleRequest,
   InternalAppBuildIntegrationContext,
@@ -55,7 +55,7 @@ export interface KoaAppOptions extends AppOptions {
 }
 
 export interface EZApp {
-  getEnveloped: Envelop;
+  getEnveloped: GetEnvelopedFn<unknown>;
 }
 
 export interface KoaBuildAppOptions extends BuildAppOptions {
