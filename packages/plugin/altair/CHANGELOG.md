@@ -1,5 +1,11 @@
 # @graphql-ez/plugin-altair
 
+## 0.3.5
+
+### Patch Changes
+
+- aaf29e1: pin altair-static version until upgrade
+
 ## 0.3.4
 
 ### Patch Changes
