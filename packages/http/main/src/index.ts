@@ -90,7 +90,9 @@ export interface EZAppBuilder extends BaseAppBuilder {
 }
 
 export function CreateApp(config: HttpAppOptions = {}): EZAppBuilder {
-  const path = (config.path ||= '/graphql');
+  const appConfig = { ...config };
+
+  const path = (appConfig.path ||= '/graphql');
 
   let ezApp: EZAppFactoryType;
 
@@ -99,7 +101,7 @@ export function CreateApp(config: HttpAppOptions = {}): EZAppBuilder {
       {
         integrationName: 'http',
       },
-      config
+      appConfig
     );
   } catch (err) {
     Error.captureStackTrace(err, CreateApp);
@@ -120,7 +122,7 @@ export function CreateApp(config: HttpAppOptions = {}): EZAppBuilder {
       },
       processRequestOptions,
       cors,
-    } = config;
+    } = appConfig;
 
     const requestHandler = customHandleRequest || handleRequest;
 
@@ -174,7 +176,7 @@ export function CreateApp(config: HttpAppOptions = {}): EZAppBuilder {
                 req,
                 request,
                 getEnveloped,
-                baseOptions: config,
+                baseOptions: appConfig,
                 contextArgs() {
                   return {
                     req,

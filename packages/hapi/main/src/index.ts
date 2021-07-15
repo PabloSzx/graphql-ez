@@ -62,7 +62,9 @@ export interface EZAppBuilder extends BaseAppBuilder {
 }
 
 export function CreateApp(config: HapiAppOptions = {}): EZAppBuilder {
-  const path = (config.path ||= '/graphql');
+  const appConfig = { ...config };
+
+  const path = (appConfig.path ||= '/graphql');
 
   let ezApp: EZAppFactoryType;
 
@@ -71,7 +73,7 @@ export function CreateApp(config: HapiAppOptions = {}): EZAppBuilder {
       {
         integrationName: 'hapi',
       },
-      config
+      appConfig
     );
   } catch (err) {
     Error.captureStackTrace(err, CreateApp);
@@ -82,11 +84,11 @@ export function CreateApp(config: HapiAppOptions = {}): EZAppBuilder {
 
   const buildApp: EZAppBuilder['buildApp'] = async function buildApp(buildOptions = {}) {
     const { app: registerApp, getEnveloped } = await appBuilder(buildOptions, async ({ ctx, getEnveloped }) => {
-      const { customHandleRequest, buildContext, onAppRegister, processRequestOptions } = config;
+      const { customHandleRequest, buildContext, onAppRegister, processRequestOptions } = appConfig;
 
       return async function register(server: Server) {
         const integration: InternalAppBuildIntegrationContext = {
-          hapi: { server, ideRouteOptions: config.ideRouteOptions },
+          hapi: { server, ideRouteOptions: appConfig.ideRouteOptions },
         };
 
         if (onAppRegister) await onAppRegister({ ctx, integration, getEnveloped });
@@ -99,8 +101,8 @@ export function CreateApp(config: HapiAppOptions = {}): EZAppBuilder {
           path,
           method: ['GET', 'POST'],
           options: {
-            cors: config.cors,
-            ...config.routeOptions,
+            cors: appConfig.cors,
+            ...appConfig.routeOptions,
           },
           async handler(req, h) {
             const request = {
@@ -115,7 +117,7 @@ export function CreateApp(config: HapiAppOptions = {}): EZAppBuilder {
               request,
               req: rawReq,
               getEnveloped,
-              baseOptions: config,
+              baseOptions: appConfig,
               buildContext,
               contextArgs() {
                 return {

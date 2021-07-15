@@ -68,7 +68,9 @@ export interface EZAppBuilder extends BaseAppBuilder {
 }
 
 export function CreateApp(config: KoaAppOptions = {}): EZAppBuilder {
-  const path = (config.path ||= '/graphql');
+  const appConfig = { ...config };
+
+  const path = (appConfig.path ||= '/graphql');
 
   let ezApp: EZAppFactoryType;
 
@@ -77,7 +79,7 @@ export function CreateApp(config: KoaAppOptions = {}): EZAppBuilder {
       {
         integrationName: 'koa',
       },
-      config
+      appConfig
     );
   } catch (err) {
     Error.captureStackTrace(err, CreateApp);
@@ -98,7 +100,7 @@ export function CreateApp(config: KoaAppOptions = {}): EZAppBuilder {
         buildContext,
 
         processRequestOptions,
-      } = config;
+      } = appConfig;
 
       const integration: InternalAppBuildIntegrationContext = {
         koa: { router, app: buildOptions.app },
@@ -111,7 +113,7 @@ export function CreateApp(config: KoaAppOptions = {}): EZAppBuilder {
       if (cors) {
         const koaCors = (await import('@koa/cors')).default;
 
-        router.use(koaCors(typeof config.cors === 'boolean' ? undefined : config.cors));
+        router.use(koaCors(typeof appConfig.cors === 'boolean' ? undefined : appConfig.cors));
       }
 
       if (bodyParserOptions) router.use(bodyParser(bodyParserOptions));
@@ -131,7 +133,7 @@ export function CreateApp(config: KoaAppOptions = {}): EZAppBuilder {
         return requestHandler({
           req,
           request,
-          baseOptions: config,
+          baseOptions: appConfig,
           buildContext,
           contextArgs() {
             return {

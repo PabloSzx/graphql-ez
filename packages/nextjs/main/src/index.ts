@@ -69,6 +69,8 @@ export interface EZAppBuilder extends BaseAppBuilder {
 }
 
 export function CreateApp(config: NextAppOptions = {}): EZAppBuilder {
+  const appConfig = { ...config };
+
   let ezApp: EZAppFactoryType;
 
   try {
@@ -76,7 +78,7 @@ export function CreateApp(config: NextAppOptions = {}): EZAppBuilder {
       {
         integrationName: 'nextjs',
       },
-      config
+      appConfig
     );
   } catch (err) {
     Error.captureStackTrace(err, CreateApp);
@@ -96,7 +98,7 @@ export function CreateApp(config: NextAppOptions = {}): EZAppBuilder {
       },
       processRequestOptions,
       cors,
-    } = config;
+    } = appConfig;
 
     const requestHandler = customHandleRequest || handleRequest;
 
@@ -136,7 +138,7 @@ export function CreateApp(config: NextAppOptions = {}): EZAppBuilder {
           req,
           request,
           getEnveloped,
-          baseOptions: config,
+          baseOptions: appConfig,
           contextArgs() {
             return {
               req,

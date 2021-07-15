@@ -56,7 +56,9 @@ export interface EZAppBuilder extends BaseAppBuilder {
 }
 
 export function CreateApp(config: FastifyAppOptions = {}): EZAppBuilder {
-  const path = (config.path ||= '/graphql');
+  const appConfig = { ...config };
+
+  const path = (appConfig.path ||= '/graphql');
 
   let ezApp: EZAppFactoryType;
 
@@ -65,7 +67,7 @@ export function CreateApp(config: FastifyAppOptions = {}): EZAppBuilder {
       {
         integrationName: 'fastify',
       },
-      config
+      appConfig
     );
   } catch (err) {
     Error.captureStackTrace(err, CreateApp);
@@ -77,7 +79,7 @@ export function CreateApp(config: FastifyAppOptions = {}): EZAppBuilder {
   const buildApp: EZAppBuilder['buildApp'] = function buildApp(buildOptions = {}) {
     const appPromise = LazyPromise(() => {
       return appBuilder(buildOptions, ({ ctx, getEnveloped }) => {
-        const { cors, routeOptions, buildContext, onAppRegister, processRequestOptions } = config;
+        const { cors, routeOptions, buildContext, onAppRegister, processRequestOptions } = appConfig;
         return async function FastifyPlugin(instance: FastifyInstance) {
           const integration = {
             fastify: instance,
@@ -113,7 +115,7 @@ export function CreateApp(config: FastifyAppOptions = {}): EZAppBuilder {
                 req,
                 request,
                 getEnveloped,
-                baseOptions: config,
+                baseOptions: appConfig,
                 contextArgs() {
                   return {
                     req,
