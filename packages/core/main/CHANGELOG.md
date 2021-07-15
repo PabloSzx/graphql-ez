@@ -1,5 +1,12 @@
 # graphql-ez
 
+## 0.8.1
+
+### Patch Changes
+
+- f2ce9f1: update Envelop version
+- 0d4a24d: assign preset options to main app options
+
 ## 0.8.0
 
 ### Minor Changes

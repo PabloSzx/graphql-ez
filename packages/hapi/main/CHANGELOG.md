@@ -1,5 +1,14 @@
 # @graphql-ez/hapi
 
+## 0.7.1
+
+### Patch Changes
+
+- 8d2af9a: no-mutate user provided config
+- Updated dependencies [f2ce9f1]
+- Updated dependencies [0d4a24d]
+  - graphql-ez@0.8.1
+
 ## 0.7.0
 
 ### Minor Changes
