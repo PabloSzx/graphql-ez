@@ -27,7 +27,9 @@ export function createEZAppFactory(
   } = {}
 ): EZAppFactoryType {
   const presets = toPlural(rawOptionsArg.ez?.preset);
-  const rawOptions: AppOptions = Object.assign({}, ...presets.map(v => v.options && cleanObject(v.options)), rawOptionsArg);
+  const rawOptions: AppOptions = {
+    ...Object.assign(rawOptionsArg, ...presets.map(v => v.options && cleanObject(v.options)), { ...rawOptionsArg }),
+  };
 
   const envelopPluginsPre = [...toPlural(rawOptions.envelop?.plugins)];
   const ezPluginsDirty = [...toPlural(rawOptions.ez?.plugins)];
