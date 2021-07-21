@@ -1,4 +1,4 @@
-import { Express, json, Request, RequestHandler, Response, Router } from 'express';
+import { Application, json, Request, RequestHandler, Response, Router } from 'express';
 import {
   AppOptions,
   BaseAppBuilder,
@@ -27,7 +27,7 @@ declare module 'graphql-ez' {
   interface InternalAppBuildIntegrationContext {
     express?: {
       router: Router;
-      app: Express;
+      app: Application;
       server?: HttpServer;
     };
   }
@@ -58,7 +58,7 @@ export interface EZApp {
 }
 
 export interface ExpressBuildAppOptions extends BuildAppOptions {
-  app: Express;
+  app: Application;
   server?: HttpServer;
 }
 
