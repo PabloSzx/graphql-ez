@@ -1,5 +1,11 @@
 # @graphql-ez/express
 
+## 0.7.1
+
+### Patch Changes
+
+- d3c62f0: specific app type
+
 ## 0.7.0
 
 ### Minor Changes
