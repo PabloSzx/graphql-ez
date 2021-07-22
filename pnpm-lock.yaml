@@ -873,7 +873,7 @@ importers:
 
   packages/plugin/modules:
     specifiers:
-      '@envelop/graphql-modules': ^0.2.1
+      '@envelop/graphql-modules': ^1.0.0
       '@graphql-tools/utils': ^7.10.0
       bob-esbuild-cli: ^0.1.27
       changesets-github-release: ^0.0.3
@@ -883,7 +883,7 @@ importers:
       jest: ^27.0.6
       ts-jest: ^27.0.4
     dependencies:
-      '@envelop/graphql-modules': 0.2.1_0c945fa5c9e66debae3ebde31cc717a9
+      '@envelop/graphql-modules': 1.0.0_0c945fa5c9e66debae3ebde31cc717a9
       '@graphql-tools/utils': 7.10.0_34dd13c2583fe2e4418c23a0d30fc388
       graphql-modules: 1.4.4_34dd13c2583fe2e4418c23a0d30fc388
     devDependencies:
@@ -2927,8 +2927,8 @@ packages:
       graphql: 15.4.0-experimental-stream-defer.1
     dev: false
 
-  /@envelop/graphql-modules/0.2.1_0c945fa5c9e66debae3ebde31cc717a9:
-    resolution: {integrity: sha512-/JX4H5QEVYPAD7XAV7y93EPbiEyTDo291sIYgw1edu9pYjEkVmSI/IfvrakWfC6mmLjmDIc81RBB8RSmFT5mYQ==}
+  /@envelop/graphql-modules/1.0.0_0c945fa5c9e66debae3ebde31cc717a9:
+    resolution: {integrity: sha512-bjsz91Rbngf3zJd5LBK0l5NIrq5aoJBLD5gRw4X78x9/PRjQT+5ZescpaukriIznpyt0PhBQTYlrO04mh3DGTw==}
     peerDependencies:
       graphql: ^14.0.0 || ^15.0.0
       graphql-modules: ^1
