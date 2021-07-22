@@ -139,7 +139,7 @@ export function createEZAppFactory(
     Object.freeze(envelopPlugins);
     Object.freeze(ezPlugins);
 
-    if (!getEnveloped().schema) {
+    if (options.schema !== null && !getEnveloped().schema) {
       throw Error('[graphql-ez] No GraphQL Schema specified!');
     }
 
