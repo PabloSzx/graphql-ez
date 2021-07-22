@@ -5,12 +5,12 @@ import { withoutTrailingSlash, withTrailingSlash } from 'graphql-ez/utils/url';
 
 import { onIntegrationRegister } from './integrations';
 
-import type { AltairConfigOptions } from 'altair-exported-types/dist/app/modules/altair/config';
+import type { AltairConfigOptions } from 'altair-graphql-core/build/config';
 import type { EZPlugin, PickRequired } from 'graphql-ez';
 import type { RenderOptions } from 'altair-static';
 import type { AltairOptions, HandlerConfig, IDEHandler } from './types';
 
-const altairUnpkgDist = 'https://unpkg.com/altair-static@^4.0.6/build/dist/';
+const altairUnpkgDist = 'https://unpkg.com/altair-static@4.0.8/build/dist/';
 
 /**
  * Render Altair Initial options as a string using the provided renderOptions
