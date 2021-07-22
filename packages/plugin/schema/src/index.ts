@@ -73,11 +73,12 @@ export const ezSchema = (options: EZSchemaOptions = {}): EZPlugin => {
       const typeDefs = extraTypeDefs.length ? extraTypeDefs : undefined;
       const resolvers = extraResolvers.length ? extraResolvers : undefined;
 
-      const schemaList = ctx.options.schema ? [ctx.options.schema, ...toPlural(schema)] : toPlural(schema);
+      const schemaList =
+        ctx.options.schema && ctx.options.schema !== 'dynamic' ? [ctx.options.schema, ...toPlural(schema)] : toPlural(schema);
 
       const schemas = schemaList.length
         ? await Promise.all(
-            toPlural(schema).map(async schemaValuePromise => {
+            toPlural(schemaList).map(async schemaValuePromise => {
               const schemaValue = await schemaValuePromise;
               if (isSchema(schemaValue)) {
                 if (!typeDefs && !resolvers) return schemaValue;
