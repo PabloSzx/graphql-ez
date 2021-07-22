@@ -514,7 +514,7 @@ importers:
       '@envelop/core': ^0.5.2
       '@envelop/disable-introspection': ^0.2.1
       '@envelop/parser-cache': ^0.2.1
-      '@envelop/types': ^0.4.2
+      '@envelop/types': ^1.0.0
       '@envelop/validation-cache': ^0.2.1
       bob-esbuild-cli: ^0.1.27
       changesets-github-release: 0.0.3
@@ -528,7 +528,7 @@ importers:
       '@envelop/core': 0.5.2_34dd13c2583fe2e4418c23a0d30fc388
       '@envelop/disable-introspection': 0.2.1_34dd13c2583fe2e4418c23a0d30fc388
       '@envelop/parser-cache': 0.2.1_34dd13c2583fe2e4418c23a0d30fc388
-      '@envelop/types': 0.4.2_34dd13c2583fe2e4418c23a0d30fc388
+      '@envelop/types': 1.0.0_34dd13c2583fe2e4418c23a0d30fc388
       '@envelop/validation-cache': 0.2.1_34dd13c2583fe2e4418c23a0d30fc388
       graphql-helix: 1.6.1_34dd13c2583fe2e4418c23a0d30fc388
     devDependencies:
@@ -2948,6 +2948,14 @@ packages:
 
   /@envelop/types/0.4.2_34dd13c2583fe2e4418c23a0d30fc388:
     resolution: {integrity: sha512-WZcTSDReryyg/3q6S4DTFttcuvU8jedcVhZmTp2WRyi8k15YqkorWkZzlrO5DoHNHMRUeckJcQNt68hPv7uv7A==}
+    peerDependencies:
+      graphql: ^14.0.0 || ^15.0.0
+    dependencies:
+      graphql: 15.4.0-experimental-stream-defer.1
+    dev: false
+
+  /@envelop/types/1.0.0_34dd13c2583fe2e4418c23a0d30fc388:
+    resolution: {integrity: sha512-L3hHwDcDd5SO5Dck/iJxvbanRa3dx7nUZKelT8x+YcNfEgmAFvtB+y1u48ky43rygVVf7MFaFT2d0nggR1HxRg==}
     peerDependencies:
       graphql: ^14.0.0 || ^15.0.0
     dependencies:
