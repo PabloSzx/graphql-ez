@@ -128,7 +128,7 @@ export function createEZAppFactory(
       ezCoreDisableIntrospection(ctx),
     ]);
 
-    if (!ctx.schemaPlugin && options.schema) {
+    if (!ctx.schemaPlugin && options.schema && options.schema !== 'dynamic') {
       envelopPlugins.push(useSchema(await options.schema));
     }
 
@@ -139,7 +139,7 @@ export function createEZAppFactory(
     Object.freeze(envelopPlugins);
     Object.freeze(ezPlugins);
 
-    if (!getEnveloped().schema) {
+    if (options.schema !== 'dynamic' && !getEnveloped().schema) {
       throw Error('[graphql-ez] No GraphQL Schema specified!');
     }
 

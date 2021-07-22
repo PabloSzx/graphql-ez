@@ -115,8 +115,11 @@ declare module '../index' {
   interface AppOptions {
     /**
      * Set GraphQL Schema
+     *
+     * __Set "schema" to `"dynamic"` for dynamic schema usage and to disable static schema validation.
+     * _Some plugins that require a static GraphQL Schema might fail___
      */
-    schema?: GraphQLSchema | Promise<GraphQLSchema>;
+    schema?: GraphQLSchema | Promise<GraphQLSchema> | 'dynamic';
 
     /**
      * Callback to be called right before building app
