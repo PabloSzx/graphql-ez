@@ -389,7 +389,7 @@ importers:
       get-port: ^5.1.1
       graphql: 15.4.0-experimental-stream-defer.1
       graphql-ez: workspace:*
-      graphql-modules: ^1.4.3
+      graphql-modules: ^1.4.4
       graphql-ws: ^5.3.0
       koa: ^2.13.1
       subscriptions-transport-ws-envelop: ^1.0.5
@@ -422,7 +422,7 @@ importers:
       get-port: 5.1.1
       graphql: 15.4.0-experimental-stream-defer.1
       graphql-ez: link:../../packages/core/main
-      graphql-modules: 1.4.3_34dd13c2583fe2e4418c23a0d30fc388
+      graphql-modules: 1.4.4_34dd13c2583fe2e4418c23a0d30fc388
       graphql-ws: 5.3.0_34dd13c2583fe2e4418c23a0d30fc388
       koa: 2.13.1
       subscriptions-transport-ws-envelop: 1.0.5_256c795de05385da778b55cce5656df6
@@ -879,13 +879,13 @@ importers:
       changesets-github-release: ^0.0.3
       graphql: 15.4.0-experimental-stream-defer.1
       graphql-ez: workspace:^0.8.1
-      graphql-modules: ^1.4.3
+      graphql-modules: ^1.4.4
       jest: ^27.0.6
       ts-jest: ^27.0.3
     dependencies:
-      '@envelop/graphql-modules': 0.2.1_d6fb7a771350ff5d48937d5b1759471f
+      '@envelop/graphql-modules': 0.2.1_0c945fa5c9e66debae3ebde31cc717a9
       '@graphql-tools/utils': 7.10.0_34dd13c2583fe2e4418c23a0d30fc388
-      graphql-modules: 1.4.3_34dd13c2583fe2e4418c23a0d30fc388
+      graphql-modules: 1.4.4_34dd13c2583fe2e4418c23a0d30fc388
     devDependencies:
       bob-esbuild-cli: 0.1.27_4ad384f65ba772ee570941d3a2e656e9
       changesets-github-release: 0.0.3
@@ -2927,14 +2927,14 @@ packages:
       graphql: 15.4.0-experimental-stream-defer.1
     dev: false
 
-  /@envelop/graphql-modules/0.2.1_d6fb7a771350ff5d48937d5b1759471f:
+  /@envelop/graphql-modules/0.2.1_0c945fa5c9e66debae3ebde31cc717a9:
     resolution: {integrity: sha512-/JX4H5QEVYPAD7XAV7y93EPbiEyTDo291sIYgw1edu9pYjEkVmSI/IfvrakWfC6mmLjmDIc81RBB8RSmFT5mYQ==}
     peerDependencies:
       graphql: ^14.0.0 || ^15.0.0
       graphql-modules: ^1
     dependencies:
       graphql: 15.4.0-experimental-stream-defer.1
-      graphql-modules: 1.4.3_34dd13c2583fe2e4418c23a0d30fc388
+      graphql-modules: 1.4.4_34dd13c2583fe2e4418c23a0d30fc388
     dev: false
 
   /@envelop/parser-cache/0.2.1_34dd13c2583fe2e4418c23a0d30fc388:
@@ -8477,8 +8477,8 @@ packages:
       graphql: 15.4.0-experimental-stream-defer.1
     dev: false
 
-  /graphql-modules/1.4.3_34dd13c2583fe2e4418c23a0d30fc388:
-    resolution: {integrity: sha512-ArkkqJvrhIsXHZVs89vkjjmHFDRjt3Y1zfayJLt73qSdOG/VNfTt5bEkXcvJ5P1hP+ywj6ODzJqFq8HbJcBHKQ==}
+  /graphql-modules/1.4.4_34dd13c2583fe2e4418c23a0d30fc388:
+    resolution: {integrity: sha512-jRmUdJYA2KzpezxhH0roS8we4wRnWY3VvHpBngZJqdEz8QCTp2WNc8YoBTcR2zZCCRjAHoPn0OkgA4UOHaVQPQ==}
     peerDependencies:
       graphql: ^14.0.0 || ^15.0.0
     dependencies:
