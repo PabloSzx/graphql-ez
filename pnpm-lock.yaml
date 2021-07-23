@@ -440,7 +440,7 @@ importers:
       '@emotion/react': ^11.4.0
       '@emotion/styled': ^11.3.0
       '@guild-docs/client': ^0.2.20
-      '@guild-docs/server': ^0.2.18
+      '@guild-docs/server': ^0.2.22
       '@mdx-js/react': ^1.6.22
       '@next/bundle-analyzer': ^11.0.1
       '@theguild/components': ^1.4.7
@@ -478,7 +478,7 @@ importers:
       '@emotion/react': 11.4.0_b2f98f1a44929e460196386bafc39b6a
       '@emotion/styled': 11.3.0_da675241f78bb54d4f9123e607fbb27c
       '@guild-docs/client': 0.2.20_ff2d80d0a31a22611772e65266515ab9
-      '@guild-docs/server': 0.2.18_625a08b11c20aee113cce18816eabe51
+      '@guild-docs/server': 0.2.22_625a08b11c20aee113cce18816eabe51
       '@mdx-js/react': 1.6.22_react@17.0.2
       '@theguild/components': 1.4.7_28c0df05a9559c3217649c6005b51123
       date-fns: 2.22.1
@@ -1382,7 +1382,7 @@ packages:
       '@babel/core': ^7.0.0-0
     dependencies:
       '@babel/core': 7.12.9
-      '@babel/helper-plugin-utils': 7.10.4
+      '@babel/helper-plugin-utils': 7.14.5
       '@babel/plugin-syntax-object-rest-spread': 7.8.3_@babel+core@7.12.9
       '@babel/plugin-transform-parameters': 7.14.5_@babel+core@7.12.9
     dev: false
@@ -3312,11 +3312,11 @@ packages:
       - supports-color
     dev: false
 
-  /@guild-docs/server/0.2.18_625a08b11c20aee113cce18816eabe51:
-    resolution: {integrity: sha512-XGJ+y79DwkTOvYu0O2Pvu3wig6hmkUuZwMUw6h7/E8rzm1SR19M8isQzqWPC7whBAw6GosHvsnAjGHzCqIQ6pQ==}
+  /@guild-docs/server/0.2.22_625a08b11c20aee113cce18816eabe51:
+    resolution: {integrity: sha512-IroHOjkJDh35dDOMxWWPkNCWgnMRGb23F6+cDodZGLfBEbBZuhtkM5kOu60294mGhg/YPVsZVCgZyPrMb+KcVg==}
     peerDependencies:
       next: ^11.0.1
-      next-i18next: ^8.5.1
+      next-i18next: ^8.5.3
       react: ^17.0.2
       react-dom: ^17.0.2
       remark-admonitions: ^1.2.1
@@ -3329,6 +3329,7 @@ packages:
       next: 11.0.1_f31b35bdaa3b7c2fce82404f09d2dac4
       next-i18next: 8.5.5_next@11.0.1+react@17.0.2
       next-mdx-remote: 3.0.4_react-dom@17.0.2+react@17.0.2
+      node-fetch: 2.6.1
       npms.io: 2.0.6
       react: 17.0.2
       react-dom: 17.0.2_react@17.0.2
