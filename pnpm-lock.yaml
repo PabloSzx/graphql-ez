@@ -451,7 +451,7 @@ importers:
       '@types/react-dom': ^17.0.9
       concurrently: ^6.2.0
       cross-env: ^7.0.3
-      date-fns: ^2.22.1
+      date-fns: ^2.23.0
       esbuild: ^0.12.15
       esbuild-register: ^2.6.0
       framer-motion: ^4.1.17
@@ -481,7 +481,7 @@ importers:
       '@guild-docs/server': 0.2.18_625a08b11c20aee113cce18816eabe51
       '@mdx-js/react': 1.6.22_react@17.0.2
       '@theguild/components': 1.4.7_28c0df05a9559c3217649c6005b51123
-      date-fns: 2.22.1
+      date-fns: 2.23.0
       framer-motion: 4.1.17_react-dom@17.0.2+react@17.0.2
       next: 11.0.1_f31b35bdaa3b7c2fce82404f09d2dac4
       next-i18next: 8.5.5_next@11.0.1+react@17.0.2
@@ -7050,6 +7050,12 @@ packages:
   /date-fns/2.22.1:
     resolution: {integrity: sha512-yUFPQjrxEmIsMqlHhAhmxkuH769baF21Kk+nZwZGyrMoyLA+LugaQtC0+Tqf9CBUUULWwUJt6Q5ySI3LJDDCGg==}
     engines: {node: '>=0.11'}
+    dev: true
+
+  /date-fns/2.23.0:
+    resolution: {integrity: sha512-5ycpauovVyAk0kXNZz6ZoB9AYMZB4DObse7P3BPWmyEjXNORTI8EJ6X0uaSAq4sCHzM1uajzrkr6HnsLQpxGXA==}
+    engines: {node: '>=0.11'}
+    dev: false
 
   /dateformat/3.0.3:
     resolution: {integrity: sha512-jyCETtSl3VMZMWeRo7iY1FL19ges1t55hMo5yaam4Jrsm5EPL89UQkoQRyiI+Yf4k8r2ZpdngkV8hr1lIdjb3Q==}
