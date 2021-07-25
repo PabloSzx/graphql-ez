@@ -37,21 +37,8 @@ app.listen(8080);
 import { CreateApp, gql } from '@graphql-ez/fastify';
 
 export const ezApp = CreateApp({
-  // You can use any valid GraphQL Schema, or build it in-line
-  schema: {
-    typeDefs: gql`
-      type Query {
-        hello: String!
-      }
-    `,
-    resolvers: {
-      Query: {
-        hello() {
-          return 'Hello World';
-        },
-      },
-    },
-  },
+  // You can use any valid GraphQL Schema
+  schema,
   ez: {
     plugins: [
       // EZ Plugins
