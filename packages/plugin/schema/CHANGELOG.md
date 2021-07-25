@@ -1,5 +1,18 @@
 # @graphql-ez/plugin-schema
 
+## 0.2.0
+
+### Minor Changes
+
+- 0d8cf81: update Envelop to v1.0
+
+### Patch Changes
+
+- 0731fc3: allow "'dynamic'" options.schema for dynamic schema usage
+- Updated dependencies [0731fc3]
+- Updated dependencies [0d8cf81]
+  - graphql-ez@0.9.0
+
 ## 0.1.1
 
 ### Patch Changes

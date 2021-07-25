@@ -1,5 +1,17 @@
 # @graphql-ez/plugin-scalars
 
+## 0.5.0
+
+### Minor Changes
+
+- 0d8cf81: update Envelop to v1.0
+
+### Patch Changes
+
+- Updated dependencies [0731fc3]
+- Updated dependencies [0d8cf81]
+  - graphql-ez@0.9.0
+
 ## 0.4.2
 
 ### Patch Changes

@@ -1,5 +1,17 @@
 # @graphql-ez/express
 
+## 0.8.0
+
+### Minor Changes
+
+- 0d8cf81: update Envelop to v1.0
+
+### Patch Changes
+
+- Updated dependencies [0731fc3]
+- Updated dependencies [0d8cf81]
+  - graphql-ez@0.9.0
+
 ## 0.7.1
 
 ### Patch Changes
