@@ -8,12 +8,12 @@
     "dev:mjs": "tsup-node src/index.ts --format esm --sourcemap --no-splitting --watch src --onSuccess \"node dist/index.mjs\""
   },
   "dependencies": {
-    "@graphql-ez/fastify": "workspace:^0.7.1",
-    "@graphql-ez/plugin-codegen": "workspace:^0.3.4",
-    "@graphql-ez/plugin-schema": "workspace:^0.1.1",
+    "@graphql-ez/fastify": "workspace:^0.8.0",
+    "@graphql-ez/plugin-codegen": "workspace:^0.4.0",
+    "@graphql-ez/plugin-schema": "workspace:^0.2.0",
     "fastify": "^3.19.2",
     "graphql": "15.4.0-experimental-stream-defer.1",
-    "graphql-ez": "workspace:^0.8.1"
+    "graphql-ez": "workspace:^0.9.0"
   },
   "devDependencies": {
     "@types/node": "^16.4.2",
