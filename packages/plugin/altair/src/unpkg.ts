@@ -5,9 +5,8 @@ import { withoutTrailingSlash, withTrailingSlash } from 'graphql-ez/utils/url';
 
 import { onIntegrationRegister } from './integrations';
 
-import type { AltairConfigOptions } from 'altair-graphql-core/build/config';
 import type { EZPlugin, PickRequired } from 'graphql-ez';
-import type { RenderOptions } from 'altair-static';
+import type { RenderOptions, AltairConfigOptions } from 'altair-static-slim';
 import type { AltairOptions, HandlerConfig, IDEHandler } from './types';
 
 const altairUnpkgDist = 'https://unpkg.com/altair-static@4.0.8/build/dist/';

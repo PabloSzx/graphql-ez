@@ -5,7 +5,7 @@ import { withoutTrailingSlash, withTrailingSlash } from 'graphql-ez/utils/url';
 import { onIntegrationRegister } from './integrations';
 
 import type { EZPlugin, PickRequired } from 'graphql-ez';
-import type { RenderOptions } from 'altair-static';
+import type { RenderOptions } from 'altair-static-slim';
 import type { AltairOptions, HandlerConfig, IDEHandler } from './types';
 
 const AltairDeps = LazyPromise(async () => {
@@ -16,7 +16,7 @@ const AltairDeps = LazyPromise(async () => {
     },
     { resolve },
     { lookup },
-  ] = await Promise.all([import('altair-static'), import('fs'), import('path'), import('mime-types')]);
+  ] = await Promise.all([import('altair-static-slim'), import('fs'), import('path'), import('mime-types')]);
 
   return {
     getDistDirectory,

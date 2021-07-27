@@ -1,5 +1,5 @@
 import type { PickRequired } from 'graphql-ez';
-import type { RenderOptions } from 'altair-static';
+import type { RenderOptions } from 'altair-static-slim';
 import type { IncomingMessage, ServerResponse } from 'http';
 
 export interface AltairOptions extends RenderOptions {
