@@ -1,5 +1,11 @@
 # graphql-ez
 
+## 0.9.2
+
+### Patch Changes
+
+- 860d050: update envelop
+
 ## 0.9.1
 
 ### Patch Changes
