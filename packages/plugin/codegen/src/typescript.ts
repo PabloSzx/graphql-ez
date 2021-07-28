@@ -1,7 +1,7 @@
 import { GraphQLSchema, parse } from 'graphql';
 import { resolve } from 'path';
 
-import { printSchemaWithDirectives, Loader, SingleFileOptions } from '@graphql-tools/utils';
+import { printSchemaWithDirectives, Loader } from '@graphql-tools/utils';
 
 import { cleanObject } from 'graphql-ez/utils/object';
 import { LazyPromise } from 'graphql-ez/utils/promise';
@@ -116,7 +116,7 @@ export interface CodegenConfig
   /**
    * Custom document loaders
    */
-  documentsLoaders?: Loader<string, SingleFileOptions>[];
+  documentsLoaders?: Loader[];
 }
 
 const CodegenDeps = LazyPromise(async () => {
