@@ -1,5 +1,11 @@
 # graphql-ez
 
+## 0.9.1
+
+### Patch Changes
+
+- e74e5a2: update graphql-helix
+
 ## 0.9.0
 
 ### Minor Changes
