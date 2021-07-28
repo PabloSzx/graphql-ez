@@ -521,7 +521,7 @@ importers:
       eventsource: ^1.1.0
       got: ^11.8.2
       graphql: 15.4.0-experimental-stream-defer.1
-      graphql-helix: 1.6.1
+      graphql-helix: 1.7.0
       jest: ^27.0.6
       ts-jest: ^27.0.4
     dependencies:
@@ -530,7 +530,7 @@ importers:
       '@envelop/parser-cache': 1.0.0_34dd13c2583fe2e4418c23a0d30fc388
       '@envelop/types': 1.0.1_34dd13c2583fe2e4418c23a0d30fc388
       '@envelop/validation-cache': 1.0.0_34dd13c2583fe2e4418c23a0d30fc388
-      graphql-helix: 1.6.1_34dd13c2583fe2e4418c23a0d30fc388
+      graphql-helix: 1.7.0_34dd13c2583fe2e4418c23a0d30fc388
     devDependencies:
       bob-esbuild-cli: 0.1.27_7b2a1fd2d6b16598e64b6bb8de7c75bd
       changesets-github-release: 0.0.3
@@ -854,12 +854,12 @@ importers:
       bob-esbuild-cli: ^0.1.27
       changesets-github-release: ^0.0.3
       graphql-ez: workspace:^0.9.0
-      graphql-helix: 1.6.1
+      graphql-helix: 1.7.0
       jest: ^27.0.6
       next: ^11.0.1
       ts-jest: ^27.0.4
     dependencies:
-      graphql-helix: 1.6.1
+      graphql-helix: 1.7.0
     devDependencies:
       '@types/node': 16.4.2
       bob-esbuild-cli: 0.1.27_7b2a1fd2d6b16598e64b6bb8de7c75bd
@@ -8436,14 +8436,14 @@ packages:
     resolution: {integrity: sha512-bzh50DW9kTPM00T8y4o8vQg89Di9oLJVLW/KaOGIXJWP/iqCN6WKYkbNOF04vFLJhwcpYUh9ydh/+5vpOqV4YQ==}
     dev: true
 
-  /graphql-helix/1.6.1:
-    resolution: {integrity: sha512-fdh9+uHnH0hz4ooGJkfPBh02ieblnH9G0OkbYS4vMMTJnq0Ea4R/QsIwzb2vLMDQlKhODkMbKlc1uXwghnvJrw==}
+  /graphql-helix/1.7.0:
+    resolution: {integrity: sha512-CUqBZL0e/ivPnqFguzWCmMzPTjYXvak2465SsIiAYt0C2yZa4kjzQjB/JIF7YKHCsP8VrJwA29HXmYOJzPAe3g==}
     peerDependencies:
       graphql: ^15.3.0
     dev: false
 
-  /graphql-helix/1.6.1_34dd13c2583fe2e4418c23a0d30fc388:
-    resolution: {integrity: sha512-fdh9+uHnH0hz4ooGJkfPBh02ieblnH9G0OkbYS4vMMTJnq0Ea4R/QsIwzb2vLMDQlKhODkMbKlc1uXwghnvJrw==}
+  /graphql-helix/1.7.0_34dd13c2583fe2e4418c23a0d30fc388:
+    resolution: {integrity: sha512-CUqBZL0e/ivPnqFguzWCmMzPTjYXvak2465SsIiAYt0C2yZa4kjzQjB/JIF7YKHCsP8VrJwA29HXmYOJzPAe3g==}
     peerDependencies:
       graphql: ^15.3.0
     dependencies:
