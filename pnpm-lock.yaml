@@ -440,7 +440,7 @@ importers:
       '@emotion/react': ^11.4.0
       '@emotion/styled': ^11.3.0
       '@guild-docs/client': ^0.2.24
-      '@guild-docs/server': ^0.2.22
+      '@guild-docs/server': ^0.2.23
       '@mdx-js/react': ^1.6.22
       '@next/bundle-analyzer': ^11.0.1
       '@theguild/components': ^1.4.7
@@ -478,7 +478,7 @@ importers:
       '@emotion/react': 11.4.0_5801e6465414ef85acbf5710ce4c0dcf
       '@emotion/styled': 11.3.0_eba624a87a3af7c0cbc57827caf9724e
       '@guild-docs/client': 0.2.24_bbd9bbcf0771ae9b24b743a690a88fbb
-      '@guild-docs/server': 0.2.22_960d643d993fbbebcc697f8cc3b8c59f
+      '@guild-docs/server': 0.2.23_960d643d993fbbebcc697f8cc3b8c59f
       '@mdx-js/react': 1.6.22_react@17.0.2
       '@theguild/components': 1.4.7_6ed7afba42f0472a9770b39da668445f
       date-fns: 2.23.0
@@ -3330,8 +3330,8 @@ packages:
       - supports-color
     dev: false
 
-  /@guild-docs/server/0.2.22_960d643d993fbbebcc697f8cc3b8c59f:
-    resolution: {integrity: sha512-IroHOjkJDh35dDOMxWWPkNCWgnMRGb23F6+cDodZGLfBEbBZuhtkM5kOu60294mGhg/YPVsZVCgZyPrMb+KcVg==}
+  /@guild-docs/server/0.2.23_960d643d993fbbebcc697f8cc3b8c59f:
+    resolution: {integrity: sha512-72TbHrDHu69HkEBIFX77PKsp1CoVFNY0hGTNIqR7HChdOGqSJsvW1iwMf/pN1G2nDZcIn3tIbAyDc/Mcu8l3/A==}
     peerDependencies:
       next: ^11.0.1
       next-i18next: ^8.5.3
@@ -3348,7 +3348,7 @@ packages:
       next-i18next: 8.5.5_next@11.0.1+react@17.0.2
       next-mdx-remote: 3.0.4_react-dom@17.0.2+react@17.0.2
       node-fetch: 2.6.1
-      npms.io: 2.0.6
+      npms.io: 2.1.0
       react: 17.0.2
       react-dom: 17.0.2_react@17.0.2
       remark-admonitions: 1.2.1
@@ -11558,8 +11558,8 @@ packages:
       path-key: 3.1.1
     dev: true
 
-  /npms.io/2.0.6:
-    resolution: {integrity: sha512-trjF9FDKWSy6qAbjIhvfNxtepxokgS7DQzog3cgrZmnunhFJ9yaZDRiu36a4GuBjuxbLLQxayjTsYoGIJlpcnQ==}
+  /npms.io/2.1.0:
+    resolution: {integrity: sha512-dImPsPz9MXBW3Q3GRW4OqDoq1quo5bgrRLnUye3XQXFRluFxAqbSvnkBZbHMsnGvv7rlqhbTn4miU26KgST9ZA==}
     engines: {node: '>= 10.9'}
     dependencies:
       axios: 0.21.1
