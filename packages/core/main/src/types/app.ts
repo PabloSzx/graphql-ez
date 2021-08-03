@@ -139,9 +139,11 @@ declare module '../index' {
 
     /**
      * Custom EZ Plugins
+     *
+     * Any value in the plugin list that isn't an object is automatically filtered out
      */
     ez?: {
-      plugins?: EZPlugin[];
+      plugins?: (EZPlugin | null | undefined | boolean)[];
 
       preset?: EZPreset | EZPreset[];
     };

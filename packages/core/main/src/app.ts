@@ -13,6 +13,7 @@ import type {
   EZAppFactoryType,
   AdapterFactoryContext,
   GetEnvelopedFn,
+  EZPlugin,
 } from './index';
 
 export function createEZAppFactory(
@@ -50,12 +51,16 @@ export function createEZAppFactory(
 
   const integrationName = factoryCtx.integrationName;
 
-  const ezPluginsPre = ezPluginsDirty.filter(({ name, compatibilityList }, index) => {
+  const ezPluginsPre = ezPluginsDirty.filter((pluginValue, index): pluginValue is EZPlugin => {
+    if (typeof pluginValue !== 'object' || pluginValue == null) return false;
+
+    const { name, compatibilityList } = pluginValue;
     if (compatibilityList && !compatibilityList.includes(integrationName)) {
       throw Error(`[graphql-ez] "${name}" is not compatible with "${integrationName}"`);
     }
 
-    if (ezPluginsDirty.findIndex(plugin => plugin.name === name) === index) return true;
+    if (ezPluginsDirty.findIndex(plugin => typeof plugin === 'object' && plugin != null && plugin.name === name) === index)
+      return true;
 
     console.warn(`[graphql-ez] Warning! Plugin "${name}" is duplicated! Make sure to specify the same plugin only once.`);
 
