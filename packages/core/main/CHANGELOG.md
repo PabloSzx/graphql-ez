@@ -1,5 +1,15 @@
 # graphql-ez
 
+## 0.10.0
+
+### Minor Changes
+
+- b1c27d1: allow nullish or boolean in EZ Plugin list (which are filtered out in build)
+
+### Patch Changes
+
+- faff0ad: update envelop
+
 ## 0.9.2
 
 ### Patch Changes
