@@ -62,3 +62,5 @@ jobs:
         run: pnpm test -- --logHeapUsage
         env:
           CI: true
+      - name: Test ESM
+        run: node scripts/test-esm.mjs
