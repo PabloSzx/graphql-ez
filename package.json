@@ -42,13 +42,13 @@
     "@changesets/assemble-release-plan": "^5.0.0",
     "@changesets/cli": "2.16.0",
     "@types/jest": "^26.0.24",
-    "@types/node": "^16.4.10",
+    "@types/node": "^16.4.12",
     "bob-esbuild": "^0.2.1",
     "bob-esbuild-cli": "^0.2.1",
     "chalk": "^4.1.2",
     "concurrently": "6.2.0",
     "cross-env": "7.0.3",
-    "esbuild": "^0.12.17",
+    "esbuild": "^0.12.18",
     "globby": "^11.0.4",
     "graphql-ez-testing": "workspace:^1.0.0",
     "husky": "7.0.1",
@@ -65,8 +65,8 @@
   "pnpm": {
     "overrides": {
       "graphql": "15.4.0-experimental-stream-defer.1",
-      "esbuild": "^0.12.17",
-      "@types/node": "^16.4.10"
+      "esbuild": "^0.12.18",
+      "@types/node": "^16.4.12"
     }
   }
 }
