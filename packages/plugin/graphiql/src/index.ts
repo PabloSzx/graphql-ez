@@ -4,7 +4,7 @@ import { LazyPromise } from 'graphql-ez/utils/promise';
 import { onIntegrationRegister } from './integrations';
 
 import type { IncomingMessage, ServerResponse } from 'http';
-import type { RenderGraphiQLOptions } from 'graphql-helix/dist/types';
+import type { RenderGraphiQLOptions } from '@pablosz/graphql-helix-graphiql';
 import type { EZPlugin } from 'graphql-ez';
 
 export interface GraphiQLOptions extends RenderGraphiQLOptions {
@@ -45,7 +45,7 @@ export interface HandlerConfig {
 }
 
 const GraphiQLDeps = LazyPromise(async () => {
-  const { renderGraphiQL } = await import('graphql-helix/dist/render-graphiql.js');
+  const { renderGraphiQL } = await import('@pablosz/graphql-helix-graphiql');
 
   return { renderGraphiQL };
 });

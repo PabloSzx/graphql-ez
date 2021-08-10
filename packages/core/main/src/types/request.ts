@@ -1,4 +1,4 @@
-import type { MultipartResponse, Push } from 'graphql-helix';
+import type { MultipartResponse, Push } from '@pablosz/graphql-helix';
 import type { Request, ProcessRequestOptions } from './helixTypes';
 import type { GetEnvelopedFn } from '@envelop/types';
 import type { IncomingMessage, ServerResponse } from 'http';

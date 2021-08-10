@@ -1,5 +1,5 @@
 import type { IncomingHttpHeaders } from 'http';
-import type { ProcessRequestOptions as HelixProcessRequestOptions } from 'graphql-helix';
+import type { ProcessRequestOptions as HelixProcessRequestOptions } from '@pablosz/graphql-helix';
 import type { EZContext } from '../index';
 
 export interface Request {

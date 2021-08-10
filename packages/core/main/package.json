@@ -17,6 +17,14 @@
     "./*": {
       "require": "./dist/*.js",
       "import": "./dist/*.mjs"
+    },
+    "./types": {
+      "require": "./dist/types/index.js",
+      "import": "./dist/types/index.mjs"
+    },
+    "./utils": {
+      "require": "./dist/utils/index.js",
+      "import": "./dist/utils/index.mjs"
     }
   },
   "main": "dist/index.js",
@@ -34,7 +42,7 @@
     "@envelop/parser-cache": "^1.0.0",
     "@envelop/types": "^1.0.2",
     "@envelop/validation-cache": "^1.0.0",
-    "graphql-helix": "1.7.0"
+    "@pablosz/graphql-helix": "^1.7.0"
   },
   "devDependencies": {
     "bob-esbuild-cli": "^1.0.0",

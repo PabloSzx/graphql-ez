@@ -2,7 +2,11 @@
   "name": "@pablosz/graphql-helix-graphiql",
   "version": "1.1.0",
   "description": "A highly evolved GraphQL HTTP Server 🧬",
-  "repository": "https://github.com/contrawork/graphql-helix.git",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/PabloSzx/graphql-ez",
+    "directory": "packages/helix/graphiql"
+  },
   "license": "MIT",
   "author": "Daniel Rearden <danielrearden@gmail.com>",
   "exports": {
@@ -26,7 +30,8 @@
     "bundle": "pnpm bundle:webpack && pnpm bundle:ts",
     "bundle:ts": "node scripts/build-graphiql.cjs",
     "bundle:webpack": "webpack -c browser/webpack.config.js && cpy browser/css/graphiql.min.css bundle/",
-    "prepack": "pnpm bundle && \"bob-esbuild build\"",
+    "prepack": "pnpm bundle && bob-esbuild build",
+    "prepare": "bob-esbuild build",
     "postpublish": "gh-release"
   },
   "devDependencies": {
@@ -46,6 +51,7 @@
     "cpy-cli": "^3.1.1",
     "graphiql": "^1.4.2",
     "graphql": "15.4.0-experimental-stream-defer.1",
+    "graphql-ez": "workspace:^0.10.0",
     "graphql-language-service-interface": "^2.8.4",
     "prettier": "2.3.2",
     "prop-types": "15.7.2",

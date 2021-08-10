@@ -1,14 +1,13 @@
-import { getGraphQLParameters } from 'graphql-helix/dist/get-graphql-parameters.js';
-import { processRequest } from 'graphql-helix/dist/process-request.js';
-
 import type { IncomingMessage, ServerResponse } from 'http';
 import type { BuildContextArgs, HandleRequestOptions, EZResponse, Request } from './index';
-import type {
+import {
+  processRequest,
+  getGraphQLParameters,
   ExecutionContext,
   MultipartResponse,
   Push,
   ProcessRequestOptions as HelixProcessRequestOptions,
-} from 'graphql-helix';
+} from '@pablosz/graphql-helix';
 
 export interface HelixContext extends Omit<ExecutionContext, 'request'> {
   request: Request;
