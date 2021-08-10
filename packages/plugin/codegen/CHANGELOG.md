@@ -1,5 +1,11 @@
 # @graphql-ez/plugin-codegen
 
+## 0.6.1
+
+### Patch Changes
+
+- 5736d14: update tools
+
 ## 0.6.0
 
 ### Minor Changes
