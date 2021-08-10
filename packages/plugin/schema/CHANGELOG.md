@@ -1,5 +1,11 @@
 # @graphql-ez/plugin-schema
 
+## 0.4.0
+
+### Minor Changes
+
+- 6e2ca0f: add helpers "registerTypeDefs" and "registerResolvers"
+
 ## 0.3.1
 
 ### Patch Changes
