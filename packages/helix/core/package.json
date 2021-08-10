@@ -1,0 +1,37 @@
+{
+  "name": "@pablosz/graphql-helix",
+  "version": "1.7.0",
+  "description": "A highly evolved GraphQL HTTP Server 🧬",
+  "license": "MIT",
+  "author": "",
+  "exports": {
+    ".": {
+      "require": "./dist/index.js",
+      "import": "./dist/index.mjs"
+    },
+    "./*": {
+      "require": "./dist/*.js",
+      "import": "./dist/*.mjs"
+    },
+    "./util": {
+      "require": "./dist/util/index.js",
+      "import": "./dist/util/index.mjs"
+    }
+  },
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "prepare": "bob-esbuild build",
+    "postpublish": "gh-release"
+  },
+  "devDependencies": {
+    "bob-esbuild": "^1.0.0",
+    "bob-esbuild-cli": "^1.0.0",
+    "changesets-github-release": "^0.0.3",
+    "graphql": "15.4.0-experimental-stream-defer.1"
+  },
+  "publishConfig": {
+    "directory": "dist"
+  }
+}
