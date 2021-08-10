@@ -1,8 +1,8 @@
-import { DocumentNode, GraphQLSchema, isSchema } from 'graphql';
+import { GraphQLSchema, isSchema, DocumentNode } from 'graphql';
 import { EZContext, EZPlugin, EZResolvers, LazyPromise, useSchema } from 'graphql-ez';
 import { cleanObject, toPlural } from 'graphql-ez/utils/object';
 
-import type { IResolvers } from '@graphql-tools/utils';
+import type { IResolvers, TypeSource } from '@graphql-tools/utils';
 import type { IExecutableSchemaDefinition } from '@graphql-tools/schema';
 import type { MergeSchemasConfig } from '@graphql-tools/merge';
 
@@ -26,9 +26,22 @@ export interface EZSchemaOptions {
   schema?: EZSchema<EZContext> | EZSchema<EZContext>[];
 
   /**
-   * Configure configuration of schema merging
+   * Customize configuration of schema merging
    */
   mergeSchemasConfig?: FilteredMergeSchemasConfig;
+
+  /**
+   * Customize configuration of executable schema definition
+   */
+  executableSchemaConfig?: Partial<EZExecutableSchemaDefinition>;
+}
+
+export interface RegisterTypeDefs {
+  (...typeDefs: Array<TypeSource>): TypeSource[];
+}
+
+export interface RegisterResolvers {
+  (...resolvers: Array<EZResolvers>): EZResolvers[];
 }
 
 declare module 'graphql-ez' {
@@ -42,17 +55,26 @@ declare module 'graphql-ez' {
     schemaPlugin?: boolean;
 
     extraSchemaDefinitions?: (ExtraSchemaDef | Promise<ExtraSchemaDef>)[];
+
+    registeredTypeDefs?: TypeSource[];
+    registeredResolvers?: EZResolvers[];
   }
 
   interface EZResolvers extends IResolvers<any, EZContext> {}
+
+  interface BaseAppBuilder {
+    registerTypeDefs: RegisterTypeDefs;
+
+    registerResolvers: RegisterResolvers;
+  }
 }
 
 export { gql } from 'graphql-ez';
 
 export const ezSchema = (options: EZSchemaOptions = {}): EZPlugin => {
-  const mergeSchemas = LazyPromise(() => import('@graphql-tools/merge').then(v => v.mergeSchemasAsync));
+  const mergeSchemasPromise = LazyPromise(() => import('@graphql-tools/merge').then(v => v.mergeSchemasAsync));
 
-  const makeExecutableSchema = LazyPromise(() => import('@graphql-tools/schema').then(v => v.makeExecutableSchema));
+  const makeExecutableSchemaPromise = LazyPromise(() => import('@graphql-tools/schema').then(v => v.makeExecutableSchema));
 
   const { schema, mergeSchemasConfig } = options;
 
@@ -60,6 +82,26 @@ export const ezSchema = (options: EZSchemaOptions = {}): EZPlugin => {
     name: 'EZ Schema',
     onRegister(ctx) {
       ctx.schemaPlugin = true;
+
+      ctx.appBuilder.registerTypeDefs = registerTypeDefs;
+
+      function registerTypeDefs(...typeDefs: TypeSource[]): TypeSource[] {
+        for (const typeDef of typeDefs) {
+          (ctx.registeredTypeDefs ||= []).push(typeDef);
+        }
+
+        return (ctx.registeredTypeDefs ||= []);
+      }
+
+      ctx.appBuilder.registerResolvers = registerResolvers;
+
+      function registerResolvers(...ezResolvers: Array<EZResolvers>): Array<EZResolvers> {
+        for (const resolvers of ezResolvers) {
+          (ctx.registeredResolvers ||= []).push(resolvers);
+        }
+
+        return (ctx.registeredResolvers ||= []);
+      }
     },
     async onPreBuild(ctx) {
       const extraSchemaDefs = ctx.extraSchemaDefinitions ? await Promise.all(ctx.extraSchemaDefinitions) : [];
@@ -70,27 +112,47 @@ export const ezSchema = (options: EZSchemaOptions = {}): EZPlugin => {
         ...toPlural(mergeSchemasConfig?.resolvers),
       ];
 
-      const typeDefs = extraTypeDefs.length ? extraTypeDefs : undefined;
-      const resolvers = extraResolvers.length ? extraResolvers : undefined;
-
       const schemaList =
         ctx.options.schema && ctx.options.schema !== 'dynamic' ? [ctx.options.schema, ...toPlural(schema)] : toPlural(schema);
+
+      const registeredResolvers = ctx.registeredResolvers;
+      const registeredTypeDefs = ctx.registeredTypeDefs;
+
+      if (registeredTypeDefs || options.executableSchemaConfig?.typeDefs) {
+        const typeDefs = [...(registeredTypeDefs || []), ...toPlural(options.executableSchemaConfig?.typeDefs)];
+        const resolvers = [...(registeredResolvers || []), ...toPlural(options.executableSchemaConfig?.resolvers)];
+
+        schemaList.push({
+          ...options.executableSchemaConfig,
+          typeDefs,
+          resolvers,
+        });
+      } else if (schemaList.length && registeredResolvers?.length) {
+        extraResolvers.push(...registeredResolvers);
+      } else if (registeredResolvers?.length) {
+        throw Error(
+          `[graphql-ez] To use 'registerResolvers' you need to specify at least one type definition or external schema`
+        );
+      }
+
+      const typeDefsToMerge = extraTypeDefs.length ? extraTypeDefs : undefined;
+      const resolversToMerge = extraResolvers.length ? extraResolvers : undefined;
 
       const schemas = schemaList.length
         ? await Promise.all(
             toPlural(schemaList).map(async schemaValuePromise => {
               const schemaValue = await schemaValuePromise;
               if (isSchema(schemaValue)) {
-                if (!typeDefs && !resolvers) return schemaValue;
+                if (!typeDefsToMerge && !resolversToMerge) return schemaValue;
 
-                return (await mergeSchemas)({
+                return (await mergeSchemasPromise)({
                   schemas: [schemaValue],
-                  typeDefs,
-                  resolvers,
+                  typeDefs: typeDefsToMerge,
+                  resolvers: resolversToMerge,
                 });
               }
 
-              return (await makeExecutableSchema)({
+              return (await makeExecutableSchemaPromise)({
                 ...schemaValue,
                 typeDefs: [...toPlural(schemaValue.typeDefs), ...extraTypeDefs],
                 resolvers: [...toPlural(schemaValue.resolvers), ...extraResolvers],
@@ -105,7 +167,7 @@ export const ezSchema = (options: EZSchemaOptions = {}): EZPlugin => {
 
       if (schemas.length > 1) {
         finalSchema = await (
-          await mergeSchemas
+          await mergeSchemasPromise
         )({
           ...cleanObject(mergeSchemasConfig),
           schemas: [...modulesSchemaList, ...schemas],
@@ -113,7 +175,7 @@ export const ezSchema = (options: EZSchemaOptions = {}): EZPlugin => {
       } else if (schemas[0]) {
         finalSchema = modulesSchemaList[0]
           ? await (
-              await mergeSchemas
+              await mergeSchemasPromise
             )({
               ...cleanObject(mergeSchemasConfig),
               schemas: [...modulesSchemaList, schemas[0]],
@@ -126,16 +188,6 @@ export const ezSchema = (options: EZSchemaOptions = {}): EZPlugin => {
       }
 
       if (finalSchema) {
-        if (ctx.extraSchemaDefinitions) {
-          finalSchema = await (
-            await mergeSchemas
-          )({
-            schemas: [finalSchema],
-            typeDefs,
-            resolvers,
-          });
-        }
-
         ctx.options.envelop.plugins.push(useSchema(finalSchema));
       }
     },

@@ -6,6 +6,52 @@ It can combine with other EZ Plugins like [GraphQL Scalars](https://www.graphql-
 
 ## Usage
 
+### registerTypeDefs and registerResolvers
+
+You can use extra helpers that this plugin adds to your builder:
+
+These helpers are specially useful when your API deals with a big amount of different type definitions and resolvers present in a lot of different directories, since you could simply call these functions, and you will only need to import them before calling `buildApp(...)`, and this plugin will greatly simplify your code.
+
+```ts
+import { ezSchema } from '@graphql-ez/plugin-schema';
+
+export const { registerTypeDefs, registerResolvers, buildApp, gql } = CreateApp({
+  // ...
+  ez: {
+    plugins: [
+      //...
+      ezSchema(),
+    ],
+  },
+});
+
+// ...
+
+
+registerTypeDefs(gql`
+type Query {
+  hello: String!
+}
+`)
+
+registerResolvers({
+  Query: {
+    hello() {
+      return "Hello World!"
+    }
+  }
+});
+
+
+// ...
+
+buildApp()
+```
+
+### EZSchema
+
+You can also define an EZSchema which has all the types to make an executable schema.
+
 ```ts
 import { ezSchema, EZSchema, gql } from '@graphql-ez/plugin-schema';
 

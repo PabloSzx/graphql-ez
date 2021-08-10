@@ -22,9 +22,10 @@
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
   "scripts": {
-    "prepare": "bob-esbuild build",
     "dev": "bob-esbuild watch",
-    "postpublish": "gh-release"
+    "prepare": "bob-esbuild build",
+    "postpublish": "gh-release",
+    "test": "jest"
   },
   "dependencies": {
     "@graphql-tools/merge": "^7.0.0",
@@ -37,6 +38,7 @@
     "changesets-github-release": "^0.0.3",
     "graphql": "15.4.0-experimental-stream-defer.1",
     "graphql-ez": "workspace:^0.10.0",
+    "graphql-ez-testing": "workspace:^1.0.0",
     "jest": "^27.0.6",
     "ts-jest": "^27.0.4",
     "typescript": "^4.3.5"

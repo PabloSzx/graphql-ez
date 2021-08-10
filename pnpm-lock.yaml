@@ -929,6 +929,7 @@ importers:
       changesets-github-release: ^0.0.3
       graphql: 15.4.0-experimental-stream-defer.1
       graphql-ez: workspace:^0.10.0
+      graphql-ez-testing: workspace:^1.0.0
       jest: ^27.0.6
       ts-jest: ^27.0.4
       typescript: ^4.3.5
@@ -942,8 +943,9 @@ importers:
       changesets-github-release: 0.0.3
       graphql: 15.4.0-experimental-stream-defer.1
       graphql-ez: link:../../core/main
+      graphql-ez-testing: link:../../../internal/testing
       jest: 27.0.6
-      ts-jest: 27.0.4_52cc4273aa16028085013af47e479e10
+      ts-jest: 27.0.4_jest@27.0.6+typescript@4.3.5
       typescript: 4.3.5
 
   packages/plugin/upload:
@@ -12316,6 +12318,38 @@ packages:
         optional: true
     dependencies:
       '@types/jest': 26.0.24
+      bs-logger: 0.2.6
+      buffer-from: 1.1.2
+      fast-json-stable-stringify: 2.1.0
+      jest: 27.0.6
+      jest-util: 27.0.6
+      json5: 2.2.0
+      lodash: 4.17.21
+      make-error: 1.3.6
+      mkdirp: 1.0.4
+      semver: 7.3.5
+      typescript: 4.3.5
+      yargs-parser: 20.2.9
+    dev: true
+
+  /ts-jest/27.0.4_jest@27.0.6+typescript@4.3.5:
+    resolution: {integrity: sha512-c4E1ECy9Xz2WGfTMyHbSaArlIva7Wi2p43QOMmCqjSSjHP06KXv+aT+eSY+yZMuqsMi3k7pyGsGj2q5oSl5WfQ==}
+    engines: {node: ^10.13.0 || ^12.13.0 || ^14.15.0 || >=15.0.0}
+    hasBin: true
+    peerDependencies:
+      '@babel/core': '>=7.0.0-beta.0 <8'
+      '@types/jest': ^26.0.0
+      babel-jest: '>=27.0.0 <28'
+      jest: ^27.0.0
+      typescript: '>=3.8 <5.0'
+    peerDependenciesMeta:
+      '@babel/core':
+        optional: true
+      '@types/jest':
+        optional: true
+      babel-jest:
+        optional: true
+    dependencies:
       bs-logger: 0.2.6
       buffer-from: 1.1.2
       fast-json-stable-stringify: 2.1.0

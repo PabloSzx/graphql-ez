@@ -73,10 +73,16 @@ export function createEZAppFactory(
   const baseAppBuilder: BaseAppBuilder = {
     gql,
     registerDataLoader() {
-      throw Error(`To use "registerDataLoader" you have to add "ezDataLoader" plugin first!`);
+      throw Error(`To use "registerDataLoader" you have to add the "ezDataLoader" plugin first!`);
     },
     registerModule() {
-      throw Error(`To use "registerModule" you have to add "ezGraphQLModules" plugin first!`);
+      throw Error(`To use "registerModule" you have to add the "ezGraphQLModules" plugin first!`);
+    },
+    registerTypeDefs() {
+      throw Error(`To use "registerTypeDefs" you have to add the "ezSchema" plugin first!`);
+    },
+    registerResolvers() {
+      throw Error(`To use "registerResolvers" you have to add the "ezSchema" plugin first!`);
     },
     get asPreset() {
       return {
