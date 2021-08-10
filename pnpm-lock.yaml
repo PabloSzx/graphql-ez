@@ -445,7 +445,7 @@ importers:
       '@emotion/babel-plugin': ^11.3.0
       '@emotion/react': ^11.4.1
       '@emotion/styled': ^11.3.0
-      '@guild-docs/client': ^0.2.27
+      '@guild-docs/client': ^0.2.28
       '@guild-docs/server': ^0.2.25
       '@mdx-js/react': ^1.6.22
       '@next/bundle-analyzer': ^11.0.1
@@ -483,7 +483,7 @@ importers:
       '@emotion/babel-plugin': 11.3.0
       '@emotion/react': 11.4.1_15528815d0fdcbb9a8cf5c0542e8230f
       '@emotion/styled': 11.3.0_358d86058dc7b17a0476ef72fb63100e
-      '@guild-docs/client': 0.2.27_59d20ba67cce054d5ff18d280113a0f7
+      '@guild-docs/client': 0.2.28_59d20ba67cce054d5ff18d280113a0f7
       '@guild-docs/server': 0.2.25_ec572b805fa1d3c3ce74cd3a2574398a
       '@mdx-js/react': 1.6.22_react@17.0.2
       '@theguild/components': 1.4.7_a1bbe17b69ce74ad68a61ee76e049e19
@@ -797,7 +797,7 @@ importers:
       '@graphql-codegen/typescript-operations': ^2.0.1
       '@graphql-codegen/typescript-resolvers': ^2.0.0
       '@graphql-tools/graphql-file-loader': ^7.0.2
-      '@graphql-tools/load': ^7.1.2
+      '@graphql-tools/load': ^7.1.4
       '@graphql-tools/utils': ^8.0.2
       '@types/mkdirp': ^1.0.2
       '@types/prettier': ^2.3.2
@@ -818,7 +818,7 @@ importers:
       '@graphql-codegen/typescript-operations': 2.0.1_34dd13c2583fe2e4418c23a0d30fc388
       '@graphql-codegen/typescript-resolvers': 2.0.0_34dd13c2583fe2e4418c23a0d30fc388
       '@graphql-tools/graphql-file-loader': 7.0.2_34dd13c2583fe2e4418c23a0d30fc388
-      '@graphql-tools/load': 7.1.2_34dd13c2583fe2e4418c23a0d30fc388
+      '@graphql-tools/load': 7.1.4_34dd13c2583fe2e4418c23a0d30fc388
       '@graphql-tools/utils': 8.0.2_34dd13c2583fe2e4418c23a0d30fc388
       mkdirp: 1.0.4
       prettier: 2.3.2
@@ -945,7 +945,7 @@ importers:
       graphql-ez: link:../../core/main
       graphql-ez-testing: link:../../../internal/testing
       jest: 27.0.6
-      ts-jest: 27.0.4_jest@27.0.6+typescript@4.3.5
+      ts-jest: 27.0.4_52cc4273aa16028085013af47e479e10
       typescript: 4.3.5
 
   packages/plugin/upload:
@@ -3160,8 +3160,8 @@ packages:
       tslib: 2.2.0
     dev: false
 
-  /@graphql-tools/load/7.1.2_34dd13c2583fe2e4418c23a0d30fc388:
-    resolution: {integrity: sha512-H2tLlAmFLjC8CQRTzqHkPJKjXdnYS2JdWsM6iVlKkbxs42ZAVk/OxYEe3Fg61pLV+EqfWtydiDT3xdPy+vqGEg==}
+  /@graphql-tools/load/7.1.4_34dd13c2583fe2e4418c23a0d30fc388:
+    resolution: {integrity: sha512-7iH741MyWGkut2CBND+hNe4aZCilTCIf1VaX5o8Gw8X/i+1w/yomIz9mTOHqIWHtlv+aPjX1Z4Dmf0oscIcFaQ==}
     peerDependencies:
       graphql: ^14.0.0 || ^15.0.0
     dependencies:
@@ -3274,12 +3274,12 @@ packages:
     dependencies:
       graphql: 15.4.0-experimental-stream-defer.1
 
-  /@guild-docs/client/0.2.27_59d20ba67cce054d5ff18d280113a0f7:
-    resolution: {integrity: sha512-WgjWBr28lUQP0BVrGnRtPEQIn5D9QAuHzHBTo6nZrrn+H52lBgw0kXqgzvbqPz3egNow7h2IArgER2KzosMi8A==}
+  /@guild-docs/client/0.2.28_59d20ba67cce054d5ff18d280113a0f7:
+    resolution: {integrity: sha512-Y/lmg7JgBeE4um4xG8QXtOoblDb/M7pHqDCts0i0leS7tbls7Rz72Zw+crjk1ZQWnxKaD8Ugm3kiQd/Uj8VFuA==}
     peerDependencies:
-      '@chakra-ui/icons': ^1.0.14
-      '@chakra-ui/react': ^1.6.5
-      '@chakra-ui/utils': ^1.8.1
+      '@chakra-ui/icons': ^1.0.15
+      '@chakra-ui/react': ^1.6.6
+      '@chakra-ui/utils': ^1.8.2
       '@emotion/react': ^11.4.0
       '@mdx-js/react': ^1.6.22
       '@theguild/components': ^1.4.7
@@ -5263,7 +5263,7 @@ packages:
       rollup: 2.56.1
       rollup-plugin-delete: 2.0.0
       rollup-plugin-node-externals: 2.2.0_builtin-modules@3.2.0
-      sucrase: 3.20.0
+      sucrase: 3.20.1
       tree-kill: 1.2.2
       tsconfig: 7.0.0
       typescript: 4.3.5
@@ -5397,7 +5397,7 @@ packages:
     dependencies:
       caniuse-lite: 1.0.30001249
       colorette: 1.2.2
-      electron-to-chromium: 1.3.799
+      electron-to-chromium: 1.3.800
       escalade: 3.1.1
       node-releases: 1.1.73
 
@@ -5408,7 +5408,7 @@ packages:
     dependencies:
       caniuse-lite: 1.0.30001249
       colorette: 1.2.2
-      electron-to-chromium: 1.3.799
+      electron-to-chromium: 1.3.800
       escalade: 3.1.1
       node-releases: 1.1.73
 
@@ -6498,8 +6498,8 @@ packages:
   /ee-first/1.1.1:
     resolution: {integrity: sha1-WQxhFWsK4vTwJVcyoViyZrxWsh0=}
 
-  /electron-to-chromium/1.3.799:
-    resolution: {integrity: sha512-V2rbYWdGvSqrg+95KjkVuSi41bGfrhrOzjl1tSi2VLnm0mRe3FsSvhiqidSiSll9WiMhrQAhpDcW/wcqK3c+Yw==}
+  /electron-to-chromium/1.3.800:
+    resolution: {integrity: sha512-qagikPjZJSDWP85uWoxs32oK/xk/y3MhDZELfKRCWI7pBc0ZFlmjnXb+3+aNMaiqboeDJJa0v7CJd5cO1HKwEQ==}
 
   /elliptic/6.5.4:
     resolution: {integrity: sha512-iLhC6ULemrljPZb+QutR5TQGB+pdW6KGD5RSegS+8sorOZT+rdQFbsQFJgvN3eRqNALqJer4oQ16YvJHlU8hzQ==}
@@ -11606,7 +11606,7 @@ packages:
     resolution: {integrity: sha512-cOYcUWwhCuHCXi49RhFRCyJEK3iPj1Ziz9DpViV3tbZOwXD49QzIN3MpOLJNxh2qwq2lJJZaKMVw9qNi4jTC0w==}
     dependencies:
       spdx-expression-parse: 3.0.1
-      spdx-license-ids: 3.0.9
+      spdx-license-ids: 3.0.10
     dev: true
 
   /spdx-exceptions/2.3.0:
@@ -11617,11 +11617,11 @@ packages:
     resolution: {integrity: sha512-cbqHunsQWnJNE6KhVSMsMeH5H/L9EpymbzqTQ3uLwNCLZ1Q481oWaofqH7nO6V07xlXwY6PhQdQ2IedWx/ZK4Q==}
     dependencies:
       spdx-exceptions: 2.3.0
-      spdx-license-ids: 3.0.9
+      spdx-license-ids: 3.0.10
     dev: true
 
-  /spdx-license-ids/3.0.9:
-    resolution: {integrity: sha512-Ki212dKK4ogX+xDo4CtOZBVIwhsKBEfsEEcwmJfLQzirgc2jIWdzg40Unxz/HzEUqM1WFzVlQSMF9kZZ2HboLQ==}
+  /spdx-license-ids/3.0.10:
+    resolution: {integrity: sha512-oie3/+gKf7QtpitB0LYLETe+k8SifzsX4KixvpOsbI6S0kRiRQ5MKOio8eMSAKQ17N06+wdEOXRiId+zOxo0hA==}
     dev: true
 
   /split/0.3.3:
@@ -11932,8 +11932,8 @@ packages:
       symbol-observable: 4.0.0
       ws: 7.5.3
 
-  /sucrase/3.20.0:
-    resolution: {integrity: sha512-Rsp+BX7DRuCleJvBAHN7gQ3ddk7U0rJev19XlIBF6dAq9vX4Tr5mHk4E7+ig/I7BM3DLYotCmm20lfBElT2XtQ==}
+  /sucrase/3.20.1:
+    resolution: {integrity: sha512-BIG59HaJOxNct9Va6KvT5yzBA/rcMGetzvZyTx0ZdCcspIbpJTPS64zuAfYlJuOj+3WaI5JOdA+F0bJQQi8ZiQ==}
     engines: {node: '>=8'}
     hasBin: true
     dependencies:
@@ -12332,38 +12332,6 @@ packages:
       yargs-parser: 20.2.9
     dev: true
 
-  /ts-jest/27.0.4_jest@27.0.6+typescript@4.3.5:
-    resolution: {integrity: sha512-c4E1ECy9Xz2WGfTMyHbSaArlIva7Wi2p43QOMmCqjSSjHP06KXv+aT+eSY+yZMuqsMi3k7pyGsGj2q5oSl5WfQ==}
-    engines: {node: ^10.13.0 || ^12.13.0 || ^14.15.0 || >=15.0.0}
-    hasBin: true
-    peerDependencies:
-      '@babel/core': '>=7.0.0-beta.0 <8'
-      '@types/jest': ^26.0.0
-      babel-jest: '>=27.0.0 <28'
-      jest: ^27.0.0
-      typescript: '>=3.8 <5.0'
-    peerDependenciesMeta:
-      '@babel/core':
-        optional: true
-      '@types/jest':
-        optional: true
-      babel-jest:
-        optional: true
-    dependencies:
-      bs-logger: 0.2.6
-      buffer-from: 1.1.2
-      fast-json-stable-stringify: 2.1.0
-      jest: 27.0.6
-      jest-util: 27.0.6
-      json5: 2.2.0
-      lodash: 4.17.21
-      make-error: 1.3.6
-      mkdirp: 1.0.4
-      semver: 7.3.5
-      typescript: 4.3.5
-      yargs-parser: 20.2.9
-    dev: true
-
   /ts-pnp/1.2.0_typescript@4.3.5:
     resolution: {integrity: sha512-csd+vJOb/gkzvcCHgTGSChYpy5f1/XKNsmvBGO4JXS+z1v2HobugDz4s1IeFXM3wZB44uczs+eazB5Q/ccdhQw==}
     engines: {node: '>=6'}
@@ -12439,7 +12407,7 @@ packages:
       postcss-load-config: 3.1.0
       resolve-from: 5.0.0
       rollup: 2.56.1
-      sucrase: 3.20.0
+      sucrase: 3.20.1
       tree-kill: 1.2.2
       typescript: 4.3.5
     transitivePeerDependencies:
