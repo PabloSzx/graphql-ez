@@ -22,15 +22,15 @@
     "dist"
   ],
   "scripts": {
-    "build": "concurrently -r pnpm:prepack",
-    "bundle": "concurrently -r -m 1 pnpm:bundle:*",
+    "build": "pnpm prepack",
+    "bundle": "pnpm bundle:webpack && pnpm bundle:ts",
     "bundle:ts": "node scripts/build-graphiql.cjs",
     "bundle:webpack": "webpack -c browser/webpack.config.js && cpy browser/css/graphiql.min.css bundle/",
-    "prepack": "concurrently -r -m 1 pnpm:bundle \"bob-esbuild build\"",
+    "prepack": "pnpm bundle && \"bob-esbuild build\"",
     "postpublish": "gh-release"
   },
   "devDependencies": {
-    "@graphql-tools/url-loader": "7.0.7",
+    "@graphql-tools/url-loader": "6.10.1",
     "@graphql-tools/utils": "8.0.2",
     "@n1ru4l/graphql-live-query": "0.7.1",
     "@types/prettier": "2.3.2",
