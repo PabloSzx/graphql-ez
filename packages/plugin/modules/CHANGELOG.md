@@ -1,5 +1,12 @@
 # @graphql-ez/plugin-modules
 
+## 0.7.2
+
+### Patch Changes
+
+- Updated dependencies [8106a74]
+  - graphql-ez@0.11.0
+
 ## 0.7.1
 
 ### Patch Changes

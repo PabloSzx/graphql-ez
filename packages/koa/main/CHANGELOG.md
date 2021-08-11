@@ -1,5 +1,12 @@
 # @graphql-ez/koa
 
+## 0.8.2
+
+### Patch Changes
+
+- Updated dependencies [8106a74]
+  - graphql-ez@0.11.0
+
 ## 0.8.1
 
 ### Patch Changes

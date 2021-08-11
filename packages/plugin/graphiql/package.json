@@ -1,6 +1,6 @@
 {
   "name": "@graphql-ez/plugin-graphiql",
-  "version": "0.4.2",
+  "version": "0.5.0",
   "homepage": "https://www.graphql-ez.com",
   "repository": {
     "type": "git",
@@ -30,19 +30,19 @@
     "test:build": "next build test/nextjs"
   },
   "dependencies": {
-    "@pablosz/graphql-helix-graphiql": "workspace:^1.1.0"
+    "@pablosz/graphql-helix-graphiql": "workspace:^2.0.0"
   },
   "devDependencies": {
     "@types/node": "^16.4.13",
     "bob-esbuild-cli": "^1.0.1",
     "changesets-github-release": "^0.0.3",
-    "graphql-ez": "workspace:^0.10.0",
+    "graphql-ez": "workspace:^0.11.0",
     "jest": "^27.0.6",
     "next": "^11.0.1",
     "ts-jest": "^27.0.4"
   },
   "peerDependencies": {
-    "graphql-ez": "workspace:^0.10.0"
+    "graphql-ez": "workspace:^0.11.0"
   },
   "engines": {
     "node": "^12.20.0 || ^14.13.0 || >=15.0.0"
