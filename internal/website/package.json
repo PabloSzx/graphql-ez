@@ -1,29 +1,13 @@
 {
   "name": "graphql-ez-website",
   "scripts": {
+    "analyze": "cross-env ANALYZE=true next build",
     "build": "next build",
     "dev": "concurrently -r pnpm:dev:watch pnpm:open",
+    "dev:watch": "next-remote-watch -p ./plugins.ts ./routes.ts \"./docs/**/*\" ./src/pages/_app.tsx ./src/pages/_document.tsx",
     "next": "next",
     "open": "wait-on -s 1 http://localhost:3000 && open-cli http://localhost:3000",
-    "dev:watch": "next-remote-watch -p ./plugins.ts ./routes.ts \"./docs/**/*\" ./src/pages/_app.tsx ./src/pages/_document.tsx",
-    "start": "next start",
-    "analyze": "cross-env ANALYZE=true next build"
-  },
-  "devDependencies": {
-    "@next/bundle-analyzer": "^11.0.1",
-    "@types/concurrently": "^6.2.1",
-    "@types/mdx-js__react": "^1.5.4",
-    "@types/node": "^16.4.13",
-    "@types/react": "^17.0.17",
-    "@types/react-dom": "^17.0.9",
-    "concurrently": "^6.2.1",
-    "cross-env": "^7.0.3",
-    "esbuild": "^0.12.19",
-    "esbuild-register": "^2.6.0",
-    "next-remote-watch": "^1.0.0",
-    "open-cli": "^7.0.0",
-    "typescript": "^4.3.5",
-    "wait-on": "^6.0.0"
+    "start": "next start"
   },
   "dependencies": {
     "@chakra-ui/icons": "^1.0.15",
@@ -39,8 +23,8 @@
     "@theguild/components": "^1.4.7",
     "date-fns": "^2.23.0",
     "framer-motion": "^4.1.17",
-    "next": "^11.0.1",
-    "next-i18next": "^8.5.5",
+    "next": "^11.1.0",
+    "next-i18next": "^8.6.0",
     "next-seo": "^4.26.0",
     "prism-themes": "^1.8.0",
     "react": "^17.0.2",
@@ -48,6 +32,23 @@
     "react-icons": "^4.2.0",
     "react-use": "^17.2.4",
     "remark-admonitions": "^1.2.1",
-    "remark-prism": "^1.3.6"
+    "remark-prism": "^1.3.6",
+    "sharp": "^0.28.3"
+  },
+  "devDependencies": {
+    "@next/bundle-analyzer": "^11.1.0",
+    "@types/concurrently": "^6.2.1",
+    "@types/mdx-js__react": "^1.5.4",
+    "@types/node": "^16.4.14",
+    "@types/react": "^17.0.17",
+    "@types/react-dom": "^17.0.9",
+    "concurrently": "^6.2.1",
+    "cross-env": "^7.0.3",
+    "esbuild": "^0.12.19",
+    "esbuild-register": "^2.6.0",
+    "next-remote-watch": "^1.0.0",
+    "open-cli": "^7.0.0",
+    "typescript": "^4.3.5",
+    "wait-on": "^6.0.0"
   }
 }
