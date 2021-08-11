@@ -1,10 +1,10 @@
 import copyToClipboard from 'copy-to-clipboard';
 import GraphiQL from 'graphiql';
-import { DocumentNode, Kind, parse } from 'graphql';
+import { DocumentNode, getOperationAST, Kind, parse } from 'graphql';
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import { UrlLoader } from '@graphql-tools/url-loader';
+import { SubscriptionProtocol, UrlLoader } from '@graphql-tools/url-loader';
 import { isAsyncIterable } from '@graphql-tools/utils';
 import { isLiveQueryOperationDefinitionNode } from '@n1ru4l/graphql-live-query';
 
@@ -15,7 +15,7 @@ export interface Options {
   headers?: string;
   headerEditorEnabled?: boolean;
   subscriptionsEndpoint?: string;
-  useWebSocketLegacyProtocol?: boolean;
+  subscriptionsProtocol?: `${SubscriptionProtocol}` | SubscriptionProtocol;
 }
 
 const getOperationWithFragments = (
@@ -54,18 +54,36 @@ export const init = async ({
   endpoint = '/graphql',
   headers = '{}',
   headerEditorEnabled = true,
-  subscriptionsEndpoint = endpoint,
-  useWebSocketLegacyProtocol,
+  subscriptionsEndpoint: optSubscriptionsEndpoint,
+  subscriptionsProtocol: optSubscriptionProtocol,
 }: Options = {}) => {
   const urlLoader = new UrlLoader();
-  const { executor, subscriber } = await urlLoader.getExecutorAndSubscriberAsync(endpoint, {
-    useSSEForSubscription: !subscriptionsEndpoint?.startsWith('ws'),
+
+  let subscriptionsEndpoint: string =
+    optSubscriptionsEndpoint ||
+    (() => {
+      if (optSubscriptionProtocol === undefined || optSubscriptionProtocol === SubscriptionProtocol.SSE) {
+        return endpoint;
+      }
+
+      const url = new URL(endpoint, window.location.href);
+      url.protocol = url.protocol.replace('http', 'ws');
+      return url.href;
+    })();
+
+  const subscriptionsProtocol: SubscriptionProtocol =
+    (optSubscriptionProtocol as SubscriptionProtocol) ||
+    (subscriptionsEndpoint.startsWith('ws://') || subscriptionsEndpoint.startsWith('wss://')
+      ? SubscriptionProtocol.WS
+      : SubscriptionProtocol.SSE);
+
+  const executor = await urlLoader.getExecutorAsync(endpoint, {
     specifiedByUrl: true,
     directiveIsRepeatable: true,
     schemaDescription: true,
     subscriptionsEndpoint,
-    useWebSocketLegacyProtocol,
-    headers: executionParams => executionParams?.context?.headers || JSON.parse(headers),
+    subscriptionsProtocol,
+    headers: JSON.parse(headers),
   });
 
   const searchParams = new URLSearchParams(window.location.search);
@@ -105,7 +123,7 @@ export const init = async ({
               let stopSubscription = () => {};
               Promise.resolve().then(async () => {
                 try {
-                  const { document: filteredDocument, isSubscriber } = getOperationWithFragments(
+                  const { document: filteredDocument } = getOperationWithFragments(
                     parse(graphQLParams.query),
                     graphQLParams.operationName
                   );
@@ -116,8 +134,12 @@ export const init = async ({
                       headers: opts?.headers || {},
                     },
                   };
-                  const queryFn: any = isSubscriber ? subscriber : executor;
-                  const res = await queryFn(executionParams);
+
+                  const operationAST = getOperationAST(filteredDocument);
+
+                  if (!operationAST) throw Error('Invalid query document: ' + graphQLParams.query);
+
+                  const res = await executor({ ...executionParams, operationType: operationAST.operation });
                   if (isAsyncIterable(res)) {
                     const asyncIterable = res[Symbol.asyncIterator]();
                     if (asyncIterable.return) {

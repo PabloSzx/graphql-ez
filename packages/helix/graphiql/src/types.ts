@@ -27,10 +27,15 @@ export interface RenderGraphiQLOptions {
   nonce?: string;
   /**
    * The endpoint subscription requests should be sent to. Defaults to the value of the `endpoint` parameter.
+   *
+   * If no `subscriptionsEndpoint` is specified and `subscriptionsProtocol` is set to **"WS"** or **"LEGACY_WS"**,
+   * it automatically reuses the `endpoint` with the current browser window URL with the protocol "ws://" or "wss://"
    */
   subscriptionsEndpoint?: string;
   /**
-   * Use legacy web socket protocol `graphql-ws` instead of the more current standard `graphql-transport-ws`
+   * The Subscriptions protocol used.
+   *
+   * If no protocol is specified, it fallbacks to Server-Sent Events aka **"SSE"**
    */
-  useWebSocketLegacyProtocol?: boolean;
+  subscriptionsProtocol?: 'WS' | 'LEGACY_WS' | 'SSE';
 }
