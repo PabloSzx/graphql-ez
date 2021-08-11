@@ -108,7 +108,7 @@ export const init = async ({
           urlLoader.prepareGETUrl({
             baseUrl: window.location.href,
             query: state?.query || '',
-            variables: state?.variables,
+            variables: state?.variables && JSON.parse(state.variables),
             operationName: state?.operationName,
           })
         );
@@ -139,7 +139,13 @@ export const init = async ({
 
                   if (!operationAST) throw Error('Invalid query document: ' + graphQLParams.query);
 
-                  const res = await executor({ ...executionParams, operationType: operationAST.operation });
+                  const res = await executor({
+                    ...executionParams,
+                    operationType: operationAST.operation,
+                    extensions: {
+                      headers: opts?.headers || {},
+                    },
+                  });
                   if (isAsyncIterable(res)) {
                     const asyncIterable = res[Symbol.asyncIterator]();
                     if (asyncIterable.return) {
