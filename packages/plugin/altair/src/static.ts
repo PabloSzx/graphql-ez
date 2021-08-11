@@ -134,7 +134,7 @@ export function AltairHandler(options: PickRequired<AltairOptions, 'path'>, extr
           };
         }
       }
-    } catch (err) /* istanbul ignore next */ {
+    } catch (err: any) /* istanbul ignore next */ {
       if (rawHttp) {
         res
           .writeHead(500, {

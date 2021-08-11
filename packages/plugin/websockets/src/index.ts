@@ -139,6 +139,41 @@ export const ezWebSockets = (options: WebSocketOptions = 'adaptive'): EZPlugin =
         wsServer: wsServer,
       };
     },
+    onPreBuild(ctx) {
+      if (!ctx.ws) return;
+
+      if (ctx.altair) {
+        if (!ctx.altair.options.initialSubscriptionsProvider) {
+          switch (ctx.ws.enabled) {
+            case 'new':
+            case 'adaptive': {
+              ctx.altair.options.initialSubscriptionsProvider = 'graphql-ws';
+              break;
+            }
+            case 'legacy': {
+              ctx.altair.options.initialSubscriptionsProvider = 'websocket';
+              break;
+            }
+          }
+        }
+      }
+
+      if (ctx.graphiql) {
+        if (!ctx.graphiql.options.subscriptionsProtocol) {
+          switch (ctx.ws.enabled) {
+            case 'new':
+            case 'adaptive': {
+              ctx.graphiql.options.subscriptionsProtocol = 'WS';
+              break;
+            }
+            case 'legacy': {
+              ctx.graphiql.options.subscriptionsProtocol = 'LEGACY_WS';
+              break;
+            }
+          }
+        }
+      }
+    },
     async onAfterBuild(getEnveloped, ctx) {
       if (!ctx.ws) return;
 
