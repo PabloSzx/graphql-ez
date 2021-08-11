@@ -1,5 +1,16 @@
 # @graphql-ez/plugin-websockets
 
+## 0.7.0
+
+### Minor Changes
+
+- 8672feb: automatically fill graphiql & altair sub providers
+
+### Patch Changes
+
+- Updated dependencies [8106a74]
+  - graphql-ez@0.11.0
+
 ## 0.6.1
 
 ### Patch Changes

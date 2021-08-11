@@ -1,5 +1,19 @@
 # @graphql-ez/plugin-graphiql
 
+## 0.5.0
+
+### Minor Changes
+
+- 8106a74: Use local version of graphql-helix @pablosz/graphql-helix
+
+### Patch Changes
+
+- Updated dependencies [123b0c3]
+- Updated dependencies [0e1799c]
+- Updated dependencies [8106a74]
+  - @pablosz/graphql-helix-graphiql@2.0.0
+  - graphql-ez@0.11.0
+
 ## 0.4.2
 
 ### Patch Changes
