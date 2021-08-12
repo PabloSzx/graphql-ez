@@ -1083,6 +1083,35 @@ importers:
       jest: 27.0.6
       ts-jest: 27.0.4_d783205d652bcb54bcd705f572b6bac6
 
+  yoga/express:
+    specifiers: {}
+
+  yoga/fastify:
+    specifiers: {}
+
+  yoga/preset:
+    specifiers:
+      '@envelop/graphql-middleware': ^1.0.0
+      '@graphql-ez/plugin-graphiql': workspace:^0.5.0
+      '@graphql-ez/plugin-schema': workspace:^0.5.0
+      '@graphql-ez/plugin-upload': workspace:^0.4.2
+      '@graphql-ez/plugin-websockets': workspace:^0.7.0
+      bob-esbuild-cli: ^1.0.1
+      graphql: 15.4.0-experimental-stream-defer.1
+      graphql-ez: workspace:^0.11.0
+      graphql-middleware: ~6.0.0
+    dependencies:
+      '@envelop/graphql-middleware': 1.0.0_d2e6496819bc3244f5407dc46d49741f
+      '@graphql-ez/plugin-graphiql': link:../../packages/plugin/graphiql
+      '@graphql-ez/plugin-schema': link:../../packages/plugin/schema
+      '@graphql-ez/plugin-upload': link:../../packages/plugin/upload
+      '@graphql-ez/plugin-websockets': link:../../packages/plugin/websockets
+      graphql-ez: link:../../packages/core/main
+      graphql-middleware: 6.0.10_34dd13c2583fe2e4418c23a0d30fc388
+    devDependencies:
+      bob-esbuild-cli: 1.0.1_bob-esbuild@1.2.2
+      graphql: 15.4.0-experimental-stream-defer.1
+
 packages:
 
   /@algolia/cache-browser-local-storage/4.10.3:
@@ -2128,7 +2157,7 @@ packages:
       react: '>=16.8.6'
     dependencies:
       '@chakra-ui/icon': 1.1.11_react@17.0.2
-      '@types/react': 17.0.17
+      '@types/react': 17.0.18
       react: 17.0.2
     dev: false
 
@@ -3000,6 +3029,16 @@ packages:
       graphql: ^14.0.0 || ^15.0.0
     dependencies:
       graphql: 15.4.0-experimental-stream-defer.1
+    dev: false
+
+  /@envelop/graphql-middleware/1.0.0_d2e6496819bc3244f5407dc46d49741f:
+    resolution: {integrity: sha512-l8CNoZao+fTMMpsXRpqDL7YqaBKN2377vZqMgB9jBZT6YmErZtfq3c9NeJVnDG1saImvbsqZAYmPfThP8+Wicg==}
+    peerDependencies:
+      graphql: ^14.0.0 || ^15.0.0
+      graphql-middleware: ^6.0.0
+    dependencies:
+      graphql: 15.4.0-experimental-stream-defer.1
+      graphql-middleware: 6.0.10_34dd13c2583fe2e4418c23a0d30fc388
     dev: false
 
   /@envelop/graphql-modules/1.0.0_0c945fa5c9e66debae3ebde31cc717a9:
@@ -4695,7 +4734,7 @@ packages:
   /@types/hoist-non-react-statics/3.3.1:
     resolution: {integrity: sha512-iMIqiko6ooLrTh1joXodJK5X9xeEALT1kM5G3ZLhD3hszxBdIEd5C75U834D9mLcINgD4OyZf5uQXjkuYydWvA==}
     dependencies:
-      '@types/react': 17.0.17
+      '@types/react': 17.0.18
       hoist-non-react-statics: 3.3.2
     dev: false
 
@@ -4815,7 +4854,7 @@ packages:
   /@types/mdx-js__react/1.5.4:
     resolution: {integrity: sha512-hce+Hymj3cEMOma13eQRhpT3mhQrOkN4CAYEwKWB/qj2BiuUrrTpCkOShEERGmLVgDc3nxF4Dc0k7W999EQxnQ==}
     dependencies:
-      '@types/react': 17.0.17
+      '@types/react': 17.0.18
     dev: true
 
   /@types/mime-db/1.43.1:
@@ -4879,21 +4918,14 @@ packages:
   /@types/react-dom/17.0.9:
     resolution: {integrity: sha512-wIvGxLfgpVDSAMH5utdL9Ngm5Owu0VsGmldro3ORLXV8CShrL8awVj06NuEXFQ5xyaYfdca7Sgbk/50Ri1GdPg==}
     dependencies:
-      '@types/react': 17.0.17
+      '@types/react': 17.0.18
     dev: true
 
   /@types/react-transition-group/2.9.2:
     resolution: {integrity: sha512-5Fv2DQNO+GpdPZcxp2x/OQG/H19A01WlmpjVD9cKvVFmoVLOZ9LvBgSWG6pSXIU4og5fgbvGPaCV5+VGkWAEHA==}
     dependencies:
-      '@types/react': 17.0.17
+      '@types/react': 17.0.18
     dev: true
-
-  /@types/react/17.0.17:
-    resolution: {integrity: sha512-nrfi7I13cAmrd0wje8czYpf5SFbryczCtPzFc6ijqvdjKcyA3tCvGxwchOUlxb2ucBPuJ9Y3oUqKrRqZvrz0lw==}
-    dependencies:
-      '@types/prop-types': 15.7.4
-      '@types/scheduler': 0.16.2
-      csstype: 3.0.8
 
   /@types/react/17.0.18:
     resolution: {integrity: sha512-YTLgu7oS5zvSqq49X5Iue5oAbVGhgPc5Au29SJC4VeE17V6gASoOxVkUDy9pXFMRFxCWCD9fLeweNFizo3UzOg==}
@@ -4901,7 +4933,6 @@ packages:
       '@types/prop-types': 15.7.4
       '@types/scheduler': 0.16.2
       csstype: 3.0.8
-    dev: true
 
   /@types/responselike/1.0.0:
     resolution: {integrity: sha512-85Y2BjiufFzaMIlvJDvTTB8Fxl2xfLo4HgmHzVBz08w4wDePCTjYw66PdrolO0kzli3yam/YCgRufyo1DdQVTA==}
@@ -7891,15 +7922,15 @@ packages:
       react: '>=16.0.0'
       react-dom: '>=16.0.0'
     dependencies:
-      focus-trap: 6.6.0
+      focus-trap: 6.6.1
       react: 17.0.2
       react-dom: 17.0.2_react@17.0.2
     dev: false
 
-  /focus-trap/6.6.0:
-    resolution: {integrity: sha512-2hWVR3XbBejn5v8wDW9DFzLWXcxMNaSJ/CtE3E+FJjjBCLwIYbZJwjUi2RDBfQPM58gHEt5hck0jrJgHR9/s+A==}
+  /focus-trap/6.6.1:
+    resolution: {integrity: sha512-x9BWuAeF5UrfWuYKJ3jYrjcVYSYptS9CqtxH5IH7lPlZrMsaugKeAa0HtoZSBZe5DmeTMx2m0qY464ZMzqarzw==}
     dependencies:
-      tabbable: 5.2.0
+      tabbable: 5.2.1
     dev: false
 
   /folder-hash/4.0.1:
@@ -8334,6 +8365,16 @@ packages:
       graphql-language-service-interface: 2.8.4_34dd13c2583fe2e4418c23a0d30fc388
       graphql-language-service-types: 1.8.2_34dd13c2583fe2e4418c23a0d30fc388
     dev: true
+
+  /graphql-middleware/6.0.10_34dd13c2583fe2e4418c23a0d30fc388:
+    resolution: {integrity: sha512-RKW1vbgaFLgU5i1sjdL4ClZVI0C67u+DsuG5jZ0YzREduGCsmIvXiB0ffjwOvMbQKTVPZjZWUlhIdP/DK3zxLw==}
+    peerDependencies:
+      graphql: ^0.12.0 || ^0.13.0 || ^14.0.0 || ^15.0.0
+    dependencies:
+      '@graphql-tools/delegate': 7.1.5_34dd13c2583fe2e4418c23a0d30fc388
+      '@graphql-tools/schema': 7.1.5_34dd13c2583fe2e4418c23a0d30fc388
+      graphql: 15.4.0-experimental-stream-defer.1
+    dev: false
 
   /graphql-modules/1.4.4_34dd13c2583fe2e4418c23a0d30fc388:
     resolution: {integrity: sha512-jRmUdJYA2KzpezxhH0roS8we4wRnWY3VvHpBngZJqdEz8QCTp2WNc8YoBTcR2zZCCRjAHoPn0OkgA4UOHaVQPQ==}
@@ -13571,8 +13612,8 @@ packages:
       node-fetch: 2.6.1
     dev: true
 
-  /tabbable/5.2.0:
-    resolution: {integrity: sha512-0uyt8wbP0P3T4rrsfYg/5Rg3cIJ8Shl1RJ54QMqYxm1TLdWqJD1u6+RQjr2Lor3wmfT7JRHkirIwy99ydBsyPg==}
+  /tabbable/5.2.1:
+    resolution: {integrity: sha512-40pEZ2mhjaZzK0BnI+QGNjJO8UYx9pP5v7BGe17SORTO0OEuuaAwQTkAp8whcZvqon44wKFOikD+Al11K3JICQ==}
     dev: false
 
   /tailwindcss/2.2.7:
