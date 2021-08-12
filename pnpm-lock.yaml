@@ -993,7 +993,7 @@ importers:
 
   packages/plugin/schema:
     specifiers:
-      '@graphql-tools/merge': ^7.0.0
+      '@graphql-tools/merge': ^8.0.0
       '@graphql-tools/schema': ^8.0.3
       '@graphql-tools/utils': ^8.0.2
       '@types/node': ^16.4.14
@@ -1005,7 +1005,7 @@ importers:
       ts-jest: ^27.0.4
       typescript: ^4.3.5
     dependencies:
-      '@graphql-tools/merge': 7.0.0_34dd13c2583fe2e4418c23a0d30fc388
+      '@graphql-tools/merge': 8.0.0_34dd13c2583fe2e4418c23a0d30fc388
       '@graphql-tools/schema': 8.0.3_34dd13c2583fe2e4418c23a0d30fc388
       '@graphql-tools/utils': 8.0.2_34dd13c2583fe2e4418c23a0d30fc388
     devDependencies:
@@ -3308,6 +3308,16 @@ packages:
       graphql: 15.4.0-experimental-stream-defer.1
       tslib: 2.3.0
 
+  /@graphql-tools/merge/8.0.0_34dd13c2583fe2e4418c23a0d30fc388:
+    resolution: {integrity: sha512-Hdhp3qwDeRwPGUVUkmRwTg5KX/bp1MNkplhI6szgQHeDPaC2l9a1iS6LznVP6xQjsyb8oRPqlVPKfiXemodwFw==}
+    peerDependencies:
+      graphql: ^14.0.0 || ^15.0.0
+    dependencies:
+      '@graphql-tools/utils': 8.1.0_34dd13c2583fe2e4418c23a0d30fc388
+      graphql: 15.4.0-experimental-stream-defer.1
+      tslib: 2.3.0
+    dev: false
+
   /@graphql-tools/optimize/1.0.1_34dd13c2583fe2e4418c23a0d30fc388:
     resolution: {integrity: sha512-cRlUNsbErYoBtzzS6zXahXeTBZGPVlPHXCpnEZ0XiK/KY/sQL96cyzak0fM/Gk6qEI9/l32MYEICjasiBQrl5w==}
     peerDependencies:
@@ -3401,6 +3411,15 @@ packages:
     dependencies:
       graphql: 15.4.0-experimental-stream-defer.1
       tslib: 2.3.0
+
+  /@graphql-tools/utils/8.1.0_34dd13c2583fe2e4418c23a0d30fc388:
+    resolution: {integrity: sha512-V5a7xAxZ6DHzrYYticmsLgWim+vGnC6ztbiOXrO5cGtOOk5NSK657SZXsyVOR7hNvdWiHSW0dlBZb6zkkfOnHA==}
+    peerDependencies:
+      graphql: ^14.0.0 || ^15.0.0
+    dependencies:
+      graphql: 15.4.0-experimental-stream-defer.1
+      tslib: 2.3.0
+    dev: false
 
   /@graphql-tools/wrap/7.0.8_34dd13c2583fe2e4418c23a0d30fc388:
     resolution: {integrity: sha512-1NDUymworsOlb53Qfh7fonDi2STvqCtbeE68ntKY9K/Ju/be2ZNxrFSbrBHwnxWcN9PjISNnLcAyJ1L5tCUyhg==}
