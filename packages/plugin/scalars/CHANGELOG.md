@@ -1,5 +1,11 @@
 # @graphql-ez/plugin-scalars
 
+## 0.6.3
+
+### Patch Changes
+
+- d03bf6b: Update graphql-tools
+
 ## 0.6.2
 
 ### Patch Changes
