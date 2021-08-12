@@ -15,284 +15,284 @@ test('all scalars', async () => {
   });
 
   expect(printSchema(buildClientSchema((await query<IntrospectionQuery>(getIntrospectionQuery())).data!))).toMatchInlineSnapshot(`
-    "type Query {
-      hello: String!
-      users: [User!]!
-      stream: [String!]!
-      context: String!
-    }
+"\\"\\"\\"
+A date string, such as 2007-12-03, compliant with the \`full-date\` format outlined in section 5.6 of the RFC 3339 profile of the ISO 8601 standard for representation of dates and times using the Gregorian calendar.
+\\"\\"\\"
+scalar Date
 
-    type User {
-      id: Int!
-    }
+\\"\\"\\"
+A time string at UTC, such as 10:15:30Z, compliant with the \`full-time\` format outlined in section 5.6 of the RFC 3339profile of the ISO 8601 standard for representation of dates and times using the Gregorian calendar.
+\\"\\"\\"
+scalar Time
 
-    \\"\\"\\"
-    A date string, such as 2007-12-03, compliant with the \`full-date\` format outlined in section 5.6 of the RFC 3339 profile of the ISO 8601 standard for representation of dates and times using the Gregorian calendar.
-    \\"\\"\\"
-    scalar Date
+\\"\\"\\"
+A date-time string at UTC, such as 2007-12-03T10:15:30Z, compliant with the \`date-time\` format outlined in section 5.6 of the RFC 3339 profile of the ISO 8601 standard for representation of dates and times using the Gregorian calendar.
+\\"\\"\\"
+scalar DateTime
 
-    \\"\\"\\"
-    A time string at UTC, such as 10:15:30Z, compliant with the \`full-time\` format outlined in section 5.6 of the RFC 3339profile of the ISO 8601 standard for representation of dates and times using the Gregorian calendar.
-    \\"\\"\\"
-    scalar Time
+\\"\\"\\"
+The javascript \`Date\` as integer. Type represents date and time as number of milliseconds from start of UNIX epoch.
+\\"\\"\\"
+scalar Timestamp
 
-    \\"\\"\\"
-    A date-time string at UTC, such as 2007-12-03T10:15:30Z, compliant with the \`date-time\` format outlined in section 5.6 of the RFC 3339 profile of the ISO 8601 standard for representation of dates and times using the Gregorian calendar.
-    \\"\\"\\"
-    scalar DateTime
+\\"\\"\\"
+A field whose value is a UTC Offset: https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+\\"\\"\\"
+scalar UtcOffset
 
-    \\"\\"\\"
-    The javascript \`Date\` as integer. Type represents date and time as number of milliseconds from start of UNIX epoch.
-    \\"\\"\\"
-    scalar Timestamp
+\\"\\"\\"
 
-    \\"\\"\\"
-    A field whose value is a UTC Offset: https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
-    \\"\\"\\"
-    scalar UtcOffset
+    A string representing a duration conforming to the ISO8601 standard,
+    such as: P1W1DT13H23M34S
+    P is the duration designator (for period) placed at the start of the duration representation.
+    Y is the year designator that follows the value for the number of years.
+    M is the month designator that follows the value for the number of months.
+    W is the week designator that follows the value for the number of weeks.
+    D is the day designator that follows the value for the number of days.
+    T is the time designator that precedes the time components of the representation.
+    H is the hour designator that follows the value for the number of hours.
+    M is the minute designator that follows the value for the number of minutes.
+    S is the second designator that follows the value for the number of seconds.
 
-    \\"\\"\\"
+    Note the time designator, T, that precedes the time value.
 
-        A string representing a duration conforming to the ISO8601 standard,
-        such as: P1W1DT13H23M34S
-        P is the duration designator (for period) placed at the start of the duration representation.
-        Y is the year designator that follows the value for the number of years.
-        M is the month designator that follows the value for the number of months.
-        W is the week designator that follows the value for the number of weeks.
-        D is the day designator that follows the value for the number of days.
-        T is the time designator that precedes the time components of the representation.
-        H is the hour designator that follows the value for the number of hours.
-        M is the minute designator that follows the value for the number of minutes.
-        S is the second designator that follows the value for the number of seconds.
+    Matches moment.js, Luxon and DateFns implementations
+    ,/. is valid for decimal places and +/- is a valid prefix
+  
+\\"\\"\\"
+scalar Duration
 
-        Note the time designator, T, that precedes the time value.
+\\"\\"\\"
 
-        Matches moment.js, Luxon and DateFns implementations
-        ,/. is valid for decimal places and +/- is a valid prefix
-      
-    \\"\\"\\"
-    scalar Duration
+    A string representing a duration conforming to the ISO8601 standard,
+    such as: P1W1DT13H23M34S
+    P is the duration designator (for period) placed at the start of the duration representation.
+    Y is the year designator that follows the value for the number of years.
+    M is the month designator that follows the value for the number of months.
+    W is the week designator that follows the value for the number of weeks.
+    D is the day designator that follows the value for the number of days.
+    T is the time designator that precedes the time components of the representation.
+    H is the hour designator that follows the value for the number of hours.
+    M is the minute designator that follows the value for the number of minutes.
+    S is the second designator that follows the value for the number of seconds.
 
-    \\"\\"\\"
+    Note the time designator, T, that precedes the time value.
 
-        A string representing a duration conforming to the ISO8601 standard,
-        such as: P1W1DT13H23M34S
-        P is the duration designator (for period) placed at the start of the duration representation.
-        Y is the year designator that follows the value for the number of years.
-        M is the month designator that follows the value for the number of months.
-        W is the week designator that follows the value for the number of weeks.
-        D is the day designator that follows the value for the number of days.
-        T is the time designator that precedes the time components of the representation.
-        H is the hour designator that follows the value for the number of hours.
-        M is the minute designator that follows the value for the number of minutes.
-        S is the second designator that follows the value for the number of seconds.
+    Matches moment.js, Luxon and DateFns implementations
+    ,/. is valid for decimal places and +/- is a valid prefix
+  
+\\"\\"\\"
+scalar ISO8601Duration
 
-        Note the time designator, T, that precedes the time value.
+\\"\\"\\"
+A local date string (i.e., with no associated timezone) in \`YYYY-MM-DD\` format, e.g. \`2020-01-01\`.
+\\"\\"\\"
+scalar LocalDate
 
-        Matches moment.js, Luxon and DateFns implementations
-        ,/. is valid for decimal places and +/- is a valid prefix
-      
-    \\"\\"\\"
-    scalar ISO8601Duration
+\\"\\"\\"
+A local time string (i.e., with no associated timezone) in 24-hr \`HH:mm[:ss[.SSS]]\` format, e.g. \`14:25\` or \`14:25:06\` or \`14:25:06.123\`.
+\\"\\"\\"
+scalar LocalTime
 
-    \\"\\"\\"
-    A local date string (i.e., with no associated timezone) in \`YYYY-MM-DD\` format, e.g. \`2020-01-01\`.
-    \\"\\"\\"
-    scalar LocalDate
+\\"\\"\\"
+A local time string (i.e., with no associated timezone) in 24-hr \`HH:mm[:ss[.SSS]]\` format, e.g. \`14:25\` or \`14:25:06\` or \`14:25:06.123\`.  This scalar is very similar to the \`LocalTime\`, with the only difference being that \`LocalEndTime\` also allows \`24:00\` as a valid value to indicate midnight of the following day.  This is useful when using the scalar to represent the exclusive upper bound of a time block.
+\\"\\"\\"
+scalar LocalEndTime
 
-    \\"\\"\\"
-    A local time string (i.e., with no associated timezone) in 24-hr \`HH:mm[:ss[.SSS]]\` format, e.g. \`14:25\` or \`14:25:06\` or \`14:25:06.123\`.
-    \\"\\"\\"
-    scalar LocalTime
+\\"\\"\\"
+A field whose value conforms to the standard internet email address format as specified in RFC822: https://www.w3.org/Protocols/rfc822/.
+\\"\\"\\"
+scalar EmailAddress
 
-    \\"\\"\\"
-    A local time string (i.e., with no associated timezone) in 24-hr \`HH:mm[:ss[.SSS]]\` format, e.g. \`14:25\` or \`14:25:06\` or \`14:25:06.123\`.  This scalar is very similar to the \`LocalTime\`, with the only difference being that \`LocalEndTime\` also allows \`24:00\` as a valid value to indicate midnight of the following day.  This is useful when using the scalar to represent the exclusive upper bound of a time block.
-    \\"\\"\\"
-    scalar LocalEndTime
+\\"\\"\\"Floats that will have a value less than 0.\\"\\"\\"
+scalar NegativeFloat
 
-    \\"\\"\\"
-    A field whose value conforms to the standard internet email address format as specified in RFC822: https://www.w3.org/Protocols/rfc822/.
-    \\"\\"\\"
-    scalar EmailAddress
+\\"\\"\\"Integers that will have a value less than 0.\\"\\"\\"
+scalar NegativeInt
 
-    \\"\\"\\"Floats that will have a value less than 0.\\"\\"\\"
-    scalar NegativeFloat
+\\"\\"\\"A string that cannot be passed as an empty value\\"\\"\\"
+scalar NonEmptyString
 
-    \\"\\"\\"Integers that will have a value less than 0.\\"\\"\\"
-    scalar NegativeInt
+\\"\\"\\"Floats that will have a value of 0 or more.\\"\\"\\"
+scalar NonNegativeFloat
 
-    \\"\\"\\"A string that cannot be passed as an empty value\\"\\"\\"
-    scalar NonEmptyString
+\\"\\"\\"Integers that will have a value of 0 or more.\\"\\"\\"
+scalar NonNegativeInt
 
-    \\"\\"\\"Floats that will have a value of 0 or more.\\"\\"\\"
-    scalar NonNegativeFloat
+\\"\\"\\"Floats that will have a value of 0 or less.\\"\\"\\"
+scalar NonPositiveFloat
 
-    \\"\\"\\"Integers that will have a value of 0 or more.\\"\\"\\"
-    scalar NonNegativeInt
+\\"\\"\\"Integers that will have a value of 0 or less.\\"\\"\\"
+scalar NonPositiveInt
 
-    \\"\\"\\"Floats that will have a value of 0 or less.\\"\\"\\"
-    scalar NonPositiveFloat
+\\"\\"\\"
+A field whose value conforms to the standard E.164 format as specified in: https://en.wikipedia.org/wiki/E.164. Basically this is +17895551234.
+\\"\\"\\"
+scalar PhoneNumber
 
-    \\"\\"\\"Integers that will have a value of 0 or less.\\"\\"\\"
-    scalar NonPositiveInt
+\\"\\"\\"Floats that will have a value greater than 0.\\"\\"\\"
+scalar PositiveFloat
 
-    \\"\\"\\"
-    A field whose value conforms to the standard E.164 format as specified in: https://en.wikipedia.org/wiki/E.164. Basically this is +17895551234.
-    \\"\\"\\"
-    scalar PhoneNumber
+\\"\\"\\"Integers that will have a value greater than 0.\\"\\"\\"
+scalar PositiveInt
 
-    \\"\\"\\"Floats that will have a value greater than 0.\\"\\"\\"
-    scalar PositiveFloat
+\\"\\"\\"
+A field whose value conforms to the standard postal code formats for United States, United Kingdom, Germany, Canada, France, Italy, Australia, Netherlands, Spain, Denmark, Sweden, Belgium, India, Austria, Portugal, Switzerland or Luxembourg.
+\\"\\"\\"
+scalar PostalCode
 
-    \\"\\"\\"Integers that will have a value greater than 0.\\"\\"\\"
-    scalar PositiveInt
+\\"\\"\\"Floats that will have a value of 0 or more.\\"\\"\\"
+scalar UnsignedFloat
 
-    \\"\\"\\"
-    A field whose value conforms to the standard postal code formats for United States, United Kingdom, Germany, Canada, France, Italy, Australia, Netherlands, Spain, Denmark, Sweden, Belgium, India, Austria, Portugal, Switzerland or Luxembourg.
-    \\"\\"\\"
-    scalar PostalCode
+\\"\\"\\"Integers that will have a value of 0 or more.\\"\\"\\"
+scalar UnsignedInt
 
-    \\"\\"\\"Floats that will have a value of 0 or more.\\"\\"\\"
-    scalar UnsignedFloat
+\\"\\"\\"
+A field whose value conforms to the standard URL format as specified in RFC3986: https://www.ietf.org/rfc/rfc3986.txt.
+\\"\\"\\"
+scalar URL
 
-    \\"\\"\\"Integers that will have a value of 0 or more.\\"\\"\\"
-    scalar UnsignedInt
+\\"\\"\\"
+The \`BigInt\` scalar type represents non-fractional signed whole numeric values.
+\\"\\"\\"
+scalar BigInt
 
-    \\"\\"\\"
-    A field whose value conforms to the standard URL format as specified in RFC3986: https://www.ietf.org/rfc/rfc3986.txt.
-    \\"\\"\\"
-    scalar URL
+\\"\\"\\"
+The \`BigInt\` scalar type represents non-fractional signed whole numeric values.
+\\"\\"\\"
+scalar Long
 
-    \\"\\"\\"
-    The \`BigInt\` scalar type represents non-fractional signed whole numeric values.
-    \\"\\"\\"
-    scalar BigInt
+\\"\\"\\"The \`Byte\` scalar type represents byte value as a Buffer\\"\\"\\"
+scalar Byte
 
-    \\"\\"\\"
-    The \`BigInt\` scalar type represents non-fractional signed whole numeric values.
-    \\"\\"\\"
-    scalar Long
+\\"\\"\\"
+A field whose value is a generic Universally Unique Identifier: https://en.wikipedia.org/wiki/Universally_unique_identifier.
+\\"\\"\\"
+scalar UUID
 
-    \\"\\"\\"The \`Byte\` scalar type represents byte value as a Buffer\\"\\"\\"
-    scalar Byte
+\\"\\"\\"
+A field whose value is a generic Universally Unique Identifier: https://en.wikipedia.org/wiki/Universally_unique_identifier.
+\\"\\"\\"
+scalar GUID
 
-    \\"\\"\\"
-    A field whose value is a generic Universally Unique Identifier: https://en.wikipedia.org/wiki/Universally_unique_identifier.
-    \\"\\"\\"
-    scalar UUID
+\\"\\"\\"
+A field whose value is a hexadecimal: https://en.wikipedia.org/wiki/Hexadecimal.
+\\"\\"\\"
+scalar Hexadecimal
 
-    \\"\\"\\"
-    A field whose value is a generic Universally Unique Identifier: https://en.wikipedia.org/wiki/Universally_unique_identifier.
-    \\"\\"\\"
-    scalar GUID
+\\"\\"\\"
+A field whose value is a hex color code: https://en.wikipedia.org/wiki/Web_colors.
+\\"\\"\\"
+scalar HexColorCode
 
-    \\"\\"\\"
-    A field whose value is a hexadecimal: https://en.wikipedia.org/wiki/Hexadecimal.
-    \\"\\"\\"
-    scalar Hexadecimal
+\\"\\"\\"
+A field whose value is a CSS HSL color: https://developer.mozilla.org/en-US/docs/Web/CSS/color_value#hsl()_and_hsla().
+\\"\\"\\"
+scalar HSL
 
-    \\"\\"\\"
-    A field whose value is a hex color code: https://en.wikipedia.org/wiki/Web_colors.
-    \\"\\"\\"
-    scalar HexColorCode
+\\"\\"\\"
+A field whose value is a CSS HSLA color: https://developer.mozilla.org/en-US/docs/Web/CSS/color_value#hsl()_and_hsla().
+\\"\\"\\"
+scalar HSLA
 
-    \\"\\"\\"
-    A field whose value is a CSS HSL color: https://developer.mozilla.org/en-US/docs/Web/CSS/color_value#hsl()_and_hsla().
-    \\"\\"\\"
-    scalar HSL
+\\"\\"\\"
+A field whose value is a IPv4 address: https://en.wikipedia.org/wiki/IPv4.
+\\"\\"\\"
+scalar IPv4
 
-    \\"\\"\\"
-    A field whose value is a CSS HSLA color: https://developer.mozilla.org/en-US/docs/Web/CSS/color_value#hsl()_and_hsla().
-    \\"\\"\\"
-    scalar HSLA
+\\"\\"\\"
+A field whose value is a IPv6 address: https://en.wikipedia.org/wiki/IPv6.
+\\"\\"\\"
+scalar IPv6
 
-    \\"\\"\\"
-    A field whose value is a IPv4 address: https://en.wikipedia.org/wiki/IPv4.
-    \\"\\"\\"
-    scalar IPv4
+\\"\\"\\"
+A field whose value is a ISBN-10 or ISBN-13 number: https://en.wikipedia.org/wiki/International_Standard_Book_Number.
+\\"\\"\\"
+scalar ISBN
 
-    \\"\\"\\"
-    A field whose value is a IPv6 address: https://en.wikipedia.org/wiki/IPv6.
-    \\"\\"\\"
-    scalar IPv6
+\\"\\"\\"
+A field whose value is a JSON Web Token (JWT): https://jwt.io/introduction.
+\\"\\"\\"
+scalar JWT
 
-    \\"\\"\\"
-    A field whose value is a ISBN-10 or ISBN-13 number: https://en.wikipedia.org/wiki/International_Standard_Book_Number.
-    \\"\\"\\"
-    scalar ISBN
+\\"\\"\\"
+A field whose value is a valid decimal degrees latitude number (53.471): https://en.wikipedia.org/wiki/Latitude
+\\"\\"\\"
+scalar Latitude
 
-    \\"\\"\\"
-    A field whose value is a JSON Web Token (JWT): https://jwt.io/introduction.
-    \\"\\"\\"
-    scalar JWT
+\\"\\"\\"
+A field whose value is a valid decimal degrees longitude number (53.471): https://en.wikipedia.org/wiki/Longitude
+\\"\\"\\"
+scalar Longitude
 
-    \\"\\"\\"
-    A field whose value is a valid decimal degrees latitude number (53.471): https://en.wikipedia.org/wiki/Latitude
-    \\"\\"\\"
-    scalar Latitude
+\\"\\"\\"
+A field whose value is a IEEE 802 48-bit MAC address: https://en.wikipedia.org/wiki/MAC_address.
+\\"\\"\\"
+scalar MAC
 
-    \\"\\"\\"
-    A field whose value is a valid decimal degrees longitude number (53.471): https://en.wikipedia.org/wiki/Longitude
-    \\"\\"\\"
-    scalar Longitude
+\\"\\"\\"
+A field whose value is a valid TCP port within the range of 0 to 65535: https://en.wikipedia.org/wiki/Transmission_Control_Protocol#TCP_ports
+\\"\\"\\"
+scalar Port
 
-    \\"\\"\\"
-    A field whose value is a IEEE 802 48-bit MAC address: https://en.wikipedia.org/wiki/MAC_address.
-    \\"\\"\\"
-    scalar MAC
+\\"\\"\\"
+A field whose value is a CSS RGB color: https://developer.mozilla.org/en-US/docs/Web/CSS/color_value#rgb()_and_rgba().
+\\"\\"\\"
+scalar RGB
 
-    \\"\\"\\"
-    A field whose value is a valid TCP port within the range of 0 to 65535: https://en.wikipedia.org/wiki/Transmission_Control_Protocol#TCP_ports
-    \\"\\"\\"
-    scalar Port
+\\"\\"\\"
+A field whose value is a CSS RGBA color: https://developer.mozilla.org/en-US/docs/Web/CSS/color_value#rgb()_and_rgba().
+\\"\\"\\"
+scalar RGBA
 
-    \\"\\"\\"
-    A field whose value is a CSS RGB color: https://developer.mozilla.org/en-US/docs/Web/CSS/color_value#rgb()_and_rgba().
-    \\"\\"\\"
-    scalar RGB
+\\"\\"\\"
+The \`SafeInt\` scalar type represents non-fractional signed whole numeric values that are considered safe as defined by the ECMAScript specification.
+\\"\\"\\"
+scalar SafeInt
 
-    \\"\\"\\"
-    A field whose value is a CSS RGBA color: https://developer.mozilla.org/en-US/docs/Web/CSS/color_value#rgb()_and_rgba().
-    \\"\\"\\"
-    scalar RGBA
+\\"\\"\\"A currency string, such as $21.25\\"\\"\\"
+scalar USCurrency
 
-    \\"\\"\\"
-    The \`SafeInt\` scalar type represents non-fractional signed whole numeric values that are considered safe as defined by the ECMAScript specification.
-    \\"\\"\\"
-    scalar SafeInt
+\\"\\"\\"
+A field whose value is a Currency: https://en.wikipedia.org/wiki/ISO_4217.
+\\"\\"\\"
+scalar Currency
 
-    \\"\\"\\"A currency string, such as $21.25\\"\\"\\"
-    scalar USCurrency
+\\"\\"\\"
+The \`JSON\` scalar type represents JSON values as specified by [ECMA-404](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf).
+\\"\\"\\"
+scalar JSON
 
-    \\"\\"\\"
-    A field whose value is a Currency: https://en.wikipedia.org/wiki/ISO_4217.
-    \\"\\"\\"
-    scalar Currency
+\\"\\"\\"
+The \`JSONObject\` scalar type represents JSON objects as specified by [ECMA-404](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf).
+\\"\\"\\"
+scalar JSONObject
 
-    \\"\\"\\"
-    The \`JSON\` scalar type represents JSON values as specified by [ECMA-404](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf).
-    \\"\\"\\"
-    scalar JSON
+\\"\\"\\"
+A field whose value is an International Bank Account Number (IBAN): https://en.wikipedia.org/wiki/International_Bank_Account_Number.
+\\"\\"\\"
+scalar IBAN
 
-    \\"\\"\\"
-    The \`JSONObject\` scalar type represents JSON objects as specified by [ECMA-404](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf).
-    \\"\\"\\"
-    scalar JSONObject
+\\"\\"\\"
+A field whose value conforms with the standard mongodb object ID as described here: https://docs.mongodb.com/manual/reference/method/ObjectId/#ObjectId. Example: 5e5677d71bdc2ae76344968c
+\\"\\"\\"
+scalar ObjectID
 
-    \\"\\"\\"
-    A field whose value is an International Bank Account Number (IBAN): https://en.wikipedia.org/wiki/International_Bank_Account_Number.
-    \\"\\"\\"
-    scalar IBAN
+\\"\\"\\"Represents NULL values\\"\\"\\"
+scalar Void
 
-    \\"\\"\\"
-    A field whose value conforms with the standard mongodb object ID as described here: https://docs.mongodb.com/manual/reference/method/ObjectId/#ObjectId. Example: 5e5677d71bdc2ae76344968c
-    \\"\\"\\"
-    scalar ObjectID
+type Query {
+  hello: String!
+  users: [User!]!
+  stream: [String!]!
+  context: String!
+}
 
-    \\"\\"\\"Represents NULL values\\"\\"\\"
-    scalar Void
-    "
-  `);
+type User {
+  id: Int!
+}
+"
+`);
 });
 
 test('scalars in list', async () => {
@@ -306,7 +306,12 @@ test('scalars in list', async () => {
   });
 
   expect(printSchema(buildClientSchema((await query<IntrospectionQuery>(getIntrospectionQuery())).data!))).toMatchInlineSnapshot(`
-"type Query {
+"\\"\\"\\"
+A field whose value is a Currency: https://en.wikipedia.org/wiki/ISO_4217.
+\\"\\"\\"
+scalar Currency
+
+type Query {
   hello: String!
   users: [User!]!
   stream: [String!]!
@@ -316,11 +321,6 @@ test('scalars in list', async () => {
 type User {
   id: Int!
 }
-
-\\"\\"\\"
-A field whose value is a Currency: https://en.wikipedia.org/wiki/ISO_4217.
-\\"\\"\\"
-scalar Currency
 "
 `);
 });
@@ -341,7 +341,12 @@ test('scalars in object', async () => {
   });
 
   expect(printSchema(buildClientSchema((await query<IntrospectionQuery>(getIntrospectionQuery())).data!))).toMatchInlineSnapshot(`
-"type Query {
+"\\"\\"\\"
+A date-time string at UTC, such as 2007-12-03T10:15:30Z, compliant with the \`date-time\` format outlined in section 5.6 of the RFC 3339 profile of the ISO 8601 standard for representation of dates and times using the Gregorian calendar.
+\\"\\"\\"
+scalar DateTime
+
+type Query {
   hello: String!
   users: [User!]!
   stream: [String!]!
@@ -351,11 +356,6 @@ test('scalars in object', async () => {
 type User {
   id: Int!
 }
-
-\\"\\"\\"
-A date-time string at UTC, such as 2007-12-03T10:15:30Z, compliant with the \`date-time\` format outlined in section 5.6 of the RFC 3339 profile of the ISO 8601 standard for representation of dates and times using the Gregorian calendar.
-\\"\\"\\"
-scalar DateTime
 "
 `);
 });

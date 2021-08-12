@@ -3,8 +3,7 @@ import { EZContext, EZPlugin, EZResolvers, LazyPromise, useSchema } from 'graphq
 import { cleanObject, toPlural } from 'graphql-ez/utils/object';
 
 import type { IResolvers, TypeSource } from '@graphql-tools/utils';
-import type { IExecutableSchemaDefinition } from '@graphql-tools/schema';
-import type { MergeSchemasConfig } from '@graphql-tools/merge';
+import type { IExecutableSchemaDefinition, MergeSchemasConfig } from '@graphql-tools/schema';
 
 export interface EZExecutableSchemaDefinition<TContext = EZContext>
   extends Omit<IExecutableSchemaDefinition<TContext>, 'resolvers'> {
@@ -72,9 +71,7 @@ declare module 'graphql-ez' {
 export { gql } from 'graphql-ez';
 
 export const ezSchema = (options: EZSchemaOptions = {}): EZPlugin => {
-  const mergeSchemasPromise = LazyPromise(() => import('@graphql-tools/merge').then(v => v.mergeSchemasAsync));
-
-  const makeExecutableSchemaPromise = LazyPromise(() => import('@graphql-tools/schema').then(v => v.makeExecutableSchema));
+  const toolsSchemaPrimise = LazyPromise(() => import('@graphql-tools/schema'));
 
   const { schema, mergeSchemasConfig } = options;
 
@@ -145,14 +142,14 @@ export const ezSchema = (options: EZSchemaOptions = {}): EZPlugin => {
               if (isSchema(schemaValue)) {
                 if (!typeDefsToMerge && !resolversToMerge) return schemaValue;
 
-                return (await mergeSchemasPromise)({
+                return (await toolsSchemaPrimise).mergeSchemas({
                   schemas: [schemaValue],
                   typeDefs: typeDefsToMerge,
                   resolvers: resolversToMerge,
                 });
               }
 
-              return (await makeExecutableSchemaPromise)({
+              return (await toolsSchemaPrimise).makeExecutableSchema({
                 ...schemaValue,
                 typeDefs: [...toPlural(schemaValue.typeDefs), ...extraTypeDefs],
                 resolvers: [...toPlural(schemaValue.resolvers), ...extraResolvers],
@@ -166,17 +163,13 @@ export const ezSchema = (options: EZSchemaOptions = {}): EZPlugin => {
       const modulesSchemaList = ctx.modules?.length && ctx.modulesApplication ? [(await ctx.modulesApplication).schema] : [];
 
       if (schemas.length > 1) {
-        finalSchema = await (
-          await mergeSchemasPromise
-        )({
+        finalSchema = (await toolsSchemaPrimise).mergeSchemas({
           ...cleanObject(mergeSchemasConfig),
           schemas: [...modulesSchemaList, ...schemas],
         });
       } else if (schemas[0]) {
         finalSchema = modulesSchemaList[0]
-          ? await (
-              await mergeSchemasPromise
-            )({
+          ? (await toolsSchemaPrimise).mergeSchemas({
               ...cleanObject(mergeSchemasConfig),
               schemas: [...modulesSchemaList, schemas[0]],
             })
