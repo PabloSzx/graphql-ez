@@ -1,5 +1,11 @@
 # @graphql-ez/plugin-schema
 
+## 0.5.0
+
+### Minor Changes
+
+- d03bf6b: Update graphql-tools
+
 ## 0.4.1
 
 ### Patch Changes

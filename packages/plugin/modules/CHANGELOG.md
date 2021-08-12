@@ -1,5 +1,11 @@
 # @graphql-ez/plugin-modules
 
+## 0.7.3
+
+### Patch Changes
+
+- d03bf6b: Update graphql-tools
+
 ## 0.7.2
 
 ### Patch Changes
