@@ -104,7 +104,7 @@ export function CreateApp(config: HttpAppOptions = {}): EZAppBuilder {
       appConfig
     );
   } catch (err) {
-    Error.captureStackTrace(err, CreateApp);
+    err instanceof Error && Error.captureStackTrace(err, CreateApp);
     throw err;
   }
 
@@ -205,7 +205,7 @@ export function CreateApp(config: HttpAppOptions = {}): EZAppBuilder {
                 })
                 .end(
                   JSON.stringify({
-                    message: err.message,
+                    message: err instanceof Error ? err.message : 'Unexpected Error',
                   })
                 );
             }
@@ -233,7 +233,7 @@ export function CreateApp(config: HttpAppOptions = {}): EZAppBuilder {
             })
             .end(
               JSON.stringify({
-                message: err.message,
+                message: err instanceof Error ? err.message : 'Unexpected Error',
               })
             );
         }

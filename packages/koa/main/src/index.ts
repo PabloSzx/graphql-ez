@@ -82,7 +82,7 @@ export function CreateApp(config: KoaAppOptions = {}): EZAppBuilder {
       appConfig
     );
   } catch (err) {
-    Error.captureStackTrace(err, CreateApp);
+    err instanceof Error && Error.captureStackTrace(err, CreateApp);
     throw err;
   }
 

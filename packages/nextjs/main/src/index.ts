@@ -68,6 +68,8 @@ export interface EZAppBuilder extends BaseAppBuilder {
   buildApp(options?: BuildAppOptions): EZApp;
 }
 
+export type { NextApiHandler } from 'next';
+
 export function CreateApp(config: NextAppOptions = {}): EZAppBuilder {
   const appConfig = { ...config };
 
@@ -81,7 +83,7 @@ export function CreateApp(config: NextAppOptions = {}): EZAppBuilder {
       appConfig
     );
   } catch (err) {
-    Error.captureStackTrace(err, CreateApp);
+    err instanceof Error && Error.captureStackTrace(err, CreateApp);
     throw err;
   }
 

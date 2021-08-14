@@ -79,7 +79,7 @@ export function CreateApp(config: ExpressAppOptions = {}): EZAppBuilder {
       config
     );
   } catch (err) {
-    Error.captureStackTrace(err, CreateApp);
+    err instanceof Error && Error.captureStackTrace(err, CreateApp);
     throw err;
   }
 
