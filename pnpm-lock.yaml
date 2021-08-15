@@ -418,7 +418,11 @@ importers:
       '@types/koa__router': 8.0.7
       '@types/node': 16.6.1
       '@types/ws': 7.4.7
+<<<<<<< HEAD
       bob-esbuild-cli: 1.0.1_bob-esbuild@1.2.3
+=======
+      bob-esbuild-cli: 1.0.1_bob-esbuild@1.2.2
+>>>>>>> 1e82588 (yoga fastify)
       es-jest: 1.2.0
       express: 4.17.1
       fast-safe-stringify: 2.0.8
@@ -1087,7 +1091,23 @@ importers:
     specifiers: {}
 
   yoga/fastify:
-    specifiers: {}
+    specifiers:
+      '@graphql-ez/fastify': workspace:^0.8.2
+      '@graphql-yoga/preset': workspace:^1.0.0
+      '@types/node': ^16.6.1
+      bob-esbuild-cli: ^1.0.1
+      fastify: ^3.20.2
+      got: ^11.8.2
+      graphql-ez: workspace:^0.11.0
+    dependencies:
+      '@graphql-ez/fastify': link:../../packages/fastify/main
+      '@graphql-yoga/preset': link:../preset
+      fastify: 3.20.2
+      graphql-ez: link:../../packages/core/main
+    devDependencies:
+      '@types/node': 16.6.1
+      bob-esbuild-cli: 1.0.1
+      got: 11.8.2
 
   yoga/preset:
     specifiers:
@@ -1106,11 +1126,11 @@ importers:
       '@graphql-ez/plugin-schema': link:../../packages/plugin/schema
       '@graphql-ez/plugin-upload': link:../../packages/plugin/upload
       '@graphql-ez/plugin-websockets': link:../../packages/plugin/websockets
-      graphql-ez: link:../../packages/core/main
       graphql-middleware: 6.0.10_34dd13c2583fe2e4418c23a0d30fc388
     devDependencies:
       bob-esbuild-cli: 1.0.1_bob-esbuild@1.2.2
       graphql: 15.4.0-experimental-stream-defer.1
+      graphql-ez: link:../../packages/core/main
 
 packages:
 
@@ -4524,7 +4544,7 @@ packages:
       '@emotion/styled': 11.3.0_463f88d79ad3e440fc20e0defc6abe85
       algoliasearch: 4.10.3
       core-js: 3.16.1
-      focus-trap-react: 8.7.0_react-dom@17.0.2+react@17.0.2
+      focus-trap-react: 8.7.1_react-dom@17.0.2+react@17.0.2
       polished: 4.1.3
       react: 17.0.2
       react-dom: 17.0.2_react@17.0.2
@@ -5760,7 +5780,21 @@ packages:
   /bn.js/5.2.0:
     resolution: {integrity: sha512-D7iWRBvnZE8ecXiLj/9wbxH7Tk79fAh8IHaTNq1RWRixsS02W+5qS+iE9yq6RYl0asXx5tw0bLhmT5pIfbSquw==}
 
+<<<<<<< HEAD
   /bob-esbuild-cli/1.0.1_bob-esbuild@1.2.3:
+=======
+  /bob-esbuild-cli/1.0.1:
+    resolution: {integrity: sha512-z1WBNCPNgwL9CaQ7sTA0xGCHX0xjLKhjvMHrBmBhk/Fl3fLX78qq14CarFCRPn8MUjDXc1KDRXYSfhVcdS/rDQ==}
+    engines: {node: '>=12.0.0'}
+    hasBin: true
+    peerDependencies:
+      bob-esbuild: ^1.0.0
+    dependencies:
+      commander: 8.1.0
+    dev: true
+
+  /bob-esbuild-cli/1.0.1_bob-esbuild@1.2.2:
+>>>>>>> 1e82588 (yoga fastify)
     resolution: {integrity: sha512-z1WBNCPNgwL9CaQ7sTA0xGCHX0xjLKhjvMHrBmBhk/Fl3fLX78qq14CarFCRPn8MUjDXc1KDRXYSfhVcdS/rDQ==}
     engines: {node: '>=12.0.0'}
     hasBin: true
@@ -7915,8 +7949,8 @@ packages:
       tslib: 1.14.1
     dev: false
 
-  /focus-trap-react/8.7.0_react-dom@17.0.2+react@17.0.2:
-    resolution: {integrity: sha512-zqQKgyYFvd9F1We6WeUZkLo/qGWrZKMGMtOXBz+18gyjg5XIzjz+cX8qdtpUZ2eJdyp/1AdHhcklCN8edyF0Ew==}
+  /focus-trap-react/8.7.1_react-dom@17.0.2+react@17.0.2:
+    resolution: {integrity: sha512-1bCCtdZXSzYVrMEcvHfHq+706OSM5r3iZsBFXy9zbnf3+5dyCFiEVWix7Sf6jUaOgshjpyDvZHiBhSlcsO9k3A==}
     peerDependencies:
       prop-types: ^15.7.2
       react: '>=16.0.0'

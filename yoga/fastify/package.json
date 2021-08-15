@@ -2,9 +2,39 @@
   "name": "graphql-yoga",
   "version": "1.0.0",
   "private": true,
-  "description": "",
-  "keywords": [],
-  "license": "ISC",
-  "author": "",
-  "main": "index.js"
+  "license": "MIT",
+  "author": "PabloSzx <pablosaez1995@gmail.com>",
+  "exports": {
+    ".": {
+      "require": "./dist/index.js",
+      "import": "./dist/index.mjs"
+    },
+    "./*": {
+      "require": "./dist/*.js",
+      "import": "./dist/*.mjs"
+    }
+  },
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "prepare": "bob-esbuild build"
+  },
+  "dependencies": {
+    "@graphql-ez/fastify": "workspace:^0.8.2",
+    "@graphql-yoga/preset": "workspace:^1.0.0",
+    "fastify": "^3.20.2",
+    "graphql-ez": "workspace:^0.11.0"
+  },
+  "devDependencies": {
+    "@types/node": "^16.6.1",
+    "bob-esbuild-cli": "^1.0.1",
+    "got": "^11.8.2"
+  },
+  "publishConfig": {
+    "directory": "dist"
+  },
+  "peerDependencies": {
+    "@types/node": "^16.6.1"
+  }
 }

@@ -2,25 +2,42 @@
   "name": "@graphql-yoga/preset",
   "version": "1.0.0",
   "private": true,
-  "description": "",
-  "keywords": [],
-  "license": "ISC",
-  "author": "",
-  "main": "index.js",
+  "license": "MIT",
+  "author": "PabloSzx <pablosaez1995@gmail.com>",
+  "exports": {
+    ".": {
+      "require": "./dist/index.js",
+      "import": "./dist/index.mjs"
+    },
+    "./*": {
+      "require": "./dist/*.js",
+      "import": "./dist/*.mjs"
+    }
+  },
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "prepare": "bob-esbuild build"
+  },
   "dependencies": {
     "@envelop/graphql-middleware": "^1.0.0",
     "@graphql-ez/plugin-graphiql": "workspace:^0.5.0",
     "@graphql-ez/plugin-schema": "workspace:^0.5.0",
     "@graphql-ez/plugin-upload": "workspace:^0.4.2",
     "@graphql-ez/plugin-websockets": "workspace:^0.7.0",
-    "graphql-ez": "workspace:^0.11.0",
     "graphql-middleware": "~6.0.0"
   },
   "devDependencies": {
     "bob-esbuild-cli": "^1.0.1",
-    "graphql": "15.4.0-experimental-stream-defer.1"
+    "graphql": "15.4.0-experimental-stream-defer.1",
+    "graphql-ez": "workspace:^0.11.0"
   },
   "peerDependencies": {
-    "graphql": "*"
+    "graphql": "*",
+    "graphql-ez": "workspace:^0.11.0"
+  },
+  "publishConfig": {
+    "directory": "dist"
   }
 }

@@ -1,15 +1,20 @@
 import { toPlural } from 'graphql-ez/utils/object';
 import { LazyPromise } from 'graphql-ez/utils/promise';
 
+import { ezGraphiQLIDE } from '@graphql-ez/plugin-graphiql';
+import { ezSchema, EZSchemaOptions } from '@graphql-ez/plugin-schema';
+import { ezUpload } from '@graphql-ez/plugin-upload';
+import { ezWebSockets } from '@graphql-ez/plugin-websockets';
+
 import type { GraphQLUploadConfig } from '@graphql-ez/plugin-upload';
 import type { WebSocketOptions } from '@graphql-ez/plugin-websockets';
 import type { GraphiQLOptions } from '@graphql-ez/plugin-graphiql';
 
-import type { EZPreset, PickRequired, Plugin as EnvelopPlugin, EZPlugin, PromiseOrValue } from 'graphql-ez';
+import type { EZPreset, Plugin as EnvelopPlugin, PromiseOrValue, NullableEZPlugin } from 'graphql-ez';
 
 import type { IMiddleware, IMiddlewareGenerator } from 'graphql-middleware';
 
-export interface BaseYogaConfig {
+export interface BaseYogaConfig extends EZSchemaOptions {
   /**
    * @default false
    */
@@ -29,52 +34,60 @@ export interface BaseYogaConfig {
 
   ezOptions?: EZPreset['options'];
 
-  ezPlugins?: EZPlugin[];
+  ezPlugins?: NullableEZPlugin[];
 
   envelopPlugins?: EnvelopPlugin[];
 }
 
-export async function getYogaPreset(config: BaseYogaConfig = {}): Promise<EZPreset> {
-  const { upload = false, middlewares, websockets = false, graphiql = false, ezOptions, envelopPlugins, ezPlugins } = config;
+export function getYogaPreset(config: BaseYogaConfig = {}): EZPreset {
+  const {
+    upload = false,
+    middlewares,
+    websockets = false,
+    graphiql = true,
+    ezOptions,
+    envelopPlugins: envelopPluginsConfig,
+    ezPlugins: ezPluginsConfig,
+    executableSchemaConfig,
+    mergeSchemasConfig,
+    schema,
+  } = config;
 
-  const ezPluginsPromise: PromiseOrValue<EZPlugin>[] = [...toPlural(ezPlugins)];
-  const envelopPluginsPromise: PromiseOrValue<EnvelopPlugin>[] = [...toPlural(envelopPlugins)];
+  const ezPlugins: NullableEZPlugin[] = [...toPlural(ezPluginsConfig)];
+  const envelopPlugins: PromiseOrValue<EnvelopPlugin>[] = [...toPlural(envelopPluginsConfig)];
 
-  const preset: PickRequired<EZPreset, 'self' | 'options'> = {
+  const preset: Required<EZPreset> = {
     options: { ...ezOptions },
     self: {
       name: 'YogaPreset',
     },
+    envelopPlugins,
+    ezPlugins,
   };
 
+  ezPlugins.push(
+    ezSchema({
+      schema,
+      executableSchemaConfig,
+      mergeSchemasConfig,
+    })
+  );
+
   if (graphiql) {
-    ezPluginsPromise.push(LazyPromise(() => import('@graphql-ez/plugin-graphiql').then(v => v.ezGraphiQLIDE(graphiql))));
+    ezPlugins.push(ezGraphiQLIDE(graphiql));
   }
 
   if (upload) {
-    ezPluginsPromise.push(LazyPromise(() => import('@graphql-ez/plugin-upload').then(v => v.ezUpload(upload))));
+    ezPlugins.push(ezUpload(upload));
   }
 
   if (websockets) {
-    ezPluginsPromise.push(
-      LazyPromise(() =>
-        import('@graphql-ez/plugin-websockets').then(v =>
-          v.ezWebSockets(typeof websockets === 'boolean' ? 'adaptive' : websockets)
-        )
-      )
-    );
+    ezPlugins.push(ezWebSockets(typeof websockets === 'boolean' ? 'adaptive' : websockets));
   }
 
   if (middlewares) {
-    envelopPluginsPromise.push(
-      LazyPromise(() => import('@envelop/graphql-middleware').then(v => v.useGraphQLMiddleware(middlewares)))
-    );
+    envelopPlugins.push(LazyPromise(() => import('@envelop/graphql-middleware').then(v => v.useGraphQLMiddleware(middlewares))));
   }
-
-  [preset.ezPlugins, preset.envelopPlugins] = await Promise.all([
-    Promise.all(ezPluginsPromise),
-    Promise.all(envelopPluginsPromise),
-  ]);
 
   return preset;
 }
