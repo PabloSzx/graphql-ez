@@ -1,0 +1,29 @@
+{
+  "name": "yoga-fastify-example",
+  "version": "1.0.0",
+  "private": true,
+  "license": "MIT",
+  "author": "PabloSzx <pablosaez1995@gmail.com>",
+  "scripts": {
+    "dev:cjs": "tsup --watch src --onSuccess \"node dist/index.js\"",
+    "dev:mjs": "tsup --watch src --onSuccess \"node dist/index.mjs\""
+  },
+  "dependencies": {
+    "graphql": "15.4.0-experimental-stream-defer.1",
+    "graphql-ez": "workspace:^0.11.0",
+    "graphql-yoga": "workspace:^1.0.0"
+  },
+  "devDependencies": {
+    "tsup": "^4.13.1"
+  },
+  "tsup": {
+    "silent": true,
+    "format": [
+      "cjs",
+      "esm"
+    ],
+    "entryPoints": [
+      "src/index.ts"
+    ]
+  }
+}

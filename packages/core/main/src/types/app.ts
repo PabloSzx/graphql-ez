@@ -74,11 +74,6 @@ declare module '../index' {
      */
     asPreset: EZPreset;
 
-    /**
-     * Mutate this array to add EZ plugins on the fly
-     *
-     * `You can only mutate this array before calling "buildApp" or in the "prepare" option.`
-     */
     ezPlugins: readonly EZPlugin[];
 
     /**

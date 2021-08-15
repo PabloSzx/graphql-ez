@@ -22,11 +22,12 @@
   },
   "dependencies": {
     "@envelop/graphql-middleware": "^1.0.0",
+    "@graphql-ez/plugin-codegen": "workspace:^0.6.3",
     "@graphql-ez/plugin-graphiql": "workspace:^0.5.0",
     "@graphql-ez/plugin-schema": "workspace:^0.5.0",
     "@graphql-ez/plugin-upload": "workspace:^0.4.2",
     "@graphql-ez/plugin-websockets": "workspace:^0.7.0",
-    "graphql-middleware": "~6.0.0"
+    "graphql-middleware": "^6.1.1"
   },
   "devDependencies": {
     "bob-esbuild-cli": "^1.0.1",
@@ -34,7 +35,7 @@
     "graphql-ez": "workspace:^0.11.0"
   },
   "peerDependencies": {
-    "graphql": "*",
+    "graphql": "15.4.0-experimental-stream-defer.1",
     "graphql-ez": "workspace:^0.11.0"
   },
   "publishConfig": {

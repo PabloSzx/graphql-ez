@@ -1,4 +1,4 @@
-import { GraphQLSchema, isSchema, DocumentNode } from 'graphql';
+import { DocumentNode, GraphQLSchema, isSchema } from 'graphql';
 import { EZContext, EZPlugin, EZResolvers, LazyPromise, useSchema } from 'graphql-ez';
 import { cleanObject, toPlural } from 'graphql-ez/utils/object';
 
@@ -20,7 +20,7 @@ export type FilteredMergeSchemasConfig = Omit<MergeSchemasConfig, 'schemas'>;
 
 export interface EZSchemaOptions {
   /**
-   * Pre-built schemas
+   * Pre-built or to-build schemas
    */
   schema?: EZSchema<EZContext> | EZSchema<EZContext>[];
 

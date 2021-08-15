@@ -366,6 +366,19 @@ importers:
       '@types/react-dom': 17.0.9
       typescript: 4.4.1-rc
 
+  examples/yoga/fastify:
+    specifiers:
+      graphql: 15.4.0-experimental-stream-defer.1
+      graphql-ez: workspace:^0.11.0
+      graphql-yoga: workspace:^1.0.0
+      tsup: ^4.13.1
+    dependencies:
+      graphql: 15.4.0-experimental-stream-defer.1
+      graphql-ez: link:../../../packages/core/main
+      graphql-yoga: link:../../../yoga/fastify
+    devDependencies:
+      tsup: 4.13.1_typescript@4.4.1-rc
+
   internal/testing:
     specifiers:
       '@graphql-tools/schema': ^8.1.1
@@ -418,11 +431,7 @@ importers:
       '@types/koa__router': 8.0.7
       '@types/node': 16.6.1
       '@types/ws': 7.4.7
-<<<<<<< HEAD
       bob-esbuild-cli: 1.0.1_bob-esbuild@1.2.3
-=======
-      bob-esbuild-cli: 1.0.1_bob-esbuild@1.2.2
->>>>>>> 1e82588 (yoga fastify)
       es-jest: 1.2.0
       express: 4.17.1
       fast-safe-stringify: 2.0.8
@@ -1098,20 +1107,23 @@ importers:
       bob-esbuild-cli: ^1.0.1
       fastify: ^3.20.2
       got: ^11.8.2
+      graphql: 15.4.0-experimental-stream-defer.1
       graphql-ez: workspace:^0.11.0
     dependencies:
       '@graphql-ez/fastify': link:../../packages/fastify/main
       '@graphql-yoga/preset': link:../preset
       fastify: 3.20.2
-      graphql-ez: link:../../packages/core/main
     devDependencies:
       '@types/node': 16.6.1
-      bob-esbuild-cli: 1.0.1
+      bob-esbuild-cli: 1.0.1_bob-esbuild@1.2.3
       got: 11.8.2
+      graphql: 15.4.0-experimental-stream-defer.1
+      graphql-ez: link:../../packages/core/main
 
   yoga/preset:
     specifiers:
       '@envelop/graphql-middleware': ^1.0.0
+      '@graphql-ez/plugin-codegen': workspace:^0.6.3
       '@graphql-ez/plugin-graphiql': workspace:^0.5.0
       '@graphql-ez/plugin-schema': workspace:^0.5.0
       '@graphql-ez/plugin-upload': workspace:^0.4.2
@@ -1119,16 +1131,17 @@ importers:
       bob-esbuild-cli: ^1.0.1
       graphql: 15.4.0-experimental-stream-defer.1
       graphql-ez: workspace:^0.11.0
-      graphql-middleware: ~6.0.0
+      graphql-middleware: ^6.1.1
     dependencies:
-      '@envelop/graphql-middleware': 1.0.0_d2e6496819bc3244f5407dc46d49741f
+      '@envelop/graphql-middleware': 1.0.0_a86dcfcce83057018a6426b4e85efefc
+      '@graphql-ez/plugin-codegen': link:../../packages/plugin/codegen
       '@graphql-ez/plugin-graphiql': link:../../packages/plugin/graphiql
       '@graphql-ez/plugin-schema': link:../../packages/plugin/schema
       '@graphql-ez/plugin-upload': link:../../packages/plugin/upload
       '@graphql-ez/plugin-websockets': link:../../packages/plugin/websockets
-      graphql-middleware: 6.0.10_34dd13c2583fe2e4418c23a0d30fc388
+      graphql-middleware: 6.1.1_34dd13c2583fe2e4418c23a0d30fc388
     devDependencies:
-      bob-esbuild-cli: 1.0.1_bob-esbuild@1.2.2
+      bob-esbuild-cli: 1.0.1_bob-esbuild@1.2.3
       graphql: 15.4.0-experimental-stream-defer.1
       graphql-ez: link:../../packages/core/main
 
@@ -1480,7 +1493,7 @@ packages:
       '@babel/core': ^7.0.0-0
     dependencies:
       '@babel/core': 7.12.9
-      '@babel/helper-plugin-utils': 7.14.5
+      '@babel/helper-plugin-utils': 7.10.4
       '@babel/plugin-syntax-object-rest-spread': 7.8.3_@babel+core@7.12.9
       '@babel/plugin-transform-parameters': 7.14.5_@babel+core@7.12.9
     dev: false
@@ -3051,14 +3064,14 @@ packages:
       graphql: 15.4.0-experimental-stream-defer.1
     dev: false
 
-  /@envelop/graphql-middleware/1.0.0_d2e6496819bc3244f5407dc46d49741f:
+  /@envelop/graphql-middleware/1.0.0_a86dcfcce83057018a6426b4e85efefc:
     resolution: {integrity: sha512-l8CNoZao+fTMMpsXRpqDL7YqaBKN2377vZqMgB9jBZT6YmErZtfq3c9NeJVnDG1saImvbsqZAYmPfThP8+Wicg==}
     peerDependencies:
       graphql: ^14.0.0 || ^15.0.0
       graphql-middleware: ^6.0.0
     dependencies:
       graphql: 15.4.0-experimental-stream-defer.1
-      graphql-middleware: 6.0.10_34dd13c2583fe2e4418c23a0d30fc388
+      graphql-middleware: 6.1.1_34dd13c2583fe2e4418c23a0d30fc388
     dev: false
 
   /@envelop/graphql-modules/1.0.0_0c945fa5c9e66debae3ebde31cc717a9:
@@ -3277,7 +3290,6 @@ packages:
       graphql: 15.4.0-experimental-stream-defer.1
       tslib: 2.3.1
       value-or-promise: 1.0.10
-    dev: true
 
   /@graphql-tools/delegate/7.1.5_34dd13c2583fe2e4418c23a0d30fc388:
     resolution: {integrity: sha512-bQu+hDd37e+FZ0CQGEEczmRSfQRnnXeUxI/0miDV+NV/zCbEdIJj5tYFNrKT03W6wgdqx8U06d8L23LxvGri/g==}
@@ -3305,7 +3317,6 @@ packages:
       graphql: 15.4.0-experimental-stream-defer.1
       tslib: 2.3.1
       value-or-promise: 1.0.10
-    dev: true
 
   /@graphql-tools/graphql-file-loader/7.0.4_34dd13c2583fe2e4418c23a0d30fc388:
     resolution: {integrity: sha512-kkRq/av2hy0eTbDZDwC4FZgNioCy4dV95Vp3MgJLJ40GTX1caSs+Bs2Jk0AbNKv21eMwPGj4vHKFrEPXtrGnPQ==}
@@ -5780,21 +5791,7 @@ packages:
   /bn.js/5.2.0:
     resolution: {integrity: sha512-D7iWRBvnZE8ecXiLj/9wbxH7Tk79fAh8IHaTNq1RWRixsS02W+5qS+iE9yq6RYl0asXx5tw0bLhmT5pIfbSquw==}
 
-<<<<<<< HEAD
   /bob-esbuild-cli/1.0.1_bob-esbuild@1.2.3:
-=======
-  /bob-esbuild-cli/1.0.1:
-    resolution: {integrity: sha512-z1WBNCPNgwL9CaQ7sTA0xGCHX0xjLKhjvMHrBmBhk/Fl3fLX78qq14CarFCRPn8MUjDXc1KDRXYSfhVcdS/rDQ==}
-    engines: {node: '>=12.0.0'}
-    hasBin: true
-    peerDependencies:
-      bob-esbuild: ^1.0.0
-    dependencies:
-      commander: 8.1.0
-    dev: true
-
-  /bob-esbuild-cli/1.0.1_bob-esbuild@1.2.2:
->>>>>>> 1e82588 (yoga fastify)
     resolution: {integrity: sha512-z1WBNCPNgwL9CaQ7sTA0xGCHX0xjLKhjvMHrBmBhk/Fl3fLX78qq14CarFCRPn8MUjDXc1KDRXYSfhVcdS/rDQ==}
     engines: {node: '>=12.0.0'}
     hasBin: true
@@ -8400,13 +8397,13 @@ packages:
       graphql-language-service-types: 1.8.2_34dd13c2583fe2e4418c23a0d30fc388
     dev: true
 
-  /graphql-middleware/6.0.10_34dd13c2583fe2e4418c23a0d30fc388:
-    resolution: {integrity: sha512-RKW1vbgaFLgU5i1sjdL4ClZVI0C67u+DsuG5jZ0YzREduGCsmIvXiB0ffjwOvMbQKTVPZjZWUlhIdP/DK3zxLw==}
+  /graphql-middleware/6.1.1_34dd13c2583fe2e4418c23a0d30fc388:
+    resolution: {integrity: sha512-ETvJGvQ7sfqs9xXbVCELPATIHHJvEID0ZeVY/j2D7Td8Qf4kUo1ygaDWSdMHeMjlqrje/FR5Ff4S8DMznlkIaA==}
     peerDependencies:
       graphql: ^0.12.0 || ^0.13.0 || ^14.0.0 || ^15.0.0
     dependencies:
-      '@graphql-tools/delegate': 7.1.5_34dd13c2583fe2e4418c23a0d30fc388
-      '@graphql-tools/schema': 7.1.5_34dd13c2583fe2e4418c23a0d30fc388
+      '@graphql-tools/delegate': 8.0.9_34dd13c2583fe2e4418c23a0d30fc388
+      '@graphql-tools/schema': 8.1.0_34dd13c2583fe2e4418c23a0d30fc388
       graphql: 15.4.0-experimental-stream-defer.1
     dev: false
 
