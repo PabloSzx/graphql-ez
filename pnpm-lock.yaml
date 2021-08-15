@@ -658,7 +658,7 @@ importers:
 
   packages/helix/graphiql:
     specifiers:
-      '@graphql-tools/url-loader': 7.0.8
+      '@graphql-tools/url-loader': 7.0.9
       '@graphql-tools/utils': 8.1.0
       '@n1ru4l/graphql-live-query': 0.7.1
       '@types/prettier': 2.3.2
@@ -686,7 +686,7 @@ importers:
       webpack: 5.50.0
       webpack-cli: 4.7.2
     devDependencies:
-      '@graphql-tools/url-loader': 7.0.8_0e23566110daeabeb5c71570d0bdbcd5
+      '@graphql-tools/url-loader': 7.0.9_0e23566110daeabeb5c71570d0bdbcd5
       '@graphql-tools/utils': 8.1.0_34dd13c2583fe2e4418c23a0d30fc388
       '@n1ru4l/graphql-live-query': 0.7.1_34dd13c2583fe2e4418c23a0d30fc388
       '@types/prettier': 2.3.2
@@ -3234,8 +3234,8 @@ packages:
       tslib: 2.2.0
       value-or-promise: 1.0.6
 
-  /@graphql-tools/delegate/8.0.8_34dd13c2583fe2e4418c23a0d30fc388:
-    resolution: {integrity: sha512-cmX+JkGt72eGQanbZFV8aPmUn9Ze/5/c/91aXbBlVt1Hdk1jRR25e9J74YsCcyv5LyTlMk0enKneq41l6KsUTg==}
+  /@graphql-tools/delegate/8.0.9_34dd13c2583fe2e4418c23a0d30fc388:
+    resolution: {integrity: sha512-YlP3e825LCvmgPZUg8pBMspJKZSiOdtGF7C0iYQfWv1WiQEqrm/e53dqZ5sjfqziHHbQNktkJl2Z5Ng4imWSaA==}
     peerDependencies:
       graphql: ^14.0.0 || ^15.0.0
     dependencies:
@@ -3346,15 +3346,15 @@ packages:
       tslib: 2.3.1
       value-or-promise: 1.0.10
 
-  /@graphql-tools/url-loader/7.0.8_0e23566110daeabeb5c71570d0bdbcd5:
-    resolution: {integrity: sha512-f0Ku9sxGP3ETEId16rANduI+CLbkbOnNefUo7DU7st7AEwQ5MWLhfn9byQfDd10G4p4SYu4StgszTb2wwtWN2w==}
+  /@graphql-tools/url-loader/7.0.9_0e23566110daeabeb5c71570d0bdbcd5:
+    resolution: {integrity: sha512-xMnd0W0YFB+EJYFRKvzdHjM+nzur4CIh/tSRB+FMOB7NzJHNaXc2GUpn5wiN06kT+wr0LatCVE/RAvQ+Ui4iIA==}
     peerDependencies:
       graphql: ^14.0.0 || ^15.0.0
     dependencies:
       '@ardatan/fetch-event-source': 2.0.2
-      '@graphql-tools/delegate': 8.0.8_34dd13c2583fe2e4418c23a0d30fc388
+      '@graphql-tools/delegate': 8.0.9_34dd13c2583fe2e4418c23a0d30fc388
       '@graphql-tools/utils': 8.1.0_34dd13c2583fe2e4418c23a0d30fc388
-      '@graphql-tools/wrap': 8.0.10_34dd13c2583fe2e4418c23a0d30fc388
+      '@graphql-tools/wrap': 8.0.11_34dd13c2583fe2e4418c23a0d30fc388
       '@n1ru4l/graphql-live-query': 0.7.1_34dd13c2583fe2e4418c23a0d30fc388
       '@types/websocket': 1.0.4
       abort-controller: 3.0.0
@@ -3418,12 +3418,12 @@ packages:
       tslib: 2.2.0
       value-or-promise: 1.0.6
 
-  /@graphql-tools/wrap/8.0.10_34dd13c2583fe2e4418c23a0d30fc388:
-    resolution: {integrity: sha512-mdlUefP85JzYDemj0wpZT01DbuOJiITm/oR2ruyTg3Ulk4qFPF+FobHXCM6enYy8gOAhjafP5A0M8UYeIzkJPA==}
+  /@graphql-tools/wrap/8.0.11_34dd13c2583fe2e4418c23a0d30fc388:
+    resolution: {integrity: sha512-+ULBIFpXMyJ6Me7Q21HLU9QWJrNisxlAdoDaooQCxRs4MwkFvSj3dKigI9kEzMKYy63nqmmPnV+5FSEV6owjTw==}
     peerDependencies:
       graphql: ^14.0.0 || ^15.0.0
     dependencies:
-      '@graphql-tools/delegate': 8.0.8_34dd13c2583fe2e4418c23a0d30fc388
+      '@graphql-tools/delegate': 8.0.9_34dd13c2583fe2e4418c23a0d30fc388
       '@graphql-tools/schema': 8.1.0_34dd13c2583fe2e4418c23a0d30fc388
       '@graphql-tools/utils': 8.1.0_34dd13c2583fe2e4418c23a0d30fc388
       graphql: 15.4.0-experimental-stream-defer.1
