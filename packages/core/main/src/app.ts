@@ -68,7 +68,7 @@ export function createEZAppFactory(
   });
 
   const envelopPlugins = [...envelopPluginsPre];
-  const ezPlugins = [...ezPluginsPre];
+  const ezPlugins = Object.freeze([...ezPluginsPre]);
 
   const baseAppBuilder: BaseAppBuilder = {
     gql,
@@ -144,7 +144,6 @@ export function createEZAppFactory(
     }
 
     Object.freeze(envelopPlugins);
-    Object.freeze(ezPlugins);
 
     const getEnveloped = envelop({
       plugins: await Promise.all(envelopPlugins),

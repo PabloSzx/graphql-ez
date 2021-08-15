@@ -79,7 +79,7 @@ declare module '../index' {
      *
      * `You can only mutate this array before calling "buildApp" or in the "prepare" option.`
      */
-    ezPlugins: EZPlugin[];
+    ezPlugins: readonly EZPlugin[];
 
     /**
      * Mutate this array to add Envelop plugins on the fly
@@ -91,7 +91,7 @@ declare module '../index' {
 
   interface ContextAppOptions extends Omit<AppOptions, 'ez' | 'envelop'> {
     ez: {
-      plugins: EZPlugin[];
+      plugins: readonly EZPlugin[];
     };
     envelop: {
       plugins: PromiseOrValue<Plugin<any>>[];
