@@ -143,12 +143,12 @@ export function createEZAppFactory(
       envelopPlugins.push(useSchema(await options.schema));
     }
 
-    const getEnveloped = envelop({
-      plugins: envelopPlugins,
-    });
-
     Object.freeze(envelopPlugins);
     Object.freeze(ezPlugins);
+
+    const getEnveloped = envelop({
+      plugins: await Promise.all(envelopPlugins),
+    });
 
     if (options.schema !== 'dynamic' && !getEnveloped().schema) {
       throw Error('[graphql-ez] No GraphQL Schema specified!');
