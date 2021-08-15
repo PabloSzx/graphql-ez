@@ -37,6 +37,7 @@ export function getConfig({
     preset: 'ts-jest',
     testMatch: [process.cwd().replace(/\\/g, '/') + '/test/**/*.test.ts'],
     testEnvironment: 'node',
+    transform: { '\\.[jt]sx?$': 'es-jest' },
     modulePathIgnorePatterns: ['/dist/'],
     testPathIgnorePatterns: ['/node_modules/', '/dist/', '/.next'],
     coveragePathIgnorePatterns: ['node_modules', '/.next'],

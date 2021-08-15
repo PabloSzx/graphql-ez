@@ -384,6 +384,7 @@ importers:
       '@types/node': ^16.6.1
       '@types/ws': ^7.4.7
       bob-esbuild-cli: ^1.0.1
+      es-jest: ^1.2.0
       express: ^4.17.1
       fast-safe-stringify: ^2.0.8
       fastify: ^3.20.2
@@ -418,6 +419,7 @@ importers:
       '@types/node': 16.6.1
       '@types/ws': 7.4.7
       bob-esbuild-cli: 1.0.1_bob-esbuild@1.2.3
+      es-jest: 1.2.0
       express: 4.17.1
       fast-safe-stringify: 2.0.8
       fastify: 3.20.2
@@ -7285,6 +7287,13 @@ packages:
       string.prototype.trimend: 1.0.4
       string.prototype.trimstart: 1.0.4
       unbox-primitive: 1.0.1
+
+  /es-jest/1.2.0:
+    resolution: {integrity: sha512-6p1ekiZyku8YTulvjC2prPdY64tKlPcn42U9aP8cUj/SUR4D0Wb15GdifvDdrdLhz/QP5hLcJ25yxd2K2mLceA==}
+    engines: {node: '>=10'}
+    dependencies:
+      esbuild: 0.12.20
+    dev: true
 
   /es-module-lexer/0.7.1:
     resolution: {integrity: sha512-MgtWFl5No+4S3TmhDmCz2ObFGm6lEpTnzbQi+Dd+pw4mlTIZTmM2iAs5gRlmx5zS9luzobCSBSI90JM/1/JgOw==}
