@@ -20,7 +20,7 @@
   ],
   "scripts": {
     "dev": "bob-esbuild watch",
-    "prepare": "bob-esbuild build"
+    "prepack": "bob-esbuild build"
   },
   "devDependencies": {
     "@graphql-tools/schema": "^8.1.1",

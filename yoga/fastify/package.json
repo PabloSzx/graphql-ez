@@ -18,7 +18,7 @@
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
   "scripts": {
-    "prepare": "bob-esbuild build",
+    "prepack": "bob-esbuild build",
     "dev": "bob-esbuild watch"
   },
   "dependencies": {

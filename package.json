@@ -32,7 +32,7 @@
     "dev:mjs:koa": "pnpm -r --filter @graphql-ez/koa dev -- --onSuccess \"cross-env PORT=3005 pnpm -r --filter example-complete-koa dev:mjs -- --silent\"",
     "dev:next": "pnpm -r --filter @graphql-ez/nextjs dev -- --onSuccess \"pnpm -r --filter example-complete-nextjs dev -- -p 3006\"",
     "postinstall": "node patch.js",
-    "prepare": "husky install",
+    "prepare": "husky install && bob-esbuild tsc && pnpm -r --no-sort --no-bail prepack",
     "pretty": "prettier --write \"**/*{.ts,.tsx,.json,.yaml}\"",
     "test": "jest",
     "test:separate": "pnpm -r --filter=\"!graphql-ez-monorepo\" --no-sort --no-bail test -- ",
