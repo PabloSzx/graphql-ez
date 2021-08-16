@@ -245,7 +245,6 @@ Array [
 ]
 `);
 
-  ezPlugins.push(ezAltairIDE());
   envelopPlugins.push(useExtendContext(() => ({})));
 
   expect(ezPlugins).toMatchInlineSnapshot(`
@@ -260,19 +259,6 @@ Array [
       "nextjs",
     ],
     "name": "GraphiQL IDE",
-    "onIntegrationRegister": [Function],
-    "onRegister": [Function],
-  },
-  Object {
-    "compatibilityList": Array [
-      "fastify",
-      "express",
-      "hapi",
-      "http",
-      "koa",
-      "nextjs",
-    ],
-    "name": "Altair GraphQL Client IDE",
     "onIntegrationRegister": [Function],
     "onRegister": [Function],
   },
@@ -365,6 +351,7 @@ Array [
 `);
 
   expect(() => {
+    // @ts-expect-error
     appBuilder.ezPlugins.push(ezAltairIDE());
   }).toThrowErrorMatchingInlineSnapshot(`"Cannot add property 2, object is not extensible"`);
   expect(() => {

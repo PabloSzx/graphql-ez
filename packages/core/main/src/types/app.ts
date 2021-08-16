@@ -7,6 +7,7 @@ import type {
   BaseAppBuilder,
   BuildAppOptions,
   AppOptions,
+  PromiseOrValue,
 } from '../index';
 import type { DocumentNode, GraphQLSchema } from 'graphql';
 
@@ -41,13 +42,15 @@ export type EZPlugin =
       ) => void | Promise<void>;
     });
 
+export type NullableEZPlugin = EZPlugin | null | undefined | boolean;
+
 export type EZPreset = {
   self?: EZPlugin;
 
   options?: AppOptions & { ez?: never; envelop?: never };
 
-  ezPlugins?: EZPlugin[];
-  envelopPlugins?: Plugin[];
+  ezPlugins?: NullableEZPlugin[];
+  envelopPlugins?: PromiseOrValue<Plugin>[];
 };
 
 export type IntegrationsNames = 'express' | 'fastify' | 'nextjs' | 'http' | 'koa' | 'hapi';
@@ -71,27 +74,22 @@ declare module '../index' {
      */
     asPreset: EZPreset;
 
-    /**
-     * Mutate this array to add EZ plugins on the fly
-     *
-     * `You can only mutate this array before calling "buildApp" or in the "prepare" option.`
-     */
-    ezPlugins: EZPlugin[];
+    ezPlugins: readonly EZPlugin[];
 
     /**
      * Mutate this array to add Envelop plugins on the fly
      *
      * `You can only mutate this array before calling "buildApp" on in the "prepare" option.`
      */
-    envelopPlugins: Plugin[];
+    envelopPlugins: PromiseOrValue<Plugin>[];
   }
 
   interface ContextAppOptions extends Omit<AppOptions, 'ez' | 'envelop'> {
     ez: {
-      plugins: EZPlugin[];
+      plugins: readonly EZPlugin[];
     };
     envelop: {
-      plugins: Plugin<any>[];
+      plugins: PromiseOrValue<Plugin<any>>[];
       presets: GetEnvelopedFn<unknown>[];
 
       enableInternalTracing?: boolean;
@@ -130,7 +128,7 @@ declare module '../index' {
      * Custom Envelop Plugins
      */
     envelop?: {
-      plugins?: Plugin[];
+      plugins?: PromiseOrValue<Plugin>[];
 
       preset?: GetEnvelopedFn<unknown> | GetEnvelopedFn<unknown>[];
 
@@ -143,7 +141,7 @@ declare module '../index' {
      * Any value in the plugin list that isn't an object is automatically filtered out
      */
     ez?: {
-      plugins?: (EZPlugin | null | undefined | boolean)[];
+      plugins?: NullableEZPlugin[];
 
       preset?: EZPreset | EZPreset[];
     };
