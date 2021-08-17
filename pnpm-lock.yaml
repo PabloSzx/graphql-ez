@@ -4,6 +4,7 @@ overrides:
   graphql: 15.4.0-experimental-stream-defer.1
   esbuild: ^0.12.20
   '@types/node': ^16.6.1
+  sharp: ~0.28.3
 
 importers:
 
@@ -25,7 +26,7 @@ importers:
       jest: ^27.0.6
       prettier: 2.3.2
       pretty-quick: 3.1.1
-      ts-jest: ^27.0.4
+      ts-jest: ^27.0.5
       typescript: ^4.4.1-rc
     devDependencies:
       '@changesets/assemble-release-plan': 5.0.0
@@ -44,7 +45,7 @@ importers:
       jest: 27.0.6
       prettier: 2.3.2
       pretty-quick: 3.1.1_prettier@2.3.2
-      ts-jest: 27.0.4_d783205d652bcb54bcd705f572b6bac6
+      ts-jest: 27.0.5_d783205d652bcb54bcd705f572b6bac6
       typescript: 4.4.1-rc
 
   examples/express/complete:
@@ -425,8 +426,8 @@ importers:
       koa: ^2.13.1
       lodash: ^4.17.21
       subscriptions-transport-ws-envelop: ^1.0.5
-      ts-jest: ^27.0.4
-      undici: ^4.4.2
+      ts-jest: ^27.0.5
+      undici: ^4.4.4
       ws: ^7.5.3
     devDependencies:
       '@graphql-tools/schema': 8.1.1_34dd13c2583fe2e4418c23a0d30fc388
@@ -460,8 +461,8 @@ importers:
       koa: 2.13.1
       lodash: 4.17.21
       subscriptions-transport-ws-envelop: 1.0.5_256c795de05385da778b55cce5656df6
-      ts-jest: 27.0.4_d783205d652bcb54bcd705f572b6bac6
-      undici: 4.4.2
+      ts-jest: 27.0.5_d783205d652bcb54bcd705f572b6bac6
+      undici: 4.4.4
       ws: 7.5.3
 
   internal/website:
@@ -499,7 +500,7 @@ importers:
       react-icons: ^4.2.0
       react-use: ^17.2.4
       remark-admonitions: ^1.2.1
-      sharp: ^0.28.3
+      sharp: ~0.28.3
       shiki: ^0.9.6
       typescript: ^4.4.1-rc
       wait-on: ^6.0.0
@@ -557,7 +558,7 @@ importers:
       got: ^11.8.2
       graphql: 15.4.0-experimental-stream-defer.1
       jest: ^27.0.6
-      ts-jest: ^27.0.4
+      ts-jest: ^27.0.5
     dependencies:
       '@envelop/core': 1.0.3_34dd13c2583fe2e4418c23a0d30fc388
       '@envelop/disable-introspection': 1.0.0_34dd13c2583fe2e4418c23a0d30fc388
@@ -572,7 +573,7 @@ importers:
       got: 11.8.2
       graphql: 15.4.0-experimental-stream-defer.1
       jest: 27.0.6
-      ts-jest: 27.0.4_d783205d652bcb54bcd705f572b6bac6
+      ts-jest: 27.0.5_d783205d652bcb54bcd705f572b6bac6
 
   packages/express/main:
     specifiers:
@@ -590,7 +591,7 @@ importers:
       graphql: 15.4.0-experimental-stream-defer.1
       graphql-ez: workspace:^0.11.0
       jest: 27.0.6
-      ts-jest: 27.0.4
+      ts-jest: 27.0.5
       typescript: 4.4.1-rc
     dependencies:
       '@types/body-parser': 1.19.1
@@ -608,7 +609,7 @@ importers:
       graphql: 15.4.0-experimental-stream-defer.1
       graphql-ez: link:../../core/main
       jest: 27.0.6
-      ts-jest: 27.0.4_d783205d652bcb54bcd705f572b6bac6
+      ts-jest: 27.0.5_d783205d652bcb54bcd705f572b6bac6
       typescript: 4.4.1-rc
 
   packages/fastify/main:
@@ -624,7 +625,7 @@ importers:
       graphql: 15.4.0-experimental-stream-defer.1
       graphql-ez: workspace:^0.11.0
       jest: 27.0.6
-      ts-jest: 27.0.4
+      ts-jest: 27.0.5
       typescript: 4.4.1-rc
     dependencies:
       fastify-cors: 6.0.2
@@ -639,7 +640,7 @@ importers:
       graphql: 15.4.0-experimental-stream-defer.1
       graphql-ez: link:../../core/main
       jest: 27.0.6
-      ts-jest: 27.0.4_d783205d652bcb54bcd705f572b6bac6
+      ts-jest: 27.0.5_d783205d652bcb54bcd705f572b6bac6
       typescript: 4.4.1-rc
 
   packages/hapi/main:
@@ -654,7 +655,7 @@ importers:
       graphql: 15.4.0-experimental-stream-defer.1
       graphql-ez: workspace:^0.11.0
       jest: 27.0.6
-      ts-jest: 27.0.4
+      ts-jest: 27.0.5
       typescript: 4.4.1-rc
     devDependencies:
       '@types/eventsource': 1.1.6
@@ -667,7 +668,7 @@ importers:
       graphql: 15.4.0-experimental-stream-defer.1
       graphql-ez: link:../../core/main
       jest: 27.0.6
-      ts-jest: 27.0.4_d783205d652bcb54bcd705f572b6bac6
+      ts-jest: 27.0.5_d783205d652bcb54bcd705f572b6bac6
       typescript: 4.4.1-rc
 
   packages/helix/core:
@@ -753,7 +754,7 @@ importers:
       graphql: 15.4.0-experimental-stream-defer.1
       graphql-ez: workspace:^0.11.0
       jest: 27.0.6
-      ts-jest: 27.0.4
+      ts-jest: 27.0.5
       typescript: 4.4.1-rc
     dependencies:
       '@types/cors': 2.8.12
@@ -768,7 +769,7 @@ importers:
       graphql: 15.4.0-experimental-stream-defer.1
       graphql-ez: link:../../core/main
       jest: 27.0.6
-      ts-jest: 27.0.4_d783205d652bcb54bcd705f572b6bac6
+      ts-jest: 27.0.5_d783205d652bcb54bcd705f572b6bac6
       typescript: 4.4.1-rc
 
   packages/koa/main:
@@ -790,7 +791,7 @@ importers:
       jest: 27.0.6
       koa: 2.13.1
       koa-bodyparser: ^4.3.0
-      ts-jest: 27.0.4
+      ts-jest: 27.0.5
       typescript: 4.4.1-rc
     dependencies:
       '@koa/cors': 3.1.0
@@ -811,7 +812,7 @@ importers:
       graphql-ez: link:../../core/main
       jest: 27.0.6
       koa: 2.13.1
-      ts-jest: 27.0.4_d783205d652bcb54bcd705f572b6bac6
+      ts-jest: 27.0.5_d783205d652bcb54bcd705f572b6bac6
       typescript: 4.4.1-rc
 
   packages/nextjs/main:
@@ -833,7 +834,7 @@ importers:
       next: 11.1.0
       react: 17.0.2
       react-dom: 17.0.2
-      ts-jest: 27.0.4
+      ts-jest: 27.0.5
       typescript: 4.4.1-rc
     dependencies:
       '@types/cors': 2.8.12
@@ -854,12 +855,12 @@ importers:
       next: 11.1.0_fe1bfc5d2510f2017389350f3aea47a5
       react: 17.0.2
       react-dom: 17.0.2_react@17.0.2
-      ts-jest: 27.0.4_d783205d652bcb54bcd705f572b6bac6
+      ts-jest: 27.0.5_d783205d652bcb54bcd705f572b6bac6
       typescript: 4.4.1-rc
 
   packages/plugin/altair:
     specifiers:
-      '@types/mime-types': ^2.1.0
+      '@types/mime-types': ^2.1.1
       '@types/node': ^16.6.1
       '@types/node-fetch': ^2.5.12
       altair-static-slim: 4.0.8
@@ -870,13 +871,13 @@ importers:
       mime-types: ^2.1.32
       next: ^11.1.0
       node-fetch: ^2.6.1
-      ts-jest: ^27.0.4
+      ts-jest: ^27.0.5
     dependencies:
       altair-static-slim: 4.0.8
       mime-types: 2.1.32
       node-fetch: 2.6.1
     devDependencies:
-      '@types/mime-types': 2.1.0
+      '@types/mime-types': 2.1.1
       '@types/node': 16.6.1
       '@types/node-fetch': 2.5.12
       bob-esbuild-cli: 1.0.1_bob-esbuild@1.2.3
@@ -884,7 +885,7 @@ importers:
       graphql-ez: link:../../core/main
       jest: 27.0.6
       next: 11.1.0_typescript@4.4.1-rc
-      ts-jest: 27.0.4_d783205d652bcb54bcd705f572b6bac6
+      ts-jest: 27.0.5_d783205d652bcb54bcd705f572b6bac6
 
   packages/plugin/codegen:
     specifiers:
@@ -907,7 +908,7 @@ importers:
       mkdirp: ^1.0.4
       prettier: ^2.3.2
       tmp-promise: ^3.0.2
-      ts-jest: ^27.0.4
+      ts-jest: ^27.0.5
     dependencies:
       '@graphql-codegen/core': 2.0.0_34dd13c2583fe2e4418c23a0d30fc388
       '@graphql-codegen/plugin-helpers': 2.0.0_34dd13c2583fe2e4418c23a0d30fc388
@@ -929,7 +930,7 @@ importers:
       graphql-ez: link:../../core/main
       jest: 27.0.6
       tmp-promise: 3.0.2
-      ts-jest: 27.0.4_d783205d652bcb54bcd705f572b6bac6
+      ts-jest: 27.0.5_d783205d652bcb54bcd705f572b6bac6
 
   packages/plugin/dataloader:
     specifiers:
@@ -940,7 +941,7 @@ importers:
       graphql: 15.4.0-experimental-stream-defer.1
       graphql-ez: workspace:^0.11.0
       jest: ^27.0.6
-      ts-jest: ^27.0.4
+      ts-jest: ^27.0.5
     dependencies:
       '@envelop/dataloader': 1.0.0_1e69ec074ba37991a02dc0e22dcbc7f5
       dataloader: 2.0.0
@@ -950,7 +951,7 @@ importers:
       graphql: 15.4.0-experimental-stream-defer.1
       graphql-ez: link:../../core/main
       jest: 27.0.6
-      ts-jest: 27.0.4_d783205d652bcb54bcd705f572b6bac6
+      ts-jest: 27.0.5_d783205d652bcb54bcd705f572b6bac6
 
   packages/plugin/graphiql:
     specifiers:
@@ -961,7 +962,7 @@ importers:
       graphql-ez: workspace:^0.11.0
       jest: ^27.0.6
       next: ^11.1.0
-      ts-jest: ^27.0.4
+      ts-jest: ^27.0.5
     dependencies:
       '@pablosz/graphql-helix-graphiql': link:../../helix/graphiql
     devDependencies:
@@ -971,7 +972,7 @@ importers:
       graphql-ez: link:../../core/main
       jest: 27.0.6
       next: 11.1.0_typescript@4.4.1-rc
-      ts-jest: 27.0.4_d783205d652bcb54bcd705f572b6bac6
+      ts-jest: 27.0.5_d783205d652bcb54bcd705f572b6bac6
 
   packages/plugin/modules:
     specifiers:
@@ -983,7 +984,7 @@ importers:
       graphql-ez: workspace:^0.11.0
       graphql-modules: ^1.4.4
       jest: ^27.0.6
-      ts-jest: ^27.0.4
+      ts-jest: ^27.0.5
     dependencies:
       '@envelop/graphql-modules': 1.0.0_0c945fa5c9e66debae3ebde31cc717a9
       '@graphql-tools/utils': 8.1.1_34dd13c2583fe2e4418c23a0d30fc388
@@ -994,7 +995,7 @@ importers:
       graphql: 15.4.0-experimental-stream-defer.1
       graphql-ez: link:../../core/main
       jest: 27.0.6
-      ts-jest: 27.0.4_d783205d652bcb54bcd705f572b6bac6
+      ts-jest: 27.0.5_d783205d652bcb54bcd705f572b6bac6
 
   packages/plugin/scalars:
     specifiers:
@@ -1005,7 +1006,7 @@ importers:
       graphql-ez: workspace:^0.11.0
       graphql-scalars: ^1.10.0
       jest: ^27.0.6
-      ts-jest: ^27.0.4
+      ts-jest: ^27.0.5
     dependencies:
       '@graphql-tools/utils': 8.1.1_34dd13c2583fe2e4418c23a0d30fc388
       graphql-scalars: 1.10.0_34dd13c2583fe2e4418c23a0d30fc388
@@ -1015,7 +1016,7 @@ importers:
       graphql: 15.4.0-experimental-stream-defer.1
       graphql-ez: link:../../core/main
       jest: 27.0.6
-      ts-jest: 27.0.4_d783205d652bcb54bcd705f572b6bac6
+      ts-jest: 27.0.5_d783205d652bcb54bcd705f572b6bac6
 
   packages/plugin/schema:
     specifiers:
@@ -1027,7 +1028,7 @@ importers:
       graphql: 15.4.0-experimental-stream-defer.1
       graphql-ez: workspace:^0.11.0
       jest: ^27.0.6
-      ts-jest: ^27.0.4
+      ts-jest: ^27.0.5
       typescript: ^4.4.1-rc
     dependencies:
       '@graphql-tools/schema': 8.1.1_34dd13c2583fe2e4418c23a0d30fc388
@@ -1039,7 +1040,7 @@ importers:
       graphql: 15.4.0-experimental-stream-defer.1
       graphql-ez: link:../../core/main
       jest: 27.0.6
-      ts-jest: 27.0.4_d783205d652bcb54bcd705f572b6bac6
+      ts-jest: 27.0.5_d783205d652bcb54bcd705f572b6bac6
       typescript: 4.4.1-rc
 
   packages/plugin/upload:
@@ -1053,7 +1054,7 @@ importers:
       graphql-upload: ^12.0.0
       jest: ^27.0.6
       node-fetch: ^2.6.1
-      ts-jest: ^27.0.4
+      ts-jest: ^27.0.5
     devDependencies:
       '@types/graphql-upload': 8.0.6
       '@types/node-fetch': 2.5.12
@@ -1064,7 +1065,7 @@ importers:
       graphql-upload: 12.0.0_34dd13c2583fe2e4418c23a0d30fc388
       jest: 27.0.6
       node-fetch: 2.6.1
-      ts-jest: 27.0.4_d783205d652bcb54bcd705f572b6bac6
+      ts-jest: 27.0.5_d783205d652bcb54bcd705f572b6bac6
 
   packages/plugin/voyager:
     specifiers:
@@ -1075,7 +1076,7 @@ importers:
       graphql-voyager: ^1.0.0-rc.31
       jest: ^27.0.6
       next: ^11.1.0
-      ts-jest: ^27.0.4
+      ts-jest: ^27.0.5
     devDependencies:
       '@types/node': 16.6.1
       bob-esbuild-cli: 1.0.1_bob-esbuild@1.2.3
@@ -1084,7 +1085,7 @@ importers:
       graphql-voyager: 1.0.0-rc.31
       jest: 27.0.6
       next: 11.1.0_typescript@4.4.1-rc
-      ts-jest: 27.0.4_d783205d652bcb54bcd705f572b6bac6
+      ts-jest: 27.0.5_d783205d652bcb54bcd705f572b6bac6
 
   packages/plugin/websockets:
     specifiers:
@@ -1095,7 +1096,7 @@ importers:
       graphql-ws: ^5.3.0
       jest: ^27.0.6
       subscriptions-transport-ws-envelop: ^1.0.5
-      ts-jest: ^27.0.4
+      ts-jest: ^27.0.5
       ws: ^7.5.3
     dependencies:
       graphql-ws: 5.3.0_34dd13c2583fe2e4418c23a0d30fc388
@@ -1107,7 +1108,7 @@ importers:
       graphql: 15.4.0-experimental-stream-defer.1
       graphql-ez: link:../../core/main
       jest: 27.0.6
-      ts-jest: 27.0.4_d783205d652bcb54bcd705f572b6bac6
+      ts-jest: 27.0.5_d783205d652bcb54bcd705f572b6bac6
 
   yoga/express:
     specifiers:
@@ -3574,7 +3575,7 @@ packages:
       react-intersection-observer: 8.32.0_react@17.0.2
       react-use: 17.2.4_react-dom@17.0.2+react@17.0.2
       use-immer: 0.6.0_immer@9.0.5+react@17.0.2
-      zustand: 3.5.8_react@17.0.2
+      zustand: 3.5.9_react@17.0.2
     transitivePeerDependencies:
       - '@types/react'
       - supports-color
@@ -4552,7 +4553,7 @@ packages:
       '@emotion/react': 11.4.1_d94f33b06fdce27140dc5b0a474a21a8
       '@emotion/styled': 11.3.0_463f88d79ad3e440fc20e0defc6abe85
       algoliasearch: 4.10.3
-      core-js: 3.16.1
+      core-js: 3.16.2
       focus-trap-react: 8.7.1_react-dom@17.0.2+react@17.0.2
       polished: 4.1.3
       react: 17.0.2
@@ -4890,8 +4891,8 @@ packages:
     resolution: {integrity: sha512-kGZJY+R+WnR5Rk+RPHUMERtb2qBRViIHCBdtUrY+NmwuGb8pQdfTqQiCKPrxpdoycl8KWm2DLdkpoSdt479XoQ==}
     dev: true
 
-  /@types/mime-types/2.1.0:
-    resolution: {integrity: sha1-nKUs2jY/aZxpRmwqbM2q2RPqenM=}
+  /@types/mime-types/2.1.1:
+    resolution: {integrity: sha512-vXOTGVSLR2jMw440moWTC7H19iUyLtP3Z1YTj7cSsubOICinjMxFeb/V57v9QdyyPGbbWolUFSSmSiRSn94tFw==}
     dev: true
 
   /@types/mime/1.3.2:
@@ -5291,6 +5292,14 @@ packages:
       json-schema-traverse: 0.4.1
       uri-js: 4.4.1
 
+  /ajv/8.6.2:
+    resolution: {integrity: sha512-9807RlWAgT564wT+DjeyU5OFMPjmzxVobvDFmNAhY+5zD6A2ly3jDp6sgnfyDtlIQ+7H97oc/DGCzzfu9rjw9w==}
+    dependencies:
+      fast-deep-equal: 3.1.3
+      json-schema-traverse: 1.0.0
+      require-from-string: 2.0.2
+      uri-js: 4.4.1
+
   /algoliasearch-helper/3.5.5_algoliasearch@4.10.3:
     resolution: {integrity: sha512-JDH14gMpSj8UzEaKwVkrqKOeAOyK0dDWsFlKvWhk0Xl5yw9FyafYf1xZPb4uSXaPBAFQtUouFlR1Zt68BCY0/w==}
     peerDependencies:
@@ -5399,8 +5408,8 @@ packages:
       readable-stream: 2.3.7
     dev: false
 
-  /arg/5.0.0:
-    resolution: {integrity: sha512-4P8Zm2H+BRS+c/xX1LrHw0qKpEhdlZjLCgWy+d78T9vqa2Z2SiD2wMrYuWIAFy5IZUD7nnNXroRttz+0RzlrzQ==}
+  /arg/5.0.1:
+    resolution: {integrity: sha512-e0hDa9H2Z9AwFkk2qDlwhoMYE4eToKarchkQHovNdLTCYMHZHeRjI71crOh+dio4K6u1IcwubQqo79Ga4CyAQA==}
     dev: false
 
   /argparse/1.0.10:
@@ -5986,7 +5995,7 @@ packages:
     dependencies:
       caniuse-lite: 1.0.30001251
       colorette: 1.3.0
-      electron-to-chromium: 1.3.806
+      electron-to-chromium: 1.3.808
       escalade: 3.1.1
       node-releases: 1.1.74
 
@@ -5997,7 +6006,7 @@ packages:
     dependencies:
       caniuse-lite: 1.0.30001251
       colorette: 1.3.0
-      electron-to-chromium: 1.3.806
+      electron-to-chromium: 1.3.808
       escalade: 3.1.1
       node-releases: 1.1.74
 
@@ -6668,8 +6677,8 @@ packages:
     requiresBuild: true
     dev: true
 
-  /core-js/3.16.1:
-    resolution: {integrity: sha512-AAkP8i35EbefU+JddyWi12AWE9f2N/qr/pwnDtWz4nyUIBGMJPX99ANFFRSw6FefM374lDujdtLDyhN2A/btHw==}
+  /core-js/3.16.2:
+    resolution: {integrity: sha512-P0KPukO6OjMpjBtHSceAZEWlDD1M2Cpzpg6dBbrjFqFhBHe/BwhxaP820xKOjRn/lZRQirrCusIpLS/n2sgXLQ==}
     requiresBuild: true
     dev: false
 
@@ -7269,8 +7278,8 @@ packages:
   /ee-first/1.1.1:
     resolution: {integrity: sha1-WQxhFWsK4vTwJVcyoViyZrxWsh0=}
 
-  /electron-to-chromium/1.3.806:
-    resolution: {integrity: sha512-AH/otJLAAecgyrYp0XK1DPiGVWcOgwPeJBOLeuFQ5l//vhQhwC9u6d+GijClqJAmsHG4XDue81ndSQPohUu0xA==}
+  /electron-to-chromium/1.3.808:
+    resolution: {integrity: sha512-espnsbWTuUw0a2jMwfabCc09py2ujB+FZZE1hZWn5yYijEmxzEhdhTLKUfZGjynHvdIMQ4X/Pr/t8s4eiyH/QQ==}
 
   /elliptic/6.5.4:
     resolution: {integrity: sha512-iLhC6ULemrljPZb+QutR5TQGB+pdW6KGD5RSegS+8sorOZT+rdQFbsQFJgvN3eRqNALqJer4oQ16YvJHlU8hzQ==}
@@ -7806,7 +7815,7 @@ packages:
       fastify-warning: 0.2.0
       find-my-way: 4.3.3
       flatstr: 1.0.12
-      light-my-request: 4.4.1
+      light-my-request: 4.4.2
       pino: 6.13.0
       proxy-addr: 2.0.7
       readable-stream: 3.6.0
@@ -9131,8 +9140,8 @@ packages:
       ci-info: 3.2.0
     dev: true
 
-  /is-core-module/2.5.0:
-    resolution: {integrity: sha512-TXCMSDsEHMEEZ6eCA8rwRDbLu55MRGmrctljsBX/2v1d9/GzqHOxW5c5oPSgrUt2vBFXebu9rGqckXGPWOlYpg==}
+  /is-core-module/2.6.0:
+    resolution: {integrity: sha512-wShG8vs60jKfPWpF2KZRaAtvt3a20OAn7+IJ6hLPECpSABLcKtFKTTI4ZtH5QcBruBHlq+WsdHWyz0BCZW7svQ==}
     dependencies:
       has: 1.0.3
 
@@ -10095,6 +10104,9 @@ packages:
   /json-schema-traverse/0.4.1:
     resolution: {integrity: sha512-xbbCH5dCYU5T8LcEhhuh7HJ88HXuW3qsI3Y0zOZFKfZEHcpWiHU/Jxzk629Brsab/mMiHQti9wMP+845RPe3Vg==}
 
+  /json-schema-traverse/1.0.0:
+    resolution: {integrity: sha512-NM8/P9n3XjXhIZn1lLhkFaACTOURQXjWhV4BA/RnOv8xvgqtqpAX9IO4mRQxSx1Rlo4tqzeqb0sOlruaOy3dug==}
+
   /json5/1.0.1:
     resolution: {integrity: sha512-aKS4WQjPenRxiQsC93MNfjx+nbF4PAdYzmd/1JIj8HYzqfbu86beTuNgXDzPknWk0n0uARlyewZo4s++ES36Ow==}
     hasBin: true
@@ -10299,10 +10311,10 @@ packages:
     resolution: {integrity: sha512-+qWSwPyJWSV9ukb7Iu21WpWEP7irFWR1ojoYykL2itAfXKj9FjsTjS6PPZoPUOZk+1kxliHjwsilqA1TNeOhuQ==}
     dev: false
 
-  /light-my-request/4.4.1:
-    resolution: {integrity: sha512-FDNRF2mYjthIRWE7O8d/X7AzDx4otQHl4/QXbu3Q/FRwBFcgb+ZoDaUd5HwN53uQXLAiw76osN+Va0NEaOW6rQ==}
+  /light-my-request/4.4.2:
+    resolution: {integrity: sha512-mZuPEaO+z8s/mi0yz1Mewr4YmJ0cFbldXp2RYDwTld7O+R/LYm6QWupGc1XdmL9wGeL2KE4mOHaC5Tfef7DL5A==}
     dependencies:
-      ajv: 6.12.6
+      ajv: 8.6.2
       cookie: 0.4.1
       fastify-warning: 0.2.0
       readable-stream: 3.6.0
@@ -10744,6 +10756,7 @@ packages:
     resolution: {integrity: sha512-vVqVZQyf3WLx2Shd0qJ9xuvqgAyKPLAiqITEtqW0oIUjzo3PePDd6fW9iFz30ef7Ysp/oiWqbhszeGWW2T6Gzw==}
     engines: {node: '>=10'}
     hasBin: true
+    dev: false
 
   /modern-normalize/1.1.0:
     resolution: {integrity: sha512-2lMlY1Yc1+CUy0gw4H95uNN7vjbpoED7NNRSBHE25nWfLBdmMzFCsPshlzbxHz+gYMcBEUN8V4pU16prcdPSgA==}
@@ -10864,7 +10877,7 @@ packages:
       '@babel/runtime': 7.15.3
       '@types/hoist-non-react-statics': 3.3.1
       '@types/i18next-fs-backend': 1.0.1
-      core-js: 3.16.1
+      core-js: 3.16.2
       hoist-non-react-statics: 3.3.2
       i18next: 20.4.0
       i18next-fs-backend: 1.1.1
@@ -12644,6 +12657,10 @@ packages:
     resolution: {integrity: sha1-jGStX9MNqxyXbiNE/+f3kqam30I=}
     engines: {node: '>=0.10.0'}
 
+  /require-from-string/2.0.2:
+    resolution: {integrity: sha512-Xf0nWe6RseziFMu+Ap9biiUbmplq6S9/p+7w7YXP/JBHhrUDDUhwa+vANyubuqfZWTveU//DYVGsDG7RKL/vEw==}
+    engines: {node: '>=0.10.0'}
+
   /require-main-filename/2.0.0:
     resolution: {integrity: sha512-NKN5kMDylKuldxYLSUfrbo5Tuzh4hd+2E8NPPX02mZtn1VuREQToYe/ZdlJy+J3uCpfaiGF05e7B8W0iXbQHmg==}
 
@@ -12682,7 +12699,7 @@ packages:
   /resolve/1.20.0:
     resolution: {integrity: sha512-wENBPt4ySzg4ybFQW2TT1zMQucPK95HSh/nq2CFTZVOGut2+pQvSsgtda4d26YrYcr067wjbmzOG8byDPBX63A==}
     dependencies:
-      is-core-module: 2.5.0
+      is-core-module: 2.6.0
       path-parse: 1.0.7
 
   /responselike/2.0.0:
@@ -13654,7 +13671,7 @@ packages:
       autoprefixer: ^10.0.2
       postcss: ^8.0.9
     dependencies:
-      arg: 5.0.0
+      arg: 5.0.1
       bytes: 3.1.0
       chalk: 4.1.2
       chokidar: 3.5.2
@@ -13697,7 +13714,7 @@ packages:
       autoprefixer: ^10.0.2
       postcss: ^8.0.9
     dependencies:
-      arg: 5.0.0
+      arg: 5.0.1
       autoprefixer: 10.3.1_postcss@8.3.6
       bytes: 3.1.0
       chalk: 4.1.2
@@ -14028,13 +14045,13 @@ packages:
     resolution: {integrity: sha512-Y/arvbn+rrz3JCKl9C4kVNfTfSm2/mEp5FSz5EsZSANGPSlQrpRI5M4PKF+mJnE52jOO90PnPSc3Ur3bTQw0gA==}
     dev: true
 
-  /ts-jest/27.0.4_d783205d652bcb54bcd705f572b6bac6:
-    resolution: {integrity: sha512-c4E1ECy9Xz2WGfTMyHbSaArlIva7Wi2p43QOMmCqjSSjHP06KXv+aT+eSY+yZMuqsMi3k7pyGsGj2q5oSl5WfQ==}
+  /ts-jest/27.0.5_d783205d652bcb54bcd705f572b6bac6:
+    resolution: {integrity: sha512-lIJApzfTaSSbtlksfFNHkWOzLJuuSm4faFAfo5kvzOiRAuoN4/eKxVJ2zEAho8aecE04qX6K1pAzfH5QHL1/8w==}
     engines: {node: ^10.13.0 || ^12.13.0 || ^14.15.0 || >=15.0.0}
     hasBin: true
     peerDependencies:
       '@babel/core': '>=7.0.0-beta.0 <8'
-      '@types/jest': ^26.0.0
+      '@types/jest': ^27.0.0
       babel-jest: '>=27.0.0 <28'
       jest: ^27.0.0
       typescript: '>=3.8 <5.0'
@@ -14048,14 +14065,12 @@ packages:
     dependencies:
       '@types/jest': 27.0.1
       bs-logger: 0.2.6
-      buffer-from: 1.1.2
       fast-json-stable-stringify: 2.1.0
       jest: 27.0.6
       jest-util: 27.0.6
       json5: 2.2.0
       lodash: 4.17.21
       make-error: 1.3.6
-      mkdirp: 1.0.4
       semver: 7.3.5
       typescript: 4.4.1-rc
       yargs-parser: 20.2.9
@@ -14320,8 +14335,8 @@ packages:
       fastify-plugin: 3.0.0
     dev: true
 
-  /undici/4.4.2:
-    resolution: {integrity: sha512-ATdfIjCZgbF2DL/IX7/iURr+UfJA8QJS62GzjPkO1rHdIdwNjo35U9XvfEZ6O60KSQNQFrhokD7oJcExQumDtQ==}
+  /undici/4.4.4:
+    resolution: {integrity: sha512-UTVdW5XyG5PAufwBxCm6Faw9fXgExEXIDArAVigsJloMC8y3HQypSkZpWaNqCJvV1wP07iK8L1OdiZfv5yC2oA==}
     engines: {node: '>=12.18'}
     dev: true
 
@@ -15162,8 +15177,8 @@ packages:
     resolution: {integrity: sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q==}
     engines: {node: '>=10'}
 
-  /zustand/3.5.8_react@17.0.2:
-    resolution: {integrity: sha512-QA5h4cyJFPG0Gsk7u9gvwF7x6HbrjllSifwePluFK+tcthvaIo9zqiwjoUrXwb4e3BGxzVOXEgbhaB6jVCD7Kw==}
+  /zustand/3.5.9_react@17.0.2:
+    resolution: {integrity: sha512-ELj8XLrf5TZoiffbsZKaJ0uGnT1t4PGU9IgFLfiLsjMhOXFfKEl3fEUa5mNAWTzrietJuA1R2YY6GBE1siyE5Q==}
     peerDependencies:
       react: '>=16.8'
     peerDependenciesMeta:
