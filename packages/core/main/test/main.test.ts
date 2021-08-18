@@ -1,4 +1,3 @@
-import EventSource from 'eventsource';
 import {
   CommonSchema,
   gql,
@@ -7,6 +6,7 @@ import {
   startFastifyServer,
   useSchema,
   expectCommonQueryStream,
+  expectCommonServerSideEventSubscription,
 } from 'graphql-ez-testing';
 
 import { useExtendContext } from '@envelop/core';
@@ -93,42 +93,7 @@ test.concurrent('SSE subscription', async () => {
     },
   });
 
-  const eventSource = new EventSource(`${address}/graphql?query=subscription{ping}`);
-
-  let n = 0;
-  const payload = await new Promise<string>(resolve => {
-    eventSource.addEventListener('message', (event: any) => {
-      switch (++n) {
-        case 1:
-          return expect(JSON.parse(event.data)).toStrictEqual({
-            data: {
-              ping: 'pong1',
-            },
-          });
-        case 2:
-          return expect(JSON.parse(event.data)).toStrictEqual({
-            data: {
-              ping: 'pong2',
-            },
-          });
-        case 3:
-          expect(JSON.parse(event.data)).toStrictEqual({
-            data: {
-              ping: 'pong3',
-            },
-          });
-          return resolve('OK');
-        default:
-          console.error(event);
-          throw Error('Unexpected event');
-      }
-    });
-  }).catch(err => {
-    eventSource.close();
-    throw err;
-  });
-  eventSource.close();
-  expect(payload).toBe('OK');
+  await expectCommonServerSideEventSubscription(address);
 });
 
 test.concurrent('no schema', async () => {

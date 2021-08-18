@@ -401,6 +401,7 @@ importers:
       '@hapi/hapi': ^20.1.5
       '@jest/types': ^27.0.6
       '@koa/router': ^10.1.0
+      '@types/eventsource': ^1.1.6
       '@types/express': ^4.17.13
       '@types/express-serve-static-core': ^4.17.24
       '@types/fs-extra': ^9.0.12
@@ -412,6 +413,7 @@ importers:
       '@types/ws': ^7.4.7
       bob-esbuild-cli: ^1.0.1
       es-jest: ^1.2.0
+      eventsource: ^1.1.0
       express: ^4.17.1
       fast-safe-stringify: ^2.0.8
       fastify: ^3.20.2
@@ -436,6 +438,7 @@ importers:
       '@hapi/hapi': 20.1.5
       '@jest/types': 27.0.6
       '@koa/router': 10.1.0
+      '@types/eventsource': 1.1.6
       '@types/express': 4.17.13
       '@types/express-serve-static-core': 4.17.24
       '@types/fs-extra': 9.0.12
@@ -447,6 +450,7 @@ importers:
       '@types/ws': 7.4.7
       bob-esbuild-cli: 1.0.1_bob-esbuild@1.2.3
       es-jest: 1.2.0
+      eventsource: 1.1.0
       express: 4.17.1
       fast-safe-stringify: 2.0.8
       fastify: 3.20.2
@@ -554,7 +558,6 @@ importers:
       '@pablosz/graphql-helix': workspace:^1.7.1
       bob-esbuild-cli: ^1.0.1
       changesets-github-release: 0.0.3
-      eventsource: ^1.1.0
       graphql: 15.4.0-experimental-stream-defer.1
       jest: ^27.0.6
       ts-jest: ^27.0.5
@@ -568,7 +571,6 @@ importers:
     devDependencies:
       bob-esbuild-cli: 1.0.1_bob-esbuild@1.2.3
       changesets-github-release: 0.0.3
-      eventsource: 1.1.0
       graphql: 15.4.0-experimental-stream-defer.1
       jest: 27.0.6
       ts-jest: 27.0.5_d783205d652bcb54bcd705f572b6bac6
@@ -577,13 +579,11 @@ importers:
     specifiers:
       '@types/body-parser': ^1.19.1
       '@types/cors': ^2.8.12
-      '@types/eventsource': 1.1.6
       '@types/express': 4.17.13
       '@types/node': ^16.6.1
       bob-esbuild-cli: ^1.0.1
       changesets-github-release: 0.0.3
       cors: ^2.8.5
-      eventsource: 1.1.0
       express: ^4.17.1
       graphql: 15.4.0-experimental-stream-defer.1
       graphql-ez: workspace:^0.11.0
@@ -595,12 +595,10 @@ importers:
       '@types/cors': 2.8.12
       cors: 2.8.5
     devDependencies:
-      '@types/eventsource': 1.1.6
       '@types/express': 4.17.13
       '@types/node': 16.6.1
       bob-esbuild-cli: 1.0.1_bob-esbuild@1.2.3
       changesets-github-release: 0.0.3
-      eventsource: 1.1.0
       express: 4.17.1
       graphql: 15.4.0-experimental-stream-defer.1
       graphql-ez: link:../../core/main
@@ -610,11 +608,9 @@ importers:
 
   packages/fastify/main:
     specifiers:
-      '@types/eventsource': 1.1.6
       '@types/node': ^16.6.1
       bob-esbuild-cli: ^1.0.1
       changesets-github-release: 0.0.3
-      eventsource: 1.1.0
       fastify: ^3.20.2
       fastify-cors: ^6.0.2
       graphql: 15.4.0-experimental-stream-defer.1
@@ -625,11 +621,9 @@ importers:
     dependencies:
       fastify-cors: 6.0.2
     devDependencies:
-      '@types/eventsource': 1.1.6
       '@types/node': 16.6.1
       bob-esbuild-cli: 1.0.1_bob-esbuild@1.2.3
       changesets-github-release: 0.0.3
-      eventsource: 1.1.0
       fastify: 3.20.2
       graphql: 15.4.0-experimental-stream-defer.1
       graphql-ez: link:../../core/main
@@ -639,24 +633,20 @@ importers:
 
   packages/hapi/main:
     specifiers:
-      '@types/eventsource': 1.1.6
       '@types/hapi__hapi': 20.0.9
       '@types/node': ^16.6.1
       bob-esbuild-cli: ^1.0.1
       changesets-github-release: 0.0.3
-      eventsource: 1.1.0
       graphql: 15.4.0-experimental-stream-defer.1
       graphql-ez: workspace:^0.11.0
       jest: 27.0.6
       ts-jest: 27.0.5
       typescript: 4.4.1-rc
     devDependencies:
-      '@types/eventsource': 1.1.6
       '@types/hapi__hapi': 20.0.9
       '@types/node': 16.6.1
       bob-esbuild-cli: 1.0.1_bob-esbuild@1.2.3
       changesets-github-release: 0.0.3
-      eventsource: 1.1.0
       graphql: 15.4.0-experimental-stream-defer.1
       graphql-ez: link:../../core/main
       jest: 27.0.6
@@ -736,12 +726,10 @@ importers:
   packages/http/main:
     specifiers:
       '@types/cors': ^2.8.12
-      '@types/eventsource': 1.1.6
       '@types/node': ^16.6.1
       bob-esbuild-cli: ^1.0.1
       changesets-github-release: 0.0.3
       cors: ^2.8.5
-      eventsource: 1.1.0
       graphql: 15.4.0-experimental-stream-defer.1
       graphql-ez: workspace:^0.11.0
       jest: 27.0.6
@@ -751,11 +739,9 @@ importers:
       '@types/cors': 2.8.12
       cors: 2.8.5
     devDependencies:
-      '@types/eventsource': 1.1.6
       '@types/node': 16.6.1
       bob-esbuild-cli: 1.0.1_bob-esbuild@1.2.3
       changesets-github-release: 0.0.3
-      eventsource: 1.1.0
       graphql: 15.4.0-experimental-stream-defer.1
       graphql-ez: link:../../core/main
       jest: 27.0.6
@@ -766,7 +752,6 @@ importers:
     specifiers:
       '@koa/cors': ^3.1.0
       '@koa/router': 10.1.0
-      '@types/eventsource': 1.1.6
       '@types/koa': 2.13.4
       '@types/koa__cors': ^3.0.3
       '@types/koa__router': 8.0.7
@@ -774,7 +759,6 @@ importers:
       '@types/node': ^16.6.1
       bob-esbuild-cli: ^1.0.1
       changesets-github-release: 0.0.3
-      eventsource: 1.1.0
       graphql: 15.4.0-experimental-stream-defer.1
       graphql-ez: workspace:^0.11.0
       jest: 27.0.6
@@ -789,13 +773,11 @@ importers:
       koa-bodyparser: 4.3.0
     devDependencies:
       '@koa/router': 10.1.0
-      '@types/eventsource': 1.1.6
       '@types/koa': 2.13.4
       '@types/koa__router': 8.0.7
       '@types/node': 16.6.1
       bob-esbuild-cli: 1.0.1_bob-esbuild@1.2.3
       changesets-github-release: 0.0.3
-      eventsource: 1.1.0
       graphql: 15.4.0-experimental-stream-defer.1
       graphql-ez: link:../../core/main
       jest: 27.0.6
@@ -807,14 +789,12 @@ importers:
     specifiers:
       '@graphql-tools/schema': ^8.1.1
       '@types/cors': ^2.8.12
-      '@types/eventsource': ^1.1.6
       '@types/node': ^16.6.1
       '@types/react': ^17.0.18
       '@types/react-dom': ^17.0.9
       bob-esbuild-cli: ^1.0.1
       changesets-github-release: 0.0.3
       cors: ^2.8.5
-      eventsource: ^1.1.0
       graphql: 15.4.0-experimental-stream-defer.1
       graphql-ez: workspace:^0.11.0
       jest: 27.0.6
@@ -828,13 +808,11 @@ importers:
       cors: 2.8.5
     devDependencies:
       '@graphql-tools/schema': 8.1.1_34dd13c2583fe2e4418c23a0d30fc388
-      '@types/eventsource': 1.1.6
       '@types/node': 16.6.1
       '@types/react': 17.0.18
       '@types/react-dom': 17.0.9
       bob-esbuild-cli: 1.0.1_bob-esbuild@1.2.3
       changesets-github-release: 0.0.3
-      eventsource: 1.1.0
       graphql: 15.4.0-experimental-stream-defer.1
       graphql-ez: link:../../core/main
       jest: 27.0.6
@@ -1095,39 +1073,6 @@ importers:
       graphql-ez: link:../../core/main
       jest: 27.0.6
       ts-jest: 27.0.5_d783205d652bcb54bcd705f572b6bac6
-
-  packages/testing/main:
-    specifiers:
-      '@types/eventsource': ^1.1.6
-      '@types/node': ^16.6.1
-      bob-esbuild-cli: ^1.0.1
-      eventsource: ^1.1.0
-      get-port: ^5.1.1
-      graphql: 15.4.0-experimental-stream-defer.1
-      graphql-ez: workspace:^0.11.0
-      graphql-ez-testing: workspace:^1.0.0
-      graphql-ws: ^5.3.0
-      jest: ^27.0.6
-      subscriptions-transport-ws-envelop: ^1.0.5
-      typescript: ^4.3.5
-      undici: ^4.4.4
-      ws: ^7.5.3
-    dependencies:
-      eventsource: 1.1.0
-      get-port: 5.1.1
-      graphql-ws: 5.3.0_34dd13c2583fe2e4418c23a0d30fc388
-      subscriptions-transport-ws-envelop: 1.0.5_256c795de05385da778b55cce5656df6
-      undici: 4.4.4
-      ws: 7.5.3
-    devDependencies:
-      '@types/eventsource': 1.1.6
-      '@types/node': 16.6.1
-      bob-esbuild-cli: 1.0.1_bob-esbuild@1.2.3
-      graphql: 15.4.0-experimental-stream-defer.1
-      graphql-ez: link:../../core/main
-      graphql-ez-testing: link:../../../internal/testing
-      jest: 27.0.6
-      typescript: 4.3.5
 
   yoga/express:
     specifiers:
@@ -5977,7 +5922,7 @@ packages:
     dependencies:
       caniuse-lite: 1.0.30001251
       colorette: 1.3.0
-      electron-to-chromium: 1.3.808
+      electron-to-chromium: 1.3.810
       escalade: 3.1.1
       node-releases: 1.1.74
 
@@ -5988,7 +5933,7 @@ packages:
     dependencies:
       caniuse-lite: 1.0.30001251
       colorette: 1.3.0
-      electron-to-chromium: 1.3.808
+      electron-to-chromium: 1.3.810
       escalade: 3.1.1
       node-releases: 1.1.74
 
@@ -7224,8 +7169,8 @@ packages:
   /ee-first/1.1.1:
     resolution: {integrity: sha1-WQxhFWsK4vTwJVcyoViyZrxWsh0=}
 
-  /electron-to-chromium/1.3.808:
-    resolution: {integrity: sha512-espnsbWTuUw0a2jMwfabCc09py2ujB+FZZE1hZWn5yYijEmxzEhdhTLKUfZGjynHvdIMQ4X/Pr/t8s4eiyH/QQ==}
+  /electron-to-chromium/1.3.810:
+    resolution: {integrity: sha512-NteznMlGtkIZCJNM2X6AVm3oMqWAdq7TjqagZhmVLPwd9mtrIq+rRxGHerjFAOFIqQJYQUMT72ncd/lVcH1cOw==}
 
   /elliptic/6.5.4:
     resolution: {integrity: sha512-iLhC6ULemrljPZb+QutR5TQGB+pdW6KGD5RSegS+8sorOZT+rdQFbsQFJgvN3eRqNALqJer4oQ16YvJHlU8hzQ==}
@@ -7485,6 +7430,7 @@ packages:
     engines: {node: '>=0.12.0'}
     dependencies:
       original: 1.0.2
+    dev: true
 
   /evp_bytestokey/1.0.3:
     resolution: {integrity: sha512-/f2Go4TognH/KvCISP7OUsHn85hT9nUkxxA9BEWxFn+Oj9o8ZNLm/40hdlgSLyuOimsrTKLUMEorQexp/aPQeA==}
@@ -8100,6 +8046,7 @@ packages:
   /get-port/5.1.1:
     resolution: {integrity: sha512-g/Q1aTSDOxFpchXC4i8ZWvxA1lnPqx/JHqcpIw0/LX9T8x/GBbi6YnlN5nhaKIFkT8oFsscUKgDJYxfwfS6QsQ==}
     engines: {node: '>=8'}
+    dev: true
 
   /get-stdin/9.0.0:
     resolution: {integrity: sha512-dVKBjfWisLAicarI2Sf+JuBE/DghV4UzNAVe9yhEJuzeREd3JhOTE9cUaJTeSa77fsbQUK3pcOpJfM59+VKZaA==}
@@ -11288,6 +11235,7 @@ packages:
     resolution: {integrity: sha512-hyBVl6iqqUOJ8FqRe+l/gS8H+kKYjrEndd5Pm1MfBtsEKA038HkkdbAl/72EAXGyonD/PFsvmVG+EvcIpliMBg==}
     dependencies:
       url-parse: 1.5.3
+    dev: true
 
   /os-browserify/0.3.0:
     resolution: {integrity: sha1-hUNzx/XCMVkU/Jv8a9gjj92h7Cc=}
@@ -11904,6 +11852,7 @@ packages:
 
   /querystringify/2.2.0:
     resolution: {integrity: sha512-FIqgj2EUvTa7R50u0rGsyTftzjYmv/a3hO345bZNrqabNqjtgiDMgmo4mkUjd+nzU5oF3dClKqFIPUKybUyqoQ==}
+    dev: true
 
   /queue-microtask/1.2.3:
     resolution: {integrity: sha512-NuaNSa6flKT5JaSYQzJok04JzTL1CA6aGhv5rfLW3PgqA+M2ChpZQnAC8h8i4ZFkBS8X5RqkDBHA7r4hej3K9A==}
@@ -12544,6 +12493,7 @@ packages:
 
   /requires-port/1.0.0:
     resolution: {integrity: sha1-kl0mAdOaxIXgkc8NpcbmlNw9yv8=}
+    dev: true
 
   /resize-observer-polyfill/1.5.1:
     resolution: {integrity: sha512-LwZrotdHOo12nQuZlHEmtuXdqGoOD0OhaxopaNFxWzInpEgaLWoVuAMbTzixuosCx2nEG58ngzW3vxdWoxIgdg==}
@@ -14168,12 +14118,6 @@ packages:
       is-typedarray: 1.0.0
     dev: true
 
-  /typescript/4.3.5:
-    resolution: {integrity: sha512-DqQgihaQ9cUrskJo9kIyW/+g0Vxsk8cDtZ52a3NGh0YNTfpUSArXSohyUGnvbPazEPLu398C0UxmKSOrPumUzA==}
-    engines: {node: '>=4.2.0'}
-    hasBin: true
-    dev: true
-
   /typescript/4.4.1-rc:
     resolution: {integrity: sha512-SYdeKrJiOajqNTI+sweR70JET43Z567HFNo7DvvBof8J5/bt2cywy7VoWXqZyrsHEmQ9foraLtLr30mcfpfz9w==}
     engines: {node: '>=4.2.0'}
@@ -14211,6 +14155,7 @@ packages:
   /undici/4.4.4:
     resolution: {integrity: sha512-UTVdW5XyG5PAufwBxCm6Faw9fXgExEXIDArAVigsJloMC8y3HQypSkZpWaNqCJvV1wP07iK8L1OdiZfv5yC2oA==}
     engines: {node: '>=12.18'}
+    dev: true
 
   /unherit/1.1.3:
     resolution: {integrity: sha512-Ft16BJcnapDKp0+J/rqFC3Rrk6Y/Ng4nzsC028k2jdDII/rdZ7Wd3pPT/6+vIIxRagwRc9K0IUX0Ra4fKvw+WQ==}
@@ -14420,6 +14365,7 @@ packages:
     dependencies:
       querystringify: 2.2.0
       requires-port: 1.0.0
+    dev: true
 
   /url/0.11.0:
     resolution: {integrity: sha1-ODjpfPxgUh63PFJajlW/3Z4uKPE=}
