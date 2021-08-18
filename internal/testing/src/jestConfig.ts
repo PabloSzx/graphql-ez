@@ -34,18 +34,12 @@ export function getConfig({
   }
 
   return {
-    preset: 'ts-jest',
     testMatch: [process.cwd().replace(/\\/g, '/') + '/test/**/*.test.ts'],
     testEnvironment: 'node',
     transform: { '\\.[jt]sx?$': 'es-jest' },
     modulePathIgnorePatterns: ['/dist/'],
     testPathIgnorePatterns: ['/node_modules/', '/dist/', '/.next'],
     coveragePathIgnorePatterns: ['node_modules', '/.next'],
-    globals: {
-      'ts-jest': {
-        diagnostics: false,
-      },
-    },
     moduleNameMapper: pathsToModuleNameMapper(readJSONSync(resolve(rootPath, 'tsconfig.json')).compilerOptions.paths, { prefix }),
     collectCoverage: true,
     globalSetup: nextjs ? './setup-test.js' : undefined,
