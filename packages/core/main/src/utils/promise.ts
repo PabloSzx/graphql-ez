@@ -35,15 +35,47 @@ export interface DeferredPromise<T> {
   reject: (reason: unknown) => void;
 }
 
-export function createDeferredPromise<T = void>(): DeferredPromise<T> {
-  let resolve!: (value: T) => void;
-  let reject!: (reason: unknown) => void;
+export function createDeferredPromise<T = void>(timeoutTime?: number): DeferredPromise<T> {
+  const resolve = (value: T) => {
+    timeout != null && clearTimeout(timeout);
 
-  // eslint-disable-next-line promise/param-names
-  const promise = new Promise<T>((resolveFn, rejectFn) => {
-    resolve = resolveFn;
-    reject = rejectFn;
+    middlePromiseResolve({
+      value,
+      resolved: true,
+    });
+  };
+
+  const reject = (err: unknown) => {
+    timeout != null && clearTimeout(timeout);
+
+    middlePromiseResolve({
+      value: err,
+      resolved: false,
+    });
+  };
+
+  let middlePromiseResolve!: (value: { value: unknown; resolved: boolean }) => void;
+  const MiddlePromise = new Promise<{
+    value: unknown;
+    resolved: boolean;
+  }>(resolve => {
+    middlePromiseResolve = resolve;
   });
+
+  const promise = LazyPromise<T>(async () => {
+    const { resolved, value } = await MiddlePromise;
+
+    if (resolved) return value as T;
+
+    throw value;
+  });
+
+  let timeout: ReturnType<typeof setTimeout> | undefined;
+  if (timeoutTime != null) {
+    timeout = setTimeout(() => {
+      reject(Error(`Timed out after ${timeoutTime}ms.`));
+    }, timeoutTime);
+  }
 
   return {
     promise,
