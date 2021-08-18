@@ -9,3 +9,9 @@ export function withTrailingSlash(path: string) {
 export function withoutTrailingSlash(path: string) {
   return path.endsWith('/') ? path.slice(0, path.length - 1) : path;
 }
+
+export function getURLWebsocketVersion(endpoint: string, base?: string) {
+  const url = new URL(endpoint, base);
+  url.protocol = url.protocol.replace('http', 'ws');
+  return url;
+}

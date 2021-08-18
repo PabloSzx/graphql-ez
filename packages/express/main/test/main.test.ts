@@ -131,7 +131,7 @@ test.concurrent('basic', async () => {
     }
   `);
 
-  expect(printSchema((await ezApp.getEnveloped)().schema)).toMatchInlineSnapshot(`
+  expect(printSchema(ezApp.getEnveloped().schema)).toMatchInlineSnapshot(`
     "type Query {
       hello: String!
       users: [User!]!
