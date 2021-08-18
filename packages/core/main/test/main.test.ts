@@ -1,6 +1,13 @@
 import EventSource from 'eventsource';
-import got from 'got';
-import { CommonSchema, gql, makeExecutableSchema, PingSubscription, startFastifyServer, useSchema } from 'graphql-ez-testing';
+import {
+  CommonSchema,
+  gql,
+  makeExecutableSchema,
+  PingSubscription,
+  startFastifyServer,
+  useSchema,
+  expectCommonQueryStream,
+} from 'graphql-ez-testing';
 
 import { useExtendContext } from '@envelop/core';
 import { CreateApp } from '@graphql-ez/fastify';
@@ -76,29 +83,7 @@ test.concurrent('query with @stream', async () => {
     },
   });
 
-  const stream = got.stream.post(`${address}/graphql`, {
-    json: {
-      query: `
-        query {
-          stream @stream(initialCount: 1)
-        }
-        `,
-    },
-  });
-
-  try {
-    const chunks: string[] = [];
-    for await (const chunk of stream) {
-      chunks.push(chunk.toString());
-    }
-    expect(chunks).toHaveLength(3);
-    expect(chunks[0]).toContain(`{"data":{"stream":["A"]},"hasNext":true}`);
-    expect(chunks[1]).toContain(`{"data":"B","path":["stream",1],"hasNext":true}`);
-    expect(chunks[2]).toContain(`{"data":"C","path":["stream",2],"hasNext":true}`);
-  } catch (err) {
-    stream.destroy();
-    throw err;
-  }
+  await expectCommonQueryStream(address);
 });
 
 test.concurrent('SSE subscription', async () => {

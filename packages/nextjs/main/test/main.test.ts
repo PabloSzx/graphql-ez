@@ -1,10 +1,9 @@
 import EventSource from 'eventsource';
-import got from 'got';
 import { printSchema } from 'graphql';
 
 import { CommonSchema, startNextJSServer } from 'graphql-ez-testing';
 
-export { EventSource, got, printSchema, CommonSchema };
+export { EventSource, printSchema, CommonSchema };
 
 test.concurrent('basic', async () => {
   const { query, addressWithoutProtocol } = await startNextJSServer([__dirname, 'main']);

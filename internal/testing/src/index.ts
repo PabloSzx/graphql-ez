@@ -413,3 +413,5 @@ export type {} from 'undici/types/dispatcher';
 
 export * from 'graphql-ez';
 export * from './common';
+
+export * from './testQueryStream';
