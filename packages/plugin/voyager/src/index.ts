@@ -1,5 +1,5 @@
-import { getObjectValue } from 'graphql-ez/utils/object';
-import { LazyPromise } from 'graphql-ez/utils/promise';
+import { getObjectValue } from '@graphql-ez/utils/object';
+import { LazyPromise } from '@graphql-ez/utils/promise';
 
 import { onIntegrationRegister } from './integrations';
 

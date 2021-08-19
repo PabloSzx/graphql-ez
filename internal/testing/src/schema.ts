@@ -1,5 +1,5 @@
 import safeStringify from 'fast-safe-stringify';
-import { gql } from 'graphql-ez/utils/gql';
+import { gql } from '@graphql-ez/utils/gql';
 import { createModule } from 'graphql-modules';
 
 import { makeExecutableSchema } from '@graphql-tools/schema';

@@ -1,7 +1,7 @@
 import { existsSync, promises } from 'fs';
 import { dirname } from 'path';
 
-import { LazyPromise } from 'graphql-ez/utils/promise';
+import { LazyPromise } from '@graphql-ez/utils/promise';
 
 const mkdirp = LazyPromise(() => import('mkdirp').then(v => v.default));
 

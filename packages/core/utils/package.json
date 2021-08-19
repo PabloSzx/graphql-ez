@@ -1,0 +1,41 @@
+{
+  "name": "@graphql-ez/utils",
+  "version": "0.0.1",
+  "homepage": "https://www.graphql-ez.com",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/PabloSzx/graphql-ez",
+    "directory": "packages/core/utils"
+  },
+  "license": "MIT",
+  "author": "PabloSz <pablosaez1995@gmail.com>",
+  "exports": {
+    ".": {
+      "require": "./dist/index.js",
+      "import": "./dist/index.mjs"
+    },
+    "./*": {
+      "require": "./dist/*.js",
+      "import": "./dist/*.mjs"
+    },
+    "./utils/*": {
+      "require": "./dist/utils.js",
+      "import": "./dist/utils.mjs"
+    }
+  },
+  "scripts": {
+    "prepack": "bob-esbuild build"
+  },
+  "devDependencies": {
+    "@types/node": "^16.6.2",
+    "bob-esbuild-cli": "^1.0.1",
+    "graphql": "15.4.0-experimental-stream-defer.1"
+  },
+  "peerDependencies": {
+    "@types/node": "*",
+    "graphql": "*"
+  },
+  "publishConfig": {
+    "directory": "dist"
+  }
+}

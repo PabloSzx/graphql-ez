@@ -1,4 +1,4 @@
-import { getObjectValue } from './utils/object';
+import { getObjectValue } from '@graphql-ez/utils/object';
 
 import type { ParserCacheOptions } from '@envelop/parser-cache';
 import type { ValidationCacheOptions } from '@envelop/validation-cache';

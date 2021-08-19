@@ -1,7 +1,7 @@
 import EventSource, { EventSourceInitDict } from 'eventsource';
 import { stripIgnoredCharacters, print, ExecutionResult } from 'graphql';
 
-import { createDeferredPromise, DeferredPromise } from 'graphql-ez/utils/promise';
+import { createDeferredPromise, DeferredPromise } from '@graphql-ez/utils/promise';
 
 import type { TypedDocumentNode } from '@graphql-typed-document-node/core';
 import type { SubscribeOptions, SubscribeFunction } from './types';

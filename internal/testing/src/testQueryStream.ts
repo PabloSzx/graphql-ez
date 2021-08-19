@@ -1,4 +1,4 @@
-import { createDeferredPromise } from 'graphql-ez/utils/promise';
+import { createDeferredPromise } from '@graphql-ez/utils/promise';
 import { PassThrough } from 'stream';
 import undici from 'undici';
 import assert from 'assert';

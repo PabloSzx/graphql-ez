@@ -5,7 +5,7 @@ import {
   createClient as createGraphQLWSClient,
 } from 'graphql-ws';
 import ws from 'isomorphic-ws';
-import { createDeferredPromise, DeferredPromise } from 'graphql-ez/utils/promise';
+import { createDeferredPromise, DeferredPromise } from '@graphql-ez/utils/promise';
 
 import { isDocumentNode } from '@graphql-tools/utils';
 

@@ -1,5 +1,5 @@
-import { cleanObject } from 'graphql-ez/utils/object';
-import { getPathname } from 'graphql-ez/utils/url';
+import { cleanObject } from '@graphql-ez/utils/object';
+import { getPathname } from '@graphql-ez/utils/url';
 
 import type WebSocket from 'ws';
 import type { IncomingMessage, Server as HttpServer } from 'http';

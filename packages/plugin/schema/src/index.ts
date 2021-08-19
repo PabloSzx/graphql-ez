@@ -1,6 +1,6 @@
 import { DocumentNode, GraphQLSchema, isSchema } from 'graphql';
 import { EZContext, EZPlugin, EZResolvers, LazyPromise, useSchema } from 'graphql-ez';
-import { cleanObject, toPlural } from 'graphql-ez/utils/object';
+import { cleanObject, toPlural } from '@graphql-ez/utils/object';
 
 import type { IResolvers, TypeSource } from '@graphql-tools/utils';
 import type { IExecutableSchemaDefinition, MergeSchemasConfig } from '@graphql-tools/schema';

@@ -1,7 +1,7 @@
 import assert from 'assert';
 
-import { cleanObject, getObjectValue } from 'graphql-ez/utils/object';
-import { LazyPromise } from 'graphql-ez/utils/promise';
+import { cleanObject, getObjectValue } from '@graphql-ez/utils/object';
+import { LazyPromise } from '@graphql-ez/utils/promise';
 
 import {
   CommonWebSocketsServerTuple,

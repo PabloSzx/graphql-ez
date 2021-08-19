@@ -22,6 +22,7 @@
     "test": "jest"
   },
   "dependencies": {
+    "@graphql-ez/utils": "workspace:^0.0.1",
     "@graphql-tools/utils": "^8.1.1",
     "@types/eventsource": "^1.1.6",
     "eventsource": "^1.1.0",
@@ -37,13 +38,11 @@
     "bob-esbuild-cli": "^1.0.1",
     "changesets-github-release": "^0.0.3",
     "graphql": "15.4.0-experimental-stream-defer.1",
-    "graphql-ez": "workspace:^0.11.0",
     "jest": "^27.0.6"
   },
   "peerDependencies": {
     "@types/node": "*",
-    "graphql": "*",
-    "graphql-ez": "workspace:^0.11.0"
+    "graphql": "*"
   },
   "publishConfig": {
     "directory": "dist"

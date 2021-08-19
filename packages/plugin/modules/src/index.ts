@@ -1,6 +1,6 @@
-import { gql } from 'graphql-ez/utils/gql';
-import { toPlural } from 'graphql-ez/utils/object';
-import { LazyPromise } from 'graphql-ez/utils/promise';
+import { gql } from '@graphql-ez/utils/gql';
+import { toPlural } from '@graphql-ez/utils/object';
+import { LazyPromise } from '@graphql-ez/utils/promise';
 import { createApplication, createModule } from 'graphql-modules';
 
 import { useGraphQLModules } from '@envelop/graphql-modules';

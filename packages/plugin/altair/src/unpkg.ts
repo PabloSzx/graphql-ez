@@ -1,7 +1,7 @@
 import fetch from 'node-fetch';
 
-import { getObjectValue } from 'graphql-ez/utils/object';
-import { withoutTrailingSlash, withTrailingSlash } from 'graphql-ez/utils/url';
+import { getObjectValue } from '@graphql-ez/utils/object';
+import { withoutTrailingSlash, withTrailingSlash } from '@graphql-ez/utils/url';
 
 import { onIntegrationRegister } from './integrations';
 

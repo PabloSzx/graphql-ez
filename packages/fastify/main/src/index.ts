@@ -1,6 +1,7 @@
 import { BaseAppBuilder, createEZAppFactory, handleRequest } from 'graphql-ez';
-import { getObjectValue } from 'graphql-ez/utils/object';
-import { LazyPromise } from 'graphql-ez/utils/promise';
+
+import { getObjectValue } from '@graphql-ez/utils/object';
+import { LazyPromise } from '@graphql-ez/utils/promise';
 
 import type { FastifyPluginCallback, FastifyInstance, RouteOptions, FastifyRequest, FastifyReply } from 'fastify';
 import type { BuildAppOptions, AppOptions, EZAppFactoryType, GetEnvelopedFn, ProcessRequestOptions } from 'graphql-ez';

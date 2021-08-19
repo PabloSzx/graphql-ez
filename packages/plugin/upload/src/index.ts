@@ -1,15 +1,15 @@
 import assert from 'assert';
 
-import { gql } from 'graphql-ez/utils/gql';
-import { getObjectValue } from 'graphql-ez/utils/object';
-import { LazyPromise } from 'graphql-ez/utils/promise';
+import { gql } from '@graphql-ez/utils/gql';
+import { getObjectValue } from '@graphql-ez/utils/object';
+import { LazyPromise } from '@graphql-ez/utils/promise';
 
 import type { EZPlugin } from 'graphql-ez';
 import type { UploadOptions, processRequest, graphqlUploadExpress, graphqlUploadKoa, GraphQLUpload } from 'graphql-upload';
 
 export type GraphQLUploadConfig = boolean | UploadOptions;
 
-export { readStreamToBuffer } from 'graphql-ez/utils/buffer';
+export { readStreamToBuffer } from '@graphql-ez/utils/buffer';
 
 declare module 'graphql-ez' {
   interface InternalAppBuildContext {

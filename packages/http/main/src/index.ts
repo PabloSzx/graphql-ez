@@ -10,7 +10,7 @@ import {
   LazyPromise,
   ProcessRequestOptions,
 } from 'graphql-ez';
-import { getPathname } from 'graphql-ez/utils/url';
+import { getPathname } from '@graphql-ez/utils/url';
 import querystring from 'querystring';
 
 import { EZCors, handleCors } from './cors';

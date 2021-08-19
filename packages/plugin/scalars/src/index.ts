@@ -1,5 +1,5 @@
-import { gql } from 'graphql-ez/utils/gql';
-import { uniqueArray } from 'graphql-ez/utils/object';
+import { gql } from '@graphql-ez/utils/gql';
+import { uniqueArray } from '@graphql-ez/utils/object';
 import { resolvers as scalarResolvers, typeDefs as scalarTypeDefs } from 'graphql-scalars';
 
 import type { EZPlugin } from 'graphql-ez';

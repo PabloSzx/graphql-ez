@@ -1,4 +1,4 @@
-import { LazyPromise } from 'graphql-ez/utils/promise';
+import { LazyPromise } from '@graphql-ez/utils/promise';
 
 import { CodegenOptions, ezCodegen } from '@graphql-ez/plugin-codegen';
 import { ezGraphiQLIDE, GraphiQLOptions } from '@graphql-ez/plugin-graphiql';

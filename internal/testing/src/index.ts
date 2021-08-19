@@ -1,5 +1,5 @@
 import getPort from 'get-port';
-import { LazyPromise, PLazy } from 'graphql-ez/utils/promise';
+import { LazyPromise, PLazy } from '@graphql-ez/utils/promise';
 import defaultsDeep from 'lodash/defaultsDeep.js';
 import { resolve } from 'path';
 

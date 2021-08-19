@@ -3,8 +3,8 @@ import { resolve } from 'path';
 
 import { printSchemaWithDirectives, Loader } from '@graphql-tools/utils';
 
-import { cleanObject } from 'graphql-ez/utils/object';
-import { LazyPromise } from 'graphql-ez/utils/promise';
+import { cleanObject } from '@graphql-ez/utils/object';
+import { LazyPromise } from '@graphql-ez/utils/promise';
 import { formatPrettier } from './prettier';
 import { writeFileIfChanged } from './write';
 

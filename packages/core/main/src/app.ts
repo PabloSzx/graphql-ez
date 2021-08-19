@@ -2,8 +2,8 @@ import { envelop, useEnvelop, useSchema } from '@envelop/core';
 
 import { ezCoreCache } from './cache';
 import { ezCoreDisableIntrospection } from './introspection';
-import { gql } from './utils/gql';
-import { cleanObject, toPlural } from './utils/object';
+import { gql } from './utils';
+import { cleanObject, toPlural } from '@graphql-ez/utils/object';
 
 import type {
   AppOptions,

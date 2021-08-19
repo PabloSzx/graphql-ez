@@ -1,4 +1,4 @@
-import { withoutTrailingSlash } from 'graphql-ez/utils/url';
+import { withoutTrailingSlash } from '@graphql-ez/utils/url';
 
 import type { InternalAppBuildContext, InternalAppBuildIntegrationContext } from 'graphql-ez';
 

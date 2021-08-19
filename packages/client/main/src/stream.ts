@@ -1,7 +1,7 @@
 import assert from 'assert';
 import { PassThrough } from 'stream';
 import { print } from 'graphql';
-import { createDeferredPromise, DeferredPromise } from 'graphql-ez/utils/promise';
+import { createDeferredPromise, DeferredPromise } from '@graphql-ez/utils/promise';
 import type { Client } from 'undici';
 
 import type { TypedDocumentNode } from '@graphql-typed-document-node/core';

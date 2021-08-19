@@ -10,7 +10,7 @@ import {
   InternalAppBuildIntegrationContext,
   ProcessRequestOptions,
 } from 'graphql-ez';
-import { getObjectValue } from 'graphql-ez/utils/object';
+import { getObjectValue } from '@graphql-ez/utils/object';
 
 import type { Server as HttpServer } from 'http';
 import type { OptionsJson as BodyParserOptions } from 'body-parser';

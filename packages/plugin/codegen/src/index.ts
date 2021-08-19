@@ -1,4 +1,4 @@
-import { toPlural } from 'graphql-ez/utils/object';
+import { toPlural } from '@graphql-ez/utils/object';
 
 import type { EZPlugin } from 'graphql-ez';
 import type { CodegenConfig } from './typescript';

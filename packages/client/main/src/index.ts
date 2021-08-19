@@ -1,7 +1,7 @@
 import { ExecutionResult, print, stripIgnoredCharacters } from 'graphql';
 import { Client } from 'undici';
-import { getURLWebsocketVersion } from 'graphql-ez/utils/url';
-import { LazyPromise } from 'graphql-ez/utils/promise';
+import { getURLWebsocketVersion } from '@graphql-ez/utils/url';
+import { LazyPromise } from '@graphql-ez/utils/promise';
 
 import type { TypedDocumentNode } from '@graphql-typed-document-node/core';
 import type { IncomingHttpHeaders } from 'http';

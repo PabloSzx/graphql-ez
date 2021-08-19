@@ -6,7 +6,7 @@ import {
 import { isDocumentNode } from '@graphql-tools/utils';
 
 import ws from 'isomorphic-ws';
-import { createDeferredPromise, DeferredPromise } from 'graphql-ez/utils/promise';
+import { createDeferredPromise, DeferredPromise } from '@graphql-ez/utils/promise';
 
 import type { SubscribeFunction } from '../types';
 

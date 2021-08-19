@@ -1,4 +1,4 @@
-import { getObjectValue } from './utils/object';
+import { getObjectValue } from '@graphql-ez/utils/object';
 
 import type { InternalAppBuildContext, EZContext, Plugin } from './index';
 import type { DisableIntrospectionOptions } from '@envelop/disable-introspection';
