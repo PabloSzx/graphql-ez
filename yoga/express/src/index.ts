@@ -4,7 +4,8 @@ import { gql, LazyPromise } from 'graphql-ez';
 import { BuildAppOptions, CreateApp, ExpressAppOptions, EZApp, EZAppBuilder } from '@graphql-ez/express';
 import { BaseYogaConfig, getYogaPreset } from '@graphql-yoga/preset';
 
-import type { Server as HTTPServer } from 'http';
+import type { Server as httpServer } from 'http';
+import type { Server as httpsServer, ServerOptions as httpsServerOptions } from 'https';
 
 export interface YogaConfig
   extends BaseYogaConfig,
@@ -24,6 +25,11 @@ export interface YogaConfig
       | 'bodyParserJSONOptions'
     > {
   buildAppOptions?: BuildAppOptions;
+
+  /**
+   * Create HTTPS Server options
+   */
+  https?: httpsServerOptions;
 }
 
 export { gql };
@@ -49,7 +55,7 @@ export interface YogaApp {
   expressApp: Application;
   ezApp: EZAppBuilder;
   builtApp: Promise<EZApp>;
-  start(options?: StartOptions): Promise<HTTPServer>;
+  start(options?: StartOptions): Promise<httpServer | httpsServer>;
 }
 
 export function GraphQLServer(config: YogaConfig = {}): YogaApp {
@@ -68,6 +74,7 @@ export function GraphQLServer(config: YogaConfig = {}): YogaApp {
     prepare,
     schema,
     bodyParserJSONOptions,
+    https,
     ...presetOptions
   } = config;
 
@@ -93,6 +100,18 @@ export function GraphQLServer(config: YogaConfig = {}): YogaApp {
 
   const expressApp = Express();
 
+  const serverPromise = LazyPromise<httpServer | httpsServer>(async () => {
+    if (https) {
+      const { createServer } = await import('https');
+
+      return createServer(https, expressApp);
+    }
+
+    const { createServer } = await import('http');
+
+    return createServer(expressApp);
+  });
+
   const builtApp = LazyPromise(() => {
     return ezApp.buildApp({ app: expressApp, ...buildAppOptions });
   });
@@ -102,7 +121,9 @@ export function GraphQLServer(config: YogaConfig = {}): YogaApp {
 
     expressApp.use(router);
 
-    return expressApp.listen({ port: typeof port === 'string' ? parseInt(port) : port, host, ...rest });
+    const server = await serverPromise;
+
+    return server.listen({ port: typeof port === 'string' ? parseInt(port) : port, host, ...rest });
   }
 
   return {

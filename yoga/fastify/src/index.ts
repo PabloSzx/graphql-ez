@@ -1,4 +1,7 @@
-import Fastify, { FastifyServerOptions, FastifyInstance } from 'fastify';
+import type { Server as httpsServer } from 'https';
+import type { Server as HttpServer } from 'http';
+
+import Fastify, { FastifyServerOptions, FastifyHttpsOptions, FastifyInstance, FastifyLoggerInstance } from 'fastify';
 import { LazyPromise, gql } from 'graphql-ez';
 
 import { BuildAppOptions, CreateApp, EZAppBuilder, EZApp, FastifyAppOptions } from '@graphql-ez/fastify';
@@ -23,7 +26,9 @@ export interface YogaConfig
     > {
   buildAppOptions?: BuildAppOptions;
 
-  serverOptions?: FastifyServerOptions;
+  serverOptions?:
+    | FastifyServerOptions<HttpServer, FastifyLoggerInstance>
+    | FastifyHttpsOptions<httpsServer, FastifyLoggerInstance>;
 }
 
 export { gql };
