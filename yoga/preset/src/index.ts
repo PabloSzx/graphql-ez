@@ -1,12 +1,12 @@
-import { LazyPromise } from '@graphql-ez/utils/promise';
-
 import { CodegenOptions, ezCodegen } from '@graphql-ez/plugin-codegen';
 import { ezGraphiQLIDE, GraphiQLOptions } from '@graphql-ez/plugin-graphiql';
 import { ezSchema, EZSchemaOptions } from '@graphql-ez/plugin-schema';
 import { ezUpload, GraphQLUploadConfig } from '@graphql-ez/plugin-upload';
 import { ezWebSockets, WebSocketOptions } from '@graphql-ez/plugin-websockets';
+import { LazyPromise } from '@graphql-ez/utils/promise';
 
-import type { EZPreset, Plugin as EnvelopPlugin, PromiseOrValue, NullableEZPlugin } from 'graphql-ez';
+import type { IMocks, IMockStore, TypePolicy } from '@graphql-tools/mock';
+import type { EZPreset, Plugin as EnvelopPlugin, PromiseOrValue, NullableEZPlugin, EZResolvers } from 'graphql-ez';
 
 import type { IMiddleware, IMiddlewareGenerator } from 'graphql-middleware';
 
@@ -32,6 +32,28 @@ export interface BaseYogaConfig extends EZSchemaOptions {
    * @default true
    */
   graphiql?: GraphiQLOptions | boolean;
+
+  /**
+   * Applies `mocks` to schema, check https://www.graphql-tools.com/docs/mocking
+   */
+  mocks?:
+    | {
+        store?: IMockStore;
+        mocks?: IMocks;
+        typePolicies?: {
+          [typeName: string]: TypePolicy;
+        };
+        resolvers?: EZResolvers | ((store: IMockStore) => EZResolvers);
+        /**
+         * Set to `true` to prevent existing resolvers from being
+         * overwritten to provide mock data. This can be used to mock some parts of the
+         * server and not others.
+         *
+         * @default false
+         */
+        preserveResolvers?: boolean;
+      }
+    | boolean;
 }
 
 export interface PresetConfig {
@@ -50,6 +72,8 @@ export function getYogaPreset(config: BaseYogaConfig & PresetConfig = {}): EZPre
     executableSchemaConfig,
     mergeSchemasConfig,
     schema,
+    mocks,
+    transformFinalSchema,
   } = config;
 
   const ezPlugins: NullableEZPlugin[] = [];
@@ -64,13 +88,28 @@ export function getYogaPreset(config: BaseYogaConfig & PresetConfig = {}): EZPre
     ezPlugins,
   };
 
-  ezPlugins.push(
-    ezSchema({
+  {
+    const ezSchemaOptions: EZSchemaOptions = {
       schema,
       executableSchemaConfig,
       mergeSchemasConfig,
-    })
-  );
+      transformFinalSchema: mocks
+        ? async schema => {
+            const { addMocksToSchema } = await import('@graphql-tools/mock');
+            const mockedSchema = addMocksToSchema({
+              schema,
+              ...(typeof mocks === 'object' ? mocks : {}),
+            });
+
+            if (transformFinalSchema) return transformFinalSchema(mockedSchema);
+
+            return mockedSchema;
+          }
+        : transformFinalSchema,
+    };
+
+    ezPlugins.push(ezSchema(ezSchemaOptions));
+  }
 
   if (graphiql) {
     ezPlugins.push(ezGraphiQLIDE(graphiql));
