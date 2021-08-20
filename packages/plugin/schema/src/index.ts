@@ -5,6 +5,8 @@ import { cleanObject, toPlural } from '@graphql-ez/utils/object';
 import type { IResolvers, TypeSource } from '@graphql-tools/utils';
 import type { IExecutableSchemaDefinition, MergeSchemasConfig } from '@graphql-tools/schema';
 
+import type * as GraphQLToolSchema from '@graphql-tools/schema';
+
 export interface EZExecutableSchemaDefinition<TContext = EZContext>
   extends Omit<IExecutableSchemaDefinition<TContext>, 'resolvers'> {
   resolvers?: EZResolvers | EZResolvers[];
@@ -33,6 +35,11 @@ export interface EZSchemaOptions {
    * Customize configuration of executable schema definition
    */
   executableSchemaConfig?: Partial<EZExecutableSchemaDefinition>;
+
+  /**
+   * Transform the final schema obtained
+   */
+  transformFinalSchema?: (schema: GraphQLSchema) => GraphQLSchema | Promise<GraphQLSchema>;
 }
 
 export interface RegisterTypeDefs {
@@ -51,7 +58,10 @@ declare module 'graphql-ez' {
   }
 
   interface InternalAppBuildContext {
-    schemaPlugin?: boolean;
+    schemaPlugin?: {
+      options: EZSchemaOptions;
+      toolsSchema: Promise<typeof GraphQLToolSchema>;
+    };
 
     extraSchemaDefinitions?: (ExtraSchemaDef | Promise<ExtraSchemaDef>)[];
 
@@ -73,12 +83,11 @@ export { gql } from 'graphql-ez';
 export const ezSchema = (options: EZSchemaOptions = {}): EZPlugin => {
   const toolsSchemaPrimise = LazyPromise(() => import('@graphql-tools/schema'));
 
-  const { schema, mergeSchemasConfig } = options;
-
+  const schemaPlugin = { options: { ...options }, toolsSchema: toolsSchemaPrimise };
   return {
     name: 'EZ Schema',
     onRegister(ctx) {
-      ctx.schemaPlugin = true;
+      ctx.schemaPlugin = schemaPlugin;
 
       ctx.appBuilder.registerTypeDefs = registerTypeDefs;
 
@@ -101,16 +110,19 @@ export const ezSchema = (options: EZSchemaOptions = {}): EZPlugin => {
       }
     },
     async onPreBuild(ctx) {
+      const options = schemaPlugin.options;
       const extraSchemaDefs = ctx.extraSchemaDefinitions ? await Promise.all(ctx.extraSchemaDefinitions) : [];
 
-      const extraTypeDefs = [...extraSchemaDefs.flatMap(v => v.typeDefs), ...toPlural(mergeSchemasConfig?.typeDefs)];
+      const extraTypeDefs = [...extraSchemaDefs.flatMap(v => v.typeDefs), ...toPlural(options.mergeSchemasConfig?.typeDefs)];
       const extraResolvers: EZResolvers[] = [
         ...extraSchemaDefs.flatMap<EZResolvers>(v => v.resolvers),
-        ...toPlural(mergeSchemasConfig?.resolvers),
+        ...toPlural(options.mergeSchemasConfig?.resolvers),
       ];
 
       const schemaList =
-        ctx.options.schema && ctx.options.schema !== 'dynamic' ? [ctx.options.schema, ...toPlural(schema)] : toPlural(schema);
+        ctx.options.schema && ctx.options.schema !== 'dynamic'
+          ? [ctx.options.schema, ...toPlural(options.schema)]
+          : toPlural(options.schema);
 
       const registeredResolvers = ctx.registeredResolvers;
       const registeredTypeDefs = ctx.registeredTypeDefs;
@@ -164,13 +176,13 @@ export const ezSchema = (options: EZSchemaOptions = {}): EZPlugin => {
 
       if (schemas.length > 1) {
         finalSchema = (await toolsSchemaPrimise).mergeSchemas({
-          ...cleanObject(mergeSchemasConfig),
+          ...cleanObject(options.mergeSchemasConfig),
           schemas: [...modulesSchemaList, ...schemas],
         });
       } else if (schemas[0]) {
         finalSchema = modulesSchemaList[0]
           ? (await toolsSchemaPrimise).mergeSchemas({
-              ...cleanObject(mergeSchemasConfig),
+              ...cleanObject(options.mergeSchemasConfig),
               schemas: [...modulesSchemaList, schemas[0]],
             })
           : schemas[0];
@@ -181,6 +193,9 @@ export const ezSchema = (options: EZSchemaOptions = {}): EZPlugin => {
       }
 
       if (finalSchema) {
+        if (options.transformFinalSchema) {
+          finalSchema = await options.transformFinalSchema(finalSchema);
+        }
         ctx.options.envelop.plugins.push(useSchema(finalSchema));
       }
     },
