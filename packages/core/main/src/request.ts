@@ -1,13 +1,14 @@
-import type { IncomingMessage, ServerResponse } from 'http';
-import type { BuildContextArgs, HandleRequestOptions, EZResponse, Request } from './index';
 import {
-  processRequest,
-  getGraphQLParameters,
   ExecutionContext,
+  getGraphQLParameters,
   MultipartResponse,
-  Push,
+  processRequest,
   ProcessRequestOptions as HelixProcessRequestOptions,
+  ProcessRequestResult,
+  Push,
 } from '@pablosz/graphql-helix';
+import type { IncomingMessage, ServerResponse } from 'http';
+import type { BuildContextArgs, EZContext, EZResponse, HandleRequestOptions, Request } from './index';
 
 export interface HelixContext extends Omit<ExecutionContext, 'request'> {
   request: Request;
@@ -28,6 +29,7 @@ export async function handleRequest<TReturn = unknown>({
   baseOptions,
   processRequestOptions,
   req,
+  preProcessRequest,
 }: HandleRequestOptions<BuildContextArgs, TReturn>): Promise<TReturn> {
   const { parse, validate, contextFactory, execute, schema, subscribe } = getEnveloped(
     Object.assign({ req }, buildContext ? await buildContext(contextArgs()) : undefined)
@@ -44,9 +46,9 @@ export async function handleRequest<TReturn = unknown>({
 
     const payload = await Promise.all(
       request.body.map(async body => {
-        const { operationName, query, variables } = getGraphQLParameters({ ...request, body });
+        const { operationName, query, variables, extensions } = getGraphQLParameters({ ...request, body });
 
-        const options: HelixProcessRequestOptions<Record<string, unknown>, unknown> = {
+        const options: HelixProcessRequestOptions<any, unknown> = {
           operationName,
           query,
           variables,
@@ -57,13 +59,30 @@ export async function handleRequest<TReturn = unknown>({
           contextFactory,
           execute,
           subscribe,
+          extensions,
         };
 
         if (processRequestOptions) {
           Object.assign(options, processRequestOptions());
         }
 
-        const result = await processRequest(options);
+        let result: ProcessRequestResult<EZContext, unknown> | undefined;
+
+        if (preProcessRequest) {
+          for (const handler of preProcessRequest) {
+            const handlerResult = await handler({
+              appOptions: baseOptions,
+              requestOptions: options,
+            });
+            if (handlerResult) {
+              result = handlerResult;
+              break;
+            }
+          }
+          if (!result) result = await processRequest(options);
+        } else {
+          result = await processRequest(options);
+        }
 
         if (result.type !== 'RESPONSE') throw Error(`Unsupported ${result.type} in Batched Queries!`);
 
@@ -83,7 +102,7 @@ export async function handleRequest<TReturn = unknown>({
 
   const { operationName, query, variables } = getGraphQLParameters(request);
 
-  const options: HelixProcessRequestOptions<Record<string, unknown>, unknown> = {
+  const options: HelixProcessRequestOptions<any, unknown> = {
     operationName,
     query,
     variables,
@@ -100,7 +119,23 @@ export async function handleRequest<TReturn = unknown>({
     Object.assign(options, processRequestOptions());
   }
 
-  const result = await processRequest(options);
+  let result: ProcessRequestResult<EZContext, unknown> | undefined;
+
+  if (preProcessRequest) {
+    for (const handler of preProcessRequest) {
+      const handlerResult = await handler({
+        appOptions: baseOptions,
+        requestOptions: options,
+      });
+      if (handlerResult) {
+        result = handlerResult;
+        break;
+      }
+    }
+    if (!result) result = await processRequest(options);
+  } else {
+    result = await processRequest(options);
+  }
 
   switch (result.type) {
     case 'RESPONSE': {

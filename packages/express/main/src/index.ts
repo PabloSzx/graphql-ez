@@ -1,3 +1,6 @@
+import { getObjectValue } from '@graphql-ez/utils/object';
+import type { OptionsJson as BodyParserOptions } from 'body-parser';
+import type { CorsOptions, CorsOptionsDelegate } from 'cors';
 import { Application, json, Request, RequestHandler, Response, Router } from 'express';
 import {
   AppOptions,
@@ -10,11 +13,7 @@ import {
   InternalAppBuildIntegrationContext,
   ProcessRequestOptions,
 } from 'graphql-ez';
-import { getObjectValue } from '@graphql-ez/utils/object';
-
 import type { Server as HttpServer } from 'http';
-import type { OptionsJson as BodyParserOptions } from 'body-parser';
-import type { CorsOptions, CorsOptionsDelegate } from 'cors';
 
 declare module 'graphql-ez' {
   interface BuildContextArgs {
@@ -105,7 +104,12 @@ export function CreateApp(config: ExpressAppOptions = {}): EZAppBuilder {
 
       if (bodyParserJSONOptions) router.use(json(getObjectValue(bodyParserJSONOptions)));
 
-      const requestHandler = ctx.options.customHandleRequest || handleRequest;
+      const {
+        preProcessRequest,
+        options: { customHandleRequest },
+      } = ctx;
+
+      const requestHandler = customHandleRequest || handleRequest;
 
       const ExpressRequestHandler: RequestHandler = (req, res, next) => {
         const request = {
@@ -142,6 +146,7 @@ export function CreateApp(config: ExpressAppOptions = {}): EZAppBuilder {
             return defaultHandle(req, res, result);
           },
           processRequestOptions: processRequestOptions && (() => processRequestOptions(req, res)),
+          preProcessRequest,
         }).catch(next);
       };
 

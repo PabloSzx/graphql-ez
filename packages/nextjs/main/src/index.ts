@@ -10,10 +10,8 @@ import {
   LazyPromise,
   ProcessRequestOptions,
 } from 'graphql-ez';
-
+import type { NextApiHandler, NextApiRequest, NextApiResponse } from 'next';
 import { EZCors, handleCors } from './cors';
-
-import type { NextApiRequest, NextApiResponse, NextApiHandler } from 'next';
 
 declare module 'graphql-ez' {
   interface BuildContextArgs {
@@ -68,6 +66,7 @@ export interface EZAppBuilder extends BaseAppBuilder {
   buildApp(options?: BuildAppOptions): EZApp;
 }
 
+export * from 'graphql-ez';
 export type { NextApiHandler } from 'next';
 
 export function CreateApp(config: NextAppOptions = {}): EZAppBuilder {
@@ -117,7 +116,12 @@ export function CreateApp(config: NextAppOptions = {}): EZAppBuilder {
 
       const corsMiddleware = await handleCors(cors);
 
-      const requestHandler = ctx.options.customHandleRequest || handleRequest;
+      const {
+        preProcessRequest,
+        options: { customHandleRequest },
+      } = ctx;
+
+      const requestHandler = customHandleRequest || handleRequest;
 
       const EZHandler: NextApiHandler = async function EZHandler(req, res) {
         if (nextHandlers.length) {
@@ -160,6 +164,7 @@ export function CreateApp(config: NextAppOptions = {}): EZAppBuilder {
             return defaultHandle(req, res, result);
           },
           processRequestOptions: processRequestOptions && (() => processRequestOptions(req, res)),
+          preProcessRequest,
         });
       };
 
@@ -183,5 +188,3 @@ export function CreateApp(config: NextAppOptions = {}): EZAppBuilder {
     buildApp,
   };
 }
-
-export * from 'graphql-ez';

@@ -1,3 +1,4 @@
+import type { Lifecycle, Plugin, Request, ResponseToolkit, RouteOptions, RouteOptionsCors, Server } from '@hapi/hapi';
 import {
   AppOptions,
   BaseAppBuilder,
@@ -9,8 +10,6 @@ import {
   InternalAppBuildIntegrationContext,
   ProcessRequestOptions,
 } from 'graphql-ez';
-
-import type { Request, ResponseToolkit, Plugin, Server, Lifecycle, RouteOptionsCors, RouteOptions } from '@hapi/hapi';
 
 declare module 'graphql-ez' {
   interface BuildContextArgs {
@@ -95,7 +94,12 @@ export function CreateApp(config: HapiAppOptions = {}): EZAppBuilder {
 
         await onIntegrationRegister(integration);
 
-        const requestHandler = ctx.options.customHandleRequest || handleRequest;
+        const {
+          preProcessRequest,
+          options: { customHandleRequest },
+        } = ctx;
+
+        const requestHandler = customHandleRequest || handleRequest;
 
         server.route({
           path,
@@ -142,6 +146,7 @@ export function CreateApp(config: HapiAppOptions = {}): EZAppBuilder {
                 return h.abandon;
               },
               processRequestOptions: processRequestOptions && (() => processRequestOptions(req, h)),
+              preProcessRequest,
             });
           },
         });

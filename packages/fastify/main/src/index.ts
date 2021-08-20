@@ -1,11 +1,9 @@
-import { BaseAppBuilder, createEZAppFactory, handleRequest } from 'graphql-ez';
-
 import { getObjectValue } from '@graphql-ez/utils/object';
 import { LazyPromise } from '@graphql-ez/utils/promise';
-
-import type { FastifyPluginCallback, FastifyInstance, RouteOptions, FastifyRequest, FastifyReply } from 'fastify';
-import type { BuildAppOptions, AppOptions, EZAppFactoryType, GetEnvelopedFn, ProcessRequestOptions } from 'graphql-ez';
+import type { FastifyInstance, FastifyPluginCallback, FastifyReply, FastifyRequest, RouteOptions } from 'fastify';
 import type { FastifyCorsOptions, FastifyCorsOptionsDelegate, FastifyPluginOptionsDelegate } from 'fastify-cors';
+import type { AppOptions, BuildAppOptions, EZAppFactoryType, GetEnvelopedFn, ProcessRequestOptions } from 'graphql-ez';
+import { BaseAppBuilder, createEZAppFactory, handleRequest } from 'graphql-ez';
 
 declare module 'graphql-ez' {
   interface BuildContextArgs {
@@ -96,7 +94,12 @@ export function CreateApp(config: FastifyAppOptions = {}): EZAppBuilder {
             await instance.register(fastifyCors, getObjectValue(cors));
           }
 
-          const requestHandler = ctx.options.customHandleRequest || handleRequest;
+          const {
+            preProcessRequest,
+            options: { customHandleRequest },
+          } = ctx;
+
+          const requestHandler = customHandleRequest || handleRequest;
 
           instance.route({
             ...routeOptions,
@@ -140,6 +143,7 @@ export function CreateApp(config: FastifyAppOptions = {}): EZAppBuilder {
                   return defaultHandle(req, reply.raw, result);
                 },
                 processRequestOptions: processRequestOptions && (() => processRequestOptions(fastifyReq, reply)),
+                preProcessRequest,
               });
             },
           });

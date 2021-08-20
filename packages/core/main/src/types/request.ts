@@ -1,9 +1,14 @@
-import type { MultipartResponse, Push } from '@pablosz/graphql-helix';
-import type { Request, ProcessRequestOptions } from './helixTypes';
-import type { GetEnvelopedFn } from '@envelop/types';
-import type { IncomingMessage, ServerResponse } from 'http';
+import type { GetEnvelopedFn, PromiseOrValue } from '@envelop/types';
+import type {
+  MultipartResponse,
+  ProcessRequestOptions as HelixProcessRequestOptions,
+  ProcessRequestResult,
+  Push,
+} from '@pablosz/graphql-helix';
 import type { ExecutionResult } from 'graphql';
-import type { AppOptions, BuildContextArgs } from '../index';
+import type { IncomingMessage, ServerResponse } from 'http';
+import type { AppOptions, BuildContextArgs, EZContext } from '../index';
+import type { ProcessRequestOptions, Request } from './helixTypes';
 
 export type EZResponse = {
   type: 'RESPONSE';
@@ -44,8 +49,23 @@ export interface HandleRequestOptions<BuildContextArgs, TReturn = unknown> {
   onPushResponse: (result: Push<unknown, unknown>, defaultHandle: DefaultPushResponseHandler) => TReturn | Promise<TReturn>;
 
   processRequestOptions: (() => ProcessRequestOptions) | undefined;
+
+  preProcessRequest: PreProcessRequest[] | undefined;
 }
 
 export type HandleRequest = <TReturn = unknown>(options: HandleRequestOptions<BuildContextArgs, TReturn>) => Promise<TReturn>;
 
 export type RequestHandler = (req: IncomingMessage, res: ServerResponse) => Promise<void> | void;
+
+/**
+ * Callback called sequentially before the default request process.
+ *
+ * You can safely mutate `requestOptions` argument
+ *
+ * If it returns an object, it interrupts the default execution returning the given payload.
+ */
+export interface PreProcessRequest {
+  (data: Readonly<{ appOptions: AppOptions; requestOptions: HelixProcessRequestOptions<EZContext, unknown> }>): PromiseOrValue<
+    ProcessRequestResult<EZContext, unknown> | undefined | null | void
+  >;
+}

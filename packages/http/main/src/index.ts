@@ -1,3 +1,4 @@
+import { getPathname } from '@graphql-ez/utils/url';
 import {
   AppOptions,
   BaseAppBuilder,
@@ -10,12 +11,9 @@ import {
   LazyPromise,
   ProcessRequestOptions,
 } from 'graphql-ez';
-import { getPathname } from '@graphql-ez/utils/url';
+import type { IncomingMessage, Server as HTTPServer, ServerResponse } from 'http';
 import querystring from 'querystring';
-
 import { EZCors, handleCors } from './cors';
-
-import type { ServerResponse, IncomingMessage, Server as HTTPServer } from 'http';
 
 declare module 'graphql-ez' {
   interface BuildContextArgs {
@@ -140,7 +138,12 @@ export function CreateApp(config: HttpAppOptions = {}): EZAppBuilder {
 
       const corsMiddleware = await handleCors(cors);
 
-      const requestHandler = ctx.options.customHandleRequest || handleRequest;
+      const {
+        preProcessRequest,
+        options: { customHandleRequest },
+      } = ctx;
+
+      const requestHandler = customHandleRequest || handleRequest;
 
       const EZHandler: AsyncRequestHandler = async function (req, res) {
         if (httpHandlers.length) {
@@ -196,6 +199,7 @@ export function CreateApp(config: HttpAppOptions = {}): EZAppBuilder {
                   return defaultHandle(req, res, result);
                 },
                 processRequestOptions: processRequestOptions && (() => processRequestOptions(req, res)),
+                preProcessRequest,
               });
             } catch (err) /* istanbul ignore next */ {
               res

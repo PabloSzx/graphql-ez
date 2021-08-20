@@ -1,20 +1,18 @@
-import bodyParser from 'koa-bodyparser';
-
+import type { Options as CorsOptions } from '@koa/cors';
+import type * as KoaRouter from '@koa/router';
 import {
   AppOptions,
   BaseAppBuilder,
   BuildAppOptions,
   createEZAppFactory,
-  GetEnvelopedFn,
   EZAppFactoryType,
+  GetEnvelopedFn,
   handleRequest,
   InternalAppBuildIntegrationContext,
   ProcessRequestOptions,
 } from 'graphql-ez';
-
-import type { Request, Response, default as KoaApp } from 'koa';
-import type { Options as CorsOptions } from '@koa/cors';
-import type * as KoaRouter from '@koa/router';
+import type { default as KoaApp, Request, Response } from 'koa';
+import bodyParser from 'koa-bodyparser';
 
 declare module 'graphql-ez' {
   interface BuildContextArgs {
@@ -117,7 +115,12 @@ export function CreateApp(config: KoaAppOptions = {}): EZAppBuilder {
 
       if (bodyParserOptions) router.use(bodyParser(bodyParserOptions));
 
-      const requestHandler = ctx.options.customHandleRequest || handleRequest;
+      const {
+        preProcessRequest,
+        options: { customHandleRequest },
+      } = ctx;
+
+      const requestHandler = customHandleRequest || handleRequest;
 
       const main: KoaRouter.Middleware = ctx => {
         const request = {
@@ -156,6 +159,7 @@ export function CreateApp(config: KoaAppOptions = {}): EZAppBuilder {
             return defaultHandle(req, ctx.res, result);
           },
           processRequestOptions: processRequestOptions && (() => processRequestOptions(ctx.request, ctx.response)),
+          preProcessRequest,
         });
       };
 

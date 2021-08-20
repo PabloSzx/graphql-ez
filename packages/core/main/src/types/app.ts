@@ -1,15 +1,15 @@
 import type { GetEnvelopedFn, Plugin } from '@envelop/types';
+import type { DocumentNode, GraphQLSchema } from 'graphql';
 import type { IncomingMessage } from 'http';
-import type { HandleRequest } from './request';
 import type {
-  InternalAppBuildIntegrationContext,
-  InternalAppBuildContext,
+  AppOptions,
   BaseAppBuilder,
   BuildAppOptions,
-  AppOptions,
+  InternalAppBuildContext,
+  InternalAppBuildIntegrationContext,
   PromiseOrValue,
 } from '../index';
-import type { DocumentNode, GraphQLSchema } from 'graphql';
+import type { HandleRequest, PreProcessRequest } from './request';
 
 export interface AdapterFactoryArgs {
   getEnveloped: GetEnvelopedFn<unknown>;
@@ -99,6 +99,7 @@ declare module '../index' {
   interface InternalAppBuildContext extends AdapterFactoryContext {
     options: ContextAppOptions;
     appBuilder: BaseAppBuilder;
+    preProcessRequest?: PreProcessRequest[];
   }
 
   interface BuildAppOptions {

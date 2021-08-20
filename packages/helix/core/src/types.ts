@@ -78,6 +78,10 @@ export interface ProcessRequestOptions<TContext, TRootValue> {
    * Values for any Variables defined by the Operation.
    */
   variables?: string | { [name: string]: any };
+  /**
+   * Extensions specified in request
+   */
+  extensions?: string | Record<string, unknown>;
 }
 
 export interface FormatPayloadParams<TContext, TRootValue> {
