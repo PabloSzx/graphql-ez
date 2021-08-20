@@ -20,6 +20,7 @@ export interface GraphQLParams {
   operationName?: string;
   query?: string;
   variables?: string | { [name: string]: any };
+  extensions?: string | Record<string, unknown>;
 }
 
 export interface ProcessRequestOptions<TContext, TRootValue> {
@@ -99,6 +100,7 @@ export interface Request {
   headers: Headers;
   method: string;
   query: any;
+  extensions?: Record<string, unknown>;
 }
 
 export type Headers = Record<string, string | string[] | undefined> | { get(name: string): string | null };
