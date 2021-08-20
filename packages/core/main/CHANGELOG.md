@@ -1,5 +1,19 @@
 # graphql-ez
 
+## 0.12.0
+
+### Minor Changes
+
+- 272c4cc: separate @graphql-ez/utils package
+- 655cea4: freeze app builder ezPlugins
+
+### Patch Changes
+
+- b0c307a: improve deferred promise preventing unhandled rejection
+- 655cea4: NullableEZPlugin type & allow Envelop plugin promise
+- Updated dependencies [272c4cc]
+  - @graphql-ez/utils@0.1.0
+
 ## 0.11.0
 
 ### Minor Changes
