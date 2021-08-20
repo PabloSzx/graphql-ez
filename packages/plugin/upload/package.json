@@ -1,6 +1,6 @@
 {
   "name": "@graphql-ez/plugin-upload",
-  "version": "0.4.2",
+  "version": "0.5.0",
   "homepage": "https://www.graphql-ez.com",
   "repository": {
     "type": "git",
@@ -34,7 +34,7 @@
     "bob-esbuild-cli": "^1.0.1",
     "changesets-github-release": "^0.0.3",
     "graphql": "15.4.0-experimental-stream-defer.1",
-    "graphql-ez": "workspace:^0.11.0",
+    "graphql-ez": "workspace:^0.12.0",
     "graphql-upload": "^12.0.0",
     "jest": "^27.0.6",
     "node-fetch": "^2.6.1",
@@ -43,7 +43,7 @@
   "peerDependencies": {
     "@types/graphql-upload": "*",
     "graphql": "*",
-    "graphql-ez": "workspace:^0.11.0",
+    "graphql-ez": "workspace:^0.12.0",
     "graphql-upload": "^12.0.0"
   },
   "peerDependenciesMeta": {
@@ -61,6 +61,6 @@
     "directory": "dist"
   },
   "dependencies": {
-    "@graphql-ez/utils": "workspace:^0.0.1"
+    "@graphql-ez/utils": "workspace:^0.1.0"
   }
 }

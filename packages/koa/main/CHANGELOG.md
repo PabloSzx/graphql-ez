@@ -1,5 +1,16 @@
 # @graphql-ez/koa
 
+## 0.8.3
+
+### Patch Changes
+
+- cf5648f: Fix usage inconsistencies of "customHandleRequest" in ctx.options
+- Updated dependencies [272c4cc]
+- Updated dependencies [655cea4]
+- Updated dependencies [b0c307a]
+- Updated dependencies [655cea4]
+  - graphql-ez@0.12.0
+
 ## 0.8.2
 
 ### Patch Changes

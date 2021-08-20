@@ -1,6 +1,6 @@
 {
   "name": "@graphql-ez/plugin-modules",
-  "version": "0.7.3",
+  "version": "0.8.0",
   "homepage": "https://www.graphql-ez.com",
   "repository": {
     "type": "git",
@@ -30,7 +30,7 @@
   },
   "dependencies": {
     "@envelop/graphql-modules": "^1.0.0",
-    "@graphql-ez/utils": "workspace:^0.0.1",
+    "@graphql-ez/utils": "workspace:^0.1.0",
     "@graphql-tools/utils": "^8.1.1",
     "graphql-modules": "^1.4.4"
   },
@@ -38,13 +38,13 @@
     "bob-esbuild-cli": "^1.0.1",
     "changesets-github-release": "^0.0.3",
     "graphql": "15.4.0-experimental-stream-defer.1",
-    "graphql-ez": "workspace:^0.11.0",
+    "graphql-ez": "workspace:^0.12.0",
     "jest": "^27.0.6",
     "ts-jest": "^27.0.5"
   },
   "peerDependencies": {
     "graphql": "*",
-    "graphql-ez": "workspace:^0.11.0"
+    "graphql-ez": "workspace:^0.12.0"
   },
   "peerDependenciesMeta": {
     "graphql": {
