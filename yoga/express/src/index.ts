@@ -1,9 +1,10 @@
 import Express, { Application } from 'express';
-import { gql, LazyPromise } from 'graphql-ez';
+import { gql, LazyPromise, PickRequired } from 'graphql-ez';
 
 import { BuildAppOptions, CreateApp, ExpressAppOptions, EZApp, EZAppBuilder } from '@graphql-ez/express';
 import { BaseYogaConfig, getYogaPreset } from '@graphql-yoga/preset';
 
+import type { ListenOptions } from 'net';
 import type { Server as httpServer } from 'http';
 import type { Server as httpsServer, ServerOptions as httpsServerOptions } from 'https';
 
@@ -34,7 +35,7 @@ export interface YogaConfig
 
 export { gql };
 
-export interface StartOptions {
+export interface StartOptions extends Omit<ListenOptions, 'port'> {
   /**
    * @default process.env.PORT || 8080
    */
@@ -55,7 +56,10 @@ export interface YogaApp {
   expressApp: Application;
   ezApp: EZAppBuilder;
   builtApp: Promise<EZApp>;
-  start(options?: StartOptions): Promise<httpServer | httpsServer>;
+  start(options?: StartOptions): Promise<{
+    server: httpServer | httpsServer;
+    listenOptions: PickRequired<ListenOptions, 'host' | 'port'>;
+  }>;
 }
 
 export function GraphQLServer(config: YogaConfig = {}): YogaApp {
@@ -123,7 +127,12 @@ export function GraphQLServer(config: YogaConfig = {}): YogaApp {
 
     const server = await serverPromise;
 
-    return server.listen({ port: typeof port === 'string' ? parseInt(port) : port, host, ...rest });
+    const listenOptions = { port: typeof port === 'string' ? parseInt(port) : port, host, ...rest };
+
+    return {
+      server: server.listen(listenOptions),
+      listenOptions,
+    };
   }
 
   return {

@@ -31,7 +31,11 @@ const { start } = GraphQLServer({
   buildContext,
 });
 
-start().catch(err => {
-  console.error(err);
-  process.exit(1);
-});
+start()
+  .then(({ listenOptions }) => {
+    console.log(`Listening on ${listenOptions.host}:${listenOptions.port}!`);
+  })
+  .catch(err => {
+    console.error(err);
+    process.exit(1);
+  });
