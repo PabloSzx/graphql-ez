@@ -84,7 +84,7 @@ export function CreateApp(config: HapiAppOptions = {}): EZAppBuilder {
 
   const buildApp: EZAppBuilder['buildApp'] = async function buildApp(buildOptions = {}) {
     const { app: registerApp, getEnveloped } = await appBuilder(buildOptions, async ({ ctx, getEnveloped }) => {
-      const { customHandleRequest, buildContext, onAppRegister, processRequestOptions } = appConfig;
+      const { buildContext, onAppRegister, processRequestOptions } = appConfig;
 
       return async function register(server: Server) {
         const integration: InternalAppBuildIntegrationContext = {
@@ -95,7 +95,7 @@ export function CreateApp(config: HapiAppOptions = {}): EZAppBuilder {
 
         await onIntegrationRegister(integration);
 
-        const requestHandler = customHandleRequest || handleRequest;
+        const requestHandler = ctx.options.customHandleRequest || handleRequest;
 
         server.route({
           path,

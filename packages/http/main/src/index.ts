@@ -114,7 +114,6 @@ export function CreateApp(config: HttpAppOptions = {}): EZAppBuilder {
     const {
       buildContext,
       handleNotFound = true,
-      customHandleRequest,
       onAppRegister,
       onBuildPromiseError = err => {
         console.error(err);
@@ -123,8 +122,6 @@ export function CreateApp(config: HttpAppOptions = {}): EZAppBuilder {
       processRequestOptions,
       cors,
     } = appConfig;
-
-    const requestHandler = customHandleRequest || handleRequest;
 
     let appHandler: AsyncRequestHandler;
     const appPromise = appBuilder(buildOptions, async ({ ctx, getEnveloped }) => {
@@ -142,6 +139,8 @@ export function CreateApp(config: HttpAppOptions = {}): EZAppBuilder {
       await onIntegrationRegister(integration);
 
       const corsMiddleware = await handleCors(cors);
+
+      const requestHandler = ctx.options.customHandleRequest || handleRequest;
 
       const EZHandler: AsyncRequestHandler = async function (req, res) {
         if (httpHandlers.length) {

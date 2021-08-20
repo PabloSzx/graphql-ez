@@ -92,7 +92,6 @@ export function CreateApp(config: KoaAppOptions = {}): EZAppBuilder {
     const { getEnveloped } = await appBuilder(buildOptions, async ({ ctx, getEnveloped }) => {
       const router = buildOptions.router;
       const {
-        customHandleRequest,
         cors,
         onAppRegister,
 
@@ -118,7 +117,7 @@ export function CreateApp(config: KoaAppOptions = {}): EZAppBuilder {
 
       if (bodyParserOptions) router.use(bodyParser(bodyParserOptions));
 
-      const requestHandler = customHandleRequest || handleRequest;
+      const requestHandler = ctx.options.customHandleRequest || handleRequest;
 
       const main: KoaRouter.Middleware = ctx => {
         const request = {

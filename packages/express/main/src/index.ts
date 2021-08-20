@@ -89,14 +89,7 @@ export function CreateApp(config: ExpressAppOptions = {}): EZAppBuilder {
     const { app: router, getEnveloped } = await appBuilder(buildOptions, async ({ ctx, getEnveloped }) => {
       const router = Router();
 
-      const {
-        cors,
-        bodyParserJSONOptions = {},
-        customHandleRequest,
-        buildContext,
-        onAppRegister,
-        processRequestOptions,
-      } = config;
+      const { cors, bodyParserJSONOptions = {}, buildContext, onAppRegister, processRequestOptions } = config;
 
       const integration: InternalAppBuildIntegrationContext = {
         express: { router, app: buildOptions.app, server: buildOptions.server },
@@ -112,7 +105,7 @@ export function CreateApp(config: ExpressAppOptions = {}): EZAppBuilder {
 
       if (bodyParserJSONOptions) router.use(json(getObjectValue(bodyParserJSONOptions)));
 
-      const requestHandler = customHandleRequest || handleRequest;
+      const requestHandler = ctx.options.customHandleRequest || handleRequest;
 
       const ExpressRequestHandler: RequestHandler = (req, res, next) => {
         const request = {
