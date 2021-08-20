@@ -23,6 +23,9 @@
       "import": "./dist/utils.mjs"
     }
   },
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
   "scripts": {
     "prepack": "bob-esbuild build"
   },
