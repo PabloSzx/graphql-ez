@@ -1152,7 +1152,6 @@ importers:
   yoga/express:
     specifiers:
       '@graphql-ez/express': workspace:^0.9.0
-      '@graphql-tools/mock': ^8.2.2
       '@graphql-yoga/preset': workspace:^1.0.1
       '@types/express': ^4.17.13
       '@types/node': ^16.6.2
@@ -1162,20 +1161,18 @@ importers:
       graphql-ez: workspace:^0.12.0
     dependencies:
       '@graphql-ez/express': link:../../packages/express/main
-      '@graphql-tools/mock': 8.2.2_34dd13c2583fe2e4418c23a0d30fc388
       '@graphql-yoga/preset': link:../preset
       '@types/express': 4.17.13
       express: 4.17.1
     devDependencies:
       '@types/node': 16.6.2
-      bob-esbuild-cli: 1.0.1
+      bob-esbuild-cli: 1.0.1_bob-esbuild@1.2.3
       graphql: 15.4.0-experimental-stream-defer.1
       graphql-ez: link:../../packages/core/main
 
   yoga/fastify:
     specifiers:
       '@graphql-ez/fastify': workspace:^0.9.0
-      '@graphql-tools/mock': ^8.2.2
       '@graphql-yoga/preset': workspace:^1.0.1
       '@types/node': ^16.6.2
       bob-esbuild-cli: ^1.0.1
@@ -1184,12 +1181,11 @@ importers:
       graphql-ez: workspace:^0.12.0
     dependencies:
       '@graphql-ez/fastify': link:../../packages/fastify/main
-      '@graphql-tools/mock': 8.2.2_34dd13c2583fe2e4418c23a0d30fc388
       '@graphql-yoga/preset': link:../preset
       fastify: 3.20.2
     devDependencies:
       '@types/node': 16.6.2
-      bob-esbuild-cli: 1.0.1
+      bob-esbuild-cli: 1.0.1_bob-esbuild@1.2.3
       graphql: 15.4.0-experimental-stream-defer.1
       graphql-ez: link:../../packages/core/main
 
@@ -1220,7 +1216,7 @@ importers:
       '@graphql-tools/utils': 8.1.1_34dd13c2583fe2e4418c23a0d30fc388
       graphql-middleware: 6.1.3_34dd13c2583fe2e4418c23a0d30fc388
     devDependencies:
-      bob-esbuild-cli: 1.0.1
+      bob-esbuild-cli: 1.0.1_bob-esbuild@1.2.3
       graphql: 15.4.0-experimental-stream-defer.1
       graphql-ez: link:../../packages/core/main
 
@@ -5801,16 +5797,6 @@ packages:
 
   /bn.js/5.2.0:
     resolution: {integrity: sha512-D7iWRBvnZE8ecXiLj/9wbxH7Tk79fAh8IHaTNq1RWRixsS02W+5qS+iE9yq6RYl0asXx5tw0bLhmT5pIfbSquw==}
-
-  /bob-esbuild-cli/1.0.1:
-    resolution: {integrity: sha512-z1WBNCPNgwL9CaQ7sTA0xGCHX0xjLKhjvMHrBmBhk/Fl3fLX78qq14CarFCRPn8MUjDXc1KDRXYSfhVcdS/rDQ==}
-    engines: {node: '>=12.0.0'}
-    hasBin: true
-    peerDependencies:
-      bob-esbuild: ^1.0.0
-    dependencies:
-      commander: 8.1.0
-    dev: true
 
   /bob-esbuild-cli/1.0.1_bob-esbuild@1.2.3:
     resolution: {integrity: sha512-z1WBNCPNgwL9CaQ7sTA0xGCHX0xjLKhjvMHrBmBhk/Fl3fLX78qq14CarFCRPn8MUjDXc1KDRXYSfhVcdS/rDQ==}

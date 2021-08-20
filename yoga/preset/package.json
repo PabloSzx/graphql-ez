@@ -18,7 +18,8 @@
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
   "scripts": {
-    "prepack": "bob-esbuild build"
+    "prepack": "bob-esbuild build",
+    "dev": "bob-esbuild watch"
   },
   "dependencies": {
     "@envelop/graphql-middleware": "^1.0.0",

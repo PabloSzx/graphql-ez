@@ -16,7 +16,7 @@ const { start } = GraphQLServer({
   },
   codegen: true,
   websockets: true,
-  upload: true,
+  uploads: true,
   schema: {
     typeDefs: gql`
       type Query {

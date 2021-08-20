@@ -24,7 +24,7 @@
     "dev:cjs:koa": "pnpm -r --filter @graphql-ez/koa dev -- --onSuccess \"cross-env PORT=3005 pnpm -r --filter example-complete-koa dev:cjs -- --silent\"",
     "dev:cjs:yoga:fastify": "pnpm -r --filter graphql-yoga dev -- --onSuccess \"cross-env PORT=3007 pnpm -r --filter example-yoga-fastify dev:cjs -- --silent\"",
     "dev:cjs:yoga:express": "pnpm -r --filter @graphql-yoga/express dev -- --onSuccess \"cross-env PORT=3008 pnpm -r --filter example-yoga-express dev:cjs -- --silent\"",
-    "dev:core": "pnpm -r --filter \"graphql-ez\" --filter \"@graphql-ez/plugin-*\" --no-sort dev",
+    "dev:core": "pnpm -r --filter \"graphql-ez\" --filter \"@graphql-ez/plugin-*\" --filter \"@graphql-yoga/preset\" --no-sort dev",
     "dev:mjs": "pnpm -w dev:mjs:all",
     "dev:mjs:all": "bob-esbuild tsc && concurrently pnpm:dev:core pnpm:dev:mjs:express pnpm:dev:mjs:fastify pnpm:dev:mjs:http pnpm:dev:mjs:koa pnpm:dev:mjs:hapi pnpm:dev:next pnpm:dev:mjs:yoga:fastify pnpm:dev:mjs:yoga:express",
     "dev:mjs:express": "pnpm -r --filter @graphql-ez/express dev -- --onSuccess \"cross-env PORT=3001 pnpm -r --filter example-complete-express dev:mjs -- --silent\"",

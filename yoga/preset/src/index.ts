@@ -14,7 +14,7 @@ export interface BaseYogaConfig extends EZSchemaOptions {
   /**
    * @default false
    */
-  upload?: GraphQLUploadConfig;
+  uploads?: GraphQLUploadConfig;
 
   middlewares?: Array<IMiddleware | IMiddlewareGenerator<any, any, any>>;
 
@@ -62,7 +62,7 @@ export interface PresetConfig {
 
 export function getYogaPreset(config: BaseYogaConfig & PresetConfig = {}): EZPreset {
   const {
-    upload = false,
+    uploads = false,
     middlewares,
     codegen = false,
     websockets = false,
@@ -119,8 +119,8 @@ export function getYogaPreset(config: BaseYogaConfig & PresetConfig = {}): EZPre
     ezPlugins.push(ezCodegen(typeof codegen === 'object' ? codegen : undefined));
   }
 
-  if (upload) {
-    ezPlugins.push(ezUpload(upload));
+  if (uploads) {
+    ezPlugins.push(ezUpload(uploads));
   }
 
   if (websockets) {
