@@ -25,8 +25,9 @@ export function handleFastify(
 
     for (const wsServer of state.wsServers) {
       for (const client of wsServer.clients) {
-        client.close();
+        client.terminate();
       }
+      wsServer.close();
     }
 
     return instance.server;

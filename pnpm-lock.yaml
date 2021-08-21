@@ -431,7 +431,7 @@ importers:
       subscriptions-transport-ws-envelop: ^1.0.6
       ts-jest: ^27.0.5
       undici: ^4.4.6
-      ws: ^7.5.3
+      ws: ^8.2.0
     devDependencies:
       '@graphql-ez/utils': link:../../packages/core/utils
       '@graphql-tools/schema': 8.1.2_34dd13c2583fe2e4418c23a0d30fc388
@@ -450,7 +450,7 @@ importers:
       '@types/koa__router': 8.0.7
       '@types/node': 16.7.1
       '@types/ws': 7.4.7
-      bob-esbuild-cli: 1.0.1_bob-esbuild@1.2.3
+      bob-esbuild-cli: 1.0.1
       es-jest: 1.3.0
       eventsource: 1.1.0
       express: 4.17.1
@@ -466,10 +466,10 @@ importers:
       graphql-ws: 5.4.0_34dd13c2583fe2e4418c23a0d30fc388
       koa: 2.13.1
       lodash: 4.17.21
-      subscriptions-transport-ws-envelop: 1.0.6_256c795de05385da778b55cce5656df6
-      ts-jest: 27.0.5_d783205d652bcb54bcd705f572b6bac6
+      subscriptions-transport-ws-envelop: 1.0.6_b697ce0cb97a3bfccb0fe73693f0400c
+      ts-jest: 27.0.5_@types+jest@27.0.1
       undici: 4.4.6
-      ws: 7.5.3
+      ws: 8.2.0
 
   internal/website:
     specifiers:
@@ -566,21 +566,21 @@ importers:
       jest: ^27.0.6
       subscriptions-transport-ws-envelop: ^1.0.6
       undici: ^4.4.6
-      ws: ^7.5.3
+      ws: ^8.2.0
     dependencies:
       '@graphql-ez/utils': link:../../core/utils
       '@graphql-tools/utils': 8.1.1_34dd13c2583fe2e4418c23a0d30fc388
       '@types/eventsource': 1.1.6
       eventsource: 1.1.0
       graphql-ws: 5.4.0_34dd13c2583fe2e4418c23a0d30fc388
-      isomorphic-ws: 4.0.1_ws@7.5.3
-      subscriptions-transport-ws-envelop: 1.0.6_256c795de05385da778b55cce5656df6
+      isomorphic-ws: 4.0.1_ws@8.2.0
+      subscriptions-transport-ws-envelop: 1.0.6_b697ce0cb97a3bfccb0fe73693f0400c
       undici: 4.4.6
-      ws: 7.5.3
+      ws: 8.2.0
     devDependencies:
       '@graphql-typed-document-node/core': 3.1.0_34dd13c2583fe2e4418c23a0d30fc388
       '@types/node': 16.7.1
-      bob-esbuild-cli: 1.0.1_bob-esbuild@1.2.3
+      bob-esbuild-cli: 1.0.1
       changesets-github-release: 0.0.3
       graphql: 15.4.0-experimental-stream-defer.1
       jest: 27.0.6
@@ -1152,6 +1152,7 @@ importers:
   packages/plugin/websockets:
     specifiers:
       '@graphql-ez/utils': workspace:^0.1.0
+      '@types/ws': ^7.4.7
       bob-esbuild-cli: ^1.0.1
       changesets-github-release: ^0.0.3
       graphql: 15.4.0-experimental-stream-defer.1
@@ -1160,19 +1161,20 @@ importers:
       jest: ^27.0.6
       subscriptions-transport-ws-envelop: ^1.0.6
       ts-jest: ^27.0.5
-      ws: ^7.5.3
+      ws: ^8.2.0
     dependencies:
       '@graphql-ez/utils': link:../../core/utils
+      '@types/ws': 7.4.7
       graphql-ws: 5.4.0_34dd13c2583fe2e4418c23a0d30fc388
-      subscriptions-transport-ws-envelop: 1.0.6_256c795de05385da778b55cce5656df6
-      ws: 7.5.3
+      subscriptions-transport-ws-envelop: 1.0.6_b697ce0cb97a3bfccb0fe73693f0400c
+      ws: 8.2.0
     devDependencies:
-      bob-esbuild-cli: 1.0.1_bob-esbuild@1.2.3
+      bob-esbuild-cli: 1.0.1
       changesets-github-release: 0.0.3
       graphql: 15.4.0-experimental-stream-defer.1
       graphql-ez: link:../../core/main
       jest: 27.0.6
-      ts-jest: 27.0.5_d783205d652bcb54bcd705f572b6bac6
+      ts-jest: 27.0.5_jest@27.0.6
 
   yoga/express:
     specifiers:
@@ -5063,7 +5065,6 @@ packages:
     resolution: {integrity: sha512-JQbbmxZTZehdc2iszGKs5oC3NFnjeay7mtAWrdt7qNtAVK0g19muApzAy4bm9byz79xa2ZnO/BOBC2R8RC5Lww==}
     dependencies:
       '@types/node': 16.7.1
-    dev: true
 
   /@types/yargs-parser/20.2.1:
     resolution: {integrity: sha512-7tFImggNeNBVMsn0vLrpn1H1uPrUBdnARPTpZoitY37ZrdJREzf7I16tMrlK3hen349gr1NYh8CmZQa7CTG6Aw==}
@@ -5826,6 +5827,16 @@ packages:
 
   /bn.js/5.2.0:
     resolution: {integrity: sha512-D7iWRBvnZE8ecXiLj/9wbxH7Tk79fAh8IHaTNq1RWRixsS02W+5qS+iE9yq6RYl0asXx5tw0bLhmT5pIfbSquw==}
+
+  /bob-esbuild-cli/1.0.1:
+    resolution: {integrity: sha512-z1WBNCPNgwL9CaQ7sTA0xGCHX0xjLKhjvMHrBmBhk/Fl3fLX78qq14CarFCRPn8MUjDXc1KDRXYSfhVcdS/rDQ==}
+    engines: {node: '>=12.0.0'}
+    hasBin: true
+    peerDependencies:
+      bob-esbuild: ^1.0.0
+    dependencies:
+      commander: 8.1.0
+    dev: true
 
   /bob-esbuild-cli/1.0.1_bob-esbuild@1.2.3:
     resolution: {integrity: sha512-z1WBNCPNgwL9CaQ7sTA0xGCHX0xjLKhjvMHrBmBhk/Fl3fLX78qq14CarFCRPn8MUjDXc1KDRXYSfhVcdS/rDQ==}
@@ -9433,20 +9444,12 @@ packages:
       whatwg-fetch: 3.6.2
     dev: true
 
-  /isomorphic-ws/4.0.1_ws@7.5.3:
-    resolution: {integrity: sha512-BhBvN2MBpWTaSHdWRb/bwdZJ1WaehQ2L1KngkCkfLUGF0mAWAT1sQUQacEmQ0jXkFw/czDXPNQSL5u2/Krsz1w==}
-    peerDependencies:
-      ws: '*'
-    dependencies:
-      ws: 7.5.3
-
   /isomorphic-ws/4.0.1_ws@8.2.0:
     resolution: {integrity: sha512-BhBvN2MBpWTaSHdWRb/bwdZJ1WaehQ2L1KngkCkfLUGF0mAWAT1sQUQacEmQ0jXkFw/czDXPNQSL5u2/Krsz1w==}
     peerDependencies:
       ws: '*'
     dependencies:
       ws: 8.2.0
-    dev: true
 
   /istanbul-lib-coverage/3.0.0:
     resolution: {integrity: sha512-UiUIqxMgRDET6eR+o5HbfRYP1l0hqkWOs7vNxC/mggutCMUIhWMm8gAHb8tHlyfD3/l6rlgNA5cKdDzEAf6hEg==}
@@ -13466,7 +13469,7 @@ packages:
     resolution: {integrity: sha512-m3k+dk7QeJw660eIKRRn3xPF6uuvHs/FFzjX3HQ5ove0qYsiygoAhwn5a3IYKaZPo5LrYD0rfVmtv1gNY1uYwg==}
     dev: false
 
-  /subscriptions-transport-ws-envelop/1.0.6_256c795de05385da778b55cce5656df6:
+  /subscriptions-transport-ws-envelop/1.0.6_b697ce0cb97a3bfccb0fe73693f0400c:
     resolution: {integrity: sha512-D7aImWXXq7Mk9rbhwuBIv6jK+ss7GYRcPM7qu5Tf9C9vgTidKINku88PBJa///IZ/cqvfYqRi3yZy2FDHbnF1w==}
     peerDependencies:
       graphql: '>=0.10.0'
@@ -13475,10 +13478,10 @@ packages:
       backo2: 1.0.2
       eventemitter3: 4.0.7
       graphql: 15.4.0-experimental-stream-defer.1
-      isomorphic-ws: 4.0.1_ws@7.5.3
+      isomorphic-ws: 4.0.1_ws@8.2.0
       iterall: 1.3.0
       symbol-observable: 4.0.0
-      ws: 7.5.3
+      ws: 8.2.0
 
   /subscriptions-transport-ws/0.10.0_34dd13c2583fe2e4418c23a0d30fc388:
     resolution: {integrity: sha512-k28LhLn3abJ1mowFW+LP4QGggE0e3hrk55zXbMHyAeZkCUYtC0owepiwqMD3zX8DglQVaxnhE760pESrNSEzpg==}
@@ -13969,6 +13972,35 @@ packages:
     resolution: {integrity: sha512-Y/arvbn+rrz3JCKl9C4kVNfTfSm2/mEp5FSz5EsZSANGPSlQrpRI5M4PKF+mJnE52jOO90PnPSc3Ur3bTQw0gA==}
     dev: true
 
+  /ts-jest/27.0.5_@types+jest@27.0.1:
+    resolution: {integrity: sha512-lIJApzfTaSSbtlksfFNHkWOzLJuuSm4faFAfo5kvzOiRAuoN4/eKxVJ2zEAho8aecE04qX6K1pAzfH5QHL1/8w==}
+    engines: {node: ^10.13.0 || ^12.13.0 || ^14.15.0 || >=15.0.0}
+    hasBin: true
+    peerDependencies:
+      '@babel/core': '>=7.0.0-beta.0 <8'
+      '@types/jest': ^27.0.0
+      babel-jest: '>=27.0.0 <28'
+      jest: ^27.0.0
+      typescript: '>=3.8 <5.0'
+    peerDependenciesMeta:
+      '@babel/core':
+        optional: true
+      '@types/jest':
+        optional: true
+      babel-jest:
+        optional: true
+    dependencies:
+      '@types/jest': 27.0.1
+      bs-logger: 0.2.6
+      fast-json-stable-stringify: 2.1.0
+      jest-util: 27.0.6
+      json5: 2.2.0
+      lodash: 4.17.21
+      make-error: 1.3.6
+      semver: 7.3.5
+      yargs-parser: 20.2.9
+    dev: true
+
   /ts-jest/27.0.5_d783205d652bcb54bcd705f572b6bac6:
     resolution: {integrity: sha512-lIJApzfTaSSbtlksfFNHkWOzLJuuSm4faFAfo5kvzOiRAuoN4/eKxVJ2zEAho8aecE04qX6K1pAzfH5QHL1/8w==}
     engines: {node: ^10.13.0 || ^12.13.0 || ^14.15.0 || >=15.0.0}
@@ -13997,6 +14029,35 @@ packages:
       make-error: 1.3.6
       semver: 7.3.5
       typescript: 4.4.1-rc
+      yargs-parser: 20.2.9
+    dev: true
+
+  /ts-jest/27.0.5_jest@27.0.6:
+    resolution: {integrity: sha512-lIJApzfTaSSbtlksfFNHkWOzLJuuSm4faFAfo5kvzOiRAuoN4/eKxVJ2zEAho8aecE04qX6K1pAzfH5QHL1/8w==}
+    engines: {node: ^10.13.0 || ^12.13.0 || ^14.15.0 || >=15.0.0}
+    hasBin: true
+    peerDependencies:
+      '@babel/core': '>=7.0.0-beta.0 <8'
+      '@types/jest': ^27.0.0
+      babel-jest: '>=27.0.0 <28'
+      jest: ^27.0.0
+      typescript: '>=3.8 <5.0'
+    peerDependenciesMeta:
+      '@babel/core':
+        optional: true
+      '@types/jest':
+        optional: true
+      babel-jest:
+        optional: true
+    dependencies:
+      bs-logger: 0.2.6
+      fast-json-stable-stringify: 2.1.0
+      jest: 27.0.6
+      jest-util: 27.0.6
+      json5: 2.2.0
+      lodash: 4.17.21
+      make-error: 1.3.6
+      semver: 7.3.5
       yargs-parser: 20.2.9
     dev: true
 
@@ -15001,6 +15062,7 @@ packages:
         optional: true
       utf-8-validate:
         optional: true
+    dev: true
 
   /ws/8.2.0:
     resolution: {integrity: sha512-uYhVJ/m9oXwEI04iIVmgLmugh2qrZihkywG9y5FfZV2ATeLIzHf93qs+tUNqlttbQK957/VX3mtwAS+UfIwA4g==}
@@ -15013,7 +15075,6 @@ packages:
         optional: true
       utf-8-validate:
         optional: true
-    dev: true
 
   /xml-name-validator/3.0.0:
     resolution: {integrity: sha512-A5CUptxDsvxKJEU3yO6DuWBSJz/qizqzJKOMIfUJHETbBw/sFaDxgd6fxm1ewUaM0jZ444Fc5vC5ROYurg/4Pw==}

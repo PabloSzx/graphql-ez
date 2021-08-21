@@ -16,6 +16,7 @@ import {
 } from './core';
 
 import type WebSocket from 'ws';
+import type * as WebSocketNode from 'ws';
 import type { Server as HttpServer } from 'http';
 
 import type { EZPlugin, InternalAppBuildContext, GetEnvelopedFn } from 'graphql-ez';
@@ -23,13 +24,13 @@ import type { EZPlugin, InternalAppBuildContext, GetEnvelopedFn } from 'graphql-
 export interface WebSocketObjectOptions {
   subscriptionsTransport?: FilteredSubscriptionsTransportOptions | boolean;
   graphQLWS?: FilteredGraphQLWSOptions | boolean;
-  wsOptions?: Pick<WebSocket.ServerOptions, 'verifyClient' | 'clientTracking' | 'perMessageDeflate' | 'maxPayload'>;
+  wsOptions?: Pick<WebSocketNode.ServerOptions, 'verifyClient' | 'clientTracking' | 'perMessageDeflate' | 'maxPayload'>;
 }
 
 export interface WebSocketObjectOptionsConfig {
   subscriptionsTransport?: FilteredSubscriptionsTransportOptions;
   graphQLWS?: FilteredGraphQLWSOptions;
-  wsOptions?: Pick<WebSocket.ServerOptions, 'verifyClient' | 'clientTracking' | 'perMessageDeflate' | 'maxPayload'>;
+  wsOptions?: Pick<WebSocketNode.ServerOptions, 'verifyClient' | 'clientTracking' | 'perMessageDeflate' | 'maxPayload'>;
 }
 
 export type WebSocketOptions = WebSocketObjectOptions | 'new' | 'legacy' | 'adaptive';
@@ -56,14 +57,21 @@ declare module 'graphql-ez' {
     ws?: {
       enabled: WebSocketsEnabledState;
       options: WebSocketObjectOptionsConfig;
-      wsServer: WebSocket.Server | [graphqlWsServer: WebSocket.Server, subWsServer: WebSocket.Server];
+      wsServer: WebSocketNode.Server | [graphqlWsServer: WebSocketNode.Server, subWsServer: WebSocketNode.Server];
       wsTuple?: CommonWebSocketsServerTuple;
     };
   }
 }
 
 const WSDeps = {
-  ws: LazyPromise(() => import('ws').then(v => v.default)),
+  ws: LazyPromise<Pick<typeof WebSocketNode, 'Server'>>(async () => {
+    // This is due to @types/ws being outdated compared to ws^8
+    const ws: any = await import('ws');
+
+    return {
+      Server: ws.WebSocketServer,
+    };
+  }),
   subscriptionsTransportWs: LazyPromise(() =>
     import('subscriptions-transport-ws-envelop/server').then(v => v.SubscriptionServer)
   ),

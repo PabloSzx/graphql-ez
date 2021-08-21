@@ -23,7 +23,7 @@ export function handleExpress(
 
     for (const wsServer of state.wsServers) {
       for (const client of wsServer.clients) {
-        client.close();
+        client.terminate();
       }
       wsServer.close();
     }
