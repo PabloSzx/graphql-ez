@@ -54,6 +54,7 @@ export interface ExpressAppOptions extends AppOptions {
 export interface EZApp {
   router: Router;
   getEnveloped: GetEnvelopedFn<unknown>;
+  path: string;
 }
 
 export interface ExpressBuildAppOptions extends BuildAppOptions {
@@ -63,6 +64,7 @@ export interface ExpressBuildAppOptions extends BuildAppOptions {
 
 export interface EZAppBuilder extends BaseAppBuilder {
   buildApp(options: ExpressBuildAppOptions): Promise<EZApp>;
+  path: string;
 }
 
 export function CreateApp(config: ExpressAppOptions = {}): EZAppBuilder {
@@ -158,12 +160,14 @@ export function CreateApp(config: ExpressAppOptions = {}): EZAppBuilder {
     return {
       router: await router,
       getEnveloped,
+      path,
     };
   };
 
   return {
     ...commonApp,
     buildApp,
+    path,
   };
 }
 

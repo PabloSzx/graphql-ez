@@ -1,12 +1,14 @@
 import assert from 'assert';
-import Fastify, { FastifyInstance, FastifyServerOptions } from 'fastify';
+import Express, { Application } from 'express';
 import getPort from 'get-port';
 import { printSchema } from 'graphql';
 
 import { EZClient, EZClientOptions } from '@graphql-ez/client';
-import { CreateApp, EZContext, GetEnvelopedFn, LazyPromise, PromiseOrValue } from '@graphql-ez/fastify';
+import { CreateApp, EZContext, GetEnvelopedFn, LazyPromise, PromiseOrValue } from '@graphql-ez/express';
 
-import type { BuildAppOptions, EZApp, EZAppBuilder, FastifyAppOptions } from '@graphql-ez/fastify';
+import type { Server } from 'http';
+
+import type { BuildAppOptions, EZApp, EZAppBuilder, ExpressAppOptions } from '@graphql-ez/express';
 
 const teardownLazyPromiseList: Promise<void>[] = [];
 
@@ -15,79 +17,81 @@ export const GlobalTeardown = async () => {
 };
 
 export async function CreateTestClient(
-  app: PromiseOrValue<EZAppBuilder | EZApp | FastifyAppOptions>,
+  ezApp: PromiseOrValue<EZAppBuilder | EZApp | ExpressAppOptions>,
   options: {
-    server?: FastifyServerOptions;
+    app?: Application;
+    server?: ExpressAppOptions;
     buildOptions?: BuildAppOptions;
     clientOptions?: Omit<EZClientOptions, 'endpoint'>;
-    preListen?: (server: FastifyInstance) => void | Promise<void>;
+    preListen?: (app: Application) => void | Promise<void>;
   } = {}
 ): Promise<
   ReturnType<typeof EZClient> & {
-    server: FastifyInstance;
+    app: Application;
+    server: Server;
     endpoint: string;
     cleanup: () => Promise<void>;
     getEnveloped: GetEnvelopedFn<EZContext>;
     schemaString: string;
   }
 > {
-  const server = Fastify(options.server);
+  const app = options.app || Express();
 
   let ezAppPath: string;
 
-  app = await app;
+  ezApp = await ezApp;
 
   let getEnvelopedValue: GetEnvelopedFn<EZContext>;
 
-  if ('asPreset' in app && app.asPreset) {
+  if ('asPreset' in ezApp && ezApp.asPreset) {
     const { buildApp, path } = CreateApp({
       ez: {
-        preset: app.asPreset,
+        preset: ezApp.asPreset,
       },
     });
 
     ezAppPath = path;
 
-    const { fastifyPlugin, getEnveloped } = buildApp(options.buildOptions);
+    const { router, getEnveloped } = await buildApp({ ...options.buildOptions, app });
 
-    await server.register(fastifyPlugin);
+    app.use(router);
 
-    getEnvelopedValue = await getEnveloped;
-  } else if ('fastifyPlugin' in app && app.fastifyPlugin) {
-    ezAppPath = app.path;
+    getEnvelopedValue = getEnveloped;
+  } else if ('router' in ezApp && ezApp.router) {
+    assert(options.app, 'If you give an already built EZ Application, you have to specify the express "app" in the options.');
 
-    await server.register(app.fastifyPlugin);
+    ezAppPath = ezApp.path;
 
-    getEnvelopedValue = await app.getEnveloped;
+    app.use(ezApp.router);
+
+    getEnvelopedValue = ezApp.getEnveloped;
 
     if (options.buildOptions) {
       console.warn(`"buildOptions" can't be applied for already built EZ Applications`);
     }
-  } else if (!('buildApp' in app) && !('asPreset' in app)) {
-    const { buildApp, path } = CreateApp(app);
+  } else if (!('buildApp' in ezApp) && !('asPreset' in ezApp)) {
+    const { buildApp, path } = CreateApp(ezApp);
 
     ezAppPath = path;
 
-    const { fastifyPlugin, getEnveloped } = buildApp(options.buildOptions);
+    const { router, getEnveloped } = await buildApp({ ...options.buildOptions, app });
 
-    await server.register(fastifyPlugin);
+    app.use(router);
 
-    getEnvelopedValue = await getEnveloped;
+    getEnvelopedValue = getEnveloped;
   } else {
     throw Error('Invalid EZ App');
   }
 
-  await options.preListen?.(server);
+  await options.preListen?.(app);
 
   const port = await getPort();
 
-  await server.listen(port);
+  const server = app.listen(port);
 
-  teardownLazyPromiseList.push(
-    LazyPromise(async () => {
-      await server.close();
-    })
-  );
+  const closeServer = LazyPromise<void>(() => new Promise(resolve => server.close(() => resolve())));
+
+  teardownLazyPromiseList.push(closeServer);
 
   assert(ezAppPath, 'Path for EZ App could not be found!');
 
@@ -105,11 +109,12 @@ export async function CreateTestClient(
   );
 
   const cleanup = async () => {
-    await Promise.allSettled([client.client.close(), server.close()]);
+    await Promise.allSettled([client.client.close(), closeServer]);
   };
 
   return {
     ...client,
+    app,
     server,
     endpoint,
     cleanup,

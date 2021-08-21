@@ -1,12 +1,12 @@
 import { CommonSchema } from 'graphql-ez-testing';
 
-import { CreateApp } from '@graphql-ez/fastify';
+import { CreateApp } from '@graphql-ez/express';
 
 import { CreateTestClient, GlobalTeardown } from '../src';
 
 afterAll(GlobalTeardown);
 
-test.concurrent('from preset', async () => {
+test('from preset', async () => {
   const ezAppBuilder = CreateApp({
     schema: CommonSchema.schema,
   });
@@ -45,9 +45,16 @@ test.concurrent('from built app', async () => {
     schema: CommonSchema.schema,
   });
 
-  const builtApp = ezAppBuilder.buildApp();
+  const { default: express } = await import('express');
 
-  const { query } = await CreateTestClient(builtApp);
+  const app = express();
+  const builtApp = ezAppBuilder.buildApp({
+    app,
+  });
+
+  const { query } = await CreateTestClient(builtApp, {
+    app,
+  });
 
   await expect(query('{hello}')).resolves.toMatchInlineSnapshot(`
                   Object {
