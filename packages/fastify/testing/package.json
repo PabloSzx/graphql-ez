@@ -1,0 +1,48 @@
+{
+  "name": "@graphql-ez/fastify-testing",
+  "version": "0.1.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/PabloSzx/graphql-ez",
+    "directory": "packages/fastify/testing"
+  },
+  "license": "MIT",
+  "author": "PabloSz <pablosaez1995@gmail.com>",
+  "exports": {
+    ".": {
+      "require": "./dist/index.js",
+      "import": "./dist/index.mjs"
+    },
+    "./*": {
+      "require": "./dist/*.js",
+      "import": "./dist/*.mjs"
+    }
+  },
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "dev": "bob-esbuild watch",
+    "prepack": "bob-esbuild build",
+    "postpublish": "gh-release",
+    "test": "jest"
+  },
+  "devDependencies": {
+    "@graphql-ez/fastify": "workspace:^0.9.0",
+    "bob-esbuild-cli": "^1.0.1",
+    "changesets-github-release": "^0.0.3",
+    "fastify": "^3.20.2",
+    "graphql-ez": "workspace:^0.12.0",
+    "jest": "^27.0.6"
+  },
+  "peerDependencies": {
+    "@graphql-ez/fastify": "workspace:^0.9.0",
+    "fastify": "^3.20.2",
+    "graphql-ez": "workspace:*"
+  },
+  "dependencies": {
+    "@graphql-ez/client": "workspace:^0.1.1",
+    "@graphql-ez/utils": "workspace:^0.1.0",
+    "get-port": "^5.1.1"
+  }
+}
