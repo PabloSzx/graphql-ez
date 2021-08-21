@@ -122,7 +122,12 @@ export function createEZAppFactory(
     registerError = err;
   });
 
+  let isBuilt = false;
+
   const appBuilder: EZAppFactoryType['appBuilder'] = async function appBuilder(buildOptions = {}, adapterFactory) {
+    if (isBuilt) throw Error(`[graphql-ez] You can't call "buildApp" more than once for a single EZ App instance.`);
+    isBuilt = true;
+
     await registerPromise;
 
     if (registerError) throw registerError;
