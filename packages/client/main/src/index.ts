@@ -177,5 +177,6 @@ export function EZClient(options: EZClientOptions) {
     },
     stream: createStreamHelper(client, endpointPathname),
     sseSubscribe: createSSESubscription(endpointHref),
+    client,
   };
 }

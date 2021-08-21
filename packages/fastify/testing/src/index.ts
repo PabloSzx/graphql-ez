@@ -1,9 +1,10 @@
 import { EZClient, EZClientOptions } from '@graphql-ez/client';
 import type { BuildAppOptions, EZApp, EZAppBuilder, FastifyAppOptions } from '@graphql-ez/fastify';
-import { CreateApp, LazyPromise } from '@graphql-ez/fastify';
+import { CreateApp, EZContext, GetEnvelopedFn, LazyPromise, PromiseOrValue } from '@graphql-ez/fastify';
 import assert from 'assert';
 import Fastify, { FastifyInstance, FastifyServerOptions } from 'fastify';
 import getPort from 'get-port';
+import { printSchema } from 'graphql';
 
 const teardownLazyPromiseList: Promise<void>[] = [];
 export const GlobalTeardown = LazyPromise(async () => {
@@ -11,17 +12,29 @@ export const GlobalTeardown = LazyPromise(async () => {
 });
 
 export async function CreateTestClient(
-  app: EZAppBuilder | EZApp | FastifyAppOptions,
+  app: PromiseOrValue<EZAppBuilder | EZApp | FastifyAppOptions>,
   options: {
     server?: FastifyServerOptions;
     buildOptions?: BuildAppOptions;
     clientOptions?: Omit<EZClientOptions, 'endpoint'>;
     preListen?: (server: FastifyInstance) => void | Promise<void>;
   } = {}
-): Promise<ReturnType<typeof EZClient> & { server: FastifyInstance; endpoint: string; cleanup: () => Promise<void> }> {
+): Promise<
+  ReturnType<typeof EZClient> & {
+    server: FastifyInstance;
+    endpoint: string;
+    cleanup: () => Promise<void>;
+    getEnveloped: GetEnvelopedFn<EZContext>;
+    schemaString: string;
+  }
+> {
   const server = Fastify(options.server);
 
   let ezAppPath: string;
+
+  app = await app;
+
+  let getEnvelopedValue: GetEnvelopedFn<EZContext>;
 
   if ('asPreset' in app && app.asPreset) {
     const { buildApp, path } = CreateApp({
@@ -32,25 +45,31 @@ export async function CreateTestClient(
 
     ezAppPath = path;
 
-    const { fastifyPlugin } = buildApp(options.buildOptions);
+    const { fastifyPlugin, getEnveloped } = buildApp(options.buildOptions);
 
     await server.register(fastifyPlugin);
+
+    getEnvelopedValue = await getEnveloped;
   } else if ('fastifyPlugin' in app && app.fastifyPlugin) {
     ezAppPath = app.path;
 
     await server.register(app.fastifyPlugin);
 
+    getEnvelopedValue = await app.getEnveloped;
+
     if (options.buildOptions) {
-      console.warn(`buildOptions: ${JSON.stringify(options.buildOptions)} could not be applied`);
+      console.warn(`"buildOptions" can't be applied for already built EZ Applications`);
     }
   } else if (!('buildApp' in app) && !('asPreset' in app)) {
     const { buildApp, path } = CreateApp(app);
 
     ezAppPath = path;
 
-    const { fastifyPlugin } = buildApp(options.buildOptions);
+    const { fastifyPlugin, getEnveloped } = buildApp(options.buildOptions);
 
     await server.register(fastifyPlugin);
+
+    getEnvelopedValue = await getEnveloped;
   } else {
     throw Error('Invalid EZ App');
   }
@@ -90,5 +109,9 @@ export async function CreateTestClient(
     server,
     endpoint,
     cleanup,
+    getEnveloped: getEnvelopedValue,
+    get schemaString() {
+      return printSchema(getEnvelopedValue().schema);
+    },
   };
 }

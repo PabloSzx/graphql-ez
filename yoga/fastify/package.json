@@ -19,7 +19,8 @@
   "types": "dist/index.d.ts",
   "scripts": {
     "dev": "bob-esbuild watch",
-    "prepack": "bob-esbuild build"
+    "prepack": "bob-esbuild build",
+    "test": "jest"
   },
   "dependencies": {
     "@graphql-ez/fastify": "workspace:^0.9.0",
@@ -27,10 +28,12 @@
     "fastify": "^3.20.2"
   },
   "devDependencies": {
+    "@graphql-ez/fastify-testing": "workspace:^0.1.0",
     "@types/node": "^16.6.2",
     "bob-esbuild-cli": "^1.0.1",
     "graphql": "15.4.0-experimental-stream-defer.1",
-    "graphql-ez": "workspace:^0.12.0"
+    "graphql-ez": "workspace:^0.12.0",
+    "jest": "^27.0.6"
   },
   "peerDependencies": {
     "@types/node": "*",
