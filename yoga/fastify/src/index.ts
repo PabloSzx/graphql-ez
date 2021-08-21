@@ -1,9 +1,10 @@
 import Fastify, { FastifyHttpsOptions, FastifyInstance, FastifyLoggerInstance, FastifyServerOptions } from 'fastify';
 import { gql, LazyPromise } from 'graphql-ez';
 
-import { BuildAppOptions, CreateApp, EZApp, EZAppBuilder, FastifyAppOptions } from '@graphql-ez/fastify';
+import { BuildAppOptions, CreateApp, EZApp, EZAppBuilder, FastifyAppOptions, PickRequired } from '@graphql-ez/fastify';
 import { BaseYogaConfig, getYogaPreset } from '@graphql-yoga/preset';
 
+import type { ListenOptions } from 'net';
 import type { Server as httpsServer } from 'https';
 import type { Server as HttpServer } from 'http';
 
@@ -36,7 +37,7 @@ export interface YogaConfig
 
 export { gql };
 
-export interface StartOptions {
+export interface StartOptions extends Omit<ListenOptions, 'port'> {
   /**
    * @default process.env.PORT || 8080
    */
@@ -45,19 +46,17 @@ export interface StartOptions {
    * @default 0.0.0.0
    */
   host?: string;
-  /**
-   * Parameter to specify the maximum length of the queue of pending connections
-   *
-   * @default 511
-   */
-  backlog?: number;
 }
 
 export interface YogaApp {
   server: FastifyInstance;
   ezApp: EZAppBuilder;
   builtApp: Promise<EZApp>;
-  start(options?: StartOptions): Promise<string>;
+  start(options?: StartOptions): Promise<{
+    server: FastifyInstance;
+    listenOptions: PickRequired<ListenOptions, 'host' | 'port'>;
+  }>;
+  gql: typeof gql;
 }
 
 export function GraphQLServer(config: YogaConfig = {}): YogaApp {
@@ -113,7 +112,14 @@ export function GraphQLServer(config: YogaConfig = {}): YogaApp {
 
     await server.ready();
 
-    return server.listen({ port: typeof port === 'string' ? parseInt(port) : port, host, ...rest });
+    const listenOptions = { port: typeof port === 'string' ? parseInt(port) : port, host, ...rest };
+
+    await server.listen(listenOptions);
+
+    return {
+      server,
+      listenOptions,
+    };
   }
 
   return {
@@ -121,6 +127,7 @@ export function GraphQLServer(config: YogaConfig = {}): YogaApp {
     server,
     builtApp,
     start,
+    gql,
   };
 }
 

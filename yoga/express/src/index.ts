@@ -44,12 +44,6 @@ export interface StartOptions extends Omit<ListenOptions, 'port'> {
    * @default 0.0.0.0
    */
   host?: string;
-  /**
-   * Parameter to specify the maximum length of the queue of pending connections
-   *
-   * @default 511
-   */
-  backlog?: number;
 }
 
 export interface YogaApp {
