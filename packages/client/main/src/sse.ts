@@ -1,18 +1,30 @@
 import EventSource, { EventSourceInitDict } from 'eventsource';
-import { stripIgnoredCharacters, print, ExecutionResult } from 'graphql';
+import { ExecutionResult, print, stripIgnoredCharacters } from 'graphql';
 
 import { createDeferredPromise, DeferredPromise } from '@graphql-ez/utils/promise';
 
 import type { TypedDocumentNode } from '@graphql-typed-document-node/core';
 import type { SubscribeOptions, SubscribeFunction } from './types';
-export function createSSESubscription(href: string) {
-  const subscribe: SubscribeFunction = function subscribe<
+import type { IncomingHttpHeaders } from 'http';
+
+export function createSSESubscription(
+  href: string,
+  getHeaders: (headers: IncomingHttpHeaders | undefined) => IncomingHttpHeaders
+) {
+  const subscribe: SubscribeFunction<EventSourceInitDict> = function subscribe<
     TData,
     TVariables extends Record<string, unknown> = {},
     TExtensions extends Record<string, unknown> = {}
   >(
     document: string | TypedDocumentNode<TData, TVariables>,
-    { variables, extensions, operationName, onData }: SubscribeOptions<TData, TVariables, TExtensions, EventSourceInitDict> = {}
+    {
+      variables,
+      extensions,
+      operationName,
+      onData,
+      headers,
+      ...rest
+    }: SubscribeOptions<TData, TVariables, TExtensions, EventSourceInitDict> = {}
   ) {
     const queryString = typeof document === 'string' ? document : print(document);
 
@@ -21,7 +33,11 @@ export function createSSESubscription(href: string) {
         variables ? '&variables=' + encodeURIComponent(JSON.stringify(variables)) : ''
       }${extensions ? '&extensions=' + encodeURIComponent(JSON.stringify(extensions)) : ''}${
         operationName ? '&operationName=' + encodeURIComponent(operationName) : ''
-      }`
+      }`,
+      {
+        ...rest,
+        headers: getHeaders(headers),
+      }
     );
 
     let deferValuePromise: DeferredPromise<ExecutionResult<any> | null> | null = createDeferredPromise();

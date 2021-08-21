@@ -1,21 +1,31 @@
 import assert from 'assert';
-import { PassThrough } from 'stream';
 import { print } from 'graphql';
+import { PassThrough } from 'stream';
+
 import { createDeferredPromise, DeferredPromise } from '@graphql-ez/utils/promise';
+
 import type { Client } from 'undici';
 
 import type { TypedDocumentNode } from '@graphql-typed-document-node/core';
 import type { IncomingHttpHeaders } from 'http';
 
-export function createStreamHelper(client: Client, path: string) {
+export function createStreamHelper(
+  client: Client,
+  path: string,
+  getHeaders: (headers: IncomingHttpHeaders | undefined) => IncomingHttpHeaders
+) {
   return function stream<TData, TVariables extends Record<string, unknown> = {}>(
     document: TypedDocumentNode<TData, TVariables> | string,
     {
       variables,
       headers: headersArg,
+      extensions,
+      operationName,
     }: {
       variables?: TVariables;
       headers?: IncomingHttpHeaders;
+      extensions?: Record<string, unknown>;
+      operationName?: string;
     } = {}
   ) {
     const queryString = typeof document === 'string' ? document : print(document);
@@ -40,10 +50,10 @@ export function createStreamHelper(client: Client, path: string) {
       {
         path,
         method: 'POST',
-        body: JSON.stringify({ query: queryString, variables }),
+        body: JSON.stringify({ query: queryString, variables, extensions, operationName }),
         headers: {
           'content-type': 'application/json',
-          ...headersArg,
+          ...getHeaders(headersArg),
         },
         opaque,
       },

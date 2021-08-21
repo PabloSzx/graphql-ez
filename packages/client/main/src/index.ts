@@ -1,17 +1,26 @@
 import { ExecutionResult, print, stripIgnoredCharacters } from 'graphql';
 import { Client } from 'undici';
-import { getURLWebsocketVersion } from '@graphql-ez/utils/url';
+
+import { cleanObject } from '@graphql-ez/utils/object';
 import { LazyPromise } from '@graphql-ez/utils/promise';
+import { getURLWebsocketVersion } from '@graphql-ez/utils/url';
+
+import { createSSESubscription } from './sse';
+import { createStreamHelper } from './stream';
 
 import type { TypedDocumentNode } from '@graphql-typed-document-node/core';
 import type { IncomingHttpHeaders } from 'http';
 
 import type { SubscribeOptions } from './types';
-import { createStreamHelper } from './stream';
-import { createSSESubscription } from './sse';
+
+import type { GraphQLWSClientOptions } from './websockets/graphql-ws';
+import type { SubscriptionsTransportClientOptions } from './websockets/subscriptions-transport';
 
 export interface EZClientOptions {
   endpoint: string;
+  headers?: IncomingHttpHeaders;
+  graphQLWSClientOptions?: Partial<GraphQLWSClientOptions>;
+  subscriptionsTransportClientOptions?: SubscriptionsTransportClientOptions;
 }
 
 export function getStringFromStream(stream: import('stream').Readable): Promise<string> {
@@ -65,14 +74,23 @@ export function EZClient(options: EZClientOptions) {
   const graphqlWS = LazyPromise(async () => {
     const { createGraphQLWSWebsocketsClient } = await import('./websockets/graphql-ws');
 
-    return createGraphQLWSWebsocketsClient(websocketEndpoint);
+    return createGraphQLWSWebsocketsClient(websocketEndpoint, options.graphQLWSClientOptions);
   });
 
   const legacyTransport = LazyPromise(async () => {
     const { createSubscriptionsTransportWebsocketsClient } = await import('./websockets/subscriptions-transport');
 
-    return createSubscriptionsTransportWebsocketsClient(websocketEndpoint);
+    return createSubscriptionsTransportWebsocketsClient(websocketEndpoint, options.subscriptionsTransportClientOptions);
   });
+
+  const headers = cleanObject(options.headers);
+
+  function getHeaders(headersArg: IncomingHttpHeaders | undefined) {
+    return cleanObject({
+      ...headers,
+      ...headersArg,
+    });
+  }
 
   return {
     async query<TData, TVariables = {}>(
@@ -95,7 +113,7 @@ export function EZClient(options: EZClientOptions) {
         method === 'GET'
           ? {
               method: 'GET',
-              headers: headersArg,
+              headers: getHeaders(headersArg),
               path: `${endpointPathname}?query=${encodeURIComponent(stripIgnoredCharacters(queryString))}${
                 variables ? '&variables=' + encodeURIComponent(JSON.stringify(variables)) : ''
               }`,
@@ -104,7 +122,7 @@ export function EZClient(options: EZClientOptions) {
               method: 'POST',
               headers: {
                 'content-type': 'application/json',
-                ...headersArg,
+                ...getHeaders(headersArg),
               },
               body: JSON.stringify({ query: queryString, variables }),
               path: endpointPathname,
@@ -137,7 +155,7 @@ export function EZClient(options: EZClientOptions) {
         method: 'POST',
         headers: {
           'content-type': 'application/json',
-          ...headersArg,
+          ...getHeaders(headersArg),
         },
         body: JSON.stringify({ query: queryString, variables }),
         path: endpointPathname,
@@ -160,7 +178,7 @@ export function EZClient(options: EZClientOptions) {
       ) {
         const { subscribe } = await graphqlWS;
 
-        return subscribe(document, options);
+        return subscribe(document, { ...options, headers: getHeaders(options?.headers) });
       },
       client: LazyPromise(() => graphqlWS.then(v => v.client)),
       legacy: {
@@ -170,13 +188,17 @@ export function EZClient(options: EZClientOptions) {
         ) {
           const { subscribe } = await legacyTransport;
 
-          return subscribe(document, options);
+          return subscribe(document, { ...options, headers: getHeaders(options?.headers) });
         },
         client: LazyPromise(() => legacyTransport.then(v => v.client)),
       },
     },
-    stream: createStreamHelper(client, endpointPathname),
-    sseSubscribe: createSSESubscription(endpointHref),
+    stream: createStreamHelper(client, endpointPathname, getHeaders),
+    sseSubscribe: createSSESubscription(endpointHref, getHeaders),
     client,
+    headers,
+    setHeaders(headersToAssign: IncomingHttpHeaders) {
+      Object.assign(headers, headersToAssign);
+    },
   };
 }

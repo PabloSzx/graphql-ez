@@ -14,7 +14,7 @@ export type { SubscriptionsTransportClientOptions };
 
 export function createSubscriptionsTransportWebsocketsClient(
   wsEndpoint: string,
-  options: Partial<SubscriptionsTransportClientOptions> = {}
+  options: SubscriptionsTransportClientOptions = {}
 ) {
   const client = new SubscriptionsTransportClient(
     wsEndpoint,

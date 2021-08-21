@@ -1,10 +1,12 @@
-import { EZClient, EZClientOptions } from '@graphql-ez/client';
-import type { BuildAppOptions, EZApp, EZAppBuilder, FastifyAppOptions } from '@graphql-ez/fastify';
-import { CreateApp, EZContext, GetEnvelopedFn, LazyPromise, PromiseOrValue } from '@graphql-ez/fastify';
 import assert from 'assert';
 import Fastify, { FastifyInstance, FastifyServerOptions } from 'fastify';
 import getPort from 'get-port';
 import { printSchema } from 'graphql';
+
+import { EZClient, EZClientOptions } from '@graphql-ez/client';
+import { CreateApp, EZContext, GetEnvelopedFn, LazyPromise, PromiseOrValue } from '@graphql-ez/fastify';
+
+import type { BuildAppOptions, EZApp, EZAppBuilder, FastifyAppOptions } from '@graphql-ez/fastify';
 
 const teardownLazyPromiseList: Promise<void>[] = [];
 export const GlobalTeardown = LazyPromise(async () => {
