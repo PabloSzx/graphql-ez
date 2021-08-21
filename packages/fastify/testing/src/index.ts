@@ -9,9 +9,10 @@ import { CreateApp, EZContext, GetEnvelopedFn, LazyPromise, PromiseOrValue } fro
 import type { BuildAppOptions, EZApp, EZAppBuilder, FastifyAppOptions } from '@graphql-ez/fastify';
 
 const teardownLazyPromiseList: Promise<void>[] = [];
-export const GlobalTeardown = LazyPromise(async () => {
+
+export const GlobalTeardown = async () => {
   await Promise.allSettled(teardownLazyPromiseList);
-});
+};
 
 export async function CreateTestClient(
   app: PromiseOrValue<EZAppBuilder | EZApp | FastifyAppOptions>,
@@ -103,7 +104,7 @@ export async function CreateTestClient(
   );
 
   const cleanup = async () => {
-    await Promise.all([client.client.close(), server.close()]).catch(() => {});
+    await Promise.allSettled([client.client.close(), server.close()]);
   };
 
   return {
@@ -112,6 +113,9 @@ export async function CreateTestClient(
     endpoint,
     cleanup,
     getEnveloped: getEnvelopedValue,
+    get schema() {
+      return getEnvelopedValue().schema;
+    },
     get schemaString() {
       return printSchema(getEnvelopedValue().schema);
     },

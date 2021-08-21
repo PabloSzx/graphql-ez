@@ -2,9 +2,7 @@ import { GraphQLServer } from '../src/index';
 
 import { CreateTestClient, GlobalTeardown } from '@graphql-ez/fastify-testing';
 
-afterAll(async () => {
-  await GlobalTeardown;
-});
+afterEach(GlobalTeardown);
 
 test('works', async () => {
   const { ezApp, gql, builtApp } = GraphQLServer({
