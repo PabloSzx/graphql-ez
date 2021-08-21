@@ -4,10 +4,8 @@ import { ezSchema, EZSchemaOptions } from '@graphql-ez/plugin-schema';
 import { ezUpload, GraphQLUploadConfig } from '@graphql-ez/plugin-upload';
 import { ezWebSockets, WebSocketOptions } from '@graphql-ez/plugin-websockets';
 import { LazyPromise } from '@graphql-ez/utils/promise';
-
 import type { IMocks, IMockStore, TypePolicy } from '@graphql-tools/mock';
-import type { EZPreset, Plugin as EnvelopPlugin, PromiseOrValue, NullableEZPlugin, EZResolvers } from 'graphql-ez';
-
+import type { EZPreset, EZResolvers, NullableEZPlugin, Plugin as EnvelopPlugin, PromiseOrValue } from 'graphql-ez';
 import type { IMiddleware, IMiddlewareGenerator } from 'graphql-middleware';
 
 export interface BaseYogaConfig extends EZSchemaOptions {
@@ -54,6 +52,13 @@ export interface BaseYogaConfig extends EZSchemaOptions {
         preserveResolvers?: boolean;
       }
     | boolean;
+
+  /**
+   * Enable deduplication, inspired on https://github.com/gajus/graphql-deduplicator, but using `@graphql-ez/utils/inflate` and `@graphql-ez/utils/deflate` instead.
+   *
+   * When enabled, sending the header `x-graphql-deduplicate` will deduplicate the data.
+   */
+  deduplicator?: boolean;
 }
 
 export interface PresetConfig {
@@ -68,6 +73,7 @@ export function getYogaPreset(config: BaseYogaConfig & PresetConfig = {}): EZPre
     websockets = false,
     graphiql = true,
     ezOptions,
+    deduplicator,
 
     executableSchemaConfig,
     mergeSchemasConfig,
@@ -77,7 +83,7 @@ export function getYogaPreset(config: BaseYogaConfig & PresetConfig = {}): EZPre
   } = config;
 
   const ezPlugins: NullableEZPlugin[] = [];
-  const envelopPlugins: PromiseOrValue<EnvelopPlugin>[] = [];
+  const envelopPlugins: PromiseOrValue<EnvelopPlugin<any>>[] = [];
 
   const preset: Required<EZPreset> = {
     options: { ...ezOptions },
@@ -129,6 +135,16 @@ export function getYogaPreset(config: BaseYogaConfig & PresetConfig = {}): EZPre
 
   if (middlewares) {
     envelopPlugins.push(LazyPromise(() => import('@envelop/graphql-middleware').then(v => v.useGraphQLMiddleware(middlewares))));
+  }
+
+  if (deduplicator) {
+    envelopPlugins.push(
+      LazyPromise(async () => {
+        const { useDeduplicate } = await import('./deduplicate');
+
+        return useDeduplicate();
+      })
+    );
   }
 
   return preset;
