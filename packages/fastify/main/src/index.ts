@@ -48,9 +48,12 @@ export interface EZApp {
   fastifyPlugin: FastifyAppPlugin;
 
   getEnveloped: Promise<GetEnvelopedFn<unknown>>;
+
+  path: string;
 }
 
 export interface EZAppBuilder extends BaseAppBuilder {
+  path: string;
   buildApp(options?: BuildAppOptions): EZApp;
 }
 
@@ -162,11 +165,13 @@ export function CreateApp(config: FastifyAppOptions = {}): EZAppBuilder {
     return {
       fastifyPlugin,
       getEnveloped: LazyPromise(() => appPromise.then(v => v.getEnveloped)),
+      path,
     };
   };
 
   return {
     ...commonApp,
+    path,
     buildApp,
   };
 }
