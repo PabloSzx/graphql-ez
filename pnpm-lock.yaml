@@ -1082,6 +1082,29 @@ importers:
       next: 11.1.0_typescript@4.4.1-rc
       ts-jest: 27.0.5_d783205d652bcb54bcd705f572b6bac6
 
+  packages/plugin/automatic-persisted-queries:
+    specifiers:
+      '@envelop/core': ^1.0.3
+      '@envelop/types': ^1.0.2
+      bob-esbuild-cli: ^1.0.1
+      changesets-github-release: ^0.0.3
+      graphql: 15.4.0-experimental-stream-defer.1
+      graphql-ez: workspace:^0.12.0
+      jest: ^27.0.6
+      tiny-lru: ^7.0.6
+      ts-jest: ^27.0.5
+    dependencies:
+      '@envelop/core': 1.0.3_34dd13c2583fe2e4418c23a0d30fc388
+      '@envelop/types': 1.0.2_34dd13c2583fe2e4418c23a0d30fc388
+      tiny-lru: 7.0.6
+    devDependencies:
+      bob-esbuild-cli: 1.0.1_bob-esbuild@1.2.3
+      changesets-github-release: 0.0.3
+      graphql: 15.4.0-experimental-stream-defer.1
+      graphql-ez: link:../../core/main
+      jest: 27.0.6
+      ts-jest: 27.0.5_d783205d652bcb54bcd705f572b6bac6
+
   packages/plugin/codegen:
     specifiers:
       '@graphql-codegen/core': ^2.1.0
