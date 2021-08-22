@@ -1,14 +1,6 @@
 import { EZClient, EZClientOptions } from '@graphql-ez/client';
 import type { AppOptions, BuildAppOptions, EZAppBuilder } from '@graphql-ez/http';
-import {
-  AsyncRequestHandler,
-  CreateApp,
-  createDeferredPromise,
-  EZContext,
-  GetEnvelopedFn,
-  LazyPromise,
-  PromiseOrValue,
-} from '@graphql-ez/http';
+import { AsyncRequestHandler, CreateApp, EZContext, GetEnvelopedFn, LazyPromise, PromiseOrValue } from '@graphql-ez/http';
 import assert from 'assert';
 import getPort from 'get-port';
 import { printSchema } from 'graphql';
@@ -35,7 +27,6 @@ export async function CreateTestClient(
     schemaString: string;
   }
 > {
-  const ok = createDeferredPromise<void>();
   const server = createServer((req, res) => {
     ezRequestHandler(req, res);
   });
@@ -53,16 +44,15 @@ export async function CreateTestClient(
       ez: {
         preset: app.asPreset,
       },
-      onBuildPromiseError(err) {
-        ok.reject(err);
-      },
     });
 
     ezAppPath = path;
 
-    const { getEnveloped, requestHandler } = buildApp({ server, ...options.buildOptions });
+    const { getEnveloped, requestHandler, ready } = buildApp({ server, ...options.buildOptions });
 
     ezRequestHandler = requestHandler;
+
+    await ready;
 
     getEnvelopedValue = await getEnveloped;
   } else if (!('buildApp' in app) && !('asPreset' in app) && !('requestHandler' in app)) {
@@ -70,9 +60,11 @@ export async function CreateTestClient(
 
     ezAppPath = path;
 
-    const { requestHandler, getEnveloped } = buildApp({ server, ...options.buildOptions });
+    const { requestHandler, getEnveloped, ready } = buildApp({ server, ...options.buildOptions });
 
     ezRequestHandler = requestHandler;
+
+    await ready;
 
     getEnvelopedValue = await getEnveloped;
   } else {
@@ -83,7 +75,6 @@ export async function CreateTestClient(
 
   await new Promise<void>(resolve => {
     server.listen(port, '127.0.0.1', 441, () => {
-      ok.resolve();
       resolve();
     });
   });
@@ -119,8 +110,6 @@ export async function CreateTestClient(
       }),
     ]);
   };
-
-  await ok.promise;
 
   return {
     ...client,
