@@ -401,7 +401,7 @@ importers:
       '@graphql-typed-document-node/core': ^3.1.0
       '@hapi/hapi': ^20.1.5
       '@jest/types': ^27.0.6
-      '@koa/router': ^10.1.0
+      '@koa/router': ^10.1.1
       '@types/eventsource': ^1.1.6
       '@types/express': ^4.17.13
       '@types/express-serve-static-core': ^4.17.24
@@ -439,7 +439,7 @@ importers:
       '@graphql-typed-document-node/core': 3.1.0_34dd13c2583fe2e4418c23a0d30fc388
       '@hapi/hapi': 20.1.5
       '@jest/types': 27.0.6
-      '@koa/router': 10.1.0
+      '@koa/router': 10.1.1
       '@types/eventsource': 1.1.6
       '@types/express': 4.17.13
       '@types/express-serve-static-core': 4.17.24
@@ -450,7 +450,7 @@ importers:
       '@types/koa__router': 8.0.7
       '@types/node': 16.7.1
       '@types/ws': 7.4.7
-      bob-esbuild-cli: 1.0.1
+      bob-esbuild-cli: 1.0.1_bob-esbuild@1.2.3
       es-jest: 1.3.0
       eventsource: 1.1.0
       express: 4.17.1
@@ -467,7 +467,7 @@ importers:
       koa: 2.13.1
       lodash: 4.17.21
       subscriptions-transport-ws-envelop: 1.0.6_b697ce0cb97a3bfccb0fe73693f0400c
-      ts-jest: 27.0.5_@types+jest@27.0.1
+      ts-jest: 27.0.5_d783205d652bcb54bcd705f572b6bac6
       undici: 4.4.6
       ws: 8.2.0
 
@@ -580,7 +580,7 @@ importers:
     devDependencies:
       '@graphql-typed-document-node/core': 3.1.0_34dd13c2583fe2e4418c23a0d30fc388
       '@types/node': 16.7.1
-      bob-esbuild-cli: 1.0.1
+      bob-esbuild-cli: 1.0.1_bob-esbuild@1.2.3
       changesets-github-release: 0.0.3
       graphql: 15.4.0-experimental-stream-defer.1
       jest: 27.0.6
@@ -677,7 +677,7 @@ importers:
     devDependencies:
       '@graphql-ez/express': link:../main
       '@types/express': 4.17.13
-      bob-esbuild-cli: 1.0.1
+      bob-esbuild-cli: 1.0.1_bob-esbuild@1.2.3
       changesets-github-release: 0.0.3
       express: 4.17.1
       graphql: 15.4.0-experimental-stream-defer.1
@@ -779,7 +779,7 @@ importers:
       '@graphql-ez/hapi': link:../main
       '@hapi/hapi': 20.1.5
       '@types/hapi__hapi': 20.0.9
-      bob-esbuild-cli: 1.0.1
+      bob-esbuild-cli: 1.0.1_bob-esbuild@1.2.3
       changesets-github-release: 0.0.3
       graphql: 15.4.0-experimental-stream-defer.1
       graphql-ez: link:../../core/main
@@ -885,7 +885,7 @@ importers:
   packages/koa/main:
     specifiers:
       '@koa/cors': ^3.1.0
-      '@koa/router': 10.1.0
+      '@koa/router': 10.1.1
       '@types/koa': 2.13.4
       '@types/koa__cors': ^3.0.3
       '@types/koa__router': 8.0.7
@@ -906,7 +906,7 @@ importers:
       '@types/koa-bodyparser': 4.3.3
       koa-bodyparser: 4.3.0
     devDependencies:
-      '@koa/router': 10.1.0
+      '@koa/router': 10.1.1
       '@types/koa': 2.13.4
       '@types/koa__router': 8.0.7
       '@types/node': 16.7.1
@@ -1223,12 +1223,12 @@ importers:
       subscriptions-transport-ws-envelop: 1.0.6_b697ce0cb97a3bfccb0fe73693f0400c
       ws: 8.2.0
     devDependencies:
-      bob-esbuild-cli: 1.0.1
+      bob-esbuild-cli: 1.0.1_bob-esbuild@1.2.3
       changesets-github-release: 0.0.3
       graphql: 15.4.0-experimental-stream-defer.1
       graphql-ez: link:../../core/main
       jest: 27.0.6
-      ts-jest: 27.0.5_jest@27.0.6
+      ts-jest: 27.0.5_d783205d652bcb54bcd705f572b6bac6
 
   yoga/express:
     specifiers:
@@ -4173,6 +4173,20 @@ packages:
       path-to-regexp: 6.2.0
     transitivePeerDependencies:
       - supports-color
+    dev: false
+
+  /@koa/router/10.1.1:
+    resolution: {integrity: sha512-ORNjq5z4EmQPriKbR0ER3k4Gh7YGNhWDL7JBW+8wXDrHLbWYKYSJaOJ9aN06npF5tbTxe2JBOsurpJDAvjiXKw==}
+    engines: {node: '>= 8.0.0'}
+    dependencies:
+      debug: 4.3.2
+      http-errors: 1.8.0
+      koa-compose: 4.1.0
+      methods: 1.1.2
+      path-to-regexp: 6.2.0
+    transitivePeerDependencies:
+      - supports-color
+    dev: true
 
   /@manypkg/find-root/1.1.0:
     resolution: {integrity: sha512-mki5uBvhHzO8kYYix/WRy2WX8S3B5wdVSc9D6KcU5lQNglP2yt58/VfLuAK49glRXChosY8ap2oJ1qgma3GUVA==}
@@ -5881,16 +5895,6 @@ packages:
 
   /bn.js/5.2.0:
     resolution: {integrity: sha512-D7iWRBvnZE8ecXiLj/9wbxH7Tk79fAh8IHaTNq1RWRixsS02W+5qS+iE9yq6RYl0asXx5tw0bLhmT5pIfbSquw==}
-
-  /bob-esbuild-cli/1.0.1:
-    resolution: {integrity: sha512-z1WBNCPNgwL9CaQ7sTA0xGCHX0xjLKhjvMHrBmBhk/Fl3fLX78qq14CarFCRPn8MUjDXc1KDRXYSfhVcdS/rDQ==}
-    engines: {node: '>=12.0.0'}
-    hasBin: true
-    peerDependencies:
-      bob-esbuild: ^1.0.0
-    dependencies:
-      commander: 8.1.0
-    dev: true
 
   /bob-esbuild-cli/1.0.1_bob-esbuild@1.2.3:
     resolution: {integrity: sha512-z1WBNCPNgwL9CaQ7sTA0xGCHX0xjLKhjvMHrBmBhk/Fl3fLX78qq14CarFCRPn8MUjDXc1KDRXYSfhVcdS/rDQ==}
@@ -14026,35 +14030,6 @@ packages:
     resolution: {integrity: sha512-Y/arvbn+rrz3JCKl9C4kVNfTfSm2/mEp5FSz5EsZSANGPSlQrpRI5M4PKF+mJnE52jOO90PnPSc3Ur3bTQw0gA==}
     dev: true
 
-  /ts-jest/27.0.5_@types+jest@27.0.1:
-    resolution: {integrity: sha512-lIJApzfTaSSbtlksfFNHkWOzLJuuSm4faFAfo5kvzOiRAuoN4/eKxVJ2zEAho8aecE04qX6K1pAzfH5QHL1/8w==}
-    engines: {node: ^10.13.0 || ^12.13.0 || ^14.15.0 || >=15.0.0}
-    hasBin: true
-    peerDependencies:
-      '@babel/core': '>=7.0.0-beta.0 <8'
-      '@types/jest': ^27.0.0
-      babel-jest: '>=27.0.0 <28'
-      jest: ^27.0.0
-      typescript: '>=3.8 <5.0'
-    peerDependenciesMeta:
-      '@babel/core':
-        optional: true
-      '@types/jest':
-        optional: true
-      babel-jest:
-        optional: true
-    dependencies:
-      '@types/jest': 27.0.1
-      bs-logger: 0.2.6
-      fast-json-stable-stringify: 2.1.0
-      jest-util: 27.0.6
-      json5: 2.2.0
-      lodash: 4.17.21
-      make-error: 1.3.6
-      semver: 7.3.5
-      yargs-parser: 20.2.9
-    dev: true
-
   /ts-jest/27.0.5_d783205d652bcb54bcd705f572b6bac6:
     resolution: {integrity: sha512-lIJApzfTaSSbtlksfFNHkWOzLJuuSm4faFAfo5kvzOiRAuoN4/eKxVJ2zEAho8aecE04qX6K1pAzfH5QHL1/8w==}
     engines: {node: ^10.13.0 || ^12.13.0 || ^14.15.0 || >=15.0.0}
@@ -14083,35 +14058,6 @@ packages:
       make-error: 1.3.6
       semver: 7.3.5
       typescript: 4.4.1-rc
-      yargs-parser: 20.2.9
-    dev: true
-
-  /ts-jest/27.0.5_jest@27.0.6:
-    resolution: {integrity: sha512-lIJApzfTaSSbtlksfFNHkWOzLJuuSm4faFAfo5kvzOiRAuoN4/eKxVJ2zEAho8aecE04qX6K1pAzfH5QHL1/8w==}
-    engines: {node: ^10.13.0 || ^12.13.0 || ^14.15.0 || >=15.0.0}
-    hasBin: true
-    peerDependencies:
-      '@babel/core': '>=7.0.0-beta.0 <8'
-      '@types/jest': ^27.0.0
-      babel-jest: '>=27.0.0 <28'
-      jest: ^27.0.0
-      typescript: '>=3.8 <5.0'
-    peerDependenciesMeta:
-      '@babel/core':
-        optional: true
-      '@types/jest':
-        optional: true
-      babel-jest:
-        optional: true
-    dependencies:
-      bs-logger: 0.2.6
-      fast-json-stable-stringify: 2.1.0
-      jest: 27.0.6
-      jest-util: 27.0.6
-      json5: 2.2.0
-      lodash: 4.17.21
-      make-error: 1.3.6
-      semver: 7.3.5
       yargs-parser: 20.2.9
     dev: true
 
