@@ -75,7 +75,7 @@ export interface EZApp {
 
   readonly path: string;
 
-  ready: Promise<void>;
+  readonly ready: Promise<void>;
 }
 
 export interface HTTPBuildAppOptions extends BuildAppOptions {
@@ -224,7 +224,7 @@ export function CreateApp(config: HttpAppOptions = {}): EZAppBuilder {
             if (result.status === 'rejected')
               throw Error(
                 process.env.NODE_ENV === 'development'
-                  ? 'Error while building EZ App: ' + result.reason?.message || JSON.stringify(result.reason)
+                  ? 'Error while building EZ App: ' + (result.reason?.message || JSON.stringify(result.reason))
                   : 'Unexpected Error'
               );
 

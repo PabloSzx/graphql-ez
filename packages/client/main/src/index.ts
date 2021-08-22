@@ -1,18 +1,14 @@
-import { ExecutionResult, print, stripIgnoredCharacters } from 'graphql';
-import { Client } from 'undici';
-
+import { documentParamsToURIParams } from '@graphql-ez/utils/clientURI';
 import { cleanObject } from '@graphql-ez/utils/object';
 import { LazyPromise } from '@graphql-ez/utils/promise';
 import { getURLWebsocketVersion } from '@graphql-ez/utils/url';
-
+import type { TypedDocumentNode } from '@graphql-typed-document-node/core';
+import { ExecutionResult, print } from 'graphql';
+import type { IncomingHttpHeaders } from 'http';
+import { Client } from 'undici';
 import { createSSESubscription } from './sse';
 import { createStreamHelper } from './stream';
-
-import type { TypedDocumentNode } from '@graphql-typed-document-node/core';
-import type { IncomingHttpHeaders } from 'http';
-
 import type { SubscribeOptions } from './types';
-
 import type { GraphQLWSClientOptions } from './websockets/graphql-ws';
 import type { SubscriptionsTransportClientOptions } from './websockets/subscriptions-transport';
 
@@ -93,12 +89,14 @@ export function EZClient(options: EZClientOptions) {
   }
 
   return {
-    async query<TData, TVariables = {}>(
+    async query<TData, TVariables = {}, TExtensions = {}>(
       document: TypedDocumentNode<TData, TVariables> | string,
       {
         variables,
         headers: headersArg,
         method = 'POST',
+        extensions,
+        operationName,
       }: {
         variables?: TVariables;
         headers?: IncomingHttpHeaders;
@@ -106,17 +104,17 @@ export function EZClient(options: EZClientOptions) {
          * @default "POST"
          */
         method?: 'GET' | 'POST';
+        extensions?: Record<string, unknown>;
+        operationName?: string;
       } = {}
-    ): Promise<ExecutionResult<TData>> {
+    ): Promise<ExecutionResult<TData, TExtensions>> {
       const queryString = typeof document === 'string' ? document : print(document);
       const { body, headers } = await client.request(
         method === 'GET'
           ? {
               method: 'GET',
               headers: getHeaders(headersArg),
-              path: `${endpointPathname}?query=${encodeURIComponent(stripIgnoredCharacters(queryString))}${
-                variables ? '&variables=' + encodeURIComponent(JSON.stringify(variables)) : ''
-              }`,
+              path: endpointPathname + documentParamsToURIParams({ query: queryString, extensions, operationName, variables }),
             }
           : {
               method: 'POST',
@@ -139,16 +137,20 @@ export function EZClient(options: EZClientOptions) {
 
       return getJSONFromStream(body);
     },
-    async mutation<TData, TVariables = {}>(
+    async mutation<TData, TVariables = {}, TExtensions = {}>(
       document: TypedDocumentNode<TData, TVariables> | string,
       {
         variables,
         headers: headersArg,
+        extensions,
+        operationName,
       }: {
         variables?: TVariables;
         headers?: IncomingHttpHeaders;
+        extensions?: Record<string, unknown>;
+        operationName?: string;
       } = {}
-    ) {
+    ): Promise<ExecutionResult<TData, TExtensions>> {
       const queryString = typeof document === 'string' ? document : print(document);
 
       const { body, headers } = await client.request({
@@ -157,7 +159,7 @@ export function EZClient(options: EZClientOptions) {
           'content-type': 'application/json',
           ...getHeaders(headersArg),
         },
-        body: JSON.stringify({ query: queryString, variables }),
+        body: JSON.stringify({ query: queryString, variables, operationName, extensions }),
         path: endpointPathname,
       });
 

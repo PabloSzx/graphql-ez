@@ -1,6 +1,30 @@
 import { startNextJSServer } from 'graphql-ez-testing';
 
-test.concurrent('basic', async () => {
+import { testApiHandler } from 'next-test-api-route-handler';
+import graphqlHandler from './main/src/pages/api/graphql';
+
+test('ok', async () => {
+  await testApiHandler({
+    handler: graphqlHandler,
+    async test({ fetch }) {
+      const res = await fetch({
+        method: 'POST',
+        headers: { 'content-type': 'application/json' },
+        body: JSON.stringify({ query: '{hello}' }),
+      });
+
+      await expect(res.json()).resolves.toMatchInlineSnapshot(`
+Object {
+  "data": Object {
+    "hello": "Hello World!",
+  },
+}
+`);
+    },
+  });
+});
+
+test('basic', async () => {
   const { query, addressWithoutProtocol } = await startNextJSServer([__dirname, 'main']);
 
   expect(
