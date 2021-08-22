@@ -100,7 +100,7 @@ export async function handleRequest<TReturn = unknown>({
     );
   }
 
-  const { operationName, query, variables } = getGraphQLParameters(request);
+  const { operationName, query, variables, extensions } = getGraphQLParameters(request);
 
   const options: HelixProcessRequestOptions<any, unknown> = {
     operationName,
@@ -113,6 +113,7 @@ export async function handleRequest<TReturn = unknown>({
     contextFactory,
     execute,
     subscribe,
+    extensions
   };
 
   if (processRequestOptions) {
