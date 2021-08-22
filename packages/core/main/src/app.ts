@@ -86,9 +86,9 @@ export function createEZAppFactory(
     },
     get asPreset() {
       return {
-        options: { ...rawOptions, ez: undefined, envelop: undefined },
-        ezPlugins: ezPluginsPre,
-        envelopPlugins: envelopPluginsPre,
+        options: cleanObject({ ...rawOptions, ez: undefined, envelop: undefined }),
+        ezPlugins: [...ezPluginsPre],
+        envelopPlugins: [...envelopPluginsPre],
       };
     },
     envelopPlugins,
