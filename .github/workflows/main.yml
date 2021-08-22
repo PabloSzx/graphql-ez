@@ -36,26 +36,6 @@ jobs:
           key: ${{ runner.os }}-${{matrix.node_version}}-jest-${{ hashFiles('pnpm-lock.yaml') }}
           restore-keys: |
             ${{ runner.os }}-${{matrix.node_version}}-jest-
-      - name: Cache Next.js build in tests
-        uses: actions/cache@v2
-        with:
-          path: ${{ github.workspace }}/packages/nextjs/main/test/main/.next
-          key: ${{ runner.os }}-nextjs1-v2
-      - name: Cache Next.js build in altair tests
-        uses: actions/cache@v2
-        with:
-          path: ${{ github.workspace }}/packages/plugin/altair/test/nextjs/.next
-          key: ${{ runner.os }}-nextjs2-v2
-      - name: Cache Next.js build in graphiql tests
-        uses: actions/cache@v2
-        with:
-          path: ${{ github.workspace }}/packages/plugin/graphiql/test/nextjs/.next
-          key: ${{ runner.os }}-nextjs3-v2
-      - name: Cache Next.js build in voyager tests
-        uses: actions/cache@v2
-        with:
-          path: ${{ github.workspace }}/packages/plugin/voyager/test/nextjs/.next
-          key: ${{ runner.os }}-nextjs4-v2
       - name: Install Dependencies
         run: pnpm i
       - name: Test
