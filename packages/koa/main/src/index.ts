@@ -53,7 +53,9 @@ export interface KoaAppOptions extends AppOptions {
 }
 
 export interface EZApp {
-  getEnveloped: GetEnvelopedFn<unknown>;
+  readonly getEnveloped: GetEnvelopedFn<unknown>;
+
+  readonly path: string;
 }
 
 export interface KoaBuildAppOptions extends BuildAppOptions {
@@ -62,7 +64,9 @@ export interface KoaBuildAppOptions extends BuildAppOptions {
 }
 
 export interface EZAppBuilder extends BaseAppBuilder {
-  buildApp(options: KoaBuildAppOptions): Promise<EZApp>;
+  readonly buildApp: (options: KoaBuildAppOptions) => Promise<EZApp>;
+
+  readonly path: string;
 }
 
 export function CreateApp(config: KoaAppOptions = {}): EZAppBuilder {
@@ -168,12 +172,14 @@ export function CreateApp(config: KoaAppOptions = {}): EZAppBuilder {
 
     return {
       getEnveloped,
+      path,
     };
   };
 
   return {
     ...commonApp,
     buildApp,
+    path,
   };
 }
 
