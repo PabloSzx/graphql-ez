@@ -33,11 +33,17 @@ export interface DeferredPromise<T> {
   promise: Promise<T>;
   resolve: (value: T) => void;
   reject: (reason: unknown) => void;
+
+  value: {
+    current?: PromiseSettledResult<T>;
+  };
 }
 
 export function createDeferredPromise<T = void>(timeoutTime?: number): DeferredPromise<T> {
   const resolve = (value: T) => {
     timeout != null && clearTimeout(timeout);
+
+    valueRef.current ||= { status: 'fulfilled', value };
 
     middlePromiseResolve({
       value,
@@ -48,11 +54,15 @@ export function createDeferredPromise<T = void>(timeoutTime?: number): DeferredP
   const reject = (err: unknown) => {
     timeout != null && clearTimeout(timeout);
 
+    valueRef.current ||= { status: 'rejected', reason: err };
+
     middlePromiseResolve({
       value: err,
       resolved: false,
     });
   };
+
+  const valueRef: { current?: PromiseSettledResult<T> } = {};
 
   let middlePromiseResolve!: (value: { value: unknown; resolved: boolean }) => void;
   const MiddlePromise = new Promise<{
@@ -81,5 +91,6 @@ export function createDeferredPromise<T = void>(timeoutTime?: number): DeferredP
     promise,
     resolve,
     reject,
+    value: valueRef,
   };
 }
