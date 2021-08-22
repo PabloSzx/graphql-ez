@@ -26,8 +26,7 @@
     "dev": "bob-esbuild watch",
     "prepack": "bob-esbuild build",
     "postpublish": "gh-release",
-    "test": "jest",
-    "test:build": "next build test/nextjs"
+    "test": "jest"
   },
   "dependencies": {
     "@graphql-ez/utils": "workspace:^0.1.0",
