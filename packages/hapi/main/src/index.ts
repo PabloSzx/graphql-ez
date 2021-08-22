@@ -54,10 +54,14 @@ export interface HapiAppOptions extends AppOptions {
 export interface EZApp {
   hapiPlugin: Plugin<{}>;
   getEnveloped: GetEnvelopedFn<unknown>;
+
+  readonly path: string;
 }
 
 export interface EZAppBuilder extends BaseAppBuilder {
   buildApp(options?: BuildAppOptions): Promise<EZApp>;
+
+  readonly path: string;
 }
 
 export function CreateApp(config: HapiAppOptions = {}): EZAppBuilder {
@@ -163,12 +167,14 @@ export function CreateApp(config: HapiAppOptions = {}): EZAppBuilder {
         },
       },
       getEnveloped,
+      path,
     };
   };
 
   return {
     ...commonApp,
     buildApp,
+    path,
   };
 }
 

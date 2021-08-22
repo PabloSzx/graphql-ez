@@ -758,6 +758,33 @@ importers:
       ts-jest: 27.0.5_d783205d652bcb54bcd705f572b6bac6
       typescript: 4.4.1-rc
 
+  packages/hapi/testing:
+    specifiers:
+      '@graphql-ez/client': workspace:^0.1.1
+      '@graphql-ez/hapi': workspace:^0.8.3
+      '@graphql-ez/utils': workspace:^0.1.0
+      '@hapi/hapi': ^20.1.5
+      '@types/hapi__hapi': ^20.0.9
+      bob-esbuild-cli: ^1.0.1
+      changesets-github-release: ^0.0.3
+      get-port: ^5.1.1
+      graphql: 15.4.0-experimental-stream-defer.1
+      graphql-ez: workspace:^0.12.0
+      jest: ^27.0.6
+    dependencies:
+      '@graphql-ez/client': link:../../client/main
+      '@graphql-ez/utils': link:../../core/utils
+      get-port: 5.1.1
+    devDependencies:
+      '@graphql-ez/hapi': link:../main
+      '@hapi/hapi': 20.1.5
+      '@types/hapi__hapi': 20.0.9
+      bob-esbuild-cli: 1.0.1
+      changesets-github-release: 0.0.3
+      graphql: 15.4.0-experimental-stream-defer.1
+      graphql-ez: link:../../core/main
+      jest: 27.0.6
+
   packages/helix/core:
     specifiers:
       bob-esbuild: ^1.2.3
