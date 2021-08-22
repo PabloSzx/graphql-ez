@@ -13,7 +13,7 @@ export const GlobalTeardown = async () => {
 };
 
 export async function CreateTestClient(
-  app: PromiseOrValue<(EZAppBuilder | AppOptions) & { requestHandler?: never }>,
+  ezApp: PromiseOrValue<(EZAppBuilder | AppOptions) & { getEnveloped?: never }>,
   options: {
     buildOptions?: BuildAppOptions;
     clientOptions?: Omit<EZClientOptions, 'endpoint'>;
@@ -33,16 +33,16 @@ export async function CreateTestClient(
 
   let ezAppPath: string;
 
-  app = await app;
+  ezApp = await ezApp;
 
   let getEnvelopedValue: GetEnvelopedFn<EZContext>;
 
   let ezRequestHandler: AsyncRequestHandler;
 
-  if ('asPreset' in app && app.asPreset) {
+  if ('asPreset' in ezApp && ezApp.asPreset) {
     const { buildApp, path } = CreateApp({
       ez: {
-        preset: app.asPreset,
+        preset: ezApp.asPreset,
       },
     });
 
@@ -55,8 +55,8 @@ export async function CreateTestClient(
     await ready;
 
     getEnvelopedValue = await getEnveloped;
-  } else if (!('buildApp' in app) && !('asPreset' in app) && !('requestHandler' in app)) {
-    const { buildApp, path } = CreateApp(app);
+  } else if (!('buildApp' in ezApp) && !('asPreset' in ezApp) && !('requestHandler' in ezApp) && !('getEnveloped' in ezApp)) {
+    const { buildApp, path } = CreateApp(ezApp);
 
     ezAppPath = path;
 

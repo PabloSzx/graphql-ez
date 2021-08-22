@@ -15,7 +15,7 @@ export const GlobalTeardown = async () => {
 };
 
 export async function CreateTestClient(
-  app: PromiseOrValue<EZAppBuilder | EZApp | HapiAppOptions>,
+  ezApp: PromiseOrValue<EZAppBuilder | EZApp | HapiAppOptions>,
   options: {
     serverOptions?: Omit<Hapi.ServerOptions, 'port'>;
     buildOptions?: BuildAppOptions;
@@ -37,14 +37,14 @@ export async function CreateTestClient(
 
   let ezAppPath: string;
 
-  app = await app;
+  ezApp = await ezApp;
 
   let getEnvelopedValue: GetEnvelopedFn<EZContext>;
 
-  if ('asPreset' in app && app.asPreset) {
+  if ('asPreset' in ezApp && ezApp.asPreset) {
     const { buildApp, path } = CreateApp({
       ez: {
-        preset: app.asPreset,
+        preset: ezApp.asPreset,
       },
     });
 
@@ -55,18 +55,18 @@ export async function CreateTestClient(
     await server.register(hapiPlugin);
 
     getEnvelopedValue = getEnveloped;
-  } else if ('hapiPlugin' in app && app.hapiPlugin) {
-    ezAppPath = app.path;
+  } else if ('hapiPlugin' in ezApp && ezApp.hapiPlugin) {
+    ezAppPath = ezApp.path;
 
-    await server.register(app.hapiPlugin);
+    await server.register(ezApp.hapiPlugin);
 
-    getEnvelopedValue = app.getEnveloped;
+    getEnvelopedValue = ezApp.getEnveloped;
 
     if (options.buildOptions) {
       console.warn(`"buildOptions" can't be applied for already built EZ Applications`);
     }
-  } else if (!('buildApp' in app) && !('asPreset' in app)) {
-    const { buildApp, path } = CreateApp(app);
+  } else if (!('buildApp' in ezApp) && !('asPreset' in ezApp)) {
+    const { buildApp, path } = CreateApp(ezApp);
 
     ezAppPath = path;
 
