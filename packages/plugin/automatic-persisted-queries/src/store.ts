@@ -1,4 +1,5 @@
 import LRU from 'tiny-lru';
+import type { DocumentNode } from 'graphql';
 
 export interface PersistedQueryStore {
   /**
@@ -6,12 +7,12 @@ export interface PersistedQueryStore {
    * Return `null` in case of a store miss.
    * @param hash
    */
-  get(hash: string): string | null;
+  get(hash: string): Promise<DocumentNode | string | null>;
 
   /**
    *  Save a query, given its hash.
    */
-  put: (hash: string, query: string) => void;
+  set: (hash: string, query: string | DocumentNode) => Promise<void>;
 }
 
 const DEFAULT_MAX = 1000;
@@ -23,12 +24,12 @@ export const createLRUStore = (maxSize?: number, ttl?: number): PersistedQuerySt
 
   // Initialize a LRU cache in the local scope.
   // LRU is used to prevent DoS attacks.
-  const cache = LRU<string>(maxSize, ttl);
+  const cache = LRU<string | DocumentNode>(maxSize, ttl);
   return {
-    get(hash: string) {
+    async get(hash: string) {
       return cache.get(hash) ?? null;
     },
-    put(hash: string, query: string) {
+    async set(hash: string, query: string | DocumentNode) {
       cache.set(hash, query);
     },
   };

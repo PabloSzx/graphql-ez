@@ -1,44 +1,26 @@
 import crypto from 'crypto';
-import type { Plugin } from '@envelop/types';
-import { EnvelopError } from '@envelop/core';
 import { createLRUStore, PersistedQueryStore } from './store';
-import { getRequestBody } from './utils';
-import type { BuildContextArgs, EZPlugin, HandleRequest, Request } from 'graphql-ez';
-import { handleRequest } from 'graphql-ez';
+import type { EZContext, EZPlugin } from 'graphql-ez';
+import type { ProcessRequestOptions as HelixProcessRequestOptions, ProcessRequestResult } from '@pablosz/graphql-helix';
+import {
+  createErrorResponse,
+  PersistedQueryInvalidVersionError,
+  PersistedQueryNotFoundError,
+  PersistedQueryNotSupportedError,
+} from './errors';
+import { GraphQLError, execute as defaultExecute } from 'graphql';
+import { isDocumentNode } from '@graphql-tools/utils';
 
-const errors = {
-  NOT_SUPPORTED: 'PersistedQueryNotSupported',
-  NOT_FOUND: 'PersistedQueryNotFound',
-  HASH_MISSING: 'PersistedQueryHashMissing',
-  INVALID_VERSION: 'Unsupported persisted query version',
-  HASH_MISMATCH: 'PersistedQueryHashMismatch',
-};
+export type ProcessRequestOptions = HelixProcessRequestOptions<EZContext, unknown>;
+export type DisableContext = Pick<ProcessRequestOptions, 'request' | 'extensions' | 'query' | 'operationName' | 'variables'>;
 
-const codes = {
-  NOT_SUPPORTED: 'PERSISTED_QUERY_NOT_SUPPORTED',
-  NOT_FOUND: 'PERSISTED_QUERY_NOT_FOUND',
-  HASH_MISSING: 'PERSISTED_QUERY_HASH_MISSING',
-  INVALID_VERSION: 'PERSISTED_QUERY_INVALID_VERSION',
-  HASH_MISMATCH: 'PERSISTED_QUERY_HASH_MISMATCH',
-};
+type ExecuteFn = ProcessRequestOptions['execute'];
 
 declare module 'graphql-ez' {
   interface InternalAppBuildContext {
     automaticPersistedQueries?: AutomaticPersistedQueryOptions;
   }
-
-  interface BuildContextArgs {
-    apq?: APQContext;
-  }
-
-  interface EZContext {
-    apq?: APQContext;
-  }
 }
-
-export class PersistedQueryError extends EnvelopError {
-}
-
 
 const DEFAULT_PROTOCOL_VERSION = 1;
 const PERSISTED_QUERY_EXTENSION_KEY = 'persistedQuery';
@@ -47,15 +29,10 @@ const ALGORITHMS = ['sha256', 'sha512', 'sha1', 'md5'] as const;
 
 export type HashAlgorithm = typeof ALGORITHMS[number];
 
-export interface PersistedQuery {
-  query?: string;
-  version: number;
-  hash: string;
-}
+export const DEFAULT_HASH_ALGORITHM: HashAlgorithm = 'sha256';
 
-interface APQContext {
-  isCached: boolean;
-  query: string;
+export interface PersistedQuery {
+  version: number;
   hash: string;
 }
 
@@ -71,39 +48,32 @@ export interface AutomaticPersistedQueryOptions {
   /**
    *  Retrieve the persisted query data from a request.
    */
-  resolvePersistedQuery?: (request: Readonly<Request>) => PersistedQuery | undefined;
+  resolvePersistedQuery?: (options: Readonly<ProcessRequestOptions>) => PersistedQuery | undefined;
+  /**
+   * Specify whether the persisted queries should be disabled for the current request. By default all requests
+   * following the APQ protocol are accepted. If false is returned, a PersistedQueryNotSupportedError is
+   * sent to the client.
+   */
+  disableIf?: (context: DisableContext) => boolean;
   /**
    *  Storage for persisted queries.
    */
   store?: PersistedQueryStore;
 }
 
-export const DEFAULT_HASH_ALGORITHM: HashAlgorithm = 'sha256';
-
 export function generateHash(query: string, algo: HashAlgorithm): string {
   return crypto.createHash(algo).update(query, 'utf8').digest('hex');
 }
 
-export function parseRequestBody(body: any, hashField: string): PersistedQuery | undefined {
-  if (body) {
-    const query = body?.query;
-    const pq = body?.extensions?.[PERSISTED_QUERY_EXTENSION_KEY];
-    if (pq) {
-      const { version } = pq;
-      if (typeof version !== 'number' && !pq[hashField]) {
-        throw new PersistedQueryError(errors.NOT_FOUND, { code: codes.NOT_FOUND });
-      }
-      const hash = pq[hashField];
-      return { query, hash, version };
-    }
+function getPersistedQueryFromContext(opts: Readonly<ProcessRequestOptions>, algorithm: HashAlgorithm): PersistedQuery | undefined {
+  const hashField = `${algorithm as string}Hash`;
+  const pq = opts.extensions?.[PERSISTED_QUERY_EXTENSION_KEY];
+  if (pq) {
+    const { version } = pq;
+    const hash = String(pq[hashField]);
+    return { hash, version: parseInt(version) };
   }
   return undefined;
-}
-
-function getPersistedQueryFromContext(req: Readonly<Request>, algorithm: HashAlgorithm): PersistedQuery | undefined {
-  const body = getRequestBody(req);
-  const key = `${algorithm as string}Hash`;
-  return parseRequestBody(body, key);
 }
 
 export const ezAutomaticPersistedQueries = (options?: AutomaticPersistedQueryOptions): EZPlugin => {
@@ -113,43 +83,67 @@ export const ezAutomaticPersistedQueries = (options?: AutomaticPersistedQueryOpt
     version: expectedVersion = DEFAULT_PROTOCOL_VERSION,
     resolvePersistedQuery: _resolvePersistedQuery,
     hashAlgorithm = DEFAULT_HASH_ALGORITHM,
+    disableIf,
   } = {
     ...(options || {}),
   };
   const store = _store ?? createLRUStore();
-  const getPersistedQuery = _resolvePersistedQuery ?? (request => getPersistedQueryFromContext(request, hashAlgorithm));
+  const getPersistedQuery = _resolvePersistedQuery ?? ((opts) => getPersistedQueryFromContext(opts, hashAlgorithm));
 
-  function parsePersistedQuery(request: Request): APQContext | undefined {
-    const persistedQuery = getPersistedQuery(request);
-    let query = persistedQuery?.query;
+  async function processRequest(options: ProcessRequestOptions): Promise<ProcessRequestResult<EZContext, unknown> | undefined | void> {
+    const { query, extensions } = options;
+    let persistedQuery: PersistedQuery | undefined;
 
-    let isCached = false;
+    if (isDocumentNode(query)) return;
+
+    if (disableIf) {
+      const { query, operationName, request, variables } = options;
+      const context: DisableContext = {
+        extensions,
+        operationName,
+        query,
+        request,
+        variables
+      } as DisableContext;
+      if (disableIf(context)) {
+        return createErrorResponse(new PersistedQueryNotSupportedError(extensions));
+      }
+    }
+
+    try {
+      persistedQuery = getPersistedQuery(options);
+    } catch (e: unknown) {
+      if (e instanceof PersistedQueryNotFoundError) {
+        return createErrorResponse(e);
+      }
+      throw e;
+    }
 
     if (persistedQuery) {
       // This is a persisted query, so we use the hash in the request
       // to load the full query document.
       const { hash, version } = persistedQuery;
 
-      if (version !== expectedVersion) {
-        throw new PersistedQueryError(errors.INVALID_VERSION, { code: codes.INVALID_VERSION });
+      if (!hash || !Number.isInteger(version)) {
+        return createErrorResponse(new PersistedQueryNotFoundError(extensions));
       }
 
-      if (!hash) {
-        throw new PersistedQueryError(errors.HASH_MISSING, { code: codes.HASH_MISSING });
+      if (version !== expectedVersion) {
+        return createErrorResponse(new PersistedQueryInvalidVersionError(extensions));
       }
 
       if (query === undefined) {
 
-        const cachedQuery = store.get(hash);
-        if (!cachedQuery) {
+        const cached = await store.get(hash);
+        if (!cached) {
           // Query has not been found, tell the client.
-          throw new PersistedQueryError(errors.NOT_FOUND, { code: codes.NOT_FOUND });
+          return createErrorResponse(new PersistedQueryNotFoundError(extensions));
         }
 
-        query = cachedQuery;
-        isCached = true;
+        options.query = cached;
 
       } else {
+        const { execute = defaultExecute } = options.execute;
         const computedQueryHash = generateHash(query, hashAlgorithm);
 
         // The provided hash must exactly match the hash of
@@ -157,70 +151,33 @@ export const ezAutomaticPersistedQueries = (options?: AutomaticPersistedQueryOpt
         // new and potentially malicious query is associated with
         // an existing hash.
         if (hash !== computedQueryHash) {
-          throw new PersistedQueryError(`Provided ${hashAlgorithm} hash does not match query`, { code: codes.HASH_MISMATCH });
+          return createErrorResponse(new GraphQLError(`Provided ${hashAlgorithm} hash does not match query`));
         }
 
-        isCached = false;
-      }
+        options.query = query;
 
-      return { hash, query, isCached };
+        // override execute so we can store query if it's valid
+        options.execute = async (...args: any[]) => {
+          const result = await (execute as ExecuteFn)(...args);
+          try {
+            await store.set(hash, query);
+          } catch (e) {
+            // todo: throw not supported error
+            throw e;
+          }
+          return result;
+        }
+      }
     }
 
     return undefined;
   }
 
-  let savedRequestHandler: HandleRequest;
-
-  const wrappedHandleRequest: HandleRequest = async (opts) => {
-    let { request } = opts;
-    const apq = parsePersistedQuery(request);
-    if (apq && request.body !== apq.query) {
-      const { req, contextArgs: _contextArgs } = opts;
-      const contextArgs = (): BuildContextArgs => {
-        if (_contextArgs) {
-          return Object.assign({}, _contextArgs(), { apq, req } );
-        }
-        return { apq, req };
-      };
-      request = {
-        body: {
-          query: apq.query
-        },
-        ...request
-      };
-      opts = { ...opts, request, contextArgs };
-      return savedRequestHandler(opts);
-    }
-    return savedRequestHandler(opts);
-  };
-
   return {
     name: 'Automatic Persisted Queries',
     onRegister(ctx) {
       ctx.automaticPersistedQueries = options;
-      savedRequestHandler = ctx.options.customHandleRequest || handleRequest;
-      ctx.options.customHandleRequest = wrappedHandleRequest;
-      ctx.options.envelop = ctx.options.envelop || [];
-      ctx.options.envelop.plugins.push(
-        useAutomaticPersistedQueriesEnvelopPlugin(store)
-      );
+      (ctx.preProcessRequest ||= []).push(({ requestOptions }) => processRequest(requestOptions));
     }
   };
 };
-
-
-function useAutomaticPersistedQueriesEnvelopPlugin(store: PersistedQueryStore): Plugin<{ apq?: APQContext}> {
-  return {
-    onParse({ context}) {
-      const apq = context.apq;
-      if (apq && !apq.isCached) {
-        return ({ result }) => {
-          if (!result || result instanceof Error) return;
-          // save queries which are not yet persisted.
-          store.put(apq.hash, apq.query);
-        };
-      }
-      return;
-    },
-  };
-}

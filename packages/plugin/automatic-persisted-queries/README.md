@@ -45,7 +45,13 @@ export interface AutomaticPersistedQueryOptions {
   /**
    *  Retrieve the persisted query data from a request.
    */
-  resolvePersistedQuery?: (request: Readonly<Request>) => PersistedQuery | undefined;
+  resolvePersistedQuery?: (opts: Readonly<ProcessRequestOptions>) => PersistedQuery | undefined;
+  /**
+   * Specify whether the persisted queries should be disabled for the current request. By default all requests
+   * following the APQ protocol are accepted. If false is returned, a PersistedQueryNotSupportedError is
+   * sent to the client.
+   */
+  disableIf?: (context: DisableContext) => boolean;
   /**
    *  Storage for persisted queries.
    */
@@ -53,19 +59,70 @@ export interface AutomaticPersistedQueryOptions {
 }
 ```
 
-#### `resolvePersistedQuery(request: Request): PersistedQuery | undefined`
+#### `resolvePersistedQuery(opts: ReadOnly<ProcessRequestOptions>): PersistedQuery | undefined`
 
 If you wish to customize the extension extraction from your HTTP request, override this function. If `resolvePersistedQuery` 
 is not set, the default behavior is to look for the`persistedQuery` extension in the request `body`.
 
 *Advanced usage only*
 
+#### `disableIf(context: DisableContext): boolean`
+
+Disable the plugin persisted queries per request based on context. 
+
+#### Example
+```ts
+import { PersistedQueryStore } from '@graphql-ez/automatic-persisted-queries';
+import IORedis from 'ioredis';
+
+let isDisabled = false;
+
+const redis = new IORedis();
+redis.on("connect", () => {
+  isDisabled = false;
+});
+
+redis.on("close", () => {
+  isDisabled = true;
+});
+
+redis.on("error", () => {
+  isDisabled = true;
+});
+
+export const store: PersistedQueryStore = {
+  set: async (key, query) => {
+    await redis.set(key, query)
+  },
+  get: async key => {
+    const [err, val] = await redis.get(key);
+    if (err) throw err;
+    return val;
+  },
+};
+
+const ezApp = CreateApp({
+  ez: {
+    plugins: [
+      // ...
+      ezAutomaticPersistedQueries({
+        store,
+        disbleIf: () => isDisabled
+      }),
+    ],
+  },
+  // ...
+});
+
+```
+
+
 #### `store`
 
 The store that maps query hashes to query documents. If unspecified, we provide an in-memory LRU cache capped
 at `1000` elements with a ttl of an hour to prevent DoS attacks on the storage of hashes & queries.
 
-The store interface is based on 2 simple functions, so you can connect to any `(synchronous)` key/value data store.
+The store interface is based on 2 simple functions, so you can connect to any key/value data store.
 
 Here's an example of a naive, unbounded in-memory store:
 
@@ -76,8 +133,8 @@ import { PersistedQueryStore } from '@graphql-ez/automatic-persisted-queries';
 const data: Record<string, DocumentNode | string> = {};
 
 export const myStore: PersistedQueryStore = {
-  put: (key, document) => (data[key] = document),
-  get: key => data[key],
+  put: async (key, document) => (data[key] = document),
+  get: async key => data[key],
 };
 ```
 

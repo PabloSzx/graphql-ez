@@ -1,7 +1,8 @@
 import { gql, startFastifyServer } from 'graphql-ez-testing';
-import { generateHash, ezAutomaticPersistedQueries, PersistedQueryStore } from '../src';
+import { generateHash, ezAutomaticPersistedQueries, PersistedQueryStore, DisableContext } from '../src';
 import type { getRequestPool } from 'graphql-ez-testing/request';
 import type { GraphQLParams } from '@pablosz/graphql-helix';
+import type { DocumentNode } from 'graphql';
 
 type RequestPoolType = ReturnType<typeof getRequestPool>;
 type RequestFnType = RequestPoolType['request'];
@@ -16,7 +17,7 @@ describe('ezAutomaticPersistedQueries', () => {
     resolvers: {
       Query: {
         hello: () => 'hi',
-        add: (_: any, { x, y }: { x: number; y: number }) => x + y,
+        add: (_: unknown, { x, y }: { x: number; y: number }) => x + y,
       },
     },
     typeDefs: gql`
@@ -34,7 +35,6 @@ describe('ezAutomaticPersistedQueries', () => {
 
   const query2 = '{hello}';
 
-  const TEST_STRING_QUERY = query;
   const sha256Hash = generateHash(query, 'sha256');
   const variables = { x: 1, y: 2 };
   const extensions = {
@@ -51,29 +51,20 @@ describe('ezAutomaticPersistedQueries', () => {
     },
   };
 
-  function createMockStore(): PersistedQueryStore {
-    const map = new Map<string, string>();
-    return {
-      put: jest.fn((key, val) => {
-        map.set(key, val);
-      }),
-      get: jest.fn((key) => map.get(key) ?? null),
-    };
-  }
-
   async function makeRequest(
     requestFn: RequestFnType,
     operation: Operation | Operation[],
     method: 'GET' | 'POST' = 'POST'
   ): Promise<any> {
-    const res = await requestFn({
+    const options = {
       method,
       path: '/graphql',
       headers: {
         'content-type': 'application/json',
       },
-      body: JSON.stringify(operation),
-    });
+      body: JSON.stringify(operation)
+    };
+    const res = await requestFn(options);
 
     return JSON.parse(res);
   }
@@ -99,7 +90,7 @@ describe('ezAutomaticPersistedQueries', () => {
     }
   }
 
-  test('errors on invalid persistedQueries extension', async () => {
+  it('errors on invalid persistedQueries extension', async () => {
     const { request } = await startFastifyServer({
       createOptions: {
         schema: [testSchema],
@@ -110,7 +101,6 @@ describe('ezAutomaticPersistedQueries', () => {
     });
 
     const res = await makeRequest(request, {
-      variables,
       extensions: {
         persistedQuery: {},
       },
@@ -118,8 +108,8 @@ describe('ezAutomaticPersistedQueries', () => {
 
     expect(res.data).not.toBeDefined();
     expect(res.errors).toBeDefined();
-    expect(res.errors[0].message).toBe('Unsupported persisted query version');
-    expect(res.errors[0].extensions.code).toBe('PERSISTED_QUERY_INVALID_VERSION');
+    expect(res.errors[0].message).toBe('PersistedQueryNotFound');
+    expect(res.errors[0].extensions.code).toBe('PERSISTED_QUERY_NOT_FOUND');
   });
 
   it('returns PersistedQueryNotFound on the first try', async () => {
@@ -133,7 +123,6 @@ describe('ezAutomaticPersistedQueries', () => {
     });
 
     const result = await makeRequestRaw(requestRaw, {
-      variables: { x: 1, y: 2 },
       extensions,
     });
 
@@ -144,9 +133,16 @@ describe('ezAutomaticPersistedQueries', () => {
       'PERSISTED_QUERY_NOT_FOUND',
     );
   });
-
   it('returns value on the first try if query is provided', async () => {
-    const store = createMockStore();
+    const data = new Map<string, DocumentNode | string>();
+    const store: PersistedQueryStore = {
+      async get(hash: string) {
+        return data.get(hash) ?? null;
+      },
+      async set(hash, doc) {
+        data.set(hash, doc);
+      }
+    };
 
     const { request } = await startFastifyServer({
       createOptions: {
@@ -162,12 +158,12 @@ describe('ezAutomaticPersistedQueries', () => {
       extensions: extensions2,
     });
 
-    expect(store.put).toHaveBeenCalledWith(extensions2.persistedQuery.sha256Hash, query2);
-    expect(result.data).toBe('hi');
+    expect(data.get(extensions2.persistedQuery.sha256Hash)).toBeDefined();
+    expect(result.data.hello).toBe('hi');
     expect(result.errors).toBeUndefined();
   });
 
-  it('returns result on the second try', async () => {
+  it('returns results after the first try', async () => {
     const { request } = await startFastifyServer({
       createOptions: {
         schema: [testSchema],
@@ -178,22 +174,29 @@ describe('ezAutomaticPersistedQueries', () => {
     });
 
     await makeRequest(request, {
-      variables: { x: 1, y: 2 },
       extensions,
     });
 
-    const result = await makeRequest(request, {
+    let result = await makeRequest(request, {
       query,
       variables: { x: 1, y: 2 },
       extensions,
     });
 
     expect(result.errors).toBeUndefined();
-    expect(result.data?.add).toBe(3);
+    expect(result.data.add).toBe(3);
+
+    result = await makeRequest(request, {
+      variables: { x: 5, y: 3 },
+      extensions,
+    });
+
+    expect(result.errors).toBeUndefined();
+    expect(result.data.add).toBe(8);
   });
 
   it('returns error when hash does not match', async () => {
-    const { request } = await startFastifyServer({
+    const { requestRaw } = await startFastifyServer({
       createOptions: {
         schema: [testSchema],
         ez: {
@@ -202,21 +205,19 @@ describe('ezAutomaticPersistedQueries', () => {
       },
     });
 
-    try {
-      await makeRequest(request, {
-        query,
-        extensions: {
-          persistedQuery: {
-            version: 1,
-            hash: 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
-          }
-        },
-      });
-    } catch (e: any) {
-      expect(e.response).toBeDefined();
-      expect(e.response.status).toEqual(400);
-      expect(e.response.raw).toMatch(/does not match query/);
-    }
+    const res = await makeRequestRaw(requestRaw, {
+      query,
+      extensions: {
+        persistedQuery: {
+          version: 1,
+          hash: 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
+        }
+      },
+    });
+
+    expect(res.statusCode).toBe(400);
+    expect(res.body.errors.length).toBe(1);
+    expect(res.body.errors[0].message).toMatch(/hash does not match query/);
   });
 
   it('errors when version is not specified', async () => {
@@ -230,7 +231,7 @@ describe('ezAutomaticPersistedQueries', () => {
     });
 
     const result = await makeRequest(request, {
-      query: TEST_STRING_QUERY,
+      query,
       variables,
       extensions: {
         persistedQuery: {
@@ -243,7 +244,7 @@ describe('ezAutomaticPersistedQueries', () => {
     expect(result.errors).toEqual(
       expect.arrayContaining([
         expect.objectContaining({
-          message: 'Unsupported persisted query version',
+          message: 'PersistedQueryNotFound',
         }),
       ])
     );
@@ -264,14 +265,9 @@ describe('ezAutomaticPersistedQueries', () => {
     });
 
     const result = await makeRequest(request, {
-      query: TEST_STRING_QUERY,
+      query,
       variables,
-      extensions: {
-        persistedQuery: {
-          version: 1,
-          sha256Hash,
-        },
-      },
+      extensions
     });
 
     expect(result.errors).toEqual(
@@ -298,14 +294,7 @@ describe('ezAutomaticPersistedQueries', () => {
     });
 
     await makeRequest(request, {
-      query,
-      variables,
-      extensions: {
-        persistedQuery: {
-          version: 1,
-          sha256Hash,
-        },
-      },
+      extensions
     });
 
     const result = await makeRequest(
@@ -318,7 +307,7 @@ describe('ezAutomaticPersistedQueries', () => {
       'GET'
     );
 
-    expect(result?.data).toEqual(3);
+    expect(result.data.add).toEqual(3);
   });
 
   it('returns with batched persisted queries', async () => {
@@ -370,8 +359,8 @@ describe('ezAutomaticPersistedQueries', () => {
       },
     ]);
 
-    expect(result.body[0].data).toBe(12);
-    expect(result.body[0].data).toBe('hi');
+    expect(result.body[0].data.add).toBe(12);
+    expect(result.body[1].data.hello).toBe('hi');
     expect(result.body.errors).toBeUndefined();
   });
 
@@ -406,7 +395,7 @@ describe('ezAutomaticPersistedQueries', () => {
     });
 
     expect(result.errors).toBeUndefined();
-    expect(result.data).toBe('hi');
+    expect(result.data.hello).toBe('hi');
   });
 
   it('works with different extension resolution strategies', async () => {
@@ -418,7 +407,6 @@ describe('ezAutomaticPersistedQueries', () => {
             resolvePersistedQuery: () => {
               return {
                 version: 1,
-                query: query2,
                 hash: extensions2.persistedQuery.sha256Hash
               };
             }
@@ -445,11 +433,22 @@ describe('ezAutomaticPersistedQueries', () => {
     });
 
     expect(result.errors).toBeUndefined();
-    expect(result.data).toBe('hi');
+    expect(result.data.hello).toBe('hi');
   });
 
   it('makes use of the provided store', async () => {
-    const store = createMockStore();
+    const data = new Map<string, DocumentNode | string>();
+    let getCount = 0;
+
+    const store: PersistedQueryStore = {
+      async get(hash: string) {
+        getCount++;
+        return data.get(hash) ?? null;
+      },
+      async set(hash, doc) {
+        data.set(hash, doc);
+      }
+    };
 
     const { request } = await startFastifyServer({
       createOptions: {
@@ -464,21 +463,52 @@ describe('ezAutomaticPersistedQueries', () => {
       extensions,
     });
 
-    expect(store.get).toHaveBeenCalledWith(extensions.persistedQuery.sha256Hash);
+    expect(getCount).toBe(1);
 
     const result = await makeRequest(request, {
       query,
-      variables: { x: 1, y: 2 },
+      variables: { x: 5, y: 5 },
       extensions,
     });
 
-    // expect(store.get).toHaveBeenCalledTimes(2);
-    // expect(store.get).toHaveBeenLastCalledWith(extensions.persistedQuery.sha256Hash);
-    expect(store.put).toHaveBeenCalledWith(extensions.persistedQuery.sha256Hash, query);
+    const value = data.get(extensions.persistedQuery.sha256Hash);
+    expect(value).toBe(query);
 
     expect(result.errors).toBeUndefined();
-    expect(result.data?.add).toBe(3);
-
+    expect(result.data.add).toBe(10);
   });
 
+  it('can be disabled dynamically', async () => {
+
+    const disableIf = (context: DisableContext): boolean => context.operationName === 'query.disable';
+
+    const { requestRaw } = await startFastifyServer({
+      createOptions: {
+        schema: [testSchema],
+        ez: {
+          plugins: [ezAutomaticPersistedQueries({ disableIf })],
+        },
+      },
+    });
+
+    const res = await makeRequestRaw(requestRaw, {
+      extensions,
+    });
+
+    expect(res.body.errors.length).toEqual(1);
+    expect(res.body.errors[0].message).toEqual('PersistedQueryNotFound');
+
+    const result = await makeRequestRaw(requestRaw, {
+      query,
+      operationName: 'query.disable',
+      variables: { x: 5, y: 5 },
+      extensions,
+    });
+
+    expect(result.body.errors).toBeDefined();
+    expect(result.body.errors[0].message).toEqual('PersistedQueryNotSupported');
+    expect(result.body.errors[0].extensions.code).toEqual(
+      'PERSISTED_QUERY_NOT_SUPPORTED',
+    );
+  });
 });
