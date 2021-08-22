@@ -17,7 +17,7 @@ export const GlobalTeardown = async () => {
 export async function CreateTestClient(
   app: PromiseOrValue<EZAppBuilder | EZApp | FastifyAppOptions>,
   options: {
-    server?: FastifyServerOptions;
+    serverOptions?: FastifyServerOptions;
     buildOptions?: BuildAppOptions;
     clientOptions?: Omit<EZClientOptions, 'endpoint'>;
     preListen?: (server: FastifyInstance) => void | Promise<void>;
@@ -31,7 +31,7 @@ export async function CreateTestClient(
     schemaString: string;
   }
 > {
-  const server = Fastify(options.server);
+  const server = Fastify(options.serverOptions);
 
   let ezAppPath: string;
 

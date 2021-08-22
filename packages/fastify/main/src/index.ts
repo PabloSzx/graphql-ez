@@ -45,16 +45,17 @@ declare module 'fastify' {
 }
 
 export interface EZApp {
-  fastifyPlugin: FastifyAppPlugin;
+  readonly fastifyPlugin: FastifyAppPlugin;
 
-  getEnveloped: Promise<GetEnvelopedFn<unknown>>;
+  readonly getEnveloped: Promise<GetEnvelopedFn<unknown>>;
 
-  path: string;
+  readonly path: string;
 }
 
 export interface EZAppBuilder extends BaseAppBuilder {
-  path: string;
-  buildApp(options?: BuildAppOptions): EZApp;
+  readonly buildApp: (options?: BuildAppOptions) => EZApp;
+
+  readonly path: string;
 }
 
 export function CreateApp(config: FastifyAppOptions = {}): EZAppBuilder {

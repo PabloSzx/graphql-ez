@@ -20,7 +20,7 @@ export async function CreateTestClient(
   ezApp: PromiseOrValue<EZAppBuilder | EZApp | ExpressAppOptions>,
   options: {
     app?: Application;
-    server?: ExpressAppOptions;
+    serverOptions?: ExpressAppOptions;
     buildOptions?: BuildAppOptions;
     clientOptions?: Omit<EZClientOptions, 'endpoint'>;
     preListen?: (app: Application) => void | Promise<void>;
