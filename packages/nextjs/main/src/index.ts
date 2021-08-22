@@ -42,11 +42,6 @@ export interface NextHandlerContext {
 
 export interface NextAppOptions extends AppOptions {
   /**
-   * By default it calls `console.error` and `process.exit(1)`
-   */
-  onBuildPromiseError?(err: unknown): unknown | never | void;
-
-  /**
    * Customize some Helix processRequest options
    */
   processRequestOptions?: (req: NextApiRequest, res: NextApiResponse) => ProcessRequestOptions;
@@ -58,12 +53,14 @@ export interface NextAppOptions extends AppOptions {
 }
 
 export interface EZApp {
-  apiHandler: NextApiHandler;
-  getEnveloped: Promise<GetEnvelopedFn<unknown>>;
+  readonly apiHandler: NextApiHandler;
+  readonly getEnveloped: Promise<GetEnvelopedFn<unknown>>;
+
+  readonly ready: Promise<void>;
 }
 
 export interface EZAppBuilder extends BaseAppBuilder {
-  buildApp(options?: BuildAppOptions): EZApp;
+  readonly buildApp: (options?: BuildAppOptions) => EZApp;
 }
 
 export * from 'graphql-ez';
@@ -89,97 +86,108 @@ export function CreateApp(config: NextAppOptions = {}): EZAppBuilder {
   const { appBuilder, onIntegrationRegister, ...commonApp } = ezApp;
 
   const buildApp: EZAppBuilder['buildApp'] = function buildApp(buildOptions = {}) {
-    const {
-      buildContext,
-      onAppRegister,
-      onBuildPromiseError = err => {
-        console.error(err);
-        process.exit(1);
-      },
-      processRequestOptions,
-      cors,
-    } = appConfig;
+    const { buildContext, onAppRegister, processRequestOptions, cors } = appConfig;
 
     let appHandler: NextApiHandler;
-    const appPromise = appBuilder(buildOptions, async ({ ctx, getEnveloped }) => {
-      const nextHandlers: NextHandlerContext['handlers'] = [];
+    const appPromise = Promise.allSettled([
+      appBuilder(buildOptions, async ({ ctx, getEnveloped }) => {
+        const nextHandlers: NextHandlerContext['handlers'] = [];
 
-      const integration: InternalAppBuildIntegrationContext = {
-        next: {
-          handlers: nextHandlers,
-        },
-      };
-
-      if (onAppRegister) await onAppRegister({ ctx, integration, getEnveloped });
-
-      await onIntegrationRegister(integration);
-
-      const corsMiddleware = await handleCors(cors);
-
-      const {
-        preProcessRequest,
-        options: { customHandleRequest },
-      } = ctx;
-
-      const requestHandler = customHandleRequest || handleRequest;
-
-      const EZHandler: NextApiHandler = async function EZHandler(req, res) {
-        if (nextHandlers.length) {
-          const result = await Promise.all(nextHandlers.map(cb => cb(req, res)));
-
-          if (result.some(v => v?.stop)) return;
-        }
-
-        corsMiddleware && (await corsMiddleware(req, res));
-
-        const request = {
-          body: req.body,
-          headers: req.headers,
-          method: req.method!,
-          query: req.query,
+        const integration: InternalAppBuildIntegrationContext = {
+          next: {
+            handlers: nextHandlers,
+          },
         };
 
-        return requestHandler({
-          req,
-          request,
-          getEnveloped,
-          baseOptions: appConfig,
-          contextArgs() {
-            return {
-              req,
-              next: {
-                req,
-                res,
-              },
-            };
-          },
-          buildContext,
-          onResponse(result) {
-            res.status(result.status).json(result.payload);
-          },
-          onMultiPartResponse(result, defaultHandle) {
-            return defaultHandle(req, res, result);
-          },
-          onPushResponse(result, defaultHandle) {
-            return defaultHandle(req, res, result);
-          },
-          processRequestOptions: processRequestOptions && (() => processRequestOptions(req, res)),
+        if (onAppRegister) await onAppRegister({ ctx, integration, getEnveloped });
+
+        await onIntegrationRegister(integration);
+
+        const corsMiddleware = await handleCors(cors);
+
+        const {
           preProcessRequest,
-        });
-      };
+          options: { customHandleRequest },
+        } = ctx;
 
-      return (appHandler = EZHandler);
-    }).catch(err => {
-      onBuildPromiseError(err);
+        const requestHandler = customHandleRequest || handleRequest;
 
-      throw err;
-    });
+        const EZHandler: NextApiHandler = async function EZHandler(req, res) {
+          if (nextHandlers.length) {
+            const result = await Promise.all(nextHandlers.map(cb => cb(req, res)));
+
+            if (result.some(v => v?.stop)) return;
+          }
+
+          corsMiddleware && (await corsMiddleware(req, res));
+
+          const request = {
+            body: req.body,
+            headers: req.headers,
+            method: req.method!,
+            query: req.query,
+          };
+
+          return requestHandler({
+            req,
+            request,
+            getEnveloped,
+            baseOptions: appConfig,
+            contextArgs() {
+              return {
+                req,
+                next: {
+                  req,
+                  res,
+                },
+              };
+            },
+            buildContext,
+            onResponse(result) {
+              res.status(result.status).json(result.payload);
+            },
+            onMultiPartResponse(result, defaultHandle) {
+              return defaultHandle(req, res, result);
+            },
+            onPushResponse(result, defaultHandle) {
+              return defaultHandle(req, res, result);
+            },
+            processRequestOptions: processRequestOptions && (() => processRequestOptions(req, res)),
+            preProcessRequest,
+          });
+        };
+
+        return (appHandler = EZHandler);
+      }),
+    ]).then(v => v[0]);
 
     return {
       apiHandler: async function handler(req, res) {
-        await (appHandler || (await (await appPromise).app))(req, res);
+        if (appHandler) {
+          await appHandler(req, res);
+        } else {
+          const result = await appPromise;
+          if (result.status === 'rejected')
+            throw Error(
+              process.env.NODE_ENV === 'development'
+                ? 'Error while building EZ App: ' + (result.reason?.message || JSON.stringify(result.reason))
+                : 'Unexpected Error'
+            );
+
+          await (
+            await result.value.app
+          )(req, res);
+        }
       },
-      getEnveloped: LazyPromise(() => appPromise.then(v => v.getEnveloped)),
+      getEnveloped: LazyPromise(async () => {
+        const result = await appPromise;
+        if (result.status === 'rejected') throw result.reason;
+        return result.value.getEnveloped;
+      }),
+      ready: LazyPromise(async () => {
+        const result = await appPromise;
+        if (result.status === 'rejected') throw result.reason;
+      }),
     };
   };
 
