@@ -57,7 +57,7 @@ export interface HttpAppOptions extends AppOptions {
   handleNotFound?: boolean;
 
   /**
-   * By default it calls `console.error` and `process.exit(1)`
+   * By default it calls `console.error`
    */
   onBuildPromiseError?(err: unknown): unknown | never | void;
 
@@ -75,8 +75,10 @@ export interface HttpAppOptions extends AppOptions {
 export type AsyncRequestHandler = (req: IncomingMessage, res: ServerResponse) => Promise<void>;
 
 export interface EZApp {
-  requestHandler: AsyncRequestHandler;
-  getEnveloped: Promise<GetEnvelopedFn<unknown>>;
+  readonly requestHandler: AsyncRequestHandler;
+  readonly getEnveloped: Promise<GetEnvelopedFn<unknown>>;
+
+  readonly path: string;
 }
 
 export interface HTTPBuildAppOptions extends BuildAppOptions {
@@ -84,7 +86,9 @@ export interface HTTPBuildAppOptions extends BuildAppOptions {
 }
 
 export interface EZAppBuilder extends BaseAppBuilder {
-  buildApp(options: HTTPBuildAppOptions): EZApp;
+  readonly buildApp: (options: HTTPBuildAppOptions) => EZApp;
+
+  readonly path: string;
 }
 
 export function CreateApp(config: HttpAppOptions = {}): EZAppBuilder {
@@ -115,13 +119,12 @@ export function CreateApp(config: HttpAppOptions = {}): EZAppBuilder {
       onAppRegister,
       onBuildPromiseError = err => {
         console.error(err);
-        process.exit(1);
       },
       processRequestOptions,
       cors,
     } = appConfig;
 
-    let appHandler: AsyncRequestHandler;
+    let appHandler: AsyncRequestHandler | undefined;
     const appPromise = appBuilder(buildOptions, async ({ ctx, getEnveloped }) => {
       const httpHandlers: HTTPHandlerContext['handlers'] = [];
 
@@ -221,14 +224,23 @@ export function CreateApp(config: HttpAppOptions = {}): EZAppBuilder {
       return (appHandler = EZHandler);
     }).catch(err => {
       onBuildPromiseError(err);
-
-      throw err;
     });
 
     return {
       requestHandler: async function handler(req: IncomingMessage, res: ServerResponse) {
         try {
-          await (appHandler || (await (await appPromise).app))(req, res);
+          (await (appHandler || (await (await appPromise)?.app))?.(req, res)) ??
+            (() => {
+              res
+                .writeHead(500, {
+                  'content-type': 'application/json',
+                })
+                .end(
+                  JSON.stringify({
+                    message: 'Unexpected Error',
+                  })
+                );
+            });
         } catch (err) {
           res
             .writeHead(500, {
@@ -241,13 +253,21 @@ export function CreateApp(config: HttpAppOptions = {}): EZAppBuilder {
             );
         }
       },
-      getEnveloped: LazyPromise(() => appPromise.then(v => v.getEnveloped)),
+      getEnveloped: LazyPromise(() =>
+        appPromise.then(v => {
+          if (!v) throw Error('Error while building app');
+
+          return v.getEnveloped;
+        })
+      ),
+      path,
     };
   };
 
   return {
     ...commonApp,
     buildApp,
+    path,
   };
 }
 

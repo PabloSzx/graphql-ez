@@ -1,0 +1,53 @@
+{
+  "name": "@graphql-ez/http-testing",
+  "version": "0.1.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/PabloSzx/graphql-ez",
+    "directory": "packages/http/testing"
+  },
+  "license": "MIT",
+  "author": "PabloSz <pablosaez1995@gmail.com>",
+  "exports": {
+    ".": {
+      "require": "./dist/index.js",
+      "import": "./dist/index.mjs"
+    },
+    "./*": {
+      "require": "./dist/*.js",
+      "import": "./dist/*.mjs"
+    }
+  },
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "dev": "bob-esbuild watch",
+    "prepack": "bob-esbuild build",
+    "postpublish": "gh-release",
+    "test": "jest"
+  },
+  "dependencies": {
+    "@graphql-ez/client": "workspace:^0.1.1",
+    "@graphql-ez/utils": "workspace:^0.1.0",
+    "get-port": "^5.1.1"
+  },
+  "devDependencies": {
+    "@graphql-ez/http": "workspace:^0.9.0",
+    "@types/node": "^16.7.1",
+    "bob-esbuild-cli": "^1.0.1",
+    "changesets-github-release": "^0.0.3",
+    "graphql": "15.4.0-experimental-stream-defer.1",
+    "graphql-ez": "workspace:^0.12.0",
+    "jest": "^27.0.6"
+  },
+  "peerDependencies": {
+    "@graphql-ez/http": "workspace:^0.9.0",
+    "@types/node": "*",
+    "graphql": "*",
+    "graphql-ez": "workspace:^0.12.0"
+  },
+  "publishConfig": {
+    "directory": "dist"
+  }
+}
