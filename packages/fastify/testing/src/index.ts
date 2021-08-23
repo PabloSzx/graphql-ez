@@ -1,12 +1,17 @@
+import { EZClient, EZClientOptions } from '@graphql-ez/client';
+import type { BuildAppOptions, EZApp, EZAppBuilder, FastifyAppOptions } from '@graphql-ez/fastify';
+import {
+  CreateApp,
+  EZContext,
+  GetEnvelopedFn,
+  InternalAppBuildContextKey,
+  LazyPromise,
+  PromiseOrValue,
+} from '@graphql-ez/fastify';
 import assert from 'assert';
 import Fastify, { FastifyInstance, FastifyServerOptions } from 'fastify';
 import getPort from 'get-port';
 import { printSchema } from 'graphql';
-
-import { EZClient, EZClientOptions } from '@graphql-ez/client';
-import { CreateApp, EZContext, GetEnvelopedFn, LazyPromise, PromiseOrValue } from '@graphql-ez/fastify';
-
-import type { BuildAppOptions, EZApp, EZAppBuilder, FastifyAppOptions } from '@graphql-ez/fastify';
 
 const teardownLazyPromiseList: Promise<void>[] = [];
 
@@ -39,17 +44,24 @@ export async function CreateTestClient(
 
   let getEnvelopedValue: GetEnvelopedFn<EZContext>;
 
+  let newSSEEndpoint: string | undefined;
+
   if ('asPreset' in app && app.asPreset) {
-    const { buildApp, path } = CreateApp({
+    const ezAppBuilder = CreateApp({
       ez: {
         preset: app.asPreset,
       },
     });
 
+    newSSEEndpoint = ezAppBuilder[InternalAppBuildContextKey].sse?.path;
+
+    const { buildApp, path } = ezAppBuilder;
+
     ezAppPath = path;
 
-    const { fastifyPlugin, getEnveloped } = buildApp(options.buildOptions);
+    const builtApp = buildApp(options.buildOptions);
 
+    const { fastifyPlugin, getEnveloped } = builtApp;
     await server.register(fastifyPlugin);
 
     getEnvelopedValue = await getEnveloped;
@@ -58,13 +70,19 @@ export async function CreateTestClient(
 
     await server.register(app.fastifyPlugin);
 
+    newSSEEndpoint = app[InternalAppBuildContextKey].sse?.path;
+
     getEnvelopedValue = await app.getEnveloped;
 
     if (options.buildOptions) {
       console.warn(`"buildOptions" can't be applied for already built EZ Applications`);
     }
   } else if (!('buildApp' in app) && !('asPreset' in app)) {
-    const { buildApp, path } = CreateApp(app);
+    const ezApp = CreateApp(app);
+
+    newSSEEndpoint = ezApp[InternalAppBuildContextKey].sse?.path;
+
+    const { buildApp, path } = ezApp;
 
     ezAppPath = path;
 
@@ -96,6 +114,7 @@ export async function CreateTestClient(
   const client = EZClient({
     endpoint,
     ...options.clientOptions,
+    newSSEEndpoint,
   });
 
   teardownLazyPromiseList.push(

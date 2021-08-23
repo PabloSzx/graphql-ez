@@ -12,7 +12,7 @@ import type { IncomingHttpHeaders } from 'http';
 export function createStreamHelper(
   client: Client,
   path: string,
-  getHeaders: (headers: IncomingHttpHeaders | undefined) => IncomingHttpHeaders
+  getHeaders: (headers: IncomingHttpHeaders | undefined) => Record<string, string>
 ) {
   return function stream<TData, TVariables extends Record<string, unknown> = {}>(
     document: TypedDocumentNode<TData, TVariables> | string,

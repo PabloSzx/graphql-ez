@@ -570,9 +570,11 @@ importers:
       extract-files: ^11.0.0
       form-data: ^4.0.0
       graphql: 15.4.0-experimental-stream-defer.1
+      graphql-sse: ^1.0.1
       graphql-ws: ^5.4.0
       isomorphic-ws: ^4.0.1
       jest: ^27.0.6
+      node-abort-controller: ^3.0.0
       node-fetch: ^2.6.1
       subscriptions-transport-ws-envelop: ^1.0.6
       undici: ^4.4.6
@@ -584,8 +586,10 @@ importers:
       eventsource: 1.1.0
       extract-files: 11.0.0
       form-data: 4.0.0
+      graphql-sse: 1.0.1_34dd13c2583fe2e4418c23a0d30fc388
       graphql-ws: 5.4.0_34dd13c2583fe2e4418c23a0d30fc388
       isomorphic-ws: 4.0.1_ws@8.2.0
+      node-abort-controller: 3.0.0
       node-fetch: 2.6.1
       subscriptions-transport-ws-envelop: 1.0.6_b697ce0cb97a3bfccb0fe73693f0400c
       undici: 4.4.6
@@ -596,7 +600,7 @@ importers:
       '@types/node': 16.7.1
       '@types/node-fetch': 2.5.12
       '@types/ws': 7.4.7
-      bob-esbuild-cli: 1.0.1_bob-esbuild@1.2.3
+      bob-esbuild-cli: 1.0.1
       changesets-github-release: 0.0.3
       graphql: 15.4.0-experimental-stream-defer.1
       jest: 27.0.6
@@ -1250,6 +1254,11 @@ importers:
 
   packages/plugin/sse:
     specifiers:
+      '@graphql-ez/express-testing': workspace:^0.1.1
+      '@graphql-ez/fastify-testing': workspace:^0.1.1
+      '@graphql-ez/hapi-testing': workspace:^0.1.1
+      '@graphql-ez/http-testing': workspace:^0.1.1
+      '@graphql-ez/koa-testing': workspace:^0.1.1
       '@graphql-ez/utils': workspace:^0.1.1
       '@types/node': ^16.7.1
       bob-esbuild-cli: ^1.0.1
@@ -1262,8 +1271,13 @@ importers:
       '@graphql-ez/utils': link:../../core/utils
       graphql-sse: 1.0.1_34dd13c2583fe2e4418c23a0d30fc388
     devDependencies:
+      '@graphql-ez/express-testing': link:../../express/testing
+      '@graphql-ez/fastify-testing': link:../../fastify/testing
+      '@graphql-ez/hapi-testing': link:../../hapi/testing
+      '@graphql-ez/http-testing': link:../../http/testing
+      '@graphql-ez/koa-testing': link:../../koa/testing
       '@types/node': 16.7.1
-      bob-esbuild-cli: 1.0.1_bob-esbuild@1.2.3
+      bob-esbuild-cli: 1.0.1
       changesets-github-release: 0.0.3
       graphql: 15.4.0-experimental-stream-defer.1
       graphql-ez: link:../../core/main
@@ -6001,6 +6015,16 @@ packages:
 
   /bn.js/5.2.0:
     resolution: {integrity: sha512-D7iWRBvnZE8ecXiLj/9wbxH7Tk79fAh8IHaTNq1RWRixsS02W+5qS+iE9yq6RYl0asXx5tw0bLhmT5pIfbSquw==}
+
+  /bob-esbuild-cli/1.0.1:
+    resolution: {integrity: sha512-z1WBNCPNgwL9CaQ7sTA0xGCHX0xjLKhjvMHrBmBhk/Fl3fLX78qq14CarFCRPn8MUjDXc1KDRXYSfhVcdS/rDQ==}
+    engines: {node: '>=12.0.0'}
+    hasBin: true
+    peerDependencies:
+      bob-esbuild: ^1.0.0
+    dependencies:
+      commander: 8.1.0
+    dev: true
 
   /bob-esbuild-cli/1.0.1_bob-esbuild@1.2.3:
     resolution: {integrity: sha512-z1WBNCPNgwL9CaQ7sTA0xGCHX0xjLKhjvMHrBmBhk/Fl3fLX78qq14CarFCRPn8MUjDXc1KDRXYSfhVcdS/rDQ==}
@@ -11224,6 +11248,10 @@ packages:
     resolution: {integrity: sha512-g6bZh3YCKQRdwuO/tSZZYJAw622SjsRfJ2X0Iy4sSOHZ34/sPPdVBn8fev2tj7njzLwuqPw9uMtGsGkO5kIQvg==}
     dependencies:
       semver: 5.7.1
+    dev: false
+
+  /node-abort-controller/3.0.0:
+    resolution: {integrity: sha512-IqMCPbihDpbHV4bNws015hU0svIBGyzPjJearwXMGJyungWdblbBcboNojTz9bWOrrJD3zIwmcr5w5c+NH+2+A==}
     dev: false
 
   /node-addon-api/3.2.1:

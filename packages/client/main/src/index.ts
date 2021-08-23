@@ -6,7 +6,8 @@ import type { TypedDocumentNode } from '@graphql-typed-document-node/core';
 import { ExecutionResult, print } from 'graphql';
 import type { IncomingHttpHeaders } from 'http';
 import { Client } from 'undici';
-import { createSSESubscription } from './sse';
+import { createNewSSESubscription } from './new-sse';
+import { createLegacySSESubscription } from './old-sse';
 import { createStreamHelper } from './stream';
 import type { SubscribeOptions } from './types';
 import { createUploadQuery } from './upload';
@@ -15,6 +16,7 @@ import type { SubscriptionsTransportClientOptions } from './websockets/subscript
 
 export interface EZClientOptions {
   endpoint: string;
+  newSSEEndpoint: string | undefined;
   headers?: IncomingHttpHeaders;
   graphQLWSClientOptions?: Partial<GraphQLWSClientOptions>;
   subscriptionsTransportClientOptions?: SubscriptionsTransportClientOptions;
@@ -106,11 +108,17 @@ export function EZClient(options: EZClientOptions) {
 
   const headers = cleanObject(options.headers);
 
-  function getHeaders(headersArg: IncomingHttpHeaders | undefined) {
-    return cleanObject({
+  function getHeaders(headersArg: IncomingHttpHeaders | undefined): Record<string, string> {
+    const newHeaders = cleanObject({
       ...headers,
       ...headersArg,
-    });
+    }) as Record<string, string>;
+
+    for (const key in newHeaders) {
+      if (typeof newHeaders[key] !== 'string') delete newHeaders[key];
+    }
+
+    return newHeaders;
   }
 
   const query: QueryFunctionPostGet = async function query(
@@ -200,7 +208,8 @@ export function EZClient(options: EZClientOptions) {
       },
     },
     stream: createStreamHelper(client, endpointPathname, getHeaders),
-    sseSubscribe: createSSESubscription(endpointHref, getHeaders),
+    sseSubscribe: createLegacySSESubscription(endpointHref, getHeaders),
+    newSSESubscribe: createNewSSESubscription(options.newSSEEndpoint, getHeaders),
     client,
     headers,
     setHeaders(headersToAssign: IncomingHttpHeaders) {

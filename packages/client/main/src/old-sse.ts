@@ -7,9 +7,9 @@ import type { TypedDocumentNode } from '@graphql-typed-document-node/core';
 import type { SubscribeOptions, SubscribeFunction } from './types';
 import type { IncomingHttpHeaders } from 'http';
 
-export function createSSESubscription(
+export function createLegacySSESubscription(
   href: string,
-  getHeaders: (headers: IncomingHttpHeaders | undefined) => IncomingHttpHeaders
+  getHeaders: (headers: IncomingHttpHeaders | undefined) => Record<string, string>
 ) {
   const subscribe: SubscribeFunction<EventSourceInitDict> = function subscribe<
     TData,
@@ -46,7 +46,6 @@ export function createSSESubscription(
       eventSource.onerror = evt => {
         console.error(evt);
         reject(evt.data);
-        // deferValuePromise?.reject(value)
       };
       eventSource.onmessage = evt => {
         const value = JSON.parse(evt.data);
