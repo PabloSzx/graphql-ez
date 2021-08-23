@@ -1,6 +1,6 @@
 {
   "name": "@graphql-ez/nextjs-testing",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "repository": {
     "type": "git",
     "url": "https://github.com/PabloSzx/graphql-ez",
@@ -28,24 +28,24 @@
     "test": "jest"
   },
   "devDependencies": {
-    "@graphql-ez/nextjs": "workspace:^0.8.3",
+    "@graphql-ez/nextjs": "workspace:^0.9.0",
     "@types/node": "^16.7.1",
     "graphql": "15.4.0-experimental-stream-defer.1",
-    "graphql-ez": "workspace:^0.12.0",
+    "graphql-ez": "workspace:^0.12.1",
     "next": "^11.1.0"
   },
   "peerDependencies": {
-    "@graphql-ez/nextjs": "workspace:^0.8.3",
+    "@graphql-ez/nextjs": "workspace:^0.9.0",
     "@types/node": "*",
     "graphql": "*",
-    "graphql-ez": "workspace:^0.12.0",
+    "graphql-ez": "workspace:^0.12.1",
     "next": "*"
   },
   "publishConfig": {
     "directory": "dist"
   },
   "dependencies": {
-    "@graphql-ez/utils": "workspace:^0.1.0",
+    "@graphql-ez/utils": "workspace:^0.1.1",
     "@graphql-typed-document-node/core": "^3.1.0",
     "next-test-api-route-handler": "^2.2.0"
   }
