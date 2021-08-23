@@ -1,7 +1,7 @@
 import Router from 'next/router';
 import { ReactNode, useEffect } from 'react';
 
-import { Box, Heading, HStack, Link, Text, useColorModeValue, VStack } from '@chakra-ui/react';
+import { Box, Heading, HStack, Link, Text, useColorModeValue, VStack, Image, Stack } from '@chakra-ui/react';
 import { ClassNames } from '@emotion/react';
 import { handlePushRoute, NPMBadge } from '@guild-docs/client';
 import { HeroGradient, InfoList } from '@theguild/components';
@@ -47,13 +47,19 @@ export default function Index() {
       {({ css }) => (
         <>
           <HeroGradient
-            title="GraphQL EZ"
+            title={
+              <Stack>
+                <Image width="150px" src="/assets/ez/logo_horizontal_transparent.svg" alt="GraphQL EZ Logo" />
+                <Text as="span">GraphQL EZ</Text>
+              </Stack>
+            }
             description={
               <Text as="span">
-                Easy, feature complete, and Plugin-Based GraphQL APIs using{' '}
+                Easy, feature complete, and Plugin-Based{' '}
                 <Link href="https://www.envelop.dev/" fontWeight="bold">
                   Envelop
-                </Link>
+                </Link>{' '}
+                GraphQL APIs
               </Text>
             }
             link={{
@@ -62,8 +68,28 @@ export default function Index() {
               title: 'Get started with GraphQL EZ',
               onClick: e => handlePushRoute('/docs', e),
             }}
-            colors={['#000000', '#1CC8EE']}
+            colors={['#969696', '#303030']}
             version={<NPMBadge name="graphql-ez" />}
+            containerProps={{
+              className: css({
+                '> div': {
+                  paddingTop: '3rem',
+                },
+              }),
+            }}
+            imageProps={{
+              className: css({
+                width: '240px',
+                marginTop: '6rem',
+                marginRight: '100px',
+
+                objectFit: 'contain',
+              }),
+            }}
+            image={{
+              src: '/assets/ez/illustration.png',
+              alt: 'Illustration',
+            }}
           />
 
           <InfoList

@@ -1,13 +1,11 @@
 import '../../public/style.css';
 import '../components/logos';
 
-import { appWithTranslation } from 'next-i18next';
-
-import { chakra, extendTheme, LinkBox, LinkOverlay, theme as chakraTheme, HStack, VStack, Heading } from '@chakra-ui/react';
+import { chakra, extendTheme, Heading, HStack, LinkBox, LinkOverlay, theme as chakraTheme, VStack } from '@chakra-ui/react';
 import { mode } from '@chakra-ui/theme-tools';
 import { AppSeoProps, CombinedThemeProvider, DocsPage, ExtendComponents, handlePushRoute } from '@guild-docs/client';
 import { Footer, Header, Subheader } from '@theguild/components';
-
+import { appWithTranslation } from 'next-i18next';
 import type { AppProps } from 'next/app';
 
 ExtendComponents({
@@ -61,7 +59,7 @@ const theme = extendTheme({
   styles,
 });
 
-const accentColor = '#1CC8EE';
+const accentColor = '#55cf7e';
 
 const serializedMdx = process.env.SERIALIZED_MDX_ROUTES;
 const mdxRoutes = { data: serializedMdx && JSON.parse(serializedMdx) };
@@ -76,10 +74,10 @@ function AppContent(appProps: AppProps) {
       <Subheader
         activeLink={router.asPath}
         product={{
-          title: 'Docs',
+          title: 'GraphQL EZ',
           description: '',
           image: {
-            src: '/assets/subheader-logo.svg',
+            src: '/assets/ez/logo_small.svg',
             alt: 'Docs',
           },
           onClick: e => handlePushRoute('/', e),
@@ -158,9 +156,9 @@ const AppContentWrapper = appWithTranslation(function TranslatedApp(appProps) {
 
 const defaultSeo: AppSeoProps = {
   title: 'GraphQL EZ',
-  description: 'Easy, feature complete, and Plugin-Based GraphQL APIs',
+  description: 'Easy, feature complete, and Plugin-Based Envelop GraphQL APIs',
   logo: {
-    url: 'https://the-guild-docs.vercel.app/assets/subheader-logo.png',
+    url: 'https://www.graphql-ez.com/assets/ez/logo_small.svg',
     width: 50,
     height: 54,
   },
