@@ -61,11 +61,11 @@ export interface BaseYogaConfig extends EZSchemaOptions {
   deduplicator?: boolean;
 }
 
-export interface PresetConfig {
+export interface PresetConfig extends BaseYogaConfig {
   ezOptions?: EZPreset['options'];
 }
 
-export function getYogaPreset(config: BaseYogaConfig & PresetConfig = {}): EZPreset {
+export function getYogaPreset(config: PresetConfig = {}): EZPreset {
   const {
     uploads = false,
     middlewares,

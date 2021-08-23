@@ -1,12 +1,10 @@
+import { BuildAppOptions, CreateApp, EZApp, EZAppBuilder, EZPlugin, FastifyAppOptions, PickRequired } from '@graphql-ez/fastify';
+import { BaseYogaConfig, getYogaPreset } from '@graphql-yoga/preset';
 import Fastify, { FastifyHttpsOptions, FastifyInstance, FastifyLoggerInstance, FastifyServerOptions } from 'fastify';
 import { gql, LazyPromise } from 'graphql-ez';
-
-import { BuildAppOptions, CreateApp, EZApp, EZAppBuilder, FastifyAppOptions, PickRequired } from '@graphql-ez/fastify';
-import { BaseYogaConfig, getYogaPreset } from '@graphql-yoga/preset';
-
-import type { ListenOptions } from 'net';
-import type { Server as httpsServer } from 'https';
 import type { Server as HttpServer } from 'http';
+import type { Server as httpsServer } from 'https';
+import type { ListenOptions } from 'net';
 
 export interface YogaConfig
   extends BaseYogaConfig,
@@ -33,8 +31,14 @@ export interface YogaConfig
   serverOptions?:
     | FastifyServerOptions<HttpServer, FastifyLoggerInstance>
     | FastifyHttpsOptions<httpsServer, FastifyLoggerInstance>;
+
+  /**
+   * Custom EZ Plugins
+   */
+  ezPlugins?: EZPlugin[];
 }
 
+export * from 'graphql-ez';
 export { gql };
 
 export interface StartOptions extends Omit<ListenOptions, 'port'> {
@@ -76,6 +80,7 @@ export function GraphQLServer(config: YogaConfig = {}): YogaApp {
     onAppRegister,
     prepare,
     schema,
+    ezPlugins,
     ...presetOptions
   } = config;
 
@@ -84,6 +89,7 @@ export function GraphQLServer(config: YogaConfig = {}): YogaApp {
   const ezApp = CreateApp({
     ez: {
       preset,
+      plugins: ezPlugins,
     },
     path,
     cors,
@@ -130,5 +136,3 @@ export function GraphQLServer(config: YogaConfig = {}): YogaApp {
     gql,
   };
 }
-
-export * from 'graphql-ez';

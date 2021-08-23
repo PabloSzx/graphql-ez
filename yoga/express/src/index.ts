@@ -1,12 +1,10 @@
+import { BuildAppOptions, CreateApp, ExpressAppOptions, EZApp, EZAppBuilder, EZPlugin } from '@graphql-ez/express';
+import { BaseYogaConfig, getYogaPreset } from '@graphql-yoga/preset';
 import Express, { Application } from 'express';
 import { gql, LazyPromise, PickRequired } from 'graphql-ez';
-
-import { BuildAppOptions, CreateApp, ExpressAppOptions, EZApp, EZAppBuilder } from '@graphql-ez/express';
-import { BaseYogaConfig, getYogaPreset } from '@graphql-yoga/preset';
-
-import type { ListenOptions } from 'net';
 import type { Server as httpServer } from 'http';
 import type { Server as httpsServer, ServerOptions as httpsServerOptions } from 'https';
+import type { ListenOptions } from 'net';
 
 export interface YogaConfig
   extends BaseYogaConfig,
@@ -31,8 +29,14 @@ export interface YogaConfig
    * Create HTTPS Server options
    */
   https?: httpsServerOptions;
+
+  /**
+   * Custom EZ Plugins
+   */
+  ezPlugins?: EZPlugin[];
 }
 
+export * from 'graphql-ez';
 export { gql };
 
 export interface StartOptions extends Omit<ListenOptions, 'port'> {
@@ -73,6 +77,7 @@ export function GraphQLServer(config: YogaConfig = {}): YogaApp {
     schema,
     bodyParserJSONOptions,
     https,
+    ezPlugins,
     ...presetOptions
   } = config;
 
@@ -81,6 +86,7 @@ export function GraphQLServer(config: YogaConfig = {}): YogaApp {
   const ezApp = CreateApp({
     ez: {
       preset,
+      plugins: ezPlugins,
     },
     path,
     cors,
@@ -136,5 +142,3 @@ export function GraphQLServer(config: YogaConfig = {}): YogaApp {
     start,
   };
 }
-
-export * from 'graphql-ez';
