@@ -7,6 +7,7 @@ import { ezScalars } from '@graphql-ez/plugin-scalars';
 import { ezSchema } from '@graphql-ez/plugin-schema';
 import { ezUpload } from '@graphql-ez/plugin-upload';
 import { ezWebSockets } from '@graphql-ez/plugin-websockets';
+import { ezSSE } from '@graphql-ez/plugin-sse';
 
 function buildContext({ req }: BuildContextArgs) {
   return {
@@ -45,6 +46,12 @@ export const { registerModule, buildApp } = CreateApp({
       ezAltairIDE(),
       ezGraphiQLIDE(),
       ezWebSockets(),
+      ezSSE({
+        options: {
+          // ...
+        },
+        path: '/graphql/stream',
+      }),
       ezSchema({
         schema: {
           typeDefs: gql`

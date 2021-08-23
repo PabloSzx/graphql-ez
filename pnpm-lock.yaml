@@ -284,6 +284,7 @@ importers:
       '@graphql-ez/plugin-modules': workspace:^0.8.0
       '@graphql-ez/plugin-scalars': workspace:^0.7.0
       '@graphql-ez/plugin-schema': workspace:^0.6.0
+      '@graphql-ez/plugin-sse': workspace:^0.0.1
       '@graphql-ez/plugin-upload': workspace:^0.5.0
       '@graphql-ez/plugin-websockets': workspace:^0.8.0
       '@graphql-typed-document-node/core': ^3.1.0
@@ -306,6 +307,7 @@ importers:
       '@graphql-ez/plugin-modules': link:../../../packages/plugin/modules
       '@graphql-ez/plugin-scalars': link:../../../packages/plugin/scalars
       '@graphql-ez/plugin-schema': link:../../../packages/plugin/schema
+      '@graphql-ez/plugin-sse': link:../../../packages/plugin/sse
       '@graphql-ez/plugin-upload': link:../../../packages/plugin/upload
       '@graphql-ez/plugin-websockets': link:../../../packages/plugin/websockets
       '@graphql-typed-document-node/core': 3.1.0_34dd13c2583fe2e4418c23a0d30fc388
@@ -1241,6 +1243,27 @@ importers:
       jest: 27.0.6
       ts-jest: 27.0.5_d783205d652bcb54bcd705f572b6bac6
       typescript: 4.4.1-rc
+
+  packages/plugin/sse:
+    specifiers:
+      '@graphql-ez/utils': workspace:^0.1.0
+      '@types/node': ^16.7.1
+      bob-esbuild-cli: ^1.0.1
+      changesets-github-release: ^0.0.3
+      graphql: 15.4.0-experimental-stream-defer.1
+      graphql-ez: workspace:^0.12.0
+      graphql-sse: ^1.0.1
+      jest: ^27.0.6
+    dependencies:
+      '@graphql-ez/utils': link:../../core/utils
+      graphql-sse: 1.0.1_34dd13c2583fe2e4418c23a0d30fc388
+    devDependencies:
+      '@types/node': 16.7.1
+      bob-esbuild-cli: 1.0.1
+      changesets-github-release: 0.0.3
+      graphql: 15.4.0-experimental-stream-defer.1
+      graphql-ez: link:../../core/main
+      jest: 27.0.6
 
   packages/plugin/upload:
     specifiers:
@@ -5975,6 +5998,16 @@ packages:
   /bn.js/5.2.0:
     resolution: {integrity: sha512-D7iWRBvnZE8ecXiLj/9wbxH7Tk79fAh8IHaTNq1RWRixsS02W+5qS+iE9yq6RYl0asXx5tw0bLhmT5pIfbSquw==}
 
+  /bob-esbuild-cli/1.0.1:
+    resolution: {integrity: sha512-z1WBNCPNgwL9CaQ7sTA0xGCHX0xjLKhjvMHrBmBhk/Fl3fLX78qq14CarFCRPn8MUjDXc1KDRXYSfhVcdS/rDQ==}
+    engines: {node: '>=12.0.0'}
+    hasBin: true
+    peerDependencies:
+      bob-esbuild: ^1.0.0
+    dependencies:
+      commander: 8.1.0
+    dev: true
+
   /bob-esbuild-cli/1.0.1_bob-esbuild@1.2.3:
     resolution: {integrity: sha512-z1WBNCPNgwL9CaQ7sTA0xGCHX0xjLKhjvMHrBmBhk/Fl3fLX78qq14CarFCRPn8MUjDXc1KDRXYSfhVcdS/rDQ==}
     engines: {node: '>=12.0.0'}
@@ -8573,6 +8606,15 @@ packages:
     dependencies:
       graphql: 15.4.0-experimental-stream-defer.1
       tslib: 2.2.0
+    dev: false
+
+  /graphql-sse/1.0.1_34dd13c2583fe2e4418c23a0d30fc388:
+    resolution: {integrity: sha512-CByxV9oKmUv/k9tlv8Bg/Hn9CcRlfsRQnU5YKI7Z2MfMckLBrXKq6Y1ln9GZh81Id/n5YV4O4X+p+QUHCu24sQ==}
+    engines: {node: '>=12'}
+    peerDependencies:
+      graphql: '>=0.11 <=15'
+    dependencies:
+      graphql: 15.4.0-experimental-stream-defer.1
     dev: false
 
   /graphql-subscriptions/1.2.1_34dd13c2583fe2e4418c23a0d30fc388:
