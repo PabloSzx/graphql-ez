@@ -16,6 +16,8 @@ import type {
   EZPlugin,
 } from './index';
 
+export const InternalAppBuildContextKey = Symbol('graphql-ez-internal-app-build-context');
+
 export function createEZAppFactory(
   factoryCtx: AdapterFactoryContext,
   rawOptionsArg: AppOptions,
@@ -93,6 +95,7 @@ export function createEZAppFactory(
     },
     envelopPlugins,
     ezPlugins,
+    [InternalAppBuildContextKey]: null as any,
   };
 
   const options: InternalAppBuildContext['options'] = {
@@ -112,6 +115,8 @@ export function createEZAppFactory(
     options,
     appBuilder: baseAppBuilder,
   };
+
+  baseAppBuilder[InternalAppBuildContextKey] = ctx;
 
   let registerError: unknown;
   const registerPromise = Promise.all(

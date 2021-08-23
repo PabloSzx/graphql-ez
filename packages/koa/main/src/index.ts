@@ -10,6 +10,8 @@ import {
   handleRequest,
   InternalAppBuildIntegrationContext,
   ProcessRequestOptions,
+  InternalAppBuildContextKey,
+  InternalAppBuildContext,
 } from 'graphql-ez';
 import type { default as KoaApp, Request, Response } from 'koa';
 import bodyParser from 'koa-bodyparser';
@@ -56,6 +58,8 @@ export interface EZApp {
   readonly getEnveloped: GetEnvelopedFn<unknown>;
 
   readonly path: string;
+
+  [InternalAppBuildContextKey]: InternalAppBuildContext;
 }
 
 export interface KoaBuildAppOptions extends BuildAppOptions {
@@ -173,6 +177,7 @@ export function CreateApp(config: KoaAppOptions = {}): EZAppBuilder {
     return {
       getEnveloped,
       path,
+      [InternalAppBuildContextKey]: commonApp[InternalAppBuildContextKey],
     };
   };
 

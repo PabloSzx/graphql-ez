@@ -10,6 +10,8 @@ import {
   InternalAppBuildIntegrationContext,
   LazyPromise,
   ProcessRequestOptions,
+  InternalAppBuildContextKey,
+  InternalAppBuildContext,
 } from 'graphql-ez';
 import type { IncomingMessage, Server as HTTPServer, ServerResponse } from 'http';
 import querystring from 'querystring';
@@ -76,6 +78,8 @@ export interface EZApp {
   readonly path: string;
 
   readonly ready: Promise<void>;
+
+  [InternalAppBuildContextKey]: InternalAppBuildContext;
 }
 
 export interface HTTPBuildAppOptions extends BuildAppOptions {
@@ -254,6 +258,7 @@ export function CreateApp(config: HttpAppOptions = {}): EZAppBuilder {
         const result = await appPromise;
         if (result.status === 'rejected') throw result.reason;
       }),
+      [InternalAppBuildContextKey]: commonApp[InternalAppBuildContextKey],
     };
   };
 

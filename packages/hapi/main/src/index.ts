@@ -9,6 +9,8 @@ import {
   handleRequest,
   InternalAppBuildIntegrationContext,
   ProcessRequestOptions,
+  InternalAppBuildContextKey,
+  InternalAppBuildContext,
 } from 'graphql-ez';
 
 declare module 'graphql-ez' {
@@ -52,10 +54,12 @@ export interface HapiAppOptions extends AppOptions {
 }
 
 export interface EZApp {
-  hapiPlugin: Plugin<{}>;
-  getEnveloped: GetEnvelopedFn<unknown>;
+  readonly hapiPlugin: Plugin<{}>;
+  readonly getEnveloped: GetEnvelopedFn<unknown>;
 
   readonly path: string;
+
+  [InternalAppBuildContextKey]: InternalAppBuildContext;
 }
 
 export interface EZAppBuilder extends BaseAppBuilder {
@@ -168,6 +172,7 @@ export function CreateApp(config: HapiAppOptions = {}): EZAppBuilder {
       },
       getEnveloped,
       path,
+      [InternalAppBuildContextKey]: commonApp[InternalAppBuildContextKey],
     };
   };
 

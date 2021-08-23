@@ -3,7 +3,13 @@ import { LazyPromise } from '@graphql-ez/utils/promise';
 import type { FastifyInstance, FastifyPluginCallback, FastifyReply, FastifyRequest, RouteOptions } from 'fastify';
 import type { FastifyCorsOptions, FastifyCorsOptionsDelegate, FastifyPluginOptionsDelegate } from 'fastify-cors';
 import type { AppOptions, BuildAppOptions, EZAppFactoryType, GetEnvelopedFn, ProcessRequestOptions } from 'graphql-ez';
-import { BaseAppBuilder, createEZAppFactory, handleRequest } from 'graphql-ez';
+import {
+  BaseAppBuilder,
+  createEZAppFactory,
+  handleRequest,
+  InternalAppBuildContextKey,
+  InternalAppBuildContext,
+} from 'graphql-ez';
 
 declare module 'graphql-ez' {
   interface BuildContextArgs {
@@ -50,6 +56,8 @@ export interface EZApp {
   readonly getEnveloped: Promise<GetEnvelopedFn<unknown>>;
 
   readonly path: string;
+
+  [InternalAppBuildContextKey]: InternalAppBuildContext;
 }
 
 export interface EZAppBuilder extends BaseAppBuilder {
@@ -167,6 +175,7 @@ export function CreateApp(config: FastifyAppOptions = {}): EZAppBuilder {
       fastifyPlugin,
       getEnveloped: LazyPromise(() => appPromise.then(v => v.getEnveloped)),
       path,
+      [InternalAppBuildContextKey]: ezApp[InternalAppBuildContextKey],
     };
   };
 

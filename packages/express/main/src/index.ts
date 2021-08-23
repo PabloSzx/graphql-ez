@@ -12,6 +12,8 @@ import {
   handleRequest,
   InternalAppBuildIntegrationContext,
   ProcessRequestOptions,
+  InternalAppBuildContextKey,
+  InternalAppBuildContext,
 } from 'graphql-ez';
 import type { Server as HttpServer } from 'http';
 
@@ -55,6 +57,8 @@ export interface EZApp {
   readonly router: Router;
   readonly getEnveloped: GetEnvelopedFn<unknown>;
   readonly path: string;
+
+  [InternalAppBuildContextKey]: InternalAppBuildContext;
 }
 
 export interface ExpressBuildAppOptions extends BuildAppOptions {
@@ -161,6 +165,7 @@ export function CreateApp(config: ExpressAppOptions = {}): EZAppBuilder {
       router: await router,
       getEnveloped,
       path,
+      [InternalAppBuildContextKey]: commonApp[InternalAppBuildContextKey],
     };
   };
 

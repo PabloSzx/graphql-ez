@@ -9,6 +9,8 @@ import {
   InternalAppBuildIntegrationContext,
   LazyPromise,
   ProcessRequestOptions,
+  InternalAppBuildContextKey,
+  InternalAppBuildContext,
 } from 'graphql-ez';
 import type { NextApiHandler, NextApiRequest, NextApiResponse } from 'next';
 import { EZCors, handleCors } from './cors';
@@ -57,6 +59,8 @@ export interface EZApp {
   readonly getEnveloped: Promise<GetEnvelopedFn<unknown>>;
 
   readonly ready: Promise<void>;
+
+  [InternalAppBuildContextKey]: InternalAppBuildContext;
 }
 
 export interface EZAppBuilder extends BaseAppBuilder {
@@ -188,6 +192,7 @@ export function CreateApp(config: NextAppOptions = {}): EZAppBuilder {
         const result = await appPromise;
         if (result.status === 'rejected') throw result.reason;
       }),
+      [InternalAppBuildContextKey]: commonApp[InternalAppBuildContextKey],
     };
   };
 

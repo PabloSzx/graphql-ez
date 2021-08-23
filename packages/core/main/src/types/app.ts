@@ -10,7 +10,7 @@ import type {
   PromiseOrValue,
 } from '../index';
 import type { HandleRequest, PreProcessRequest } from './request';
-
+import type { InternalAppBuildContextKey } from '../app';
 export interface AdapterFactoryArgs {
   getEnveloped: GetEnvelopedFn<unknown>;
   ctx: InternalAppBuildContext;
@@ -82,6 +82,8 @@ declare module '../index' {
      * `You can only mutate this array before calling "buildApp" on in the "prepare" option.`
      */
     envelopPlugins: PromiseOrValue<Plugin>[];
+
+    [InternalAppBuildContextKey]: InternalAppBuildContext;
   }
 
   interface ContextAppOptions extends Omit<AppOptions, 'ez' | 'envelop'> {
