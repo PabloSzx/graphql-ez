@@ -1,6 +1,6 @@
 {
   "name": "@graphql-ez/plugin-schema",
-  "version": "0.6.0",
+  "version": "0.7.0",
   "repository": {
     "type": "git",
     "url": "https://github.com/PabloSzx/graphql-ez",
@@ -28,7 +28,7 @@
     "test": "jest"
   },
   "dependencies": {
-    "@graphql-ez/utils": "workspace:^0.1.0",
+    "@graphql-ez/utils": "workspace:^0.1.1",
     "@graphql-tools/schema": "^8.1.2",
     "@graphql-tools/utils": "^8.1.1"
   },
@@ -37,14 +37,14 @@
     "bob-esbuild": "^1.2.3",
     "changesets-github-release": "^0.0.3",
     "graphql": "15.4.0-experimental-stream-defer.1",
-    "graphql-ez": "workspace:^0.12.0",
+    "graphql-ez": "workspace:^0.12.1",
     "jest": "^27.0.6",
     "ts-jest": "^27.0.5",
     "typescript": "^4.4.1-rc"
   },
   "peerDependencies": {
     "graphql": "*",
-    "graphql-ez": "workspace:^0.12.0"
+    "graphql-ez": "workspace:^0.12.1"
   },
   "peerDependenciesMeta": {
     "graphql": {

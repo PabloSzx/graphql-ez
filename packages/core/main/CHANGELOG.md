@@ -1,5 +1,18 @@
 # graphql-ez
 
+## 0.12.1
+
+### Patch Changes
+
+- ebd1306: Restrict more than a single "buildApp" call
+- 4c3ed73: add "preProcessRequest"
+- 3963abb: asPreset returns copy of objects
+- Updated dependencies [4c3ed73]
+- Updated dependencies [9538fc4]
+- Updated dependencies [ea95b4f]
+  - @pablosz/graphql-helix@1.7.2
+  - @graphql-ez/utils@0.1.1
+
 ## 0.12.0
 
 ### Minor Changes

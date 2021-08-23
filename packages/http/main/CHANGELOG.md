@@ -1,5 +1,22 @@
 # @graphql-ez/http
 
+## 0.10.0
+
+### Minor Changes
+
+- 0ce31f5: remove "onBuildPromiseError" and return "ready" lazy promise with rejected on build error
+
+### Patch Changes
+
+- 4c3ed73: add "preProcessRequest"
+- Updated dependencies [ebd1306]
+- Updated dependencies [4c3ed73]
+- Updated dependencies [9538fc4]
+- Updated dependencies [ea95b4f]
+- Updated dependencies [3963abb]
+  - graphql-ez@0.12.1
+  - @graphql-ez/utils@0.1.1
+
 ## 0.9.0
 
 ### Minor Changes

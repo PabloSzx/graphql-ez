@@ -1,5 +1,15 @@
 # @graphql-ez/koa
 
+## 0.8.4
+
+### Patch Changes
+
+- 4c3ed73: add "preProcessRequest"
+- Updated dependencies [ebd1306]
+- Updated dependencies [4c3ed73]
+- Updated dependencies [3963abb]
+  - graphql-ez@0.12.1
+
 ## 0.8.3
 
 ### Patch Changes

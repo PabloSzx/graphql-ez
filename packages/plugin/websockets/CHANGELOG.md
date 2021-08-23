@@ -1,5 +1,21 @@
 # @graphql-ez/plugin-websockets
 
+## 0.9.0
+
+### Minor Changes
+
+- 1e0e5ce: update "ws" to v8 (with outdated types until @types/ws is updated)
+
+### Patch Changes
+
+- Updated dependencies [ebd1306]
+- Updated dependencies [4c3ed73]
+- Updated dependencies [9538fc4]
+- Updated dependencies [ea95b4f]
+- Updated dependencies [3963abb]
+  - graphql-ez@0.12.1
+  - @graphql-ez/utils@0.1.1
+
 ## 0.8.0
 
 ### Minor Changes
