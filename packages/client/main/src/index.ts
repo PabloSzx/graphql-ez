@@ -9,6 +9,7 @@ import { Client } from 'undici';
 import { createSSESubscription } from './sse';
 import { createStreamHelper } from './stream';
 import type { SubscribeOptions } from './types';
+import { createUploadQuery } from './upload';
 import type { GraphQLWSClientOptions } from './websockets/graphql-ws';
 import type { SubscriptionsTransportClientOptions } from './websockets/subscriptions-transport';
 
@@ -55,6 +56,30 @@ export function getJSONFromStream<T>(stream: import('stream').Readable): Promise
   });
 }
 
+export type QueryFunctionPostGet = <TData, TVariables = {}, TExtensions = {}>(
+  document: TypedDocumentNode<TData, TVariables> | string,
+  options?: {
+    variables?: TVariables;
+    headers?: IncomingHttpHeaders;
+    /**
+     * @default "POST"
+     */
+    method?: 'GET' | 'POST';
+    extensions?: Record<string, unknown>;
+    operationName?: string;
+  }
+) => Promise<ExecutionResult<TData, TExtensions>>;
+
+export type QueryFunctionPost = <TData, TVariables = {}, TExtensions = {}>(
+  document: TypedDocumentNode<TData, TVariables> | string,
+  options?: {
+    variables?: TVariables;
+    headers?: IncomingHttpHeaders;
+    extensions?: Record<string, unknown>;
+    operationName?: string;
+  }
+) => Promise<ExecutionResult<TData, TExtensions>>;
+
 export function EZClient(options: EZClientOptions) {
   const endpointUrl = new URL(options.endpoint);
 
@@ -88,91 +113,70 @@ export function EZClient(options: EZClientOptions) {
     });
   }
 
-  return {
-    async query<TData, TVariables = {}, TExtensions = {}>(
-      document: TypedDocumentNode<TData, TVariables> | string,
-      {
-        variables,
-        headers: headersArg,
-        method = 'POST',
-        extensions,
-        operationName,
-      }: {
-        variables?: TVariables;
-        headers?: IncomingHttpHeaders;
-        /**
-         * @default "POST"
-         */
-        method?: 'GET' | 'POST';
-        extensions?: Record<string, unknown>;
-        operationName?: string;
-      } = {}
-    ): Promise<ExecutionResult<TData, TExtensions>> {
-      const queryString = typeof document === 'string' ? document : print(document);
-      const { body, headers } = await client.request(
-        method === 'GET'
-          ? {
-              method: 'GET',
-              headers: getHeaders(headersArg),
-              path: endpointPathname + documentParamsToURIParams({ query: queryString, extensions, operationName, variables }),
-            }
-          : {
-              method: 'POST',
-              headers: {
-                'content-type': 'application/json',
-                ...getHeaders(headersArg),
-              },
-              body: JSON.stringify({ query: queryString, variables }),
-              path: endpointPathname,
-            }
-      );
+  const query: QueryFunctionPostGet = async function query(
+    document,
+    { variables, headers: headersArg, method = 'POST', extensions, operationName } = {}
+  ) {
+    const queryString = typeof document === 'string' ? document : print(document);
+    const { body, headers } = await client.request(
+      method === 'GET'
+        ? {
+            method: 'GET',
+            headers: getHeaders(headersArg),
+            path: endpointPathname + documentParamsToURIParams({ query: queryString, extensions, operationName, variables }),
+          }
+        : {
+            method: 'POST',
+            headers: {
+              'content-type': 'application/json',
+              ...getHeaders(headersArg),
+            },
+            body: JSON.stringify({ query: queryString, variables }),
+            path: endpointPathname,
+          }
+    );
 
-      if (!headers['content-type']?.startsWith('application/json')) {
-        console.error({
-          body: await getStringFromStream(body),
-          headers,
-        });
-        throw Error('Unexpected content type received: ' + headers['content-type']);
-      }
-
-      return getJSONFromStream(body);
-    },
-    async mutation<TData, TVariables = {}, TExtensions = {}>(
-      document: TypedDocumentNode<TData, TVariables> | string,
-      {
-        variables,
-        headers: headersArg,
-        extensions,
-        operationName,
-      }: {
-        variables?: TVariables;
-        headers?: IncomingHttpHeaders;
-        extensions?: Record<string, unknown>;
-        operationName?: string;
-      } = {}
-    ): Promise<ExecutionResult<TData, TExtensions>> {
-      const queryString = typeof document === 'string' ? document : print(document);
-
-      const { body, headers } = await client.request({
-        method: 'POST',
-        headers: {
-          'content-type': 'application/json',
-          ...getHeaders(headersArg),
-        },
-        body: JSON.stringify({ query: queryString, variables, operationName, extensions }),
-        path: endpointPathname,
+    if (!headers['content-type']?.startsWith('application/json')) {
+      console.error({
+        body: await getStringFromStream(body),
+        headers,
       });
+      throw Error('Unexpected content type received: ' + headers['content-type']);
+    }
 
-      if (!headers['content-type']?.startsWith('application/json')) {
-        console.error({
-          body: await getStringFromStream(body),
-          headers,
-        });
-        throw Error('Unexpected content type received: ' + headers['content-type']);
-      }
+    return getJSONFromStream(body);
+  };
 
-      return getJSONFromStream(body);
-    },
+  const queryPost: QueryFunctionPost = async function queryPost(
+    document,
+    { variables, headers: headersArg, extensions, operationName } = {}
+  ) {
+    const queryString = typeof document === 'string' ? document : print(document);
+
+    const { body, headers } = await client.request({
+      method: 'POST',
+      headers: {
+        'content-type': 'application/json',
+        ...getHeaders(headersArg),
+      },
+      body: JSON.stringify({ query: queryString, variables, operationName, extensions }),
+      path: endpointPathname,
+    });
+
+    if (!headers['content-type']?.startsWith('application/json')) {
+      console.error({
+        body: await getStringFromStream(body),
+        headers,
+      });
+      throw Error('Unexpected content type received: ' + headers['content-type']);
+    }
+
+    return getJSONFromStream(body);
+  };
+
+  return {
+    query,
+    mutation: queryPost,
     websockets: {
       async subscribe<TData, TVariables extends Record<string, unknown> = {}>(
         document: TypedDocumentNode<TData, TVariables> | string,
@@ -202,5 +206,6 @@ export function EZClient(options: EZClientOptions) {
     setHeaders(headersToAssign: IncomingHttpHeaders) {
       Object.assign(headers, headersToAssign);
     },
+    uploadQuery: createUploadQuery(endpointHref, getHeaders, queryPost),
   };
 }

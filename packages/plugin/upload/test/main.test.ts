@@ -1,15 +1,22 @@
-import fetch from 'node-fetch';
-
+import assert from 'assert';
 import {
   createUploadFileBody,
+  FileUpload,
   gql,
   readStreamToBuffer,
   startExpressServer,
   startFastifyServer,
   startKoaServer,
+  UploadFileDocument,
 } from 'graphql-ez-testing';
+import fetch from 'node-fetch';
+
+import { CreateTestClient as CreateFastifyTestClient, GlobalTeardown } from '@graphql-ez/fastify-testing';
+import { ezSchema } from '@graphql-ez/plugin-schema';
 
 import { ezUpload } from '../src/index';
+
+afterAll(GlobalTeardown);
 
 const uploadBase64Schema = {
   typeDefs: gql`
@@ -27,7 +34,7 @@ const uploadBase64Schema = {
         {
           file,
         }: {
-          file: Promise<{ createReadStream(): any }>;
+          file: Promise<FileUpload>;
         }
       ) {
         return (await readStreamToBuffer(file)).toString('base64');
@@ -73,6 +80,35 @@ test('fastify', async () => {
   expect(recovered).toBe(fileMessage);
 
   expect(res.statusCode).toBe(200);
+});
+
+test('fastify on test client', async () => {
+  const fileMessage = 'hello-world';
+
+  const { uploadQuery } = await CreateFastifyTestClient({
+    ez: {
+      plugins: [
+        ezUpload(),
+        ezSchema({
+          schema: uploadBase64Schema,
+        }),
+      ],
+    },
+  });
+
+  const { data, errors } = await uploadQuery(UploadFileDocument, {
+    variables: {
+      file: Buffer.from(fileMessage),
+    },
+  });
+
+  expect(errors).toBeFalsy();
+
+  assert(data);
+
+  const recovered = Buffer.from(data.uploadFileToBase64, 'base64').toString('utf-8');
+
+  expect(recovered).toBe(fileMessage);
 });
 
 test('express', async () => {

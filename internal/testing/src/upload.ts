@@ -2,6 +2,7 @@ import FormData from 'form-data';
 import { print } from 'graphql';
 
 import type { TypedDocumentNode } from '@graphql-typed-document-node/core';
+import type { ReadStream } from 'fs';
 
 export const UploadFileDocument = {
   kind: 'Document',
@@ -35,7 +36,7 @@ export const UploadFileDocument = {
       },
     },
   ],
-} as unknown as TypedDocumentNode<{ uploadFileToBase65: string }, { file: any }>;
+} as unknown as TypedDocumentNode<{ uploadFileToBase64: string }, { file: ReadStream | Buffer }>;
 
 export function createUploadFileBody(content: string) {
   const body = new FormData();

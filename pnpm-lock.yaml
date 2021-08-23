@@ -556,14 +556,20 @@ importers:
       '@graphql-tools/utils': ^8.1.1
       '@graphql-typed-document-node/core': ^3.1.0
       '@types/eventsource': ^1.1.6
+      '@types/extract-files': ^8.1.1
       '@types/node': ^16.7.1
+      '@types/node-fetch': ^2.5.12
+      '@types/ws': ^7.4.7
       bob-esbuild-cli: ^1.0.1
       changesets-github-release: ^0.0.3
       eventsource: ^1.1.0
+      extract-files: ^11.0.0
+      form-data: ^4.0.0
       graphql: 15.4.0-experimental-stream-defer.1
       graphql-ws: ^5.4.0
       isomorphic-ws: ^4.0.1
       jest: ^27.0.6
+      node-fetch: ^2.6.1
       subscriptions-transport-ws-envelop: ^1.0.6
       undici: ^4.4.6
       ws: ^8.2.0
@@ -572,14 +578,20 @@ importers:
       '@graphql-tools/utils': 8.1.1_34dd13c2583fe2e4418c23a0d30fc388
       '@types/eventsource': 1.1.6
       eventsource: 1.1.0
+      extract-files: 11.0.0
+      form-data: 4.0.0
       graphql-ws: 5.4.0_34dd13c2583fe2e4418c23a0d30fc388
       isomorphic-ws: 4.0.1_ws@8.2.0
+      node-fetch: 2.6.1
       subscriptions-transport-ws-envelop: 1.0.6_b697ce0cb97a3bfccb0fe73693f0400c
       undici: 4.4.6
       ws: 8.2.0
     devDependencies:
       '@graphql-typed-document-node/core': 3.1.0_34dd13c2583fe2e4418c23a0d30fc388
+      '@types/extract-files': 8.1.1
       '@types/node': 16.7.1
+      '@types/node-fetch': 2.5.12
+      '@types/ws': 7.4.7
       bob-esbuild-cli: 1.0.1_bob-esbuild@1.2.3
       changesets-github-release: 0.0.3
       graphql: 15.4.0-experimental-stream-defer.1
@@ -4873,6 +4885,10 @@ packages:
       '@types/qs': 6.9.7
       '@types/serve-static': 1.13.10
 
+  /@types/extract-files/8.1.1:
+    resolution: {integrity: sha512-dMJJqBqyhsfJKuK7p7HyyNmki7qj1AlwhUKWx6KrU7i1K2T2SPsUsSUTWFmr/sEM1q8rfR8j5IyUmYrDbrhfjQ==}
+    dev: true
+
   /@types/fs-capacitor/2.0.0:
     resolution: {integrity: sha512-FKVPOCFbhCvZxpVAMhdBdTfVfXUpsh15wFHgqOKxh9N9vzWZVuWCSijZ5T4U34XYNnuj2oduh6xcs1i+LPI+BQ==}
     dependencies:
@@ -7832,7 +7848,6 @@ packages:
   /extract-files/11.0.0:
     resolution: {integrity: sha512-FuoE1qtbJ4bBVvv94CC7s0oTnKUGvQs+Rjf1L2SJFfS+HTVVjhPFtehPdQ0JiGPqVNfSSZvL5yzHHQq2Z4WNhQ==}
     engines: {node: ^12.20 || >= 14.13}
-    dev: true
 
   /extract-files/9.0.0:
     resolution: {integrity: sha512-CvdFfHkC95B4bBBk36hcEmvdR2awOdhhVUYH6S/zrVj3477zven/fJMYg7121h4T1xHZC+tetUpubpAhxwI7hQ==}
@@ -8139,7 +8154,6 @@ packages:
       asynckit: 0.4.0
       combined-stream: 1.0.8
       mime-types: 2.1.32
-    dev: true
 
   /forwarded/0.2.0:
     resolution: {integrity: sha512-buRG0fpBtRHSTCOASe6hD258tEubFoRLb4ZNA6NxMVHNw2gOcwHo9wyablzMzOA5z9xA9L1KNjk/Nt6MT9aYow==}
