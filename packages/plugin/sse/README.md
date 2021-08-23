@@ -14,7 +14,7 @@ This plugins supports:
 
 ## Options
 
-Check [HandlerOptions graphql-sse docs](https://github.com/enisdenjo/graphql-sse/blob/master/docs/interfaces/handler.HandlerOptions.md) for some information, from there, you can ignore `'execute'`, `'subscribe'`, `'validate'`, `'onSubscribe'` `'schema'` and `'context'`
+Check [HandlerOptions graphql-sse docs](https://github.com/enisdenjo/graphql-sse/blob/master/docs/interfaces/handler.HandlerOptions.md) for some information, from there, you can ignore `'execute'`, `'subscribe'`, `'validate'`, `'onSubscribe'`, `'schema'` and `'context'`
 
 ## Usage
 
