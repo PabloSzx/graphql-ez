@@ -100,6 +100,17 @@ Integration of Websockets using [graphql-ws](https://github.com/enisdenjo/graphq
     title: 'Schema',
     iconUrl: '/assets/logos/tools.svg',
   },
+  {
+    identifier: 'sse',
+    npmPackage: '@graphql-ez/plugin-sse',
+    tags: ['express-compatible', 'fastify-compatible', 'hapi-compatible', 'koa-compatible', 'node-http-compatible'],
+    title: 'GraphQL over Server-Sent Events',
+    iconUrl: '/assets/logos/graphql.png',
+    githubReadme: {
+      repo: 'PabloSzx/graphql-ez',
+      path: 'packages/plugin/sse/README.md',
+    },
+  },
 ];
 
 export function packageInstallList(pkg: Package): string[] {

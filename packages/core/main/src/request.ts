@@ -113,7 +113,7 @@ export async function handleRequest<TReturn = unknown>({
     contextFactory,
     execute,
     subscribe,
-    extensions
+    extensions,
   };
 
   if (processRequestOptions) {

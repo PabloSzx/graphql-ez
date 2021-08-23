@@ -9,8 +9,8 @@ This plugins supports:
 - [Fastify](https://www.graphql-ez.com/docs/integrations/fastify)
 - [Express](https://www.graphql-ez.com/docs/integrations/express)
 - [Koa](https://www.graphql-ez.com/docs/integrations/koa)
-- [Node.js HTTP](https://nodejs.org/api/http.html)
-- [Hapi](https://hapi.dev/)
+- [Node.js HTTP](https://www.graphql-ez.com/docs/integrations/http)
+- [Hapi](https://www.graphql-ez.com/docs/integrations/hapi)
 
 ## Options
 
