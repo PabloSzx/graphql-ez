@@ -1,11 +1,9 @@
-import Router from 'next/router';
-import { ReactNode, useEffect } from 'react';
-
-import { Box, Heading, HStack, Link, Text, useColorModeValue, VStack, Image, Stack } from '@chakra-ui/react';
+import { Box, chakra, Heading, HStack, Link, Stack, Text, useColorModeValue, VStack } from '@chakra-ui/react';
 import { ClassNames } from '@emotion/react';
 import { handlePushRoute, NPMBadge } from '@guild-docs/client';
 import { HeroGradient, InfoList } from '@theguild/components';
-
+import Router from 'next/router';
+import { ReactNode, useEffect } from 'react';
 import { ExpressLogo, FastifyLogo, HapiLogo, KoaLogo, NextjsLogo, NodeLogo } from '../components/logos';
 
 function ItemDescription({ description, packageName }: { description: string; packageName: string }) {
@@ -49,7 +47,7 @@ export default function Index() {
           <HeroGradient
             title={
               <Stack>
-                <Image width="150px" src="/assets/ez/logo_horizontal_transparent.svg" alt="GraphQL EZ Logo" />
+                <chakra.img width="150px" src="/assets/ez/logo_horizontal_transparent.svg" alt="GraphQL EZ Logo" />
                 <Text as="span">GraphQL EZ</Text>
               </Stack>
             }
