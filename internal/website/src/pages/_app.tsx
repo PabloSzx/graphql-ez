@@ -158,7 +158,7 @@ const defaultSeo: AppSeoProps = {
   title: 'GraphQL EZ',
   description: 'Easy, feature complete, and Plugin-Based Envelop GraphQL APIs',
   logo: {
-    url: 'https://www.graphql-ez.com/assets/ez/logo_small.svg',
+    url: 'https://www.graphql-ez.com/assets/ez/logo_square_bg.png',
     width: 50,
     height: 54,
   },
