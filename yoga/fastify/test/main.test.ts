@@ -5,9 +5,7 @@ import { CreateTestClient, GlobalTeardown } from '@graphql-ez/fastify-testing';
 afterEach(GlobalTeardown);
 
 test('works', async () => {
-  const { ezApp, gql, builtApp } = GraphQLServer({
-    deduplicator: true,
-  });
+  const { ezApp, gql, builtApp } = GraphQLServer({});
 
   ezApp.registerTypeDefs(gql`
     type Query {
@@ -67,32 +65,27 @@ type User {
           }
         `);
 
-  await expect(
-    query('{users{__typename id name}}', {
-      headers: {
-        'X-GraphQL-Deduplicate': '1',
+  await expect(query('{users{__typename id name}}', {})).resolves.toMatchInlineSnapshot(`
+Object {
+  "data": Object {
+    "users": Array [
+      Object {
+        "__typename": "User",
+        "id": "1",
+        "name": "one",
       },
-    })
-  ).resolves.toMatchInlineSnapshot(`
-          Object {
-            "data": Object {
-              "users": Array [
-                Object {
-                  "__typename": "User",
-                  "id": "1",
-                  "name": "one",
-                },
-                Object {
-                  "__typename": "User",
-                  "id": "1",
-                },
-                Object {
-                  "__typename": "User",
-                  "id": "2",
-                  "name": "two",
-                },
-              ],
-            },
-          }
-        `);
+      Object {
+        "__typename": "User",
+        "id": "1",
+        "name": "one",
+      },
+      Object {
+        "__typename": "User",
+        "id": "2",
+        "name": "two",
+      },
+    ],
+  },
+}
+`);
 });

@@ -52,13 +52,6 @@ export interface BaseYogaConfig extends EZSchemaOptions {
         preserveResolvers?: boolean;
       }
     | boolean;
-
-  /**
-   * Enable deduplication, inspired on https://github.com/gajus/graphql-deduplicator, but using `@graphql-ez/utils/inflate` and `@graphql-ez/utils/deflate` instead.
-   *
-   * When enabled, sending the header `x-graphql-deduplicate` will deduplicate the data.
-   */
-  deduplicator?: boolean;
 }
 
 export interface PresetConfig extends BaseYogaConfig {
@@ -73,7 +66,6 @@ export function getYogaPreset(config: PresetConfig = {}): EZPreset {
     websockets = false,
     graphiql = true,
     ezOptions,
-    deduplicator,
 
     executableSchemaConfig,
     mergeSchemasConfig,
@@ -135,16 +127,6 @@ export function getYogaPreset(config: PresetConfig = {}): EZPreset {
 
   if (middlewares) {
     envelopPlugins.push(LazyPromise(() => import('@envelop/graphql-middleware').then(v => v.useGraphQLMiddleware(middlewares))));
-  }
-
-  if (deduplicator) {
-    envelopPlugins.push(
-      LazyPromise(async () => {
-        const { useDeduplicate } = await import('./deduplicate');
-
-        return useDeduplicate();
-      })
-    );
   }
 
   return preset;
