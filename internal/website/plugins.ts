@@ -118,6 +118,10 @@ Integration of Websockets using [graphql-ws](https://github.com/enisdenjo/graphq
     tags: ['persisted-queries'],
     title: 'Automatic Persisted Queries',
     iconUrl: '/assets/logos/graphql.png',
+    githubReadme: {
+      repo: 'PabloSzx/graphql-ez',
+      path: 'packages/plugin/automatic-persisted-queries/README.md',
+    },
   },
 ];
 
