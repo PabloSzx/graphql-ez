@@ -7,7 +7,7 @@ import {
   PersistedQueryNotFoundError,
   PersistedQueryNotSupportedError,
 } from './errors';
-import { GraphQLError } from 'graphql';
+import { GraphQLError, ExecutionResult } from 'graphql';
 import { isDocumentNode } from '@graphql-tools/utils';
 
 export interface PersistedQuery {
@@ -170,13 +170,10 @@ export const ezAutomaticPersistedQueries = (options?: AutomaticPersistedQueryOpt
 
         // override execute so we can store query if it's valid
         options.execute = async (...args: any[]) => {
-          const result = await execute(...args);
-          try {
-            await store.set(hash, query);
-          } catch (e) {
-            // todo: throw not supported error
-            throw e;
-          }
+          const result: ExecutionResult = await execute(...args);
+
+          if (!result.errors?.length) Promise.resolve(store.set(hash, query)).catch(console.error);
+
           return result;
         };
       }
