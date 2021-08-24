@@ -10,7 +10,15 @@ import {
 import { GraphQLError } from 'graphql';
 import { isDocumentNode } from '@graphql-tools/utils';
 
-export type DisableContext = Pick<PreProcessRequestOptions, 'request' | 'extensions' | 'query' | 'operationName' | 'variables'>;
+export interface PersistedQuery {
+  version: number;
+  hash: string;
+}
+
+export type DisableContext = Pick<
+  PreProcessRequestOptions,
+  'request' | 'extensions' | 'query' | 'operationName' | 'variables'
+> & { persistedQuery: PersistedQuery };
 
 declare module 'graphql-ez' {
   interface InternalAppBuildContext {
@@ -26,11 +34,6 @@ const ALGORITHMS = ['sha256', 'sha512', 'sha1', 'md5'] as const;
 export type HashAlgorithm = typeof ALGORITHMS[number];
 
 export const DEFAULT_HASH_ALGORITHM: HashAlgorithm = 'sha256';
-
-export interface PersistedQuery {
-  version: number;
-  hash: string;
-}
 
 export interface AutomaticPersistedQueryOptions {
   /**
@@ -111,21 +114,6 @@ export const ezAutomaticPersistedQueries = (options?: AutomaticPersistedQueryOpt
     }
 
     if (persistedQuery) {
-
-      if (disableIf) {
-        const { query, operationName, request, variables } = options;
-        const context: DisableContext = {
-          extensions,
-          operationName,
-          query,
-          request,
-          variables,
-        };
-        if (disableIf(context)) {
-          return createErrorResponse(new PersistedQueryNotSupportedError(extensions));
-        }
-      }
-
       // This is a persisted query, so we use the hash in the request
       // to load the full query document.
       const { hash, version } = persistedQuery;
@@ -136,6 +124,21 @@ export const ezAutomaticPersistedQueries = (options?: AutomaticPersistedQueryOpt
 
       if (version !== expectedVersion) {
         return createErrorResponse(new PersistedQueryInvalidVersionError(extensions));
+      }
+
+      if (disableIf) {
+        const { query, operationName, request, variables } = options;
+        const context: DisableContext = {
+          extensions,
+          operationName,
+          query,
+          request,
+          variables,
+          persistedQuery
+        };
+        if (disableIf(context)) {
+          return createErrorResponse(new PersistedQueryNotSupportedError(extensions));
+        }
       }
 
       if (query === undefined) {
@@ -189,11 +192,11 @@ export const ezAutomaticPersistedQueries = (options?: AutomaticPersistedQueryOpt
         envelop: { plugins },
       } = ctx.options;
 
-      plugins.push( {
+      plugins.push({
         onSchemaChange() {
           // unfortunately onSchemaChange is not async
           Promise.resolve(store.clear()).catch(e => console.log(e));
-        }
+        },
       });
     },
   };
