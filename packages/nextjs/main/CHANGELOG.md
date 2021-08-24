@@ -1,5 +1,13 @@
 # @graphql-ez/nextjs
 
+## 0.9.2
+
+### Patch Changes
+
+- 0a20573: Set custom headers on default response
+- Updated dependencies [0a20573]
+  - graphql-ez@0.12.3
+
 ## 0.9.1
 
 ### Patch Changes

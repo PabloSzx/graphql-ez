@@ -1,5 +1,11 @@
 # graphql-ez
 
+## 0.12.3
+
+### Patch Changes
+
+- 0a20573: Set custom headers on default response
+
 ## 0.12.2
 
 ### Patch Changes
