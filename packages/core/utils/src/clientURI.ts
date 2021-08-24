@@ -1,4 +1,4 @@
-import { stripIgnoredCharacters, DocumentNode, print } from 'graphql';
+import { DocumentNode, print } from 'graphql';
 
 export function documentParamsToURIParams({
   query,
@@ -11,7 +11,7 @@ export function documentParamsToURIParams({
   extensions?: unknown;
   operationName?: string;
 }) {
-  return `?query=${encodeURIComponent(stripIgnoredCharacters(typeof query === 'string' ? query : print(query)))}${
+  return `?query=${encodeURIComponent(typeof query === 'string' ? query : print(query))}${
     variables ? '&variables=' + encodeURIComponent(typeof variables === 'string' ? variables : JSON.stringify(variables)) : ''
   }${operationName ? '&operationName=' + encodeURIComponent(operationName) : ''}${
     extensions

@@ -3,6 +3,7 @@ import { Readable } from 'stream';
 import { Pool } from 'undici';
 
 import { LazyPromise } from '@graphql-ez/utils/promise';
+import { documentParamsToURIParams } from '@graphql-ez/utils/clientURI';
 
 import { TearDownPromises } from './common';
 
@@ -74,31 +75,50 @@ export function getRequestPool(port: number, path = '/graphql') {
     },
     async query<TData, TVariables = {}>(
       document?: TypedDocumentNode<TData, TVariables> | string,
-      variables?: TVariables,
-      headersArg?: IncomingHttpHeaders,
-      extensions?: Record<string, unknown>,
-      operationName?: string
-    ): Promise<ExecutionResult<TData>> {
-      const { body, headers } = await requestPool.request({
-        origin: address,
-        method: 'POST',
-        headers: {
-          'content-type': 'application/json',
-          ...headersArg,
-        },
-        body: Readable.from(
-          JSON.stringify({
-            query: typeof document === 'string' ? document : document && print(document),
-            variables,
-            extensions,
-            operationName,
-          }),
-          {
-            objectMode: false,
-          }
-        ),
-        path,
-      });
+      options?: {
+        variables?: TVariables;
+        headers?: IncomingHttpHeaders;
+        extensions?: Record<string, unknown>;
+        operationName?: string;
+        /**
+         * @default "POST"
+         */
+        method?: 'POST' | 'GET';
+      }
+    ): Promise<ExecutionResult<TData> & { http: { statusCode: number; headers: IncomingHttpHeaders } }> {
+      const { variables, headers: headersArg, extensions, operationName, method = 'POST' } = options || {};
+      const { body, headers, statusCode } = await requestPool.request(
+        method === 'POST'
+          ? {
+              origin: address,
+              method: 'POST',
+              headers: {
+                'content-type': 'application/json',
+                ...headersArg,
+              },
+              body: Readable.from(
+                JSON.stringify({
+                  query: typeof document === 'string' ? document : document && print(document),
+                  variables,
+                  extensions,
+                  operationName,
+                }),
+                {
+                  objectMode: false,
+                }
+              ),
+              path,
+            }
+          : {
+              origin: address,
+              method: 'GET',
+              headers: {
+                'content-type': 'application/json',
+                ...headersArg,
+              },
+              path: path + documentParamsToURIParams({ query: document || '', extensions, operationName, variables }),
+            }
+      );
 
       if (!headers['content-type']?.startsWith('application/json')) {
         console.error({
@@ -108,7 +128,7 @@ export function getRequestPool(port: number, path = '/graphql') {
         throw Error('Unexpected content type received: ' + headers['content-type']);
       }
 
-      return getJSONFromStream(body);
+      return { ...(await getJSONFromStream(body)), http: { statusCode, headers } };
     },
   };
 }

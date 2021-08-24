@@ -48,8 +48,10 @@ test.concurrent('conditional disable introspection', async () => {
 
   expect(
     (
-      await query(getIntrospectionQuery(), undefined, {
-        authorization: 'SECRET',
+      await query(getIntrospectionQuery(), {
+        headers: {
+          authorization: 'SECRET',
+        },
       })
     ).data
   ).toBeTruthy();
