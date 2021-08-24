@@ -1,14 +1,9 @@
 import type { GetEnvelopedFn, PromiseOrValue } from '@envelop/types';
-import type {
-  MultipartResponse,
-  ProcessRequestOptions as HelixProcessRequestOptions,
-  ProcessRequestResult,
-  Push,
-} from '@pablosz/graphql-helix';
+import type { MultipartResponse, ProcessRequestResult, Push } from '@pablosz/graphql-helix';
 import type { ExecutionResult } from 'graphql';
 import type { IncomingMessage, ServerResponse } from 'http';
 import type { AppOptions, BuildContextArgs, EZContext } from '../index';
-import type { ProcessRequestOptions, Request } from './helixTypes';
+import type { ProcessRequestOptions, Request, PreProcessRequestOptions } from './helixTypes';
 
 export type EZResponse = {
   type: 'RESPONSE';
@@ -65,7 +60,7 @@ export type RequestHandler = (req: IncomingMessage, res: ServerResponse) => Prom
  * If it returns an object, it interrupts the default execution returning the given payload.
  */
 export interface PreProcessRequest {
-  (data: Readonly<{ appOptions: AppOptions; requestOptions: HelixProcessRequestOptions<EZContext, unknown> }>): PromiseOrValue<
+  (data: Readonly<{ appOptions: AppOptions; requestOptions: PreProcessRequestOptions }>): PromiseOrValue<
     ProcessRequestResult<EZContext, unknown> | undefined | null | void
   >;
 }

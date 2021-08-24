@@ -1,7 +1,6 @@
 import type { IncomingHttpHeaders } from 'http';
 import type { ProcessRequestOptions as HelixProcessRequestOptions } from '@pablosz/graphql-helix';
-import type { EZContext } from '../index';
-
+import type { EZContext, PickRequired } from '../index';
 export interface Request {
   body?: any;
   headers: IncomingHttpHeaders;
@@ -12,4 +11,9 @@ export interface Request {
 export type ProcessRequestOptions = Pick<
   HelixProcessRequestOptions<EZContext, unknown>,
   'formatPayload' | 'rootValueFactory' | 'validationRules'
+>;
+
+export type PreProcessRequestOptions<Context = EZContext> = PickRequired<
+  HelixProcessRequestOptions<Context, unknown>,
+  'request' | 'schema' | 'parse' | 'validate' | 'contextFactory' | 'execute' | 'subscribe'
 >;

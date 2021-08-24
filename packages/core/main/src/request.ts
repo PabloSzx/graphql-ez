@@ -3,12 +3,11 @@ import {
   getGraphQLParameters,
   MultipartResponse,
   processRequest,
-  ProcessRequestOptions as HelixProcessRequestOptions,
   ProcessRequestResult,
   Push,
 } from '@pablosz/graphql-helix';
 import type { IncomingMessage, ServerResponse } from 'http';
-import type { BuildContextArgs, EZContext, EZResponse, HandleRequestOptions, Request } from './index';
+import type { BuildContextArgs, EZContext, EZResponse, HandleRequestOptions, Request, PreProcessRequestOptions } from './index';
 
 export interface HelixContext extends Omit<ExecutionContext, 'request'> {
   request: Request;
@@ -48,7 +47,7 @@ export async function handleRequest<TReturn = unknown>({
       request.body.map(async body => {
         const { operationName, query, variables, extensions } = getGraphQLParameters({ ...request, body });
 
-        const options: HelixProcessRequestOptions<any, unknown> = {
+        const options: PreProcessRequestOptions<any> = {
           operationName,
           query,
           variables,
@@ -102,7 +101,7 @@ export async function handleRequest<TReturn = unknown>({
 
   const { operationName, query, variables, extensions } = getGraphQLParameters(request);
 
-  const options: HelixProcessRequestOptions<any, unknown> = {
+  const options: PreProcessRequestOptions<any> = {
     operationName,
     query,
     variables,
