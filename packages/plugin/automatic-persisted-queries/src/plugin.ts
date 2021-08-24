@@ -7,7 +7,7 @@ import {
   PersistedQueryNotFoundError,
   PersistedQueryNotSupportedError,
 } from './errors';
-import { GraphQLError, ExecutionResult } from 'graphql';
+import { GraphQLError } from 'graphql';
 import { isDocumentNode } from '@graphql-tools/utils';
 
 export interface PersistedQuery {
@@ -154,7 +154,7 @@ export const ezAutomaticPersistedQueries = (options?: AutomaticPersistedQueryOpt
 
         options.query = cached;
       } else {
-        const { execute } = options;
+        const { validate } = options;
 
         const computedQueryHash = generateHash(query, hashAlgorithm);
 
@@ -168,11 +168,11 @@ export const ezAutomaticPersistedQueries = (options?: AutomaticPersistedQueryOpt
 
         options.query = query;
 
-        // override execute so we can store query if it's valid
-        options.execute = async (...args: any[]) => {
-          const result: ExecutionResult = await execute(...args);
+        // store query if it's valid
+        options.validate = (...args) => {
+          const errors: readonly GraphQLError[] | null = validate(...args);
 
-          if (!result.errors?.length) {
+          if (!errors?.length) {
             try {
               Promise.resolve(store.set(hash, query)).catch(console.error);
             } catch (err) {
@@ -180,7 +180,7 @@ export const ezAutomaticPersistedQueries = (options?: AutomaticPersistedQueryOpt
             }
           }
 
-          return result;
+          return errors;
         };
       }
     }
