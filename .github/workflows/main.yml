@@ -38,6 +38,8 @@ jobs:
             ${{ runner.os }}-${{matrix.node_version}}-jest-
       - name: Install Dependencies
         run: pnpm i
+      - name: Check Format
+        run: pnpm pretty:check
       - name: Test
         run: pnpm test -- --logHeapUsage
         env:
