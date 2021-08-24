@@ -1,17 +1,15 @@
 {
   "name": "@graphql-ez/automatic-persisted-queries",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "homepage": "https://www.graphql-ez.com",
-  "author": "Clayton Collie <collie.clayton@gmail.com>",
-  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "https://github.com/PabloSzx/graphql-ez",
     "directory": "packages/plugin/automatic-persisted-queries"
   },
+  "license": "MIT",
+  "author": "Clayton Collie <collie.clayton@gmail.com>",
   "sideEffects": false,
-  "main": "dist/index.js",
-  "module": "dist/index.mjs",
   "exports": {
     ".": {
       "require": "./dist/index.js",
@@ -22,10 +20,9 @@
       "import": "./dist/*.mjs"
     }
   },
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
   "typings": "dist/index.d.ts",
-  "typescript": {
-    "definition": "dist/index.d.ts"
-  },
   "scripts": {
     "dev": "bob-esbuild watch",
     "prepack": "bob-esbuild build",
@@ -33,8 +30,8 @@
     "test": "jest"
   },
   "dependencies": {
-    "tiny-lru": "^7.0.6",
-    "@graphql-tools/utils": "^8.1.2"
+    "@graphql-tools/utils": "^8.1.2",
+    "tiny-lru": "^7.0.6"
   },
   "devDependencies": {
     "bob-esbuild-cli": "^1.0.1",
@@ -48,11 +45,11 @@
     "graphql": "*",
     "graphql-ez": "workspace:^0.12.1"
   },
-  "buildOptions": {
-    "input": "./src/index.ts"
-  },
   "publishConfig": {
-    "directory": "dist",
-    "access": "public"
+    "access": "public",
+    "directory": "dist"
+  },
+  "typescript": {
+    "definition": "dist/index.d.ts"
   }
 }
