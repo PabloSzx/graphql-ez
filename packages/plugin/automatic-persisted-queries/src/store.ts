@@ -1,4 +1,5 @@
 import LRU from 'tiny-lru';
+import type { PromiseOrValue } from 'graphql-ez';
 
 export interface PersistedQueryStore {
   /**
@@ -6,12 +7,16 @@ export interface PersistedQueryStore {
    * Return `null` in case of a store miss.
    * @param hash
    */
-  get(hash: string): Promise<string | null>;
+  get(hash: string): PromiseOrValue<string | null>;
 
   /**
    *  Save a query, given its hash.
    */
-  set: (hash: string, query: string) => Promise<void>;
+  set: (hash: string, query: string) => PromiseOrValue<void>;
+  /*
+   * Drops all data from the cache.
+   */
+  clear: () => PromiseOrValue<void>;
 }
 
 const DEFAULT_MAX = 1000;
@@ -31,5 +36,8 @@ export const createLRUStore = (maxSize?: number, ttl?: number): PersistedQuerySt
     async set(hash: string, query: string) {
       cache.set(hash, query);
     },
+    clear(): PromiseOrValue<void> {
+      cache.clear();
+    }
   };
 };

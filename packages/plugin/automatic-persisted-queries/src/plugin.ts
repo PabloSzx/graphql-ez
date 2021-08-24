@@ -184,5 +184,17 @@ export const ezAutomaticPersistedQueries = (options?: AutomaticPersistedQueryOpt
       ctx.automaticPersistedQueries = options;
       (ctx.preProcessRequest ||= []).push(processRequest);
     },
+    onPreBuild(ctx) {
+      const {
+        envelop: { plugins },
+      } = ctx.options;
+
+      plugins.push( {
+        onSchemaChange() {
+          // unfortunately onSchemaChange is not async
+          Promise.resolve(store.clear()).catch(e => console.log(e));
+        }
+      });
+    },
   };
 };

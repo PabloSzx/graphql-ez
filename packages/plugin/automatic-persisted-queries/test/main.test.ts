@@ -2,6 +2,8 @@ import { gql, startFastifyServer } from 'graphql-ez-testing';
 import { generateHash, ezAutomaticPersistedQueries, PersistedQueryStore, DisableContext } from '../src';
 import type { getRequestPool } from 'graphql-ez-testing/request';
 import type { GraphQLParams } from '@pablosz/graphql-helix';
+import type { Plugin as EnvelopPlugin, SetSchemaFn } from 'graphql-ez';
+import { buildSchema } from 'graphql';
 
 type RequestPoolType = ReturnType<typeof getRequestPool>;
 type RequestFnType = RequestPoolType['request'];
@@ -140,6 +142,9 @@ describe('ezAutomaticPersistedQueries', () => {
       async set(hash, doc) {
         data.set(hash, doc);
       },
+      clear() {
+        data.clear();
+      }
     };
 
     const { request } = await startFastifyServer({
@@ -435,6 +440,9 @@ describe('ezAutomaticPersistedQueries', () => {
       async set(hash, doc) {
         data.set(hash, doc);
       },
+      clear() {
+        data.clear();
+      }
     };
 
     const { request } = await startFastifyServer({
@@ -494,5 +502,44 @@ describe('ezAutomaticPersistedQueries', () => {
     expect(result.body.errors).toBeDefined();
     expect(result.body.errors[0].message).toEqual('PersistedQueryNotSupported');
     expect(result.body.errors[0].extensions.code).toEqual('PERSISTED_QUERY_NOT_SUPPORTED');
+  });
+
+  it('clears the store on schema change', async () => {
+    const data = new Map<string, string>();
+
+    const store: PersistedQueryStore = {
+      async get(hash: string) {
+        return data.get(hash) ?? null;
+      },
+      async set(hash, doc) {
+        data.set(hash, doc);
+      },
+      clear: jest.fn()
+    };
+
+    let setSchemaFn: SetSchemaFn = () => {};
+
+    const pluginTrigger: EnvelopPlugin = {
+      onPluginInit({ setSchema }) {
+        setSchemaFn = setSchema;
+      },
+    };
+
+    await startFastifyServer({
+      createOptions: {
+        schema: [testSchema],
+        ez: {
+          plugins: [ezAutomaticPersistedQueries({ store })],
+        },
+        envelop: {
+          plugins: [pluginTrigger]
+        }
+      },
+    });
+
+    const newSchema = buildSchema(`type Query { foo: String! }`);
+    setSchemaFn(newSchema);
+
+    expect(store.clear).toHaveBeenCalled();
   });
 });
