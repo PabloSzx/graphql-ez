@@ -28,26 +28,26 @@ describe('ezAutomaticPersistedQueries', () => {
     `,
   };
 
-  const query = `
+  const addQuery = `
   query AddQuery ($x: Int!, $y: Int!) {
       add(x: $x, y: $y)
   }`;
 
-  const query2 = '{hello}';
+  const helloQuery = '{hello}';
 
-  const sha256Hash = generateHash(query, 'sha256');
+  const sha256Hash = generateHash(addQuery, 'sha256');
   const variables = { x: 1, y: 2 };
-  const extensions = {
+  const addQueryExtensions = {
     persistedQuery: {
       version: 1,
       sha256Hash,
     },
   };
 
-  const extensions2 = {
+  const helloQueryExtensions = {
     persistedQuery: {
       version: 1,
-      sha256Hash: generateHash(query2, 'sha256'),
+      sha256Hash: generateHash(helloQuery, 'sha256'),
     },
   };
 
@@ -62,7 +62,7 @@ describe('ezAutomaticPersistedQueries', () => {
       headers: {
         'content-type': 'application/json',
       },
-      body: JSON.stringify(operation)
+      body: JSON.stringify(operation),
     };
     const res = await requestFn(options);
 
@@ -86,8 +86,8 @@ describe('ezAutomaticPersistedQueries', () => {
     const body = JSON.parse(await _body);
     return {
       body,
-      ...rest
-    }
+      ...rest,
+    };
   }
 
   it('errors on invalid persistedQueries extension', async () => {
@@ -123,15 +123,13 @@ describe('ezAutomaticPersistedQueries', () => {
     });
 
     const result = await makeRequestRaw(requestRaw, {
-      extensions,
+      extensions: addQueryExtensions,
     });
 
     expect(result.body.data).toBeUndefined();
     expect(result.body.errors.length).toEqual(1);
     expect(result.body.errors[0].message).toEqual('PersistedQueryNotFound');
-    expect(result.body.errors[0].extensions.code).toEqual(
-      'PERSISTED_QUERY_NOT_FOUND',
-    );
+    expect(result.body.errors[0].extensions.code).toEqual('PERSISTED_QUERY_NOT_FOUND');
   });
   it('returns value on the first try if query is provided', async () => {
     const data = new Map<string, DocumentNode | string>();
@@ -141,7 +139,7 @@ describe('ezAutomaticPersistedQueries', () => {
       },
       async set(hash, doc) {
         data.set(hash, doc);
-      }
+      },
     };
 
     const { request } = await startFastifyServer({
@@ -154,11 +152,11 @@ describe('ezAutomaticPersistedQueries', () => {
     });
 
     const result = await makeRequest(request, {
-      query: query2,
-      extensions: extensions2,
+      query: helloQuery,
+      extensions: helloQueryExtensions,
     });
 
-    expect(data.get(extensions2.persistedQuery.sha256Hash)).toBeDefined();
+    expect(data.get(helloQueryExtensions.persistedQuery.sha256Hash)).toBeDefined();
     expect(result.data.hello).toBe('hi');
     expect(result.errors).toBeUndefined();
   });
@@ -174,13 +172,13 @@ describe('ezAutomaticPersistedQueries', () => {
     });
 
     await makeRequest(request, {
-      extensions,
+      extensions: addQueryExtensions,
     });
 
     let result = await makeRequest(request, {
-      query,
+      query: addQuery,
       variables: { x: 1, y: 2 },
-      extensions,
+      extensions: addQueryExtensions,
     });
 
     expect(result.errors).toBeUndefined();
@@ -188,7 +186,7 @@ describe('ezAutomaticPersistedQueries', () => {
 
     result = await makeRequest(request, {
       variables: { x: 5, y: 3 },
-      extensions,
+      extensions: addQueryExtensions,
     });
 
     expect(result.errors).toBeUndefined();
@@ -206,12 +204,12 @@ describe('ezAutomaticPersistedQueries', () => {
     });
 
     const res = await makeRequestRaw(requestRaw, {
-      query,
+      query: addQuery,
       extensions: {
         persistedQuery: {
           version: 1,
           hash: 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
-        }
+        },
       },
     });
 
@@ -231,7 +229,7 @@ describe('ezAutomaticPersistedQueries', () => {
     });
 
     const result = await makeRequest(request, {
-      query,
+      query: addQuery,
       variables,
       extensions: {
         persistedQuery: {
@@ -265,9 +263,9 @@ describe('ezAutomaticPersistedQueries', () => {
     });
 
     const result = await makeRequest(request, {
-      query,
+      query: addQuery,
       variables,
-      extensions
+      extensions: addQueryExtensions,
     });
 
     expect(result.errors).toEqual(
@@ -280,34 +278,29 @@ describe('ezAutomaticPersistedQueries', () => {
   });
 
   it('returns correct result using get request', async () => {
-    const { request } = await startFastifyServer({
+    const { query } = await startFastifyServer({
       createOptions: {
         schema: [testSchema],
         ez: {
-          plugins: [
-            ezAutomaticPersistedQueries({
-              version: 10,
-            }),
-          ],
+          plugins: [ezAutomaticPersistedQueries({})],
         },
       },
     });
 
-    await makeRequest(request, {
-      extensions
+    await query(undefined, {
+      extensions: addQueryExtensions,
     });
 
-    const result = await makeRequest(
-      request,
-      {
-        query,
-        variables,
-        extensions
-      },
-      'GET'
-    );
+    const result = await query<{
+      add: number;
+    }>(addQuery, {
+      variables,
+      extensions: addQueryExtensions,
+      method: 'GET',
+    });
 
-    expect(result.data.add).toEqual(3);
+    expect(result.errors).toBeUndefined();
+    expect(result.data?.add).toEqual(3);
   });
 
   it('returns with batched persisted queries', async () => {
@@ -315,9 +308,7 @@ describe('ezAutomaticPersistedQueries', () => {
       createOptions: {
         schema: [testSchema],
         ez: {
-          plugins: [
-            ezAutomaticPersistedQueries({}),
-          ],
+          plugins: [ezAutomaticPersistedQueries({})],
         },
         allowBatchedQueries: true,
       },
@@ -325,37 +316,29 @@ describe('ezAutomaticPersistedQueries', () => {
 
     const errors = await makeRequestRaw(requestRaw, [
       {
-        extensions,
+        extensions: addQueryExtensions,
       },
       {
-        extensions: extensions2,
+        extensions: helloQueryExtensions,
       },
     ]);
 
     expect(errors.body[0].data).toBeUndefined();
     expect(errors.body[1].data).toBeUndefined();
-    expect(errors.body[0].errors[0].message).toEqual(
-      'PersistedQueryNotFound',
-    );
-    expect(errors.body[0].errors[0].extensions.code).toEqual(
-      'PERSISTED_QUERY_NOT_FOUND',
-    );
-    expect(errors.body[1].errors[0].message).toEqual(
-      'PersistedQueryNotFound',
-    );
-    expect(errors.body[1].errors[0].extensions.code).toEqual(
-      'PERSISTED_QUERY_NOT_FOUND',
-    );
+    expect(errors.body[0].errors[0].message).toEqual('PersistedQueryNotFound');
+    expect(errors.body[0].errors[0].extensions.code).toEqual('PERSISTED_QUERY_NOT_FOUND');
+    expect(errors.body[1].errors[0].message).toEqual('PersistedQueryNotFound');
+    expect(errors.body[1].errors[0].extensions.code).toEqual('PERSISTED_QUERY_NOT_FOUND');
 
     const result = await makeRequestRaw(requestRaw, [
       {
-        extensions,
+        extensions: addQueryExtensions,
         variables: { x: 7, y: 5 },
-        query,
+        query: addQuery,
       },
       {
-        extensions: extensions2,
-        query: query2,
+        extensions: helloQueryExtensions,
+        query: helloQuery,
       },
     ]);
 
@@ -369,28 +352,30 @@ describe('ezAutomaticPersistedQueries', () => {
       createOptions: {
         schema: [testSchema],
         ez: {
-          plugins: [ezAutomaticPersistedQueries({
-            hashAlgorithm: 'sha512'
-          })],
+          plugins: [
+            ezAutomaticPersistedQueries({
+              hashAlgorithm: 'sha512',
+            }),
+          ],
         },
       },
     });
 
-    const sha512Hash = generateHash(query2, 'sha512');
+    const sha512Hash = generateHash(helloQuery, 'sha512');
     const extensions = {
       persistedQuery: {
         version: 1,
-        sha512Hash
-      }
-    }
+        sha512Hash,
+      },
+    };
 
     await makeRequest(request, {
-      query: query2,
-      extensions
+      query: helloQuery,
+      extensions,
     });
 
     const result = await makeRequest(request, {
-      query: query2,
+      query: helloQuery,
       extensions,
     });
 
@@ -403,14 +388,16 @@ describe('ezAutomaticPersistedQueries', () => {
       createOptions: {
         schema: [testSchema],
         ez: {
-          plugins: [ezAutomaticPersistedQueries({
-            resolvePersistedQuery: () => {
-              return {
-                version: 1,
-                hash: extensions2.persistedQuery.sha256Hash
-              };
-            }
-          })],
+          plugins: [
+            ezAutomaticPersistedQueries({
+              resolvePersistedQuery: () => {
+                return {
+                  version: 1,
+                  hash: helloQueryExtensions.persistedQuery.sha256Hash,
+                };
+              },
+            }),
+          ],
         },
       },
     });
@@ -418,18 +405,18 @@ describe('ezAutomaticPersistedQueries', () => {
     const ignoredExtensions = {
       persistedQuery: {
         version: 1,
-        sha1Hash: 'lalalalalalalalalalalalalalalala'
-      }
-    }
+        sha1Hash: 'lalalalalalalalalalalalalalalala',
+      },
+    };
 
     await makeRequest(request, {
-      query: query2,
-      extensions: ignoredExtensions
+      query: helloQuery,
+      extensions: ignoredExtensions,
     });
 
     const result = await makeRequest(request, {
-      query: query2,
-      extensions: ignoredExtensions
+      query: helloQuery,
+      extensions: ignoredExtensions,
     });
 
     expect(result.errors).toBeUndefined();
@@ -447,7 +434,7 @@ describe('ezAutomaticPersistedQueries', () => {
       },
       async set(hash, doc) {
         data.set(hash, doc);
-      }
+      },
     };
 
     const { request } = await startFastifyServer({
@@ -460,26 +447,25 @@ describe('ezAutomaticPersistedQueries', () => {
     });
 
     await makeRequest(request, {
-      extensions,
+      extensions: addQueryExtensions,
     });
 
     expect(getCount).toBe(1);
 
     const result = await makeRequest(request, {
-      query,
+      query: addQuery,
       variables: { x: 5, y: 5 },
-      extensions,
+      extensions: addQueryExtensions,
     });
 
-    const value = data.get(extensions.persistedQuery.sha256Hash);
-    expect(value).toBe(query);
+    const value = data.get(addQueryExtensions.persistedQuery.sha256Hash);
+    expect(value).toBe(addQuery);
 
     expect(result.errors).toBeUndefined();
     expect(result.data.add).toBe(10);
   });
 
   it('can be disabled dynamically', async () => {
-
     const disableIf = (context: DisableContext): boolean => context.operationName === 'query.disable';
 
     const { requestRaw } = await startFastifyServer({
@@ -492,23 +478,21 @@ describe('ezAutomaticPersistedQueries', () => {
     });
 
     const res = await makeRequestRaw(requestRaw, {
-      extensions,
+      extensions: addQueryExtensions,
     });
 
     expect(res.body.errors.length).toEqual(1);
     expect(res.body.errors[0].message).toEqual('PersistedQueryNotFound');
 
     const result = await makeRequestRaw(requestRaw, {
-      query,
+      query: addQuery,
       operationName: 'query.disable',
       variables: { x: 5, y: 5 },
-      extensions,
+      extensions: addQueryExtensions,
     });
 
     expect(result.body.errors).toBeDefined();
     expect(result.body.errors[0].message).toEqual('PersistedQueryNotSupported');
-    expect(result.body.errors[0].extensions.code).toEqual(
-      'PERSISTED_QUERY_NOT_SUPPORTED',
-    );
+    expect(result.body.errors[0].extensions.code).toEqual('PERSISTED_QUERY_NOT_SUPPORTED');
   });
 });

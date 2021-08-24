@@ -1,20 +1,16 @@
 import crypto from 'crypto';
 import { createLRUStore, PersistedQueryStore } from './store';
-import type { EZContext, EZPlugin } from 'graphql-ez';
-import type { ProcessRequestOptions as HelixProcessRequestOptions, ProcessRequestResult } from '@pablosz/graphql-helix';
+import type { EZPlugin, PreProcessRequest, PreProcessRequestOptions } from 'graphql-ez';
 import {
   createErrorResponse,
   PersistedQueryInvalidVersionError,
   PersistedQueryNotFoundError,
   PersistedQueryNotSupportedError,
 } from './errors';
-import { GraphQLError, execute as defaultExecute } from 'graphql';
+import { GraphQLError } from 'graphql';
 import { isDocumentNode } from '@graphql-tools/utils';
 
-export type ProcessRequestOptions = HelixProcessRequestOptions<EZContext, unknown>;
-export type DisableContext = Pick<ProcessRequestOptions, 'request' | 'extensions' | 'query' | 'operationName' | 'variables'>;
-
-type ExecuteFn = ProcessRequestOptions['execute'];
+export type DisableContext = Pick<PreProcessRequestOptions, 'request' | 'extensions' | 'query' | 'operationName' | 'variables'>;
 
 declare module 'graphql-ez' {
   interface InternalAppBuildContext {
@@ -48,7 +44,7 @@ export interface AutomaticPersistedQueryOptions {
   /**
    *  Retrieve the persisted query data from a request.
    */
-  resolvePersistedQuery?: (options: Readonly<ProcessRequestOptions>) => PersistedQuery | undefined;
+  resolvePersistedQuery?: (options: Readonly<PreProcessRequestOptions>) => PersistedQuery | undefined;
   /**
    * Specify whether the persisted queries should be disabled for the current request. By default all requests
    * following the APQ protocol are accepted. If false is returned, a PersistedQueryNotSupportedError is
@@ -65,9 +61,18 @@ export function generateHash(query: string, algo: HashAlgorithm): string {
   return crypto.createHash(algo).update(query, 'utf8').digest('hex');
 }
 
-function getPersistedQueryFromContext(opts: Readonly<ProcessRequestOptions>, algorithm: HashAlgorithm): PersistedQuery | undefined {
-  const hashField = `${algorithm as string}Hash`;
-  const pq = opts.extensions?.[PERSISTED_QUERY_EXTENSION_KEY];
+function getPersistedQueryFromContext(
+  opts: Readonly<PreProcessRequestOptions>,
+  algorithm: HashAlgorithm
+): PersistedQuery | undefined {
+  const hashField = `${algorithm}Hash`;
+
+  const extensions = opts.extensions
+    ? typeof opts.extensions === 'string'
+      ? JSON.parse(opts.extensions)
+      : opts.extensions
+    : undefined;
+  const pq = extensions?.[PERSISTED_QUERY_EXTENSION_KEY];
   if (pq) {
     const { version } = pq;
     const hash = String(pq[hashField]);
@@ -87,10 +92,10 @@ export const ezAutomaticPersistedQueries = (options?: AutomaticPersistedQueryOpt
   } = {
     ...(options || {}),
   };
-  const store = _store ?? createLRUStore();
-  const getPersistedQuery = _resolvePersistedQuery ?? ((opts) => getPersistedQueryFromContext(opts, hashAlgorithm));
+  const store = _store || createLRUStore();
+  const getPersistedQuery = _resolvePersistedQuery || (opts => getPersistedQueryFromContext(opts, hashAlgorithm));
 
-  async function processRequest(options: ProcessRequestOptions): Promise<ProcessRequestResult<EZContext, unknown> | undefined | void> {
+  const processRequest: PreProcessRequest = async function processRequest({ requestOptions: options }) {
     const { query, extensions } = options;
     let persistedQuery: PersistedQuery | undefined;
 
@@ -103,8 +108,8 @@ export const ezAutomaticPersistedQueries = (options?: AutomaticPersistedQueryOpt
         operationName,
         query,
         request,
-        variables
-      } as DisableContext;
+        variables,
+      };
       if (disableIf(context)) {
         return createErrorResponse(new PersistedQueryNotSupportedError(extensions));
       }
@@ -133,7 +138,6 @@ export const ezAutomaticPersistedQueries = (options?: AutomaticPersistedQueryOpt
       }
 
       if (query === undefined) {
-
         const cached = await store.get(hash);
         if (!cached) {
           // Query has not been found, tell the client.
@@ -141,9 +145,9 @@ export const ezAutomaticPersistedQueries = (options?: AutomaticPersistedQueryOpt
         }
 
         options.query = cached;
-
       } else {
-        const { execute = defaultExecute } = options.execute;
+        const { execute } = options;
+
         const computedQueryHash = generateHash(query, hashAlgorithm);
 
         // The provided hash must exactly match the hash of
@@ -158,7 +162,7 @@ export const ezAutomaticPersistedQueries = (options?: AutomaticPersistedQueryOpt
 
         // override execute so we can store query if it's valid
         options.execute = async (...args: any[]) => {
-          const result = await (execute as ExecuteFn)(...args);
+          const result = await execute(...args);
           try {
             await store.set(hash, query);
           } catch (e) {
@@ -166,18 +170,18 @@ export const ezAutomaticPersistedQueries = (options?: AutomaticPersistedQueryOpt
             throw e;
           }
           return result;
-        }
+        };
       }
     }
 
     return undefined;
-  }
+  };
 
   return {
     name: 'Automatic Persisted Queries',
     onRegister(ctx) {
       ctx.automaticPersistedQueries = options;
-      (ctx.preProcessRequest ||= []).push(({ requestOptions }) => processRequest(requestOptions));
-    }
+      (ctx.preProcessRequest ||= []).push(processRequest);
+    },
   };
 };
