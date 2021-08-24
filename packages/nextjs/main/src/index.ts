@@ -148,6 +148,9 @@ export function CreateApp(config: NextAppOptions = {}): EZAppBuilder {
             },
             buildContext,
             onResponse(result) {
+              for (const { name, value } of result.headers) {
+                res.setHeader(name, value);
+              }
               res.status(result.status).json(result.payload);
             },
             onMultiPartResponse(result, defaultHandle) {

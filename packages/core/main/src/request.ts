@@ -43,6 +43,8 @@ export async function handleRequest<TReturn = unknown>({
       throw Error('Batched queries limit exceeded!');
     }
 
+    const HeadersMap: Record<string, string> = {};
+
     const payload = await Promise.all(
       request.body.map(async body => {
         const { operationName, query, variables, extensions } = getGraphQLParameters({ ...request, body });
@@ -85,6 +87,10 @@ export async function handleRequest<TReturn = unknown>({
 
         if (result.type !== 'RESPONSE') throw Error(`Unsupported ${result.type} in Batched Queries!`);
 
+        for (const { name, value } of result.headers) {
+          HeadersMap[name] = value;
+        }
+
         return result.payload;
       })
     );
@@ -94,6 +100,7 @@ export async function handleRequest<TReturn = unknown>({
         type: 'RESPONSE',
         status: 200,
         payload,
+        headers: Object.entries(HeadersMap).map(([name, value]) => ({ name, value })),
       },
       defaultResponseHandle
     );
@@ -154,6 +161,10 @@ export function defaultResponseHandle(_req: IncomingMessage, res: ServerResponse
   res.writeHead(result.status, {
     'content-type': 'application/json',
   });
+
+  for (const { name, value } of result.headers) {
+    res.setHeader(name, value);
+  }
 
   res.end(JSON.stringify(result.payload));
 }

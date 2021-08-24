@@ -143,6 +143,9 @@ export function CreateApp(config: FastifyAppOptions = {}): EZAppBuilder {
                 },
                 buildContext,
                 onResponse(result) {
+                  for (const { name, value } of result.headers) {
+                    reply.header(name, value);
+                  }
                   reply.status(result.status);
                   reply.send(result.payload);
                 },

@@ -158,6 +158,11 @@ export function CreateApp(config: KoaAppOptions = {}): EZAppBuilder {
           onResponse(result) {
             ctx.type = 'application/json';
             ctx.response.status = result.status;
+
+            for (const { name, value } of result.headers) {
+              ctx.response.set(name, value);
+            }
+
             ctx.response.body = result.payload;
           },
           onMultiPartResponse(result, defaultHandle) {

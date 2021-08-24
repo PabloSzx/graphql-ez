@@ -9,6 +9,7 @@ export type EZResponse = {
   type: 'RESPONSE';
   status: number;
   payload: ExecutionResult | ExecutionResult[];
+  headers: { name: string; value: string }[];
 };
 
 export type DefaultResponseHandler = (req: IncomingMessage, res: ServerResponse, result: EZResponse) => void | Promise<void>;

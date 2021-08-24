@@ -141,6 +141,10 @@ export function CreateApp(config: ExpressAppOptions = {}): EZAppBuilder {
           },
           buildContext,
           onResponse(result) {
+            for (const { name, value } of result.headers) {
+              res.setHeader(name, value);
+            }
+
             res.type('application/json');
             res.status(result.status);
             res.json(result.payload);

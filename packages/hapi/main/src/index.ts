@@ -141,7 +141,11 @@ export function CreateApp(config: HapiAppOptions = {}): EZAppBuilder {
                 };
               },
               onResponse(result) {
-                return h.response(result.payload).code(result.status).type('application/json');
+                let responseObject = h.response(result.payload).code(result.status).type('application/json');
+                for (const { name, value } of result.headers) {
+                  responseObject = responseObject.header(name, value);
+                }
+                return responseObject;
               },
               async onMultiPartResponse(result, defaultHandle) {
                 await defaultHandle(rawReq, req.raw.res, result);
