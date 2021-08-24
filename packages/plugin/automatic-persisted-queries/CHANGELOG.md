@@ -1,6 +1,7 @@
-# @graphql-ez/automatic-persisted-queries
+# @graphql-ez/plugin-automatic-persisted-queries
 
 ## 1.0.0
+
 ### Major Changes
 
 - 6232331: Release

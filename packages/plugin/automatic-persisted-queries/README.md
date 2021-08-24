@@ -1,19 +1,13 @@
-## `@graphql-ez/automatic-persisted-queries`
+## @graphql-ez/plugin-automatic-persisted-queries
 
 This plugin implements configurable Apollo style Automatic Persisted Queries, with compatibility for `apollo-client`.
 
 https://www.apollographql.com/docs/apollo-server/performance/apq/
 
-## Getting Started
-
-```
-yarn add @graphql-ez/automatic-persisted-queries
-```
-
-## Usage Example
+## Usage
 
 ```ts
-import { ezAutomaticPersistedQueries } from '@graphql-ez/automatic-persisted-queries';
+import { ezAutomaticPersistedQueries } from '@graphql-ez/plugin-automatic-persisted-queries';
 
 const ezApp = CreateApp({
   ez: {
@@ -32,6 +26,7 @@ We provide reasonable defaults for all options, and the implementation is compat
 additional configuration.
 
 ### Options
+
 ```ts
 export interface AutomaticPersistedQueryOptions {
   /**
@@ -61,20 +56,21 @@ export interface AutomaticPersistedQueryOptions {
 
 #### `resolvePersistedQuery(opts: ReadOnly<ProcessRequestOptions>): PersistedQuery | undefined`
 
-If you wish to customize the extension extraction from your HTTP request, override this function. If `resolvePersistedQuery` 
+If you wish to customize the extension extraction from your HTTP request, override this function. If `resolvePersistedQuery`
 is not set, the default behavior is to look for the`persistedQuery` extension in the request `body`.
 
-*Advanced usage only*
+_Advanced usage only_
 
 #### `disableIf(context: DisableContext): boolean`
 
-Disable the plugin per request based on context. If this function returns `true`, the client should switch to making 
+Disable the plugin per request based on context. If this function returns `true`, the client should switch to making
 normal non-persistent calls, per protocol.
 
 #### Example
+
 ```ts
 // Disable if we have issues connecting to the backend store.
-import { PersistedQueryStore, ezAutomaticPersistedQueries } from '@graphql-ez/automatic-persisted-queries';
+import { PersistedQueryStore, ezAutomaticPersistedQueries } from '@graphql-ez/plugin-automatic-persisted-queries';
 import IORedis from 'ioredis';
 
 const HASH_KEY = 'apq-store';
@@ -82,15 +78,15 @@ const redis = new IORedis();
 
 let isDisabled = true;
 
-redis.on("connect", () => {
+redis.on('connect', () => {
   isDisabled = false;
 });
 
-redis.on("close", () => {
+redis.on('close', () => {
   isDisabled = true;
 });
 
-redis.on("error", () => {
+redis.on('error', () => {
   isDisabled = true;
 });
 
@@ -105,7 +101,7 @@ export const store: PersistedQueryStore = {
   },
   clear: async () => {
     await redis.del(HASH_KEY);
-  }
+  },
 };
 
 const ezApp = CreateApp({
@@ -114,14 +110,13 @@ const ezApp = CreateApp({
       // ...
       ezAutomaticPersistedQueries({
         store,
-        disbleIf: () => isDisabled
+        disbleIf: () => isDisabled,
       }),
     ],
   },
   // ...
 });
 ```
-
 
 #### `store`
 
@@ -131,22 +126,26 @@ at `1000` elements with a ttl of an hour to prevent DoS attacks on the storage o
 Here's an example of a naive, unbounded in-memory store:
 
 ```ts
-import { PersistedQueryStore } from '@graphql-ez/automatic-persisted-queries';
+import { PersistedQueryStore } from '@graphql-ez/plugin-automatic-persisted-queries';
 
 // You can implement `data` in any custom way, and even fetch it from a remote store.
 const data = new Map<string, string>();
 
 export const myStore: PersistedQueryStore = {
-  put: async (key, query) => { data.set(key, query); },
+  put: async (key, query) => {
+    data.set(key, query);
+  },
   get: async key => data.get(key),
-  clear: () => { data.clear(); }
+  clear: () => {
+    data.clear();
+  },
 };
 ```
 
 You can use the utility function `createLRUStore` to create a cache for your own purposes.
 
 ```ts
-import { PersistedQueryStore, createLRUStore } from '@graphql-ez/automatic-persisted-queries';
+import { PersistedQueryStore, createLRUStore } from '@graphql-ez/plugin-automatic-persisted-queries';
 
 /** Create an LRU based store with a max of 100 items and a ttl of 1 minute */
 const smallStore = createLRUStore(100, 60000);
