@@ -11,7 +11,8 @@ export type Tags =
   | 'express-compatible'
   | 'hapi-compatible'
   | 'node-http-compatible'
-  | 'nextjs-compatible';
+  | 'nextjs-compatible'
+  | 'persisted-queries';
 
 declare module '@guild-docs/server/npm' {
   interface Package {
@@ -110,6 +111,13 @@ Integration of Websockets using [graphql-ws](https://github.com/enisdenjo/graphq
       repo: 'PabloSzx/graphql-ez',
       path: 'packages/plugin/sse/README.md',
     },
+  },
+  {
+    identifier: 'automatic-persisted-queries',
+    npmPackage: '@graphql-ez/plugin-automatic-persisted-queries',
+    tags: ['persisted-queries'],
+    title: 'Automatic Persisted Queries',
+    iconUrl: '/assets/logos/graphql.png',
   },
 ];
 
