@@ -154,7 +154,7 @@ export const ezAutomaticPersistedQueries = (options?: AutomaticPersistedQueryOpt
 
         options.query = cached;
       } else {
-        const { execute } = options;
+        const { validate } = options;
 
         const computedQueryHash = generateHash(query, hashAlgorithm);
 
@@ -168,16 +168,19 @@ export const ezAutomaticPersistedQueries = (options?: AutomaticPersistedQueryOpt
 
         options.query = query;
 
-        // override execute so we can store query if it's valid
-        options.execute = async (...args: any[]) => {
-          const result = await execute(...args);
-          try {
-            await store.set(hash, query);
-          } catch (e) {
-            // todo: throw not supported error
-            throw e;
+        // store query if it's valid
+        options.validate = (...args) => {
+          const errors: readonly GraphQLError[] | null = validate(...args);
+
+          if (!errors?.length) {
+            try {
+              Promise.resolve(store.set(hash, query)).catch(console.error);
+            } catch (err) {
+              console.error(err);
+            }
           }
-          return result;
+
+          return errors;
         };
       }
     }
@@ -199,7 +202,11 @@ export const ezAutomaticPersistedQueries = (options?: AutomaticPersistedQueryOpt
       plugins.push({
         onSchemaChange() {
           // unfortunately onSchemaChange is not async
-          Promise.resolve(store.clear()).catch(console.error);
+          try {
+            Promise.resolve(store.clear()).catch(console.error);
+          } catch (err) {
+            console.error(err);
+          }
         },
       });
     },
