@@ -1,12 +1,19 @@
 {
-  "name": "sveltekit-playground",
+  "name": "example-sveltekit-playground",
   "version": "0.0.1",
+  "type": "module",
   "scripts": {
-    "dev": "svelte-kit dev",
     "build": "svelte-kit build",
-    "preview": "svelte-kit preview",
     "check": "svelte-check --tsconfig ./tsconfig.json",
-    "check:watch": "svelte-check --tsconfig ./tsconfig.json --watch"
+    "check:watch": "svelte-check --tsconfig ./tsconfig.json --watch",
+    "dev": "svelte-kit dev",
+    "preview": "svelte-kit preview"
+  },
+  "dependencies": {
+    "@graphql-ez/plugin-schema": "workspace:^0.7.0",
+    "@graphql-ez/sveltekit": "workspace:^0.1.0",
+    "graphql": "15.4.0-experimental-stream-defer.1",
+    "graphql-ez": "workspace:^0.12.3"
   },
   "devDependencies": {
     "@sveltejs/kit": "next",
@@ -15,6 +22,5 @@
     "svelte-preprocess": "^4.0.0",
     "tslib": "^2.0.0",
     "typescript": "^4.0.0"
-  },
-  "type": "module"
+  }
 }
