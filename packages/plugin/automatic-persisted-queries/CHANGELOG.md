@@ -1,5 +1,11 @@
 # @graphql-ez/plugin-automatic-persisted-queries
 
+## 1.0.1
+
+### Patch Changes
+
+- 643bb74: fix "store query if valid"
+
 ## 1.0.0
 
 ### Major Changes
