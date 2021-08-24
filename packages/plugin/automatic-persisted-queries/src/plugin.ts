@@ -38,10 +38,14 @@ export const DEFAULT_HASH_ALGORITHM: HashAlgorithm = 'sha256';
 export interface AutomaticPersistedQueryOptions {
   /**
    * The query hash algorithm
+   *
+   * @default "sha256"
    */
   hashAlgorithm?: HashAlgorithm;
   /**
    * The protocol version
+   *
+   * @default 1
    */
   version?: number;
   /**
@@ -178,7 +182,7 @@ export const ezAutomaticPersistedQueries = (options?: AutomaticPersistedQueryOpt
       }
     }
 
-    return undefined;
+    return;
   };
 
   return {
@@ -195,7 +199,7 @@ export const ezAutomaticPersistedQueries = (options?: AutomaticPersistedQueryOpt
       plugins.push({
         onSchemaChange() {
           // unfortunately onSchemaChange is not async
-          Promise.resolve(store.clear()).catch(e => console.log(e));
+          Promise.resolve(store.clear()).catch(console.error);
         },
       });
     },
