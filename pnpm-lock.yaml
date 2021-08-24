@@ -676,12 +676,25 @@ importers:
 
   examples/sveltekit:
     specifiers:
+      '@graphql-ez/plugin-schema': workspace:^0.7.0
+      '@graphql-ez/sveltekit': workspace:^0.1.0
       '@sveltejs/kit': next
+      graphql: 15.4.0-experimental-stream-defer.1
+      graphql-ez: workspace:^0.12.3
       svelte: ^3.34.0
       svelte-check: ^2.0.0
       svelte-preprocess: ^4.0.0
       tslib: ^2.0.0
+<<<<<<< HEAD
       typescript: ^4.4.2
+=======
+      typescript: ^4.0.0
+    dependencies:
+      '@graphql-ez/plugin-schema': link:../../packages/plugin/schema
+      '@graphql-ez/sveltekit': link:../../packages/sveltekit/main
+      graphql: 15.4.0-experimental-stream-defer.1
+      graphql-ez: link:../../packages/core/main
+>>>>>>> 724f092 (create @graphql-ez/sveltekit)
     devDependencies:
       '@sveltejs/kit': 1.0.0-next.158_svelte@3.42.3
       svelte: 3.42.3
@@ -1725,6 +1738,24 @@ importers:
       graphql-ez: link:../../core/main
       jest: 27.1.0
       ts-jest: 27.0.5_d6279bcaf6e2c6aa91a58343d133ee67
+
+  packages/sveltekit/main:
+    specifiers:
+      '@sveltejs/kit': ^1.0.0-next.156
+      '@types/node': ^16.7.1
+      bob-esbuild-cli: ^1.0.1
+      changesets-github-release: ^0.0.3
+      graphql: 15.4.0-experimental-stream-defer.1
+      graphql-ez: workspace:^0.12.3
+      jest: ^27.0.6
+    devDependencies:
+      '@sveltejs/kit': 1.0.0-next.156
+      '@types/node': 16.7.1
+      bob-esbuild-cli: 1.0.1_bob-esbuild@1.2.3
+      changesets-github-release: 0.0.3
+      graphql: 15.4.0-experimental-stream-defer.1
+      graphql-ez: link:../../core/main
+      jest: 27.0.6
 
   yoga/express:
     specifiers:
@@ -5143,8 +5174,29 @@ packages:
       unist-util-visit: 2.0.3
     dev: false
 
+<<<<<<< HEAD
   /@sveltejs/kit/1.0.0-next.158_svelte@3.42.3:
     resolution: {integrity: sha512-jVpVeAFOVNOGDRDVvbWjHxco5s78OYsrCJhnEAKoOe690gkWA5Qc8FqPXo8HHiaIHKHmTP1vbrEhQ5jkX7fBAw==}
+=======
+  /@sveltejs/kit/1.0.0-next.156:
+    resolution: {integrity: sha512-YHT3sbPKpBGSYYFgEpXUx7JhN682wdXhc5INYZGqFfaGqkIOrThosz8qRsLQBfRbFnu0fzgWSsfj7FKq8YeFuA==}
+    engines: {node: ^12.20 || >=14.13}
+    hasBin: true
+    peerDependencies:
+      svelte: ^3.39.0
+    dependencies:
+      '@sveltejs/vite-plugin-svelte': 1.0.0-next.19_vite@2.5.1
+      cheap-watch: 1.0.3
+      sade: 1.7.4
+      vite: 2.5.1
+    transitivePeerDependencies:
+      - diff-match-patch
+      - supports-color
+    dev: true
+
+  /@sveltejs/kit/1.0.0-next.156_svelte@3.42.3:
+    resolution: {integrity: sha512-YHT3sbPKpBGSYYFgEpXUx7JhN682wdXhc5INYZGqFfaGqkIOrThosz8qRsLQBfRbFnu0fzgWSsfj7FKq8YeFuA==}
+>>>>>>> 724f092 (create @graphql-ez/sveltekit)
     engines: {node: ^12.20 || >=14.13}
     hasBin: true
     peerDependencies:
@@ -5178,6 +5230,28 @@ packages:
       require-relative: 0.8.7
       svelte: 3.42.3
       svelte-hmr: 0.14.7_svelte@3.42.3
+      vite: 2.5.1
+    transitivePeerDependencies:
+      - supports-color
+    dev: true
+
+  /@sveltejs/vite-plugin-svelte/1.0.0-next.19_vite@2.5.1:
+    resolution: {integrity: sha512-q9hHkMzodScwDq64pNaWhekpj97vWg3wO9T0rqd8bC2EsrBQs2uD1qMJvDqlNd63AbO2uSJMGo+TQ0Xt2xgyYg==}
+    engines: {node: ^12.20 || ^14.13.1 || >= 16}
+    peerDependencies:
+      diff-match-patch: ^1.0.5
+      svelte: ^3.34.0
+      vite: ^2.3.7
+    peerDependenciesMeta:
+      diff-match-patch:
+        optional: true
+    dependencies:
+      '@rollup/pluginutils': 4.1.1
+      debug: 4.3.2
+      kleur: 4.1.4
+      magic-string: 0.25.7
+      require-relative: 0.8.7
+      svelte-hmr: 0.14.7
       vite: 2.5.1
     transitivePeerDependencies:
       - supports-color
@@ -14718,6 +14792,12 @@ packages:
       - sass
       - stylus
       - sugarss
+    dev: true
+
+  /svelte-hmr/0.14.7:
+    resolution: {integrity: sha512-pDrzgcWSoMaK6AJkBWkmgIsecW0GChxYZSZieIYfCP0v2oPyx2CYU/zm7TBIcjLVUPP714WxmViE9Thht4etog==}
+    peerDependencies:
+      svelte: '>=3.19.0'
     dev: true
 
   /svelte-hmr/0.14.7_svelte@3.42.3:

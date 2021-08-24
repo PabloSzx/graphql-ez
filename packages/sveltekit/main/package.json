@@ -1,0 +1,49 @@
+{
+  "name": "@graphql-ez/sveltekit",
+  "version": "0.1.0",
+  "homepage": "https://www.graphql-ez.com",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/PabloSzx/graphql-ez",
+    "directory": "packages/sveltekit"
+  },
+  "license": "MIT",
+  "author": "PabloSz <pablosaez1995@gmail.com>",
+  "exports": {
+    ".": {
+      "require": "./dist/index.js",
+      "import": "./dist/index.mjs"
+    },
+    "./*": {
+      "require": "./dist/*.js",
+      "import": "./dist/*.mjs"
+    }
+  },
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "dev": "bob-esbuild watch",
+    "prepack": "bob-esbuild build",
+    "postpublish": "gh-release",
+    "test": "jest"
+  },
+  "devDependencies": {
+    "@sveltejs/kit": "^1.0.0-next.156",
+    "@types/node": "^16.7.1",
+    "bob-esbuild-cli": "^1.0.1",
+    "changesets-github-release": "^0.0.3",
+    "graphql": "15.4.0-experimental-stream-defer.1",
+    "graphql-ez": "workspace:^0.12.3",
+    "jest": "^27.0.6"
+  },
+  "peerDependencies": {
+    "@sveltejs/kit": "^1.0.0-next.156",
+    "@types/node": "*",
+    "graphql": "*",
+    "graphql-ez": "workspace:^0.12.3"
+  },
+  "publishConfig": {
+    "directory": "dist"
+  }
+}
