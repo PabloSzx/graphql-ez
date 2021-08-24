@@ -1082,6 +1082,27 @@ importers:
       next: 11.1.0_typescript@4.4.1-rc
       ts-jest: 27.0.5_d783205d652bcb54bcd705f572b6bac6
 
+  packages/plugin/automatic-persisted-queries:
+    specifiers:
+      '@graphql-tools/utils': ^8.1.2
+      bob-esbuild-cli: ^1.0.1
+      changesets-github-release: ^0.0.3
+      graphql: 15.4.0-experimental-stream-defer.1
+      graphql-ez: workspace:^0.12.1
+      jest: ^27.0.6
+      tiny-lru: ^7.0.6
+      ts-jest: ^27.0.5
+    dependencies:
+      '@graphql-tools/utils': 8.1.2_34dd13c2583fe2e4418c23a0d30fc388
+      tiny-lru: 7.0.6
+    devDependencies:
+      bob-esbuild-cli: 1.0.1_bob-esbuild@1.2.3
+      changesets-github-release: 0.0.3
+      graphql: 15.4.0-experimental-stream-defer.1
+      graphql-ez: link:../../core/main
+      jest: 27.0.6
+      ts-jest: 27.0.5_d783205d652bcb54bcd705f572b6bac6
+
   packages/plugin/codegen:
     specifiers:
       '@graphql-codegen/core': ^2.1.0
@@ -6316,7 +6337,7 @@ packages:
     resolution: {integrity: sha512-gxGWBrTT1JuMx6R+o5PTXMmUnhnVzLQ9SNutD4YqKtI6ap897t3tKECYla6gCWEkplXnlNybEkZg9GEGxKFCgw==}
     dependencies:
       pascal-case: 3.1.2
-      tslib: 2.3.1
+      tslib: 2.2.0
 
   /camelcase-css/2.0.1:
     resolution: {integrity: sha512-QOSvevhslijgYwRx6Rv7zKdMF8lbRmx+uQGx2+vDc+KI/eBnsy9kit5aj23AgGu3pa4t9AgwbnXWqS+iOY+2aA==}
