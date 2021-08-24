@@ -73,9 +73,11 @@ export function getRequestPool(port: number, path = '/graphql') {
       return { body: getStringFromStream(body), ...rest };
     },
     async query<TData, TVariables = {}>(
-      document: TypedDocumentNode<TData, TVariables> | string,
+      document?: TypedDocumentNode<TData, TVariables> | string,
       variables?: TVariables,
-      headersArg?: IncomingHttpHeaders
+      headersArg?: IncomingHttpHeaders,
+      extensions?: Record<string, unknown>,
+      operationName?: string
     ): Promise<ExecutionResult<TData>> {
       const { body, headers } = await requestPool.request({
         origin: address,
@@ -84,9 +86,17 @@ export function getRequestPool(port: number, path = '/graphql') {
           'content-type': 'application/json',
           ...headersArg,
         },
-        body: Readable.from(JSON.stringify({ query: typeof document === 'string' ? document : print(document), variables }), {
-          objectMode: false,
-        }),
+        body: Readable.from(
+          JSON.stringify({
+            query: typeof document === 'string' ? document : document && print(document),
+            variables,
+            extensions,
+            operationName,
+          }),
+          {
+            objectMode: false,
+          }
+        ),
         path,
       });
 
