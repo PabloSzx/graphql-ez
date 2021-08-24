@@ -101,20 +101,6 @@ export const ezAutomaticPersistedQueries = (options?: AutomaticPersistedQueryOpt
 
     if (isDocumentNode(query)) return;
 
-    if (disableIf) {
-      const { query, operationName, request, variables } = options;
-      const context: DisableContext = {
-        extensions,
-        operationName,
-        query,
-        request,
-        variables,
-      };
-      if (disableIf(context)) {
-        return createErrorResponse(new PersistedQueryNotSupportedError(extensions));
-      }
-    }
-
     try {
       persistedQuery = getPersistedQuery(options);
     } catch (e: unknown) {
@@ -125,6 +111,21 @@ export const ezAutomaticPersistedQueries = (options?: AutomaticPersistedQueryOpt
     }
 
     if (persistedQuery) {
+
+      if (disableIf) {
+        const { query, operationName, request, variables } = options;
+        const context: DisableContext = {
+          extensions,
+          operationName,
+          query,
+          request,
+          variables,
+        };
+        if (disableIf(context)) {
+          return createErrorResponse(new PersistedQueryNotSupportedError(extensions));
+        }
+      }
+
       // This is a persisted query, so we use the hash in the request
       // to load the full query document.
       const { hash, version } = persistedQuery;
