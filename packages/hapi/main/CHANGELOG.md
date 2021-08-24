@@ -1,5 +1,14 @@
 # @graphql-ez/hapi
 
+## 0.8.5
+
+### Patch Changes
+
+- 9878698: access InternalAppBuildContext with symbol
+- Updated dependencies [9878698]
+- Updated dependencies [2027671]
+  - graphql-ez@0.12.2
+
 ## 0.8.4
 
 ### Patch Changes

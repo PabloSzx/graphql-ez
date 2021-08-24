@@ -1,5 +1,14 @@
 # @graphql-ez/nextjs
 
+## 0.9.1
+
+### Patch Changes
+
+- 9878698: access InternalAppBuildContext with symbol
+- Updated dependencies [9878698]
+- Updated dependencies [2027671]
+  - graphql-ez@0.12.2
+
 ## 0.9.0
 
 ### Minor Changes
