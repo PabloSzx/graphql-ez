@@ -91,6 +91,15 @@ Object {
       },
     ],
   },
+  "http": Object {
+    "headers": Object {
+      "connection": "keep-alive",
+      "content-length": "83",
+      "content-type": "application/json; charset=utf-8",
+      "keep-alive": "timeout=5",
+    },
+    "statusCode": 200,
+  },
 }
 `);
 

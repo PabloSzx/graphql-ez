@@ -23,12 +23,21 @@ test.concurrent('basic', async () => {
   });
 
   expect(await query(`{hello}`)).toMatchInlineSnapshot(`
-    Object {
-      "data": Object {
-        "hello": "Hello World!",
-      },
-    }
-  `);
+Object {
+  "data": Object {
+    "hello": "Hello World!",
+  },
+  "http": Object {
+    "headers": Object {
+      "connection": "keep-alive",
+      "content-length": "33",
+      "content-type": "application/json; charset=utf-8",
+      "keep-alive": "timeout=5",
+    },
+    "statusCode": 200,
+  },
+}
+`);
 });
 
 test.concurrent('batched queries', async () => {

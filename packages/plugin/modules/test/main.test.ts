@@ -22,12 +22,21 @@ test('register module with extra modules', async () => {
   });
 
   expect(await query('{hello}')).toMatchInlineSnapshot(`
-    Object {
-      "data": Object {
-        "hello": "Hello World!",
-      },
-    }
-  `);
+Object {
+  "data": Object {
+    "hello": "Hello World!",
+  },
+  "http": Object {
+    "headers": Object {
+      "connection": "keep-alive",
+      "content-length": "33",
+      "content-type": "application/json; charset=utf-8",
+      "keep-alive": "timeout=5",
+    },
+    "statusCode": 200,
+  },
+}
+`);
 
   expect(printSchema(buildClientSchema((await query<IntrospectionQuery>(getIntrospectionQuery())).data!))).toMatchInlineSnapshot(`
 "\\"\\"\\"The \`Upload\` scalar type represents a file upload.\\"\\"\\"
@@ -62,12 +71,21 @@ test('adding module', async () => {
   });
 
   expect(await query('{hello}')).toMatchInlineSnapshot(`
-    Object {
-      "data": Object {
-        "hello": "Hello World!",
-      },
-    }
-  `);
+Object {
+  "data": Object {
+    "hello": "Hello World!",
+  },
+  "http": Object {
+    "headers": Object {
+      "connection": "keep-alive",
+      "content-length": "33",
+      "content-type": "application/json; charset=utf-8",
+      "keep-alive": "timeout=5",
+    },
+    "statusCode": 200,
+  },
+}
+`);
 
   expect(printSchema(buildClientSchema((await query<IntrospectionQuery>(getIntrospectionQuery())).data!))).toMatchInlineSnapshot(`
 "type Query {

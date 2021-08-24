@@ -87,7 +87,11 @@ export function getRequestPool(port: number, path = '/graphql') {
       }
     ): Promise<ExecutionResult<TData> & { http: { statusCode: number; headers: IncomingHttpHeaders } }> {
       const { variables, headers: headersArg, extensions, operationName, method = 'POST' } = options || {};
-      const { body, headers, statusCode } = await requestPool.request(
+      const {
+        body,
+        headers: { date, ...headers },
+        statusCode,
+      } = await requestPool.request(
         method === 'POST'
           ? {
               origin: address,

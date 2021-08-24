@@ -58,12 +58,21 @@ test('registerResolvers works as expected', async () => {
   });
 
   expect(await query('{hello}')).toMatchInlineSnapshot(`
-    Object {
-      "data": Object {
-        "hello": "OK",
-      },
-    }
-  `);
+Object {
+  "data": Object {
+    "hello": "OK",
+  },
+  "http": Object {
+    "headers": Object {
+      "connection": "keep-alive",
+      "content-length": "23",
+      "content-type": "application/json; charset=utf-8",
+      "keep-alive": "timeout=5",
+    },
+    "statusCode": 200,
+  },
+}
+`);
 });
 
 test('uses root executable schema config', async () => {
@@ -110,13 +119,22 @@ test('uses root executable schema config', async () => {
   });
 
   expect(await query('{hello bye}')).toMatchInlineSnapshot(`
-    Object {
-      "data": Object {
-        "bye": "Bye!",
-        "hello": "OK",
-      },
-    }
-  `);
+Object {
+  "data": Object {
+    "bye": "Bye!",
+    "hello": "OK",
+  },
+  "http": Object {
+    "headers": Object {
+      "connection": "keep-alive",
+      "content-length": "36",
+      "content-type": "application/json; charset=utf-8",
+      "keep-alive": "timeout=5",
+    },
+    "statusCode": 200,
+  },
+}
+`);
 });
 
 test('hooks with scalars plugin as expected', async () => {
@@ -151,12 +169,21 @@ test('hooks with scalars plugin as expected', async () => {
   });
 
   expect(await query('{hello}')).toMatchInlineSnapshot(`
-      Object {
-        "data": Object {
-          "hello": "OK",
-        },
-      }
-    `);
+Object {
+  "data": Object {
+    "hello": "OK",
+  },
+  "http": Object {
+    "headers": Object {
+      "connection": "keep-alive",
+      "content-length": "23",
+      "content-type": "application/json; charset=utf-8",
+      "keep-alive": "timeout=5",
+    },
+    "statusCode": 200,
+  },
+}
+`);
 });
 
 test('merges schemas', async () => {
@@ -203,13 +230,22 @@ test('merges schemas', async () => {
   });
 
   expect(await query('{hello bye}')).toMatchInlineSnapshot(`
-    Object {
-      "data": Object {
-        "bye": "Bye!",
-        "hello": "OK",
-      },
-    }
-  `);
+Object {
+  "data": Object {
+    "bye": "Bye!",
+    "hello": "OK",
+  },
+  "http": Object {
+    "headers": Object {
+      "connection": "keep-alive",
+      "content-length": "36",
+      "content-type": "application/json; charset=utf-8",
+      "keep-alive": "timeout=5",
+    },
+    "statusCode": 200,
+  },
+}
+`);
 });
 
 test('cannot use registeredResolvers by itself', async () => {
@@ -271,6 +307,15 @@ Object {
   "data": Object {
     "hello": "Hello World!",
   },
+  "http": Object {
+    "headers": Object {
+      "connection": "keep-alive",
+      "content-length": "33",
+      "content-type": "application/json; charset=utf-8",
+      "keep-alive": "timeout=5",
+    },
+    "statusCode": 200,
+  },
 }
 `);
 });
@@ -312,6 +357,15 @@ Object {
   "data": Object {
     "bye": "Bye!",
     "hello": "Hello World!",
+  },
+  "http": Object {
+    "headers": Object {
+      "connection": "keep-alive",
+      "content-length": "46",
+      "content-type": "application/json; charset=utf-8",
+      "keep-alive": "timeout=5",
+    },
+    "statusCode": 200,
   },
 }
 `);
