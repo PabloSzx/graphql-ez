@@ -1,15 +1,11 @@
-import { ExecutionResult, print } from 'graphql';
-import { Readable } from 'stream';
-import { Pool } from 'undici';
-
-import { LazyPromise } from '@graphql-ez/utils/promise';
 import { documentParamsToURIParams } from '@graphql-ez/utils/clientURI';
-
-import { TearDownPromises } from './common';
-
-import type { RequestOptions } from 'undici/types/dispatcher';
+import { LazyPromise } from '@graphql-ez/utils/promise';
 import type { TypedDocumentNode } from '@graphql-typed-document-node/core';
+import { DocumentNode, ExecutionResult, print } from 'graphql';
 import type { IncomingHttpHeaders } from 'http';
+import { Pool } from 'undici';
+import type { RequestOptions } from 'undici/types/dispatcher';
+import { TearDownPromises } from './common';
 
 export type { RequestOptions, TypedDocumentNode };
 
@@ -100,17 +96,12 @@ export function getRequestPool(port: number, path = '/graphql') {
                 'content-type': 'application/json',
                 ...headersArg,
               },
-              body: Readable.from(
-                JSON.stringify({
-                  query: typeof document === 'string' ? document : document && print(document),
-                  variables,
-                  extensions,
-                  operationName,
-                }),
-                {
-                  objectMode: false,
-                }
-              ),
+              body: JSON.stringify({
+                query: typeof document === 'string' ? document : document && print(document),
+                variables,
+                extensions,
+                operationName,
+              }),
               path,
             }
           : {
@@ -133,6 +124,52 @@ export function getRequestPool(port: number, path = '/graphql') {
       }
 
       return { ...(await getJSONFromStream(body)), http: { statusCode, headers } };
+    },
+    async batchedQueries(
+      queries: Array<{
+        query?: DocumentNode | string;
+        variables?: Record<string, unknown>;
+        extensions?: Record<string, unknown>;
+        operationName?: string;
+      }>,
+      options?: { headers?: IncomingHttpHeaders }
+    ): Promise<{
+      result: Array<ExecutionResult<Record<string, any>>>;
+      http: { statusCode: number; headers: IncomingHttpHeaders };
+    }> {
+      const {
+        body,
+        headers: { date, ...headers },
+        statusCode,
+      } = await requestPool.request({
+        origin: address,
+        method: 'POST',
+        headers: {
+          'content-type': 'application/json',
+          ...options?.headers,
+        },
+        body: JSON.stringify(
+          queries.map(({ query, variables, extensions, operationName }) => {
+            return {
+              query: typeof query === 'string' ? query : query && print(query),
+              variables,
+              extensions,
+              operationName,
+            };
+          })
+        ),
+        path,
+      });
+
+      if (!headers['content-type']?.startsWith('application/json')) {
+        console.error({
+          body: await getStringFromStream(body),
+          headers,
+        });
+        throw Error('Unexpected content type received: ' + headers['content-type']);
+      }
+
+      return { result: await getJSONFromStream(body), http: { statusCode, headers } };
     },
   };
 }

@@ -131,18 +131,18 @@ test.concurrent('basic', async () => {
   `);
 
   expect(printSchema((await ezApp.getEnveloped)().schema)).toMatchInlineSnapshot(`
-"type Query {
-  hello: String!
-  users: [User!]!
-  stream: [String!]!
-  context: String!
-}
+    "type Query {
+      hello: String!
+      users: [User!]!
+      stream: [String!]!
+      context: String!
+    }
 
-type User {
-  id: Int!
-}
-"
-`);
+    type User {
+      id: Int!
+    }
+    "
+  `);
 });
 
 test.concurrent('query with @stream', async () => {
@@ -163,4 +163,46 @@ test.concurrent('SSE subscription', async () => {
   });
 
   await expectCommonServerSideEventSubscription(address);
+});
+
+test.concurrent('batched queries', async () => {
+  const { batchedQueries } = await startFastifyServer({
+    createOptions: {
+      schema: [CommonSchema.schema],
+      allowBatchedQueries: true,
+    },
+  });
+
+  await expect(
+    batchedQueries([
+      { query: '{hello}' },
+      {
+        query: '{hello2:hello}',
+      },
+    ])
+  ).resolves.toMatchInlineSnapshot(`
+          Object {
+            "http": Object {
+              "headers": Object {
+                "connection": "keep-alive",
+                "content-length": "70",
+                "content-type": "application/json; charset=utf-8",
+                "keep-alive": "timeout=5",
+              },
+              "statusCode": 200,
+            },
+            "result": Array [
+              Object {
+                "data": Object {
+                  "hello": "Hello World!",
+                },
+              },
+              Object {
+                "data": Object {
+                  "hello2": "Hello World!",
+                },
+              },
+            ],
+          }
+        `);
 });
