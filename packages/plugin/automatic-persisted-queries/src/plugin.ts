@@ -172,7 +172,13 @@ export const ezAutomaticPersistedQueries = (options?: AutomaticPersistedQueryOpt
         options.execute = async (...args: any[]) => {
           const result: ExecutionResult = await execute(...args);
 
-          if (!result.errors?.length) Promise.resolve(store.set(hash, query)).catch(console.error);
+          if (!result.errors?.length) {
+            try {
+              Promise.resolve(store.set(hash, query)).catch(console.error);
+            } catch (err) {
+              console.error(err);
+            }
+          }
 
           return result;
         };
