@@ -2,7 +2,6 @@ import { gql, startFastifyServer } from 'graphql-ez-testing';
 import { generateHash, ezAutomaticPersistedQueries, PersistedQueryStore, DisableContext } from '../src';
 import type { getRequestPool } from 'graphql-ez-testing/request';
 import type { GraphQLParams } from '@pablosz/graphql-helix';
-import type { DocumentNode } from 'graphql';
 
 type RequestPoolType = ReturnType<typeof getRequestPool>;
 type RequestFnType = RequestPoolType['request'];
@@ -131,8 +130,9 @@ describe('ezAutomaticPersistedQueries', () => {
     expect(result.body.errors[0].message).toEqual('PersistedQueryNotFound');
     expect(result.body.errors[0].extensions.code).toEqual('PERSISTED_QUERY_NOT_FOUND');
   });
+
   it('returns value on the first try if query is provided', async () => {
-    const data = new Map<string, DocumentNode | string>();
+    const data = new Map<string, string>();
     const store: PersistedQueryStore = {
       async get(hash: string) {
         return data.get(hash) ?? null;
@@ -424,7 +424,7 @@ describe('ezAutomaticPersistedQueries', () => {
   });
 
   it('makes use of the provided store', async () => {
-    const data = new Map<string, DocumentNode | string>();
+    const data = new Map<string, string>();
     let getCount = 0;
 
     const store: PersistedQueryStore = {
