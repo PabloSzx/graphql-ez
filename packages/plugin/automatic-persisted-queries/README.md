@@ -68,16 +68,20 @@ is not set, the default behavior is to look for the`persistedQuery` extension in
 
 #### `disableIf(context: DisableContext): boolean`
 
-Disable the plugin persisted queries per request based on context. 
+Disable the plugin per request based on context. If this function returns `true`, the client should switch to making 
+normal non-persistent calls, per protocol.
 
 #### Example
 ```ts
-import { PersistedQueryStore } from '@graphql-ez/automatic-persisted-queries';
+// Disable if we have issues connecting to the backend store.
+import { PersistedQueryStore, ezAutomaticPersistedQueries } from '@graphql-ez/automatic-persisted-queries';
 import IORedis from 'ioredis';
 
-let isDisabled = false;
-
+const HASH_KEY = 'apq-store';
 const redis = new IORedis();
+
+let isDisabled = true;
+
 redis.on("connect", () => {
   isDisabled = false;
 });
@@ -92,13 +96,16 @@ redis.on("error", () => {
 
 export const store: PersistedQueryStore = {
   set: async (key, query) => {
-    await redis.set(key, query)
+    await redis.hset(HASH_KEY, key, query);
   },
   get: async key => {
-    const [err, val] = await redis.get(key);
+    const [err, val] = await redis.hget(HASH_KEY, key);
     if (err) throw err;
     return val;
   },
+  clear: async () => {
+    await redis.del(HASH_KEY);
+  }
 };
 
 const ezApp = CreateApp({
@@ -113,7 +120,6 @@ const ezApp = CreateApp({
   },
   // ...
 });
-
 ```
 
 
@@ -122,19 +128,18 @@ const ezApp = CreateApp({
 The store that maps query hashes to query documents. If unspecified, we provide an in-memory LRU cache capped
 at `1000` elements with a ttl of an hour to prevent DoS attacks on the storage of hashes & queries.
 
-The store interface is based on 2 simple functions, so you can connect to any key/value data store.
-
 Here's an example of a naive, unbounded in-memory store:
 
 ```ts
 import { PersistedQueryStore } from '@graphql-ez/automatic-persisted-queries';
 
 // You can implement `data` in any custom way, and even fetch it from a remote store.
-const data: Record<string, DocumentNode | string> = {};
+const data = new Map<string, string>();
 
 export const myStore: PersistedQueryStore = {
-  put: async (key, document) => (data[key] = document),
-  get: async key => data[key],
+  put: async (key, query) => { data.set(key, query); },
+  get: async key => data.get(key),
+  clear: () => { data.clear(); }
 };
 ```
 
@@ -157,7 +162,7 @@ Default `sha256`
 
 #### `version`
 
-The current protocol version. If set, the `version` field of the `persistedQuery` extension must match this value, otherwise
+The current protocol version. The `version` field of the `persistedQuery` extension must match this value, otherwise
 an error with message `PersistedQueryInvalidVersion` will be raised.
 
 Default: `1`
