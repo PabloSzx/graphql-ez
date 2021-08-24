@@ -144,7 +144,7 @@ describe('ezAutomaticPersistedQueries', () => {
       },
       clear() {
         data.clear();
-      }
+      },
     };
 
     const { request } = await startFastifyServer({
@@ -442,7 +442,7 @@ describe('ezAutomaticPersistedQueries', () => {
       },
       clear() {
         data.clear();
-      }
+      },
     };
 
     const { request } = await startFastifyServer({
@@ -514,7 +514,7 @@ describe('ezAutomaticPersistedQueries', () => {
       async set(hash, doc) {
         data.set(hash, doc);
       },
-      clear: jest.fn()
+      clear: jest.fn(),
     };
 
     let setSchemaFn: SetSchemaFn = () => {};
@@ -532,8 +532,8 @@ describe('ezAutomaticPersistedQueries', () => {
           plugins: [ezAutomaticPersistedQueries({ store })],
         },
         envelop: {
-          plugins: [pluginTrigger]
-        }
+          plugins: [pluginTrigger],
+        },
       },
     });
 

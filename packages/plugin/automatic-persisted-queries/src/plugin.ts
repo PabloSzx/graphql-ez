@@ -134,7 +134,7 @@ export const ezAutomaticPersistedQueries = (options?: AutomaticPersistedQueryOpt
           query,
           request,
           variables,
-          persistedQuery
+          persistedQuery,
         };
         if (disableIf(context)) {
           return createErrorResponse(new PersistedQueryNotSupportedError(extensions));

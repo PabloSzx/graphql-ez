@@ -38,6 +38,6 @@ export const createLRUStore = (maxSize?: number, ttl?: number): PersistedQuerySt
     },
     clear(): PromiseOrValue<void> {
       cache.clear();
-    }
+    },
   };
 };
