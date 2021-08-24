@@ -1,4 +1,4 @@
-import { EnvelopError } from '@envelop/core';
+import { EnvelopError } from 'graphql-ez';
 import type { GraphQLError } from 'graphql';
 import type { EZContext } from 'graphql-ez';
 import type { Response } from '@pablosz/graphql-helix';
