@@ -1,5 +1,13 @@
 # @graphql-ez/koa
 
+## 0.8.6
+
+### Patch Changes
+
+- 0a20573: Set custom headers on default response
+- Updated dependencies [0a20573]
+  - graphql-ez@0.12.3
+
 ## 0.8.5
 
 ### Patch Changes
