@@ -1,5 +1,12 @@
 # graphql-ez
 
+## 0.12.2
+
+### Patch Changes
+
+- 9878698: access InternalAppBuildContext with symbol
+- 2027671: improve PreProcessRequest options
+
 ## 0.12.1
 
 ### Patch Changes
