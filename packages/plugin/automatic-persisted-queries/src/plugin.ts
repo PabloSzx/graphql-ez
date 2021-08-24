@@ -202,7 +202,11 @@ export const ezAutomaticPersistedQueries = (options?: AutomaticPersistedQueryOpt
       plugins.push({
         onSchemaChange() {
           // unfortunately onSchemaChange is not async
-          Promise.resolve(store.clear()).catch(console.error);
+          try {
+            Promise.resolve(store.clear()).catch(console.error);
+          } catch (err) {
+            console.error(err);
+          }
         },
       });
     },
