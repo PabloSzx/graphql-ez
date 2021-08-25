@@ -1,16 +1,13 @@
-import format from 'date-fns/format';
-import Head from 'next/head';
-
 import { Box, Center, Code, Container, Grid, Heading, Image, SimpleGrid, VStack } from '@chakra-ui/react';
-import { PackageInstall, RemoteGHMarkdown } from '@guild-docs/client';
+import { DocsTOC, PackageInstall, RemoteGHMarkdown } from '@guild-docs/client';
+import { MDXTOC } from '@guild-docs/client/toc';
 import { buildMDX, CompiledMDX } from '@guild-docs/server';
 import { getPackagesData, PackageWithStats } from '@guild-docs/server/npm';
-import { DocsContent, DocsTOC, MDXPage } from '@guild-docs/client';
-import { MDXTOC } from '@guild-docs/client/toc';
-
-import { packageInstallList, pluginsList } from '../../../plugins';
-
+import format from 'date-fns/format';
 import type { GetStaticPaths, GetStaticProps } from 'next';
+import Head from 'next/head';
+import { packageInstallList, pluginsList } from '../../../plugins';
+import { NPMBadge } from '../../components/NPMBadge';
 
 interface PluginPageProps {
   data: (PackageWithStats & { mdx: CompiledMDX })[];
@@ -94,6 +91,7 @@ export default function PluginPageContent({ data }: PluginPageProps) {
           </Heading>
           <Grid templateColumns={['1fr', '1fr', '1fr 250px']} gap={4}>
             <Box>
+              <NPMBadge name={pluginData.npmPackage} />
               <PackageInstall packages={packageInstallList(pluginData)} />
               <RemoteGHMarkdown
                 directory={pluginData.stats?.collected?.metadata?.repository?.directory}
