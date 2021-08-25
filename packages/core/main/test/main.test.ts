@@ -153,7 +153,11 @@ test.concurrent('presets', async () => {
   const { asPreset, ezPlugins, envelopPlugins } = CreateApp({
     schema,
     ez: {
-      plugins: [ezGraphiQLIDE()],
+      plugins: [
+        ezGraphiQLIDE({
+          path: '/graphiql',
+        }),
+      ],
     },
     envelop: {
       plugins: [useExtendContext(() => ({}))],

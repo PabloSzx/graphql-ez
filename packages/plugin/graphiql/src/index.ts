@@ -9,7 +9,7 @@ import type { EZPlugin } from 'graphql-ez';
 
 export interface GraphiQLOptions extends RenderGraphiQLOptions {
   /**
-   * @default "/graphiql"
+   * By default it's the same as the main API path, normally `"/graphql"` or `"/api/graphql"`
    */
   path?: string;
   /**
@@ -78,7 +78,7 @@ export const ezGraphiQLIDE = (options: GraphiQLOptions | boolean = true): EZPlug
 
       const objOptions = { ...(getObjectValue(options) || {}) };
 
-      const path = (objOptions.path ||= '/graphiql');
+      const path = (objOptions.path ||= ctx.options.path || '/graphql');
 
       objOptions.endpoint ||= ctx.options.path;
 

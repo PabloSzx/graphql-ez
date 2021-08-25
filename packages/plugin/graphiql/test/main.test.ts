@@ -19,7 +19,11 @@ test('fastify', async () => {
     createOptions: {
       schema: [CommonSchema],
       ez: {
-        plugins: [ezGraphiQLIDE()],
+        plugins: [
+          ezGraphiQLIDE({
+            path: '/graphiql',
+          }),
+        ],
       },
     },
   });
@@ -109,7 +113,11 @@ test('express', async () => {
     createOptions: {
       schema: [CommonSchema],
       ez: {
-        plugins: [ezGraphiQLIDE()],
+        plugins: [
+          ezGraphiQLIDE({
+            path: '/graphiql',
+          }),
+        ],
       },
     },
   });
@@ -201,7 +209,11 @@ test('http', async () => {
     createOptions: {
       schema: [CommonSchema],
       ez: {
-        plugins: [ezGraphiQLIDE()],
+        plugins: [
+          ezGraphiQLIDE({
+            path: '/graphiql',
+          }),
+        ],
       },
     },
   });
@@ -291,7 +303,11 @@ test('hapi', async () => {
     createOptions: {
       schema: [CommonSchema],
       ez: {
-        plugins: [ezGraphiQLIDE()],
+        plugins: [
+          ezGraphiQLIDE({
+            path: '/graphiql',
+          }),
+        ],
       },
     },
   });
@@ -382,7 +398,11 @@ test('koa', async () => {
     createOptions: {
       schema: [CommonSchema],
       ez: {
-        plugins: [ezGraphiQLIDE()],
+        plugins: [
+          ezGraphiQLIDE({
+            path: '/graphiql',
+          }),
+        ],
       },
     },
   });
@@ -477,7 +497,9 @@ test('nextjs', async () => {
     buildContext,
     ez: {
       plugins: [
-        ezGraphiQLIDE(),
+        ezGraphiQLIDE({
+          path: '/graphiql',
+        }),
         ezSchema({
           schema: {
             typeDefs: gql`

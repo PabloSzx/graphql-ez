@@ -28,7 +28,7 @@ Most of these types come from [graphql-helix Graphiql](https://github.com/contra
 type GraphiQLOptions =
   | {
       /**
-       * @default "/graphiql"
+       * By default it's the same as the main API path, normally `"/graphql"` or `"/api/graphql"`
        */
       path?: string;
 
@@ -71,6 +71,21 @@ type GraphiQLOptions =
        * If no protocol is specified, it fallbacks to Server-Sent Events aka **"SSE"**
        */
       subscriptionsProtocol?: 'WS' | 'LEGACY_WS' | 'SSE';
+
+      /**
+       * Enable selecting subscriptions protocol via dropdown in interface
+       */
+      hybridSubscriptionTransportConfig?: {
+        default: 'sse' | 'legacyWS' | 'transportWS';
+        config: {
+          /* Enable SSE transport as an option, if set as "true", it re-uses `endpoint` */
+          sse?: string | boolean;
+          /* Enable Legacy graphql-ws protocol transport as an option, if set as "true", re-uses `endpoint` with "ws:" or "wss:" protocol */
+          legacyWS?: string | boolean;
+          /* Enable graphql-transport-ws protocol transport as an option, if set as "true" re-uses `endpoint` with "ws:" or "wss:" protocol */
+          transportWS?: string | boolean;
+        };
+      };
     }
   | boolean;
 ```
