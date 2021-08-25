@@ -1,4 +1,13 @@
-import type { Lifecycle, Plugin, Request, ResponseToolkit, RouteOptions, RouteOptionsCors, Server } from '@hapi/hapi';
+import type {
+  HandlerDecorations,
+  Lifecycle,
+  Plugin,
+  Request,
+  ResponseToolkit,
+  RouteOptions,
+  RouteOptionsCors,
+  Server,
+} from '@hapi/hapi';
 import {
   AppOptions,
   BaseAppBuilder,
@@ -7,10 +16,11 @@ import {
   EZAppFactoryType,
   GetEnvelopedFn,
   handleRequest,
+  InternalAppBuildContext,
+  InternalAppBuildContextKey,
   InternalAppBuildIntegrationContext,
   ProcessRequestOptions,
-  InternalAppBuildContextKey,
-  InternalAppBuildContext,
+  PromiseOrValue,
 } from 'graphql-ez';
 
 declare module 'graphql-ez' {
@@ -25,6 +35,7 @@ declare module 'graphql-ez' {
     hapi?: {
       server: Server;
       ideRouteOptions?: RouteOptions;
+      preHandler: Array<(req: Request, h: ResponseToolkit) => PromiseOrValue<Lifecycle.Method | HandlerDecorations | undefined>>;
     };
   }
 }
@@ -94,8 +105,12 @@ export function CreateApp(config: HapiAppOptions = {}): EZAppBuilder {
       const { buildContext, onAppRegister, processRequestOptions } = appConfig;
 
       return async function register(server: Server) {
+        const preHandlerCtx: Array<
+          (req: Request, h: ResponseToolkit) => PromiseOrValue<Lifecycle.Method | HandlerDecorations | undefined>
+        > = [];
+
         const integration: InternalAppBuildIntegrationContext = {
-          hapi: { server, ideRouteOptions: appConfig.ideRouteOptions },
+          hapi: { server, ideRouteOptions: appConfig.ideRouteOptions, preHandler: preHandlerCtx },
         };
 
         if (onAppRegister) await onAppRegister({ ctx, integration, getEnveloped });
@@ -109,6 +124,8 @@ export function CreateApp(config: HapiAppOptions = {}): EZAppBuilder {
 
         const requestHandler = customHandleRequest || handleRequest;
 
+        const preHandler = preHandlerCtx.length ? preHandlerCtx : false;
+
         server.route({
           path,
           method: ['GET', 'POST'],
@@ -117,6 +134,14 @@ export function CreateApp(config: HapiAppOptions = {}): EZAppBuilder {
             ...appConfig.routeOptions,
           },
           async handler(req, h) {
+            if (preHandler) {
+              for (const handler of preHandler) {
+                const result = await handler(req, h);
+
+                if (result) return result;
+              }
+            }
+
             const request = {
               body: req.payload,
               headers: req.headers,
