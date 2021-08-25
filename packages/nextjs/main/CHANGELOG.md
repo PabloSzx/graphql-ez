@@ -1,5 +1,11 @@
 # @graphql-ez/nextjs
 
+## 0.9.3
+
+### Patch Changes
+
+- 95fe64a: add "path" option for plugins usage
+
 ## 0.9.2
 
 ### Patch Changes

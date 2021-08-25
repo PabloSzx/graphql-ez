@@ -1,5 +1,18 @@
 # @graphql-ez/plugin-graphiql
 
+## 0.7.0
+
+### Minor Changes
+
+- e4277e7: - Allow render GraphiQL on same main path
+  - Update docs
+- 0c74fc6: Default graphiql path is the same as the main API path
+
+### Patch Changes
+
+- Updated dependencies [afb6b86]
+  - @pablosz/graphql-helix-graphiql@3.0.0
+
 ## 0.6.0
 
 ### Minor Changes

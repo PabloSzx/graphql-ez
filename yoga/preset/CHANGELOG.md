@@ -1,5 +1,13 @@
 # @graphql-yoga/preset
 
+## 1.0.3
+
+### Patch Changes
+
+- Updated dependencies [e4277e7]
+- Updated dependencies [0c74fc6]
+  - @graphql-ez/plugin-graphiql@0.7.0
+
 ## 1.0.2
 
 ### Patch Changes
