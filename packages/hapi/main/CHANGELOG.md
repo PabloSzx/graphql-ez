@@ -1,5 +1,11 @@
 # @graphql-ez/hapi
 
+## 0.8.7
+
+### Patch Changes
+
+- ad5b4ea: add "preHandler" to integration context for plugins
+
 ## 0.8.6
 
 ### Patch Changes

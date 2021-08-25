@@ -1,5 +1,11 @@
 # @graphql-ez/express
 
+## 0.9.4
+
+### Patch Changes
+
+- 7b6ffa9: re-order onResponse set headers
+
 ## 0.9.3
 
 ### Patch Changes
