@@ -53,7 +53,7 @@ export type EZPreset = {
   envelopPlugins?: PromiseOrValue<Plugin>[];
 };
 
-export type IntegrationsNames = 'express' | 'fastify' | 'nextjs' | 'http' | 'koa' | 'hapi';
+export type IntegrationsNames = 'express' | 'fastify' | 'nextjs' | 'http' | 'koa' | 'hapi' | 'cloudflare';
 export interface AdapterFactoryContext {
   integrationName: IntegrationsNames;
 }
