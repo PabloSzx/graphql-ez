@@ -1,6 +1,6 @@
 export const config: import('bob-esbuild').BobConfig = {
   tsc: {
-    dirs: ['packages/*/*', 'internal/*', 'yoga/*'],
+    dirs: ['packages/*/*', 'internal/*', 'yoga/*', 'benchmarks/bench'],
   },
   verbose: true,
   outputOptions: {
