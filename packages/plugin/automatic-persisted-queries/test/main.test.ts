@@ -531,5 +531,4 @@ describe('ezAutomaticPersistedQueries', () => {
     expect(res.errors?.[0]?.message).toEqual('PersistedQueryNotSupported');
     expect(res.http.headers?.['cache-control']).toBe('private, no-cache, must-revalidate');
   });
-
 });
