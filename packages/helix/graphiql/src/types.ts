@@ -1,3 +1,12 @@
+export interface HybridSubscriptionTransportConfig {
+  /* Enable SSE transport as an option, if set as "true", it re-uses `endpoint` */
+  sse?: string | boolean;
+  /* Enable Legacy graphql-ws protocol transport as an option, if set as "true", re-uses `endpoint` with "ws:" or "wss:" protocol */
+  legacyWS?: string | boolean;
+  /* Enable graphql-transport-ws protocol transport as an option, if set as "true" re-uses `endpoint` with "ws:" or "wss:" protocol */
+  transportWS?: string | boolean;
+}
+
 export interface RenderGraphiQLOptions {
   /**
    * An optional GraphQL string to use when no query is provided and no stored
@@ -38,4 +47,12 @@ export interface RenderGraphiQLOptions {
    * If no protocol is specified, it fallbacks to Server-Sent Events aka **"SSE"**
    */
   subscriptionsProtocol?: 'WS' | 'LEGACY_WS' | 'SSE';
+
+  /**
+   * Enable selecting subscriptions protocol via dropdown in interface
+   */
+  hybridSubscriptionTransportConfig?: {
+    default: keyof HybridSubscriptionTransportConfig;
+    config: HybridSubscriptionTransportConfig;
+  };
 }

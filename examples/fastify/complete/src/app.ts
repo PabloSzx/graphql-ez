@@ -44,6 +44,14 @@ export const { registerModule, buildApp, registerDataLoader } = CreateApp({
       ezAltairIDE(),
       ezGraphiQLIDE({
         path: '/graphql',
+        hybridSubscriptionTransportConfig: {
+          default: 'sse',
+          config: {
+            legacyWS: true,
+            sse: true,
+            transportWS: true,
+          },
+        },
       }),
       ezWebSockets('adaptive'),
       ezVoyager({

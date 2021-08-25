@@ -3,7 +3,7 @@ const { readFileSync, writeFileSync } = require('fs');
 const { resolve } = require('path');
 
 const javascript = readFileSync(resolve(__dirname, '../bundle/graphiql.min.js'), 'utf8');
-const css = readFileSync(resolve(__dirname, '../bundle/graphiql.min.css'), 'utf8');
+const css = readFileSync(resolve(__dirname, '../bundle/graphiql.css'), 'utf8');
 
 const contents = `import type { RenderGraphiQLOptions } from "./types";
 
@@ -15,6 +15,9 @@ const safeSerialize = (value: any) => {
 
 export * from "./types";
 
+declare const __GRAPHIQL_JS__: string;
+declare const __GRAPHIQL_CSS__: string;
+
 export const renderGraphiQL = (options: RenderGraphiQLOptions = {}): string => {
   const {
     defaultQuery,
@@ -25,10 +28,11 @@ export const renderGraphiQL = (options: RenderGraphiQLOptions = {}): string => {
     nonce,
     subscriptionsEndpoint,
     subscriptionsProtocol,
+    hybridSubscriptionTransportConfig,
   } = options;
   const nonceAttribute = nonce ? \`nonce="\${nonce}"\` : "";
-  const css = ${JSON.stringify(css)};
-  const javascript = ${JSON.stringify(javascript).replace('</script>', '<\\/script>')};
+  const css = __GRAPHIQL_CSS__;
+  const javascript = __GRAPHIQL_JS__;
 
   return \`
 <!DOCTYPE html>
@@ -64,6 +68,7 @@ export const renderGraphiQL = (options: RenderGraphiQLOptions = {}): string => {
         headerEditorEnabled: \${safeSerialize(headerEditorEnabled)},
         subscriptionsEndpoint: \${safeSerialize(subscriptionsEndpoint)},
         subscriptionsProtocol: \${safeSerialize(subscriptionsProtocol)},
+        hybridSubscriptionTransportConfig: \${safeSerialize(hybridSubscriptionTransportConfig)},
       });
     </script>
   </body>
@@ -73,7 +78,7 @@ export const renderGraphiQL = (options: RenderGraphiQLOptions = {}): string => {
 `;
 
 const targetSourceFile = resolve(__dirname, '../src/index.ts');
-writeFileSync(targetSourceFile, contents, {
+writeFileSync(targetSourceFile, contents.replace(/\\r\\n/g, '\\n'), {
   encoding: 'utf-8',
 });
 
