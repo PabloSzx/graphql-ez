@@ -5,7 +5,7 @@ Integration with [GraphiQL IDE](https://github.com/graphql/graphiql)
 ## Usage
 
 ```ts
-import { ezGraphiQLIDE } from '@graphql-ez/plugin-altair';
+import { ezGraphiQLIDE } from '@graphql-ez/plugin-graphiql';
 
 const ezApp = CreateApp({
   ez: {
