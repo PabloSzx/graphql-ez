@@ -1,11 +1,11 @@
-import getPort from 'get-port';
+import { ezSchema, EZSchemaOptions } from '@graphql-ez/plugin-schema';
 import { LazyPromise, PLazy } from '@graphql-ez/utils/promise';
+import getPort from 'get-port';
+import type { AppOptions, BuildAppOptions } from 'graphql-ez';
 import defaultsDeep from 'lodash/defaultsDeep.js';
 import { resolve } from 'path';
-
-import { ezSchema, EZSchemaOptions } from '@graphql-ez/plugin-schema';
-
 import { TearDownPromises } from './common';
+import './graphiqlBundle';
 import { getRequestPool } from './request';
 import {
   createGraphQLWSWebsocketsClient,
@@ -14,12 +14,17 @@ import {
   SubscriptionsTransportClientOptions,
 } from './ws';
 
-export * from './ws';
-
-import type { BuildAppOptions, AppOptions } from 'graphql-ez';
-
-export * from './upload';
+export type {} from '@graphql-typed-document-node/core';
+export type {} from 'express-serve-static-core';
+export type {} from 'graphql';
+export * from 'graphql-ez';
+export type {} from 'undici/types/dispatcher';
+export * from './common';
 export * from './schema';
+export * from './testQueryStream';
+export * from './testServerSideEvents';
+export * from './upload';
+export * from './ws';
 
 export interface StartTestServerOptions<CreateOptions extends AppOptions, BuildOptions extends BuildAppOptions> {
   createOptions?: Omit<CreateOptions, 'schema'> & EZSchemaOptions;
@@ -93,8 +98,6 @@ export const startFastifyServer = async ({
     ),
   };
 };
-
-export type {} from 'express-serve-static-core';
 
 export const startExpressServer = async ({
   createOptions,
@@ -406,13 +409,3 @@ export async function startNextJSServer(dir: string[], autoClose: boolean = true
 
   return { ...pool, app, NextJSDir };
 }
-
-export type {} from 'graphql';
-export type {} from '@graphql-typed-document-node/core';
-export type {} from 'undici/types/dispatcher';
-
-export * from 'graphql-ez';
-export * from './common';
-
-export * from './testQueryStream';
-export * from './testServerSideEvents';

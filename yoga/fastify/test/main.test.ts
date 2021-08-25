@@ -1,6 +1,6 @@
-import { GraphQLServer } from '../src/index';
-
 import { CreateTestClient, GlobalTeardown } from '@graphql-ez/fastify-testing';
+import 'graphql-ez-testing';
+import { GraphQLServer } from '../src/index';
 
 afterEach(GlobalTeardown);
 

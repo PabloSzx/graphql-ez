@@ -1,5 +1,7 @@
 import { readFileSync } from 'fs';
-import { resolve } from 'path';
+import { resolve, sep } from 'path';
+
+const isHelixGraphiql = process.cwd().endsWith(sep + 'graphiql');
 
 export const config: import('bob-esbuild').BobConfig = {
   tsc: {
@@ -9,7 +11,7 @@ export const config: import('bob-esbuild').BobConfig = {
   outputOptions: {
     sourcemap: false,
   },
-  esbuildPluginOptions: process.cwd().includes('/graphiql')
+  esbuildPluginOptions: isHelixGraphiql
     ? {
         define: {
           __GRAPHIQL_JS__: JSON.stringify(
