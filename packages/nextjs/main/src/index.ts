@@ -52,6 +52,14 @@ export interface NextAppOptions extends AppOptions {
    * Enable/Customize CORS
    */
   cors?: EZCors;
+
+  /**
+   * The path of where the EZ App is being served,
+   * it helps plugins like IDEs to know where to request the data
+   *
+   * @default "/api/graphql"
+   */
+  path?: string;
 }
 
 export interface EZApp {
@@ -72,6 +80,8 @@ export type { NextApiHandler } from 'next';
 
 export function CreateApp(config: NextAppOptions = {}): EZAppBuilder {
   const appConfig = { ...config };
+
+  appConfig.path ||= '/api/graphql';
 
   let ezApp: EZAppFactoryType;
 
