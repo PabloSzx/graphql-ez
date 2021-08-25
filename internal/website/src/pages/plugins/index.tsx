@@ -1,20 +1,20 @@
-import compareDesc from 'date-fns/compareDesc';
-import Head from 'next/head';
-import { useMemo } from 'react';
-
-import { MDX, PackageInstall, RemoteGHMarkdown, handlePushRoute } from '@guild-docs/client';
+import { handlePushRoute, MDX, PackageInstall, RemoteGHMarkdown } from '@guild-docs/client';
 import { buildMultipleMDX, CompiledMDX } from '@guild-docs/server';
 import { getPackagesData, PackageWithStats } from '@guild-docs/server/npm';
 import { MarketplaceSearch } from '@theguild/components';
-
-import { packageInstallList, pluginsList } from '../../../plugins';
-
-import type { GetStaticProps } from 'next';
 import type { IMarketplaceItemProps } from '@theguild/components/dist/types/components';
+import compareDesc from 'date-fns/compareDesc';
+import type { GetStaticProps } from 'next';
+import Head from 'next/head';
+import { useMemo } from 'react';
+import { packageInstallList, pluginsList, TagsList } from '../../../plugins';
+import { NPMBadge } from '../../components/NPMBadge';
 
 interface MarketplaceProps {
   data: (PackageWithStats & { description: CompiledMDX; content: CompiledMDX })[];
 }
+
+const tagsListString = [...TagsList];
 
 export const getStaticProps: GetStaticProps<MarketplaceProps> = async () => {
   const pluginsData = await getPackagesData({
@@ -59,6 +59,7 @@ export default function Marketplace({ data }: MarketplaceProps) {
             title: `${rawPlugin.title} plugin details`,
             onClick: ev => handlePushRoute(linkHref, ev),
           },
+          tags: rawPlugin.tags,
           description: <MDX mdx={rawPlugin.description.mdx} />,
           modal: {
             header: {
@@ -78,6 +79,7 @@ export default function Marketplace({ data }: MarketplaceProps) {
             },
             content: (
               <>
+                <NPMBadge name={rawPlugin.npmPackage} />
                 <PackageInstall packages={packageInstallList(rawPlugin)} />
                 <RemoteGHMarkdown
                   directory={rawPlugin.stats?.collected?.metadata?.repository?.directory}
@@ -137,6 +139,7 @@ export default function Marketplace({ data }: MarketplaceProps) {
       <MarketplaceSearch
         title="Explore Plugin Hub"
         placeholder="Find plugins..."
+        tagsFilter={tagsListString}
         wrapperProps={{
           className: 'patch-image-margin',
         }}
@@ -144,19 +147,19 @@ export default function Marketplace({ data }: MarketplaceProps) {
           title: 'Trending',
           items: trendingItems,
           placeholder: '0 items',
-          pagination: 10,
+          pagination: 12,
         }}
         secondaryList={{
           title: 'Recently Updated',
           items: recentlyUpdatedItems,
           placeholder: '0 items',
-          pagination: 10,
+          pagination: 12,
         }}
         queryList={{
           title: 'Search Results',
           items: marketplaceItems,
           placeholder: 'No results for {query}',
-          pagination: 10,
+          pagination: 12,
         }}
       />
     </>

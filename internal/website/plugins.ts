@@ -1,18 +1,21 @@
 import type { Package } from '@guild-docs/server/npm';
 
-export type Tags =
-  | 'ide'
-  | 'client'
-  | 'codegen'
-  | 'introspection'
-  | 'schema-building'
-  | 'fastify-compatible'
-  | 'koa-compatible'
-  | 'express-compatible'
-  | 'hapi-compatible'
-  | 'node-http-compatible'
-  | 'nextjs-compatible'
-  | 'persisted-queries';
+export const TagsList = [
+  'ide',
+  'client',
+  'codegen',
+  'introspection',
+  'schema',
+  'fastify',
+  'koa',
+  'express',
+  'hapi',
+  'http',
+  'nextjs',
+  'universal',
+] as const;
+
+export type Tags = typeof TagsList[number];
 
 declare module '@guild-docs/server/npm' {
   interface Package {
@@ -34,7 +37,7 @@ export const pluginsList: Package<Tags>[] = [
   {
     identifier: 'upload',
     npmPackage: '@graphql-ez/plugin-upload',
-    tags: ['codegen', 'fastify-compatible', 'koa-compatible', 'express-compatible'],
+    tags: ['codegen', 'fastify', 'koa', 'express'],
     title: 'GraphQL Upload',
     iconUrl: '/assets/logos/upload.svg',
     additionalPackages: ['graphql-upload'],
@@ -44,7 +47,7 @@ export const pluginsList: Package<Tags>[] = [
   {
     identifier: 'websockets',
     npmPackage: '@graphql-ez/plugin-websockets',
-    tags: ['fastify-compatible', 'express-compatible', 'koa-compatible', 'hapi-compatible', 'node-http-compatible'],
+    tags: ['fastify', 'express', 'koa', 'hapi', 'http'],
     title: 'Websockets',
     iconUrl: '/assets/logos/graphql-ws.png',
     descriptionMarkdown: `
@@ -62,7 +65,7 @@ Integration of Websockets using [graphql-ws](https://github.com/enisdenjo/graphq
   {
     identifier: 'codegen',
     npmPackage: '@graphql-ez/plugin-codegen',
-    tags: ['codegen', 'schema-building'],
+    tags: ['codegen', 'schema'],
     title: 'GraphQL Code Generator',
     iconUrl: '/assets/logos/code-generator.svg',
   },
@@ -76,35 +79,35 @@ Integration of Websockets using [graphql-ws](https://github.com/enisdenjo/graphq
   {
     identifier: 'graphql-modules',
     npmPackage: '@graphql-ez/plugin-modules',
-    tags: ['codegen', 'schema-building'],
+    tags: ['codegen', 'schema'],
     title: 'GraphQL Modules',
     iconUrl: '/assets/logos/modules.svg',
   },
   {
     identifier: 'graphql-scalars',
     npmPackage: '@graphql-ez/plugin-scalars',
-    tags: ['schema-building'],
+    tags: ['schema'],
     title: 'GraphQL Scalars',
     iconUrl: '/assets/logos/scalars.svg',
   },
   {
     identifier: 'dataloader',
     npmPackage: '@graphql-ez/plugin-dataloader',
-    tags: ['schema-building'],
+    tags: ['schema'],
     title: 'DataLoader',
     iconUrl: '/assets/logos/graphql.png',
   },
   {
     identifier: 'schema',
     npmPackage: '@graphql-ez/plugin-schema',
-    tags: ['schema-building'],
+    tags: ['schema', 'codegen'],
     title: 'Schema',
     iconUrl: '/assets/logos/tools.svg',
   },
   {
     identifier: 'sse',
     npmPackage: '@graphql-ez/plugin-sse',
-    tags: ['express-compatible', 'fastify-compatible', 'hapi-compatible', 'koa-compatible', 'node-http-compatible'],
+    tags: ['express', 'fastify', 'hapi', 'koa', 'http'],
     title: 'GraphQL over Server-Sent Events',
     iconUrl: '/assets/logos/graphql.png',
     githubReadme: {
@@ -115,7 +118,7 @@ Integration of Websockets using [graphql-ws](https://github.com/enisdenjo/graphq
   {
     identifier: 'automatic-persisted-queries',
     npmPackage: '@graphql-ez/plugin-automatic-persisted-queries',
-    tags: ['persisted-queries'],
+    tags: ['universal'],
     title: 'Automatic Persisted Queries',
     iconUrl: '/assets/logos/graphql.png',
     githubReadme: {
