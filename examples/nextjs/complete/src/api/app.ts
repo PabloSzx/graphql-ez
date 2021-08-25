@@ -1,5 +1,6 @@
 import { BuildContextArgs, CreateApp, InferContext } from '@graphql-ez/nextjs';
 import { ezCodegen } from '@graphql-ez/plugin-codegen';
+import { ezGraphiQLIDE } from '@graphql-ez/plugin-graphiql';
 import { ezGraphQLModules } from '@graphql-ez/plugin-modules';
 
 function buildContext(_args: BuildContextArgs) {
@@ -22,6 +23,7 @@ export const { buildApp, registerModule, gql } = CreateApp({
         },
       }),
       ezGraphQLModules(),
+      ezGraphiQLIDE(),
     ],
   },
   cors: true,

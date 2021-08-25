@@ -41,7 +41,9 @@ export const { registerModule, buildApp } = CreateApp({
         DateTime: 1,
       }),
       ezAltairIDE(),
-      ezGraphiQLIDE(),
+      ezGraphiQLIDE({
+        path: '/graphql',
+      }),
       ezWebSockets(),
       ezSchema({
         schema: {

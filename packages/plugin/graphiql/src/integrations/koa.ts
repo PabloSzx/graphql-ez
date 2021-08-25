@@ -1,16 +1,24 @@
 import type { InternalAppBuildContext, InternalAppBuildIntegrationContext } from 'graphql-ez';
+import { shouldRenderGraphiQL } from '../utils';
 
-export function handleKoa(ctx: InternalAppBuildContext, instance: NonNullable<InternalAppBuildIntegrationContext['koa']>) {
+export async function handleKoa(ctx: InternalAppBuildContext, instance: NonNullable<InternalAppBuildIntegrationContext['koa']>) {
   if (!ctx.graphiql) return;
 
-  const handler = ctx.graphiql.handler(ctx.graphiql.options, {
-    rawHttp: false,
-  });
+  const html = await ctx.graphiql.html;
 
-  instance.router.get(ctx.graphiql.path, async ctx => {
-    const result = await handler(ctx.req, ctx.res);
+  const path = ctx.graphiql.path;
 
-    ctx.type = 'text/html';
-    ctx.body = result.content;
-  });
+  if (path === ctx.options.path) {
+    instance.router.use(path, async (ctx, next) => {
+      if (!shouldRenderGraphiQL(ctx.request)) return next();
+
+      ctx.type = 'text/html';
+      ctx.body = html;
+    });
+  } else {
+    instance.router.get(path, async ctx => {
+      ctx.type = 'text/html';
+      ctx.body = html;
+    });
+  }
 }

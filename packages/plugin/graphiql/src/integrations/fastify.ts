@@ -1,15 +1,34 @@
 import type { InternalAppBuildContext, InternalAppBuildIntegrationContext } from 'graphql-ez';
+import { shouldRenderGraphiQL } from '../utils';
 
-export function handleFastify(
+export async function handleFastify(
   ctx: InternalAppBuildContext,
   instance: NonNullable<InternalAppBuildIntegrationContext['fastify']>
 ) {
   if (!ctx.graphiql) return;
 
-  const handler = ctx.graphiql.handler(ctx.graphiql.options);
+  const html = await ctx.graphiql.html;
 
-  instance.get(ctx.graphiql.path, async (req, res) => {
-    res.hijack();
-    await handler(req.raw, res.raw);
-  });
+  if (ctx.graphiql.path === ctx.options.path) {
+    const path = ctx.options.path;
+
+    instance.addHook('onRequest', async (req, reply) => {
+      if (
+        req.routerPath !== path ||
+        !shouldRenderGraphiQL({
+          headers: req.headers,
+          method: req.method,
+          query: Object.fromEntries(new URL(`http://${req.url}`).searchParams),
+        })
+      ) {
+        return;
+      }
+
+      reply.type('text/html').send(html);
+    });
+  } else {
+    instance.get(ctx.graphiql.path, async (_req, reply) => {
+      reply.type('text/html').send(html);
+    });
+  }
 }

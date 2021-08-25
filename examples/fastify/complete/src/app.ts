@@ -42,7 +42,9 @@ export const { registerModule, buildApp, registerDataLoader } = CreateApp({
         DateTime: 1,
       }),
       ezAltairIDE(),
-      ezGraphiQLIDE(),
+      ezGraphiQLIDE({
+        path: '/graphql',
+      }),
       ezWebSockets('adaptive'),
       ezVoyager({
         displayOptions: {

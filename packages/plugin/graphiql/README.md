@@ -60,19 +60,24 @@ type GraphiQLOptions =
       nonce?: string;
       /**
        * The endpoint subscription requests should be sent to. Defaults to the value of the `endpoint` parameter.
+       *
+       * If no `subscriptionsEndpoint` is specified and `subscriptionsProtocol` is set to **"WS"** or **"LEGACY_WS"**,
+       * it automatically reuses the `endpoint` with the current browser window URL with the protocol "ws://" or "wss://"
        */
       subscriptionsEndpoint?: string;
       /**
-       * Use legacy web socket protocol `graphql-ws` instead of the more current standard `graphql-transport-ws`
+       * The Subscriptions protocol used.
+       *
+       * If no protocol is specified, it fallbacks to Server-Sent Events aka **"SSE"**
        */
-      useWebSocketLegacyProtocol?: boolean;
+      subscriptionsProtocol?: 'WS' | 'LEGACY_WS' | 'SSE';
     }
   | boolean;
 ```
 
 ### Next.js Usage
 
-In Next.js you need to use this plugin's handler explicitly in your API routes,
+For Next.js you can either use this plugin's handler explicitly in your API routes,
 for example, following the file structure: `/pages/api/graphiql.ts`, and using this snippet:
 
 ```ts
@@ -81,5 +86,24 @@ import { GraphiQLHandler } from '@graphql-ez/plugin-graphiql';
 
 export default GraphiQLHandler({
   endpoint: '/api/graphql',
+});
+```
+
+Or simply add the plugin in your EZ App and it will be served in the same path of your GraphQL API
+
+```ts
+import { CreateApp } from '@graphql-ez/nextjs';
+import { ezGraphiQLIDE } from '@graphql-ez/plugin-graphiql';
+
+const ezApp = CreateApp({
+  ez: {
+    plugins: [
+      ezGraphiQLIDE({
+        // Options
+      }),
+      // ...
+    ],
+  },
+  // ...
 });
 ```

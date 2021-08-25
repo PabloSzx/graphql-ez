@@ -24,18 +24,14 @@ declare module 'graphql-ez' {
   interface InternalAppBuildContext {
     graphiql?: {
       path: string;
-      handler: (options: GraphiQLOptions, extraConfig?: HandlerConfig) => IDEHandler;
+      handler: (options: GraphiQLOptions) => IDEHandler;
+      html: Promise<string>;
       options: GraphiQLOptions;
     };
   }
 }
 
-export type IDEHandler = (
-  req: IncomingMessage,
-  res: ServerResponse
-) => Promise<{
-  content: string;
-}>;
+export type IDEHandler = (req: IncomingMessage, res: ServerResponse) => Promise<void>;
 
 export interface HandlerConfig {
   /**
@@ -50,27 +46,27 @@ const GraphiQLDeps = LazyPromise(async () => {
   return { renderGraphiQL };
 });
 
-export function GraphiQLHandler(options: GraphiQLOptions, extraConfig?: HandlerConfig): IDEHandler {
+export function GraphiQLHandler(options: GraphiQLOptions): IDEHandler {
   const { endpoint = '/graphql', ...renderOptions } = getObjectValue(options) || {};
 
   const html = GraphiQLDeps.then(({ renderGraphiQL }) => {
     return renderGraphiQL({ ...renderOptions, endpoint });
   });
 
-  const rawHttp = extraConfig?.rawHttp ?? true;
-
   return async function (_req, res) {
-    const content = await html;
-
-    if (rawHttp) {
-      res.setHeader('content-type', 'text/html');
-      res.end(content);
-    }
-
-    return {
-      content,
-    };
+    res.setHeader('content-type', 'text/html');
+    res.end(await html);
   };
+}
+
+export function GraphiQLRender(options: GraphiQLOptions): Promise<string> {
+  const { endpoint = '/graphql', ...renderOptions } = getObjectValue(options) || {};
+
+  const html = GraphiQLDeps.then(({ renderGraphiQL }) => {
+    return renderGraphiQL({ ...renderOptions, endpoint });
+  });
+
+  return html;
 }
 
 export const ezGraphiQLIDE = (options: GraphiQLOptions | boolean = true): EZPlugin => {
@@ -83,12 +79,20 @@ export const ezGraphiQLIDE = (options: GraphiQLOptions | boolean = true): EZPlug
       const objOptions = { ...(getObjectValue(options) || {}) };
 
       const path = (objOptions.path ||= '/graphiql');
+
       objOptions.endpoint ||= ctx.options.path;
 
       ctx.graphiql = {
         path,
         handler: GraphiQLHandler,
         options: objOptions,
+        html: LazyPromise(() => {
+          return GraphiQLDeps.then(({ renderGraphiQL }) => {
+            const { endpoint = '/graphql', ...renderOptions } = getObjectValue(ctx.graphiql?.options) || {};
+
+            return renderGraphiQL({ ...renderOptions, endpoint });
+          });
+        }),
       };
     },
     onIntegrationRegister,
