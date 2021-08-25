@@ -141,13 +141,13 @@ export function CreateApp(config: ExpressAppOptions = {}): EZAppBuilder {
           },
           buildContext,
           onResponse(result) {
+            res.type('application/json');
             for (const { name, value } of result.headers) {
               res.setHeader(name, value);
             }
 
-            res.type('application/json');
             res.status(result.status);
-            res.json(result.payload);
+            res.send(result.payload);
           },
           onMultiPartResponse(result, defaultHandle) {
             return defaultHandle(req, res, result);
