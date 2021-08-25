@@ -495,4 +495,41 @@ describe('ezAutomaticPersistedQueries', () => {
 
     expect(store.clear).toHaveBeenCalled();
   });
+
+  it('sets non-cacheable headers on PersistedQueryNotFound', async () => {
+    const { query } = await startFastifyServer({
+      createOptions: {
+        schema: [testSchema],
+        ez: {
+          plugins: [ezAutomaticPersistedQueries()],
+        },
+      },
+    });
+
+    const res = await query(undefined, {
+      extensions: addQueryExtensions,
+    });
+
+    expect(res.errors?.[0]?.message).toEqual('PersistedQueryNotFound');
+    expect(res.http.headers?.['cache-control']).toBe('private, no-cache, must-revalidate');
+  });
+
+  it('sets non-cacheable headers on PersistedQueryNotSupported', async () => {
+    const { query } = await startFastifyServer({
+      createOptions: {
+        schema: [testSchema],
+        ez: {
+          plugins: [ezAutomaticPersistedQueries({ disableIf: () => true })],
+        },
+      },
+    });
+
+    const res = await query(undefined, {
+      extensions: addQueryExtensions,
+    });
+
+    expect(res.errors?.[0]?.message).toEqual('PersistedQueryNotSupported');
+    expect(res.http.headers?.['cache-control']).toBe('private, no-cache, must-revalidate');
+  });
+
 });
