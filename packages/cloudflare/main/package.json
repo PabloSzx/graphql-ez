@@ -22,23 +22,28 @@
     "postpublish": "gh-release",
     "test": "jest"
   },
-  "dependencies": {
-    "@types/node": "^16.7.1"
-  },
   "devDependencies": {
+    "@types/node": "^16.7.1",
+    "@types/wait-on": "^5.3.1",
     "bob-esbuild-cli": "^1.0.1",
+    "esbuild": "^0.12.22",
+    "execa": "^5.1.1",
+    "get-port": "^5.1.1",
     "graphql": "15.4.0-experimental-stream-defer.1",
     "graphql-ez": "workspace:^0.12.3",
     "jest": "^27.0.6",
     "miniflare": "^1.3.3",
+    "node-fetch": "^2.6.1",
+    "wait-on": "^6.0.0",
+    "worktop": "^0.7.1"
+  },
+  "peerDependencies": {
+    "@types/node": "*",
+    "graphql": "*",
+    "graphql-ez": "workspace:^0.12.3",
     "worktop": "^0.7.1"
   },
   "publishConfig": {
     "directory": "dist"
-  },
-  "peerDependencies": {
-    "graphql": "*",
-    "graphql-ez": "workspace:^0.12.3",
-    "worktop": "^0.7.1"
   }
 }

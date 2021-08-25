@@ -147,11 +147,7 @@ export function CreateApp(config: WorktopAppOptions = {}): EZAppBuilder {
 
       const result = await appPromise;
       if (result.status === 'rejected')
-        throw Error(
-          !!true
-            ? 'Error while building EZ App: ' + (result.reason?.message || JSON.stringify(result.reason))
-            : 'Unexpected Error'
-        );
+        throw Error('Error while building EZ App: ' + (result.reason?.message || JSON.stringify(result.reason)));
 
       await (
         await result.value.app

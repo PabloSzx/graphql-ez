@@ -1,6 +1,8 @@
 import { listen } from 'worktop/cache';
-import { CreateApp } from '@graphql-ez/cloudflare';
+
 import { ezSchema, gql } from '@graphql-ez/plugin-schema';
+
+import { CreateApp } from '../../src';
 
 const { buildApp } = CreateApp({
   ez: {
@@ -26,9 +28,5 @@ const { buildApp } = CreateApp({
 });
 
 const { router } = buildApp();
-
-router.add('GET', '/', (_req, res) => {
-  res.send(200, { hello: 'Hello World!' });
-});
 
 listen(router.run);
