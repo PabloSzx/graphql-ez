@@ -1,12 +1,22 @@
 import { build } from 'esbuild';
 import { command } from 'execa';
+import { unlinkSync } from 'fs';
 import getPort from 'get-port';
 import nodeFetch from 'node-fetch';
 import { resolve } from 'path';
 import waitOn from 'wait-on';
 
+const outfile = resolve(__dirname, './worker/bundle.js');
+
+afterAll(() => {
+  try {
+    unlinkSync(outfile);
+  } catch (err) {
+    console.error(err);
+  }
+});
+
 test('works', async () => {
-  const outfile = resolve(__dirname, './worker/bundle.js');
   await build({
     entryPoints: [resolve(__dirname, './worker/worker.ts')],
     bundle: true,
