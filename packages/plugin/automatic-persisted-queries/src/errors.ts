@@ -41,7 +41,6 @@ export async function createErrorResponse(error: GraphQLError): Promise<Response
   const errors = [error];
 
   const response: Response<EZContext, unknown> = {
-    context: undefined,
     headers: [],
     payload: {
       errors,

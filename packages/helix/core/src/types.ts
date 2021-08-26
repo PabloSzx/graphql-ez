@@ -5,6 +5,10 @@ import type {
   GraphQLSchema,
   OperationDefinitionNode,
   ValidationRule,
+  execute,
+  parse,
+  subscribe,
+  validate,
 } from 'graphql';
 
 export interface ExecutionPatchResult<TData = { [key: string]: any }, TExtensions = { [key: string]: any }> {
@@ -31,7 +35,7 @@ export interface ProcessRequestOptions<TContext, TRootValue> {
   /**
    * An optional function which will be used to execute instead of default `execute` from `graphql-js`.
    */
-  execute?: (...args: any[]) => any;
+  execute?: typeof execute;
   /**
    * An optional function that can be used to transform every payload (i.e. the `data` object and `errors` array) that's
    * emitted by `processRequest`.
@@ -44,7 +48,7 @@ export interface ProcessRequestOptions<TContext, TRootValue> {
   /**
    * An optional function which will be used to create a document instead of the default `parse` from `graphql-js`.
    */
-  parse?: (...args: any[]) => any;
+  parse?: typeof parse;
   /**
    * A Document containing GraphQL Operations and Fragments to execute.
    */
@@ -64,11 +68,11 @@ export interface ProcessRequestOptions<TContext, TRootValue> {
   /**
    * An optional function which will be used to subscribe instead of default `subscribe` from `graphql-js`.
    */
-  subscribe?: (...args: any[]) => any;
+  subscribe?: typeof subscribe;
   /**
    * An optional function which will be used to validate instead of default `validate` from `graphql-js`.
    */
-  validate?: (...args: any[]) => any;
+  validate?: typeof validate;
   /**
    * An optional array of validation rules that will be applied to the document
    * in place of those defined by the GraphQL specification.
@@ -86,7 +90,7 @@ export interface ProcessRequestOptions<TContext, TRootValue> {
 
 export interface FormatPayloadParams<TContext, TRootValue> {
   payload: ExecutionResult | ExecutionPatchResult;
-  context?: TContext;
+  contextValue?: TContext;
   document?: DocumentNode;
   operation?: OperationDefinitionNode;
   rootValue?: TRootValue;
@@ -109,7 +113,7 @@ export interface Request {
 export type Headers = Record<string, string | string[] | undefined> | { get(name: string): string | null };
 
 export interface Result<TContext, TRootValue> {
-  context?: TContext;
+  contextValue?: TContext;
   document?: DocumentNode;
   operation?: OperationDefinitionNode;
   rootValue?: TRootValue;
