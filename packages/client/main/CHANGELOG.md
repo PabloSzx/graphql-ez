@@ -1,5 +1,11 @@
 # @graphql-ez/client
 
+## 0.2.1
+
+### Patch Changes
+
+- cb57cb6: Update subscriptions-transport-ws-envelop
+
 ## 0.2.0
 
 ### Minor Changes
