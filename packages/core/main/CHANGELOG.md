@@ -1,5 +1,12 @@
 # graphql-ez
 
+## 0.12.4
+
+### Patch Changes
+
+- Updated dependencies [01a6358]
+  - @pablosz/graphql-helix@2.0.0
+
 ## 0.12.3
 
 ### Patch Changes

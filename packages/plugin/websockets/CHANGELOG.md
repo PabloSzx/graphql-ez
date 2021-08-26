@@ -1,5 +1,12 @@
 # @graphql-ez/plugin-websockets
 
+## 0.9.1
+
+### Patch Changes
+
+- cb57cb6: Update subscriptions-transport-ws-envelop
+  - graphql-ez@0.12.4
+
 ## 0.9.0
 
 ### Minor Changes

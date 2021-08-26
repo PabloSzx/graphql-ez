@@ -1,5 +1,11 @@
 # @pablosz/graphql-helix
 
+## 2.0.0
+
+### Major Changes
+
+- 01a6358: support graphql v16
+
 ## 1.7.2
 
 ### Patch Changes
