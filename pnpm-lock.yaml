@@ -706,7 +706,7 @@ importers:
       graphql: 15.4.0-experimental-stream-defer.1
       graphql-ez: workspace:*
       graphql-modules: ^1.4.4
-      graphql-ws: ^5.4.0
+      graphql-ws: ^5.4.1
       koa: ^2.13.1
       lodash: ^4.17.21
       subscriptions-transport-ws-envelop: ^2.0.0
@@ -744,7 +744,7 @@ importers:
       graphql: 15.4.0-experimental-stream-defer.1
       graphql-ez: link:../../packages/core/main
       graphql-modules: 1.4.4_34dd13c2583fe2e4418c23a0d30fc388
-      graphql-ws: 5.4.0_34dd13c2583fe2e4418c23a0d30fc388
+      graphql-ws: 5.4.1_34dd13c2583fe2e4418c23a0d30fc388
       koa: 2.13.1
       lodash: 4.17.21
       subscriptions-transport-ws-envelop: 2.0.0_b697ce0cb97a3bfccb0fe73693f0400c
@@ -847,7 +847,7 @@ importers:
       extract-files: ^11.0.0
       form-data: ^4.0.0
       graphql: 15.4.0-experimental-stream-defer.1
-      graphql-ws: ^5.4.0
+      graphql-ws: ^5.4.1
       isomorphic-ws: ^4.0.1
       jest: ^27.0.6
       node-fetch: ^2.6.1
@@ -861,7 +861,7 @@ importers:
       eventsource: 1.1.0
       extract-files: 11.0.0
       form-data: 4.0.0
-      graphql-ws: 5.4.0_34dd13c2583fe2e4418c23a0d30fc388
+      graphql-ws: 5.4.1_34dd13c2583fe2e4418c23a0d30fc388
       isomorphic-ws: 4.0.1_ws@8.2.0
       node-fetch: 2.6.1
       subscriptions-transport-ws-envelop: 2.0.0_b697ce0cb97a3bfccb0fe73693f0400c
@@ -1625,7 +1625,7 @@ importers:
       changesets-github-release: ^0.0.3
       graphql: 15.4.0-experimental-stream-defer.1
       graphql-ez: workspace:^0.12.4
-      graphql-ws: ^5.4.0
+      graphql-ws: ^5.4.1
       jest: ^27.0.6
       subscriptions-transport-ws-envelop: ^2.0.0
       ts-jest: ^27.0.5
@@ -1633,7 +1633,7 @@ importers:
     dependencies:
       '@graphql-ez/utils': link:../../core/utils
       '@types/ws': 7.4.7
-      graphql-ws: 5.4.0_34dd13c2583fe2e4418c23a0d30fc388
+      graphql-ws: 5.4.1_34dd13c2583fe2e4418c23a0d30fc388
       subscriptions-transport-ws-envelop: 2.0.0_b697ce0cb97a3bfccb0fe73693f0400c
       ws: 8.2.0
     devDependencies:
@@ -9002,6 +9002,15 @@ packages:
     engines: {node: '>=10'}
     peerDependencies:
       graphql: '>=0.11 <=15'
+    dependencies:
+      graphql: 15.4.0-experimental-stream-defer.1
+    dev: true
+
+  /graphql-ws/5.4.1_34dd13c2583fe2e4418c23a0d30fc388:
+    resolution: {integrity: sha512-maBduPneZOFYb3otLgc9/U+fU3f9MVXLKg6lVVLqA9BDQQ6YR7YhQO21Rf9+44IRBi4l8m35lynFMFQTzN3eAQ==}
+    engines: {node: '>=10'}
+    peerDependencies:
+      graphql: '>=0.11 <=16'
     dependencies:
       graphql: 15.4.0-experimental-stream-defer.1
 
