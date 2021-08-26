@@ -51,8 +51,7 @@ type Query {
 
 type User {
   id: Int!
-}
-"
+}"
 `);
 });
 
@@ -97,7 +96,6 @@ Object {
 
 type User {
   id: Int!
-}
-"
+}"
 `);
 });

@@ -1,8 +1,8 @@
 {
   "name": "example-basic-fastify",
   "version": "0.0.1",
-  "license": "MIT",
   "private": true,
+  "license": "MIT",
   "scripts": {
     "dev": "pnpm dev:mjs",
     "dev:cjs": "bob-tsm --cjs --watch=src src/index.ts",
@@ -14,7 +14,7 @@
     "@graphql-ez/plugin-codegen": "workspace:^0.7.6",
     "@graphql-ez/plugin-schema": "workspace:^0.8.1",
     "fastify": "^3.23.1",
-    "graphql": "15.4.0-experimental-stream-defer.1",
+    "graphql": "16.0.1",
     "graphql-ez": "workspace:^0.13.4"
   },
   "devDependencies": {

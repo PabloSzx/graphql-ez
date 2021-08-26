@@ -238,8 +238,7 @@ test('typescript resolvers', async () => {
 
     type User {
       id: Int!
-    }
-    "
+    }"
   `);
 
   expect(
