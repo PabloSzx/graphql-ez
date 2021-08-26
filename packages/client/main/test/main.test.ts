@@ -210,7 +210,7 @@ test.concurrent('legacy websockets', async () => {
   await (await websockets.client).dispose();
 });
 
-test.concurrent('query stream with @stream', async () => {
+test.concurrent.skip('query stream with @stream', async () => {
   const { address } = await startFastifyServer({
     createOptions: {
       prepare(appBuilder) {

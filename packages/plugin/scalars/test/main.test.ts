@@ -290,8 +290,7 @@ type Query {
 
 type User {
   id: Int!
-}
-"
+}"
 `);
 });
 
@@ -320,8 +319,7 @@ type Query {
 
 type User {
   id: Int!
-}
-"
+}"
 `);
 });
 
@@ -355,7 +353,6 @@ type Query {
 
 type User {
   id: Int!
-}
-"
+}"
 `);
 });

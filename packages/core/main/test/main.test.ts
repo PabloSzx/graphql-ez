@@ -85,7 +85,7 @@ test.concurrent('batched queries', async () => {
   `);
 });
 
-test.concurrent('query with @stream', async () => {
+test.concurrent.skip('query with @stream', async () => {
   const { address } = await startFastifyServer({
     createOptions: {
       schema: [CommonSchema.schema],

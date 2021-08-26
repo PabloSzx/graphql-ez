@@ -1,7 +1,7 @@
 // Mostly copied from https://github.com/apollographql/graphql-tag, all credits to the original authors
 // This module is here in order to reduce dependencies and support ESM, since graphql-tag doesn't have 'exports' field defined
 
-import { parse } from 'graphql';
+import { parse, ParseOptions } from 'graphql';
 
 import type { DocumentNode, DefinitionNode, Location } from 'graphql/language/ast';
 
@@ -98,7 +98,7 @@ function parseDocument(source: string) {
   if (!docCache.has(cacheKey)) {
     const parsed = parse(source, {
       experimentalFragmentVariables,
-    });
+    } as ParseOptions);
     if (!parsed || parsed.kind !== 'Document') {
       throw new Error('Not a valid GraphQL document.');
     }

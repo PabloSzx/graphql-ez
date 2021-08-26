@@ -24,11 +24,10 @@ test('registerTypeDefs works as expected', async () => {
   });
 
   expect(printSchema(buildClientSchema((await query<IntrospectionQuery>(getIntrospectionQuery())).data!))).toMatchInlineSnapshot(`
-    "type Query {
-      hello: String!
-    }
-    "
-  `);
+"type Query {
+  hello: String!
+}"
+`);
 });
 
 test('registerResolvers works as expected', async () => {

@@ -132,21 +132,20 @@ test.concurrent('basic', async () => {
   `);
 
   expect(printSchema((await ezApp.getEnveloped)().schema)).toMatchInlineSnapshot(`
-    "type Query {
-      hello: String!
-      users: [User!]!
-      stream: [String!]!
-      context: String!
-    }
+"type Query {
+  hello: String!
+  users: [User!]!
+  stream: [String!]!
+  context: String!
+}
 
-    type User {
-      id: Int!
-    }
-    "
-  `);
+type User {
+  id: Int!
+}"
+`);
 });
 
-test.concurrent('query with @stream', async () => {
+test.concurrent.skip('query with @stream', async () => {
   const { address } = await startKoaServer({
     createOptions: {
       schema: [CommonSchema.schema],

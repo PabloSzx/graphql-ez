@@ -9,7 +9,6 @@ import {
   GraphQLSchema,
   OperationDefinitionNode,
   ValidationRule,
-  ExecutionResult,
 } from 'graphql';
 import { stopAsyncIteration, isAsyncIterable, isHttpMethod } from './util';
 import { HttpError } from './errors';
@@ -144,7 +143,7 @@ export const processRequest = async <TContext = {}, TRootValue = {}>(
 
           // If errors are encountered while subscribing to the operation, an execution result
           // instead of an AsyncIterable.
-          if (isAsyncIterable<ExecutionResult>(result)) {
+          if (isAsyncIterable<any>(result)) {
             return {
               type: 'PUSH',
               subscribe: async onResult => {
@@ -208,7 +207,7 @@ export const processRequest = async <TContext = {}, TRootValue = {}>(
 
           // Operations that use @defer, @stream and @live will return an `AsyncIterable` instead of an
           // execution result.
-          if (isAsyncIterable<unknown>(result)) {
+          if (isAsyncIterable<any>(result)) {
             return {
               type: isEventStream ? 'PUSH' : 'MULTIPART_RESPONSE',
               subscribe: async onResult => {
