@@ -10,13 +10,13 @@
     "start": "tsup src/index.ts --minify --silent --onSuccess \"cross-env NODE_ENV=production node dist/index.js\""
   },
   "dependencies": {
-    "cross-env": "^7.0.3",
     "benchmark-bench": "workspace:1.0.0",
+    "cross-env": "^7.0.3",
     "fastify": "^3.20.2",
     "graphql": "15.4.0-experimental-stream-defer.1",
     "mercurius": "^8.1.3",
     "require-env-variable": "^3.1.2",
     "tsup": "^4.14.0",
-    "typescript": "^4.3.5"
+    "typescript": "^4.4.1-rc"
   }
 }
