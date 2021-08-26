@@ -68,7 +68,7 @@ test.concurrent('basic query', async () => {
     },
   });
 
-  const { query } = EZClient({
+  const { query, client } = EZClient({
     endpoint: address + '/graphql',
   });
 
@@ -86,6 +86,7 @@ test.concurrent('basic query', async () => {
           }
         `);
 
+  await client.close();
   await server.close();
 });
 
@@ -222,7 +223,7 @@ test.concurrent('query stream with @stream', async () => {
     },
   });
 
-  const { stream } = EZClient({
+  const { stream, client } = EZClient({
     endpoint: address + '/graphql',
   });
 
@@ -244,4 +245,6 @@ test.concurrent('query stream with @stream', async () => {
       }
     }
   }
+
+  client.close();
 });

@@ -61,7 +61,7 @@ export function createGraphQLWSWebsocketsClient(
     };
   }
 
-  return { subscribe };
+  return { subscribe, client };
 }
 
 export function createSubscriptionsTransportWebsocketsClient(
@@ -116,7 +116,7 @@ export function createSubscriptionsTransportWebsocketsClient(
     };
   }
 
-  return { subscribe };
+  return { subscribe, client };
 }
 
 export const PingSubscriptionDocument = {

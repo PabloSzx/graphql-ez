@@ -47,6 +47,12 @@ async function checkSubscription(
   await done;
 
   expect(n).toBe(3);
+
+  if ('dispose' in client.client) {
+    await client.client.dispose();
+  } else {
+    client.client.close();
+  }
 }
 
 describe('fastify', () => {
@@ -162,7 +168,7 @@ describe('fastify', () => {
 });
 
 describe('express', () => {
-  test('adaptive', async () => {
+  test.concurrent('adaptive', async () => {
     const { GraphQLWSWebsocketsClient, SubscriptionsTransportWebsocketsClient } = await startExpressServer({
       createOptions: {
         ez: {
@@ -177,7 +183,7 @@ describe('express', () => {
 });
 
 describe('http', () => {
-  test('adaptive', async () => {
+  test.concurrent('adaptive', async () => {
     const { GraphQLWSWebsocketsClient, SubscriptionsTransportWebsocketsClient } = await startHTTPServer({
       createOptions: {
         ez: {
@@ -192,7 +198,7 @@ describe('http', () => {
 });
 
 describe('hapi', () => {
-  test('adaptive', async () => {
+  test.concurrent('adaptive', async () => {
     const { GraphQLWSWebsocketsClient, SubscriptionsTransportWebsocketsClient } = await startHapiServer({
       createOptions: {
         ez: {
@@ -207,7 +213,7 @@ describe('hapi', () => {
 });
 
 describe('koa', () => {
-  test('adaptive', async () => {
+  test.concurrent('adaptive', async () => {
     const { GraphQLWSWebsocketsClient, SubscriptionsTransportWebsocketsClient } = await startKoaServer({
       createOptions: {
         ez: {

@@ -18,6 +18,8 @@ export type {} from '@graphql-typed-document-node/core';
 export type {} from 'express-serve-static-core';
 export type {} from 'graphql';
 export * from 'graphql-ez';
+export type {} from 'graphql-ws';
+export type {} from 'subscriptions-transport-ws-envelop';
 export type {} from 'undici/types/dispatcher';
 export * from './common';
 export * from './schema';

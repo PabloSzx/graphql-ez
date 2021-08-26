@@ -9,6 +9,7 @@ import type { Client } from 'undici';
 import type { TypedDocumentNode } from '@graphql-typed-document-node/core';
 import type { IncomingHttpHeaders } from 'http';
 
+import type {} from 'undici/types/dispatcher';
 export function createStreamHelper(
   client: Client,
   path: string,
@@ -45,6 +46,12 @@ export function createStreamHelper(
     const iterator = iteratorGenerator();
 
     const opaque = new PassThrough().setEncoding('utf8');
+
+    const stop = () => {
+      deferValuePromise?.resolve(null);
+      deferValuePromise = null;
+      opaque.end();
+    };
 
     const done = client.stream(
       {
@@ -84,6 +91,7 @@ export function createStreamHelper(
       iterator,
       opaque,
       done,
+      stop,
     };
   };
 }
