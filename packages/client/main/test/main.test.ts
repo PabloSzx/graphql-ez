@@ -1,11 +1,61 @@
-import { CommonSchema, createDeferredPromise, PingSubscription, startFastifyServer } from 'graphql-ez-testing';
+import {
+  CommonSchema,
+  createDeferredPromise,
+  PingSubscription,
+  startFastifyServer,
+  TearDownPromises,
+  LazyPromise,
+} from 'graphql-ez-testing';
 
 import { ezGraphQLModules } from '@graphql-ez/plugin-modules';
 import { ezWebSockets } from '@graphql-ez/plugin-websockets';
 
 import { EZClient } from '../src';
 
-test('ok', async () => {
+afterAll(async () => {
+  await Promise.allSettled(TearDownPromises);
+});
+
+test.concurrent('sse', async () => {
+  const { address } = await startFastifyServer({
+    createOptions: {
+      prepare(appBuilder) {
+        appBuilder.registerModule(CommonSchema.module);
+        appBuilder.registerModule(PingSubscription.module);
+      },
+      ez: {
+        plugins: [ezGraphQLModules(), ezWebSockets()],
+      },
+    },
+  });
+
+  const { sseSubscribe } = EZClient({
+    endpoint: address + '/graphql',
+  });
+
+  {
+    const { iterator, unsubscribe } = sseSubscribe('subscription{ping}');
+
+    let i = 0;
+    for await (const value of iterator) {
+      ++i;
+
+      expect(value).toStrictEqual({
+        data: {
+          ping: `pong${i}`,
+        },
+      });
+
+      if (i === 3) {
+        unsubscribe();
+        break;
+      }
+    }
+    expect(i).toBe(3);
+  }
+});
+
+test.concurrent('basic query', async () => {
   const { address, server } = await startFastifyServer({
     createOptions: {
       prepare(appBuilder) {
@@ -18,7 +68,7 @@ test('ok', async () => {
     },
   });
 
-  const { query, websockets, sseSubscribe, stream } = EZClient({
+  const { query } = EZClient({
     endpoint: address + '/graphql',
   });
 
@@ -36,6 +86,28 @@ test('ok', async () => {
           }
         `);
 
+  await server.close();
+});
+
+test.concurrent('websockets', async () => {
+  const { address } = await startFastifyServer({
+    createOptions: {
+      prepare(appBuilder) {
+        appBuilder.registerModule(CommonSchema.module);
+        appBuilder.registerModule(PingSubscription.module);
+      },
+      ez: {
+        plugins: [ezGraphQLModules(), ezWebSockets()],
+      },
+    },
+  });
+
+  const { websockets } = EZClient({
+    endpoint: address + '/graphql',
+  });
+
+  TearDownPromises.push(LazyPromise(async () => (await websockets.client).dispose()));
+
   {
     const done = createDeferredPromise<unknown>();
 
@@ -49,26 +121,6 @@ test('ok', async () => {
             Object {
               "data": Object {
                 "hello": "Hello World!",
-              },
-            }
-          `);
-
-    unsubscribe();
-  }
-
-  {
-    const done = createDeferredPromise<unknown>();
-
-    const { unsubscribe } = await websockets.legacy.subscribe('{hello2: hello}', {
-      onData(value) {
-        done.resolve(value);
-      },
-    });
-
-    await expect(done.promise).resolves.toMatchInlineSnapshot(`
-            Object {
-              "data": Object {
-                "hello2": "Hello World!",
               },
             }
           `);
@@ -94,6 +146,48 @@ test('ok', async () => {
     unsubscribe();
   }
 
+  await (await websockets.client).dispose();
+});
+
+test.concurrent('legacy websockets', async () => {
+  const { address } = await startFastifyServer({
+    createOptions: {
+      prepare(appBuilder) {
+        appBuilder.registerModule(CommonSchema.module);
+        appBuilder.registerModule(PingSubscription.module);
+      },
+      ez: {
+        plugins: [ezGraphQLModules(), ezWebSockets()],
+      },
+    },
+  });
+
+  const { websockets } = EZClient({
+    endpoint: address + '/graphql',
+  });
+
+  TearDownPromises.push(LazyPromise(async () => (await websockets.client).dispose()));
+
+  {
+    const done = createDeferredPromise<unknown>();
+
+    const { unsubscribe } = await websockets.legacy.subscribe('{hello2: hello}', {
+      onData(value) {
+        done.resolve(value);
+      },
+    });
+
+    await expect(done.promise).resolves.toMatchInlineSnapshot(`
+            Object {
+              "data": Object {
+                "hello2": "Hello World!",
+              },
+            }
+          `);
+
+    unsubscribe();
+  }
+
   {
     const { iterator, unsubscribe } = await websockets.legacy.subscribe('subscription{ping}');
 
@@ -112,26 +206,25 @@ test('ok', async () => {
     unsubscribe();
   }
 
-  {
-    const { iterator, unsubscribe } = sseSubscribe('subscription{ping}');
+  await (await websockets.client).dispose();
+});
 
-    let i = 0;
-    for await (const value of iterator) {
-      ++i;
+test.concurrent('query stream with @stream', async () => {
+  const { address } = await startFastifyServer({
+    createOptions: {
+      prepare(appBuilder) {
+        appBuilder.registerModule(CommonSchema.module);
+        appBuilder.registerModule(PingSubscription.module);
+      },
+      ez: {
+        plugins: [ezGraphQLModules(), ezWebSockets()],
+      },
+    },
+  });
 
-      expect(value).toStrictEqual({
-        data: {
-          ping: `pong${i}`,
-        },
-      });
-
-      if (i === 3) {
-        unsubscribe();
-        break;
-      }
-    }
-    expect(i).toBe(3);
-  }
+  const { stream } = EZClient({
+    endpoint: address + '/graphql',
+  });
 
   {
     const { iterator } = stream('{stream @stream(initialCount: 1)}');
@@ -151,10 +244,4 @@ test('ok', async () => {
       }
     }
   }
-
-  await (await websockets.client).dispose();
-
-  (await websockets.legacy.client).close();
-
-  await server.close();
 });
