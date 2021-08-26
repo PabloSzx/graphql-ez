@@ -6,7 +6,7 @@ import type { IncomingMessage, Server as HttpServer } from 'http';
 import type { Socket } from 'net';
 import type { ServerOptions as SubscriptionsTransportOptions } from 'subscriptions-transport-ws-envelop/server';
 import type { ServerOptions as GraphQLWSOptions } from 'graphql-ws';
-import type { ExecutionArgs, execute as gqlExecute, subscribe as gqlSubscribe } from 'graphql';
+import type { ExecutionArgs } from 'graphql';
 import type { AppOptions, GetEnvelopedFn } from 'graphql-ez';
 
 export type FilteredSubscriptionsTransportOptions = Omit<
@@ -49,8 +49,8 @@ export function handleSubscriptionsTransport(
   subscriptionsTransportWs.create(
     {
       ...cleanObject(options),
-      execute: execute as typeof gqlExecute,
-      subscribe: subscribe as typeof gqlSubscribe,
+      execute,
+      subscribe,
       async onConnect(connectionParams, { socket, request }) {
         const { contextFactory, parse, validate, schema } = getEnveloped(
           Object.assign(

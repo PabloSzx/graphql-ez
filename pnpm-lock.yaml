@@ -709,7 +709,7 @@ importers:
       graphql-ws: ^5.4.0
       koa: ^2.13.1
       lodash: ^4.17.21
-      subscriptions-transport-ws-envelop: ^1.0.6
+      subscriptions-transport-ws-envelop: ^2.0.0
       ts-jest: ^27.0.5
       undici: ^4.5.0
       ws: ^8.2.0
@@ -747,7 +747,7 @@ importers:
       graphql-ws: 5.4.0_34dd13c2583fe2e4418c23a0d30fc388
       koa: 2.13.1
       lodash: 4.17.21
-      subscriptions-transport-ws-envelop: 1.0.6_b697ce0cb97a3bfccb0fe73693f0400c
+      subscriptions-transport-ws-envelop: 2.0.0_b697ce0cb97a3bfccb0fe73693f0400c
       ts-jest: 27.0.5_d783205d652bcb54bcd705f572b6bac6
       undici: 4.5.0
       ws: 8.2.0
@@ -851,7 +851,7 @@ importers:
       isomorphic-ws: ^4.0.1
       jest: ^27.0.6
       node-fetch: ^2.6.1
-      subscriptions-transport-ws-envelop: ^1.0.6
+      subscriptions-transport-ws-envelop: ^2.0.0
       undici: ^4.5.0
       ws: ^8.2.0
     dependencies:
@@ -864,7 +864,7 @@ importers:
       graphql-ws: 5.4.0_34dd13c2583fe2e4418c23a0d30fc388
       isomorphic-ws: 4.0.1_ws@8.2.0
       node-fetch: 2.6.1
-      subscriptions-transport-ws-envelop: 1.0.6_b697ce0cb97a3bfccb0fe73693f0400c
+      subscriptions-transport-ws-envelop: 2.0.0_b697ce0cb97a3bfccb0fe73693f0400c
       undici: 4.5.0
       ws: 8.2.0
     devDependencies:
@@ -1627,14 +1627,14 @@ importers:
       graphql-ez: workspace:^0.12.3
       graphql-ws: ^5.4.0
       jest: ^27.0.6
-      subscriptions-transport-ws-envelop: ^1.0.6
+      subscriptions-transport-ws-envelop: ^2.0.0
       ts-jest: ^27.0.5
       ws: ^8.2.0
     dependencies:
       '@graphql-ez/utils': link:../../core/utils
       '@types/ws': 7.4.7
       graphql-ws: 5.4.0_34dd13c2583fe2e4418c23a0d30fc388
-      subscriptions-transport-ws-envelop: 1.0.6_b697ce0cb97a3bfccb0fe73693f0400c
+      subscriptions-transport-ws-envelop: 2.0.0_b697ce0cb97a3bfccb0fe73693f0400c
       ws: 8.2.0
     devDependencies:
       bob-esbuild-cli: 1.0.1_bob-esbuild@1.2.3
@@ -13988,8 +13988,8 @@ packages:
       minimist: 1.2.5
     dev: false
 
-  /subscriptions-transport-ws-envelop/1.0.6_b697ce0cb97a3bfccb0fe73693f0400c:
-    resolution: {integrity: sha512-D7aImWXXq7Mk9rbhwuBIv6jK+ss7GYRcPM7qu5Tf9C9vgTidKINku88PBJa///IZ/cqvfYqRi3yZy2FDHbnF1w==}
+  /subscriptions-transport-ws-envelop/2.0.0_b697ce0cb97a3bfccb0fe73693f0400c:
+    resolution: {integrity: sha512-0wZmog5LfkkGoWYJZqbG60XhgZSNStwaMBPXeH0BZlkhGNG/onhwCgH2s+68x++Cs0zSm/LglBOAwis3HToN0g==}
     peerDependencies:
       graphql: '>=0.10.0'
       ws: ^7.5.0
