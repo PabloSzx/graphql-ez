@@ -1556,11 +1556,11 @@ importers:
       changesets-github-release: ^0.0.3
       graphql: 15.4.0-experimental-stream-defer.1
       graphql-ez: workspace:^0.12.4
-      graphql-sse: ^1.0.1
+      graphql-sse: ^1.0.3
       jest: ^27.0.6
     dependencies:
       '@graphql-ez/utils': link:../../core/utils
-      graphql-sse: 1.0.1_34dd13c2583fe2e4418c23a0d30fc388
+      graphql-sse: 1.0.3_34dd13c2583fe2e4418c23a0d30fc388
     devDependencies:
       '@types/node': 16.7.2
       bob-esbuild-cli: 1.0.1_bob-esbuild@1.2.3
@@ -8947,11 +8947,11 @@ packages:
       tslib: 2.2.0
     dev: false
 
-  /graphql-sse/1.0.1_34dd13c2583fe2e4418c23a0d30fc388:
-    resolution: {integrity: sha512-CByxV9oKmUv/k9tlv8Bg/Hn9CcRlfsRQnU5YKI7Z2MfMckLBrXKq6Y1ln9GZh81Id/n5YV4O4X+p+QUHCu24sQ==}
+  /graphql-sse/1.0.3_34dd13c2583fe2e4418c23a0d30fc388:
+    resolution: {integrity: sha512-7qSm3GrOrWacDfSgkWWQXw6ccxdaEY6R/9DdJt50BbcvLce6NlZkPzLOOo7fDPtGHjZAzjb2j8wwXNa6eBr5qw==}
     engines: {node: '>=12'}
     peerDependencies:
-      graphql: '>=0.11 <=15'
+      graphql: '>=0.11 <=16'
     dependencies:
       graphql: 15.4.0-experimental-stream-defer.1
     dev: false
