@@ -104,7 +104,6 @@ export interface Request {
   headers: Headers;
   method: string;
   query: any;
-  extensions?: Record<string, unknown>;
 }
 
 export type Headers = Record<string, string | string[] | undefined> | { get(name: string): string | null };
