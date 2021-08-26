@@ -9,7 +9,7 @@ import type { EZPlugin, PickRequired } from 'graphql-ez';
 import type { RenderOptions, AltairConfigOptions } from 'altair-static-slim';
 import type { AltairOptions, HandlerConfig, IDEHandler } from './types';
 
-const altairUnpkgDist = 'https://unpkg.com/altair-static@4.0.8/build/dist/';
+const altairUnpkgDist = 'https://unpkg.com/altair-static@4.0.9/build/dist/';
 
 /**
  * Render Altair Initial options as a string using the provided renderOptions
