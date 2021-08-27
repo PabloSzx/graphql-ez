@@ -193,7 +193,7 @@ async function benchVanilla() {
 
   await benchVanilla();
 
-  await concurrently(['yarn results'], {
+  await concurrently(['pnpm results'], {
     raw: true,
   });
 })().catch(console.error);
