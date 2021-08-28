@@ -11,7 +11,7 @@ export function getConfig({
   ...rest
 }: {
   nextjs?: string[];
-} & Config.InitialOptions = {}): Config.InitialOptions {
+} & Config.InitialOptions = {}): Record<string, unknown> {
   const prefix = `<rootDir>/${relative(process.cwd(), rootPath)}`;
 
   if (nextjs) {
@@ -33,7 +33,7 @@ export function getConfig({
     execSync('prettier -w "./setup-test.js"');
   }
 
-  return {
+  const config: Config.InitialOptions = {
     testMatch: [process.cwd().replace(/\\/g, '/') + '/test/**/*.test.ts'],
     testEnvironment: 'node',
     transform: { '\\.[jt]sx?$': 'es-jest' },
@@ -47,4 +47,6 @@ export function getConfig({
     testTimeout: 10000,
     ...rest,
   };
+
+  return config;
 }
