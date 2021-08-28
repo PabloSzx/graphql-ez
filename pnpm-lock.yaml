@@ -711,7 +711,7 @@ importers:
       lodash: ^4.17.21
       subscriptions-transport-ws-envelop: ^2.0.0
       ts-jest: ^27.0.5
-      undici: ^4.5.0
+      undici: ^4.5.1
       ws: ^8.2.1
     devDependencies:
       '@graphql-ez/utils': link:../../packages/core/utils
@@ -749,7 +749,7 @@ importers:
       lodash: 4.17.21
       subscriptions-transport-ws-envelop: 2.0.0_b3ddb0de24eef6f3c6fd7eafc79ea375
       ts-jest: 27.0.5_44d7b1418ce5cb6e328ddeca24848cba
-      undici: 4.5.0
+      undici: 4.5.1
       ws: 8.2.1
 
   internal/website:
@@ -852,7 +852,7 @@ importers:
       jest: ^27.0.6
       node-fetch: ^2.6.1
       subscriptions-transport-ws-envelop: ^2.0.0
-      undici: ^4.5.0
+      undici: ^4.5.1
       ws: ^8.2.1
     dependencies:
       '@graphql-ez/utils': link:../../core/utils
@@ -865,7 +865,7 @@ importers:
       isomorphic-ws: 4.0.1_ws@8.2.1
       node-fetch: 2.6.1
       subscriptions-transport-ws-envelop: 2.0.0_b3ddb0de24eef6f3c6fd7eafc79ea375
-      undici: 4.5.0
+      undici: 4.5.1
       ws: 8.2.1
     devDependencies:
       '@graphql-typed-document-node/core': 3.1.0_34dd13c2583fe2e4418c23a0d30fc388
@@ -14790,6 +14790,11 @@ packages:
 
   /undici/4.5.0:
     resolution: {integrity: sha512-N2e4eDS+rv6qljPP+RMlTZXSS4O6V9LuyIvDT9btweBOPMjUAe5k+u4JfJdbGe8WFjJMhqmOu6dR8tSY0XqNgw==}
+    engines: {node: '>=12.18'}
+    dev: false
+
+  /undici/4.5.1:
+    resolution: {integrity: sha512-1Kmphp4SMwVbSauz9xH4gxt0m3sLGs5qRHs/XYgjeO3bNSt6hspDZqMhM8+ETu9ynB5bq9e6mnwcDz+NVCQ3UQ==}
     engines: {node: '>=12.18'}
 
   /unfetch/4.2.0:
