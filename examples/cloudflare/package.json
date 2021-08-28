@@ -1,0 +1,25 @@
+{
+  "name": "example-cloudflare",
+  "version": "0.0.1",
+  "license": "MIT",
+  "scripts": {
+    "build": "esbuild src/index.ts --target=es2020 --minify --bundle --outfile=dist/worker.js && node postbuild.cjs",
+    "dev": "concurrently -r \"esbuild src/index.ts --target=es2020 --minify --bundle --outfile=dist/worker.js --watch\" \"miniflare dist/worker.js --watch\"",
+    "start": "miniflare dist/worker.js"
+  },
+  "dependencies": {
+    "@graphql-ez/cloudflare": "workspace:*",
+    "@graphql-ez/plugin-schema": "workspace:^0.7.0",
+    "graphql": "15.4.0-experimental-stream-defer.1",
+    "graphql-ez": "workspace:^0.12.4",
+    "worktop": "^0.7.1"
+  },
+  "devDependencies": {
+    "@types/node": "^16.7.4",
+    "clipboardy": "^2.3.0",
+    "concurrently": "^6.2.1",
+    "esbuild": "^0.12.24",
+    "esbuild-register": "^3.0.0",
+    "miniflare": "^1.4.0"
+  }
+}

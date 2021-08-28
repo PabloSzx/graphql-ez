@@ -1,0 +1,123 @@
+---
+title: Cloudflare Workers
+sidebar_label: Cloudflare Workers
+---
+
+# Cloudflare Workers Integration with Worktop
+
+<HStack>
+  <CloudflareWorkersLogo width="300px" height="120px" />
+  <WorktopLogo width="200px" height="150px" />
+</HStack>
+
+This integration is based on the framework [**Worktop**](https://github.com/lukeed/worktop)
+
+## Install
+
+<PackageInstall packages={['worktop graphql graphql-ez @graphql-ez/cloudflare', '-D @types/node']} />
+
+### Development
+
+We recommended to use [**Miniflare**](https://github.com/mrbbot/miniflare), [**esbuild**](https://esbuild.github.io/) and [**concurrently**](https://github.com/open-cli-tools/concurrently) for development.
+
+<PackageInstall packages={['-D miniflare esbuild concurrently']} />
+
+And a common development scripts set should look something like this:
+
+```json
+{
+  "scripts": {
+    "build": "esbuild src/index.ts --target=es2020 --minify --bundle --outfile=dist/worker.js",
+    "dev": "concurrently -r \"esbuild src/index.ts --target=es2020 --minify --bundle --outfile=dist/worker.js --watch\" \"miniflare dist/worker.js --watch\"",
+    "start": "miniflare dist/worker.js"
+  }
+}
+```
+
+## Usage
+
+> `Server module`
+
+```ts
+import { listen } from 'worktop/cache';
+import { ezApp } from './ez';
+
+const { router } = ezApp.buildApp();
+
+router.add('GET', '/', (_req, res) => {
+  res.send(200, { hello: 'Hello World!' });
+});
+
+listen(router.run);
+```
+
+> `EZ App module`
+
+```ts
+import { CreateApp } from '@graphql-ez/cloudflare';
+
+export const ezApp = CreateApp({
+  // You can use any valid GraphQL Schema
+  schema,
+  ez: {
+    plugins: [
+      // EZ Plugins
+    ],
+  },
+  envelop: {
+    plugins: [
+      // Envelop Plugins
+    ],
+  },
+  // Other Options
+});
+```
+
+### Build Custom Context
+
+```ts
+import { CreateApp, BuildContextArgs, InferContext } from '@graphql-ez/cloudflare';
+
+function buildContext({ req, cloudflare }: BuildContextArgs) {
+  // IncomingMessage-like
+  req;
+
+  // ServerRequest
+  cloudflare!.req;
+
+  return {
+    foo: 'bar',
+  };
+}
+
+// This snippet allows you to infer the context returned by your 'buildContext' and add it to the EZContext interface
+declare module 'graphql-ez' {
+  interface EZContext extends InferContext<typeof buildContext> {}
+}
+
+export const ezApp = CreateApp({
+  // ...
+  buildContext,
+});
+```
+
+### Cross-Origin Resource Sharing (CORS)
+
+To enable **CORS**, specify the `cors` property in your configuration
+
+```ts
+CreateApp({
+  cors: true,
+});
+```
+
+Check [worktop/cors types](https://github.com/lukeed/worktop/blob/master/src/cors.d.ts) for all the available options.
+
+```ts
+CreateApp({
+  // Check https://github.com/lukeed/worktop/blob/master/src/cors.d.ts
+  cors: {
+    // ...
+  },
+});
+```

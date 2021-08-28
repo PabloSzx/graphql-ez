@@ -8,6 +8,8 @@ import HapiLogoImage from '../../public/assets/logos/hapi.png';
 import KoaLogoImage from '../../public/assets/logos/koa.png';
 import NextjsLogoImage from '../../public/assets/logos/nextjs.png';
 import NodeLogoImage from '../../public/assets/logos/nodejs.png';
+import CloudflareWorkersLogoImage from '../../public/assets/logos/cloudflare-workers.webp';
+import WorktopLogoImage from '../../public/assets/logos/worktop.png';
 
 export type LogoImageProps = Partial<Omit<ImageProps, 'src' | 'blurDataURL'>>;
 
@@ -43,6 +45,14 @@ export const NodeLogo = (props: LogoImageProps) => {
   return <Image src={NodeLogoImage} {...baseLogoStyles} {...props} />;
 };
 
+export const CloudflareWorkersLogo = (props: LogoImageProps) => {
+  return <Image src={CloudflareWorkersLogoImage} {...baseLogoStyles} {...props} />;
+};
+
+export const WorktopLogo = (props: LogoImageProps) => {
+  return <Image src={WorktopLogoImage} {...baseLogoStyles} {...props} />;
+};
+
 ExtendComponents({
   ExpressLogo,
   FastifyLogo,
@@ -50,4 +60,6 @@ ExtendComponents({
   KoaLogo,
   NextjsLogo,
   NodeLogo,
+  CloudflareWorkersLogo,
+  WorktopLogo,
 });

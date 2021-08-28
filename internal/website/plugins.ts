@@ -12,6 +12,7 @@ export const TagsList = [
   'hapi',
   'http',
   'nextjs',
+  'cloudflare',
   'universal',
 ] as const;
 

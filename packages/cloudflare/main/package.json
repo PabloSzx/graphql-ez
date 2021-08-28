@@ -1,0 +1,52 @@
+{
+  "name": "@graphql-ez/cloudflare",
+  "version": "0.0.1",
+  "license": "MIT",
+  "author": "PabloSz <pablosaez1995@gmail.com>",
+  "exports": {
+    ".": {
+      "require": "./dist/index.js",
+      "import": "./dist/index.mjs"
+    },
+    "./*": {
+      "require": "./dist/*.js",
+      "import": "./dist/*.mjs"
+    }
+  },
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "dev": "bob-esbuild watch",
+    "prepack": "bob-esbuild build",
+    "postpublish": "gh-release",
+    "test": "jest"
+  },
+  "dependencies": {
+    "@graphql-ez/utils": "workspace:^0.1.1"
+  },
+  "devDependencies": {
+    "@types/node": "^16.7.4",
+    "@types/wait-on": "^5.3.1",
+    "bob-esbuild-cli": "^1.0.1",
+    "esbuild": "^0.12.24",
+    "execa": "^5.1.1",
+    "get-port": "^5.1.1",
+    "graphql": "15.4.0-experimental-stream-defer.1",
+    "graphql-ez": "workspace:^0.12.4",
+    "jest": "^27.1.0",
+    "miniflare": "^1.4.0",
+    "node-fetch": "^2.6.1",
+    "wait-on": "^6.0.0",
+    "worktop": "^0.7.1"
+  },
+  "peerDependencies": {
+    "@types/node": "*",
+    "graphql": "*",
+    "graphql-ez": "workspace:^0.12.3",
+    "worktop": "^0.7.1"
+  },
+  "publishConfig": {
+    "directory": "dist"
+  }
+}

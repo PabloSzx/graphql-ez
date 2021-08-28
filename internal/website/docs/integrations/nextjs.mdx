@@ -13,7 +13,7 @@ Assuming you already have a [Next.js setup with TypeScript](https://nextjs.org/d
 
 ## Usage
 
-`Server module` `/src/pages/api/graphql.ts`
+> `Server module` `/src/pages/api/graphql.ts`
 
 ```ts
 import { ezApp } from '../../ez';
@@ -25,7 +25,7 @@ const { apiHandler } = ezApp.buildApp({
 export default apiHandler;
 ```
 
-`EZ App module` `/src/ez.ts`
+> `EZ App module` `/src/ez.ts`
 
 ```ts
 import { CreateApp, gql } from '@graphql-ez/nextjs';
