@@ -10,12 +10,17 @@ import {
   InternalAppBuildContext,
   InternalAppBuildContextKey,
   LazyPromise,
+  ProcessRequestOptions,
 } from 'graphql-ez';
 import type { InternalAppBuildIntegrationContext } from 'graphql-yoga';
 import type { IncomingMessage } from 'http';
 import { Handler, Router } from 'worktop';
+import type { ServerRequest } from 'worktop/request';
+import type { ServerResponse } from 'worktop/response';
 
-export interface WorktopAppOptions extends AppOptions {}
+export interface WorktopAppOptions extends AppOptions {
+  processRequestOptions?: (req: ServerRequest, res: ServerResponse) => ProcessRequestOptions;
+}
 
 export interface EZApp {
   readonly router: Router;
@@ -25,6 +30,21 @@ export interface EZApp {
 }
 
 export * from 'graphql-ez';
+
+declare module 'graphql-ez' {
+  interface BuildContextArgs {
+    cloudflare?: {
+      req: ServerRequest;
+      res: ServerResponse;
+    };
+  }
+
+  interface InternalAppBuildIntegrationContext {
+    cloudflare?: {
+      router: Router;
+    };
+  }
+}
 
 export interface EZAppBuilder extends BaseAppBuilder {
   readonly buildApp: (options?: BuildAppOptions) => EZApp;
@@ -50,7 +70,7 @@ export function CreateApp(config: WorktopAppOptions = {}): EZAppBuilder {
   const { appBuilder, onIntegrationRegister, ...commonApp } = ezApp;
 
   const buildApp: EZAppBuilder['buildApp'] = function buildApp(buildOptions = {}) {
-    const { buildContext, onAppRegister } = appConfig;
+    const { buildContext, onAppRegister, processRequestOptions } = appConfig;
 
     const router = new Router();
 
@@ -58,7 +78,11 @@ export function CreateApp(config: WorktopAppOptions = {}): EZAppBuilder {
 
     const appPromise = Promise.allSettled([
       appBuilder(buildOptions, async ({ ctx, getEnveloped }) => {
-        const integration: InternalAppBuildIntegrationContext = {};
+        const integration: InternalAppBuildIntegrationContext = {
+          cloudflare: {
+            router,
+          },
+        };
 
         if (onAppRegister) await onAppRegister({ ctx, integration, getEnveloped });
 
@@ -95,7 +119,7 @@ export function CreateApp(config: WorktopAppOptions = {}): EZAppBuilder {
                     return target[key];
                   }
                 }
-                throw Error('Property not available for SvelteKit');
+                throw Error('Property not available for Cloudflare workers!');
               },
             }
           );
@@ -108,6 +132,10 @@ export function CreateApp(config: WorktopAppOptions = {}): EZAppBuilder {
             contextArgs() {
               return {
                 req: trapReq,
+                cloudflare: {
+                  req,
+                  res,
+                },
               };
             },
             buildContext,
@@ -128,10 +156,7 @@ export function CreateApp(config: WorktopAppOptions = {}): EZAppBuilder {
             onPushResponse() {
               throw Error('Not supported');
             },
-            processRequestOptions() {
-              // TODO
-              return {};
-            },
+            processRequestOptions: processRequestOptions && (() => processRequestOptions(req, res)),
             preProcessRequest,
           });
         };
