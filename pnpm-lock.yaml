@@ -328,7 +328,7 @@ importers:
 
   examples/cloudflare:
     specifiers:
-      '@graphql-ez/cloudflare': workspace:^0.1.0
+      '@graphql-ez/cloudflare': workspace:*
       '@graphql-ez/plugin-schema': workspace:^0.7.0
       '@types/node': ^16.7.4
       clipboardy: ^2.3.0
@@ -339,8 +339,6 @@ importers:
       graphql-ez: workspace:^0.12.4
       miniflare: ^1.4.0
       rimraf: ^3.0.2
-      ts-loader: 9.2.5
-      webpack: 5.51.1
       worktop: ^0.7.1
     dependencies:
       '@graphql-ez/cloudflare': link:../../packages/cloudflare/main
@@ -356,8 +354,6 @@ importers:
       esbuild-register: 3.0.0_esbuild@0.12.24
       miniflare: 1.4.0
       rimraf: 3.0.2
-      ts-loader: 9.2.5_typescript@4.4.2+webpack@5.51.1
-      webpack: 5.51.1
 
   examples/express/complete:
     specifiers:
@@ -912,6 +908,7 @@ importers:
 
   packages/cloudflare/main:
     specifiers:
+      '@graphql-ez/utils': workspace:^0.1.1
       '@types/node': ^16.7.4
       '@types/wait-on': ^5.3.1
       bob-esbuild-cli: ^1.0.1
@@ -925,6 +922,8 @@ importers:
       node-fetch: ^2.6.1
       wait-on: ^6.0.0
       worktop: ^0.7.1
+    dependencies:
+      '@graphql-ez/utils': link:../../core/utils
     devDependencies:
       '@types/node': 16.7.4
       '@types/wait-on': 5.3.1
@@ -15828,42 +15827,6 @@ packages:
   /webpack-sources/3.2.0:
     resolution: {integrity: sha512-fahN08Et7P9trej8xz/Z7eRu8ltyiygEo/hnRi9KqBUs80KeDcnf96ZJo++ewWd84fEf3xSX9bp4ZS9hbw0OBw==}
     engines: {node: '>=10.13.0'}
-    dev: true
-
-  /webpack/5.51.1:
-    resolution: {integrity: sha512-xsn3lwqEKoFvqn4JQggPSRxE4dhsRcysWTqYABAZlmavcoTmwlOb9b1N36Inbt/eIispSkuHa80/FJkDTPos1A==}
-    engines: {node: '>=10.13.0'}
-    hasBin: true
-    peerDependencies:
-      webpack-cli: '*'
-    peerDependenciesMeta:
-      webpack-cli:
-        optional: true
-    dependencies:
-      '@types/eslint-scope': 3.7.1
-      '@types/estree': 0.0.50
-      '@webassemblyjs/ast': 1.11.1
-      '@webassemblyjs/wasm-edit': 1.11.1
-      '@webassemblyjs/wasm-parser': 1.11.1
-      acorn: 8.4.1
-      acorn-import-assertions: 1.7.6_acorn@8.4.1
-      browserslist: 4.16.8
-      chrome-trace-event: 1.0.3
-      enhanced-resolve: 5.8.2
-      es-module-lexer: 0.7.1
-      eslint-scope: 5.1.1
-      events: 3.3.0
-      glob-to-regexp: 0.4.1
-      graceful-fs: 4.2.8
-      json-parse-better-errors: 1.0.2
-      loader-runner: 4.2.0
-      mime-types: 2.1.32
-      neo-async: 2.6.2
-      schema-utils: 3.1.1
-      tapable: 2.2.0
-      terser-webpack-plugin: 5.1.4_webpack@5.51.1
-      watchpack: 2.2.0
-      webpack-sources: 3.2.0
     dev: true
 
   /webpack/5.51.1_webpack-cli@4.8.0:

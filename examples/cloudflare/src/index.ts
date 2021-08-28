@@ -1,6 +1,23 @@
 import { listen } from 'worktop/cache';
-import { CreateApp } from '@graphql-ez/cloudflare';
+import { CreateApp, InferContext, BuildContextArgs } from '@graphql-ez/cloudflare';
 import { ezSchema, gql } from '@graphql-ez/plugin-schema';
+
+function buildContext({ req, cloudflare }: BuildContextArgs) {
+  // IncomingMessage-like
+  req;
+
+  // ServerRequest
+  cloudflare!.req;
+
+  return {
+    foo: 'bar',
+  };
+}
+
+// This snippet allows you to infer the context returned by your 'buildContext' and add it to the EZContext interface
+declare module 'graphql-ez' {
+  interface EZContext extends InferContext<typeof buildContext> {}
+}
 
 const { buildApp } = CreateApp({
   ez: {
@@ -23,6 +40,8 @@ const { buildApp } = CreateApp({
       }),
     ],
   },
+  buildContext,
+  cors: true,
 });
 
 const { router } = buildApp();
