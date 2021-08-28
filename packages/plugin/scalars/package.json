@@ -1,6 +1,6 @@
 {
   "name": "@graphql-ez/plugin-scalars",
-  "version": "0.7.0",
+  "version": "0.7.1",
   "homepage": "https://www.graphql-ez.com",
   "repository": {
     "type": "git",
@@ -30,7 +30,7 @@
     "test": "jest"
   },
   "dependencies": {
-    "@graphql-ez/utils": "workspace:^0.1.1",
+    "@graphql-ez/utils": "workspace:^0.1.2",
     "@graphql-tools/utils": "^8.1.2",
     "graphql-scalars": "^1.10.0"
   },
@@ -38,13 +38,13 @@
     "bob-esbuild-cli": "^1.0.1",
     "changesets-github-release": "^0.0.3",
     "graphql": "15.4.0-experimental-stream-defer.1",
-    "graphql-ez": "workspace:^0.12.4",
+    "graphql-ez": "workspace:^0.12.5",
     "jest": "^27.1.0",
     "ts-jest": "^27.0.5"
   },
   "peerDependencies": {
     "graphql": "*",
-    "graphql-ez": "workspace:^0.12.0"
+    "graphql-ez": "workspace:^0.12.5"
   },
   "peerDependenciesMeta": {
     "graphql": {
