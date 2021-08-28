@@ -1,6 +1,13 @@
 # @graphql-ez/cloudflare
 
+## 0.1.1
+
+### Patch Changes
+
+- 2126343: add missing LICENSE
+
 ## 0.1.0
+
 ### Minor Changes
 
 - 3c807aa: Release @graphql-ez/cloudflare
