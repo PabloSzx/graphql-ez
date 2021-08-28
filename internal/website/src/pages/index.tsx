@@ -4,7 +4,7 @@ import { handlePushRoute } from '@guild-docs/client';
 import { HeroGradient, InfoList } from '@theguild/components';
 import Router from 'next/router';
 import { ReactNode, useEffect } from 'react';
-import { ExpressLogo, FastifyLogo, HapiLogo, KoaLogo, NextjsLogo, NodeLogo } from '../components/logos';
+import { CloudflareWorkersLogo, ExpressLogo, FastifyLogo, HapiLogo, KoaLogo, NextjsLogo, NodeLogo } from '../components/logos';
 import { NPMBadge } from '../components/NPMBadge';
 
 function ItemDescription({ description, packageName }: { description: string; packageName: string }) {
@@ -220,6 +220,27 @@ export default function Index() {
                   title: 'Next.js Docs',
                   children: 'Docs',
                   onClick: e => handlePushRoute('/docs/integrations/nextjs', e),
+                },
+              },
+              {
+                title: (
+                  <IntegrationItemTitle
+                    name="Cloudflare Workers"
+                    integrationWebsite="https://workers.cloudflare.com/"
+                    logo={<CloudflareWorkersLogo />}
+                  />
+                ),
+                description: (
+                  <ItemDescription
+                    description="Deploy serverless code instantly across the globe to give it exceptional performance, reliability, and scale."
+                    packageName="@graphql-ez/cloudflare"
+                  />
+                ),
+                link: {
+                  href: '/docs/integrations/cloudflare',
+                  title: 'Cloudflare Docs',
+                  children: 'Docs',
+                  onClick: e => handlePushRoute('/docs/integrations/cloudflare', e),
                 },
               },
             ]}
