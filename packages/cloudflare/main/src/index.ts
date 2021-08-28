@@ -1,3 +1,4 @@
+import { getObjectValue } from '@graphql-ez/utils/object';
 import {
   AppOptions,
   BaseAppBuilder,
@@ -15,11 +16,14 @@ import {
 import type { InternalAppBuildIntegrationContext } from 'graphql-yoga';
 import type { IncomingMessage } from 'http';
 import { Handler, Router } from 'worktop';
+import { Config as CorsConfig, preflight } from 'worktop/cors';
 import type { ServerRequest } from 'worktop/request';
 import type { ServerResponse } from 'worktop/response';
 
 export interface WorktopAppOptions extends AppOptions {
   processRequestOptions?: (req: ServerRequest, res: ServerResponse) => ProcessRequestOptions;
+
+  cors?: CorsConfig | boolean;
 }
 
 export interface EZApp {
@@ -70,7 +74,7 @@ export function CreateApp(config: WorktopAppOptions = {}): EZAppBuilder {
   const { appBuilder, onIntegrationRegister, ...commonApp } = ezApp;
 
   const buildApp: EZAppBuilder['buildApp'] = function buildApp(buildOptions = {}) {
-    const { buildContext, onAppRegister, processRequestOptions } = appConfig;
+    const { buildContext, onAppRegister, processRequestOptions, cors } = appConfig;
 
     const router = new Router();
 
@@ -94,6 +98,10 @@ export function CreateApp(config: WorktopAppOptions = {}): EZAppBuilder {
         } = ctx;
 
         const requestHandler = customHandleRequest || handleRequest;
+
+        if (cors) {
+          router.prepare = preflight(getObjectValue(cors));
+        }
 
         const handler: Handler = async (req, res) => {
           const headers = Object.fromEntries(req.headers.entries());
