@@ -2,6 +2,7 @@
   "name": "example-basic-fastify",
   "version": "0.0.1",
   "license": "MIT",
+  "private": true,
   "scripts": {
     "dev": "pnpm dev:mjs",
     "dev:cjs": "tsup-node src/index.ts --format cjs --sourcemap --no-splitting --watch src --onSuccess \"node dist/index.js\"",

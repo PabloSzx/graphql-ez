@@ -2,6 +2,7 @@
   "name": "example-complete-http",
   "version": "1.0.0",
   "license": "MIT",
+  "private": true,
   "scripts": {
     "dev": "pnpm dev:mjs",
     "dev:cjs": "tsup-node --watch src --onSuccess \"node dist/index.js\"",
