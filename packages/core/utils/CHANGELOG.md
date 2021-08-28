@@ -1,5 +1,11 @@
 # @graphql-ez/utils
 
+## 0.1.2
+
+### Patch Changes
+
+- 04e90c1: add `"sideEffects": false` for tree-shaking
+
 ## 0.1.1
 
 ### Patch Changes

@@ -1,6 +1,6 @@
 {
   "name": "@graphql-ez/cloudflare",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "license": "MIT",
   "author": "PabloSz <pablosaez1995@gmail.com>",
   "sideEffects": false,
@@ -24,7 +24,7 @@
     "test": "jest"
   },
   "dependencies": {
-    "@graphql-ez/utils": "workspace:^0.1.1"
+    "@graphql-ez/utils": "workspace:^0.1.2"
   },
   "devDependencies": {
     "@types/node": "^16.7.4",
@@ -34,7 +34,7 @@
     "execa": "^5.1.1",
     "get-port": "^5.1.1",
     "graphql": "15.4.0-experimental-stream-defer.1",
-    "graphql-ez": "workspace:^0.12.4",
+    "graphql-ez": "workspace:^0.12.5",
     "jest": "^27.1.0",
     "miniflare": "^1.4.0",
     "node-fetch": "^2.6.1",
@@ -44,7 +44,7 @@
   "peerDependencies": {
     "@types/node": "*",
     "graphql": "*",
-    "graphql-ez": "workspace:^0.12.3",
+    "graphql-ez": "workspace:^0.12.5",
     "worktop": "^0.7.1"
   },
   "publishConfig": {

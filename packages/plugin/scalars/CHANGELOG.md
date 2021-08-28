@@ -1,5 +1,14 @@
 # @graphql-ez/plugin-scalars
 
+## 0.7.1
+
+### Patch Changes
+
+- 04e90c1: add `"sideEffects": false` for tree-shaking
+- Updated dependencies [04e90c1]
+  - graphql-ez@0.12.5
+  - @graphql-ez/utils@0.1.2
+
 ## 0.7.0
 
 ### Minor Changes
