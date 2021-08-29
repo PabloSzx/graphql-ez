@@ -1,5 +1,5 @@
 import type { InternalAppBuildContext, InternalAppBuildIntegrationContext } from 'graphql-ez';
-import { shouldRenderGraphiQL } from '../utils';
+import { shouldRenderGraphiQL, getPathname } from '../utils';
 
 export function handleHttp(ctx: InternalAppBuildContext, instance: NonNullable<InternalAppBuildIntegrationContext['http']>) {
   if (!ctx.graphiql) return;
@@ -13,7 +13,7 @@ export function handleHttp(ctx: InternalAppBuildContext, instance: NonNullable<I
       const method = req.method;
       if (
         method !== 'GET' ||
-        !req.url?.startsWith(path) ||
+        getPathname(req.url) !== path ||
         !shouldRenderGraphiQL({
           headers: req.headers,
           method,
@@ -31,7 +31,7 @@ export function handleHttp(ctx: InternalAppBuildContext, instance: NonNullable<I
     });
   } else {
     instance.handlers.push(async (req, res) => {
-      if (req.method !== 'GET' || !req.url?.startsWith(path)) return;
+      if (req.method !== 'GET' || getPathname(req.url) !== path) return;
 
       await handler(req, res);
 
