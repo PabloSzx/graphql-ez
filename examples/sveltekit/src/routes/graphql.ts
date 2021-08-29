@@ -1,5 +1,11 @@
-import { CreateApp } from '@graphql-ez/sveltekit';
+import { CreateApp, SvelteKitContextArgs } from '@graphql-ez/sveltekit';
 import { ezSchema, gql } from '@graphql-ez/plugin-schema';
+
+const buildContext = ({ sveltekit }: SvelteKitContextArgs<{ asd: string }, {}>) => {
+  sveltekit?.req.locals.asd;
+
+  return {};
+};
 
 const ezApp = CreateApp({
   ez: {
@@ -13,7 +19,7 @@ const ezApp = CreateApp({
           `,
           resolvers: {
             Query: {
-              hello() {
+              hello(_root, _args, _ctx) {
                 return 'Hello World!';
               },
             },
@@ -22,6 +28,7 @@ const ezApp = CreateApp({
       }),
     ],
   },
+  buildContext,
 });
 
 const { handler } = ezApp.buildApp();

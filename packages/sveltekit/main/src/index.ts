@@ -1,9 +1,11 @@
 import type { EndpointOutput, RequestHandler } from '@sveltejs/kit';
+import type { ResponseHeaders } from '@sveltejs/kit/types/helper';
 import type { ServerRequest, ServerResponse } from '@sveltejs/kit/types/hooks';
 import {
   AppOptions,
   BaseAppBuilder,
   BuildAppOptions,
+  BuildContextArgs,
   createEZAppFactory,
   EZAppFactoryType,
   GetEnvelopedFn,
@@ -12,6 +14,7 @@ import {
   InternalAppBuildContextKey,
   InternalAppBuildIntegrationContext,
   LazyPromise,
+  ProcessRequestOptions,
 } from 'graphql-ez';
 import type { IncomingMessage } from 'http';
 
@@ -29,10 +32,18 @@ export interface EZApp {
   [InternalAppBuildContextKey]: InternalAppBuildContext;
 }
 
+export interface SvelteKitContextArgs<Locals = Record<string, any>, Body = unknown> extends BuildContextArgs {
+  sveltekit?: {
+    req: ServerRequest<Locals, Body>;
+    responseHeaders: ResponseHeaders;
+  };
+}
+
 declare module 'graphql-ez' {
   interface BuildContextArgs {
     sveltekit?: {
-      req: ServerRequest;
+      req: ServerRequest<any, any>;
+      responseHeaders: ResponseHeaders;
     };
   }
 
@@ -45,7 +56,23 @@ export interface SvelteKitHandlerContext {
   handlers: Array<(req: ServerRequest) => Promise<ServerResponse | null | undefined | void>>;
 }
 
-export function CreateApp(config: AppOptions = {}): EZAppBuilder {
+export interface SvelteKitAppOptions extends AppOptions {
+  /**
+   * Customize some Helix processRequest options
+   */
+  processRequestOptions?: <Locals = Record<string, any>, Body = unknown>(
+    req: ServerRequest<Locals, Body>
+  ) => ProcessRequestOptions;
+
+  /**
+   * The path of where the EZ App is being served.
+   *
+   * If it's not specified, it's assumed that is should be served on any path.
+   */
+  path?: string;
+}
+
+export function CreateApp(config: SvelteKitAppOptions = {}): EZAppBuilder {
   const appConfig = { ...config };
 
   let ezApp: EZAppFactoryType;
@@ -65,7 +92,7 @@ export function CreateApp(config: AppOptions = {}): EZAppBuilder {
   const { appBuilder, onIntegrationRegister, ...commonApp } = ezApp;
 
   const buildApp: EZAppBuilder['buildApp'] = function buildApp(buildOptions = {}) {
-    const { buildContext, onAppRegister } = appConfig;
+    const { buildContext, onAppRegister, processRequestOptions } = appConfig;
 
     let appHandler: RequestHandler | undefined;
 
@@ -129,6 +156,8 @@ export function CreateApp(config: AppOptions = {}): EZAppBuilder {
             }
           );
 
+          const responseHeaders: NonNullable<EndpointOutput['headers']> = {};
+
           return requestHandler<EndpointOutput>({
             request,
             req: trapReq,
@@ -139,32 +168,29 @@ export function CreateApp(config: AppOptions = {}): EZAppBuilder {
                 req: trapReq,
                 sveltekit: {
                   req,
+                  responseHeaders,
                 },
               };
             },
             buildContext,
             onResponse(result) {
+              for (const { name, value } of result.headers) {
+                responseHeaders[name] = value;
+              }
               return {
                 status: result.status,
                 body: result.payload as Record<string, any>,
-                headers: result.headers.reduce<Record<string, string>>((acum, { name, value }) => {
-                  acum[name] = value;
-
-                  return acum;
-                }, {}),
+                headers: responseHeaders,
               };
             },
             onMultiPartResponse() {
-              throw Error('Not supported for sveltekit!');
+              throw Error('Not supported for SvelteKit!');
             },
             onPushResponse() {
-              throw Error('Not supported for sveltekit!');
+              throw Error('Not supported for SvelteKit!');
             },
             preProcessRequest,
-            processRequestOptions() {
-              // TODO
-              return {};
-            },
+            processRequestOptions: processRequestOptions && (() => processRequestOptions(req)),
           });
         };
 
