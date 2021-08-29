@@ -10,7 +10,7 @@ export async function handleKoa(ctx: InternalAppBuildContext, instance: NonNulla
 
   const render = await ctx.altair.render;
 
-  const { endpointURL = '/graphql', baseURL: baseURLOpt, path: _path, ...renderOptions } = ctx.altair.options;
+  const { endpointURL = ctx.options.path || '/graphql', baseURL: baseURLOpt, path: _path, ...renderOptions } = ctx.altair.options;
 
   instance.router.get([path, baseURL, withoutTrailingSlash(baseURL) + '/(.*)'], async ctx => {
     const { status, content, contentType } = await render({
