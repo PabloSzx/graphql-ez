@@ -17,3 +17,5 @@ export const shouldRenderGraphiQL = ({
     isHttpMethod('GET', method) && accept?.includes('text/html') && (!!query.share || !(query['query'] || query['extensions']))
   );
 };
+
+export { getPathname } from '@graphql-ez/utils/url';
