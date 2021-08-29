@@ -1,3 +1,4 @@
+import { getPathname } from '@graphql-ez/utils/url';
 import type { EndpointOutput, RequestHandler } from '@sveltejs/kit';
 import type { ResponseHeaders } from '@sveltejs/kit/types/helper';
 import type { ServerRequest, ServerResponse } from '@sveltejs/kit/types/hooks';
@@ -75,6 +76,8 @@ export interface SvelteKitAppOptions extends AppOptions {
 export function CreateApp(config: SvelteKitAppOptions = {}): EZAppBuilder {
   const appConfig = { ...config };
 
+  const path = appConfig.path;
+
   let ezApp: EZAppFactoryType;
 
   try {
@@ -130,6 +133,8 @@ export function CreateApp(config: SvelteKitAppOptions = {}): EZAppBuilder {
 
             if (firstResponse) return firstResponse;
           }
+
+          if (path && getPathname(req.path) !== path) return;
 
           const request = {
             headers: req.headers,
