@@ -38,4 +38,10 @@ export const onIntegrationRegister: NonNullable<EZPlugin['onIntegrationRegister'
       `[graphql-ez] You don't need to add the Altair plugin in your EZ App for Next.js, use "UnpkgAltairHandler" directly in your API Routes.`
     );
   }
+
+  if (integrationCtx.sveltekit) {
+    const { handleSvelteKit } = await import('./sveltekit');
+
+    return handleSvelteKit(ctx, integrationCtx.sveltekit);
+  }
 };
