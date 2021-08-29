@@ -218,7 +218,7 @@ export const init = async ({
             query: state?.query || '',
             variables: state?.variables && JSON.parse(state.variables),
             operationName: state?.operationName,
-          })
+          }) + '&share=1'
         );
       };
 
