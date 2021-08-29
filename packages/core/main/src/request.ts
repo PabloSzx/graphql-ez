@@ -14,7 +14,7 @@ export interface HelixContext extends Omit<ExecutionContext, 'request'> {
 }
 
 declare module './index' {
-  interface EZContext extends Partial<HelixContext> {}
+  interface EZContext extends Partial<HelixContext>, BuildContextArgs {}
 }
 
 export async function handleRequest<TReturn = unknown>({
@@ -27,11 +27,11 @@ export async function handleRequest<TReturn = unknown>({
   onPushResponse,
   baseOptions,
   processRequestOptions,
-  req,
   preProcessRequest,
 }: HandleRequestOptions<BuildContextArgs, TReturn>): Promise<TReturn> {
+  const contextArgsData = contextArgs();
   const { parse, validate, contextFactory, execute, schema, subscribe } = getEnveloped(
-    Object.assign({ req }, buildContext ? await buildContext(contextArgs()) : undefined)
+    buildContext ? Object.assign(contextArgsData, await buildContext(contextArgsData)) : contextArgsData
   );
 
   if (Array.isArray(request.body)) {

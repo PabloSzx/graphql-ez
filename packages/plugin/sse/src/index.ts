@@ -60,15 +60,9 @@ export const ezSSE = (options: GraphQLSSEOptions = {}): EZPlugin => {
         subscribe,
         validate,
         async onSubscribe(req, _res, params) {
+          const contextArgsData = { req };
           const { schema, parse, contextFactory } = getEnveloped(
-            Object.assign(
-              { req },
-              buildContext
-                ? await buildContext({
-                    req,
-                  })
-                : undefined
-            )
+            buildContext ? Object.assign(contextArgsData, await buildContext(contextArgsData)) : contextArgsData
           );
           const queryDocument = parse(typeof params.query === 'string' ? params.query : print(params.query));
           return {
