@@ -16,6 +16,7 @@ import {
   InternalAppBuildIntegrationContext,
   LazyPromise,
   ProcessRequestOptions,
+  PromiseOrValue,
 } from 'graphql-ez';
 import type { IncomingMessage } from 'http';
 
@@ -54,7 +55,7 @@ declare module 'graphql-ez' {
 }
 
 export interface SvelteKitHandlerContext {
-  handlers: Array<(req: ServerRequest) => Promise<ServerResponse | null | undefined | void>>;
+  handlers: Array<(req: ServerRequest) => PromiseOrValue<ServerResponse | null | undefined | void>>;
 }
 
 export interface SvelteKitAppOptions extends AppOptions {

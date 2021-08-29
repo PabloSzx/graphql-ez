@@ -27,6 +27,7 @@ declare module 'graphql-ez' {
       path: string;
       options: VoyagerOptions;
       handler: typeof VoyagerHandler;
+      render: () => Promise<string>;
     };
   }
 }
@@ -81,7 +82,7 @@ export function VoyagerHandler(options?: VoyagerOptions, extraConfig?: HandlerCo
 export const ezVoyager = (options: VoyagerPluginOptions | boolean = true): EZPlugin => {
   return {
     name: 'GraphQL Voyager',
-    compatibilityList: ['fastify', 'koa', 'express', 'hapi', 'http', 'nextjs'],
+    compatibilityList: ['fastify', 'koa', 'express', 'hapi', 'http', 'nextjs', 'sveltekit'],
     onRegister(ctx) {
       if (!options) return;
 
@@ -95,6 +96,19 @@ export const ezVoyager = (options: VoyagerPluginOptions | boolean = true): EZPlu
         path,
         handler: VoyagerHandler,
         options: objOptions,
+        async render() {
+          const { transformHtml, ...renderOptions } = getObjectValue(ctx.voyager?.options) || {};
+
+          const html = VoyagerDeps.then(({ renderVoyagerPage }) => {
+            const content = renderVoyagerPage(renderOptions);
+
+            if (transformHtml) return transformHtml(content);
+
+            return content;
+          });
+
+          return html;
+        },
       };
     },
     onIntegrationRegister,

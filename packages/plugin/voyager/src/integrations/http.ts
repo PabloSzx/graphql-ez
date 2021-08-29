@@ -1,3 +1,4 @@
+import { getPathname } from '@graphql-ez/utils/url';
 import type { InternalAppBuildContext, InternalAppBuildIntegrationContext } from 'graphql-ez';
 
 export function handleHttp(ctx: InternalAppBuildContext, instance: NonNullable<InternalAppBuildIntegrationContext['http']>) {
@@ -8,7 +9,7 @@ export function handleHttp(ctx: InternalAppBuildContext, instance: NonNullable<I
   const path = ctx.voyager.path;
 
   instance.handlers.push(async (req, res) => {
-    if (req.method !== 'GET' || !req.url?.startsWith(path)) return;
+    if (req.method !== 'GET' || getPathname(req.url) !== path) return;
 
     await handler(req, res);
 
