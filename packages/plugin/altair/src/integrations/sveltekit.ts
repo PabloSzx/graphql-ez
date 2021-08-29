@@ -39,7 +39,7 @@ export async function handleSvelteKit(
       });
 
       return {
-        headers: contentType ? { contentType } : ({} as {}),
+        headers: contentType ? { 'content-type': contentType } : ({} as {}),
         status,
         body: content,
       };
