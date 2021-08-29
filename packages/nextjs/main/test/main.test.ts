@@ -58,7 +58,7 @@ test('with testing client', async () => {
                 hello() {
                   return 'Hello World!';
                 },
-                context(_root: unknown, _args: unknown, { req, ...ctx }: EZContext) {
+                context(_root: unknown, _args: unknown, { req, next, ...ctx }: EZContext) {
                   return JSON.stringify(ctx);
                 },
               },
