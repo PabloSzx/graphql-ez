@@ -676,6 +676,7 @@ importers:
 
   examples/sveltekit:
     specifiers:
+      '@graphql-ez/plugin-graphiql': workspace:^0.7.1
       '@graphql-ez/plugin-schema': workspace:^0.7.1
       '@graphql-ez/sveltekit': workspace:^0.1.0
       '@graphql-tools/schema': ^8.1.2
@@ -689,6 +690,7 @@ importers:
       tslib: ^2.3.1
       typescript: ^4.4.2
     dependencies:
+      '@graphql-ez/plugin-graphiql': link:../../packages/plugin/graphiql
       '@graphql-ez/plugin-schema': link:../../packages/plugin/schema
       '@graphql-ez/sveltekit': link:../../packages/sveltekit/main
       '@graphql-tools/schema': 8.1.2_34dd13c2583fe2e4418c23a0d30fc388
@@ -1756,18 +1758,6 @@ importers:
       graphql: 15.4.0-experimental-stream-defer.1
       graphql-ez: link:../../core/main
       jest: 27.1.0
-
-  packages/sveltekit/testing:
-    specifiers:
-      '@graphql-ez/sveltekit': workspace:^0.1.0
-      '@types/node': ^16.7.5
-      graphql: 15.4.0-experimental-stream-defer.1
-      graphql-ez: workspace:^0.12.5
-    devDependencies:
-      '@graphql-ez/sveltekit': link:../main
-      '@types/node': 16.7.5
-      graphql: 15.4.0-experimental-stream-defer.1
-      graphql-ez: link:../../core/main
 
   yoga/express:
     specifiers:

@@ -38,4 +38,10 @@ export const onIntegrationRegister: NonNullable<EZPlugin['onIntegrationRegister'
 
     return handleNext(ctx, integrationCtx.next);
   }
+
+  if (integrationCtx.sveltekit) {
+    const { handleSvelteKit } = await import('./sveltekit');
+
+    return handleSvelteKit(ctx, integrationCtx.sveltekit);
+  }
 };
