@@ -678,6 +678,8 @@ importers:
     specifiers:
       '@graphql-ez/plugin-schema': workspace:^0.7.1
       '@graphql-ez/sveltekit': workspace:^0.1.0
+      '@graphql-tools/schema': ^8.1.2
+      '@sveltejs/adapter-node': ^1.0.0-next.43
       '@sveltejs/kit': next
       graphql: 15.4.0-experimental-stream-defer.1
       graphql-ez: workspace:^0.12.5
@@ -689,6 +691,8 @@ importers:
     dependencies:
       '@graphql-ez/plugin-schema': link:../../packages/plugin/schema
       '@graphql-ez/sveltekit': link:../../packages/sveltekit/main
+      '@graphql-tools/schema': 8.1.2_34dd13c2583fe2e4418c23a0d30fc388
+      '@sveltejs/adapter-node': 1.0.0-next.43
       graphql: 15.4.0-experimental-stream-defer.1
       graphql-ez: link:../../packages/core/main
     devDependencies:
@@ -1752,6 +1756,18 @@ importers:
       graphql: 15.4.0-experimental-stream-defer.1
       graphql-ez: link:../../core/main
       jest: 27.1.0
+
+  packages/sveltekit/testing:
+    specifiers:
+      '@graphql-ez/sveltekit': workspace:^0.1.0
+      '@types/node': ^16.7.5
+      graphql: 15.4.0-experimental-stream-defer.1
+      graphql-ez: workspace:^0.12.5
+    devDependencies:
+      '@graphql-ez/sveltekit': link:../main
+      '@types/node': 16.7.5
+      graphql: 15.4.0-experimental-stream-defer.1
+      graphql-ez: link:../../core/main
 
   yoga/express:
     specifiers:
@@ -5168,6 +5184,13 @@ packages:
       shiki: 0.9.8
       unified: 9.2.2
       unist-util-visit: 2.0.3
+    dev: false
+
+  /@sveltejs/adapter-node/1.0.0-next.43:
+    resolution: {integrity: sha512-SRKpI67XKcUTzUIhjLDqnuxx7SC3cPazqOAXhLsCTcrgJggqA9Wr7Mpdc05vU6hZYcaLpA+wxOKep2kCmXKfsQ==}
+    dependencies:
+      esbuild: 0.12.24
+      tiny-glob: 0.2.9
     dev: false
 
   /@sveltejs/kit/1.0.0-next.158:
@@ -9238,6 +9261,10 @@ packages:
     resolution: {integrity: sha512-WOBp/EEGUiIsJSp7wcv/y6MO+lV9UoncWqxuFfm8eBwzWNgyfBd6Gz+IeKQ9jCmyhoH99g15M3T+QaVHFjizVA==}
     engines: {node: '>=4'}
 
+  /globalyzer/0.1.0:
+    resolution: {integrity: sha512-40oNTM9UfG6aBmuKxk/giHn5nQ8RVz/SS4Ir6zgzOv9/qC3kKZ9v4etGTcJbEl/NyVQH7FGU7d+X1egr57Md2Q==}
+    dev: false
+
   /globby/10.0.2:
     resolution: {integrity: sha512-7dUi7RvCoT/xast/o/dLN53oqND4yk0nsHkhRgn9w65C4PofCLOoJ39iSOg+qVDdWQPIEj+eszMHQ+aLVwwQSg==}
     engines: {node: '>=8'}
@@ -9276,6 +9303,10 @@ packages:
       pify: 4.0.1
       slash: 2.0.0
     dev: true
+
+  /globrex/0.1.2:
+    resolution: {integrity: sha512-uHJgbwAMwNFf5mLst7IWLNg14x1CkeqglJb/K3doi4dw6q2IvAAmM/Y81kevy83wP+Sst+nutFTYOGg3d1lsxg==}
+    dev: false
 
   /graceful-fs/4.2.8:
     resolution: {integrity: sha512-qkIilPUYcNhJpd33n0GBXTB1MMPp14TxEsEs0pTrsSVucApsYzW5V+Q8Qxhik6KU3evy+qkAAowTByymK0avdg==}
@@ -15124,6 +15155,13 @@ packages:
 
   /timsort/0.3.0:
     resolution: {integrity: sha1-QFQRqOfmM5/mTbmiNN4R3DHgK9Q=}
+    dev: false
+
+  /tiny-glob/0.2.9:
+    resolution: {integrity: sha512-g/55ssRPUjShh+xkfx9UPDXqhckHEsHr4Vd9zX55oSdGZc/MD0m3sferOkwWtp98bv+kcVfEHtRJgBVJzelrzg==}
+    dependencies:
+      globalyzer: 0.1.0
+      globrex: 0.1.2
     dev: false
 
   /tiny-invariant/1.1.0:
