@@ -285,6 +285,7 @@ Array [
       "hapi",
       "http",
       "nextjs",
+      "sveltekit",
     ],
     "name": "GraphQL Voyager",
     "onIntegrationRegister": [Function],
