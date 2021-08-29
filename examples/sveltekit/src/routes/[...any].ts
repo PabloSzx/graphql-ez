@@ -9,6 +9,7 @@ const buildContext = ({ sveltekit }: SvelteKitContextArgs<{ asd: string }, {}>) 
 };
 
 const ezApp = CreateApp({
+  path: '/graphql',
   ez: {
     plugins: [
       ezGraphiQLIDE(),
