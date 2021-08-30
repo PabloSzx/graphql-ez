@@ -1,5 +1,11 @@
 # @graphql-ez/plugin-graphiql
 
+## 0.9.0
+
+### Minor Changes
+
+- 1a3d7b6: Add support for Cloudflare workers / worktop
+
 ## 0.8.0
 
 ### Minor Changes

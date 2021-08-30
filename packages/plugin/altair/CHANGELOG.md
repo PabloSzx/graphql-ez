@@ -1,5 +1,11 @@
 # @graphql-ez/plugin-altair
 
+## 0.7.0
+
+### Minor Changes
+
+- 6841a11: add support for Cloudflare Workers
+
 ## 0.6.0
 
 ### Minor Changes

@@ -1,5 +1,11 @@
 # @graphql-ez/cloudflare
 
+## 0.2.0
+
+### Minor Changes
+
+- 0c3060a: add support for preHandlers
+
 ## 0.1.1
 
 ### Patch Changes
