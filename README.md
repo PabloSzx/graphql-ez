@@ -13,3 +13,4 @@ With integrations for:
 - [Next.js API Routes](https://nextjs.org/docs/api-routes/introduction)
 - [Node.js HTTP](https://nodejs.org/api/http.html)
 - [Cloudflare Workers](https://workers.cloudflare.com/) using [Worktop](https://github.com/lukeed/worktop)
+- [SvelteKit](https://kit.svelte.dev/)
