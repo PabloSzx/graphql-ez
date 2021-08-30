@@ -1,44 +1,8 @@
 import { getObjectValue } from '@graphql-ez/utils/object';
 import { LazyPromise } from '@graphql-ez/utils/promise';
-
-import { onIntegrationRegister } from './integrations';
-
-import type { IncomingMessage, ServerResponse } from 'http';
-import type { RenderGraphiQLOptions } from '@pablosz/graphql-helix-graphiql';
 import type { EZPlugin } from 'graphql-ez';
-
-export interface GraphiQLOptions extends RenderGraphiQLOptions {
-  /**
-   * By default it's the same as the main API path, normally `"/graphql"` or `"/api/graphql"`
-   */
-  path?: string;
-  /**
-   * The endpoint requests should be sent.
-   *
-   * @default "/graphql"
-   */
-  endpoint?: string;
-}
-
-declare module 'graphql-ez' {
-  interface InternalAppBuildContext {
-    graphiql?: {
-      path: string;
-      handler: (options: GraphiQLOptions) => IDEHandler;
-      html: Promise<string>;
-      options: GraphiQLOptions;
-    };
-  }
-}
-
-export type IDEHandler = (req: IncomingMessage, res: ServerResponse) => Promise<void>;
-
-export interface HandlerConfig {
-  /**
-   * @default true
-   */
-  rawHttp?: boolean;
-}
+import { onIntegrationRegister } from './integrations';
+import type { GraphiQLOptions, IDEHandler } from './types';
 
 const GraphiQLDeps = LazyPromise(async () => {
   const { renderGraphiQL } = await import('@pablosz/graphql-helix-graphiql');

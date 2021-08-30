@@ -122,3 +122,24 @@ const ezApp = CreateApp({
   // ...
 });
 ```
+
+### Unpkg vs "Manual" File serve
+
+This plugin by default serves the GraphiQL bundles on https://unpkg.com/, but if you prefer serving the files directly from node_modules without needing access to internet, you can use a special version of this plugin, `ezStaticGraphiQLIDE`:
+
+```ts
+import { CreateApp } from '@graphql-ez/nextjs';
+import { ezStaticGraphiQLIDE } from '@graphql-ez/plugin-graphiql/static';
+
+const ezApp = CreateApp({
+  ez: {
+    plugins: [
+      ezStaticGraphiQLIDE({
+        // Options
+      }),
+      // ...
+    ],
+  },
+  // ...
+});
+```
