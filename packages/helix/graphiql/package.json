@@ -34,6 +34,10 @@
     "prepublishOnly": "pnpm bundle && bob-esbuild build",
     "postpublish": "gh-release"
   },
+  "dependencies": {
+    "@graphql-ez/utils": "workspace:^0.1.2",
+    "filedirname": "2.7.0"
+  },
   "devDependencies": {
     "@graphiql/toolkit": "^0.2.2",
     "@graphql-tools/url-loader": "7.0.12",
@@ -66,5 +70,21 @@
   },
   "publishConfig": {
     "directory": "dist"
+  },
+  "buildConfig": {
+    "copy": [
+      "bundle"
+    ]
+  },
+  "typesVersions": {
+    "*": {
+      "dist/index.d.ts": [
+        "dist/index.d.ts"
+      ],
+      "*": [
+        "dist/*",
+        "dist/*/index.d.ts"
+      ]
+    }
   }
 }

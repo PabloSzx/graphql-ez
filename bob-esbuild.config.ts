@@ -13,18 +13,18 @@ export const config: import('bob-esbuild').BobConfig = {
   },
   esbuildPluginOptions: isHelixGraphiql
     ? {
-        define: {
-          __GRAPHIQL_JS__: JSON.stringify(
-            readFileSync(resolve(__dirname, './packages/helix/graphiql/bundle/graphiql.min.js'), {
+        define: (() => {
+          const packageJson = JSON.parse(
+            readFileSync(resolve(process.cwd(), './package.json'), {
               encoding: 'utf-8',
             })
-          ),
-          __GRAPHIQL_CSS__: JSON.stringify(
-            readFileSync(resolve(__dirname, './packages/helix/graphiql/bundle/graphiql.css'), {
-              encoding: 'utf-8',
-            })
-          ).replace('</script>', '<\\/script>'),
-        },
+          );
+
+          return {
+            __GRAPHIQL_PKG_NAME__: JSON.stringify(packageJson.name),
+            __GRAPHIQL_PKG_VERSION__: JSON.stringify(packageJson.version),
+          };
+        })(),
       }
     : undefined,
 };
