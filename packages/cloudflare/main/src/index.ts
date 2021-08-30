@@ -21,8 +21,21 @@ import type { ServerRequest } from 'worktop/request';
 import type { ServerResponse } from 'worktop/response';
 
 export interface WorktopAppOptions extends AppOptions {
+  /**
+   * Specify main API path
+   *
+   * @default "/graphql"
+   */
+  path?: string;
+
+  /**
+   * Customize some Helix processRequest options
+   */
   processRequestOptions?: (req: ServerRequest, res: ServerResponse) => ProcessRequestOptions;
 
+  /**
+   * Enable or configure CORS
+   */
   cors?: CorsConfig | boolean;
 }
 

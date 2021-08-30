@@ -35,6 +35,11 @@ declare module 'graphql-ez' {
 }
 
 export interface ExpressAppOptions extends AppOptions {
+  /**
+   * Specify main API path
+   *
+   * @default "/graphql"
+   */
   path?: string;
 
   /**
