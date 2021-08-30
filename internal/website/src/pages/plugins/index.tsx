@@ -1,3 +1,4 @@
+import { ClassNames } from '@emotion/react';
 import { handlePushRoute, MDX, PackageInstall, RemoteGHMarkdown } from '@guild-docs/client';
 import { buildMultipleMDX, CompiledMDX } from '@guild-docs/server';
 import { getPackagesData, PackageWithStats } from '@guild-docs/server/npm';
@@ -136,32 +137,93 @@ export default function Marketplace({ data }: MarketplaceProps) {
         <title>Plugin Hub - GraphQL EZ</title>
       </Head>
 
-      <MarketplaceSearch
-        title="Explore Plugin Hub"
-        placeholder="Find plugins..."
-        tagsFilter={tagsListString}
-        wrapperProps={{
-          className: 'patch-image-margin',
+      <ClassNames>
+        {({ css }) => {
+          const patchTags = css`
+            span > div {
+              display: flex;
+              flex-wrap: wrap;
+              width: min(20em, 50vw);
+            }
+            span > div > * {
+              margin: 1px;
+            }
+          `;
+
+          const patchTagsResult = css`
+            span > div {
+              display: flex;
+              flex-wrap: wrap;
+              width: min(30em, 50vw);
+            }
+            span > div > * {
+              margin: 1px;
+            }
+          `;
+          return (
+            <MarketplaceSearch
+              title="Explore Plugin Hub"
+              placeholder="Find plugins..."
+              tagsFilter={tagsListString}
+              wrapperProps={{
+                className: css`
+                  td:first-child {
+                    width: 60px !important;
+                  }
+                `,
+              }}
+              containerProps={{
+                className: css`
+                  > div:first-of-type {
+                    display: flex;
+                    width: min(30em, 100vw);
+                    flex-wrap: wrap;
+                  }
+                  > div:first-of-type > div {
+                    margin: 1px;
+                  }
+                `,
+              }}
+              primaryList={{
+                title: 'Trending',
+                items: trendingItems,
+                placeholder: '0 items',
+                pagination: 12,
+                itemProps: {
+                  linkProps: {
+                    className: patchTags,
+                  },
+                },
+              }}
+              secondaryList={{
+                title: 'Recently Updated',
+                items: recentlyUpdatedItems,
+                placeholder: '0 items',
+                pagination: 12,
+                itemProps: {
+                  linkProps: {
+                    className: patchTags,
+                  },
+                },
+              }}
+              queryListProps={{
+                //@ts-expect-error
+                itemProps: {
+                  linkProps: {
+                    className: patchTagsResult,
+                  },
+                },
+              }}
+              queryList={{
+                title: 'Search Results',
+                items: marketplaceItems,
+                placeholder: 'No results for {query}',
+                pagination: 12,
+              }}
+            />
+          );
         }}
-        primaryList={{
-          title: 'Trending',
-          items: trendingItems,
-          placeholder: '0 items',
-          pagination: 12,
-        }}
-        secondaryList={{
-          title: 'Recently Updated',
-          items: recentlyUpdatedItems,
-          placeholder: '0 items',
-          pagination: 12,
-        }}
-        queryList={{
-          title: 'Search Results',
-          items: marketplaceItems,
-          placeholder: 'No results for {query}',
-          pagination: 12,
-        }}
-      />
+      </ClassNames>
     </>
   );
 }
