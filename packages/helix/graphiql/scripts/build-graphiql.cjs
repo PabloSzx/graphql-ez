@@ -15,8 +15,8 @@ const safeSerialize = (value: any) => {
 
 export * from "./types";
 
-declare const __GRAPHIQL_JS__: string;
-declare const __GRAPHIQL_CSS__: string;
+declare const __GRAPHIQL_PKG_VERSION__: string;
+declare const __GRAPHIQL_PKG_NAME__: string;
 
 export const renderGraphiQL = (options: RenderGraphiQLOptions = {}): string => {
   const {
@@ -31,8 +31,9 @@ export const renderGraphiQL = (options: RenderGraphiQLOptions = {}): string => {
     hybridSubscriptionTransportConfig,
   } = options;
   const nonceAttribute = nonce ? \`nonce="\${nonce}"\` : "";
-  const css = __GRAPHIQL_CSS__;
-  const javascript = __GRAPHIQL_JS__;
+
+  const name = __GRAPHIQL_PKG_NAME__;
+  const version = __GRAPHIQL_PKG_VERSION__;
 
   return \`
 <!DOCTYPE html>
@@ -55,11 +56,12 @@ export const renderGraphiQL = (options: RenderGraphiQLOptions = {}): string => {
         margin: 0;
       }
     </style>
-    <style \${nonceAttribute}>\${css}</style>
+    <link rel="stylesheet" href="https://unpkg.com/\${name}@\${version}/bundle/graphiql.css" \${nonceAttribute}>
   </head>
   <body>
-    <script \${nonceAttribute}>\${javascript}</script>
-    <script \${nonceAttribute}>
+    <script type="module" \${nonceAttribute}>
+      await import("https://unpkg.com/\${name}@\${version}/bundle/graphiql.min.js");
+
       GraphQLHelixGraphiQL.init({
         defaultQuery: \${safeSerialize(defaultQuery)},
         defaultVariableEditorOpen: \${safeSerialize(defaultVariableEditorOpen)},
