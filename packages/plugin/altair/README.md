@@ -161,3 +161,23 @@ export default UnpkgAltairHandler({
   endpointURL: '/api/graphql',
 });
 ```
+
+### Cloudflare Workers Usage
+
+For Cloudflare Workers you can only use the Unpkg version, and make sure to import it via `'@graphql-ez/plugin-altair/unpkg'`:
+
+```ts
+import { ezUnpkgAltairIDE } from '@graphql-ez/plugin-altair/unpkg';
+
+const ezApp = CreateApp({
+  ez: {
+    plugins: [
+      ezUnpkgAltairIDE({
+        // Options
+      }),
+      // ...
+    ],
+  },
+  // ...
+});
+```

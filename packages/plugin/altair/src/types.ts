@@ -16,10 +16,12 @@ export type AltairRender = (options: {
   url: string | undefined;
   altairPath: string;
   renderOptions: RenderOptions;
+  raw?: boolean;
 }) => Promise<{
   status: number;
   contentType?: string;
   content?: string | Buffer;
+  rawContent?: ArrayBuffer;
 }>;
 
 declare module 'graphql-ez' {

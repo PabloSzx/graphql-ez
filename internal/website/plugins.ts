@@ -46,6 +46,7 @@ export const pluginsList: Package<Tags>[] = [
       http: 1,
       nextjs: 1,
       sveltekit: 1,
+      cloudflare: 1,
     }),
     title: 'Altair GraphQL Client IDE',
     iconUrl: '/assets/logos/altair.png',

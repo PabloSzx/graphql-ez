@@ -1,6 +1,6 @@
 import { withoutTrailingSlash, withTrailingSlash } from '@graphql-ez/utils/url';
 import type { AltairConfigOptions, RenderOptions } from 'altair-static-slim';
-import fetch from 'cross-fetch';
+import crossFetch from 'cross-fetch';
 import type { AltairRender } from '../types';
 
 export const altairUnpkgDist = 'https://unpkg.com/altair-static@4.0.9/build/dist/';
@@ -49,12 +49,14 @@ export const renderInitialOptions = (options: RenderOptions = {}) => {
       `;
 };
 
+const fetchFn = typeof fetch !== 'undefined' ? fetch : crossFetch;
+
 /**
  * Render Altair as a string using the provided renderOptions
  * @param renderOptions
  */
 export const renderAltair = async (options: RenderOptions = {}) => {
-  const altairHtml = await (await fetch(altairUnpkgDist + 'index.html')).text();
+  const altairHtml = await (await fetchFn(altairUnpkgDist + 'index.html')).text();
 
   const initialOptions = renderInitialOptions(options);
   const baseURL = options.baseURL || './';
@@ -69,16 +71,7 @@ export const renderAltair = async (options: RenderOptions = {}) => {
   }
 };
 
-export const UnpkgRender: AltairRender = async ({
-  baseURL,
-  url,
-  altairPath,
-  renderOptions,
-}): Promise<{
-  status: number;
-  contentType?: string;
-  content?: string | Buffer;
-}> => {
+export const UnpkgRender: AltairRender = async ({ baseURL, url, altairPath, renderOptions, raw }) => {
   switch (url && withoutTrailingSlash(url)) {
     case withoutTrailingSlash(altairPath):
     case withoutTrailingSlash(baseURL):
@@ -92,7 +85,7 @@ export const UnpkgRender: AltairRender = async ({
 
       const resolvedPath = altairUnpkgDist + url.slice(baseURL.length);
 
-      const fetchResult = await fetch(resolvedPath).catch(() => null);
+      const fetchResult = await fetchFn(resolvedPath).catch(() => null);
 
       if (!fetchResult) return { status: 404 };
 
@@ -102,12 +95,13 @@ export const UnpkgRender: AltairRender = async ({
 
       if (!contentType || !result) return { status: 404 };
 
-      const content = Buffer.from(result);
+      const content = raw ? undefined : Buffer.from(result);
 
       return {
         status: 200,
         contentType,
         content,
+        rawContent: raw ? result : undefined,
       };
   }
 };

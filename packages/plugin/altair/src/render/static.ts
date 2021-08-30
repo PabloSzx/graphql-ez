@@ -21,16 +21,7 @@ const AltairDeps = LazyPromise(async () => {
   };
 });
 
-export const StaticRender: AltairRender = async ({
-  baseURL,
-  url,
-  altairPath,
-  renderOptions,
-}): Promise<{
-  status: number;
-  contentType?: string;
-  content?: string | Buffer;
-}> => {
+export const StaticRender: AltairRender = async ({ baseURL, url, altairPath, renderOptions }) => {
   const { renderAltair, getDistDirectory, resolve, readFile, lookup } = await AltairDeps;
 
   switch (url && withoutTrailingSlash(url)) {

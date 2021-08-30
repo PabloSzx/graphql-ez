@@ -54,5 +54,16 @@
   },
   "publishConfig": {
     "directory": "dist"
+  },
+  "typesVersions": {
+    "*": {
+      "dist/index.d.ts": [
+        "dist/index.d.ts"
+      ],
+      "*": [
+        "dist/*",
+        "dist/*/index.d.ts"
+      ]
+    }
   }
 }
