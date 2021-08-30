@@ -27,10 +27,10 @@
     "dist"
   ],
   "scripts": {
-    "after:webpack": "cpy browser/css/graphiql.css bundle/ && node scripts/build-graphiql.cjs && bob-esbuild build",
+    "after:webpack": "cpy browser/css/graphiql.css bundle/ && node scripts/build-graphiql.cjs && cpy bundle/ src/bundle/ && bob-esbuild build",
     "build": "pnpm bundle && bob-esbuild build",
     "bundle": "webpack -c browser/webpack.config.js",
-    "prepack": "bob-esbuild build",
+    "prepack": "bob-esbuild build && cpy bundle/ src/bundle/",
     "prepublishOnly": "pnpm bundle && bob-esbuild build",
     "postpublish": "gh-release"
   },
