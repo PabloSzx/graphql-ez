@@ -35,7 +35,7 @@ export interface EZApp {
 }
 
 export interface SvelteKitContextArgs<Locals = Record<string, any>, Body = unknown> extends BuildContextArgs {
-  sveltekit?: {
+  sveltekit: {
     req: ServerRequest<Locals, Body>;
     responseHeaders: ResponseHeaders;
   };
@@ -59,6 +59,11 @@ export interface SvelteKitHandlerContext {
 }
 
 export interface SvelteKitAppOptions extends AppOptions {
+  /**
+   * Build Context
+   */
+  buildContext?: (args: any) => Record<string, unknown> | Promise<Record<string, unknown>>;
+
   /**
    * Customize some Helix processRequest options
    */
