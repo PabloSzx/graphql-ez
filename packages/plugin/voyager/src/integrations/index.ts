@@ -44,4 +44,10 @@ export const onIntegrationRegister: NonNullable<EZPlugin['onIntegrationRegister'
 
     return handleSvelteKit(ctx, integrationCtx.sveltekit);
   }
+
+  if (integrationCtx.cloudflare) {
+    const { handleCloudflare } = await import('./cloudflare');
+
+    return handleCloudflare(ctx, integrationCtx.cloudflare);
+  }
 };

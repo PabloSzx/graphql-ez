@@ -82,7 +82,7 @@ export function VoyagerHandler(options?: VoyagerOptions, extraConfig?: HandlerCo
 export const ezVoyager = (options: VoyagerPluginOptions | boolean = true): EZPlugin => {
   return {
     name: 'GraphQL Voyager',
-    compatibilityList: ['fastify', 'koa', 'express', 'hapi', 'http', 'nextjs', 'sveltekit'],
+    compatibilityList: ['fastify', 'koa', 'express', 'hapi', 'http', 'nextjs', 'sveltekit', 'cloudflare'],
     onRegister(ctx) {
       if (!options) return;
 

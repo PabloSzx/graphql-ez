@@ -132,6 +132,7 @@ Integration of Websockets using [graphql-ws](https://github.com/enisdenjo/graphq
       http: 1,
       nextjs: 1,
       sveltekit: 1,
+      cloudflare: 1,
     }),
     title: 'GraphQL Voyager',
     iconUrl: '/assets/logos/voyager.png',

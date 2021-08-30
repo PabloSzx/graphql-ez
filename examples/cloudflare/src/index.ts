@@ -1,7 +1,8 @@
 import { BuildContextArgs, CreateApp, InferContext } from '@graphql-ez/cloudflare';
+import { ezUnpkgAltairIDE } from '@graphql-ez/plugin-altair/unpkg';
 import { ezGraphiQLIDE } from '@graphql-ez/plugin-graphiql';
 import { ezSchema, gql } from '@graphql-ez/plugin-schema';
-import { ezUnpkgAltairIDE } from '@graphql-ez/plugin-altair/unpkg';
+import { ezVoyager } from '@graphql-ez/plugin-voyager';
 import { listen } from 'worktop/cache';
 
 function buildContext({ req, cloudflare }: BuildContextArgs) {
@@ -42,6 +43,7 @@ const { buildApp } = CreateApp({
       }),
       ezGraphiQLIDE(),
       ezUnpkgAltairIDE(),
+      ezVoyager(),
     ],
   },
   buildContext,
