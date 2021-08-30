@@ -15,7 +15,7 @@ import {
 } from 'graphql-ez';
 import type { InternalAppBuildIntegrationContext } from 'graphql-yoga';
 import type { IncomingMessage } from 'http';
-import { Handler, Router } from 'worktop';
+import { Handler, Router, compose } from 'worktop';
 import { Config as CorsConfig, preflight } from 'worktop/cors';
 import type { ServerRequest } from 'worktop/request';
 import type { ServerResponse } from 'worktop/response';
@@ -46,6 +46,7 @@ declare module 'graphql-ez' {
   interface InternalAppBuildIntegrationContext {
     cloudflare?: {
       router: Router;
+      preHandlers: Handler[];
     };
   }
 }
@@ -56,6 +57,8 @@ export interface EZAppBuilder extends BaseAppBuilder {
 
 export function CreateApp(config: WorktopAppOptions = {}): EZAppBuilder {
   const appConfig = { ...config };
+
+  const path = (appConfig.path ||= '/graphql');
 
   let ezApp: EZAppFactoryType;
 
@@ -80,11 +83,14 @@ export function CreateApp(config: WorktopAppOptions = {}): EZAppBuilder {
 
     let ezHandler: Handler | undefined;
 
+    const preHandlers: Handler[] = [];
+
     const appPromise = Promise.allSettled([
       appBuilder(buildOptions, async ({ ctx, getEnveloped }) => {
         const integration: InternalAppBuildIntegrationContext = {
           cloudflare: {
             router,
+            preHandlers,
           },
         };
 
@@ -169,7 +175,7 @@ export function CreateApp(config: WorktopAppOptions = {}): EZAppBuilder {
           });
         };
 
-        return (ezHandler = handler);
+        return (ezHandler = compose(...preHandlers, handler));
       }),
     ]).then(v => v[0]);
 
@@ -187,9 +193,9 @@ export function CreateApp(config: WorktopAppOptions = {}): EZAppBuilder {
       )(req, res);
     };
 
-    router.add('GET', '/graphql', routerHandler);
+    router.add('GET', path, routerHandler);
 
-    router.add('POST', '/graphql', routerHandler);
+    router.add('POST', path, routerHandler);
 
     return {
       router,
