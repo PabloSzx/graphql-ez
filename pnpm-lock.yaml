@@ -677,6 +677,7 @@ importers:
   examples/sveltekit:
     specifiers:
       '@graphql-ez/plugin-altair': workspace:^0.6.0
+      '@graphql-ez/plugin-codegen': workspace:^0.7.0
       '@graphql-ez/plugin-graphiql': workspace:^0.8.0
       '@graphql-ez/plugin-schema': workspace:^0.7.1
       '@graphql-ez/plugin-voyager': workspace:^0.6.0
@@ -694,6 +695,7 @@ importers:
       typescript: ^4.4.2
     dependencies:
       '@graphql-ez/plugin-altair': link:../../packages/plugin/altair
+      '@graphql-ez/plugin-codegen': link:../../packages/plugin/codegen
       '@graphql-ez/plugin-graphiql': link:../../packages/plugin/graphiql
       '@graphql-ez/plugin-schema': link:../../packages/plugin/schema
       '@graphql-ez/plugin-voyager': link:../../packages/plugin/voyager
