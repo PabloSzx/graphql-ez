@@ -2,6 +2,7 @@
   "name": "example-sveltekit-playground",
   "version": "0.0.1",
   "type": "module",
+  "private": true,
   "scripts": {
     "build": "svelte-kit build",
     "check": "svelte-check --tsconfig ./tsconfig.json",
@@ -17,6 +18,7 @@
     "@graphql-ez/sveltekit": "workspace:^0.1.0",
     "@graphql-tools/schema": "^8.1.2",
     "@sveltejs/adapter-node": "^1.0.0-next.43",
+    "altair-static-slim": "4.0.9",
     "graphql": "15.4.0-experimental-stream-defer.1",
     "graphql-ez": "workspace:^0.12.5"
   },

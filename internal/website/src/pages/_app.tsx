@@ -22,6 +22,7 @@ ExtendComponents({
   }),
   LinkBox,
   LinkOverlay,
+  img: chakra.img,
 });
 
 const styles: typeof chakraTheme['styles'] = {
