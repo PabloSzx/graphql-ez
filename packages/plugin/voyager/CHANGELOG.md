@@ -1,5 +1,11 @@
 # @graphql-ez/plugin-voyager
 
+## 0.7.0
+
+### Minor Changes
+
+- 990037d: add support for Cloudflare Workers
+
 ## 0.6.0
 
 ### Minor Changes
