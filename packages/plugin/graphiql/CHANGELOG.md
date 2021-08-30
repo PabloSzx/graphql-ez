@@ -1,5 +1,23 @@
 # @graphql-ez/plugin-graphiql
 
+## 0.8.0
+
+### Minor Changes
+
+- a4973f0: graphiql now by default serves an unpkg version of bundle, and static version is available in scoped module "/static"
+- 3a72763: add new "ezStaticGraphiQLIDE" that serves the bundle from node_modules instead of using `unpkg`
+- 7828f5e: support new SvelteKit integration
+
+### Patch Changes
+
+- 7828f5e: fix detect share graphiql url
+- 7828f5e: fix http pathname compare
+- Updated dependencies [2d23436]
+- Updated dependencies [a4973f0]
+- Updated dependencies [7828f5e]
+  - graphql-ez@0.12.6
+  - @pablosz/graphql-helix-graphiql@4.0.0
+
 ## 0.7.1
 
 ### Patch Changes

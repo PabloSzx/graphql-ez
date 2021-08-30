@@ -1,5 +1,17 @@
 # @graphql-ez/plugin-voyager
 
+## 0.6.0
+
+### Minor Changes
+
+- 7828f5e: Add support for SvelteKit
+
+### Patch Changes
+
+- Updated dependencies [2d23436]
+- Updated dependencies [7828f5e]
+  - graphql-ez@0.12.6
+
 ## 0.5.1
 
 ### Patch Changes
