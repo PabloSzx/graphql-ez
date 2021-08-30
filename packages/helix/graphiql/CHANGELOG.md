@@ -1,5 +1,11 @@
 # @pablosz/graphql-helix-graphiql
 
+## 4.0.1
+
+### Patch Changes
+
+- f896476: hotfix build
+
 ## 4.0.0
 
 ### Major Changes
