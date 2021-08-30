@@ -22,6 +22,7 @@ export type {} from 'graphql-ws';
 export type {} from 'subscriptions-transport-ws-envelop';
 export type {} from 'undici/types/dispatcher';
 export * from './common';
+export * from './request';
 export * from './schema';
 export * from './testQueryStream';
 export * from './testServerSideEvents';
