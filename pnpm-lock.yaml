@@ -1762,7 +1762,7 @@ importers:
       '@types/node': ^16.7.6
       altair-static-slim: 4.0.9
       bob-esbuild-cli: ^1.0.1
-      changesets-github-release: ^0.0.3
+      changesets-github-release: ^0.0.4
       execa: ^5.1.1
       get-port: ^5.1.1
       graphql: 15.4.0-experimental-stream-defer.1
@@ -1790,7 +1790,7 @@ importers:
       '@types/node': 16.7.6
       altair-static-slim: 4.0.9
       bob-esbuild-cli: 1.0.1_bob-esbuild@1.2.3
-      changesets-github-release: 0.0.3
+      changesets-github-release: 0.0.4
       execa: 5.1.1
       get-port: 5.1.1
       graphql: 15.4.0-experimental-stream-defer.1
@@ -7001,16 +7001,6 @@ packages:
       snake-case: 3.0.4
       tslib: 2.3.1
     dev: false
-
-  /changesets-github-release/0.0.3:
-    resolution: {integrity: sha512-72TfuA4aN3IL+kSEcSYKkvJA/6zswV+7sAj8eMrV/4x2sh/Ujxhr+zlhw/7dZsQgGLAKmRJwhmDhYe1iCj3x4w==}
-    hasBin: true
-    dependencies:
-      '@babel/runtime': 7.15.3
-      commander: 7.2.0
-      dotenv: 9.0.2
-      github-release-cli: 2.0.0
-    dev: true
 
   /changesets-github-release/0.0.4:
     resolution: {integrity: sha512-wddC8bZRK1JE2m33SA1sME2Jlw+mDd85nq7Ggl7IeMfXZPzHoLvR01ePxnzrb6/ALuYIEzOm7kcV8v6kV6e29g==}
