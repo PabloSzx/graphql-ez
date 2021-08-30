@@ -1,6 +1,7 @@
-import { listen } from 'worktop/cache';
-import { CreateApp, InferContext, BuildContextArgs } from '@graphql-ez/cloudflare';
+import { BuildContextArgs, CreateApp, InferContext } from '@graphql-ez/cloudflare';
+import { ezGraphiQLIDE } from '@graphql-ez/plugin-graphiql';
 import { ezSchema, gql } from '@graphql-ez/plugin-schema';
+import { listen } from 'worktop/cache';
 
 function buildContext({ req, cloudflare }: BuildContextArgs) {
   // IncomingMessage-like
@@ -38,6 +39,7 @@ const { buildApp } = CreateApp({
           },
         },
       }),
+      ezGraphiQLIDE(),
     ],
   },
   buildContext,

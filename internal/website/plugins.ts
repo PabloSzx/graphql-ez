@@ -97,6 +97,7 @@ Integration of Websockets using [graphql-ws](https://github.com/enisdenjo/graphq
       koa: 1,
       nextjs: 1,
       sveltekit: 1,
+      cloudflare: 1,
     }),
     title: 'GraphiQL IDE',
     iconUrl: '/assets/logos/graphql.png',

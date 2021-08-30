@@ -329,7 +329,9 @@ importers:
   examples/cloudflare:
     specifiers:
       '@graphql-ez/cloudflare': workspace:*
+      '@graphql-ez/plugin-graphiql': workspace:^0.8.0
       '@graphql-ez/plugin-schema': workspace:^0.7.1
+      '@pablosz/graphql-helix-graphiql': workspace:^4.0.0
       '@types/node': ^16.7.6
       clipboardy: ^2.3.0
       concurrently: ^6.2.1
@@ -341,7 +343,9 @@ importers:
       worktop: ^0.7.1
     dependencies:
       '@graphql-ez/cloudflare': link:../../packages/cloudflare/main
+      '@graphql-ez/plugin-graphiql': link:../../packages/plugin/graphiql
       '@graphql-ez/plugin-schema': link:../../packages/plugin/schema
+      '@pablosz/graphql-helix-graphiql': link:../../packages/helix/graphiql
       graphql: 15.4.0-experimental-stream-defer.1
       graphql-ez: link:../../packages/core/main
       worktop: 0.7.1
