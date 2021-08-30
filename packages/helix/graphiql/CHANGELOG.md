@@ -1,5 +1,15 @@
 # @pablosz/graphql-helix-graphiql
 
+## 4.0.0
+
+### Major Changes
+
+- a4973f0: graphiql now by default serves an unpkg version of bundle, and static version is available in scoped module "/static"
+
+### Patch Changes
+
+- 7828f5e: fix detect share graphiql url
+
 ## 3.0.0
 
 ### Major Changes

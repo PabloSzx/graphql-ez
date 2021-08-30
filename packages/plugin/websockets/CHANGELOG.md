@@ -1,5 +1,14 @@
 # @graphql-ez/plugin-websockets
 
+## 0.9.3
+
+### Patch Changes
+
+- 2d23436: include context args in EZContext itself
+- Updated dependencies [2d23436]
+- Updated dependencies [7828f5e]
+  - graphql-ez@0.12.6
+
 ## 0.9.2
 
 ### Patch Changes

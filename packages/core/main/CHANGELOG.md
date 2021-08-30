@@ -1,5 +1,12 @@
 # graphql-ez
 
+## 0.12.6
+
+### Patch Changes
+
+- 2d23436: include context args in EZContext itself
+- 7828f5e: fix detect share graphiql url
+
 ## 0.12.5
 
 ### Patch Changes

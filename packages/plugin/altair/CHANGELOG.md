@@ -1,5 +1,18 @@
 # @graphql-ez/plugin-altair
 
+## 0.6.0
+
+### Minor Changes
+
+- 7828f5e: Add support for SvelteKit
+- 7828f5e: simplify Render logic with "/render/static" and "/render/unpkg"
+
+### Patch Changes
+
+- Updated dependencies [2d23436]
+- Updated dependencies [7828f5e]
+  - graphql-ez@0.12.6
+
 ## 0.5.2
 
 ### Patch Changes
