@@ -6,9 +6,6 @@ const safeSerialize = (value: any) => {
 
 export * from './types';
 
-declare const __GRAPHIQL_JS__: string;
-declare const __GRAPHIQL_CSS__: string;
-
 export const renderGraphiQL = (options: RenderGraphiQLOptions = {}): string => {
   const {
     defaultQuery,
@@ -22,8 +19,6 @@ export const renderGraphiQL = (options: RenderGraphiQLOptions = {}): string => {
     hybridSubscriptionTransportConfig,
   } = options;
   const nonceAttribute = nonce ? `nonce="${nonce}"` : '';
-  const css = __GRAPHIQL_CSS__;
-  const javascript = __GRAPHIQL_JS__;
 
   return `
 <!DOCTYPE html>
@@ -46,11 +41,12 @@ export const renderGraphiQL = (options: RenderGraphiQLOptions = {}): string => {
         margin: 0;
       }
     </style>
-    <style ${nonceAttribute}>${css}</style>
+    <link rel="stylesheet" href="https://unpkg.com/@pablosz/graphql-helix-graphiql-test@3.0.0/bundle/graphiql.css">
   </head>
   <body>
-    <script ${nonceAttribute}>${javascript}</script>
-    <script ${nonceAttribute}>
+    <script type="module" ${nonceAttribute}>
+      await import("https://unpkg.com/@pablosz/graphql-helix-graphiql-test@3.0.0/bundle/graphiql.min.js");
+
       GraphQLHelixGraphiQL.init({
         defaultQuery: ${safeSerialize(defaultQuery)},
         defaultVariableEditorOpen: ${safeSerialize(defaultVariableEditorOpen)},
