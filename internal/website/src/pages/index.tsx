@@ -4,7 +4,16 @@ import { handlePushRoute } from '@guild-docs/client';
 import { HeroGradient, InfoList } from '@theguild/components';
 import Router from 'next/router';
 import { ReactNode, useEffect } from 'react';
-import { CloudflareWorkersLogo, ExpressLogo, FastifyLogo, HapiLogo, KoaLogo, NextjsLogo, NodeLogo } from '../components/logos';
+import {
+  CloudflareWorkersLogo,
+  ExpressLogo,
+  FastifyLogo,
+  HapiLogo,
+  KoaLogo,
+  NextjsLogo,
+  NodeLogo,
+  SvelteKitLogo,
+} from '../components/logos';
 import { NPMBadge } from '../components/NPMBadge';
 
 function ItemDescription({ description, packageName }: { description: string; packageName: string }) {
@@ -122,7 +131,7 @@ export default function Index() {
                 }
 
                 div {
-                  justify-content: space-between;
+                  justify-content: space-around;
                 }
 
                 a {
@@ -241,6 +250,24 @@ export default function Index() {
                   title: 'Cloudflare Docs',
                   children: 'Docs',
                   onClick: e => handlePushRoute('/docs/integrations/cloudflare', e),
+                },
+              },
+              {
+                title: (
+                  <IntegrationItemTitle
+                    name="SvelteKit"
+                    integrationWebsite="hhttps://kit.svelte.dev/"
+                    logo={<SvelteKitLogo height="80px" />}
+                  />
+                ),
+                description: (
+                  <ItemDescription description="The fastest way to build Svelte apps." packageName="@graphql-ez/sveltekit" />
+                ),
+                link: {
+                  href: '/docs/integrations/sveltekit',
+                  title: 'SvelteKit Docs',
+                  children: 'Docs',
+                  onClick: e => handlePushRoute('/docs/integrations/sveltekit', e),
                 },
               },
             ]}

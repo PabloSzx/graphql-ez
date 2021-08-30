@@ -9,23 +9,18 @@ export interface AltairOptions extends RenderOptions {
   path?: string;
 }
 
-export type IDEHandler = (
-  req: IncomingMessage,
-  res: ServerResponse
-) => Promise<
-  | {
-      content: Buffer | string;
-      contentType: string;
-    }
-  | undefined
->;
+export type IDEHandler = (req: IncomingMessage, res: ServerResponse) => Promise<void>;
 
-export interface HandlerConfig {
-  /**
-   * @default true
-   */
-  rawHttp?: boolean;
-}
+export type AltairRender = (options: {
+  baseURL: string;
+  url: string | undefined;
+  altairPath: string;
+  renderOptions: RenderOptions;
+}) => Promise<{
+  status: number;
+  contentType?: string;
+  content?: string | Buffer;
+}>;
 
 declare module 'graphql-ez' {
   interface IDEOptions {
@@ -34,7 +29,8 @@ declare module 'graphql-ez' {
 
   interface InternalAppBuildContext {
     altair?: {
-      handler: (options: PickRequired<AltairOptions, 'path'>, extraConfig?: HandlerConfig) => IDEHandler;
+      handler: (options: PickRequired<AltairOptions, 'path'>) => IDEHandler;
+      render: Promise<AltairRender>;
       options: AltairOptions;
       path: string;
       baseURL: string;

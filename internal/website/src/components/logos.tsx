@@ -10,6 +10,7 @@ import NextjsLogoImage from '../../public/assets/logos/nextjs.png';
 import NodeLogoImage from '../../public/assets/logos/nodejs.png';
 import CloudflareWorkersLogoImage from '../../public/assets/logos/cloudflare-workers.webp';
 import WorktopLogoImage from '../../public/assets/logos/worktop.png';
+import SvelteKitLogoImage from '../../public/assets/logos/sveltekit.webp';
 
 export type LogoImageProps = Partial<Omit<ImageProps, 'src' | 'blurDataURL'>>;
 
@@ -52,6 +53,9 @@ export const CloudflareWorkersLogo = (props: LogoImageProps) => {
 export const WorktopLogo = (props: LogoImageProps) => {
   return <Image src={WorktopLogoImage} {...baseLogoStyles} {...props} />;
 };
+export const SvelteKitLogo = (props: LogoImageProps) => {
+  return <Image src={SvelteKitLogoImage} {...baseLogoStyles} {...props} />;
+};
 
 ExtendComponents({
   ExpressLogo,
@@ -62,4 +66,5 @@ ExtendComponents({
   NodeLogo,
   CloudflareWorkersLogo,
   WorktopLogo,
+  SvelteKitLogo,
 });

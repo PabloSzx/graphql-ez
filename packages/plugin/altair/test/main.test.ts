@@ -14,7 +14,7 @@ import { ezAltairIDE, ezUnpkgAltairIDE, UnpkgAltairHandler } from '../src';
 
 afterAll(GlobalTeardown);
 
-test.concurrent('fastify', async () => {
+test('fastify', async () => {
   const { request } = await startFastifyServer({
     createOptions: {
       schema: [CommonSchema],
@@ -60,7 +60,7 @@ test.concurrent('fastify', async () => {
   );
 });
 
-test.concurrent('express', async () => {
+test('express', async () => {
   const { request } = await startExpressServer({
     createOptions: {
       schema: [CommonSchema],
@@ -106,7 +106,7 @@ test.concurrent('express', async () => {
   );
 });
 
-test.concurrent('http', async () => {
+test('http', async () => {
   const { request } = await startHTTPServer({
     createOptions: {
       schema: [CommonSchema],
@@ -152,7 +152,7 @@ test.concurrent('http', async () => {
   );
 });
 
-test.concurrent('hapi', async () => {
+test('hapi', async () => {
   const { request } = await startHapiServer({
     createOptions: {
       schema: [CommonSchema],
@@ -198,7 +198,7 @@ test.concurrent('hapi', async () => {
   );
 });
 
-test.concurrent('koa', async () => {
+test('koa', async () => {
   const { request } = await startKoaServer({
     createOptions: {
       schema: [CommonSchema],
@@ -244,7 +244,7 @@ test.concurrent('koa', async () => {
   );
 });
 
-test.concurrent('nextjs', async () => {
+test('nextjs', async () => {
   const warnCalled = createDeferredPromise<unknown>(5000);
 
   const prevWarn = console.warn;

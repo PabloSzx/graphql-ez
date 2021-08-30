@@ -1,0 +1,70 @@
+{
+  "name": "@graphql-ez/sveltekit",
+  "version": "0.1.0",
+  "homepage": "https://www.graphql-ez.com",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/PabloSzx/graphql-ez",
+    "directory": "packages/sveltekit"
+  },
+  "license": "MIT",
+  "author": "PabloSz <pablosaez1995@gmail.com>",
+  "exports": {
+    ".": {
+      "require": "./dist/index.js",
+      "import": "./dist/index.mjs"
+    },
+    "./*": {
+      "require": "./dist/*.js",
+      "import": "./dist/*.mjs"
+    }
+  },
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "dev": "bob-esbuild watch",
+    "prepack": "bob-esbuild build",
+    "postpublish": "gh-release",
+    "test": "jest"
+  },
+  "dependencies": {
+    "@graphql-ez/utils": "workspace:^0.1.2"
+  },
+  "devDependencies": {
+    "@envelop/core": "^1.0.3",
+    "@envelop/disable-introspection": "^1.0.0",
+    "@envelop/parser-cache": "^1.0.0",
+    "@envelop/validation-cache": "^1.0.0",
+    "@graphql-ez/plugin-altair": "workspace:^0.5.2",
+    "@graphql-ez/plugin-graphiql": "workspace:^0.7.1",
+    "@graphql-ez/plugin-schema": "workspace:^0.7.1",
+    "@graphql-ez/plugin-voyager": "workspace:^0.5.1",
+    "@graphql-tools/schema": "^8.1.2",
+    "@sveltejs/adapter-node": "^1.0.0-next.43",
+    "@sveltejs/kit": "^1.0.0-next.159",
+    "@types/node": "^16.7.6",
+    "altair-static-slim": "4.0.9",
+    "bob-esbuild-cli": "^1.0.1",
+    "changesets-github-release": "^0.0.3",
+    "execa": "^5.1.1",
+    "get-port": "^5.1.1",
+    "graphql": "15.4.0-experimental-stream-defer.1",
+    "graphql-ez": "workspace:^0.12.5",
+    "jest": "^27.1.0",
+    "svelte": "^3.42.4",
+    "svelte-check": "^2.2.5",
+    "svelte-preprocess": "^4.8.0",
+    "tslib": "^2.3.1",
+    "wait-on": "^6.0.0"
+  },
+  "peerDependencies": {
+    "@sveltejs/kit": "^1.0.0-next.156",
+    "@types/node": "*",
+    "graphql": "*",
+    "graphql-ez": "workspace:^0.12.3"
+  },
+  "publishConfig": {
+    "directory": "dist"
+  }
+}
