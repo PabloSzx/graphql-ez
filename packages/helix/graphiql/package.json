@@ -1,5 +1,5 @@
 {
-  "name": "@pablosz/graphql-helix-graphiql",
+  "name": "@pablosz/graphql-helix-graphiql-test",
   "version": "3.0.0",
   "description": "A highly evolved GraphQL HTTP Server 🧬",
   "repository": {
@@ -64,7 +64,13 @@
     "webpack": "5.51.1",
     "webpack-cli": "4.8.0"
   },
+  "buildConfig": {
+    "copy": [
+      "bundle"
+    ]
+  },
   "publishConfig": {
-    "directory": "dist"
+    "directory": "dist",
+    "access": "public"
   }
 }
