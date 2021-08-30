@@ -5,7 +5,7 @@ import { ezAltairIDE } from '@graphql-ez/plugin-altair';
 import { ezVoyager } from '@graphql-ez/plugin-voyager';
 
 const buildContext = ({ sveltekit }: SvelteKitContextArgs<{ asd: string }, {}>) => {
-  sveltekit?.req.locals.asd;
+  sveltekit.req.locals.asd;
 
   return {};
 };
