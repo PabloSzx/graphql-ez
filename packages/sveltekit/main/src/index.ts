@@ -131,13 +131,13 @@ export function CreateApp(config: SvelteKitAppOptions = {}): EZAppBuilder {
 
         const requestHandler = customHandleRequest || handleRequest;
 
+        const hasHandlers = !!externalHandlers.length;
+
         const EZHandler: RequestHandler = async function EZHandler(req) {
-          if (externalHandlers.length) {
+          if (hasHandlers) {
             const result = await Promise.all(externalHandlers.map(cb => cb(req)));
 
-            const firstResponse = result.find(v => v != null);
-
-            if (firstResponse) return firstResponse;
+            for (const response of result) if (response != null) return response;
           }
 
           if (path && getPathname(req.path) !== path) return;
