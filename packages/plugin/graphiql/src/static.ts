@@ -62,3 +62,5 @@ export const ezStaticGraphiQLIDE = (options: GraphiQLOptions | boolean = true): 
     onIntegrationRegister,
   };
 };
+
+export * from './types';

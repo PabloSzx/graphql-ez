@@ -62,3 +62,5 @@ export const ezGraphiQLIDE = (options: GraphiQLOptions | boolean = true): EZPlug
     onIntegrationRegister,
   };
 };
+
+export * from './types';
