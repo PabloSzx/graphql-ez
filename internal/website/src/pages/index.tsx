@@ -280,7 +280,7 @@ export default function Index() {
                   />
                 ),
                 description: (
-                  <ItemDescription description="Deploy ServerLess GraphQL APIs with Vercel." packageName="@graphql-ez/vercel" />
+                  <ItemDescription description="Deploy Serverless GraphQL APIs with Vercel." packageName="@graphql-ez/vercel" />
                 ),
                 link: {
                   href: '/docs/integrations/vercel',
