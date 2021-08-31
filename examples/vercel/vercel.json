@@ -4,5 +4,12 @@
       "source": "/api/altair/(.*)",
       "destination": "/api/altair"
     }
+  ],
+  "redirects": [
+    {
+      "source": "/",
+      "destination": "/api/graphql",
+      "permanent": false
+    }
   ]
 }
