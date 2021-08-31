@@ -985,25 +985,21 @@ importers:
   packages/core/main:
     specifiers:
       '@envelop/core': ^1.0.3
-      '@envelop/disable-introspection': ^1.0.0
-      '@envelop/parser-cache': ^1.0.0
       '@envelop/types': ^1.0.2
-      '@envelop/validation-cache': ^1.0.0
       '@graphql-ez/utils': workspace:^0.1.2
       '@pablosz/graphql-helix': workspace:^2.0.0
       bob-esbuild-cli: ^1.0.1
       changesets-github-release: 0.0.4
       graphql: 15.4.0-experimental-stream-defer.1
       jest: ^27.1.0
+      tiny-lru: 7.0.6
       ts-jest: ^27.0.5
     dependencies:
       '@envelop/core': 1.0.3_34dd13c2583fe2e4418c23a0d30fc388
-      '@envelop/disable-introspection': 1.0.0_34dd13c2583fe2e4418c23a0d30fc388
-      '@envelop/parser-cache': 1.0.0_34dd13c2583fe2e4418c23a0d30fc388
       '@envelop/types': 1.0.2_34dd13c2583fe2e4418c23a0d30fc388
-      '@envelop/validation-cache': 1.0.0_34dd13c2583fe2e4418c23a0d30fc388
       '@graphql-ez/utils': link:../utils
       '@pablosz/graphql-helix': link:../../helix/core
+      tiny-lru: 7.0.6
     devDependencies:
       bob-esbuild-cli: 1.0.1_bob-esbuild@1.2.3
       changesets-github-release: 0.0.4
@@ -3830,6 +3826,7 @@ packages:
       graphql: ^14.0.0 || ^15.0.0
     dependencies:
       graphql: 15.4.0-experimental-stream-defer.1
+    dev: true
 
   /@envelop/graphql-jit/1.1.1_34dd13c2583fe2e4418c23a0d30fc388:
     resolution: {integrity: sha512-6P7O5lUAVZcgqAc2OK50c0K/ra2kFlMMZas2MBYL+s52oAnztkSqNy1tWvxxas91He45TXnWCQ+vc8PGfMMVtw==}

@@ -6,8 +6,7 @@ export * from '@envelop/core';
 export * from './types';
 export * from './utils';
 
-export type { CacheOptions } from './cache';
-export type { EZIntrospectionOptions } from './introspection';
+export type { CacheOptions, EZIntrospectionOptions } from './smart-cache';
 
 export interface InternalAppBuildIntegrationContext {}
 

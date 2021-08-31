@@ -24,7 +24,8 @@
     "build": "bob-esbuild build -i src/schema.ts --bundle --skipTsc",
     "prepack": "bob-esbuild build",
     "results": "node -r esbuild-register src/results.ts",
-    "start": "node -r esbuild-register src/start.ts"
+    "start": "node -r esbuild-register src/start.ts",
+    "start-ez-fastify": "node -r esbuild-register src/start-ez-fastify.ts"
   },
   "dependencies": {
     "@graphql-tools/schema": "^8.1.2",

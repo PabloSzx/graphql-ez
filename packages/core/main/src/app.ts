@@ -1,7 +1,6 @@
 import { envelop, useEnvelop, useSchema } from '@envelop/core';
 
-import { ezCoreCache } from './cache';
-import { ezCoreDisableIntrospection } from './introspection';
+import { SmartCacheIntrospection } from './smart-cache';
 import { gql } from './utils';
 import { cleanObject, toPlural } from '@graphql-ez/utils/object';
 
@@ -145,8 +144,7 @@ export function createEZAppFactory(
         return plugin.onPreBuild?.(ctx);
       }),
       preBuild?.(ctx),
-      ezCoreCache(ctx),
-      ezCoreDisableIntrospection(ctx),
+      SmartCacheIntrospection()(ctx),
     ]);
 
     if (!ctx.schemaPlugin && options.schema && options.schema !== 'dynamic') {

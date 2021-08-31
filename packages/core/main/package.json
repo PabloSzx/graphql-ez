@@ -35,12 +35,10 @@
   },
   "dependencies": {
     "@envelop/core": "^1.0.3",
-    "@envelop/disable-introspection": "^1.0.0",
-    "@envelop/parser-cache": "^1.0.0",
     "@envelop/types": "^1.0.2",
-    "@envelop/validation-cache": "^1.0.0",
     "@graphql-ez/utils": "workspace:^0.1.2",
-    "@pablosz/graphql-helix": "workspace:^2.0.0"
+    "@pablosz/graphql-helix": "workspace:^2.0.0",
+    "tiny-lru": "7.0.6"
   },
   "devDependencies": {
     "bob-esbuild-cli": "^1.0.1",

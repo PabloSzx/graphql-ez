@@ -8,6 +8,7 @@ import type {
   InternalAppBuildContext,
   InternalAppBuildIntegrationContext,
   PromiseOrValue,
+  EZContext,
 } from '../index';
 import type { HandleRequest, PreProcessRequest } from './request';
 import type { InternalAppBuildContextKey } from '../app';
@@ -197,4 +198,8 @@ export interface BuiltEZApp<T> {
 export interface EZAppFactoryType extends BaseAppBuilder {
   appBuilder<T>(buildOptions: BuildAppOptions, factory: AdapterFactory<T>): Promise<BuiltEZApp<T>>;
   onIntegrationRegister(integrationCtx: InternalAppBuildIntegrationContext): Promise<void>;
+}
+
+declare module '@envelop/types' {
+  interface DefaultContext extends EZContext {}
 }
