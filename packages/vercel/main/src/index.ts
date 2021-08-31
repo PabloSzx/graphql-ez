@@ -3,6 +3,7 @@ import {
   AppOptions,
   BaseAppBuilder,
   BuildAppOptions,
+  BuildContextArgs,
   createEZAppFactory,
   EZAppFactoryType,
   GetEnvelopedFn,
@@ -42,7 +43,19 @@ export interface VercelHandlerContext {
   >;
 }
 
+export interface VercelContextArgs extends BuildContextArgs {
+  vercel: {
+    req: VercelRequest;
+    res: VercelResponse;
+  };
+}
+
 export interface VercelAppOptions extends AppOptions {
+  /**
+   * Build Context
+   */
+  buildContext?: (args: any) => Record<string, unknown> | Promise<Record<string, unknown>>;
+
   /**
    * Customize some Helix processRequest options
    */
