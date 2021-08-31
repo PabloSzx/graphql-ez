@@ -290,7 +290,7 @@ importers:
       mkdirp: ^1.0.4
       require-env-variable: ^3.1.2
       rimraf: ^3.0.2
-      systeminformation: ^5.8.6
+      systeminformation: ^5.8.7
       tsup: ^4.14.0
       typescript: '>=4.4.2'
       wait-on: ^6.0.0
@@ -309,7 +309,7 @@ importers:
       mkdirp: 1.0.4
       require-env-variable: 3.1.2
       rimraf: 3.0.2
-      systeminformation: 5.8.6
+      systeminformation: 5.8.7
       tsup: 4.14.0_typescript@4.4.2
       typescript: 4.4.2
       wait-on: 6.0.0
@@ -710,7 +710,7 @@ importers:
       graphql: 15.4.0-experimental-stream-defer.1
       graphql-ez: link:../../packages/core/main
     devDependencies:
-      '@sveltejs/kit': 1.0.0-next.159_svelte@3.42.4
+      '@sveltejs/kit': 1.0.0-next.160_svelte@3.42.4
       svelte: 3.42.4
       svelte-check: 2.2.5_svelte@3.42.4
       svelte-preprocess: 4.8.0_svelte@3.42.4+typescript@4.4.2
@@ -5303,6 +5303,23 @@ packages:
 
   /@sveltejs/kit/1.0.0-next.159_svelte@3.42.4:
     resolution: {integrity: sha512-aSq2zgnPmTFgiVBMtlkv5X/wnVBJDAmM9coRzk+qAKZoSLmLEmDteJbFt4m6IcAS7YoNKx/smSfC8QkdGjjrdg==}
+    engines: {node: ^12.20 || >=14.13}
+    hasBin: true
+    peerDependencies:
+      svelte: ^3.39.0
+    dependencies:
+      '@sveltejs/vite-plugin-svelte': 1.0.0-next.19_svelte@3.42.4+vite@2.5.2
+      cheap-watch: 1.0.3
+      sade: 1.7.4
+      svelte: 3.42.4
+      vite: 2.5.2
+    transitivePeerDependencies:
+      - diff-match-patch
+      - supports-color
+    dev: true
+
+  /@sveltejs/kit/1.0.0-next.160_svelte@3.42.4:
+    resolution: {integrity: sha512-JmacpK+VsppUKDQu1B3oJ70SnE9BXb/PSAP3f91K/DMnaSEGj7vtHn/3e6l7Mop12t1PkBk5lImh/ULqBO+YfA==}
     engines: {node: ^12.20 || >=14.13}
     hasBin: true
     peerDependencies:
@@ -14978,8 +14995,8 @@ packages:
       node-fetch: 2.6.1
     dev: true
 
-  /systeminformation/5.8.6:
-    resolution: {integrity: sha512-R37NZR9f6OejKvERiatjh1vK49xkJ/MOgFpwpCw2h0NoD+1nKAgGzxkyjNX7bsf6ADaKzyAZ2SFK1mXddytIaA==}
+  /systeminformation/5.8.7:
+    resolution: {integrity: sha512-e7b47PXn+GvPHLZm7FxC+IgPs5lqqsrmw7xtdxrr0U8aivYZO6V3CawMqCy5bfGB/ghZh/7AWlJEoXUPLyH3iw==}
     engines: {node: '>=4.0.0'}
     os: [darwin, linux, win32, freebsd, openbsd, netbsd, sunos]
     hasBin: true
