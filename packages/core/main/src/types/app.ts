@@ -54,7 +54,17 @@ export type EZPreset = {
   envelopPlugins?: PromiseOrValue<Plugin>[];
 };
 
-export type IntegrationsNames = 'express' | 'fastify' | 'nextjs' | 'http' | 'koa' | 'hapi' | 'cloudflare' | 'sveltekit';
+export type IntegrationsNames =
+  | 'express'
+  | 'fastify'
+  | 'nextjs'
+  | 'http'
+  | 'koa'
+  | 'hapi'
+  | 'cloudflare'
+  | 'sveltekit'
+  | 'vercel';
+
 export interface AdapterFactoryContext {
   integrationName: IntegrationsNames;
 }
