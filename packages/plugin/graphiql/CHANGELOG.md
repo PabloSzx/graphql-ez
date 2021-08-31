@@ -1,5 +1,13 @@
 # @graphql-ez/plugin-graphiql
 
+## 0.9.1
+
+### Patch Changes
+
+- d052802: Add support for Vercel
+- Updated dependencies [cc0c9eb]
+  - graphql-ez@0.12.7
+
 ## 0.9.0
 
 ### Minor Changes

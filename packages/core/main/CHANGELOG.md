@@ -1,5 +1,11 @@
 # graphql-ez
 
+## 0.12.7
+
+### Patch Changes
+
+- cc0c9eb: Improve cache & introspection logic with custom plugins
+
 ## 0.12.6
 
 ### Patch Changes
