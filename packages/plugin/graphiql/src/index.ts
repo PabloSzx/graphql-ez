@@ -36,7 +36,7 @@ export function GraphiQLRender(options: GraphiQLOptions): Promise<string> {
 export const ezGraphiQLIDE = (options: GraphiQLOptions | boolean = true): EZPlugin => {
   return {
     name: 'GraphiQL IDE',
-    compatibilityList: ['fastify', 'koa', 'express', 'hapi', 'http', 'nextjs', 'sveltekit', 'cloudflare'],
+    compatibilityList: ['fastify', 'koa', 'express', 'hapi', 'http', 'nextjs', 'sveltekit', 'cloudflare', 'vercel'],
     onRegister(ctx) {
       if (!options) return;
 

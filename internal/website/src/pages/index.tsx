@@ -13,6 +13,7 @@ import {
   NextjsLogo,
   NodeLogo,
   SvelteKitLogo,
+  VercelLogo,
 } from '../components/logos';
 import { NPMBadge } from '../components/NPMBadge';
 
@@ -268,6 +269,24 @@ export default function Index() {
                   title: 'SvelteKit Docs',
                   children: 'Docs',
                   onClick: e => handlePushRoute('/docs/integrations/sveltekit', e),
+                },
+              },
+              {
+                title: (
+                  <IntegrationItemTitle
+                    name="Vercel Node.js Serverless"
+                    integrationWebsite="https://vercel.com/docs/runtimes#official-runtimes/node-js"
+                    logo={<VercelLogo height="80px" />}
+                  />
+                ),
+                description: (
+                  <ItemDescription description="Deploy Serverless GraphQL APIs with Vercel." packageName="@graphql-ez/vercel" />
+                ),
+                link: {
+                  href: '/docs/integrations/vercel',
+                  title: 'Vercel Docs',
+                  children: 'Docs',
+                  onClick: e => handlePushRoute('/docs/integrations/vercel', e),
                 },
               },
             ]}

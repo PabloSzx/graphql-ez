@@ -50,4 +50,10 @@ export const onIntegrationRegister: NonNullable<EZPlugin['onIntegrationRegister'
 
     return handleCloudflare(ctx, integrationCtx.cloudflare);
   }
+
+  if (integrationCtx.vercel) {
+    const { handleVercel } = await import('./vercel');
+
+    return handleVercel(ctx, integrationCtx.vercel);
+  }
 };

@@ -1,0 +1,95 @@
+---
+title: Vercel
+sidebar_label: Vercel
+---
+
+# Vercel Serverless Integration
+
+<VercelLogo width="200px" height="100px" />
+
+## Install
+
+<PackageInstall packages={['graphql graphql-ez @graphql-ez/vercel', '-D @vercel/node @types/node']} />
+
+## Usage
+
+> `Server module` `/api/graphql.ts`
+
+```ts
+import { ezApp } from '../src/ez';
+
+const { apiHandler } = ezApp.buildApp();
+
+export default apiHandler;
+```
+
+> `EZ App module` `/src/ez.ts`
+
+```ts
+import { CreateApp, gql } from '@graphql-ez/vercel';
+
+export const ezApp = CreateApp({
+  // You can use any valid GraphQL Schema
+  schema,
+  ez: {
+    plugins: [
+      // EZ Plugins
+    ],
+  },
+  envelop: {
+    plugins: [
+      // Envelop Plugins
+    ],
+  },
+  // Other Options
+});
+```
+
+### Build Custom Context
+
+```ts
+import { CreateApp, VercelContextArgs, InferContext } from '@graphql-ez/vercel';
+
+function buildContext({ req, vercel }: VercelContextArgs) {
+  // IncomingMessage
+  req;
+
+  // VercelRequest
+  vercel.req;
+
+  return {
+    foo: 'bar',
+  };
+}
+
+// This snippet allows you to infer the context returned by your 'buildContext' and add it to the EZContext interface
+declare module 'graphql-ez' {
+  interface EZContext extends InferContext<typeof buildContext> {}
+}
+
+export const ezApp = CreateApp({
+  // ...
+  buildContext,
+});
+```
+
+### Cross-Origin Resource Sharing (CORS)
+
+To enable **CORS**, specify the `cors` property in your configuration
+
+```ts
+CreateApp({
+  cors: true,
+});
+```
+
+Check the [cors package](https://npm.im/cors#configuration-options) for all the available options.
+
+```ts
+CreateApp({
+  // Check https://npm.im/cors#configuration-options
+  cors: {
+    // ...
+  },
+});
+```

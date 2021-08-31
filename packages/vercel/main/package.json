@@ -1,0 +1,50 @@
+{
+  "name": "@graphql-ez/vercel",
+  "version": "0.0.1",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/PabloSzx/graphql-ez",
+    "directory": "packages/vercel"
+  },
+  "license": "MIT",
+  "author": "PabloSz <pablosaez1995@gmail.com>",
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "require": "./dist/index.js",
+      "import": "./dist/index.mjs"
+    },
+    "./*": {
+      "require": "./dist/*.js",
+      "import": "./dist/*.mjs"
+    }
+  },
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "dev": "bob-esbuild watch",
+    "prepack": "bob-esbuild build",
+    "postpublish": "gh-release"
+  },
+  "dependencies": {
+    "@types/cors": "^2.8.12",
+    "cors": "^2.8.5"
+  },
+  "devDependencies": {
+    "@types/node": "^16.7.8",
+    "@vercel/node": "^1.12.1",
+    "bob-esbuild-cli": "^1.0.1",
+    "graphql": "15.4.0-experimental-stream-defer.1",
+    "graphql-ez": "workspace:^0.12.6"
+  },
+  "peerDependencies": {
+    "@types/node": "*",
+    "@vercel/node": "^1.12.1",
+    "graphql": "*",
+    "graphql-ez": "workspace:*"
+  },
+  "publishConfig": {
+    "directory": "dist"
+  }
+}

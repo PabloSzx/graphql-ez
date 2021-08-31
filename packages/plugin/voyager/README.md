@@ -68,3 +68,17 @@ export default VoyagerHandler({
   endpointUrl: '/api/graphql',
 });
 ```
+
+### Vercel Usage
+
+For Vercel you need to use this plugin's handler explicitly in your API routes,
+for example, following the file structure: `/api/voyager.ts`, and using this snippet:
+
+```ts
+// /api/voyager.ts
+import { VoyagerHandler } from '@graphql-ez/plugin-voyager';
+
+export default VoyagerHandler({
+  endpointUrl: '/api/graphql',
+});
+```

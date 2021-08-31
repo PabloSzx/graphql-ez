@@ -22,7 +22,7 @@ const ezApp = CreateApp({
 
 ### Options
 
-Most of these types come from [altair-static](https://github.com/altair-graphql/altair/tree/staging/packages/altair-static) 
+Most of these types come from [altair-static](https://github.com/altair-graphql/altair/tree/staging/packages/altair-static)
 
 ```ts
 type AltairOptions =
@@ -154,12 +154,40 @@ for example, following the file structure: `/pages/api/altair/[[...any]].ts`, an
 
 ```ts
 // /pages/api/altair/[[...any]].ts
-import { UnpkgAltairHandler } from '@graphql-ez/plugin-altair';
+import { UnpkgAltairHandler } from '@graphql-ez/plugin-altair/unpkg';
 
 export default UnpkgAltairHandler({
   path: '/api/altair',
   endpointURL: '/api/graphql',
 });
+```
+
+### Vercel Usage
+
+For Vercel you need to use this plugin's handler explicitly in your API routes in conjunction with a custom `vercel.json`,
+for example, following the file structure: `/api/altair/.ts`, and using these snippets:
+
+```ts
+// /api/altair.ts
+import { UnpkgAltairHandler } from '@graphql-ez/plugin-altair/unpkg';
+
+export default UnpkgAltairHandler({
+  path: '/api/altair',
+  endpointURL: '/api/graphql',
+});
+```
+
+> `/vercel.json`
+
+```json
+{
+  "rewrites": [
+    {
+      "source": "/api/altair/(.*)",
+      "destination": "/api/altair"
+    }
+  ]
+}
 ```
 
 ### Cloudflare Workers Usage
