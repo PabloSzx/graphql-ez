@@ -145,7 +145,7 @@ type User {
 `);
 });
 
-test.concurrent.skip('query with @stream', async () => {
+test.concurrent('query with @stream', async () => {
   const { address } = await startKoaServer({
     createOptions: {
       schema: [CommonSchema.schema],

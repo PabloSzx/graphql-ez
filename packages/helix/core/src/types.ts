@@ -89,7 +89,7 @@ export interface ProcessRequestOptions<TContext, TRootValue> {
 }
 
 export interface FormatPayloadParams<TContext, TRootValue> {
-  payload: ExecutionResult | ExecutionPatchResult;
+  payload: ExecutionResult<unknown> | ExecutionPatchResult;
   contextValue?: TContext;
   document?: DocumentNode;
   operation?: OperationDefinitionNode;

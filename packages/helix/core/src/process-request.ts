@@ -147,7 +147,7 @@ export const processRequest = async <TContext = {}, TRootValue = {}>(
             return {
               type: 'PUSH',
               subscribe: async onResult => {
-                for await (const payload of result) {
+                for await (const payload of result as AsyncGenerator<any>) {
                   onResult(
                     formatPayload({
                       payload,
@@ -211,7 +211,7 @@ export const processRequest = async <TContext = {}, TRootValue = {}>(
             return {
               type: isEventStream ? 'PUSH' : 'MULTIPART_RESPONSE',
               subscribe: async onResult => {
-                for await (const payload of result) {
+                for await (const payload of result as AsyncGenerator<any>) {
                   onResult(
                     formatPayload({
                       payload,

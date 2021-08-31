@@ -74,7 +74,6 @@ export const ezSSE = (options: GraphQLSSEOptions = {}): EZPlugin => {
           };
         },
       });
-
       ctx.sse.handler = handler;
     },
     compatibilityList: {
