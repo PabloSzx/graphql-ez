@@ -13,7 +13,7 @@ const TearDownPromises: Promise<unknown>[] = [];
 beforeAll(async () => {
   await command(`node ${require.resolve(resolve(__dirname, '../node_modules/@sveltejs/kit/svelte-kit.js'))} build`, {
     cwd: resolve(__dirname, './test-example/'),
-    stdio: 'ignore',
+    stdio: 'inherit',
   });
 
   const preview = command(
@@ -21,7 +21,7 @@ beforeAll(async () => {
       await getPort())}`,
     {
       cwd: resolve(__dirname, './test-example/'),
-      stdio: 'ignore',
+      stdio: 'inherit',
     }
   );
 
