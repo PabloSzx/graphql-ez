@@ -1,13 +1,24 @@
-import type { DisableIntrospectionOptions } from '@envelop/disable-introspection';
-import type { ParserCacheOptions } from '@envelop/parser-cache';
 import type { Plugin, ValidateFunctionParameter } from '@envelop/types';
-import type { ValidationCacheOptions } from '@envelop/validation-cache';
 import { getObjectValue } from '@graphql-ez/utils/object';
 import type { DocumentNode, GraphQLError } from 'graphql';
 import { NoSchemaIntrospectionCustomRule, print } from 'graphql';
 import lru from 'tiny-lru';
 import type { EZContext } from './index';
 import type { EZPlugin } from './types';
+
+export declare type ValidationCacheOptions = {
+  max?: number;
+  ttl?: number;
+};
+
+export declare type ParserCacheOptions = {
+  max?: number;
+  ttl?: number;
+};
+
+export interface DisableIntrospectionOptions {
+  disableIf?: (args: { context: EZContext; params: ValidateFunctionParameter }) => boolean;
+}
 
 const DEFAULT_MAX = 1000;
 const DEFAULT_TTL = 3600000;
@@ -33,7 +44,7 @@ export interface EZIntrospectionOptions {
    */
   disable?:
     | {
-        disableIf?: (args: { context: EZContext; params: ValidateFunctionParameter }) => boolean;
+        disableIf?: DisableIntrospectionOptions['disableIf'];
       }
     | boolean;
 }
