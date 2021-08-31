@@ -1,5 +1,14 @@
 # @graphql-ez/plugin-altair
 
+## 0.7.1
+
+### Patch Changes
+
+- d052802: Add support for Vercel
+- 808e9c5: fix unpkg altair handler options
+- Updated dependencies [cc0c9eb]
+  - graphql-ez@0.12.7
+
 ## 0.7.0
 
 ### Minor Changes
