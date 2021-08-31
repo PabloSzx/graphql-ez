@@ -19,7 +19,11 @@ export function UnpkgAltairHandler(options: PickRequired<AltairOptions, 'path'>)
       altairPath: path,
       baseURL,
       url: req.url,
-      renderOptions,
+      renderOptions: {
+        ...renderOptions,
+        baseURL,
+        endpointURL,
+      },
     });
 
     if (contentType) res.setHeader('content-type', contentType);
