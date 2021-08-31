@@ -729,13 +729,13 @@ importers:
       typescript: '>=4.4.2'
     dependencies:
       '@graphql-ez/plugin-altair': link:../../packages/plugin/altair
+      '@graphql-ez/plugin-graphiql': link:../../packages/plugin/graphiql
       '@graphql-ez/plugin-schema': link:../../packages/plugin/schema
       '@graphql-ez/plugin-voyager': link:../../packages/plugin/voyager
       '@graphql-ez/vercel': link:../../packages/vercel/main
       graphql: 15.4.0-experimental-stream-defer.1
       graphql-ez: link:../../packages/core/main
     devDependencies:
-      '@graphql-ez/plugin-graphiql': link:../../packages/plugin/graphiql
       typescript: 4.4.2
 
   examples/yoga/express:
