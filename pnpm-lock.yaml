@@ -10,7 +10,7 @@ importers:
 
   .:
     specifiers:
-      '@changesets/assemble-release-plan': ^5.0.0
+      '@changesets/assemble-release-plan': ^5.0.1
       '@changesets/cli': 2.16.0
       '@types/jest': ^27.0.1
       '@types/node': '>=16'
@@ -30,7 +30,7 @@ importers:
       ts-jest: ^27.0.5
       typescript: '>=4.4.2'
     devDependencies:
-      '@changesets/assemble-release-plan': 5.0.0
+      '@changesets/assemble-release-plan': 5.0.1
       '@changesets/cli': 2.16.0
       '@types/jest': 27.0.1
       '@types/node': 16.7.8
@@ -3567,6 +3567,17 @@ packages:
       semver: 5.7.1
     dev: true
 
+  /@changesets/assemble-release-plan/5.0.1:
+    resolution: {integrity: sha512-KQqafvScTFQ/4Q2LpLmDYhU47LWvIGcgVS8tzKU8fBvRdKuLGQXe42VYbwVM0cHIkFd/b6YFn+H2QMdKC2MjIQ==}
+    dependencies:
+      '@babel/runtime': 7.15.3
+      '@changesets/errors': 0.1.4
+      '@changesets/get-dependents-graph': 1.2.2
+      '@changesets/types': 4.0.1
+      '@manypkg/get-packages': 1.1.1
+      semver: 5.7.1
+    dev: true
+
   /@changesets/cli/2.16.0:
     resolution: {integrity: sha512-VFkXSyyk/WRjjUoBI7g7cDy09qBjPbBQOloPMEshTzMo/NY9muWHl2yB/FSSkV/6PxGimPtJ7aEJPYfk8HCfXw==}
     hasBin: true
@@ -3625,6 +3636,16 @@ packages:
     resolution: {integrity: sha512-vJOibo9SkqhVbgfq5AHIlQ7tzkYQIXh3tPAnlNLy2bPZsU+SByd74GaxHYWt1zOBlncU25WKrIM6J7XBB+GVUg==}
     dependencies:
       '@changesets/types': 4.0.0
+      '@manypkg/get-packages': 1.1.1
+      chalk: 2.4.2
+      fs-extra: 7.0.1
+      semver: 5.7.1
+    dev: true
+
+  /@changesets/get-dependents-graph/1.2.2:
+    resolution: {integrity: sha512-3zJRw6TcexmOrmIZNOXpIRsZtqtrdmlzbqp4+V0VgnBvTxz16rqCS9VBsBqFYeJDWFj3soOlHUMeTwLghr18DA==}
+    dependencies:
+      '@changesets/types': 4.0.1
       '@manypkg/get-packages': 1.1.1
       chalk: 2.4.2
       fs-extra: 7.0.1
@@ -3696,6 +3717,10 @@ packages:
 
   /@changesets/types/4.0.0:
     resolution: {integrity: sha512-whLmPx2wgJRoOtxVZop+DJ71z1gTSkij7osiHgN+pe//FiE6bb4ffvBBb0rACs2cUPfAkWxgSPzqkECgKS1jvQ==}
+    dev: true
+
+  /@changesets/types/4.0.1:
+    resolution: {integrity: sha512-zVfv752D8K2tjyFmxU/vnntQ+dPu+9NupOSguA/2Zuym4tVxRh0ylArgKZ1bOAi2eXfGlZMxJU/kj7uCSI15RQ==}
     dev: true
 
   /@changesets/write/0.1.4:
