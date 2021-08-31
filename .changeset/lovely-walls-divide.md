@@ -1,5 +1,5 @@
 ---
-'@graphql-ez/plugin-graphiql': minor
+'@graphql-ez/plugin-graphiql': patch
 ---
 
 Add support for Vercel

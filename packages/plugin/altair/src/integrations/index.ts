@@ -39,6 +39,12 @@ export const onIntegrationRegister: NonNullable<EZPlugin['onIntegrationRegister'
     );
   }
 
+  if (integrationCtx.vercel) {
+    return console.warn(
+      `[graphql-ez] You don't need to add the Altair plugin in your EZ App for Vercel, use "UnpkgAltairHandler" directly in your API Routes and vercel.json config. Check README.`
+    );
+  }
+
   if (integrationCtx.sveltekit) {
     const { handleSvelteKit } = await import('./sveltekit');
 

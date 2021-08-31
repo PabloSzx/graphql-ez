@@ -39,6 +39,12 @@ export const onIntegrationRegister: NonNullable<EZPlugin['onIntegrationRegister'
     );
   }
 
+  if (integrationCtx.vercel) {
+    return console.warn(
+      `[graphql-ez] You don't need to add the Voyager plugin in your EZ App for Vercel, use "VoyagerHandler" directly in your API Routes.`
+    );
+  }
+
   if (integrationCtx.sveltekit) {
     const { handleSvelteKit } = await import('./sveltekit');
 
