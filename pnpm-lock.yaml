@@ -710,7 +710,7 @@ importers:
       graphql: 15.4.0-experimental-stream-defer.1
       graphql-ez: link:../../packages/core/main
     devDependencies:
-      '@sveltejs/kit': 1.0.0-next.159_svelte@3.42.4
+      '@sveltejs/kit': 1.0.0-next.160_svelte@3.42.4
       svelte: 3.42.4
       svelte-check: 2.2.5_svelte@3.42.4
       svelte-preprocess: 4.8.0_svelte@3.42.4+typescript@4.4.2
@@ -1904,9 +1904,9 @@ importers:
       bob-esbuild-cli: ^1.0.1
       graphql: 15.4.0-experimental-stream-defer.1
       graphql-ez: workspace:^0.12.7
-      graphql-middleware: ^6.1.4
+      graphql-middleware: ^6.1.5
     dependencies:
-      '@envelop/graphql-middleware': 1.0.0_d2a956afbe7727f0b299f878a20a8191
+      '@envelop/graphql-middleware': 1.0.0_8016cf0acba17ece2a4816aba57cbeed
       '@graphql-ez/plugin-codegen': link:../../packages/plugin/codegen
       '@graphql-ez/plugin-graphiql': link:../../packages/plugin/graphiql
       '@graphql-ez/plugin-schema': link:../../packages/plugin/schema
@@ -1915,7 +1915,7 @@ importers:
       '@graphql-ez/utils': link:../../packages/core/utils
       '@graphql-tools/mock': 8.3.0_34dd13c2583fe2e4418c23a0d30fc388
       '@graphql-tools/utils': 8.2.0_34dd13c2583fe2e4418c23a0d30fc388
-      graphql-middleware: 6.1.4_34dd13c2583fe2e4418c23a0d30fc388
+      graphql-middleware: 6.1.5_34dd13c2583fe2e4418c23a0d30fc388
     devDependencies:
       bob-esbuild-cli: 1.0.1_bob-esbuild@1.2.3
       graphql: 15.4.0-experimental-stream-defer.1
@@ -3880,14 +3880,14 @@ packages:
       tiny-lru: 7.0.6
     dev: false
 
-  /@envelop/graphql-middleware/1.0.0_d2a956afbe7727f0b299f878a20a8191:
+  /@envelop/graphql-middleware/1.0.0_8016cf0acba17ece2a4816aba57cbeed:
     resolution: {integrity: sha512-l8CNoZao+fTMMpsXRpqDL7YqaBKN2377vZqMgB9jBZT6YmErZtfq3c9NeJVnDG1saImvbsqZAYmPfThP8+Wicg==}
     peerDependencies:
       graphql: ^14.0.0 || ^15.0.0
       graphql-middleware: ^6.0.0
     dependencies:
       graphql: 15.4.0-experimental-stream-defer.1
-      graphql-middleware: 6.1.4_34dd13c2583fe2e4418c23a0d30fc388
+      graphql-middleware: 6.1.5_34dd13c2583fe2e4418c23a0d30fc388
     dev: false
 
   /@envelop/graphql-modules/1.0.0_0c945fa5c9e66debae3ebde31cc717a9:
@@ -5303,6 +5303,23 @@ packages:
 
   /@sveltejs/kit/1.0.0-next.159_svelte@3.42.4:
     resolution: {integrity: sha512-aSq2zgnPmTFgiVBMtlkv5X/wnVBJDAmM9coRzk+qAKZoSLmLEmDteJbFt4m6IcAS7YoNKx/smSfC8QkdGjjrdg==}
+    engines: {node: ^12.20 || >=14.13}
+    hasBin: true
+    peerDependencies:
+      svelte: ^3.39.0
+    dependencies:
+      '@sveltejs/vite-plugin-svelte': 1.0.0-next.19_svelte@3.42.4+vite@2.5.2
+      cheap-watch: 1.0.3
+      sade: 1.7.4
+      svelte: 3.42.4
+      vite: 2.5.2
+    transitivePeerDependencies:
+      - diff-match-patch
+      - supports-color
+    dev: true
+
+  /@sveltejs/kit/1.0.0-next.160_svelte@3.42.4:
+    resolution: {integrity: sha512-JmacpK+VsppUKDQu1B3oJ70SnE9BXb/PSAP3f91K/DMnaSEGj7vtHn/3e6l7Mop12t1PkBk5lImh/ULqBO+YfA==}
     engines: {node: ^12.20 || >=14.13}
     hasBin: true
     peerDependencies:
@@ -9459,8 +9476,8 @@ packages:
       graphql-language-service-types: 1.8.2_34dd13c2583fe2e4418c23a0d30fc388
     dev: true
 
-  /graphql-middleware/6.1.4_34dd13c2583fe2e4418c23a0d30fc388:
-    resolution: {integrity: sha512-nDgNfY+wf4e6xAKsG3vLKcVfnGbv7iBDtFdkBu600di9SauAefSwLERuIvOvcHM2xmnSQDgH8Rl9u4qUSvQr/Q==}
+  /graphql-middleware/6.1.5_34dd13c2583fe2e4418c23a0d30fc388:
+    resolution: {integrity: sha512-+6BZ0ao84fEeP3XaXbMGXR+PfoZSH9oycPozeKRWjjRUwWCLnOABrtA1BvYB6KeECjqm5zcdss5nS6kKuiitAw==}
     peerDependencies:
       graphql: ^0.12.0 || ^0.13.0 || ^14.0.0 || ^15.0.0
     dependencies:
