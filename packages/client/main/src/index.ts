@@ -3,16 +3,19 @@ import { cleanObject } from '@graphql-ez/utils/object';
 import { LazyPromise } from '@graphql-ez/utils/promise';
 import { getURLWebsocketVersion } from '@graphql-ez/utils/url';
 import type { TypedDocumentNode } from '@graphql-typed-document-node/core';
+import type {} from 'eventsource';
 import { ExecutionResult, print } from 'graphql';
+import type {} from 'graphql-ws';
 import type { IncomingHttpHeaders } from 'http';
+import type {} from 'subscriptions-transport-ws-envelop';
 import { Client } from 'undici';
+import type {} from 'undici/types/dispatcher';
 import { createSSESubscription } from './sse';
 import { createStreamHelper } from './stream';
 import type { SubscribeOptions } from './types';
 import { createUploadQuery } from './upload';
 import type { GraphQLWSClientOptions } from './websockets/graphql-ws';
 import type { SubscriptionsTransportClientOptions } from './websockets/subscriptions-transport';
-
 export interface EZClientOptions {
   endpoint: string;
   headers?: IncomingHttpHeaders;
@@ -20,40 +23,24 @@ export interface EZClientOptions {
   subscriptionsTransportClientOptions?: SubscriptionsTransportClientOptions;
 }
 
-export function getStringFromStream(stream: import('stream').Readable): Promise<string> {
-  return new Promise((resolve, reject) => {
-    const chunks: Uint8Array[] = [];
+export async function getStringFromStream(stream: import('stream').Readable): Promise<string> {
+  const chunks: Uint8Array[] = [];
 
-    stream.on('data', chunk => {
-      chunks.push(chunk);
-    });
+  for await (const chunk of stream) {
+    chunks.push(chunk);
+  }
 
-    stream.on('end', () => {
-      try {
-        resolve(Buffer.concat(chunks).toString('utf-8'));
-      } catch (err) {
-        reject(err);
-      }
-    });
-  });
+  return Buffer.concat(chunks).toString('utf-8');
 }
 
-export function getJSONFromStream<T>(stream: import('stream').Readable): Promise<T> {
-  return new Promise((resolve, reject) => {
-    const chunks: Uint8Array[] = [];
+export async function getJSONFromStream<T>(stream: import('stream').Readable): Promise<T> {
+  const chunks: Uint8Array[] = [];
 
-    stream.on('data', chunk => {
-      chunks.push(chunk);
-    });
+  for await (const chunk of stream) {
+    chunks.push(chunk);
+  }
 
-    stream.on('end', () => {
-      try {
-        resolve(JSON.parse(Buffer.concat(chunks).toString('utf-8')));
-      } catch (err) {
-        reject(err);
-      }
-    });
-  });
+  return JSON.parse(Buffer.concat(chunks).toString('utf-8'));
 }
 
 export type QueryFunctionPostGet = <TData, TVariables = {}, TExtensions = {}>(

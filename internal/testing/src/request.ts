@@ -9,40 +9,24 @@ import { TearDownPromises } from './common';
 
 export type { RequestOptions, TypedDocumentNode };
 
-export function getStringFromStream(stream: import('stream').Readable): Promise<string> {
-  return new Promise((resolve, reject) => {
-    const chunks: Uint8Array[] = [];
+export async function getStringFromStream(stream: import('stream').Readable): Promise<string> {
+  const chunks: Uint8Array[] = [];
 
-    stream.on('data', chunk => {
-      chunks.push(chunk);
-    });
+  for await (const chunk of stream) {
+    chunks.push(chunk);
+  }
 
-    stream.on('end', () => {
-      try {
-        resolve(Buffer.concat(chunks).toString('utf-8'));
-      } catch (err) {
-        reject(err);
-      }
-    });
-  });
+  return Buffer.concat(chunks).toString('utf-8');
 }
 
-export function getJSONFromStream<T>(stream: import('stream').Readable): Promise<T> {
-  return new Promise((resolve, reject) => {
-    const chunks: Uint8Array[] = [];
+export async function getJSONFromStream<T>(stream: import('stream').Readable): Promise<T> {
+  const chunks: Uint8Array[] = [];
 
-    stream.on('data', chunk => {
-      chunks.push(chunk);
-    });
+  for await (const chunk of stream) {
+    chunks.push(chunk);
+  }
 
-    stream.on('end', () => {
-      try {
-        resolve(JSON.parse(Buffer.concat(chunks).toString('utf-8')));
-      } catch (err) {
-        reject(err);
-      }
-    });
-  });
+  return JSON.parse(Buffer.concat(chunks).toString('utf-8'));
 }
 
 export function getRequestPool(port: number, path = '/graphql') {

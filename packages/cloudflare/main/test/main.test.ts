@@ -1,8 +1,8 @@
+import { EZClient } from '@graphql-ez/client';
 import { build } from 'esbuild';
 import { command } from 'execa';
 import { unlinkSync } from 'fs';
 import getPort from 'get-port';
-import { fetch } from 'undici';
 import { resolve } from 'path';
 import waitOn from 'wait-on';
 
@@ -32,15 +32,16 @@ test('works', async () => {
     stdio: 'ignore',
   });
 
+  const client = EZClient({
+    endpoint: 'http://127.0.0.1:' + port + '/graphql',
+  });
   try {
     await waitOn({
       resources: ['tcp:' + port],
       timeout: 5000,
     });
 
-    const response = await fetch(`http://127.0.0.1:${port}/graphql?query={hello}`);
-
-    await expect(response.json()).resolves.toMatchInlineSnapshot(`
+    await expect(client.query('{hello}')).resolves.toMatchInlineSnapshot(`
             Object {
               "data": Object {
                 "hello": "Hello World!",
@@ -49,5 +50,7 @@ test('works', async () => {
           `);
   } finally {
     miniflare.kill();
+
+    client.client.close();
   }
 });
