@@ -2,7 +2,7 @@ import { build } from 'esbuild';
 import { command } from 'execa';
 import { unlinkSync } from 'fs';
 import getPort from 'get-port';
-import nodeFetch from 'node-fetch';
+import { fetch } from 'undici';
 import { resolve } from 'path';
 import waitOn from 'wait-on';
 
@@ -38,7 +38,7 @@ test('works', async () => {
       timeout: 5000,
     });
 
-    const response = await nodeFetch(`http://127.0.0.1:${port}/graphql?query={hello}`);
+    const response = await fetch(`http://127.0.0.1:${port}/graphql?query={hello}`);
 
     await expect(response.json()).resolves.toMatchInlineSnapshot(`
             Object {

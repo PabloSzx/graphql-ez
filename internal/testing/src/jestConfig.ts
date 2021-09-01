@@ -36,7 +36,12 @@ export function getConfig({
   const config: Config.InitialOptions = {
     testMatch: [process.cwd().replace(/\\/g, '/') + '/test/**/*.test.ts'],
     testEnvironment: 'node',
-    transform: { '\\.[jt]sx?$': 'es-jest' },
+    transform: { '\\.[jt]sx?$': 'ts-jest' },
+    globals: {
+      'ts-jest': {
+        isolatedModules: true,
+      },
+    },
     modulePathIgnorePatterns: ['/dist/'],
     testPathIgnorePatterns: ['/node_modules/', '/dist/', '/.next'],
     coveragePathIgnorePatterns: ['node_modules', '/.next'],

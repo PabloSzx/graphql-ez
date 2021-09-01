@@ -9,7 +9,7 @@ import {
   startKoaServer,
   UploadFileDocument,
 } from 'graphql-ez-testing';
-import fetch from 'node-fetch';
+import nodeFetch from 'node-fetch';
 
 import { CreateTestClient as CreateFastifyTestClient, GlobalTeardown } from '@graphql-ez/fastify-testing';
 import { ezSchema } from '@graphql-ez/plugin-schema';
@@ -125,7 +125,7 @@ test('express', async () => {
 
   const body = createUploadFileBody(fileMessage);
 
-  const response = await fetch(address + '/graphql', {
+  const response = await nodeFetch(address + '/graphql', {
     body,
     method: 'POST',
     headers: body.getHeaders(),
@@ -163,7 +163,7 @@ test('koa', async () => {
 
   const body = createUploadFileBody(fileMessage);
 
-  const response = await fetch(address + '/graphql', {
+  const response = await nodeFetch(address + '/graphql', {
     body,
     method: 'POST',
     headers: body.getHeaders(),

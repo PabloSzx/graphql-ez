@@ -47,7 +47,7 @@
     "@changesets/assemble-release-plan": "^5.0.1",
     "@changesets/cli": "2.17.0",
     "@types/jest": "^27.0.1",
-    "@types/node": "^16.7.8",
+    "@types/node": "^16.7.10",
     "bob-esbuild": "^1.2.3",
     "bob-esbuild-cli": "^1.0.1",
     "chalk": "^4.1.2",
@@ -70,6 +70,7 @@
   },
   "pnpm": {
     "overrides": {
+      "node-fetch": "^2.6.1",
       "graphql": "15.4.0-experimental-stream-defer.1",
       "esbuild": ">=0.12.24",
       "@types/node": ">=16",
