@@ -63,7 +63,8 @@ export type IntegrationsNames =
   | 'hapi'
   | 'cloudflare'
   | 'sveltekit'
-  | 'vercel';
+  | 'vercel'
+  | 'tinyhttp';
 
 export interface AdapterFactoryContext {
   integrationName: IntegrationsNames;

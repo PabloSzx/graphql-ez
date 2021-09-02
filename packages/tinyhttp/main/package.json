@@ -1,0 +1,52 @@
+{
+  "name": "@graphql-ez/tinyhttp",
+  "version": "0.0.1",
+  "homepage": "https://www.graphql-ez.com",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/PabloSzx/graphql-ez",
+    "directory": "packages/tinyhttp"
+  },
+  "license": "MIT",
+  "author": "PabloSz <pablosaez1995@gmail.com>",
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "require": "./dist/index.js",
+      "import": "./dist/index.mjs"
+    },
+    "./*": {
+      "require": "./dist/*.js",
+      "import": "./dist/*.mjs"
+    }
+  },
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "dev": "bob-esbuild watch",
+    "prepack": "bob-esbuild build",
+    "postpublish": "gh-release",
+    "test": "jest"
+  },
+  "devDependencies": {
+    "@tinyhttp/app": "^2.0.0",
+    "bob-esbuild-cli": "^1.0.1",
+    "changesets-github-release": "^0.0.4",
+    "graphql": "15.4.0-experimental-stream-defer.1",
+    "graphql-ez": "workspace:^0.12.7"
+  },
+  "peerDependencies": {
+    "@tinyhttp/app": "^2.0.0",
+    "graphql": "*",
+    "graphql-ez": "workspace:*"
+  },
+  "dependencies": {
+    "@graphql-ez/utils": "workspace:^0.1.2",
+    "@tinyhttp/cors": "^2.0.0",
+    "milliparsec": "^2.2.0"
+  },
+  "publishConfig": {
+    "directory": "dist"
+  }
+}
