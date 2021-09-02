@@ -103,6 +103,7 @@ Integration of Websockets using [graphql-ws](https://github.com/enisdenjo/graphq
       sveltekit: 1,
       cloudflare: 1,
       vercel: 1,
+      tinyhttp: 1,
     }),
     title: 'GraphiQL IDE',
     iconUrl: '/assets/logos/graphql.png',

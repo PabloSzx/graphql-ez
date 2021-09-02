@@ -56,4 +56,10 @@ export const onIntegrationRegister: NonNullable<EZPlugin['onIntegrationRegister'
 
     return handleVercel(ctx, integrationCtx.vercel);
   }
+
+  if (integrationCtx.tinyhttp) {
+    const { handleTinyhttp } = await import('./tinyhttp');
+
+    return handleTinyhttp(ctx, integrationCtx.tinyhttp);
+  }
 };
