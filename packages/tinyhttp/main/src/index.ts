@@ -93,7 +93,7 @@ export function CreateApp(config: tinyhttpAppOptions = {}): EZAppBuilder {
     const { app, getEnveloped } = await appBuilder(buildOptions, async ({ ctx, getEnveloped }) => {
       const { app } = buildOptions;
 
-      const { buildContext, onAppRegister, processRequestOptions, json, cors } = config;
+      const { buildContext, onAppRegister, processRequestOptions, json = true, cors } = config;
 
       const integration: InternalAppBuildIntegrationContext = {
         tinyhttp: {
@@ -102,6 +102,8 @@ export function CreateApp(config: tinyhttpAppOptions = {}): EZAppBuilder {
       };
 
       if (onAppRegister) await onAppRegister({ ctx, integration, getEnveloped });
+
+      await onIntegrationRegister(integration);
 
       const {
         preProcessRequest,
@@ -117,8 +119,6 @@ export function CreateApp(config: tinyhttpAppOptions = {}): EZAppBuilder {
 
         app.use(tinyCors(corsOptions)).options('*', tinyCors(corsOptions));
       }
-
-      if (json) app.use((await import('milliparsec')).json());
 
       const tinyhttpRequestHandler: AsyncHandler = async (req, res) => {
         const request = {
@@ -163,7 +163,13 @@ export function CreateApp(config: tinyhttpAppOptions = {}): EZAppBuilder {
         });
       };
 
-      app.get(path, tinyhttpRequestHandler).post(path, tinyhttpRequestHandler);
+      app.get(path, tinyhttpRequestHandler);
+
+      if (json) {
+        app.post(path, (await import('milliparsec')).json(), tinyhttpRequestHandler);
+      } else {
+        app.post(path, tinyhttpRequestHandler);
+      }
 
       return app;
     });
