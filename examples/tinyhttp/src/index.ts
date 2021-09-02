@@ -30,8 +30,8 @@ const ezApp = CreateApp({
 
 app.use(logger());
 
-const built = await ezApp.buildApp({
+await ezApp.buildApp({
   app,
 });
 
-built.app.listen(3000);
+app.listen(3000);
