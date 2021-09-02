@@ -6,6 +6,7 @@ import { ezGraphiQLIDE } from '@graphql-ez/plugin-graphiql';
 import { ezAltairIDE } from '@graphql-ez/plugin-altair';
 import { ezVoyager } from '@graphql-ez/plugin-voyager';
 import { ezWebSockets } from '@graphql-ez/plugin-websockets';
+import { ezSSE } from '@graphql-ez/plugin-sse';
 const app = new App();
 
 const ezApp = CreateApp({
@@ -15,6 +16,7 @@ const ezApp = CreateApp({
       ezVoyager(),
       ezAltairIDE(),
       ezGraphiQLIDE(),
+      ezSSE(),
       ezSchema({
         schema: {
           typeDefs: gql`

@@ -235,6 +235,7 @@ Integration of Websockets using [graphql-ws](https://github.com/enisdenjo/graphq
       hapi: 1,
       koa: 1,
       http: 1,
+      tinyhttp: 1,
     }),
     title: 'GraphQL over Server-Sent Events',
     iconUrl: '/assets/logos/graphql.png',
