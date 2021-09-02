@@ -3,12 +3,14 @@ import { logger } from '@tinyhttp/logger';
 import { ezSchema, gql } from '@graphql-ez/plugin-schema';
 import { CreateApp } from '@graphql-ez/tinyhttp';
 import { ezGraphiQLIDE } from '@graphql-ez/plugin-graphiql';
+import { ezAltairIDE } from '@graphql-ez/plugin-altair';
 
 const app = new App();
 
 const ezApp = CreateApp({
   ez: {
     plugins: [
+      ezAltairIDE(),
       ezGraphiQLIDE(),
       ezSchema({
         schema: {

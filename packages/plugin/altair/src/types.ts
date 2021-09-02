@@ -9,7 +9,7 @@ export interface AltairOptions extends RenderOptions {
   path?: string;
 }
 
-export type IDEHandler = (req: IncomingMessage, res: ServerResponse) => Promise<void>;
+export type IDEHandler = (req: Pick<IncomingMessage, 'url'>, res: ServerResponse) => Promise<void>;
 
 export type AltairRender = (options: {
   baseURL: string;

@@ -56,4 +56,10 @@ export const onIntegrationRegister: NonNullable<EZPlugin['onIntegrationRegister'
 
     return handleCloudflare(ctx, integrationCtx.cloudflare);
   }
+
+  if (integrationCtx.tinyhttp) {
+    const { handleTinyhttp } = await import('./tinyhttp');
+
+    return handleTinyhttp(ctx, integrationCtx.tinyhttp);
+  }
 };
