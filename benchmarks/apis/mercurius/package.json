@@ -6,8 +6,8 @@
   "author": "PabloSz <pablosaez1995@gmail.com>",
   "main": "dist/index.js",
   "scripts": {
-    "dev": "tsup src/index.ts --minify --watch --silent --onSuccess \"cross-env PORT=3000 node dist/index.js\"",
-    "start": "tsup src/index.ts --minify --silent --onSuccess \"cross-env NODE_ENV=production node dist/index.js\""
+    "dev": "bob-ts-watch -f cjs -i src -c \"cross-env PORT=3000 node dist/index.js\"",
+    "start": "bob-ts -f cjs -i src && cross-env NODE_ENV=production node dist/index.js"
   },
   "dependencies": {
     "benchmark-bench": "workspace:1.0.0",
@@ -16,7 +16,9 @@
     "graphql": "15.4.0-experimental-stream-defer.1",
     "mercurius": "^8.1.3",
     "require-env-variable": "^3.1.2",
-    "tsup": "^4.14.0",
     "typescript": "^4.4.2"
+  },
+  "devDependencies": {
+    "bob-ts": "^1.0.3"
   }
 }

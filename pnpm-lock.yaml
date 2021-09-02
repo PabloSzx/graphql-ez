@@ -60,10 +60,10 @@ importers:
       '@envelop/validation-cache': '*'
       '@types/node': '>=16'
       benchmark-bench: workspace:1.0.0
+      bob-ts: ^1.0.3
       fastify: ^3.20.2
       graphql: 15.4.0-experimental-stream-defer.1
       require-env-variable: ^3.1.2
-      tsup: ^4.14.0
       typescript: '>=4.4.2'
     dependencies:
       '@envelop/core': 1.0.3_34dd13c2583fe2e4418c23a0d30fc388
@@ -76,17 +76,18 @@ importers:
       fastify: 3.20.2
       graphql: 15.4.0-experimental-stream-defer.1
       require-env-variable: 3.1.2
-      tsup: 4.14.0_typescript@4.4.2
       typescript: 4.4.2
+    devDependencies:
+      bob-ts: 1.0.3_b52babfbeb6127399294d5bd562e58c3
 
   benchmarks/apis/express-graphql:
     specifiers:
       benchmark-bench: workspace:1.0.0
+      bob-ts: ^1.0.3
       express: ^4.17.1
       express-graphql: ^0.12.0
       graphql: 15.4.0-experimental-stream-defer.1
       require-env-variable: ^3.1.2
-      tsup: ^4.14.0
       typescript: '>=4.4.2'
     dependencies:
       benchmark-bench: link:../../bench
@@ -94,8 +95,9 @@ importers:
       express-graphql: 0.12.0_34dd13c2583fe2e4418c23a0d30fc388
       graphql: 15.4.0-experimental-stream-defer.1
       require-env-variable: 3.1.2
-      tsup: 4.14.0_typescript@4.4.2
       typescript: 4.4.2
+    devDependencies:
+      bob-ts: 1.0.3_b52babfbeb6127399294d5bd562e58c3
 
   benchmarks/apis/ez-express:
     specifiers:
@@ -103,12 +105,12 @@ importers:
       '@graphql-ez/express': workspace:^0.9.4
       '@types/express': ^4.17.13
       benchmark-bench: workspace:1.0.0
+      bob-ts: ^1.0.3
       cross-env: ^7.0.3
       express: ^4.17.1
       graphql: 15.4.0-experimental-stream-defer.1
       graphql-ez: workspace:^0.12.7
       require-env-variable: ^3.1.2
-      tsup: ^4.14.0
       typescript: '>=4.4.2'
     dependencies:
       '@envelop/graphql-jit': 1.1.1_34dd13c2583fe2e4418c23a0d30fc388
@@ -120,20 +122,21 @@ importers:
       graphql: 15.4.0-experimental-stream-defer.1
       graphql-ez: link:../../../packages/core/main
       require-env-variable: 3.1.2
-      tsup: 4.14.0_typescript@4.4.2
       typescript: 4.4.2
+    devDependencies:
+      bob-ts: 1.0.3_b52babfbeb6127399294d5bd562e58c3
 
   benchmarks/apis/ez-fastify:
     specifiers:
       '@envelop/graphql-jit': ^1.1.1
       '@graphql-ez/fastify': workspace:^0.9.3
       benchmark-bench: workspace:1.0.0
+      bob-ts: ^1.0.3
       cross-env: ^7.0.3
       fastify: ^3.20.2
       graphql: 15.4.0-experimental-stream-defer.1
       graphql-ez: workspace:^0.12.7
       require-env-variable: ^3.1.2
-      tsup: ^4.14.0
       typescript: '>=4.4.2'
     dependencies:
       '@envelop/graphql-jit': 1.1.1_34dd13c2583fe2e4418c23a0d30fc388
@@ -144,8 +147,9 @@ importers:
       graphql: 15.4.0-experimental-stream-defer.1
       graphql-ez: link:../../../packages/core/main
       require-env-variable: 3.1.2
-      tsup: 4.14.0_typescript@4.4.2
       typescript: 4.4.2
+    devDependencies:
+      bob-ts: 1.0.3_b52babfbeb6127399294d5bd562e58c3
 
   benchmarks/apis/ez-hapi:
     specifiers:
@@ -154,11 +158,11 @@ importers:
       '@hapi/hapi': ^20.1.5
       '@types/hapi__hapi': ^20.0.9
       benchmark-bench: workspace:1.0.0
+      bob-ts: ^1.0.3
       cross-env: ^7.0.3
       graphql: 15.4.0-experimental-stream-defer.1
       graphql-ez: workspace:^0.12.7
       require-env-variable: ^3.1.2
-      tsup: ^4.14.0
       typescript: '>=4.4.2'
     dependencies:
       '@envelop/graphql-jit': 1.1.1_34dd13c2583fe2e4418c23a0d30fc388
@@ -170,8 +174,9 @@ importers:
       graphql: 15.4.0-experimental-stream-defer.1
       graphql-ez: link:../../../packages/core/main
       require-env-variable: 3.1.2
-      tsup: 4.14.0_typescript@4.4.2
       typescript: 4.4.2
+    devDependencies:
+      bob-ts: 1.0.3_b52babfbeb6127399294d5bd562e58c3
 
   benchmarks/apis/ez-http:
     specifiers:
@@ -179,11 +184,11 @@ importers:
       '@graphql-ez/http': workspace:^0.10.1
       '@types/node': '>=16'
       benchmark-bench: workspace:1.0.0
+      bob-ts: ^1.0.3
       cross-env: ^7.0.3
       graphql: 15.4.0-experimental-stream-defer.1
       graphql-ez: workspace:^0.12.7
       require-env-variable: ^3.1.2
-      tsup: ^4.14.0
       typescript: '>=4.4.2'
     dependencies:
       '@envelop/graphql-jit': 1.1.1_34dd13c2583fe2e4418c23a0d30fc388
@@ -194,8 +199,9 @@ importers:
       graphql: 15.4.0-experimental-stream-defer.1
       graphql-ez: link:../../../packages/core/main
       require-env-variable: 3.1.2
-      tsup: 4.14.0_typescript@4.4.2
       typescript: 4.4.2
+    devDependencies:
+      bob-ts: 1.0.3_b52babfbeb6127399294d5bd562e58c3
 
   benchmarks/apis/ez-koa:
     specifiers:
@@ -203,12 +209,12 @@ importers:
       '@graphql-ez/koa': workspace:^0.8.6
       '@koa/router': ^10.1.1
       benchmark-bench: workspace:1.0.0
+      bob-ts: ^1.0.3
       cross-env: ^7.0.3
       graphql: 15.4.0-experimental-stream-defer.1
       graphql-ez: workspace:^0.12.7
       koa: ^2.13.1
       require-env-variable: ^3.1.2
-      tsup: ^4.14.0
       typescript: '>=4.4.2'
     dependencies:
       '@envelop/graphql-jit': 1.1.1_34dd13c2583fe2e4418c23a0d30fc388
@@ -220,18 +226,19 @@ importers:
       graphql-ez: link:../../../packages/core/main
       koa: 2.13.1
       require-env-variable: 3.1.2
-      tsup: 4.14.0_typescript@4.4.2
       typescript: 4.4.2
+    devDependencies:
+      bob-ts: 1.0.3_b52babfbeb6127399294d5bd562e58c3
 
   benchmarks/apis/graphql-helix:
     specifiers:
       '@types/node': '>=16'
       benchmark-bench: workspace:1.0.0
+      bob-ts: ^1.0.3
       fastify: ^3.20.2
       graphql: 15.4.0-experimental-stream-defer.1
       graphql-helix: ^1.7.0
       require-env-variable: ^3.1.2
-      tsup: ^4.14.0
       typescript: '>=4.4.2'
     dependencies:
       benchmark-bench: link:../../bench
@@ -239,20 +246,20 @@ importers:
       graphql: 15.4.0-experimental-stream-defer.1
       graphql-helix: 1.7.0_34dd13c2583fe2e4418c23a0d30fc388
       require-env-variable: 3.1.2
-      tsup: 4.14.0_typescript@4.4.2
       typescript: 4.4.2
     devDependencies:
       '@types/node': 16.7.10
+      bob-ts: 1.0.3_b52babfbeb6127399294d5bd562e58c3
 
   benchmarks/apis/mercurius:
     specifiers:
       benchmark-bench: workspace:1.0.0
+      bob-ts: ^1.0.3
       cross-env: ^7.0.3
       fastify: ^3.20.2
       graphql: 15.4.0-experimental-stream-defer.1
       mercurius: ^8.1.3
       require-env-variable: ^3.1.2
-      tsup: ^4.14.0
       typescript: '>=4.4.2'
     dependencies:
       benchmark-bench: link:../../bench
@@ -261,8 +268,9 @@ importers:
       graphql: 15.4.0-experimental-stream-defer.1
       mercurius: 8.1.3
       require-env-variable: 3.1.2
-      tsup: 4.14.0_typescript@4.4.2
       typescript: 4.4.2
+    devDependencies:
+      bob-ts: 1.0.3_b52babfbeb6127399294d5bd562e58c3
 
   benchmarks/bench:
     specifiers:
@@ -292,7 +300,6 @@ importers:
       require-env-variable: ^3.1.2
       rimraf: ^3.0.2
       systeminformation: ^5.8.7
-      tsup: ^4.14.0
       typescript: '>=4.4.2'
       wait-on: ^6.0.0
     dependencies:
@@ -311,7 +318,6 @@ importers:
       require-env-variable: 3.1.2
       rimraf: 3.0.2
       systeminformation: 5.8.7
-      tsup: 4.14.0_typescript@4.4.2
       typescript: 4.4.2
       wait-on: 6.0.0
     devDependencies:
@@ -372,10 +378,10 @@ importers:
       '@graphql-typed-document-node/core': ^3.1.0
       '@types/express': ^4.17.13
       '@types/node': '>=16'
+      bob-ts: ^1.0.3
       express: ^4.17.1
       graphql: 15.4.0-experimental-stream-defer.1
       graphql-ez: workspace:^0.12.7
-      tsup: ^4.14.0
       typescript: '>=4.4.2'
     dependencies:
       '@graphql-ez/express': link:../../../packages/express/main
@@ -394,7 +400,7 @@ importers:
     devDependencies:
       '@types/express': 4.17.13
       '@types/node': 16.7.10
-      tsup: 4.14.0_typescript@4.4.2
+      bob-ts: 1.0.3_b52babfbeb6127399294d5bd562e58c3
       typescript: 4.4.2
 
   examples/fastify/basic:
@@ -403,10 +409,10 @@ importers:
       '@graphql-ez/plugin-codegen': workspace:^0.7.0
       '@graphql-ez/plugin-schema': workspace:^0.7.1
       '@types/node': '>=16'
+      bob-ts: ^1.0.3
       fastify: ^3.20.2
       graphql: 15.4.0-experimental-stream-defer.1
       graphql-ez: workspace:^0.12.7
-      tsup: ^4.14.0
     dependencies:
       '@graphql-ez/fastify': link:../../../packages/fastify/main
       '@graphql-ez/plugin-codegen': link:../../../packages/plugin/codegen
@@ -416,7 +422,7 @@ importers:
       graphql-ez: link:../../../packages/core/main
     devDependencies:
       '@types/node': 16.7.10
-      tsup: 4.14.0_typescript@4.4.2
+      bob-ts: 1.0.3_b52babfbeb6127399294d5bd562e58c3
 
   examples/fastify/complete:
     specifiers:
@@ -433,11 +439,11 @@ importers:
       '@graphql-ez/plugin-websockets': workspace:^0.9.3
       '@types/graphql-upload': ^8.0.7
       '@types/node': '>=16'
+      bob-ts: ^1.0.3
       fastify: ^3.20.2
       graphql: 15.4.0-experimental-stream-defer.1
       graphql-ez: workspace:^0.12.7
       graphql-upload: ^12.0.0
-      tsup: ^4.14.0
       typescript: '>=4.4.2'
     dependencies:
       '@graphql-ez/fastify': link:../../../packages/fastify/main
@@ -458,7 +464,7 @@ importers:
       graphql-upload: 12.0.0_34dd13c2583fe2e4418c23a0d30fc388
     devDependencies:
       '@types/node': 16.7.10
-      tsup: 4.14.0_typescript@4.4.2
+      bob-ts: 1.0.3_b52babfbeb6127399294d5bd562e58c3
       typescript: 4.4.2
 
   examples/fastify/nexus:
@@ -466,11 +472,11 @@ importers:
       '@graphql-ez/fastify': workspace:^0.9.3
       '@graphql-ez/plugin-altair': workspace:^0.7.1
       '@types/node': '>=16'
+      bob-ts: ^1.0.3
       fastify: ^3.20.2
       graphql: 15.4.0-experimental-stream-defer.1
       graphql-ez: workspace:^0.12.7
       nexus: ^1.1.0
-      tsup: ^4.14.0
       typescript: '>=4.4.2'
     dependencies:
       '@graphql-ez/fastify': link:../../../packages/fastify/main
@@ -481,7 +487,7 @@ importers:
       nexus: 1.1.0_34dd13c2583fe2e4418c23a0d30fc388
     devDependencies:
       '@types/node': 16.7.10
-      tsup: 4.14.0_typescript@4.4.2
+      bob-ts: 1.0.3_b52babfbeb6127399294d5bd562e58c3
       typescript: 4.4.2
 
   examples/fastify/type-graphql:
@@ -526,9 +532,9 @@ importers:
       '@hapi/hapi': ^20.1.5
       '@types/hapi__hapi': ^20.0.9
       '@types/node': '>=16'
+      bob-ts: ^1.0.3
       graphql: 15.4.0-experimental-stream-defer.1
       graphql-ez: workspace:^0.12.7
-      tsup: ^4.14.0
       typescript: '>=4.4.2'
     dependencies:
       '@graphql-ez/hapi': link:../../../packages/hapi/main
@@ -547,7 +553,7 @@ importers:
     devDependencies:
       '@types/hapi__hapi': 20.0.9
       '@types/node': 16.7.10
-      tsup: 4.14.0_typescript@4.4.2
+      bob-ts: 1.0.3_b52babfbeb6127399294d5bd562e58c3
       typescript: 4.4.2
 
   examples/http/complete:
@@ -563,9 +569,9 @@ importers:
       '@graphql-ez/plugin-websockets': workspace:^0.9.3
       '@graphql-typed-document-node/core': ^3.1.0
       '@types/node': '>=16'
+      bob-ts: ^1.0.3
       graphql: 15.4.0-experimental-stream-defer.1
       graphql-ez: workspace:^0.12.7
-      tsup: ^4.14.0
       typescript: '>=4.4.2'
     dependencies:
       '@graphql-ez/http': link:../../../packages/http/main
@@ -582,7 +588,7 @@ importers:
       graphql-ez: link:../../../packages/core/main
     devDependencies:
       '@types/node': 16.7.10
-      tsup: 4.14.0_typescript@4.4.2
+      bob-ts: 1.0.3_b52babfbeb6127399294d5bd562e58c3
       typescript: 4.4.2
 
   examples/koa/complete:
@@ -603,11 +609,11 @@ importers:
       '@types/koa__router': ^8.0.7
       '@types/koa-bodyparser': ^4.3.3
       '@types/node': '>=16'
+      bob-ts: ^1.0.3
       graphql: 15.4.0-experimental-stream-defer.1
       graphql-ez: workspace:^0.12.7
       koa: ^2.13.1
       koa-bodyparser: ^4.3.0
-      tsup: ^4.14.0
       typescript: '>=4.4.2'
     dependencies:
       '@graphql-ez/koa': link:../../../packages/koa/main
@@ -631,7 +637,7 @@ importers:
       '@types/koa__router': 8.0.7
       '@types/koa-bodyparser': 4.3.3
       '@types/node': 16.7.10
-      tsup: 4.14.0_typescript@4.4.2
+      bob-ts: 1.0.3_b52babfbeb6127399294d5bd562e58c3
       typescript: 4.4.2
 
   examples/nextjs/complete:
@@ -742,28 +748,28 @@ importers:
   examples/yoga/express:
     specifiers:
       '@graphql-yoga/express': workspace:^1.0.1
+      bob-ts: ^1.0.3
       graphql: 15.4.0-experimental-stream-defer.1
       graphql-ez: workspace:^0.12.7
-      tsup: ^4.14.0
     dependencies:
       '@graphql-yoga/express': link:../../../yoga/express
       graphql: 15.4.0-experimental-stream-defer.1
       graphql-ez: link:../../../packages/core/main
     devDependencies:
-      tsup: 4.14.0_typescript@4.4.2
+      bob-ts: 1.0.3_b52babfbeb6127399294d5bd562e58c3
 
   examples/yoga/fastify:
     specifiers:
+      bob-ts: ^1.0.3
       graphql: 15.4.0-experimental-stream-defer.1
       graphql-ez: workspace:^0.12.7
       graphql-yoga: workspace:^1.0.1
-      tsup: ^4.14.0
     dependencies:
       graphql: 15.4.0-experimental-stream-defer.1
       graphql-ez: link:../../../packages/core/main
       graphql-yoga: link:../../../yoga/fastify
     devDependencies:
-      tsup: 4.14.0_typescript@4.4.2
+      bob-ts: 1.0.3_b52babfbeb6127399294d5bd562e58c3
 
   internal/testing:
     specifiers:
@@ -6740,6 +6746,25 @@ packages:
       - supports-color
     dev: true
 
+  /bob-ts/1.0.3_b52babfbeb6127399294d5bd562e58c3:
+    resolution: {integrity: sha512-lgwfyLh7WhxxZHhU0vzSIX+H349iiyyNIMG2IDfqTsIHRF7C2o4Q2xTcMwQjZo8DJHzXbqHX93fJkT6Uf3I5jQ==}
+    engines: {node: ^12.20.0 || >=14.13.0}
+    hasBin: true
+    peerDependencies:
+      '@types/node': '*'
+      esbuild: '*'
+    dependencies:
+      '@types/node': 16.7.10
+      bob-esbuild-plugin: 1.0.0_af6e4b6a5beac1be8c066f233a6a66a4
+      commander: 8.1.0
+      esbuild: 0.12.24
+      execa: 5.1.1
+      globby: 12.0.2
+      rollup: 2.56.3
+      rollup-plugin-delete: 2.0.0
+      tree-kill: 1.2.2
+    dev: true
+
   /body-parser/1.19.0:
     resolution: {integrity: sha512-dhEPs72UPbDnAQJ9ZKMNTP6ptJaionhP5cBb541nXPlW60Jepo9RV/a4fX4XWW9CuFNK22krhrj1+rgzifNCsw==}
     engines: {node: '>= 0.8'}
@@ -6948,10 +6973,6 @@ packages:
   /bytes/3.1.0:
     resolution: {integrity: sha512-zauLjrfCG+xvoyaqLoV8bLVXXNGC4JqlxFCutSDWA6fJrTo2ZuvLYTqZ7aHBLZSMOopbzwv8f+wZcVzfVTI2Dg==}
     engines: {node: '>= 0.8'}
-
-  /cac/6.7.3:
-    resolution: {integrity: sha512-ECVqVZh74qgSuZG9YOt2OJPI3wGcf+EwwuF/XIOYqZBD0KZYLtgPWqFPxmDPQ6joxI1nOlvVgRV6VT53Ooyocg==}
-    engines: {node: '>=8'}
 
   /cache-base/1.0.1:
     resolution: {integrity: sha512-AKcdTnFSWATd5/GCPRxr2ChwIJ85CeyrEyjRHlKxQ56d4XJMGym0uAiKn0xbLOGOl3+yRpOTi484dVCEc5AUzQ==}
@@ -7465,6 +7486,7 @@ packages:
   /commander/4.1.1:
     resolution: {integrity: sha512-NOKm8xhkzAjzFx8B2v5OAHT+u5pRQc2UCa2Vq9jYL/31o2wi9mxBA7LIFs3sV5VSC49z6pEhfbMULvShKj26WA==}
     engines: {node: '>= 6'}
+    dev: true
 
   /commander/5.1.0:
     resolution: {integrity: sha512-P0CysNDQ7rtVw4QIQtm+MRxV66vKFSvlsQvGYXZWR3qFU0jlMKHZZZgw8e+8DSah4UDKMqnknRDQz+xuQXQ/Zg==}
@@ -9287,6 +9309,7 @@ packages:
       minimatch: 3.0.4
       once: 1.4.0
       path-is-absolute: 1.0.1
+    dev: true
 
   /glob/7.1.7:
     resolution: {integrity: sha512-OvD9ENzPLbegENnYP5UUfJIirTg4+XwMWGaQfQTY0JenxNvvIKP3U3/tAQSPIu/lHxXYSZmpXlUHeqAIdKzBLQ==}
@@ -10015,6 +10038,7 @@ packages:
     engines: {node: '>=8'}
     dependencies:
       import-from: 3.0.0
+    dev: false
 
   /import-fresh/3.3.0:
     resolution: {integrity: sha512-veYYhQa+D1QBKznvhUHxb8faxlrwUnxseDAbAp457E0wLNio2bOSKnjYDhMj+YiAq61xrMGhQk9iXVk5FzgQMw==}
@@ -10028,6 +10052,7 @@ packages:
     engines: {node: '>=8'}
     dependencies:
       resolve-from: 5.0.0
+    dev: false
 
   /import-from/4.0.0:
     resolution: {integrity: sha512-P9J71vT5nLlDeV8FHs5nNxaLbrpfAV5cF5srvbZfpwpcJoM/xZR3hiv+q+SAnuSmuGbXMWud063iIMx/V/EWZQ==}
@@ -11113,6 +11138,7 @@ packages:
   /joycon/3.0.1:
     resolution: {integrity: sha512-SJcJNBg32dGgxhPtM0wQqxqV0ax9k/9TaUskGDSJkSFSQOEWWvQ3zzWdGQRIUry2j1zA5+ReH13t0Mf3StuVZA==}
     engines: {node: '>=10'}
+    dev: true
 
   /js-cookie/2.2.1:
     resolution: {integrity: sha512-HvdH2LzI/EAZcUwA8+0nKNtWHqS+ZmijLA30RwZA0bo7ToCckjK5MkGhjED9KoRcXO6BaGI3I9UIzSA1FKFPOQ==}
@@ -11365,6 +11391,7 @@ packages:
   /lilconfig/2.0.3:
     resolution: {integrity: sha512-EHKqr/+ZvdKCifpNrJCKxBTgk5XupZA3y/aCPY9mxfgBzmgh93Mt/WqjjQ38oMxXuvDokaKiM3lAgvSH2sjtHg==}
     engines: {node: '>=10'}
+    dev: false
 
   /lines-and-columns/1.1.6:
     resolution: {integrity: sha1-HADHQ7QzzQpOgHWPe2SldEDZ/wA=}
@@ -11943,6 +11970,7 @@ packages:
       any-promise: 1.3.0
       object-assign: 4.1.1
       thenify-all: 1.6.0
+    dev: true
 
   /nano-css/5.3.4_react-dom@17.0.2+react@17.0.2:
     resolution: {integrity: sha512-wfcviJB6NOxDIDfr7RFn/GlaN7I/Bhe4d39ZRCJ3xvZX60LVe2qZ+rDqM49nm4YT81gAjzS+ZklhKP/Gnfnubg==}
@@ -12341,6 +12369,7 @@ packages:
   /node-modules-regexp/1.0.0:
     resolution: {integrity: sha1-jZ2+KJZKSsVxLpExZCEHxx6Q7EA=}
     engines: {node: '>=0.10.0'}
+    dev: true
 
   /node-releases/1.1.75:
     resolution: {integrity: sha512-Qe5OUajvqrqDSy6wrWFmMwfJ0jVgwiw4T3KqmbTcZ62qW0gQkheXYhcFM1+lOVcGUoRxcEcfyvFMAnDgaF1VWw==}
@@ -12876,6 +12905,7 @@ packages:
     engines: {node: '>= 6'}
     dependencies:
       node-modules-regexp: 1.0.0
+    dev: true
 
   /pkg-dir/4.2.0:
     resolution: {integrity: sha512-HRDzbaKjC+AOWVXxAU/x54COGeIv9eb+6CkDSQoNTt4XyWoIJvuPsXizxu/Fr23EiekbtZwmh1IcIG/l/a10GQ==}
@@ -12942,6 +12972,7 @@ packages:
       import-cwd: 3.0.0
       lilconfig: 2.0.3
       yaml: 1.10.2
+    dev: false
 
   /postcss-nested/5.0.6:
     resolution: {integrity: sha512-rKqm2Fk0KbA8Vt3AdGN0FB9OBOMDVajMG6ZCf/GoHgdxUJ4sBFp0A/uMIRm+MJUdo33YXEtjqIz8u7DAp8B7DA==}
@@ -13961,6 +13992,7 @@ packages:
     hasBin: true
     optionalDependencies:
       fsevents: 2.3.2
+    dev: true
 
   /rtl-css-js/1.14.2:
     resolution: {integrity: sha512-t6Wc/wpqm8s3kuXAV6tL/T7VS6n0XszzX58CgCsLj3O2xi9ITSLfzYhtl+GKyxCi/3QEqVctOJQwCiDzb2vteQ==}
@@ -14836,6 +14868,7 @@ packages:
       mz: 2.7.0
       pirates: 4.0.1
       ts-interface-checker: 0.1.13
+    dev: true
 
   /supports-color/5.5.0:
     resolution: {integrity: sha512-QjVjwdXIt408MIiAqCX4oUKsgU2EqAGzs2Ppkm4aQYbjm+ZEWEcW4SfFNTr4uMNZma0ey4f5lgLrkB0aX0QMow==}
@@ -15194,11 +15227,13 @@ packages:
     engines: {node: '>=0.8'}
     dependencies:
       thenify: 3.3.1
+    dev: true
 
   /thenify/3.3.1:
     resolution: {integrity: sha512-RVZSIV5IG10Hk3enotrhvz0T9em6cyHBLkH/YAZuKqd8hRkKhSfCGIcP2KUY0EPxndzANBmNllzWPwak+bheSw==}
     dependencies:
       any-promise: 1.3.0
+    dev: true
 
   /throat/6.0.1:
     resolution: {integrity: sha512-8hmiGIJMDlwjg7dlJ4yKGLK8EsYqKgPWbG3b4wjJddKNwc7N7Dpn08Df4szr/sZdMVeOstrdYSsqzX6BYbcB+w==}
@@ -15396,6 +15431,7 @@ packages:
 
   /ts-interface-checker/0.1.13:
     resolution: {integrity: sha512-Y/arvbn+rrz3JCKl9C4kVNfTfSm2/mEp5FSz5EsZSANGPSlQrpRI5M4PKF+mJnE52jOO90PnPSc3Ur3bTQw0gA==}
+    dev: true
 
   /ts-jest/27.0.5_d6279bcaf6e2c6aa91a58343d133ee67:
     resolution: {integrity: sha512-lIJApzfTaSSbtlksfFNHkWOzLJuuSm4faFAfo5kvzOiRAuoN4/eKxVJ2zEAho8aecE04qX6K1pAzfH5QHL1/8w==}
@@ -15511,33 +15547,6 @@ packages:
   /tsscmp/1.0.6:
     resolution: {integrity: sha512-LxhtAkPDTkVCMQjt2h6eBVY28KCjikZqZfMcC15YBeNjkgUpdCfBu5HoiOTDu86v6smE8yOjyEktJ8hlbANHQA==}
     engines: {node: '>=0.6.x'}
-
-  /tsup/4.14.0_typescript@4.4.2:
-    resolution: {integrity: sha512-77rWdzhikTP9mQ34XMRzK83tw++LF6f4ox/HNERlgesB7g6g5VQ1iJlueG9O0P9HAZGVKavUwyoZv0+322p6rg==}
-    hasBin: true
-    peerDependencies:
-      typescript: ^4.2.3
-    peerDependenciesMeta:
-      typescript:
-        optional: true
-    dependencies:
-      cac: 6.7.3
-      chalk: 4.1.2
-      chokidar: 3.5.2
-      debug: 4.3.2
-      esbuild: 0.12.24
-      execa: 5.1.1
-      globby: 11.0.4
-      joycon: 3.0.1
-      postcss-load-config: 3.1.0
-      resolve-from: 5.0.0
-      rollup: 2.56.3
-      sucrase: 3.20.1
-      tree-kill: 1.2.2
-      typescript: 4.4.2
-    transitivePeerDependencies:
-      - supports-color
-      - ts-node
 
   /tty-browserify/0.0.0:
     resolution: {integrity: sha1-oVe6QC2iTpv5V/mqadUk7tQpAaY=}

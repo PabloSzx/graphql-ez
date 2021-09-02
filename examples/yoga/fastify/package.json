@@ -5,8 +5,9 @@
   "license": "MIT",
   "author": "PabloSzx <pablosaez1995@gmail.com>",
   "scripts": {
-    "dev:cjs": "tsup --watch src --onSuccess \"node dist/index.js\"",
-    "dev:mjs": "tsup --watch src --onSuccess \"node dist/index.mjs\""
+    "dev:cjs": "bob-ts-watch -f cjs -c \"node dist/index.js\"",
+    "dev:mjs": "bob-ts-watch -c \"node dist/index.mjs\"",
+    "start": "bob-ts && node dist/index.mjs"
   },
   "dependencies": {
     "graphql": "15.4.0-experimental-stream-defer.1",
@@ -14,16 +15,6 @@
     "graphql-yoga": "workspace:^1.0.1"
   },
   "devDependencies": {
-    "tsup": "^4.14.0"
-  },
-  "tsup": {
-    "silent": true,
-    "format": [
-      "cjs",
-      "esm"
-    ],
-    "entryPoints": [
-      "src/index.ts"
-    ]
+    "bob-ts": "^1.0.3"
   }
 }
