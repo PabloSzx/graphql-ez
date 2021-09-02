@@ -239,7 +239,7 @@ export const ezWebSockets = (options: WebSocketOptions = 'adaptive'): EZPlugin =
 
       ctx.ws.wsTuple = wsTuple;
     },
-    compatibilityList: ['fastify', 'express', 'hapi', 'koa', 'http'],
+    compatibilityList: ['fastify', 'express', 'hapi', 'koa', 'http', 'tinyhttp'],
     async onIntegrationRegister(ctx, integrationCtx) {
       if (!ctx.ws || !ctx.ws.wsTuple) return;
 
@@ -283,6 +283,12 @@ export const ezWebSockets = (options: WebSocketOptions = 'adaptive'): EZPlugin =
         const { handleHttp } = await import('./integrations/http');
 
         return handleHttp(integrationCtx.http, commonData);
+      }
+
+      if (integrationCtx.tinyhttp) {
+        const { handleTinyhttp } = await import('./integrations/tinyhttp');
+
+        return handleTinyhttp(integrationCtx.tinyhttp, commonData);
       }
     },
   };

@@ -80,6 +80,7 @@ export const pluginsList: Package<Tags>[] = [
       koa: 1,
       hapi: 1,
       http: 1,
+      tinyhttp: 1,
     }),
     title: 'Websockets',
     iconUrl: '/assets/logos/graphql-ws.png',
