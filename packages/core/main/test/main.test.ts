@@ -299,6 +299,7 @@ Array [
       "nextjs",
       "sveltekit",
       "cloudflare",
+      "tinyhttp",
     ],
     "name": "GraphQL Voyager",
     "onIntegrationRegister": [Function],
