@@ -28,7 +28,7 @@ export async function expectCommonQueryStream(address: string) {
       ({ opaque, statusCode }) => {
         assert(opaque instanceof PassThrough);
 
-        expect(statusCode).toBe(200);
+        assert(statusCode === 200, 'Unexpected status code');
 
         (async () => {
           const chunks: string[] = [];
@@ -37,11 +37,11 @@ export async function expectCommonQueryStream(address: string) {
             chunks.push(chunk);
           }
 
-          expect(chunks[0]).toContain(`{"data":{"stream":["A"]},"hasNext":true}`);
-          expect(chunks[1]).toContain(`{"data":"B","path":["stream",1],"hasNext":true}`);
-          expect(chunks[2]).toContain(`{"data":"C","path":["stream",2],"hasNext":true}`);
+          assert(chunks[0]?.includes(`{"data":{"stream":["A"]},"hasNext":true}`));
+          assert(chunks[1]?.includes(`{"data":"B","path":["stream",1],"hasNext":true}`));
+          assert(chunks[2]?.includes(`{"data":"C","path":["stream",2],"hasNext":true}`));
 
-          expect(chunks).toHaveLength(3);
+          assert(chunks.length === 3, 'Incorrect amount of chunks');
 
           done.resolve();
         })().catch(done.reject);

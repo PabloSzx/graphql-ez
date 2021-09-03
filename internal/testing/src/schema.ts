@@ -71,7 +71,11 @@ export const CommonSchema = {
           id,
         }));
       },
-      context(_root: unknown, _args: unknown, { req, fastify, express, hapi, http, koa, ws, next, ...ctx }: EZContext) {
+      context(
+        _root: unknown,
+        _args: unknown,
+        { req, fastify, express, hapi, http, koa, ws, next, cloudflare, sveltekit, tinyhttp, vercel, ...ctx }: EZContext
+      ) {
         return safeStringify(ctx);
       },
       stream: {

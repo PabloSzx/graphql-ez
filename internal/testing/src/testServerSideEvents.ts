@@ -1,6 +1,6 @@
 import EventSource from 'eventsource';
 import { createDeferredPromise } from '@graphql-ez/utils/promise';
-
+import { deepStrictEqual } from 'assert';
 export async function expectCommonServerSideEventSubscription(address: string) {
   const eventSource = new EventSource(`${address}/graphql?query=subscription{ping}`);
 
@@ -11,19 +11,19 @@ export async function expectCommonServerSideEventSubscription(address: string) {
       try {
         switch (++n) {
           case 1:
-            return expect(JSON.parse(event.data)).toStrictEqual({
+            return deepStrictEqual(JSON.parse(event.data), {
               data: {
                 ping: 'pong1',
               },
             });
           case 2:
-            return expect(JSON.parse(event.data)).toStrictEqual({
+            return deepStrictEqual(JSON.parse(event.data), {
               data: {
                 ping: 'pong2',
               },
             });
           case 3:
-            expect(JSON.parse(event.data)).toStrictEqual({
+            deepStrictEqual(JSON.parse(event.data), {
               data: {
                 ping: 'pong3',
               },

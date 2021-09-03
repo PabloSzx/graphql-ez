@@ -412,3 +412,61 @@ export async function startNextJSServer(dir: string[], autoClose: boolean = true
 
   return { ...pool, app, NextJSDir };
 }
+
+export const startTinyhttpServer = async (
+  {
+    createOptions,
+    buildOptions,
+    graphqlWsClientOptions,
+    subscriptionsTransportClientOptions,
+    clientWebsocketPath,
+    autoClose = true,
+  }: StartTestServerOptions<
+    import('@graphql-ez/tinyhttp').tinyhttpAppOptions,
+    import('@graphql-ez/tinyhttp').tinyhttpBuildAppOptions
+  >,
+  { CreateApp }: typeof import('@graphql-ez/tinyhttp')
+) => {
+  const server = new (await import('@tinyhttp/app')).App();
+
+  const { schema, mergeSchemasConfig, ...opts } = createOptions || {};
+
+  if (schema) {
+    defaultsDeep(opts, {
+      ez: {
+        plugins: [],
+      },
+    } as AppOptions);
+
+    opts.ez?.plugins?.push(ezSchema({ schema, mergeSchemasConfig }));
+  }
+
+  const appBuilder = CreateApp(opts);
+
+  const ezApp = await appBuilder.buildApp({ ...buildOptions, app: server });
+
+  const port = await getPort();
+
+  await new Promise<void>(resolve => {
+    const httpServer = server.listen(port, () => {
+      resolve();
+    });
+
+    autoClose && TearDownPromises.push(new PLazy<unknown>(resolve => httpServer.close(resolve)));
+  });
+
+  const pool = getRequestPool(port);
+
+  return {
+    appBuilder,
+    ezApp,
+    server,
+    ...pool,
+    GraphQLWSWebsocketsClient: createGraphQLWSWebsocketsClient(pool.address, clientWebsocketPath, graphqlWsClientOptions),
+    SubscriptionsTransportWebsocketsClient: createSubscriptionsTransportWebsocketsClient(
+      pool.address,
+      clientWebsocketPath,
+      subscriptionsTransportClientOptions
+    ),
+  };
+};

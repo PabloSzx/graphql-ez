@@ -1,11 +1,10 @@
 {
-  "name": "@graphql-ez/tinyhttp",
+  "name": "@graphql-ez/tinyhttp-testing",
   "version": "0.0.1",
-  "homepage": "https://www.graphql-ez.com",
   "repository": {
     "type": "git",
     "url": "https://github.com/PabloSzx/graphql-ez",
-    "directory": "packages/tinyhttp"
+    "directory": "packages/tinyhttp/testing"
   },
   "license": "MIT",
   "author": "PabloSz <pablosaez1995@gmail.com>",
@@ -31,21 +30,26 @@
     "test:esm": "bob-ts -d test-mocha/dist && c8 mocha test-mocha \"test-mocha/dist/**/*.mjs\""
   },
   "dependencies": {
+    "@graphql-ez/client": "workspace:^0.2.1",
     "@graphql-ez/utils": "workspace:^0.1.2",
-    "@tinyhttp/cors": "^2.0.0",
-    "milliparsec": "^2.2.0"
+    "get-port": "^5.1.1"
   },
   "devDependencies": {
+    "@graphql-ez/tinyhttp": "workspace:^0.0.1",
     "@tinyhttp/app": "^2.0.0",
     "bob-esbuild-cli": "^1.0.1",
     "changesets-github-release": "^0.0.4",
+    "express": "^4.17.1",
     "graphql": "15.4.0-experimental-stream-defer.1",
-    "graphql-ez": "workspace:^0.12.7"
+    "graphql-ez": "workspace:^0.12.7",
+    "jest": "^27.1.0",
+    "subscriptions-transport-ws-envelop": "^2.0.1"
   },
   "peerDependencies": {
+    "@graphql-ez/tinyhttp": "workspace:^0.0.1",
     "@tinyhttp/app": "^2.0.0",
     "graphql": "*",
-    "graphql-ez": "workspace:*"
+    "graphql-ez": "workspace:^0.12.1"
   },
   "publishConfig": {
     "directory": "dist"
