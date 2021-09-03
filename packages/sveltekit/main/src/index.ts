@@ -24,6 +24,8 @@ export interface EZAppBuilder extends BaseAppBuilder {
   readonly buildApp: (options?: BuildAppOptions) => EZApp;
 }
 
+export * from 'graphql-ez';
+
 export interface EZApp {
   readonly handler: RequestHandler;
 
