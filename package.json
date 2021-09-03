@@ -12,8 +12,8 @@
   "scripts": {
     "changeset": "changeset",
     "changesets": "changeset",
-    "ci:release": "pnpm -r publish --access public --no-git-checks",
-    "ci:version": "changeset version && pnpm i --no-frozen-lockfile --lockfile-only --ignore-scripts && pnpm update -r \"@graphql-ez/*\" graphql-ez",
+    "ci:release": "pnpm pretty && pnpm -r publish --access public --no-git-checks",
+    "ci:version": "pnpm pretty && changeset version && pnpm i --no-frozen-lockfile --lockfile-only --ignore-scripts && pnpm update -r \"@graphql-ez/*\" graphql-ez",
     "clean": "rimraf \"**/{node_modules,dist,.next,coverage}\"",
     "dev:cjs": "pnpm -w dev:cjs:all",
     "dev:cjs:all": "bob-esbuild tsc && concurrently pnpm:dev:core pnpm:dev:cjs:express pnpm:dev:cjs:fastify pnpm:dev:cjs:http pnpm:dev:cjs:koa pnpm:dev:cjs:hapi pnpm:dev:next pnpm:dev:cjs:yoga:fastify pnpm:dev:cjs:yoga:express",
@@ -37,8 +37,8 @@
     "dev:next": "pnpm -r --filter @graphql-ez/nextjs dev -- --onSuccess \"pnpm -r --filter example-complete-nextjs dev -- -p 3006\"",
     "postinstall": "node patch.js",
     "prepare": "husky install && bob-esbuild tsc && pnpm -r --no-sort --no-bail prepack",
-    "pretty": "prettier --write \"**/*{.ts,.tsx,.json,.yaml}\"",
-    "pretty:check": "prettier --check \"**/*{.ts,.tsx,.json,.yaml}\"",
+    "pretty": "prettier --write \"**/*.{ts,tsx,json,yaml,js,cjs,mjs}\"",
+    "pretty:check": "prettier --check \"**/*.{ts,tsx,json,yaml,js,cjs,mjs}\"",
     "test": "jest",
     "test:separate": "pnpm -r --filter=\"!graphql-ez-monorepo\" --no-sort --no-bail test -- ",
     "typecheck": "bob-esbuild tsc"
