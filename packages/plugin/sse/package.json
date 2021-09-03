@@ -26,8 +26,7 @@
   "scripts": {
     "dev": "bob-esbuild watch",
     "prepack": "bob-esbuild build",
-    "postpublish": "gh-release",
-    "test": "jest"
+    "postpublish": "gh-release"
   },
   "devDependencies": {
     "@types/node": "^16.7.10",
