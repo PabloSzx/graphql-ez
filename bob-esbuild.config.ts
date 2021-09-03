@@ -25,6 +25,7 @@ export const config: import('bob-esbuild').BobConfig = {
             __GRAPHIQL_PKG_VERSION__: JSON.stringify(packageJson.version),
           };
         })(),
+        target: 'node13.2',
       }
     : undefined,
 };

@@ -1,7 +1,7 @@
 import { LazyPromise } from '@graphql-ez/utils/promise';
-import { filedirnameFromCaller } from 'filedirname';
 import { promises } from 'fs';
-import { resolve } from 'path';
+import { dirname, resolve } from 'path';
+import { fileURLToPath } from 'url';
 import type { RenderGraphiQLOptions } from './types';
 
 const safeSerialize = (value: any) => {
@@ -10,11 +10,11 @@ const safeSerialize = (value: any) => {
 
 export * from './types';
 
-const [, dirname] = filedirnameFromCaller();
+const distDirname = dirname(fileURLToPath(import.meta.url));
 
-export const cssBundlePath = resolve(dirname, './bundle/graphiql.css');
+export const cssBundlePath = resolve(distDirname, './bundle/graphiql.css');
 
-export const jsBundlePath = resolve(dirname, './bundle/graphiql.min.js');
+export const jsBundlePath = resolve(distDirname, './bundle/graphiql.min.js');
 
 export const bundle = LazyPromise(async () => {
   const [css, javascript] = await Promise.all([promises.readFile(cssBundlePath), promises.readFile(jsBundlePath)]);
