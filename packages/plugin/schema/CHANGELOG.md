@@ -1,5 +1,11 @@
 # @graphql-ez/plugin-schema
 
+## 0.7.2
+
+### Patch Changes
+
+- 2c3504e: Update dependencies
+
 ## 0.7.1
 
 ### Patch Changes

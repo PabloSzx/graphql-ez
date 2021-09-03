@@ -1,5 +1,11 @@
 # @graphql-ez/plugin-modules
 
+## 0.8.1
+
+### Patch Changes
+
+- 2c3504e: Update dependencies
+
 ## 0.8.0
 
 ### Minor Changes

@@ -1,5 +1,11 @@
 # @graphql-ez/plugin-codegen
 
+## 0.7.1
+
+### Patch Changes
+
+- 2c3504e: Update dependencies
+
 ## 0.7.0
 
 ### Minor Changes
