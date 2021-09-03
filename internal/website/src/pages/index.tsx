@@ -13,6 +13,7 @@ import {
   NextjsLogo,
   NodeLogo,
   SvelteKitLogo,
+  TinyhttpLogo,
   VercelLogo,
 } from '../components/logos';
 
@@ -286,6 +287,27 @@ export default function Index() {
                   title: 'Vercel Docs',
                   children: 'Docs',
                   onClick: e => handlePushRoute('/docs/integrations/vercel', e),
+                },
+              },
+              {
+                title: (
+                  <IntegrationItemTitle
+                    name="tinyhttp"
+                    integrationWebsite="https://tinyhttp.v1rtl.site/"
+                    logo={<TinyhttpLogo height="40px" />}
+                  />
+                ),
+                description: (
+                  <ItemDescription
+                    description="modern, lightweight and modular Express-like web framework"
+                    packageName="@graphql-ez/tinyhttp"
+                  />
+                ),
+                link: {
+                  href: '/docs/integrations/tinyhttp',
+                  title: 'tinyhttp Docs',
+                  children: 'Docs',
+                  onClick: e => handlePushRoute('/docs/integrations/tinyhttp', e),
                 },
               },
             ]}

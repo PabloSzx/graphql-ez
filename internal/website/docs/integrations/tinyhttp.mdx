@@ -1,0 +1,110 @@
+---
+title: tinyhttp
+sidebar_label: tinyhttp
+---
+
+# tinyhttp integration
+
+<TinyhttpLogo />
+
+## Install
+
+<PackageInstall packages={['@tinyhttp/app graphql graphql-ez @graphql-ez/tinyhttp', '-D @types/node']} />
+
+## Usage
+
+> `Server module`
+
+```ts
+import { App } from '@tinyhttp/app';
+
+import { ezApp } from './ez';
+
+const app = new App();
+
+ezApp
+  .buildApp({
+    app,
+  })
+  .then(() => {
+    app.listen(3000);
+  })
+  .catch(err => {
+    console.error(err);
+    process.exit(1);
+  });
+```
+
+> `EZ App module`
+
+```ts
+import { CreateApp, gql } from '@graphql-ez/tinyhttp';
+
+export const ezApp = CreateApp({
+  // You can use any valid GraphQL Schema
+  schema,
+  ez: {
+    plugins: [
+      // EZ Plugins
+    ],
+  },
+  envelop: {
+    plugins: [
+      // Envelop Plugins
+    ],
+  },
+  // Other Options
+});
+```
+
+### Build Custom Context
+
+The tinyhttp specific arguments are optional since, in some specific contexts, those might not available,
+but you can always use the `HTTP's IncomingMessage` `req`
+
+```ts
+import { CreateApp, BuildContextArgs, InferContext } from '@graphql-ez/tinyhttp';
+
+function buildContext({ req, tinyhttp }: BuildContextArgs) {
+  // IncomingMessage
+  req;
+
+  // Request | undefined
+  tinyhttp?.req;
+
+  return {
+    foo: 'bar',
+  };
+}
+
+// This snippet allows you to infer the context returned by your 'buildContext' and add it to the EZContext interface
+declare module 'graphql-ez' {
+  interface EZContext extends InferContext<typeof buildContext> {}
+}
+
+export const ezApp = CreateApp({
+  // ...
+  buildContext,
+});
+```
+
+### Cross-Origin Resource Sharing (CORS)
+
+To enable **CORS**, specify the `cors` property in your configuration
+
+```ts
+CreateApp({
+  cors: true,
+});
+```
+
+Check the [cors middleware package](https://tinyhttp.v1rtl.site/mw/@tinyhttp/cors) for all the available options.
+
+```ts
+CreateApp({
+  // Check https://tinyhttp.v1rtl.site/mw/@tinyhttp/cors
+  cors: {
+    // ...
+  },
+});
+```

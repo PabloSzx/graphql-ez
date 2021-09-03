@@ -12,6 +12,7 @@ import CloudflareWorkersLogoImage from '../../public/assets/logos/cloudflare-wor
 import WorktopLogoImage from '../../public/assets/logos/worktop.png';
 import SvelteKitLogoImage from '../../public/assets/logos/sveltekit.webp';
 import VercelLogoImage from '../../public/assets/logos/vercel.png';
+import TinyhttpLogoImage from '../../public/assets/logos/tinyhttp.png';
 
 export type LogoImageProps = Partial<Omit<ImageProps, 'src' | 'blurDataURL'>>;
 
@@ -62,6 +63,10 @@ export const VercelLogo = (props: LogoImageProps) => {
   return <Image src={VercelLogoImage} {...baseLogoStyles} {...props} />;
 };
 
+export const TinyhttpLogo = (props: LogoImageProps) => {
+  return <Image src={TinyhttpLogoImage} {...baseLogoStyles} {...props} />;
+};
+
 ExtendComponents({
   ExpressLogo,
   FastifyLogo,
@@ -73,4 +78,5 @@ ExtendComponents({
   WorktopLogo,
   SvelteKitLogo,
   VercelLogo,
+  TinyhttpLogo,
 });

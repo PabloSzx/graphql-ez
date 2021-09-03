@@ -1,12 +1,29 @@
-import { App } from '@tinyhttp/app';
-import { logger } from '@tinyhttp/logger';
-import { ezSchema, gql } from '@graphql-ez/plugin-schema';
-import { CreateApp } from '@graphql-ez/tinyhttp';
-import { ezGraphiQLIDE } from '@graphql-ez/plugin-graphiql';
 import { ezAltairIDE } from '@graphql-ez/plugin-altair';
+import { ezGraphiQLIDE } from '@graphql-ez/plugin-graphiql';
+import { ezSchema, gql } from '@graphql-ez/plugin-schema';
+import { ezSSE } from '@graphql-ez/plugin-sse';
 import { ezVoyager } from '@graphql-ez/plugin-voyager';
 import { ezWebSockets } from '@graphql-ez/plugin-websockets';
-import { ezSSE } from '@graphql-ez/plugin-sse';
+import { BuildContextArgs, CreateApp, InferContext } from '@graphql-ez/tinyhttp';
+import { App } from '@tinyhttp/app';
+import { logger } from '@tinyhttp/logger';
+
+function buildContext({ req, tinyhttp }: BuildContextArgs) {
+  // IncomingMessage
+  req;
+
+  // Request | undefined
+  tinyhttp?.req;
+
+  return {
+    foo: 'bar',
+  };
+}
+
+declare module 'graphql-ez' {
+  interface EZContext extends InferContext<typeof buildContext> {}
+}
+
 const app = new App();
 
 const ezApp = CreateApp({
@@ -22,6 +39,7 @@ const ezApp = CreateApp({
           typeDefs: gql`
             type Query {
               hello: String!
+              ctx: String!
             }
             type Subscription {
               hello: String!
@@ -31,6 +49,9 @@ const ezApp = CreateApp({
             Query: {
               hello() {
                 return 'Hello World!';
+              },
+              ctx(_root, _args, { foo }) {
+                return foo;
               },
             },
             Subscription: {
@@ -59,14 +80,21 @@ const ezApp = CreateApp({
       }),
     ],
   },
+  buildContext,
 });
 
 const sleep = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
 
 app.use(logger());
 
-await ezApp.buildApp({
-  app,
-});
-
-app.listen(3000);
+ezApp
+  .buildApp({
+    app,
+  })
+  .then(() => {
+    app.listen(3000);
+  })
+  .catch(err => {
+    console.error(err);
+    process.exit(1);
+  });
