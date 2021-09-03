@@ -1,5 +1,11 @@
 # @graphql-ez/plugin-automatic-persisted-queries
 
+## 1.0.2
+
+### Patch Changes
+
+- 2c3504e: Update dependencies
+
 ## 1.0.1
 
 ### Patch Changes
