@@ -13,6 +13,8 @@ import type {
 } from 'graphql-ez';
 import { createEZAppFactory, handleRequest, InternalAppBuildContextKey } from 'graphql-ez';
 
+export * from 'graphql-ez';
+
 declare module 'graphql-ez' {
   interface BuildContextArgs {
     tinyhttp?: {
