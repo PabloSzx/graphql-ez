@@ -15,3 +15,4 @@ With integrations for:
 - [Cloudflare Workers](https://workers.cloudflare.com/) using [Worktop](https://github.com/lukeed/worktop)
 - [SvelteKit](https://kit.svelte.dev/)
 - [Vercel](https://vercel.com/docs/runtimes#official-runtimes/node-js)
+- [tinyhttp](https://tinyhttp.v1rtl.site/)
