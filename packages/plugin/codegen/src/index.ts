@@ -1,5 +1,4 @@
 import { toPlural } from '@graphql-ez/utils/object';
-
 import type { EZPlugin } from 'graphql-ez';
 import type { CodegenConfig } from './typescript';
 
@@ -39,28 +38,32 @@ export const ezCodegen = (options: CodegenOptions = {}): EZPlugin => {
     onRegister(ctx) {
       ctx.codegen = options;
     },
-    onAfterBuild(getEnveloped, ctx) {
-      const {
-        config: { onError = console.error, onFinish } = {},
-        outputSchema,
-        enableCodegen = process.env.NODE_ENV !== 'production' && process.env.NODE_ENV !== 'test',
-      } = options;
+    onPreBuild(ctx) {
+      ctx.options.envelop.plugins.push({
+        onSchemaChange({ schema }) {
+          if (!ctx.codegen) return;
 
-      if (!enableCodegen) return onFinish?.();
+          const {
+            config: { onError = console.error, onFinish } = {},
+            outputSchema,
+            enableCodegen = process.env.NODE_ENV !== 'production' && process.env.NODE_ENV !== 'test',
+          } = ctx.codegen;
 
-      const { schema } = getEnveloped();
+          if (!enableCodegen) return onFinish?.();
 
-      Promise.all([
-        outputSchema
-          ? import('./outputSchema').then(({ writeOutputSchema }) => {
-              return Promise.all(toPlural(outputSchema).map(format => writeOutputSchema(schema, format))).catch(onError);
-            })
-          : null,
+          Promise.all([
+            outputSchema
+              ? import('./outputSchema').then(({ writeOutputSchema }) => {
+                  return Promise.all(toPlural(outputSchema).map(format => writeOutputSchema(schema, format))).catch(onError);
+                })
+              : null,
 
-        import('./typescript').then(({ EnvelopTypeScriptCodegen }) => {
-          return EnvelopTypeScriptCodegen(schema, ctx).catch(onError);
-        }),
-      ]).then(onFinish, onError);
+            import('./typescript').then(({ EnvelopTypeScriptCodegen }) => {
+              return EnvelopTypeScriptCodegen(schema, ctx).catch(onError);
+            }),
+          ]).then(onFinish, onError);
+        },
+      });
     },
   };
 };
