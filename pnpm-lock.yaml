@@ -347,7 +347,7 @@ importers:
       graphql: 15.4.0-experimental-stream-defer.1
       graphql-ez: workspace:^0.12.7
       miniflare: ^1.4.0
-      worktop: ^0.7.1
+      worktop: ^0.7.2
     dependencies:
       '@graphql-ez/cloudflare': link:../../packages/cloudflare/main
       '@graphql-ez/plugin-altair': link:../../packages/plugin/altair
@@ -356,7 +356,7 @@ importers:
       '@graphql-ez/plugin-voyager': link:../../packages/plugin/voyager
       graphql: 15.4.0-experimental-stream-defer.1
       graphql-ez: link:../../packages/core/main
-      worktop: 0.7.1
+      worktop: 0.7.2
     devDependencies:
       '@types/node': 16.7.10
       clipboardy: 2.3.0
@@ -989,7 +989,7 @@ importers:
       miniflare: ^1.4.0
       undici: ^4.5.1
       wait-on: ^6.0.0
-      worktop: ^0.7.1
+      worktop: ^0.7.2
     dependencies:
       '@graphql-ez/utils': link:../../core/utils
     devDependencies:
@@ -1006,7 +1006,7 @@ importers:
       miniflare: 1.4.0
       undici: 4.5.1
       wait-on: 6.0.0
-      worktop: 0.7.1
+      worktop: 0.7.2
 
   packages/core/main:
     specifiers:
@@ -16421,8 +16421,8 @@ packages:
     engines: {node: '>=0.10.0'}
     dev: true
 
-  /worktop/0.7.1:
-    resolution: {integrity: sha512-p6QuswBEGO/x7E8C6pAyCLd8bKJBY0Idtca1pBTOSvFz4oFBP3O9GVcmuHEXRtp2Z1PBFoATnVJDcI0Uj0nmJA==}
+  /worktop/0.7.2:
+    resolution: {integrity: sha512-WUtf6uEmC3eNsz/y5usuZkGxRYqev/pEguT0taTtOVEg0ENo+OCQUqCIc6SsX/0Pg9rdZtA+roHRSVDzmxJD8A==}
     engines: {node: '>=12'}
     dependencies:
       regexparam: 2.0.0
