@@ -1,5 +1,11 @@
 # @graphql-ez/plugin-codegen
 
+## 0.7.2
+
+### Patch Changes
+
+- 32b74a9: plugin-codegen: use onSchemaChange hook
+
 ## 0.7.1
 
 ### Patch Changes
