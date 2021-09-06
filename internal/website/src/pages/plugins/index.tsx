@@ -1,5 +1,5 @@
 import { ClassNames } from '@emotion/react';
-import { handlePushRoute, MDX, PackageInstall, RemoteGHMarkdown } from '@guild-docs/client';
+import { handlePushRoute, MDX, PackageInstall, RemoteGHMarkdown, NPMBadge } from '@guild-docs/client';
 import { buildMultipleMDX, CompiledMDX } from '@guild-docs/server';
 import { getPackagesData, PackageWithStats } from '@guild-docs/server/npm';
 import { MarketplaceSearch } from '@theguild/components';
@@ -9,7 +9,6 @@ import type { GetStaticProps } from 'next';
 import Head from 'next/head';
 import { useMemo } from 'react';
 import { packageInstallList, pluginsList, TagsList } from '../../../plugins';
-import { NPMBadge } from '../../components/NPMBadge';
 
 interface MarketplaceProps {
   data: (PackageWithStats & { description: CompiledMDX; content: CompiledMDX })[];

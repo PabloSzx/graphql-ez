@@ -1,5 +1,5 @@
 import { Box, Center, Code, Container, Grid, Heading, Image, SimpleGrid, VStack } from '@chakra-ui/react';
-import { DocsTOC, PackageInstall, RemoteGHMarkdown } from '@guild-docs/client';
+import { DocsTOC, PackageInstall, RemoteGHMarkdown, NPMBadge } from '@guild-docs/client';
 import { MDXTOC } from '@guild-docs/client/toc';
 import { buildMDX, CompiledMDX } from '@guild-docs/server';
 import { getPackagesData, PackageWithStats } from '@guild-docs/server/npm';
@@ -7,7 +7,6 @@ import format from 'date-fns/format';
 import type { GetStaticPaths, GetStaticProps } from 'next';
 import Head from 'next/head';
 import { packageInstallList, pluginsList } from '../../../plugins';
-import { NPMBadge } from '../../components/NPMBadge';
 
 interface PluginPageProps {
   data: (PackageWithStats & { mdx: CompiledMDX })[];

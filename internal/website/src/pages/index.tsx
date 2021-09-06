@@ -1,6 +1,6 @@
 import { Box, chakra, Heading, HStack, Link, Stack, Text, useColorModeValue, VStack } from '@chakra-ui/react';
 import { ClassNames } from '@emotion/react';
-import { handlePushRoute } from '@guild-docs/client';
+import { handlePushRoute, NPMBadge } from '@guild-docs/client';
 import { HeroGradient, InfoList } from '@theguild/components';
 import Router from 'next/router';
 import { ReactNode, useEffect } from 'react';
@@ -15,7 +15,6 @@ import {
   SvelteKitLogo,
   VercelLogo,
 } from '../components/logos';
-import { NPMBadge } from '../components/NPMBadge';
 
 function ItemDescription({ description, packageName }: { description: string; packageName: string }) {
   return (
