@@ -258,7 +258,7 @@ importers:
       cross-env: ^7.0.3
       fastify: ^3.20.2
       graphql: 15.4.0-experimental-stream-defer.1
-      mercurius: ^8.1.3
+      mercurius: ^8.2.0
       require-env-variable: ^3.1.2
       typescript: '>=4.4.2'
     dependencies:
@@ -266,7 +266,7 @@ importers:
       cross-env: 7.0.3
       fastify: 3.20.2
       graphql: 15.4.0-experimental-stream-defer.1
-      mercurius: 8.1.3
+      mercurius: 8.2.0_34dd13c2583fe2e4418c23a0d30fc388
       require-env-variable: 3.1.2
       typescript: 4.4.2
     devDependencies:
@@ -8827,11 +8827,11 @@ packages:
   /fastify-warning/0.2.0:
     resolution: {integrity: sha512-s1EQguBw/9qtc1p/WTY4eq9WMRIACkj+HTcOIK1in4MV5aFaQC9ZCIt0dJ7pr5bIf4lPpHvAtP2ywpTNgs7hqw==}
 
-  /fastify-websocket/3.2.2:
-    resolution: {integrity: sha512-imwyoYpZTmbcB1uGe4Yy/iaIuJgl76z+h4u8VdZTEG1PEgo22x8fQs9CnkKjx9DRbW2DpcIbezvZLDZtZjWObg==}
+  /fastify-websocket/4.0.0:
+    resolution: {integrity: sha512-XeeE2r4SkkLBp83NZ3BKCEdR6KFPEtiiIAUrvJhsvLJFRCV6BCnF5ZdchZ6ghPQ5rJ1VwcWlajuXHlQWwXX/YQ==}
     dependencies:
       fastify-plugin: 3.0.0
-      ws: 7.5.4
+      ws: 8.2.1
     transitivePeerDependencies:
       - bufferutil
       - utf-8-validate
@@ -11705,8 +11705,10 @@ packages:
       yargs-parser: 18.1.3
     dev: true
 
-  /mercurius/8.1.3:
-    resolution: {integrity: sha512-9LOPpBMvQ3a7ti8UaJ0fSF75A3cFPo4bFRutqVrU8NCDcPccfqZ28YywaBWgwzKpWEU55J2YIlgV30U32PqEKw==}
+  /mercurius/8.2.0_34dd13c2583fe2e4418c23a0d30fc388:
+    resolution: {integrity: sha512-pA5Fd+jbti8ytznq1OwXDzit20Ma6aS3629i2obhhtblMOk8FFS3z8NRtNm8bdeZapdJmDsUjCEXXLuGapldjw==}
+    peerDependencies:
+      graphql: ^15.5.1
     dependencies:
       '@types/isomorphic-form-data': 2.0.0
       end-of-stream: 1.4.4
@@ -11714,7 +11716,7 @@ packages:
       fastify-error: 0.3.1
       fastify-plugin: 3.0.0
       fastify-static: 4.2.3
-      fastify-websocket: 3.2.2
+      fastify-websocket: 4.0.0
       graphql: 15.4.0-experimental-stream-defer.1
       graphql-jit: 0.5.2_34dd13c2583fe2e4418c23a0d30fc388
       mqemitter: 4.4.1
