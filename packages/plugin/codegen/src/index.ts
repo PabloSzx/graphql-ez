@@ -32,11 +32,11 @@ declare module 'graphql-ez' {
   }
 }
 
-export const ezCodegen = (options: CodegenOptions = {}): EZPlugin => {
+export const ezCodegen = ({ config, enableCodegen, outputSchema }: CodegenOptions = {}): EZPlugin => {
   return {
     name: 'GraphQL Codegen',
     onRegister(ctx) {
-      ctx.codegen = options;
+      ctx.codegen = { config: { ...config }, enableCodegen, outputSchema };
     },
     onPreBuild(ctx) {
       ctx.options.envelop.plugins.push({

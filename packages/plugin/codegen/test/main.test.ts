@@ -42,6 +42,7 @@ test('typescript resolvers', async () => {
               onFinish: codegenDone.resolve,
               onError: codegenDone.reject,
               documents: [tempDocumentPath],
+              postGeneratedCode: "export type HelloWorld = 'Hello World!'",
             },
             outputSchema: [schemaGqlPath, schemaJsonPath],
           }),
@@ -215,6 +216,8 @@ test('typescript resolvers', async () => {
     declare module 'graphql-ez' {
       interface EZResolvers extends Resolvers<import('graphql-ez').EZContext> {}
     }
+
+    export type HelloWorld = 'Hello World!';
     "
   `);
 

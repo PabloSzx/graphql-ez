@@ -3,7 +3,7 @@ import { resolve } from 'path';
 
 import { printSchemaWithDirectives, Loader } from '@graphql-tools/utils';
 
-import { cleanObject } from '@graphql-ez/utils/object';
+import { cleanObject, toPlural } from '@graphql-ez/utils/object';
 import { LazyPromise } from '@graphql-ez/utils/promise';
 import { formatPrettier } from './prettier';
 import { writeFileIfChanged } from './write';
@@ -63,6 +63,11 @@ export interface CodegenConfig
    * Add arbitrary code at the beginning of the generated code
    */
   preImportCode?: string;
+
+  /**
+   * Add arbitrary code at the end of the generated code
+   */
+  postGeneratedCode?: string[] | string;
 
   /**
    * Handle Code Generation errors
@@ -152,6 +157,7 @@ export async function EnvelopTypeScriptCodegen(executableSchema: GraphQLSchema, 
     extraPluginsConfig,
     transformGenerated,
     documentsLoaders,
+    postGeneratedCode,
     ...codegenOptions
   } = ctx.codegen?.config || {};
 
@@ -247,6 +253,9 @@ export async function EnvelopTypeScriptCodegen(executableSchema: GraphQLSchema, 
   declare module "graphql-ez" {
       interface EZResolvers extends Resolvers<import("graphql-ez").EZContext> { }
   }
+
+  ${toPlural(postGeneratedCode).join('\n')}
+
 `,
     'typescript'
   );
