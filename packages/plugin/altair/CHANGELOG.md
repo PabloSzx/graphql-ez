@@ -1,5 +1,11 @@
 # @graphql-ez/plugin-altair
 
+## 0.9.0
+
+### Minor Changes
+
+- 7f36a2a: Rename "endpointURL" and "endpointUrl" to "endpoint" to align plugins configuration
+
 ## 0.8.0
 
 ### Minor Changes
