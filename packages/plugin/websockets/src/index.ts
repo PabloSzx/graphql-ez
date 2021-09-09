@@ -1,25 +1,20 @@
-import assert from 'assert';
-
 import { cleanObject, getObjectValue } from '@graphql-ez/utils/object';
 import { LazyPromise } from '@graphql-ez/utils/promise';
-
+import type { EZPlugin, GetEnvelopedFn, InternalAppBuildContext } from 'graphql-ez';
+import type { Server as HttpServer } from 'http';
+import type * as WebSocketNode from 'ws';
+import type WebSocket from 'ws';
 import {
+  CommonData,
   CommonWebSocketsServerTuple,
   FilteredGraphQLWSOptions,
   FilteredSubscriptionsTransportOptions,
-  NEW_PROTOCOL,
-  LEGACY_PROTOCOL,
   handleGraphQLWS,
   handleSubscriptionsTransport,
+  LEGACY_PROTOCOL,
+  NEW_PROTOCOL,
   WebSocketsState,
-  CommonData,
 } from './core';
-
-import type WebSocket from 'ws';
-import type * as WebSocketNode from 'ws';
-import type { Server as HttpServer } from 'http';
-
-import type { EZPlugin, InternalAppBuildContext, GetEnvelopedFn } from 'graphql-ez';
 
 export interface WebSocketObjectOptions {
   subscriptionsTransport?: FilteredSubscriptionsTransportOptions | boolean;
@@ -194,13 +189,13 @@ export const ezWebSockets = (options: WebSocketOptions = 'adaptive'): EZPlugin =
       let wsTuple: CommonWebSocketsServerTuple;
 
       if (enabled === 'new') {
-        assert(!Array.isArray(wsServer));
+        if (Array.isArray(wsServer)) throw Error('Unexpected error');
 
         handleGraphQLWS(await useGraphQLWSServer, wsServer, options.graphQLWS, getEnveloped, buildContext);
 
         wsTuple = ['new', wsServer];
       } else if (enabled === 'adaptive') {
-        assert(Array.isArray(wsServer));
+        if (!Array.isArray(wsServer)) throw Error('Unexpected error');
 
         handleGraphQLWS(await useGraphQLWSServer, wsServer[0], options.graphQLWS, getEnveloped, buildContext);
 
@@ -224,7 +219,7 @@ export const ezWebSockets = (options: WebSocketOptions = 'adaptive'): EZPlugin =
           wsServer,
         ];
       } else {
-        assert(!Array.isArray(wsServer));
+        if (Array.isArray(wsServer)) throw Error('Unexpected error');
 
         handleSubscriptionsTransport(
           await subscriptionsTransportWs,
@@ -240,7 +235,7 @@ export const ezWebSockets = (options: WebSocketOptions = 'adaptive'): EZPlugin =
       ctx.ws.wsTuple = wsTuple;
     },
     compatibilityList: ['fastify', 'express', 'hapi', 'koa', 'http'],
-    async onIntegrationRegister(ctx, integrationCtx) {
+    onIntegrationRegister(ctx) {
       if (!ctx.ws || !ctx.ws.wsTuple) return;
 
       const {
@@ -248,42 +243,40 @@ export const ezWebSockets = (options: WebSocketOptions = 'adaptive'): EZPlugin =
         options: { path },
       } = ctx;
 
-      assert(path, '"path" not specified and is required for WebSockets EZ Plugin!');
+      if (typeof path !== 'string') throw Error('"path" not specified and is required for WebSockets EZ Plugin!');
 
       const commonData: CommonData = {
         wsTuple,
         path,
       };
 
-      if (integrationCtx.fastify) {
-        const { handleFastify } = await import('./integrations/fastify');
+      return {
+        async fastify({ integration }) {
+          const { handleFastify } = await import('./integrations/fastify');
 
-        return handleFastify(integrationCtx.fastify, commonData);
-      }
+          return handleFastify(integration, commonData);
+        },
+        async express({ integration }) {
+          const { handleExpress } = await import('./integrations/express');
 
-      if (integrationCtx.express) {
-        const { handleExpress } = await import('./integrations/express');
+          return handleExpress(integration, commonData);
+        },
+        async hapi({ integration }) {
+          const { handleHapi } = await import('./integrations/hapi');
 
-        return handleExpress(integrationCtx.express, commonData);
-      }
+          return handleHapi(integration, commonData);
+        },
+        async koa({ integration }) {
+          const { handleKoa } = await import('./integrations/koa');
 
-      if (integrationCtx.hapi) {
-        const { handleHapi } = await import('./integrations/hapi');
+          return handleKoa(integration, commonData);
+        },
+        async http({ integration }) {
+          const { handleHttp } = await import('./integrations/http');
 
-        return handleHapi(integrationCtx.hapi, commonData);
-      }
-
-      if (integrationCtx.koa) {
-        const { handleKoa } = await import('./integrations/koa');
-
-        return handleKoa(integrationCtx.koa, commonData);
-      }
-
-      if (integrationCtx.http) {
-        const { handleHttp } = await import('./integrations/http');
-
-        return handleHttp(integrationCtx.http, commonData);
-      }
+          return handleHttp(integration, commonData);
+        },
+      };
     },
   };
 };

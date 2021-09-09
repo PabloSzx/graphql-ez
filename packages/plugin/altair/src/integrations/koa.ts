@@ -1,8 +1,7 @@
 import { withoutTrailingSlash } from '@graphql-ez/utils/url';
+import type { IntegrationRegisterHandler } from 'graphql-ez';
 
-import type { InternalAppBuildContext, InternalAppBuildIntegrationContext } from 'graphql-ez';
-
-export async function handleKoa(ctx: InternalAppBuildContext, instance: NonNullable<InternalAppBuildIntegrationContext['koa']>) {
+export const handleKoa: IntegrationRegisterHandler<'koa'> = async ({ ctx, integration: { router } }) => {
   if (!ctx.altair) return;
 
   const path = ctx.altair.path;
@@ -12,7 +11,7 @@ export async function handleKoa(ctx: InternalAppBuildContext, instance: NonNulla
 
   const { endpointURL = ctx.options.path || '/graphql', baseURL: baseURLOpt, path: _path, ...renderOptions } = ctx.altair.options;
 
-  instance.router.get([path, baseURL, withoutTrailingSlash(baseURL) + '/(.*)'], async ctx => {
+  router.get([path, baseURL, withoutTrailingSlash(baseURL) + '/(.*)'], async ctx => {
     const { status, content, contentType } = await render({
       baseURL,
       altairPath: path,
@@ -29,4 +28,4 @@ export async function handleKoa(ctx: InternalAppBuildContext, instance: NonNulla
 
     return (ctx.body = content);
   });
-}
+};

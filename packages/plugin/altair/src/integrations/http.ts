@@ -1,6 +1,6 @@
-import type { InternalAppBuildContext, InternalAppBuildIntegrationContext } from 'graphql-ez';
+import type { IntegrationRegisterHandler } from 'graphql-ez';
 
-export function handleHttp(ctx: InternalAppBuildContext, instance: NonNullable<InternalAppBuildIntegrationContext['http']>) {
+export const handleHttp: IntegrationRegisterHandler<'http'> = ({ ctx, integration: { handlers } }) => {
   if (!ctx.altair) return;
 
   const altair = ctx.altair;
@@ -10,7 +10,7 @@ export function handleHttp(ctx: InternalAppBuildContext, instance: NonNullable<I
 
   const handler = altair.handler({ ...ctx.altair.options, path });
 
-  instance.handlers.push(async (req, res) => {
+  handlers.push(async (req, res) => {
     const url = req.url || '';
     if (req.method === 'GET' && (url.startsWith(path) || url.startsWith(baseURL))) {
       await handler(req, res);
@@ -22,4 +22,4 @@ export function handleHttp(ctx: InternalAppBuildContext, instance: NonNullable<I
 
     return;
   });
-}
+};

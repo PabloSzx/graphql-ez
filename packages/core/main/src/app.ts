@@ -178,9 +178,20 @@ export function createEZAppFactory(
   };
 
   async function onIntegrationRegister(integrationCtx: InternalAppBuildIntegrationContext) {
+    const integration: any = integrationCtx[integrationName];
+
+    if (integration == null) throw Error(`Error on @graphql-ez/${integrationName}!`);
+
     await Promise.all(
-      ezPlugins.map(plugin => {
-        return plugin.onIntegrationRegister?.(ctx, integrationCtx);
+      ezPlugins.map(async ({ onIntegrationRegister }) => {
+        if (!onIntegrationRegister) return;
+
+        const integrationCallback = (await onIntegrationRegister(ctx))?.[integrationName];
+
+        return integrationCallback?.({
+          ctx,
+          integration,
+        });
       })
     );
   }

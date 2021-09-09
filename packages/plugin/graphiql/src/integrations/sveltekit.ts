@@ -1,10 +1,7 @@
-import type { InternalAppBuildContext, InternalAppBuildIntegrationContext } from 'graphql-ez';
+import type { IntegrationRegisterHandler } from 'graphql-ez';
 import { shouldRenderGraphiQL, getPathname } from '../utils';
 
-export async function handleSvelteKit(
-  ctx: InternalAppBuildContext,
-  { handlers }: NonNullable<InternalAppBuildIntegrationContext['sveltekit']>
-) {
+export const handleSvelteKit: IntegrationRegisterHandler<'sveltekit'> = async ({ ctx, integration: { handlers } }) => {
   if (!ctx.graphiql) return;
 
   const html = await ctx.graphiql.html;
@@ -64,4 +61,4 @@ export async function handleSvelteKit(
       return objResponse;
     });
   }
-}
+};

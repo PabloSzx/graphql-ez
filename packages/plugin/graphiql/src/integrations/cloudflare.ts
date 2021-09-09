@@ -1,10 +1,10 @@
-import type { InternalAppBuildContext, InternalAppBuildIntegrationContext } from 'graphql-ez';
 import { shouldRenderGraphiQL } from '../utils';
+import type { IntegrationRegisterHandler } from 'graphql-ez';
 
-export async function handleCloudflare(
-  ctx: InternalAppBuildContext,
-  instance: NonNullable<InternalAppBuildIntegrationContext['cloudflare']>
-) {
+export const handleCloudflare: IntegrationRegisterHandler<'cloudflare'> = async ({
+  ctx,
+  integration: { preHandlers, router },
+}) => {
   if (!ctx.graphiql) return;
 
   const html = await ctx.graphiql.html;
@@ -12,16 +12,16 @@ export async function handleCloudflare(
   const path = ctx.graphiql.path;
 
   if (ctx.options.path === path) {
-    instance.preHandlers.push((req, res) => {
+    preHandlers.push((req, res) => {
       if (shouldRenderGraphiQL({ headers: req.headers, method: req.method, query: Object.fromEntries(req.query) })) {
         res.setHeader('content-type', 'text/html');
         res.end(html);
       }
     });
   } else {
-    instance.router.add('GET', path, (_req, res) => {
+    router.add('GET', path, (_req, res) => {
       res.setHeader('content-type', 'text/html');
       res.end(html);
     });
   }
-}
+};
