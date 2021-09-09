@@ -6,7 +6,7 @@ import { onIntegrationRegister } from './integrations';
 import type { AltairOptions, IDEHandler } from './types';
 
 export function UnpkgAltairHandler(options: PickRequired<AltairOptions, 'path'>): IDEHandler {
-  let { path, base: baseURLOpt, endpoint = '/api/graphql', ...renderOptions } = options;
+  let { path, baseURL: baseURLOpt, endpoint = '/api/graphql', ...renderOptions } = options;
 
   const baseURL = baseURLOpt || path + '/';
 
@@ -52,10 +52,10 @@ export const ezUnpkgAltairIDE = (options: AltairOptions | boolean = true): EZPlu
       objOptions.endpoint ||= ctx.options.path;
 
       objOptions.path &&= withoutTrailingSlash(objOptions.path);
-      objOptions.base &&= withTrailingSlash(objOptions.base);
+      objOptions.baseURL &&= withTrailingSlash(objOptions.baseURL);
 
       const path = (objOptions.path ||= '/altair');
-      const baseURL = (objOptions.base ||= withTrailingSlash(path));
+      const baseURL = (objOptions.baseURL ||= withTrailingSlash(path));
 
       ctx.altair = {
         handler: UnpkgAltairHandler,

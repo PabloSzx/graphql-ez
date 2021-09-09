@@ -9,7 +9,7 @@ export const handleKoa: IntegrationRegisterHandler<'koa'> = async ({ ctx, integr
 
   const render = await ctx.altair.render;
 
-  const { endpoint = ctx.options.path || '/graphql', base: baseURLOpt, path: _path, ...renderOptions } = ctx.altair.options;
+  const { endpoint = ctx.options.path || '/graphql', baseURL: baseURLOpt, path: _path, ...renderOptions } = ctx.altair.options;
 
   router.get([path, baseURL, withoutTrailingSlash(baseURL) + '/(.*)'], async ctx => {
     const { status, content, contentType } = await render({

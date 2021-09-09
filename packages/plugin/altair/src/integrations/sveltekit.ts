@@ -8,7 +8,12 @@ export const handleSvelteKit: IntegrationRegisterHandler<'sveltekit'> = async ({
 
   const render = await ctx.altair.render;
 
-  const { endpoint: endpointURL = ctx.options.path || '/api/graphql', base: baseURLOpt, path: _path, ...renderOptions } = ctx.altair.options;
+  const {
+    endpoint = ctx.options.path || '/api/graphql',
+    baseURL: baseURLOpt,
+    path: _path,
+    ...renderOptions
+  } = ctx.altair.options;
 
   const baseURL = withTrailingSlash(baseURLOpt || path);
 
@@ -24,7 +29,7 @@ export const handleSvelteKit: IntegrationRegisterHandler<'sveltekit'> = async ({
         altairPath: path,
         renderOptions: {
           ...renderOptions,
-          endpointURL,
+          endpointURL: endpoint,
           baseURL,
         },
         url: req.path,

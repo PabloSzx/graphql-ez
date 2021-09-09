@@ -2,16 +2,11 @@ import type { PickRequired } from 'graphql-ez';
 import type { RenderOptions } from 'altair-static-slim';
 import type { IncomingMessage, ServerResponse } from 'http';
 
-export interface AltairOptions extends Omit<RenderOptions, 'baseURL' | 'endpointURL'> {
+export interface AltairOptions extends Omit<RenderOptions, 'endpointURL'> {
   /**
    * @default "/altair"
    */
   path?: string;
-
-  /**
-   * URL to be used as a base for relative URLs
-   */
-  base?: string;
 
   /**
    * URL to set as the server endpoint

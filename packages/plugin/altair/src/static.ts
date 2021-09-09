@@ -13,7 +13,7 @@ export function AltairHandlerDeps(options: AltairOptions): {
   baseURL: string;
   renderOptions: RenderOptions;
 } {
-  let { path = '/altair', base: baseURLOpt, ...renderOptions } = options;
+  let { path = '/altair', baseURL: baseURLOpt, ...renderOptions } = options;
 
   const baseURL = baseURLOpt || path + '/';
 
@@ -46,10 +46,10 @@ export const ezAltairIDE = (options: AltairOptions | boolean = true): EZPlugin =
       objOptions.endpoint ||= ctx.options.path;
 
       objOptions.path &&= withoutTrailingSlash(objOptions.path);
-      objOptions.base &&= withTrailingSlash(objOptions.base);
+      objOptions.baseURL &&= withTrailingSlash(objOptions.baseURL);
 
       const path = (objOptions.path ||= '/altair');
-      const baseURL = (objOptions.base ||= withTrailingSlash(path));
+      const baseURL = (objOptions.baseURL ||= withTrailingSlash(path));
 
       ctx.altair = {
         handler: AltairHandler,
