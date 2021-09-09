@@ -135,8 +135,7 @@ declare module '../index' {
     /**
      * Set GraphQL Schema
      *
-     * __Set "schema" to `"dynamic"` for dynamic schema usage and to disable static schema validation.
-     * _Some plugins that require a static GraphQL Schema might fail___
+     * __Set "schema" to `"dynamic"` to disable static schema validation.
      */
     schema?: GraphQLSchema | Promise<GraphQLSchema> | 'dynamic';
 

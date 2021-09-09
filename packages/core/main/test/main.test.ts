@@ -23,21 +23,21 @@ test.concurrent('basic', async () => {
   });
 
   expect(await query(`{hello}`)).toMatchInlineSnapshot(`
-Object {
-  "data": Object {
-    "hello": "Hello World!",
-  },
-  "http": Object {
-    "headers": Object {
-      "connection": "keep-alive",
-      "content-length": "33",
-      "content-type": "application/json; charset=utf-8",
-      "keep-alive": "timeout=5",
-    },
-    "statusCode": 200,
-  },
-}
-`);
+    Object {
+      "data": Object {
+        "hello": "Hello World!",
+      },
+      "http": Object {
+        "headers": Object {
+          "connection": "keep-alive",
+          "content-length": "33",
+          "content-type": "application/json; charset=utf-8",
+          "keep-alive": "timeout=5",
+        },
+        "statusCode": 200,
+      },
+    }
+  `);
 });
 
 test.concurrent('batched queries', async () => {
@@ -106,7 +106,9 @@ test.concurrent('SSE subscription', async () => {
 });
 
 test.concurrent('no schema', async () => {
-  await expect(startFastifyServer({})).rejects.toMatchInlineSnapshot(`[Error: [graphql-ez] No GraphQL Schema specified!]`);
+  await expect(startFastifyServer({})).rejects.toMatchInlineSnapshot(
+    `[Error: [graphql-ez] No GraphQL Schema specified!. If you are using a dynamic schema, make sure to set the "schema" configuration property as "dynamic".]`
+  );
 });
 
 test.concurrent('external schema', async () => {
@@ -165,114 +167,114 @@ test.concurrent('presets', async () => {
   });
 
   expect(ezPlugins).toMatchInlineSnapshot(`
-Array [
-  Object {
-    "compatibilityList": Object {
-      "cloudflare": true,
-      "express": true,
-      "fastify": true,
-      "hapi": true,
-      "http": true,
-      "koa": true,
-      "nextjs": true,
-      "sveltekit": true,
-      "vercel": true,
-    },
-    "name": "GraphiQL IDE",
-    "onIntegrationRegister": [Function],
-    "onRegister": [Function],
-  },
-]
-`);
+    Array [
+      Object {
+        "compatibilityList": Object {
+          "cloudflare": true,
+          "express": true,
+          "fastify": true,
+          "hapi": true,
+          "http": true,
+          "koa": true,
+          "nextjs": true,
+          "sveltekit": true,
+          "vercel": true,
+        },
+        "name": "GraphiQL IDE",
+        "onIntegrationRegister": [Function],
+        "onRegister": [Function],
+      },
+    ]
+  `);
 
   expect(envelopPlugins).toMatchInlineSnapshot(`
-Array [
-  Object {
-    "onContextBuilding": [Function],
-  },
-]
-`);
+    Array [
+      Object {
+        "onContextBuilding": [Function],
+      },
+    ]
+  `);
 
   expect(asPreset.ezPlugins).toMatchInlineSnapshot(`
-Array [
-  Object {
-    "compatibilityList": Object {
-      "cloudflare": true,
-      "express": true,
-      "fastify": true,
-      "hapi": true,
-      "http": true,
-      "koa": true,
-      "nextjs": true,
-      "sveltekit": true,
-      "vercel": true,
-    },
-    "name": "GraphiQL IDE",
-    "onIntegrationRegister": [Function],
-    "onRegister": [Function],
-  },
-]
-`);
+    Array [
+      Object {
+        "compatibilityList": Object {
+          "cloudflare": true,
+          "express": true,
+          "fastify": true,
+          "hapi": true,
+          "http": true,
+          "koa": true,
+          "nextjs": true,
+          "sveltekit": true,
+          "vercel": true,
+        },
+        "name": "GraphiQL IDE",
+        "onIntegrationRegister": [Function],
+        "onRegister": [Function],
+      },
+    ]
+  `);
 
   envelopPlugins.push(useExtendContext(() => ({})));
 
   expect(ezPlugins).toMatchInlineSnapshot(`
-Array [
-  Object {
-    "compatibilityList": Object {
-      "cloudflare": true,
-      "express": true,
-      "fastify": true,
-      "hapi": true,
-      "http": true,
-      "koa": true,
-      "nextjs": true,
-      "sveltekit": true,
-      "vercel": true,
-    },
-    "name": "GraphiQL IDE",
-    "onIntegrationRegister": [Function],
-    "onRegister": [Function],
-  },
-]
-`);
+    Array [
+      Object {
+        "compatibilityList": Object {
+          "cloudflare": true,
+          "express": true,
+          "fastify": true,
+          "hapi": true,
+          "http": true,
+          "koa": true,
+          "nextjs": true,
+          "sveltekit": true,
+          "vercel": true,
+        },
+        "name": "GraphiQL IDE",
+        "onIntegrationRegister": [Function],
+        "onRegister": [Function],
+      },
+    ]
+  `);
   expect(envelopPlugins).toMatchInlineSnapshot(`
-Array [
-  Object {
-    "onContextBuilding": [Function],
-  },
-  Object {
-    "onContextBuilding": [Function],
-  },
-]
-`);
+    Array [
+      Object {
+        "onContextBuilding": [Function],
+      },
+      Object {
+        "onContextBuilding": [Function],
+      },
+    ]
+  `);
   expect(asPreset.ezPlugins).toMatchInlineSnapshot(`
-Array [
-  Object {
-    "compatibilityList": Object {
-      "cloudflare": true,
-      "express": true,
-      "fastify": true,
-      "hapi": true,
-      "http": true,
-      "koa": true,
-      "nextjs": true,
-      "sveltekit": true,
-      "vercel": true,
-    },
-    "name": "GraphiQL IDE",
-    "onIntegrationRegister": [Function],
-    "onRegister": [Function],
-  },
-]
-`);
+    Array [
+      Object {
+        "compatibilityList": Object {
+          "cloudflare": true,
+          "express": true,
+          "fastify": true,
+          "hapi": true,
+          "http": true,
+          "koa": true,
+          "nextjs": true,
+          "sveltekit": true,
+          "vercel": true,
+        },
+        "name": "GraphiQL IDE",
+        "onIntegrationRegister": [Function],
+        "onRegister": [Function],
+      },
+    ]
+  `);
   expect(asPreset.envelopPlugins).toMatchInlineSnapshot(`
-Array [
-  Object {
-    "onContextBuilding": [Function],
-  },
-]
-`);
+    Array [
+      Object {
+        "onContextBuilding": [Function],
+      },
+    ]
+  `);
 
   const { query, requestRaw, appBuilder } = await startFastifyServer({
     createOptions: {
@@ -284,51 +286,51 @@ Array [
   });
 
   expect(appBuilder.ezPlugins).toMatchInlineSnapshot(`
-Array [
-  Object {
-    "compatibilityList": Object {
-      "cloudflare": true,
-      "express": true,
-      "fastify": true,
-      "hapi": true,
-      "http": true,
-      "koa": true,
-      "nextjs": true,
-      "sveltekit": true,
-    },
-    "name": "GraphQL Voyager",
-    "onIntegrationRegister": [Function],
-    "onRegister": [Function],
-  },
-  Object {
-    "compatibilityList": Object {
-      "cloudflare": true,
-      "express": true,
-      "fastify": true,
-      "hapi": true,
-      "http": true,
-      "koa": true,
-      "nextjs": true,
-      "sveltekit": true,
-      "vercel": true,
-    },
-    "name": "GraphiQL IDE",
-    "onIntegrationRegister": [Function],
-    "onRegister": [Function],
-  },
-]
-`);
+    Array [
+      Object {
+        "compatibilityList": Object {
+          "cloudflare": true,
+          "express": true,
+          "fastify": true,
+          "hapi": true,
+          "http": true,
+          "koa": true,
+          "nextjs": true,
+          "sveltekit": true,
+        },
+        "name": "GraphQL Voyager",
+        "onIntegrationRegister": [Function],
+        "onRegister": [Function],
+      },
+      Object {
+        "compatibilityList": Object {
+          "cloudflare": true,
+          "express": true,
+          "fastify": true,
+          "hapi": true,
+          "http": true,
+          "koa": true,
+          "nextjs": true,
+          "sveltekit": true,
+          "vercel": true,
+        },
+        "name": "GraphiQL IDE",
+        "onIntegrationRegister": [Function],
+        "onRegister": [Function],
+      },
+    ]
+  `);
 
   expect(appBuilder.envelopPlugins).toMatchInlineSnapshot(`
-Array [
-  Object {
-    "onContextBuilding": [Function],
-  },
-  Object {
-    "onPluginInit": [Function],
-  },
-]
-`);
+    Array [
+      Object {
+        "onContextBuilding": [Function],
+      },
+      Object {
+        "onPluginInit": [Function],
+      },
+    ]
+  `);
 
   expect(() => {
     // @ts-expect-error

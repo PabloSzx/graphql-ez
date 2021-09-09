@@ -162,7 +162,9 @@ export function createEZAppFactory(
     });
 
     if (options.schema !== 'dynamic' && !getEnveloped().schema) {
-      throw Error('[graphql-ez] No GraphQL Schema specified!');
+      throw Error(
+        `[graphql-ez] No GraphQL Schema specified!. If you are using a dynamic schema, make sure to set the "schema" configuration property as "dynamic".`
+      );
     }
 
     await Promise.all([
