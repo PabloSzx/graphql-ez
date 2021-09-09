@@ -56,8 +56,11 @@ export function createEZAppFactory(
     if (typeof pluginValue !== 'object' || pluginValue == null) return false;
 
     const { name, compatibilityList } = pluginValue;
-    if (compatibilityList && !compatibilityList.includes(integrationName)) {
-      throw Error(`[graphql-ez] "${name}" is not compatible with "${integrationName}"`);
+    if (compatibilityList) {
+      const isCompatible = compatibilityList[integrationName];
+
+      if (isCompatible instanceof Error) throw isCompatible;
+      else if (!isCompatible) throw Error(`[graphql-ez] "${name}" is not compatible with "${integrationName}"`);
     }
 
     if (ezPluginsDirty.findIndex(plugin => typeof plugin === 'object' && plugin != null && plugin.name === name) === index)
@@ -74,16 +77,16 @@ export function createEZAppFactory(
   const baseAppBuilder: BaseAppBuilder = {
     gql,
     registerDataLoader() {
-      throw Error(`To use "registerDataLoader" you have to add the "ezDataLoader" plugin first!`);
+      throw Error(`[graphql-ez] To use "registerDataLoader" you have to add the "ezDataLoader" plugin first!`);
     },
     registerModule() {
-      throw Error(`To use "registerModule" you have to add the "ezGraphQLModules" plugin first!`);
+      throw Error(`[graphql-ez] To use "registerModule" you have to add the "ezGraphQLModules" plugin first!`);
     },
     registerTypeDefs() {
-      throw Error(`To use "registerTypeDefs" you have to add the "ezSchema" plugin first!`);
+      throw Error(`[graphql-ez] To use "registerTypeDefs" you have to add the "ezSchema" plugin first!`);
     },
     registerResolvers() {
-      throw Error(`To use "registerResolvers" you have to add the "ezSchema" plugin first!`);
+      throw Error(`[graphql-ez] To use "registerResolvers" you have to add the "ezSchema" plugin first!`);
     },
     get asPreset() {
       return {
@@ -155,10 +158,13 @@ export function createEZAppFactory(
 
     const getEnveloped = envelop({
       plugins: await Promise.all(envelopPlugins),
+      enableInternalTracing: ctx.options.envelop.enableInternalTracing,
     });
 
     if (options.schema !== 'dynamic' && !getEnveloped().schema) {
-      throw Error('[graphql-ez] No GraphQL Schema specified!');
+      throw Error(
+        `[graphql-ez] No GraphQL Schema specified!. If you are using a dynamic schema, make sure to set the "schema" configuration property as "dynamic".`
+      );
     }
 
     await Promise.all([
@@ -178,9 +184,20 @@ export function createEZAppFactory(
   };
 
   async function onIntegrationRegister(integrationCtx: InternalAppBuildIntegrationContext) {
+    const integration: any = integrationCtx[integrationName];
+
+    if (integration == null) throw Error(`Error on @graphql-ez/${integrationName}!`);
+
     await Promise.all(
-      ezPlugins.map(plugin => {
-        return plugin.onIntegrationRegister?.(ctx, integrationCtx);
+      ezPlugins.map(async ({ onIntegrationRegister }) => {
+        if (!onIntegrationRegister) return;
+
+        const integrationCallback = (await onIntegrationRegister(ctx))?.[integrationName];
+
+        return integrationCallback?.({
+          ctx,
+          integration,
+        });
       })
     );
   }

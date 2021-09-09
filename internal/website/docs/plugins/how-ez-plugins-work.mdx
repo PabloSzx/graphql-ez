@@ -112,6 +112,8 @@ This plugin receives not only the `InternalAppBuildContext`, but also the create
 
 Usually, the plugins use this to add logic depending on the resulting schema or adding logic that depends on the `Envelop` instance
 
+Keep in mind that you can also add a custom Envelop plugin in previous steps and use the [`onSchemaChange`](https://www.envelop.dev/docs/plugins/lifecycle#onschemachangeapi) lifecycle for a more robust plugin.
+
 ```ts
 import type { EZPlugin } from 'graphql-ez';
 
@@ -133,7 +135,7 @@ export const ezFooBar = (options?: FooBarOptions): EZPlugin => {
 
 This step happens right at the beginning of the web-server integration register, having access to the integration-specific context.
 
-Here the plugin has to check the presence of every relevant integration supported.
+Here the plugin gives a callback for every relevant integration supported.
 
 The plugin also has to mention the supported integrations explicitly with the `compatibilityList` property.
 
@@ -143,22 +145,23 @@ import type { EZPlugin } from 'graphql-ez';
 export const ezFooBar = (options?: FooBarOptions): EZPlugin => {
   return {
     name: 'Foo Bar',
-    compatibilityList: ['fastify', 'express'],
-    onIntegrationRegister(integrationCtx, ctx) {
+    compatibilityList: {
+      fastify: true,
+      express: true,
+    },
+    async onIntegrationRegister(ctx) {
       // ...
 
-      if (integrationCtx.fastify) {
-        // ...
-
-        return;
-      }
-
-      if (integrationCtx.express) {
-        // ...
-
-        return;
-      }
-      // ...
+      return {
+        async fastify({ integration }) {
+          // This function is going to be called only when this plugin is used with Fastify
+          // ...
+        },
+        async express({ integration }) {
+          // This function is going to be called only when this plugin is used with Express
+          // ...
+        },
+      };
     },
   };
 };

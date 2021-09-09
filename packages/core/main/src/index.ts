@@ -6,9 +6,11 @@ export * from '@envelop/core';
 export * from './types';
 export * from './utils';
 
+import type { IntegrationsNames } from './app';
+
 export type { CacheOptions, EZIntrospectionOptions } from './smart-cache';
 
-export interface InternalAppBuildIntegrationContext {}
+export interface InternalAppBuildIntegrationContext extends Partial<Record<IntegrationsNames, {}>> {}
 
 export interface InternalAppBuildContext {}
 

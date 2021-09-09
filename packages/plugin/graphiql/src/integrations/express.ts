@@ -1,17 +1,14 @@
-import type { InternalAppBuildContext, InternalAppBuildIntegrationContext } from 'graphql-ez';
+import type { IntegrationRegisterHandler } from 'graphql-ez';
 import { shouldRenderGraphiQL } from '../utils';
 
-export async function handleExpress(
-  ctx: InternalAppBuildContext,
-  instance: NonNullable<InternalAppBuildIntegrationContext['express']>
-) {
+export const handleExpress: IntegrationRegisterHandler<'express'> = async ({ ctx, integration: { router } }) => {
   if (!ctx.graphiql) return;
 
   const html = await ctx.graphiql.html;
 
   const path = ctx.graphiql.path;
   if (ctx.options.path === path) {
-    instance.router.get(path, async (req, res, next) => {
+    router.get(path, async (req, res, next) => {
       if (shouldRenderGraphiQL(req)) {
         res.type('html').send(html);
       } else {
@@ -19,8 +16,8 @@ export async function handleExpress(
       }
     });
   } else {
-    instance.router.get(path, (_req, res) => {
+    router.get(path, (_req, res) => {
       res.type('html').send(html);
     });
   }
-}
+};

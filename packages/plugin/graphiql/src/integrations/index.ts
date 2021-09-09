@@ -1,59 +1,53 @@
 import type { EZPlugin } from 'graphql-ez';
 
-export const onIntegrationRegister: NonNullable<EZPlugin['onIntegrationRegister']> = async (ctx, integrationCtx) => {
+export const onIntegrationRegister: NonNullable<EZPlugin['onIntegrationRegister']> = async ctx => {
   if (!ctx.graphiql) return;
 
-  if (integrationCtx.fastify) {
-    const { handleFastify } = await import('./fastify');
+  return {
+    async fastify(args) {
+      const { handleFastify } = await import('./fastify');
 
-    return handleFastify(ctx, integrationCtx.fastify);
-  }
+      return handleFastify(args);
+    },
+    async express(args) {
+      const { handleExpress } = await import('./express');
 
-  if (integrationCtx.express) {
-    const { handleExpress } = await import('./express');
+      return handleExpress(args);
+    },
+    async koa(args) {
+      const { handleKoa } = await import('./koa');
 
-    return handleExpress(ctx, integrationCtx.express);
-  }
+      return handleKoa(args);
+    },
+    async hapi(args) {
+      const { handleHapi } = await import('./hapi');
 
-  if (integrationCtx.koa) {
-    const { handleKoa } = await import('./koa');
+      return handleHapi(args);
+    },
+    async http(args) {
+      const { handleHttp } = await import('./http');
 
-    return handleKoa(ctx, integrationCtx.koa);
-  }
+      return handleHttp(args);
+    },
+    async nextjs(args) {
+      const { handleNext } = await import('./next');
 
-  if (integrationCtx.hapi) {
-    const { handleHapi } = await import('./hapi');
+      return handleNext(args);
+    },
+    async sveltekit(args) {
+      const { handleSvelteKit } = await import('./sveltekit');
 
-    return handleHapi(ctx, integrationCtx.hapi);
-  }
+      return handleSvelteKit(args);
+    },
+    async cloudflare(args) {
+      const { handleCloudflare } = await import('./cloudflare');
 
-  if (integrationCtx.http) {
-    const { handleHttp } = await import('./http');
+      return handleCloudflare(args);
+    },
+    async vercel(args) {
+      const { handleVercel } = await import('./vercel');
 
-    return handleHttp(ctx, integrationCtx.http);
-  }
-
-  if (integrationCtx.next) {
-    const { handleNext } = await import('./next');
-
-    return handleNext(ctx, integrationCtx.next);
-  }
-
-  if (integrationCtx.sveltekit) {
-    const { handleSvelteKit } = await import('./sveltekit');
-
-    return handleSvelteKit(ctx, integrationCtx.sveltekit);
-  }
-
-  if (integrationCtx.cloudflare) {
-    const { handleCloudflare } = await import('./cloudflare');
-
-    return handleCloudflare(ctx, integrationCtx.cloudflare);
-  }
-
-  if (integrationCtx.vercel) {
-    const { handleVercel } = await import('./vercel');
-
-    return handleVercel(ctx, integrationCtx.vercel);
-  }
+      return handleVercel(args);
+    },
+  };
 };

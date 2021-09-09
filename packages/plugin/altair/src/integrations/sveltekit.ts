@@ -1,10 +1,7 @@
 import { getPathname, withoutTrailingSlash, withTrailingSlash } from '@graphql-ez/utils/url';
-import type { InternalAppBuildContext, InternalAppBuildIntegrationContext } from 'graphql-ez';
+import type { IntegrationRegisterHandler } from 'graphql-ez';
 
-export async function handleSvelteKit(
-  ctx: InternalAppBuildContext,
-  { handlers }: NonNullable<InternalAppBuildIntegrationContext['sveltekit']>
-) {
+export const handleSvelteKit: IntegrationRegisterHandler<'sveltekit'> = async ({ ctx, integration: { handlers } }) => {
   if (!ctx.altair) return;
 
   const path = ctx.altair.path;
@@ -47,4 +44,4 @@ export async function handleSvelteKit(
 
     return;
   });
-}
+};

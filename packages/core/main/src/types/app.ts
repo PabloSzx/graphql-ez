@@ -27,20 +27,27 @@ interface BaseEZPlugin {
   readonly onAfterBuild?: (getEnveloped: GetEnvelopedFn<unknown>, ctx: InternalAppBuildContext) => void | Promise<void>;
 }
 
+export type IntegrationRegisterHandler<Integration extends IntegrationsNames> = (args: {
+  ctx: InternalAppBuildContext;
+  integration: NonNullable<InternalAppBuildIntegrationContext[Integration]>;
+}) => void | Promise<void>;
+
 export type EZPlugin =
   | (BaseEZPlugin & {
-      readonly compatibilityList?: readonly IntegrationsNames[];
+      readonly compatibilityList?: { readonly [Integration in IntegrationsNames]?: boolean | Error };
       readonly onIntegrationRegister?: undefined;
     })
   | (BaseEZPlugin & {
       /**
        * List all the integrations this plugin supports
        */
-      readonly compatibilityList: readonly IntegrationsNames[];
-      readonly onIntegrationRegister: (
-        ctx: InternalAppBuildContext,
-        integrationCtx: InternalAppBuildIntegrationContext
-      ) => void | Promise<void>;
+      readonly compatibilityList: { readonly [Integration in IntegrationsNames]?: boolean | Error };
+      readonly onIntegrationRegister: (ctx: InternalAppBuildContext) => PromiseOrValue<
+        | {
+            [integrationCallback in IntegrationsNames]?: IntegrationRegisterHandler<integrationCallback>;
+          }
+        | undefined
+      >;
     });
 
 export type NullableEZPlugin = EZPlugin | null | undefined | boolean;
@@ -128,8 +135,7 @@ declare module '../index' {
     /**
      * Set GraphQL Schema
      *
-     * __Set "schema" to `"dynamic"` for dynamic schema usage and to disable static schema validation.
-     * _Some plugins that require a static GraphQL Schema might fail___
+     * __Set "schema" to `"dynamic"` to disable static schema validation.
      */
     schema?: GraphQLSchema | Promise<GraphQLSchema> | 'dynamic';
 

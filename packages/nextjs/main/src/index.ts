@@ -24,7 +24,7 @@ declare module 'graphql-ez' {
   }
 
   interface InternalAppBuildIntegrationContext {
-    next?: NextHandlerContext;
+    nextjs?: NextHandlerContext;
   }
 }
 
@@ -108,7 +108,7 @@ export function CreateApp(config: NextAppOptions = {}): EZAppBuilder {
         const nextHandlers: NextHandlerContext['handlers'] = [];
 
         const integration: InternalAppBuildIntegrationContext = {
-          next: {
+          nextjs: {
             handlers: nextHandlers,
           },
         };

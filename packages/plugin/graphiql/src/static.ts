@@ -36,7 +36,17 @@ export function StaticGraphiQLRender(options: GraphiQLOptions): Promise<string> 
 export const ezStaticGraphiQLIDE = (options: GraphiQLOptions | boolean = true): EZPlugin => {
   return {
     name: 'GraphiQL IDE',
-    compatibilityList: ['fastify', 'koa', 'express', 'hapi', 'http', 'nextjs', 'sveltekit', 'vercel'],
+    compatibilityList: {
+      fastify: true,
+      koa: true,
+      express: true,
+      hapi: true,
+      http: true,
+      nextjs: true,
+      sveltekit: true,
+      vercel: true,
+      cloudflare: Error("[graphql-ez] Change 'ezStaticGraphiQLIDE' to 'ezGraphiQLIDE' for Cloudflare workers"),
+    },
     onRegister(ctx) {
       if (!options) return;
 

@@ -1,11 +1,10 @@
 import { withoutTrailingSlash, withTrailingSlash } from '@graphql-ez/utils/url';
+import type { IntegrationRegisterHandler } from 'graphql-ez';
 
-import type { InternalAppBuildContext, InternalAppBuildIntegrationContext } from 'graphql-ez';
-
-export async function handleCloudflare(
-  ctx: InternalAppBuildContext,
-  instance: NonNullable<InternalAppBuildIntegrationContext['cloudflare']>
-) {
+export const handleCloudflare: IntegrationRegisterHandler<'cloudflare'> = async function handleCloudflare({
+  ctx,
+  integration: { router },
+}) {
   if (!ctx.altair) return;
 
   const path = ctx.altair.path;
@@ -16,7 +15,7 @@ export async function handleCloudflare(
 
   const baseURL = withTrailingSlash(baseURLOpt || path);
 
-  instance.router.add('GET', new RegExp(`${withoutTrailingSlash(ctx.altair.baseURL)}/?.*`), async (req, res) => {
+  router.add('GET', new RegExp(`${withoutTrailingSlash(ctx.altair.baseURL)}/?.*`), async (req, res) => {
     const { status, rawContent, content, contentType } = await render({
       baseURL,
       altairPath: path,
@@ -34,4 +33,4 @@ export async function handleCloudflare(
     if (rawContent) res.end(rawContent);
     else if (content) res.end(content);
   });
-}
+};

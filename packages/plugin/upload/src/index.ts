@@ -1,11 +1,8 @@
-import assert from 'assert';
-
 import { gql } from '@graphql-ez/utils/gql';
 import { getObjectValue } from '@graphql-ez/utils/object';
 import { LazyPromise } from '@graphql-ez/utils/promise';
-
 import type { EZPlugin } from 'graphql-ez';
-import type { UploadOptions, processRequest, graphqlUploadExpress, graphqlUploadKoa, GraphQLUpload } from 'graphql-upload';
+import type { GraphQLUpload, graphqlUploadExpress, graphqlUploadKoa, processRequest, UploadOptions } from 'graphql-upload';
 
 export type GraphQLUploadConfig = boolean | UploadOptions;
 
@@ -26,7 +23,11 @@ declare module 'graphql-ez' {
 export const ezUpload = (options: GraphQLUploadConfig = true): EZPlugin => {
   return {
     name: 'GraphQL Upload',
-    compatibilityList: ['fastify', 'koa', 'express'],
+    compatibilityList: {
+      fastify: true,
+      koa: true,
+      express: true,
+    },
     onRegister(ctx) {
       if (options) {
         const deps = {
@@ -54,45 +55,41 @@ export const ezUpload = (options: GraphQLUploadConfig = true): EZPlugin => {
         );
       }
     },
-    async onIntegrationRegister(ctx, integrationCtx) {
+    async onIntegrationRegister(ctx) {
       if (!ctx.GraphQLUpload) return;
 
-      if (integrationCtx.fastify) {
-        const instance = integrationCtx.fastify;
-        const processRequest = await ctx.GraphQLUpload.processRequest;
+      const GraphQLUpload = ctx.GraphQLUpload;
 
-        instance.addContentTypeParser('multipart', (req, _payload, done) => {
-          req.isMultipart = true;
-          done(null);
-        });
+      return {
+        async fastify({ integration }) {
+          const processRequest = await GraphQLUpload.processRequest;
 
-        instance.addHook('preValidation', async function (request, reply) {
-          if (!request.isMultipart) return;
+          integration.addContentTypeParser('multipart', (req, _payload, done) => {
+            req.isMultipart = true;
+            done(null);
+          });
 
-          request.body = await processRequest(request.raw, reply.raw, ctx.GraphQLUpload?.options);
-        });
+          integration.addHook('preValidation', async function (request, reply) {
+            if (!request.isMultipart) return;
 
-        return;
-      }
+            request.body = await processRequest(request.raw, reply.raw, ctx.GraphQLUpload?.options);
+          });
+        },
+        async express({ integration: { router } }) {
+          if (!ctx.options.path) throw Error("Path not specified and it's required for GraphQL Upload");
 
-      if (integrationCtx.express) {
-        const instance = integrationCtx.express.router;
+          const graphqlUploadExpress = (await GraphQLUpload.express)(GraphQLUpload.options);
 
-        const graphqlUploadExpress = (await ctx.GraphQLUpload.express)(ctx.GraphQLUpload.options);
+          router.post(ctx.options.path, graphqlUploadExpress, (_req, _res, next) => next());
+        },
+        async koa({ integration: { router } }) {
+          if (!ctx.options.path) throw Error("Path not specified and it's required for GraphQL Upload");
 
-        assert(ctx.options.path, "Path not specified and it's required for GraphQL Upload");
-        instance.post(ctx.options.path, graphqlUploadExpress, (_req, _res, next) => next());
+          const koaMiddleware = (await GraphQLUpload.koa)(GraphQLUpload.options);
 
-        return;
-      }
-
-      if (integrationCtx.koa) {
-        assert(ctx.options.path, "Path not specified and it's required for GraphQL Upload");
-
-        const koaMiddleware = (await ctx.GraphQLUpload.koa)(ctx.GraphQLUpload.options);
-
-        integrationCtx.koa.router.post(ctx.options.path, koaMiddleware);
-      }
+          router.post(ctx.options.path, koaMiddleware);
+        },
+      };
     },
   };
 };

@@ -1,14 +1,14 @@
-import type { InternalAppBuildContext, InternalAppBuildIntegrationContext } from 'graphql-ez';
+import type { IntegrationRegisterHandler } from 'graphql-ez';
 import { shouldRenderGraphiQL } from '../utils';
 
-export function handleNext(ctx: InternalAppBuildContext, instance: NonNullable<InternalAppBuildIntegrationContext['next']>) {
+export const handleNext: IntegrationRegisterHandler<'nextjs'> = async ({ ctx, integration: { handlers } }) => {
   if (!ctx.graphiql) return;
 
   const graphiqlCtx = ctx.graphiql;
 
   const handler = graphiqlCtx.handler(graphiqlCtx.options);
 
-  instance.handlers.push(async (req, res) => {
+  handlers.push(async (req, res) => {
     const method = req.method;
     if (
       method !== 'GET' ||
@@ -27,4 +27,4 @@ export function handleNext(ctx: InternalAppBuildContext, instance: NonNullable<I
       stop: true,
     };
   });
-}
+};

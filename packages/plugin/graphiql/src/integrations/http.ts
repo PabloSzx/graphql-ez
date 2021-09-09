@@ -1,7 +1,7 @@
-import type { InternalAppBuildContext, InternalAppBuildIntegrationContext } from 'graphql-ez';
-import { shouldRenderGraphiQL, getPathname } from '../utils';
+import type { IntegrationRegisterHandler } from 'graphql-ez';
+import { getPathname, shouldRenderGraphiQL } from '../utils';
 
-export function handleHttp(ctx: InternalAppBuildContext, instance: NonNullable<InternalAppBuildIntegrationContext['http']>) {
+export const handleHttp: IntegrationRegisterHandler<'http'> = async ({ ctx, integration: { handlers } }) => {
   if (!ctx.graphiql) return;
 
   const handler = ctx.graphiql.handler(ctx.graphiql.options);
@@ -9,7 +9,7 @@ export function handleHttp(ctx: InternalAppBuildContext, instance: NonNullable<I
   const path = ctx.graphiql.path;
 
   if (path === ctx.options.path) {
-    instance.handlers.push(async (req, res) => {
+    handlers.push(async (req, res) => {
       const method = req.method;
       if (
         method !== 'GET' ||
@@ -30,7 +30,7 @@ export function handleHttp(ctx: InternalAppBuildContext, instance: NonNullable<I
       };
     });
   } else {
-    instance.handlers.push(async (req, res) => {
+    handlers.push(async (req, res) => {
       if (req.method !== 'GET' || getPathname(req.url) !== path) return;
 
       await handler(req, res);
@@ -40,4 +40,4 @@ export function handleHttp(ctx: InternalAppBuildContext, instance: NonNullable<I
       };
     });
   }
-}
+};
