@@ -36,7 +36,7 @@ export const ezAltairIDE = (options: AltairOptions | boolean = true): EZPlugin =
       nextjs: true,
       sveltekit: true,
       vercel: true,
-      cloudflare: Error("[graphql-ez] Change 'ezAltairIDE' to 'ezUnpkgAltairIDE' for CloudFlare workers"),
+      cloudflare: Error("[graphql-ez] Change 'ezAltairIDE' to 'ezUnpkgAltairIDE' for Cloudflare workers"),
     },
     onRegister(ctx) {
       if (!options) return;

@@ -45,7 +45,7 @@ export const ezStaticGraphiQLIDE = (options: GraphiQLOptions | boolean = true): 
       nextjs: true,
       sveltekit: true,
       vercel: true,
-      cloudflare: Error("[graphql-ez] Change 'ezStaticGraphiQLIDE' to 'ezGraphiQLIDE' for CloudFlare workers"),
+      cloudflare: Error("[graphql-ez] Change 'ezStaticGraphiQLIDE' to 'ezGraphiQLIDE' for Cloudflare workers"),
     },
     onRegister(ctx) {
       if (!options) return;
