@@ -1,0 +1,44 @@
+{
+  "name": "@graphql-ez/plugin-nexus",
+  "version": "0.0.1",
+  "homepage": "https://www.graphql-ez.com",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/PabloSzx/graphql-ez",
+    "directory": "packages/plugin/nexus"
+  },
+  "license": "MIT",
+  "author": "PabloSz <pablosaez1995@gmail.com>",
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "require": "./dist/index.js",
+      "import": "./dist/index.mjs"
+    },
+    "./*": {
+      "require": "./dist/*.js",
+      "import": "./dist/*.mjs"
+    }
+  },
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "dev": "bob-esbuild watch",
+    "prepack": "bob-esbuild build",
+    "postpublish": "gh-release",
+    "test": "jest"
+  },
+  "devDependencies": {
+    "bob-esbuild-cli": "^1.0.1",
+    "graphql-ez": "workspace:^0.13.0",
+    "nexus": "^1.1.0"
+  },
+  "peerDependencies": {
+    "graphql-ez": "workspace:^0.13.0",
+    "nexus": "^1.1.0"
+  },
+  "publishConfig": {
+    "directory": "dist"
+  }
+}

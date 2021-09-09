@@ -1,0 +1,26 @@
+{
+  "name": "example-nexus-fastify",
+  "version": "0.0.1",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "dev": "pnpm dev:mjs",
+    "dev:cjs": "bob-ts-watch -f cjs -c \"node dist/index.js\"",
+    "dev:mjs": "bob-ts-watch -c \"node dist/index.mjs\"",
+    "start": "bob-ts && node dist/index.mjs"
+  },
+  "devDependencies": {
+    "@types/node": "^16.9.0",
+    "bob-ts": "^1.0.5",
+    "typescript": "^4.4.2"
+  },
+  "dependencies": {
+    "@graphql-ez/fastify": "workspace:^0.9.4",
+    "@graphql-ez/plugin-altair": "workspace:^0.9.0",
+    "@graphql-ez/plugin-nexus": "workspace:^0.0.1",
+    "fastify": "^3.21.0",
+    "graphql": "15.4.0-experimental-stream-defer.1",
+    "graphql-ez": "workspace:^0.13.0",
+    "nexus": "^1.1.0"
+  }
+}

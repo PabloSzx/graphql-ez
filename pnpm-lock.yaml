@@ -490,6 +490,31 @@ importers:
       bob-ts: 1.0.5_0b323643a869a328075718b8e1ff0ac6
       typescript: 4.4.2
 
+  examples/fastify/nexus-with-plugin:
+    specifiers:
+      '@graphql-ez/fastify': workspace:^0.9.4
+      '@graphql-ez/plugin-altair': workspace:^0.9.0
+      '@graphql-ez/plugin-nexus': workspace:^0.0.1
+      '@types/node': '>=16'
+      bob-ts: ^1.0.5
+      fastify: ^3.21.0
+      graphql: 15.4.0-experimental-stream-defer.1
+      graphql-ez: workspace:^0.13.0
+      nexus: ^1.1.0
+      typescript: '>=4.4.2'
+    dependencies:
+      '@graphql-ez/fastify': link:../../../packages/fastify/main
+      '@graphql-ez/plugin-altair': link:../../../packages/plugin/altair
+      '@graphql-ez/plugin-nexus': link:../../../packages/plugin/nexus
+      fastify: 3.21.0
+      graphql: 15.4.0-experimental-stream-defer.1
+      graphql-ez: link:../../../packages/core/main
+      nexus: 1.1.0_34dd13c2583fe2e4418c23a0d30fc388
+    devDependencies:
+      '@types/node': 16.9.0
+      bob-ts: 1.0.5_0b323643a869a328075718b8e1ff0ac6
+      typescript: 4.4.2
+
   examples/fastify/type-graphql:
     specifiers:
       '@graphql-ez/fastify': workspace:^0.9.4
@@ -1624,6 +1649,16 @@ importers:
       graphql-ez: link:../../core/main
       jest: 27.1.1
       ts-jest: 27.0.5_0446e0f5b8a8e6e03ce64cc79c44391d
+
+  packages/plugin/nexus:
+    specifiers:
+      bob-esbuild-cli: ^1.0.1
+      graphql-ez: workspace:^0.13.0
+      nexus: ^1.1.0
+    devDependencies:
+      bob-esbuild-cli: 1.0.1_bob-esbuild@1.2.3
+      graphql-ez: link:../../core/main
+      nexus: 1.1.0
 
   packages/plugin/scalars:
     specifiers:
@@ -12317,6 +12352,15 @@ packages:
       - '@babel/core'
       - typescript
       - webpack
+    dev: true
+
+  /nexus/1.1.0:
+    resolution: {integrity: sha512-jUhbg22gKVY2YwZm726BrbfHaQ7Xzc0hNXklygDhuqaVxCuHCgFMhWa2svNWd1npe8kfeiu5nbwnz+UnhNXzCQ==}
+    peerDependencies:
+      graphql: ^14.5.8 || 15.x
+    dependencies:
+      iterall: 1.3.0
+      tslib: 2.3.1
     dev: true
 
   /nexus/1.1.0_34dd13c2583fe2e4418c23a0d30fc388:

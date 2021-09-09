@@ -91,6 +91,12 @@ export const ezScalars = (scalars: ScalarsConfig, customScalars: Record<string, 
           resolvers,
         };
 
+        if (ctx.nexus) {
+          for (const [name, scalar] of Object.entries(resolvers)) {
+            ctx.nexus.registerNexus.asNexusMethod(scalar, name);
+          }
+        }
+
         return {
           typeDefs,
           resolvers,

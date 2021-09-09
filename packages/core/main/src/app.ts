@@ -88,6 +88,11 @@ export function createEZAppFactory(
     registerResolvers() {
       throw Error(`[graphql-ez] To use "registerResolvers" you have to add the "ezSchema" plugin first!`);
     },
+    registerNexus: new Proxy({} as any, {
+      get() {
+        throw Error(`[graphql-ez] To use "registerNexus" you have to add the "ezNexus" plugin first!`);
+      },
+    }),
     get asPreset() {
       return {
         options: cleanObject({ ...rawOptions, ez: undefined, envelop: undefined }),
