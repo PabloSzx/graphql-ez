@@ -56,8 +56,11 @@ export function createEZAppFactory(
     if (typeof pluginValue !== 'object' || pluginValue == null) return false;
 
     const { name, compatibilityList } = pluginValue;
-    if (compatibilityList && !compatibilityList.includes(integrationName)) {
-      throw Error(`[graphql-ez] "${name}" is not compatible with "${integrationName}"`);
+    if (compatibilityList) {
+      const isCompatible = compatibilityList[integrationName];
+
+      if (isCompatible instanceof Error) throw isCompatible;
+      else if (!isCompatible) throw Error(`[graphql-ez] "${name}" is not compatible with "${integrationName}"`);
     }
 
     if (ezPluginsDirty.findIndex(plugin => typeof plugin === 'object' && plugin != null && plugin.name === name) === index)
@@ -74,16 +77,16 @@ export function createEZAppFactory(
   const baseAppBuilder: BaseAppBuilder = {
     gql,
     registerDataLoader() {
-      throw Error(`To use "registerDataLoader" you have to add the "ezDataLoader" plugin first!`);
+      throw Error(`[graphql-ez] To use "registerDataLoader" you have to add the "ezDataLoader" plugin first!`);
     },
     registerModule() {
-      throw Error(`To use "registerModule" you have to add the "ezGraphQLModules" plugin first!`);
+      throw Error(`[graphql-ez] To use "registerModule" you have to add the "ezGraphQLModules" plugin first!`);
     },
     registerTypeDefs() {
-      throw Error(`To use "registerTypeDefs" you have to add the "ezSchema" plugin first!`);
+      throw Error(`[graphql-ez] To use "registerTypeDefs" you have to add the "ezSchema" plugin first!`);
     },
     registerResolvers() {
-      throw Error(`To use "registerResolvers" you have to add the "ezSchema" plugin first!`);
+      throw Error(`[graphql-ez] To use "registerResolvers" you have to add the "ezSchema" plugin first!`);
     },
     get asPreset() {
       return {

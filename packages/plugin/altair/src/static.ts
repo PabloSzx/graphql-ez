@@ -27,7 +27,17 @@ export function AltairHandlerDeps(options: AltairOptions): {
 export const ezAltairIDE = (options: AltairOptions | boolean = true): EZPlugin => {
   return {
     name: 'Altair GraphQL Client IDE',
-    compatibilityList: ['fastify', 'express', 'hapi', 'http', 'koa', 'nextjs', 'sveltekit', 'vercel'],
+    compatibilityList: {
+      fastify: true,
+      express: true,
+      hapi: true,
+      http: true,
+      koa: true,
+      nextjs: true,
+      sveltekit: true,
+      vercel: true,
+      cloudflare: Error("[graphql-ez] Change 'ezAltairIDE' to 'ezUnpkgAltairIDE' for CloudFlare workers"),
+    },
     onRegister(ctx) {
       if (!options) return;
 

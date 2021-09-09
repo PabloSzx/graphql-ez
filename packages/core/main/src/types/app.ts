@@ -34,14 +34,14 @@ export type IntegrationRegisterHandler<Integration extends IntegrationsNames> = 
 
 export type EZPlugin =
   | (BaseEZPlugin & {
-      readonly compatibilityList?: readonly IntegrationsNames[];
+      readonly compatibilityList?: { readonly [Integration in IntegrationsNames]?: boolean | Error };
       readonly onIntegrationRegister?: undefined;
     })
   | (BaseEZPlugin & {
       /**
        * List all the integrations this plugin supports
        */
-      readonly compatibilityList: readonly IntegrationsNames[];
+      readonly compatibilityList: { readonly [Integration in IntegrationsNames]?: boolean | Error };
       readonly onIntegrationRegister: (ctx: InternalAppBuildContext) => PromiseOrValue<
         | {
             [integrationCallback in IntegrationsNames]?: IntegrationRegisterHandler<integrationCallback>;
@@ -61,19 +61,16 @@ export type EZPreset = {
   envelopPlugins?: PromiseOrValue<Plugin>[];
 };
 
-export const IntegrationsNamesEnum = {
-  express: 'express',
-  fastify: 'fastify',
-  nextjs: 'nextjs',
-  http: 'http',
-  koa: 'koa',
-  hapi: 'hapi',
-  cloudflare: 'cloudflare',
-  sveltekit: 'sveltekit',
-  vercel: 'vercel',
-} as const;
-
-export type IntegrationsNames = typeof IntegrationsNamesEnum[keyof typeof IntegrationsNamesEnum];
+export type IntegrationsNames =
+  | 'express'
+  | 'fastify'
+  | 'nextjs'
+  | 'http'
+  | 'koa'
+  | 'hapi'
+  | 'cloudflare'
+  | 'sveltekit'
+  | 'vercel';
 
 export interface AdapterFactoryContext {
   integrationName: IntegrationsNames;

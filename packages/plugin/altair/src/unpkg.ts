@@ -1,10 +1,8 @@
-import { LazyPromise } from '@graphql-ez/utils/promise';
 import { getObjectValue } from '@graphql-ez/utils/object';
+import { LazyPromise } from '@graphql-ez/utils/promise';
 import { withoutTrailingSlash, withTrailingSlash } from '@graphql-ez/utils/url';
-
-import { onIntegrationRegister } from './integrations';
-
 import type { EZPlugin, PickRequired } from 'graphql-ez';
+import { onIntegrationRegister } from './integrations';
 import type { AltairOptions, IDEHandler } from './types';
 
 export function UnpkgAltairHandler(options: PickRequired<AltairOptions, 'path'>): IDEHandler {
@@ -35,7 +33,17 @@ export function UnpkgAltairHandler(options: PickRequired<AltairOptions, 'path'>)
 export const ezUnpkgAltairIDE = (options: AltairOptions | boolean = true): EZPlugin => {
   return {
     name: 'Altair GraphQL Client UNPKG',
-    compatibilityList: ['fastify', 'express', 'hapi', 'http', 'koa', 'nextjs', 'sveltekit', 'cloudflare', 'vercel'],
+    compatibilityList: {
+      fastify: true,
+      express: true,
+      hapi: true,
+      http: true,
+      koa: true,
+      nextjs: true,
+      sveltekit: true,
+      vercel: true,
+      cloudflare: true,
+    },
     onRegister(ctx) {
       if (!options) return;
 

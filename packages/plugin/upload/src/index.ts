@@ -23,7 +23,11 @@ declare module 'graphql-ez' {
 export const ezUpload = (options: GraphQLUploadConfig = true): EZPlugin => {
   return {
     name: 'GraphQL Upload',
-    compatibilityList: ['fastify', 'koa', 'express'],
+    compatibilityList: {
+      fastify: true,
+      koa: true,
+      express: true,
+    },
     onRegister(ctx) {
       if (options) {
         const deps = {

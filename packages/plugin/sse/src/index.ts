@@ -77,7 +77,13 @@ export const ezSSE = (options: GraphQLSSEOptions = {}): EZPlugin => {
 
       ctx.sse.handler = handler;
     },
-    compatibilityList: ['fastify', 'express', 'http', 'hapi', 'koa'],
+    compatibilityList: {
+      fastify: true,
+      express: true,
+      http: true,
+      hapi: true,
+      koa: true,
+    },
     async onIntegrationRegister(ctx) {
       assert(ctx.sse, 'Error while building graphql-sse plugin');
       assert(ctx.sse.handler, 'Error while building handler for graphql-sse');
