@@ -158,6 +158,7 @@ export function createEZAppFactory(
 
     const getEnveloped = envelop({
       plugins: await Promise.all(envelopPlugins),
+      enableInternalTracing: ctx.options.envelop.enableInternalTracing,
     });
 
     if (options.schema !== 'dynamic' && !getEnveloped().schema) {
