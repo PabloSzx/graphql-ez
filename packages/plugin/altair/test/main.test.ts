@@ -259,7 +259,7 @@ test('nextjs', async () => {
 
   const unpkgHandler = UnpkgAltairHandler({
     path: '/api/altair',
-    endpointURL: '/api/graphql',
+    endpoint: '/api/graphql',
   });
   await testApiHandler({
     handler: async (req, res) => {

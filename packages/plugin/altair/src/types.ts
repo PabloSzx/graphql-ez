@@ -2,11 +2,21 @@ import type { PickRequired } from 'graphql-ez';
 import type { RenderOptions } from 'altair-static-slim';
 import type { IncomingMessage, ServerResponse } from 'http';
 
-export interface AltairOptions extends RenderOptions {
+export interface AltairOptions extends Omit<RenderOptions, 'baseURL' | 'endpointURL'> {
   /**
    * @default "/altair"
    */
   path?: string;
+
+  /**
+   * URL to be used as a base for relative URLs
+   */
+  base?: string;
+
+  /**
+   * URL to set as the server endpoint
+   */
+  endpoint?: string;
 }
 
 export type IDEHandler = (req: IncomingMessage, res: ServerResponse) => Promise<void>;

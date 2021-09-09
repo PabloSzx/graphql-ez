@@ -68,14 +68,14 @@ export type QueryFunctionPost = <TData, TVariables = {}, TExtensions = {}>(
 ) => Promise<ExecutionResult<TData, TExtensions>>;
 
 export function EZClient(options: EZClientOptions) {
-  const endpointUrl = new URL(options.endpoint);
+  const endpoint = new URL(options.endpoint);
 
   const websocketEndpoint = getURLWebsocketVersion(options.endpoint).href;
 
-  const endpointHref = endpointUrl.href;
-  const endpointOrigin = endpointUrl.origin;
+  const endpointHref = endpoint.href;
+  const endpointOrigin = endpoint.origin;
 
-  const endpointPathname = endpointUrl.pathname;
+  const endpointPathname = endpoint.pathname;
 
   const client = new Client(endpointOrigin);
 

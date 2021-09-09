@@ -8,17 +8,13 @@ export const handleSvelteKit: IntegrationRegisterHandler<'sveltekit'> = async ({
 
   const render = await ctx.altair.render;
 
-  const {
-    endpointURL = ctx.options.path || '/api/graphql',
-    baseURL: baseURLOpt,
-    path: _path,
-    ...renderOptions
-  } = ctx.altair.options;
+  const { endpoint = ctx.options.path || '/api/graphql', base: baseURLOpt, path: _path, ...renderOptions } = ctx.altair.options;
 
   const baseURL = withTrailingSlash(baseURLOpt || path);
 
   const baseURLTrailing = withTrailingSlash(ctx.altair.baseURL);
   const baseURLNoTrailing = withoutTrailingSlash(ctx.altair.baseURL);
+  const endpointURL = endpoint;
 
   handlers.push(async req => {
     const pathname = getPathname(req.path)!;

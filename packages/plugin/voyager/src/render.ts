@@ -10,7 +10,7 @@ export interface VoyagerDisplayOptions {
 }
 
 export interface RenderVoyagerOptions {
-  endpointUrl?: string;
+  endpoint?: string;
 
   headers?: string | Record<string, unknown>;
 
@@ -20,7 +20,7 @@ export interface RenderVoyagerOptions {
 }
 
 export function renderVoyagerPage(options: RenderVoyagerOptions) {
-  const { endpointUrl, headers = '{}', displayOptions, credentials } = options;
+  const { endpoint, headers = '{}', displayOptions, credentials } = options;
 
   const headersString = headers
     ? typeof headers === 'object'
@@ -65,7 +65,7 @@ export function renderVoyagerPage(options: RenderVoyagerOptions) {
     <script>
 window.addEventListener('load', function(event) {
   function introspectionProvider(introspectionQuery) {
-    return fetch('${endpointUrl}', {
+    return fetch('${endpoint}', {
       method: 'post',
       headers: Object.assign({}, {
         'Accept': 'application/json',
