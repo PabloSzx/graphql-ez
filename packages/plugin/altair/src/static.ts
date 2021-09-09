@@ -13,14 +13,18 @@ export function AltairHandlerDeps(options: AltairOptions): {
   baseURL: string;
   renderOptions: RenderOptions;
 } {
-  let { path = '/altair', baseURL: baseURLOpt, ...renderOptions } = options;
+  let { path = '/altair', baseURL: baseURLOpt, endpoint: endpointURL, ...renderOptions } = options;
 
   const baseURL = baseURLOpt || path + '/';
 
   return {
     path,
     baseURL,
-    renderOptions,
+    renderOptions: {
+      ...renderOptions,
+      endpointURL,
+      baseURL,
+    },
   };
 }
 
