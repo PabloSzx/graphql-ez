@@ -504,7 +504,7 @@ test('nextjs', async () => {
   await testApiHandler({
     async handler(req, res) {
       await VoyagerHandler({
-        endpointUrl: '/api/graphql',
+        endpoint: '/api/graphql',
       })(req, res);
     },
     async test({ fetch }) {

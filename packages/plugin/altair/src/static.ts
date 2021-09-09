@@ -43,7 +43,7 @@ export const ezAltairIDE = (options: AltairOptions | boolean = true): EZPlugin =
 
       const objOptions = { ...getObjectValue(options) };
 
-      objOptions.endpointURL ||= ctx.options.path;
+      objOptions.endpoint ||= ctx.options.path;
 
       objOptions.path &&= withoutTrailingSlash(objOptions.path);
       objOptions.baseURL &&= withTrailingSlash(objOptions.baseURL);

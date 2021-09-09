@@ -46,7 +46,7 @@ type AltairOptions =
       /**
        * URL to set as the server endpoint
        */
-      endpointURL?: string;
+      endpoint?: string;
       /**
        * URL to set as the subscription endpoint
        */

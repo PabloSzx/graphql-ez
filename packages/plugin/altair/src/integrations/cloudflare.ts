@@ -11,7 +11,7 @@ export const handleCloudflare: IntegrationRegisterHandler<'cloudflare'> = async 
 
   const render = await ctx.altair.render;
 
-  const { endpointURL = ctx.options.path || '/graphql', baseURL: baseURLOpt, path: _path, ...renderOptions } = ctx.altair.options;
+  const { endpoint = ctx.options.path || '/graphql', baseURL: baseURLOpt, path: _path, ...renderOptions } = ctx.altair.options;
 
   const baseURL = withTrailingSlash(baseURLOpt || path);
 
@@ -21,7 +21,7 @@ export const handleCloudflare: IntegrationRegisterHandler<'cloudflare'> = async 
       altairPath: path,
       renderOptions: {
         ...renderOptions,
-        endpointURL,
+        endpointURL: endpoint,
         baseURL,
       },
       url: req.path,

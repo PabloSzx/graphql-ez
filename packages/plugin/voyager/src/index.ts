@@ -96,7 +96,7 @@ export const ezVoyager = (options: VoyagerPluginOptions | boolean = true): EZPlu
 
       const path = (objOptions.path ||= '/voyager');
 
-      objOptions.endpointUrl ||= ctx.options.path;
+      objOptions.endpoint ||= ctx.options.path;
 
       ctx.voyager = {
         path,

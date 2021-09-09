@@ -37,7 +37,7 @@ type VoyagerPluginOptions =
        */
       transformHtml?: (html: string) => string;
 
-      endpointUrl?: string;
+      endpoint?: string;
 
       headers?: string | Record<string, unknown>;
 
