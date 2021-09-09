@@ -1,5 +1,14 @@
 # @graphql-ez/fastify
 
+## 0.9.4
+
+### Patch Changes
+
+- Updated dependencies [e99511d]
+- Updated dependencies [e99511d]
+- Updated dependencies [e99511d]
+  - graphql-ez@0.13.0
+
 ## 0.9.3
 
 ### Patch Changes

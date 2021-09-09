@@ -1,6 +1,6 @@
 {
   "name": "@graphql-ez/fastify-testing",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "repository": {
     "type": "git",
     "url": "https://github.com/PabloSzx/graphql-ez",
@@ -34,19 +34,19 @@
     "get-port": "^5.1.1"
   },
   "devDependencies": {
-    "@graphql-ez/fastify": "workspace:^0.9.3",
+    "@graphql-ez/fastify": "workspace:^0.9.4",
     "bob-esbuild-cli": "^1.0.1",
     "changesets-github-release": "^0.0.4",
     "fastify": "^3.21.0",
     "graphql": "15.4.0-experimental-stream-defer.1",
-    "graphql-ez": "workspace:^0.12.7",
+    "graphql-ez": "workspace:^0.13.0",
     "jest": "^27.1.1"
   },
   "peerDependencies": {
-    "@graphql-ez/fastify": "workspace:^0.9.1",
+    "@graphql-ez/fastify": "workspace:^0.9.4",
     "fastify": "^3.21.0",
     "graphql": "*",
-    "graphql-ez": "workspace:^0.12.1"
+    "graphql-ez": "workspace:^0.13.0"
   },
   "publishConfig": {
     "directory": "dist"

@@ -1,5 +1,14 @@
 # @graphql-ez/hapi
 
+## 0.8.8
+
+### Patch Changes
+
+- Updated dependencies [e99511d]
+- Updated dependencies [e99511d]
+- Updated dependencies [e99511d]
+  - graphql-ez@0.13.0
+
 ## 0.8.7
 
 ### Patch Changes

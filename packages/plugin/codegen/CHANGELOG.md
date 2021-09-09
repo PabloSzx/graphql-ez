@@ -1,5 +1,15 @@
 # @graphql-ez/plugin-codegen
 
+## 0.7.3
+
+### Patch Changes
+
+- 36a5e72: add "postGeneratedCode" config
+- Updated dependencies [e99511d]
+- Updated dependencies [e99511d]
+- Updated dependencies [e99511d]
+  - graphql-ez@0.13.0
+
 ## 0.7.2
 
 ### Patch Changes

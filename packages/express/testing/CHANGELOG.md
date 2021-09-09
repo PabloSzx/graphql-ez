@@ -1,5 +1,15 @@
 # @graphql-ez/express-testing
 
+## 0.1.2
+
+### Patch Changes
+
+- Updated dependencies [e99511d]
+- Updated dependencies [e99511d]
+- Updated dependencies [e99511d]
+  - graphql-ez@0.13.0
+  - @graphql-ez/express@0.9.5
+
 ## 0.1.1
 
 ### Patch Changes

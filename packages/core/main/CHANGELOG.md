@@ -1,5 +1,16 @@
 # graphql-ez
 
+## 0.13.0
+
+### Minor Changes
+
+- e99511d: Change "compatibilityList" signature
+- e99511d: Refactor onIntegrationRegister logic
+
+### Patch Changes
+
+- e99511d: fix: pass "enableInternalTracing" to Envelop
+
 ## 0.12.7
 
 ### Patch Changes

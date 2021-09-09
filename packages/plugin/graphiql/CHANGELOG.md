@@ -1,5 +1,20 @@
 # @graphql-ez/plugin-graphiql
 
+## 0.10.0
+
+### Minor Changes
+
+- e99511d: Change "compatibilityList" signature
+- e99511d: Refactor onIntegrationRegister logic
+
+### Patch Changes
+
+- Updated dependencies [e99511d]
+- Updated dependencies [e99511d]
+- Updated dependencies [e99511d]
+  - graphql-ez@0.13.0
+  - @pablosz/graphql-helix-graphiql@4.0.1
+
 ## 0.9.1
 
 ### Patch Changes

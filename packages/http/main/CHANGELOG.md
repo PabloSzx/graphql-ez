@@ -1,5 +1,14 @@
 # @graphql-ez/http
 
+## 0.10.2
+
+### Patch Changes
+
+- Updated dependencies [e99511d]
+- Updated dependencies [e99511d]
+- Updated dependencies [e99511d]
+  - graphql-ez@0.13.0
+
 ## 0.10.1
 
 ### Patch Changes

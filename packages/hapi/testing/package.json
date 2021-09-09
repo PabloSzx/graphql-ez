@@ -1,6 +1,6 @@
 {
   "name": "@graphql-ez/hapi-testing",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "repository": {
     "type": "git",
     "url": "https://github.com/PabloSzx/graphql-ez",
@@ -34,21 +34,21 @@
     "get-port": "^5.1.1"
   },
   "devDependencies": {
-    "@graphql-ez/hapi": "workspace:^0.8.7",
+    "@graphql-ez/hapi": "workspace:^0.8.8",
     "@hapi/hapi": "^20.1.5",
     "@types/hapi__hapi": "^20.0.9",
     "bob-esbuild-cli": "^1.0.1",
     "changesets-github-release": "^0.0.4",
     "graphql": "15.4.0-experimental-stream-defer.1",
-    "graphql-ez": "workspace:^0.12.7",
+    "graphql-ez": "workspace:^0.13.0",
     "jest": "^27.1.1"
   },
   "peerDependencies": {
-    "@graphql-ez/hapi": "workspace:^0.8.4",
+    "@graphql-ez/hapi": "workspace:^0.8.8",
     "@hapi/hapi": "*",
     "@types/hapi__hapi": "*",
     "graphql": "*",
-    "graphql-ez": "workspace:^0.12.1"
+    "graphql-ez": "workspace:^0.13.0"
   },
   "publishConfig": {
     "directory": "dist"

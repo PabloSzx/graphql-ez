@@ -22,7 +22,7 @@
     "prepack": "bob-esbuild build"
   },
   "dependencies": {
-    "@graphql-ez/express": "workspace:^0.9.4",
+    "@graphql-ez/express": "workspace:^0.9.5",
     "@graphql-yoga/preset": "workspace:^1.0.5",
     "@types/express": "^4.17.13",
     "express": "^4.17.1"
@@ -31,12 +31,12 @@
     "@types/node": "^16.7.13",
     "bob-esbuild-cli": "^1.0.1",
     "graphql": "15.4.0-experimental-stream-defer.1",
-    "graphql-ez": "workspace:^0.12.7"
+    "graphql-ez": "workspace:^0.13.0"
   },
   "peerDependencies": {
     "@types/node": "*",
     "graphql": "*",
-    "graphql-ez": "workspace:^0.12.7"
+    "graphql-ez": "workspace:^0.13.0"
   },
   "publishConfig": {
     "directory": "dist"
