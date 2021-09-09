@@ -1,5 +1,11 @@
 # @graphql-ez/plugin-altair
 
+## 0.9.1
+
+### Patch Changes
+
+- aea634c: Fix missing endpoint handler config
+
 ## 0.9.0
 
 ### Minor Changes
