@@ -1,6 +1,7 @@
 # @graphql-ez/nextjs-testing
 
 ## 0.1.1
+
 ### Patch Changes
 
 - Updated dependencies [ebd1306]

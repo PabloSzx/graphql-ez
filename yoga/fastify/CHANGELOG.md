@@ -1,6 +1,7 @@
 # graphql-yoga
 
 ## 1.0.1
+
 ### Patch Changes
 
 - Updated dependencies [272c4cc]

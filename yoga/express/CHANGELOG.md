@@ -1,6 +1,7 @@
 # @graphql-yoga/express
 
 ## 1.0.1
+
 ### Patch Changes
 
 - Updated dependencies [cf5648f]

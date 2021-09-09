@@ -37,8 +37,8 @@
     "dev:next": "pnpm -r --filter @graphql-ez/nextjs dev -- --onSuccess \"pnpm -r --filter example-complete-nextjs dev -- -p 3006\"",
     "postinstall": "node patch.js",
     "prepare": "husky install && bob-esbuild tsc && pnpm -r --no-sort --no-bail prepack",
-    "pretty": "prettier --write \"**/*.{ts,tsx,json,yaml,js,cjs,mjs}\"",
-    "pretty:check": "prettier --check \"**/*.{ts,tsx,json,yaml,js,cjs,mjs}\"",
+    "pretty": "prettier --write \"**/*.{ts,tsx,json,yaml,js,cjs,mjs,mdx,md}\"",
+    "pretty:check": "prettier --check \"**/*.{ts,tsx,json,yaml,js,cjs,mjs,mdx}\"",
     "test": "jest",
     "test:separate": "pnpm -r --filter=\"!graphql-ez-monorepo\" --no-sort --no-bail test -- ",
     "typecheck": "bob-esbuild tsc"

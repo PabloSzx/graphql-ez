@@ -27,25 +27,23 @@ export const { registerTypeDefs, registerResolvers, buildApp, gql } = CreateApp(
 
 // ...
 
-
 registerTypeDefs(gql`
-type Query {
-  hello: String!
-}
-`)
+  type Query {
+    hello: String!
+  }
+`);
 
 registerResolvers({
   Query: {
     hello() {
-      return "Hello World!"
-    }
-  }
+      return 'Hello World!';
+    },
+  },
 });
-
 
 // ...
 
-buildApp()
+buildApp();
 ```
 
 ### EZSchema
