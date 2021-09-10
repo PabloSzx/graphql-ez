@@ -346,7 +346,7 @@ importers:
       esbuild: '>=0.12.24'
       graphql: 15.4.0-experimental-stream-defer.1
       graphql-ez: workspace:^0.13.0
-      miniflare: ^1.4.0
+      miniflare: ^1.4.1
       worktop: ^0.7.3
     dependencies:
       '@graphql-ez/cloudflare': link:../../packages/cloudflare/main
@@ -362,7 +362,7 @@ importers:
       clipboardy: 2.3.0
       concurrently: 6.2.1
       esbuild: 0.12.26
-      miniflare: 1.4.0
+      miniflare: 1.4.1
 
   examples/express/complete:
     specifiers:
@@ -986,7 +986,7 @@ importers:
       graphql: 15.4.0-experimental-stream-defer.1
       graphql-ez: workspace:^0.13.0
       jest: ^27.1.1
-      miniflare: ^1.4.0
+      miniflare: ^1.4.1
       undici: ^4.5.1
       wait-on: ^6.0.0
       worktop: ^0.7.3
@@ -1003,7 +1003,7 @@ importers:
       graphql: 15.4.0-experimental-stream-defer.1
       graphql-ez: link:../../core/main
       jest: 27.1.1
-      miniflare: 1.4.0
+      miniflare: 1.4.1
       undici: 4.5.1
       wait-on: 6.0.0
       worktop: 0.7.3
@@ -4874,8 +4874,8 @@ packages:
     resolution: {integrity: sha512-H1rQc1ZOHANWBvPcW+JpGwr+juXSxM8Q8YCkm3GhZd8REu1fHR3z99CErO1p9pkcfcxZnMdIZdIsXkOHY0NilA==}
     dev: false
 
-  /@mrbbot/node-fetch/4.5.0:
-    resolution: {integrity: sha512-EuFTbohMH/dzWXy4PRTM/bn1fqmOkyiCHfXzioA9lYV/xRAnUKjIvaRiA0h4YQ6ZSPvgTGzvZi7O+Ro66xDN5A==}
+  /@mrbbot/node-fetch/4.6.0:
+    resolution: {integrity: sha512-GTSOdhpiUnJ9a+XK90NUiqCqOmqXOUU4tqg8WbpZW+nEUTJ4dF3QZ4xhfWg5bqYPagIh/e9r5HxGrftzmulbmw==}
     engines: {node: '>=10.0.0'}
     dependencies:
       '@cloudflare/workers-types': 2.2.2
@@ -11876,13 +11876,13 @@ packages:
     engines: {node: '>=4'}
     dev: true
 
-  /miniflare/1.4.0:
-    resolution: {integrity: sha512-jmxwA/+E8dGb80+AJyjgb6isT2ojIk852Jl1qpacDpIAkWOPKoq1VshxLtiMsotheoAuZKQCQQrjJnTMOrAFiw==}
+  /miniflare/1.4.1:
+    resolution: {integrity: sha512-hJkMbTEM+sSiAo2yuPOucrdFYINLU7vvl9uVkRzAQ/h0CjmkYOCoyBn4jYzWtDZeQ0XrkyS6PGUCO277B5TsXA==}
     engines: {node: '>=10.12.0'}
     hasBin: true
     dependencies:
       '@iarna/toml': 2.2.5
-      '@mrbbot/node-fetch': 4.5.0
+      '@mrbbot/node-fetch': 4.6.0
       '@peculiar/webcrypto': 1.1.7
       chokidar: 3.5.2
       cjstoesm: 1.1.4_typescript@4.4.2
