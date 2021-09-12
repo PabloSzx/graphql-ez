@@ -702,7 +702,7 @@ importers:
       graphql: 15.4.0-experimental-stream-defer.1
       graphql-ez: workspace:^0.13.0
       svelte: ^3.42.5
-      svelte-check: ^2.2.5
+      svelte-check: ^2.2.6
       svelte-preprocess: ^4.9.4
       tslib: ^2.3.1
       typescript: '>=4.4.2'
@@ -721,7 +721,7 @@ importers:
     devDependencies:
       '@sveltejs/kit': 1.0.0-next.165_svelte@3.42.5
       svelte: 3.42.5
-      svelte-check: 2.2.5_svelte@3.42.5
+      svelte-check: 2.2.6_svelte@3.42.5
       svelte-preprocess: 4.9.4_svelte@3.42.5+typescript@4.4.3
       tslib: 2.3.1
       typescript: 4.4.3
@@ -1797,7 +1797,7 @@ importers:
       graphql-ez: workspace:^0.13.0
       jest: ^27.1.1
       svelte: ^3.42.5
-      svelte-check: ^2.2.5
+      svelte-check: ^2.2.6
       svelte-preprocess: ^4.9.4
       tiny-lru: ^7.0.6
       tslib: ^2.3.1
@@ -1826,7 +1826,7 @@ importers:
       graphql-ez: link:../../core/main
       jest: 27.1.1
       svelte: 3.42.5
-      svelte-check: 2.2.5_svelte@3.42.5
+      svelte-check: 2.2.6_svelte@3.42.5
       svelte-preprocess: 4.9.4_svelte@3.42.5+typescript@4.4.3
       tiny-lru: 7.0.6
       tslib: 2.3.1
@@ -14966,15 +14966,15 @@ packages:
       supports-color: 7.2.0
     dev: true
 
-  /svelte-check/2.2.5_svelte@3.42.5:
-    resolution: {integrity: sha512-EstDoqxjqWStWELh7Z0qytqUDl/ikdNEr21dveNc4fUDnhnqO2F2jHEufqoNnC3GfBji3GIUHvoXsp/I5lMbCg==}
+  /svelte-check/2.2.6_svelte@3.42.5:
+    resolution: {integrity: sha512-oJux/afbmcZO+N+ADXB88h6XANLie8Y2rh2qBlhgfkpr2c3t/q/T0w2JWrHqagaDL8zeNwO8a8RVFBkrRox8gg==}
     hasBin: true
     peerDependencies:
       svelte: ^3.24.0
     dependencies:
       chalk: 4.1.2
       chokidar: 3.5.2
-      glob: 7.1.7
+      fast-glob: 3.2.7
       import-fresh: 3.3.0
       minimist: 1.2.5
       sade: 1.7.4
