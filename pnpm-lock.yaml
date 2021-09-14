@@ -58,7 +58,7 @@ importers:
       '@envelop/core': ^1.0.4
       '@envelop/graphql-jit': ^1.1.1
       '@envelop/parser-cache': ^1.0.0
-      '@envelop/types': ^1.0.2
+      '@envelop/types': ^1.1.0
       '@envelop/validation-cache': '*'
       '@types/node': '>=16'
       benchmark-bench: workspace:1.0.0
@@ -71,7 +71,7 @@ importers:
       '@envelop/core': 1.0.4_34dd13c2583fe2e4418c23a0d30fc388
       '@envelop/graphql-jit': 1.1.1_34dd13c2583fe2e4418c23a0d30fc388
       '@envelop/parser-cache': 1.0.0_34dd13c2583fe2e4418c23a0d30fc388
-      '@envelop/types': 1.0.2_34dd13c2583fe2e4418c23a0d30fc388
+      '@envelop/types': 1.1.0_34dd13c2583fe2e4418c23a0d30fc388
       '@envelop/validation-cache': 1.0.0_34dd13c2583fe2e4418c23a0d30fc388
       '@types/node': 16.9.1
       benchmark-bench: link:../../bench
@@ -1013,7 +1013,7 @@ importers:
   packages/core/main:
     specifiers:
       '@envelop/core': ^1.0.4
-      '@envelop/types': ^1.0.2
+      '@envelop/types': ^1.1.0
       '@graphql-ez/utils': workspace:^0.1.2
       '@pablosz/graphql-helix': workspace:^2.0.0
       bob-esbuild-cli: ^1.0.1
@@ -1024,7 +1024,7 @@ importers:
       ts-jest: ^27.0.5
     dependencies:
       '@envelop/core': 1.0.4_34dd13c2583fe2e4418c23a0d30fc388
-      '@envelop/types': 1.0.2_34dd13c2583fe2e4418c23a0d30fc388
+      '@envelop/types': 1.1.0_34dd13c2583fe2e4418c23a0d30fc388
       '@graphql-ez/utils': link:../utils
       '@pablosz/graphql-helix': link:../../helix/core
       tiny-lru: 7.0.6
@@ -3933,6 +3933,14 @@ packages:
       graphql: ^14.0.0 || ^15.0.0
     dependencies:
       graphql: 15.4.0-experimental-stream-defer.1
+
+  /@envelop/types/1.1.0_34dd13c2583fe2e4418c23a0d30fc388:
+    resolution: {integrity: sha512-NswpqlmHmZSfPt1Uvkjq+21yD3sVVi6jCOE/JqN+ZFEHnVawCDT/nl1b1hq3QDkuhDjd9sRznE/EMuUhzhtvmA==}
+    peerDependencies:
+      graphql: ^14.0.0 || ^15.0.0
+    dependencies:
+      graphql: 15.4.0-experimental-stream-defer.1
+    dev: false
 
   /@envelop/validation-cache/1.0.0_34dd13c2583fe2e4418c23a0d30fc388:
     resolution: {integrity: sha512-HI4in/DlqSsZ6/hCAG9TTqvigTgd+5TGdz3JTGQr471vMW/Biw1a1C90VQO1XYMScxjranQfbBXu+ktA4kN6Kw==}
