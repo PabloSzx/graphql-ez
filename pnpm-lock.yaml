@@ -63,7 +63,7 @@ importers:
       '@types/node': '>=16'
       benchmark-bench: workspace:1.0.0
       bob-ts: ^1.0.6
-      fastify: ^3.21.0
+      fastify: ^3.21.1
       graphql: 15.4.0-experimental-stream-defer.1
       require-env-variable: ^3.1.2
       typescript: '>=4.4.2'
@@ -75,7 +75,7 @@ importers:
       '@envelop/validation-cache': 1.0.0_34dd13c2583fe2e4418c23a0d30fc388
       '@types/node': 16.9.1
       benchmark-bench: link:../../bench
-      fastify: 3.21.0
+      fastify: 3.21.1
       graphql: 15.4.0-experimental-stream-defer.1
       require-env-variable: 3.1.2
       typescript: 4.4.3
@@ -135,7 +135,7 @@ importers:
       benchmark-bench: workspace:1.0.0
       bob-ts: ^1.0.6
       cross-env: ^7.0.3
-      fastify: ^3.21.0
+      fastify: ^3.21.1
       graphql: 15.4.0-experimental-stream-defer.1
       graphql-ez: workspace:^0.13.0
       require-env-variable: ^3.1.2
@@ -145,7 +145,7 @@ importers:
       '@graphql-ez/fastify': link:../../../packages/fastify/main
       benchmark-bench: link:../../bench
       cross-env: 7.0.3
-      fastify: 3.21.0
+      fastify: 3.21.1
       graphql: 15.4.0-experimental-stream-defer.1
       graphql-ez: link:../../../packages/core/main
       require-env-variable: 3.1.2
@@ -237,14 +237,14 @@ importers:
       '@types/node': '>=16'
       benchmark-bench: workspace:1.0.0
       bob-ts: ^1.0.6
-      fastify: ^3.21.0
+      fastify: ^3.21.1
       graphql: 15.4.0-experimental-stream-defer.1
       graphql-helix: ^1.7.0
       require-env-variable: ^3.1.2
       typescript: '>=4.4.2'
     dependencies:
       benchmark-bench: link:../../bench
-      fastify: 3.21.0
+      fastify: 3.21.1
       graphql: 15.4.0-experimental-stream-defer.1
       graphql-helix: 1.7.0_34dd13c2583fe2e4418c23a0d30fc388
       require-env-variable: 3.1.2
@@ -258,7 +258,7 @@ importers:
       benchmark-bench: workspace:1.0.0
       bob-ts: ^1.0.6
       cross-env: ^7.0.3
-      fastify: ^3.21.0
+      fastify: ^3.21.1
       graphql: 15.4.0-experimental-stream-defer.1
       mercurius: ^8.2.1
       require-env-variable: ^3.1.2
@@ -266,7 +266,7 @@ importers:
     dependencies:
       benchmark-bench: link:../../bench
       cross-env: 7.0.3
-      fastify: 3.21.0
+      fastify: 3.21.1
       graphql: 15.4.0-experimental-stream-defer.1
       mercurius: 8.2.1
       require-env-variable: 3.1.2
@@ -412,14 +412,14 @@ importers:
       '@graphql-ez/plugin-schema': workspace:^0.7.3
       '@types/node': '>=16'
       bob-ts: ^1.0.6
-      fastify: ^3.21.0
+      fastify: ^3.21.1
       graphql: 15.4.0-experimental-stream-defer.1
       graphql-ez: workspace:^0.13.0
     dependencies:
       '@graphql-ez/fastify': link:../../../packages/fastify/main
       '@graphql-ez/plugin-codegen': link:../../../packages/plugin/codegen
       '@graphql-ez/plugin-schema': link:../../../packages/plugin/schema
-      fastify: 3.21.0
+      fastify: 3.21.1
       graphql: 15.4.0-experimental-stream-defer.1
       graphql-ez: link:../../../packages/core/main
     devDependencies:
@@ -442,7 +442,7 @@ importers:
       '@types/graphql-upload': ^8.0.7
       '@types/node': '>=16'
       bob-ts: ^1.0.6
-      fastify: ^3.21.0
+      fastify: ^3.21.1
       graphql: 15.4.0-experimental-stream-defer.1
       graphql-ez: workspace:^0.13.0
       graphql-upload: ^12.0.0
@@ -460,7 +460,7 @@ importers:
       '@graphql-ez/plugin-voyager': link:../../../packages/plugin/voyager
       '@graphql-ez/plugin-websockets': link:../../../packages/plugin/websockets
       '@types/graphql-upload': 8.0.7
-      fastify: 3.21.0
+      fastify: 3.21.1
       graphql: 15.4.0-experimental-stream-defer.1
       graphql-ez: link:../../../packages/core/main
       graphql-upload: 12.0.0_34dd13c2583fe2e4418c23a0d30fc388
@@ -475,7 +475,7 @@ importers:
       '@graphql-ez/plugin-altair': workspace:^0.9.1
       '@types/node': '>=16'
       bob-ts: ^1.0.6
-      fastify: ^3.21.0
+      fastify: ^3.21.1
       graphql: 15.4.0-experimental-stream-defer.1
       graphql-ez: workspace:^0.13.0
       nexus: ^1.1.0
@@ -483,7 +483,7 @@ importers:
     dependencies:
       '@graphql-ez/fastify': link:../../../packages/fastify/main
       '@graphql-ez/plugin-altair': link:../../../packages/plugin/altair
-      fastify: 3.21.0
+      fastify: 3.21.1
       graphql: 15.4.0-experimental-stream-defer.1
       graphql-ez: link:../../../packages/core/main
       nexus: 1.1.0_34dd13c2583fe2e4418c23a0d30fc388
@@ -498,7 +498,7 @@ importers:
       '@graphql-ez/plugin-altair': workspace:^0.9.1
       '@types/node': '>=16'
       class-validator: ^0.13.1
-      fastify: ^3.21.0
+      fastify: ^3.21.1
       graphql: 15.4.0-experimental-stream-defer.1
       graphql-ez: workspace:^0.13.0
       reflect-metadata: ^0.1.13
@@ -509,7 +509,7 @@ importers:
       '@graphql-ez/fastify': link:../../../packages/fastify/main
       '@graphql-ez/plugin-altair': link:../../../packages/plugin/altair
       class-validator: 0.13.1
-      fastify: 3.21.0
+      fastify: 3.21.1
       graphql: 15.4.0-experimental-stream-defer.1
       graphql-ez: link:../../../packages/core/main
       reflect-metadata: 0.1.13
@@ -796,7 +796,7 @@ importers:
       eventsource: ^1.1.0
       express: ^4.17.1
       fast-safe-stringify: ^2.1.1
-      fastify: ^3.21.0
+      fastify: ^3.21.1
       fastify-nextjs: ^6.0.0
       form-data: ^4.0.0
       fs-extra: ^10.0.0
@@ -833,7 +833,7 @@ importers:
       eventsource: 1.1.0
       express: 4.17.1
       fast-safe-stringify: 2.1.1
-      fastify: 3.21.0
+      fastify: 3.21.1
       fastify-nextjs: 6.0.0
       form-data: 4.0.0
       fs-extra: 10.0.0
@@ -1111,7 +1111,7 @@ importers:
       '@types/node': '>=16'
       bob-esbuild-cli: ^1.0.1
       changesets-github-release: ^0.0.4
-      fastify: ^3.21.0
+      fastify: ^3.21.1
       fastify-cors: ^6.0.2
       graphql: 15.4.0-experimental-stream-defer.1
       graphql-ez: workspace:^0.13.0
@@ -1125,7 +1125,7 @@ importers:
       '@types/node': 16.9.1
       bob-esbuild-cli: 1.0.1_bob-esbuild@1.3.0
       changesets-github-release: 0.0.4
-      fastify: 3.21.0
+      fastify: 3.21.1
       graphql: 15.4.0-experimental-stream-defer.1
       graphql-ez: link:../../core/main
       jest: 27.2.0
@@ -1139,7 +1139,7 @@ importers:
       '@graphql-ez/utils': workspace:^0.1.2
       bob-esbuild-cli: ^1.0.1
       changesets-github-release: ^0.0.4
-      fastify: ^3.21.0
+      fastify: ^3.21.1
       get-port: ^5.1.1
       graphql: 15.4.0-experimental-stream-defer.1
       graphql-ez: workspace:^0.13.0
@@ -1152,7 +1152,7 @@ importers:
       '@graphql-ez/fastify': link:../main
       bob-esbuild-cli: 1.0.1_bob-esbuild@1.3.0
       changesets-github-release: 0.0.4
-      fastify: 3.21.0
+      fastify: 3.21.1
       graphql: 15.4.0-experimental-stream-defer.1
       graphql-ez: link:../../core/main
       jest: 27.2.0
@@ -1879,14 +1879,14 @@ importers:
       '@graphql-yoga/preset': workspace:^1.0.5
       '@types/node': '>=16'
       bob-esbuild-cli: ^1.0.1
-      fastify: ^3.21.0
+      fastify: ^3.21.1
       graphql: 15.4.0-experimental-stream-defer.1
       graphql-ez: workspace:^0.13.0
       jest: ^27.2.0
     dependencies:
       '@graphql-ez/fastify': link:../../packages/fastify/main
       '@graphql-yoga/preset': link:../preset
-      fastify: 3.21.0
+      fastify: 3.21.1
     devDependencies:
       '@graphql-ez/fastify-testing': link:../../packages/fastify/testing
       '@types/node': 16.9.1
@@ -8830,8 +8830,8 @@ packages:
       - utf-8-validate
     dev: false
 
-  /fastify/3.21.0:
-    resolution: {integrity: sha512-hc9p0meCV8PXIQzg8BwXekhCmJm5LHfeJi7U3mKQTMu7pQT24CL756jUxM9sOLEbBpQoD82PejVPW2lfLiXJsw==}
+  /fastify/3.21.1:
+    resolution: {integrity: sha512-BibsysctHZzNAV6oSqTnWVGnEeNDJksk8va642WZeyIzKo0udDSvcR6r8jWtUAWpqWzMC13b7tACdpX9kd0h9w==}
     dependencies:
       '@fastify/ajv-compiler': 1.1.0
       abstract-logging: 2.0.1
