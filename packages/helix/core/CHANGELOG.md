@@ -1,5 +1,11 @@
 # @pablosz/graphql-helix
 
+## 2.0.1
+
+### Patch Changes
+
+- 7d0247f5: fix missing peer dependency
+
 ## 2.0.0
 
 ### Major Changes
