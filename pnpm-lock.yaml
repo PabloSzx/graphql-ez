@@ -469,6 +469,29 @@ importers:
       bob-ts: 1.0.6_f36201df9f7b917235af7bb4e5804b0a
       typescript: 4.4.3
 
+  examples/fastify/giraphql:
+    specifiers:
+      '@giraphql/core': ^2.15.1
+      '@graphql-ez/fastify': workspace:^0.9.4
+      '@graphql-ez/plugin-graphiql': workspace:^0.10.0
+      '@types/node': '>=16'
+      bob-ts: ^1.0.6
+      fastify: ^3.21.3
+      graphql: 15.4.0-experimental-stream-defer.1
+      graphql-ez: workspace:^0.13.1
+      typescript: '>=4.4.2'
+    dependencies:
+      '@giraphql/core': 2.15.1_34dd13c2583fe2e4418c23a0d30fc388
+      '@graphql-ez/fastify': link:../../../packages/fastify/main
+      '@graphql-ez/plugin-graphiql': link:../../../packages/plugin/graphiql
+      fastify: 3.21.3
+      graphql: 15.4.0-experimental-stream-defer.1
+      graphql-ez: link:../../../packages/core/main
+    devDependencies:
+      '@types/node': 16.9.2
+      bob-ts: 1.0.6_f36201df9f7b917235af7bb4e5804b0a
+      typescript: 4.4.3
+
   examples/fastify/nexus:
     specifiers:
       '@graphql-ez/fastify': workspace:^0.9.4
@@ -3948,6 +3971,14 @@ packages:
     resolution: {integrity: sha512-gvCOUNpXsWrIQ3A4aXCLIdblL0tDq42BG/2Xw7oxbil9h11uow10ztS2GuFazNBfjbrsZ5nl+nPl5jDSjj5TSg==}
     dependencies:
       ajv: 6.12.6
+
+  /@giraphql/core/2.15.1_34dd13c2583fe2e4418c23a0d30fc388:
+    resolution: {integrity: sha512-MAkeUL3pBAg34LD+3oFxBGvoPOc+rNcXUDl40LfcZojDfrnKqgPqH2vKApiOD++/0SPdHooIlUYp+rZ1lu+e3g==}
+    peerDependencies:
+      graphql: '>=15.1.0'
+    dependencies:
+      graphql: 15.4.0-experimental-stream-defer.1
+    dev: false
 
   /@graphiql/toolkit/0.2.2_078abefcd06499c25219fd7c8b688f59:
     resolution: {integrity: sha512-kDgYhqnS4p4LqSo1KvLd3tbX8Hhdj0ZrgQuGsosjjEnahiPYmmylxUL1p9lj6348OsypcTlCncGpEjeb9S3TiQ==}
