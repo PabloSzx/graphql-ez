@@ -810,6 +810,7 @@ importers:
       subscriptions-transport-ws-envelop: ^2.0.1
       ts-jest: ^27.0.5
       undici: ^4.6.0
+      wait-for-expect: ^3.0.2
       ws: ^8.2.2
     devDependencies:
       '@graphql-ez/utils': link:../../packages/core/utils
@@ -847,6 +848,7 @@ importers:
       subscriptions-transport-ws-envelop: 2.0.1_2f072500c5f49948cffda7c58c9904ce
       ts-jest: 27.0.5_77a678c07bcdbdfd88181ff63fe325b2
       undici: 4.6.0
+      wait-for-expect: 3.0.2
       ws: 8.2.2
 
   internal/website:
@@ -16231,6 +16233,10 @@ packages:
     engines: {node: '>=10'}
     dependencies:
       xml-name-validator: 3.0.0
+    dev: true
+
+  /wait-for-expect/3.0.2:
+    resolution: {integrity: sha512-cfS1+DZxuav1aBYbaO/kE06EOS8yRw7qOFoD3XtjTkYvCvh3zUvNST8DXK/nPaeqIzIv3P3kL3lRJn8iwOiSag==}
     dev: true
 
   /wait-on/6.0.0:

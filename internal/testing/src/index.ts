@@ -412,3 +412,5 @@ export async function startNextJSServer(dir: string[], autoClose: boolean = true
 
   return { ...pool, app, NextJSDir };
 }
+
+export { default as waitForExpect } from 'wait-for-expect';
