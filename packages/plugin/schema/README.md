@@ -1,6 +1,6 @@
 # @graphql-ez/plugin-schema
 
-Integration with [@graphql-tools/schema](https://www.graphql-tools.com/docs/generate-schema/) and [@graphql-tools/merge](https://www.npmjs.com/package/@graphql-tools/merge)
+Integration with [@graphql-tools/schema](https://www.graphql-tools.com/docs/generate-schema/)
 
 It can combine with other EZ Plugins like [GraphQL Scalars](https://www.graphql-ez.com/plugins/graphql-scalars) and [GraphQL Codegen](https://www.graphql-ez.com/plugins/graphql-scalars).
 
@@ -92,7 +92,7 @@ CreateApp({
 });
 ```
 
-You can customize the merging behavior following the [@graphql-tools/merge](https://www.graphql-tools.com/docs/schema-merging) options
+You can customize the merging behavior following the [documentation](https://www.graphql-tools.com/docs/schema-merging) options
 
 ```ts
 ezSchema({
