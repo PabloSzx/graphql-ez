@@ -1,5 +1,11 @@
 # graphql-ez
 
+## 0.13.1
+
+### Patch Changes
+
+- 92256f37: Implement InMemoryPubSub & StrictInMemoryPubSub (with full type-safety), available via "graphql-ez/pubsub"
+
 ## 0.13.0
 
 ### Minor Changes
