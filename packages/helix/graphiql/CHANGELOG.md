@@ -1,5 +1,11 @@
 # @pablosz/graphql-helix-graphiql
 
+## 4.0.2
+
+### Patch Changes
+
+- 174471c6: fix Safari compatibility
+
 ## 4.0.1
 
 ### Patch Changes

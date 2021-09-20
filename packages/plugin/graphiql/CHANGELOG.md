@@ -1,5 +1,13 @@
 # @graphql-ez/plugin-graphiql
 
+## 0.10.1
+
+### Patch Changes
+
+- 174471c6: fix Safari compatibility
+- Updated dependencies [174471c6]
+  - @pablosz/graphql-helix-graphiql@4.0.2
+
 ## 0.10.0
 
 ### Minor Changes
