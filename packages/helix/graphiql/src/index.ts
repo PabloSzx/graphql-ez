@@ -51,7 +51,7 @@ export const renderGraphiQL = (options: RenderGraphiQLOptions = {}): string => {
   </head>
   <body>
     <script type="module" ${nonceAttribute}>
-      await import("https://unpkg.com/${name}@${version}/bundle/graphiql.min.js");
+      import "https://unpkg.com/${name}@${version}/bundle/graphiql.min.js";
 
       GraphQLHelixGraphiQL.init({
         defaultQuery: ${safeSerialize(defaultQuery)},
