@@ -985,7 +985,7 @@ importers:
       form-data: 4.0.0
       graphql-ws: 5.5.0_34dd13c2583fe2e4418c23a0d30fc388
       isomorphic-ws: 4.0.1_ws@8.2.2
-      node-fetch: 2.6.2
+      node-fetch: 2.6.3
       subscriptions-transport-ws-envelop: 2.0.1_2f072500c5f49948cffda7c58c9904ce
       undici: 4.6.0
       ws: 8.2.2
@@ -1747,7 +1747,7 @@ importers:
       graphql-ez: link:../../core/main
       graphql-upload: 12.0.0_34dd13c2583fe2e4418c23a0d30fc388
       jest: 27.2.1
-      node-fetch: 2.6.2
+      node-fetch: 2.6.3
       ts-jest: 27.0.5_a3830dc85c792fbb18bedbcc872cb0f9
 
   packages/plugin/voyager:
@@ -3016,7 +3016,7 @@ packages:
       react: '>=16.8.6'
     dependencies:
       '@chakra-ui/icon': 1.1.11_react@17.0.2
-      '@types/react': 17.0.21
+      '@types/react': 17.0.22
       react: 17.0.2
     dev: false
 
@@ -4370,7 +4370,7 @@ packages:
       next: 11.1.2_bd7797d63db473de6e2318609a63c933
       next-i18next: 8.8.0_next@11.1.2+react@17.0.2
       next-mdx-remote: 3.0.4_react-dom@17.0.2+react@17.0.2
-      next-seo: 4.27.0_6fbf59523517da779df50d355b375324
+      next-seo: 4.28.0_6fbf59523517da779df50d355b375324
       nprogress: 0.2.0
       react: 17.0.2
       react-dom: 17.0.2_react@17.0.2
@@ -4401,7 +4401,7 @@ packages:
       next: 11.1.2_bd7797d63db473de6e2318609a63c933
       next-i18next: 8.8.0_next@11.1.2+react@17.0.2
       next-mdx-remote: 3.0.4_react-dom@17.0.2+react@17.0.2
-      node-fetch: 2.6.2
+      node-fetch: 2.6.3
       npms.io: 2.1.0
       react: 17.0.2
       react-dom: 17.0.2_react@17.0.2
@@ -5155,7 +5155,7 @@ packages:
       '@octokit/request-error': 2.1.0
       '@octokit/types': 6.28.1
       is-plain-object: 5.0.0
-      node-fetch: 2.6.2
+      node-fetch: 2.6.3
       universal-user-agent: 6.0.0
     dev: true
 
@@ -5608,7 +5608,7 @@ packages:
   /@types/hoist-non-react-statics/3.3.1:
     resolution: {integrity: sha512-iMIqiko6ooLrTh1joXodJK5X9xeEALT1kM5G3ZLhD3hszxBdIEd5C75U834D9mLcINgD4OyZf5uQXjkuYydWvA==}
     dependencies:
-      '@types/react': 17.0.21
+      '@types/react': 17.0.22
       hoist-non-react-statics: 3.3.2
     dev: false
 
@@ -5618,10 +5618,10 @@ packages:
   /@types/http-errors/1.8.1:
     resolution: {integrity: sha512-e+2rjEwK6KDaNOm5Aa9wNGgyS9oSZU/4pfSMMPYNOfjvFI0WVXm29+ITRFr6aKDvvKo7uU1jV68MW4ScsfDi7Q==}
 
-  /@types/i18next-fs-backend/1.0.1:
-    resolution: {integrity: sha512-zJDqz/xg3j2qJNr4t+fUgGEC30Xq/rqM8iF8sraN/nBVwIoItcpUwc/Wvwqs9pEgNpDgZ0PXRoWhoicwozSM3g==}
+  /@types/i18next-fs-backend/1.1.1:
+    resolution: {integrity: sha512-rj95Ng1UmDSHiFPXOGX95c760LUOYj5MyYuxeXleWNCkeOVZJVpVKTEL6bTPeBK8A+GSnFeOnoNNkdmM2wUjTg==}
     dependencies:
-      i18next: 19.9.2
+      i18next: 20.6.1
     dev: false
 
   /@types/isomorphic-form-data/2.0.0:
@@ -5723,7 +5723,7 @@ packages:
   /@types/mdx-js__react/1.5.4:
     resolution: {integrity: sha512-hce+Hymj3cEMOma13eQRhpT3mhQrOkN4CAYEwKWB/qj2BiuUrrTpCkOShEERGmLVgDc3nxF4Dc0k7W999EQxnQ==}
     dependencies:
-      '@types/react': 17.0.21
+      '@types/react': 17.0.22
     dev: true
 
   /@types/mime-db/1.43.1:
@@ -5789,15 +5789,8 @@ packages:
   /@types/react-dom/17.0.9:
     resolution: {integrity: sha512-wIvGxLfgpVDSAMH5utdL9Ngm5Owu0VsGmldro3ORLXV8CShrL8awVj06NuEXFQ5xyaYfdca7Sgbk/50Ri1GdPg==}
     dependencies:
-      '@types/react': 17.0.21
+      '@types/react': 17.0.22
     dev: true
-
-  /@types/react/17.0.21:
-    resolution: {integrity: sha512-GzzXCpOthOjXvrAUFQwU/svyxu658cwu00Q9ugujS4qc1zXgLFaO0kS2SLOaMWLt2Jik781yuHCWB7UcYdGAeQ==}
-    dependencies:
-      '@types/prop-types': 15.7.4
-      '@types/scheduler': 0.16.2
-      csstype: 3.0.9
 
   /@types/react/17.0.22:
     resolution: {integrity: sha512-kq/BMeaAVLJM6Pynh8C2rnr/drCK+/5ksH0ch9asz+8FW3DscYCIEFtCeYTFeIx/ubvOsMXmRfy7qEJ76gM96A==}
@@ -5805,7 +5798,6 @@ packages:
       '@types/prop-types': 15.7.4
       '@types/scheduler': 0.16.2
       csstype: 3.0.9
-    dev: true
 
   /@types/rimraf/3.0.2:
     resolution: {integrity: sha512-F3OznnSLAUxFrCEu/L5PY8+ny8DtcFRjx7fZZ9bycvXRi3KPTRS9HOitGZwvPg0juRhXFWIeKX58cnX5YqLohQ==}
@@ -6929,9 +6921,9 @@ packages:
     dependencies:
       caniuse-lite: 1.0.30001258
       colorette: 1.4.0
-      electron-to-chromium: 1.3.843
+      electron-to-chromium: 1.3.844
       escalade: 3.1.1
-      node-releases: 1.1.75
+      node-releases: 1.1.76
 
   /browserslist/4.17.0:
     resolution: {integrity: sha512-g2BJ2a0nEYvEFQC208q8mVAhfNwpZ5Mu8BwgtCdZKO3qx98HChmeg448fPdUzld8aFmfLgVh7yymqV+q1lJZ5g==}
@@ -6940,9 +6932,9 @@ packages:
     dependencies:
       caniuse-lite: 1.0.30001258
       colorette: 1.4.0
-      electron-to-chromium: 1.3.843
+      electron-to-chromium: 1.3.844
       escalade: 3.1.1
-      node-releases: 1.1.75
+      node-releases: 1.1.76
 
   /bs-logger/0.2.6:
     resolution: {integrity: sha512-pd8DCoxmbgc7hyPKOvxtqNcjYoOsABPQdcCUjGp3d42VR2CX1ORhk2A87oqqu5R1kk+76nsxZupkmyd+MVtCog==}
@@ -7411,20 +7403,20 @@ packages:
     engines: {node: '>=0.10.0'}
     dev: false
 
-  /codemirror-graphql/1.0.2_ec4cde13cf6a77cc5c885286dc8994d0:
+  /codemirror-graphql/1.0.2_e51c0844efa548a921671b86beee319c:
     resolution: {integrity: sha512-D4+BdYa6iQnDlio4mBk1Yap5ROCqEWapSFLkiKGatx/I0dF6euzdwd0um3Ndudw6rFQbNuT7hpcH8tnBO6VOfQ==}
     peerDependencies:
       codemirror: ^5.54.0
       graphql: '>= v14.5.0 <= 15.5.0'
     dependencies:
-      codemirror: 5.62.3
+      codemirror: 5.63.0
       graphql: 15.4.0-experimental-stream-defer.1
       graphql-language-service-interface: 2.8.4_34dd13c2583fe2e4418c23a0d30fc388
       graphql-language-service-parser: 1.9.2_34dd13c2583fe2e4418c23a0d30fc388
     dev: true
 
-  /codemirror/5.62.3:
-    resolution: {integrity: sha512-zZAyOfN8TU67ngqrxhOgtkSAGV9jSpN1snbl8elPtnh9Z5A11daR405+dhLzLnuXrwX0WCShWlybxPN3QC/9Pg==}
+  /codemirror/5.63.0:
+    resolution: {integrity: sha512-KlLWRPggDg2rBD1Mx7/EqEhaBdy+ybBCVh/efgjBDsPpMeEu6MbTAJzIT4TuCzvmbTEgvKOGzVT6wdBTNusqrg==}
     dev: true
 
   /collapse-white-space/1.0.6:
@@ -7767,7 +7759,7 @@ packages:
   /cross-fetch/3.1.4:
     resolution: {integrity: sha512-1eAtFWdIubi6T4XPy6ei9iUFoKpUkIF971QLN8lIvvvwueI65+Nw5haMNKUwfJxabqlIIDODJKGrQ66gxC0PbQ==}
     dependencies:
-      node-fetch: 2.6.2
+      node-fetch: 2.6.3
 
   /cross-spawn/5.1.0:
     resolution: {integrity: sha1-6L0O/uWPz/b4+UUQoKVUu/ojVEk=}
@@ -8260,8 +8252,8 @@ packages:
   /ee-first/1.1.1:
     resolution: {integrity: sha1-WQxhFWsK4vTwJVcyoViyZrxWsh0=}
 
-  /electron-to-chromium/1.3.843:
-    resolution: {integrity: sha512-OWEwAbzaVd1Lk9MohVw8LxMXFlnYd9oYTYxfX8KS++kLLjDfbovLOcEEXwRhG612dqGQ6+44SZvim0GXuBRiKg==}
+  /electron-to-chromium/1.3.844:
+    resolution: {integrity: sha512-7ES6GQVsbgsUA49/apqub51I9ij8E3QwGqq/IRvO6OPCly3how/YUSg1GPslRWq+BteT2h94iAIQdJbuVVH4Pg==}
 
   /elliptic/6.5.4:
     resolution: {integrity: sha512-iLhC6ULemrljPZb+QutR5TQGB+pdW6KGD5RSegS+8sorOZT+rdQFbsQFJgvN3eRqNALqJer4oQ16YvJHlU8hzQ==}
@@ -8309,8 +8301,8 @@ packages:
     dependencies:
       once: 1.4.0
 
-  /enhanced-resolve/5.8.2:
-    resolution: {integrity: sha512-F27oB3WuHDzvR2DOGNTaYy0D5o0cnrv8TeI482VM4kYgQd/FT9lUQwuNsJ0oOHtBUq7eiW5ytqzp7nBFknL+GA==}
+  /enhanced-resolve/5.8.3:
+    resolution: {integrity: sha512-EGAbGvH7j7Xt2nc0E7D99La1OiEs8LnyimkRgwExpUMScN6O+3x9tIWs7PLQZVNx4YD+00skHXPXi1yQHpAmZA==}
     engines: {node: '>=10.13.0'}
     dependencies:
       graceful-fs: 4.2.8
@@ -9436,8 +9428,8 @@ packages:
       react-dom: ^16.8.0
     dependencies:
       '@graphiql/toolkit': 0.2.2_c29dc4220882f34f0a467cf31d219455
-      codemirror: 5.62.3
-      codemirror-graphql: 1.0.2_ec4cde13cf6a77cc5c885286dc8994d0
+      codemirror: 5.63.0
+      codemirror-graphql: 1.0.2_e51c0844efa548a921671b86beee319c
       copy-to-clipboard: 3.3.1
       dset: 3.1.0
       entities: 2.2.0
@@ -10029,12 +10021,6 @@ packages:
 
   /i18next-fs-backend/1.1.1:
     resolution: {integrity: sha512-RFkfy10hNxJqc7MVAp5iAZq0Tum6msBCNebEe3OelOBvrROvzHUPaR8Qe10RQrOGokTm0W4vJGEJzruFkEt+hQ==}
-    dev: false
-
-  /i18next/19.9.2:
-    resolution: {integrity: sha512-0i6cuo6ER6usEOtKajUUDj92zlG+KArFia0857xxiEHAQcUwh/RtOQocui1LPJwunSYT574Pk64aNva1kwtxZg==}
-    dependencies:
-      '@babel/runtime': 7.15.4
     dev: false
 
   /i18next/20.6.1:
@@ -10638,7 +10624,7 @@ packages:
   /isomorphic-unfetch/3.1.0:
     resolution: {integrity: sha512-geDJjpoZ8N0kWexiwkX8F9NkTsXhetLPVbZFQ+JTW239QNOwvB0gniuR1Wc6f0AMTn7/mFGyXvHTifrCp/GH8Q==}
     dependencies:
-      node-fetch: 2.6.2
+      node-fetch: 2.6.3
       unfetch: 4.2.0
 
   /isomorphic-ws/4.0.1_ws@8.2.2:
@@ -12123,7 +12109,7 @@ packages:
     dependencies:
       '@babel/runtime': 7.15.4
       '@types/hoist-non-react-statics': 3.3.1
-      '@types/i18next-fs-backend': 1.0.1
+      '@types/i18next-fs-backend': 1.1.1
       core-js: 3.18.0
       hoist-non-react-statics: 3.3.2
       i18next: 20.6.1
@@ -12159,18 +12145,6 @@ packages:
       commander: 5.1.0
       express: 4.17.1
     dev: true
-
-  /next-seo/4.27.0_6fbf59523517da779df50d355b375324:
-    resolution: {integrity: sha512-nodRrdEePRjFBo+2osYpDCVi+EbO45/MmCnLQpmS59HuEXBDePa3gpM67kJk9cCJ9dKkfp/MwYtmNbhDImMvmg==}
-    peerDependencies:
-      next: ^8.1.1-canary.54 || >=9.0.0
-      react: '>=16.0.0'
-      react-dom: '>=16.0.0'
-    dependencies:
-      next: 11.1.2_bd7797d63db473de6e2318609a63c933
-      react: 17.0.2
-      react-dom: 17.0.2_react@17.0.2
-    dev: false
 
   /next-seo/4.28.0_6fbf59523517da779df50d355b375324:
     resolution: {integrity: sha512-jlB7GBX7LA5UAzFbsSdaQQ//lDz1RU+6a1JtrDQPPtk0/Wk07kU/NmZLAx1U087355u5ToWZjQB8W0rQb4C3Gg==}
@@ -12242,7 +12216,7 @@ packages:
       image-size: 1.0.0
       jest-worker: 27.0.0-next.5
       native-url: 0.3.4
-      node-fetch: 2.6.2
+      node-fetch: 2.6.3
       node-html-parser: 1.4.9
       node-libs-browser: 2.2.1
       os-browserify: 0.3.0
@@ -12322,7 +12296,7 @@ packages:
       image-size: 1.0.0
       jest-worker: 27.0.0-next.5
       native-url: 0.3.4
-      node-fetch: 2.6.2
+      node-fetch: 2.6.3
       node-html-parser: 1.4.9
       node-libs-browser: 2.2.1
       os-browserify: 0.3.0
@@ -12405,9 +12379,11 @@ packages:
       lodash: 4.17.21
     dev: false
 
-  /node-fetch/2.6.2:
-    resolution: {integrity: sha512-aLoxToI6RfZ+0NOjmWAgn9+LEd30YCkJKFSyWacNZdEKTit/ZMcKjGkTRo8uWEsnIb/hfKecNPEbln02PdWbcA==}
+  /node-fetch/2.6.3:
+    resolution: {integrity: sha512-BXSmNTLLDHT0UjQDg5E23x+0n/hPDjySqc0ELE4NpCa2wE5qmmaEWFRP/+v8pfuocchR9l5vFLbSB7CPE2ahvQ==}
     engines: {node: 4.x || >=6.0.0}
+    dependencies:
+      whatwg-url: 5.0.0
 
   /node-forge/0.10.0:
     resolution: {integrity: sha512-PPmu8eEeG9saEUvI97fm4OYxXVB6bFvyNTyiUOBichBpFG8A1Ljw3bY62+5oOjDEMHRnd0Y7HQ+x7uzxOzC6JA==}
@@ -12454,8 +12430,8 @@ packages:
     engines: {node: '>=0.10.0'}
     dev: true
 
-  /node-releases/1.1.75:
-    resolution: {integrity: sha512-Qe5OUajvqrqDSy6wrWFmMwfJ0jVgwiw4T3KqmbTcZ62qW0gQkheXYhcFM1+lOVcGUoRxcEcfyvFMAnDgaF1VWw==}
+  /node-releases/1.1.76:
+    resolution: {integrity: sha512-9/IECtNr8dXNmPWmFXepT0/7o5eolGesHUa3mtr0KlgnCvnZxwh2qensKL42JJY2vQKC3nIBXetFAqR+PW1CmA==}
 
   /normalize-package-data/2.5.0:
     resolution: {integrity: sha512-/5CMN3T0R4XTj4DcGaexo+roZSdSFW/0AOOTROrjxzCG1wrWXEsGbRKevjlIL+ZDE4sZlJr5ED4YW0yqmkK+eA==}
@@ -15024,7 +15000,7 @@ packages:
       sade: 1.7.4
       source-map: 0.7.3
       svelte: 3.42.6
-      svelte-preprocess: 4.9.4_svelte@3.42.6+typescript@4.4.3
+      svelte-preprocess: 4.9.5_svelte@3.42.6+typescript@4.4.3
       typescript: 4.4.3
     transitivePeerDependencies:
       - '@babel/core'
@@ -15045,57 +15021,6 @@ packages:
       svelte: '>=3.19.0'
     dependencies:
       svelte: 3.42.6
-    dev: true
-
-  /svelte-preprocess/4.9.4_svelte@3.42.6+typescript@4.4.3:
-    resolution: {integrity: sha512-Z0mUQBGtE+ZZSv/HerRSHe7ukJokxjiPeHe7iPOIXseEoRw51H3K/Vh6OMIMstetzZ11vWO9rCsXSD/uUUArmA==}
-    engines: {node: '>= 9.11.2'}
-    requiresBuild: true
-    peerDependencies:
-      '@babel/core': ^7.10.2
-      coffeescript: ^2.5.1
-      less: ^3.11.3
-      node-sass: '*'
-      postcss: ^7 || ^8
-      postcss-load-config: ^2.1.0 || ^3.0.0
-      pug: ^3.0.0
-      sass: ^1.26.8
-      stylus: ^0.54.7
-      sugarss: ^2.0.0
-      svelte: ^3.23.0
-      typescript: ^3.9.5 || ^4.0.0
-    peerDependenciesMeta:
-      '@babel/core':
-        optional: true
-      coffeescript:
-        optional: true
-      less:
-        optional: true
-      node-sass:
-        optional: true
-      postcss:
-        optional: true
-      postcss-load-config:
-        optional: true
-      pug:
-        optional: true
-      sass:
-        optional: true
-      stylus:
-        optional: true
-      sugarss:
-        optional: true
-      typescript:
-        optional: true
-    dependencies:
-      '@types/pug': 2.0.5
-      '@types/sass': 1.16.1
-      detect-indent: 6.1.0
-      magic-string: 0.25.7
-      sorcery: 0.10.0
-      strip-indent: 3.0.0
-      svelte: 3.42.6
-      typescript: 4.4.3
     dev: true
 
   /svelte-preprocess/4.9.5_svelte@3.42.6+typescript@4.4.3:
@@ -15178,7 +15103,7 @@ packages:
     engines: {node: '>=8'}
     dependencies:
       buffer: 5.7.1
-      node-fetch: 2.6.2
+      node-fetch: 2.6.3
     dev: true
 
   /systeminformation/5.9.3:
@@ -15542,6 +15467,9 @@ packages:
       universalify: 0.1.2
     dev: true
 
+  /tr46/0.0.3:
+    resolution: {integrity: sha1-gYT9NH2snNwYWZLzpmIuFLnZq2o=}
+
   /tr46/1.0.1:
     resolution: {integrity: sha1-qLE/1r/SSJUZZ0zN5VujaTtwbQk=}
     dependencies:
@@ -15637,7 +15565,7 @@ packages:
       webpack: ^5.0.0
     dependencies:
       chalk: 4.1.2
-      enhanced-resolve: 5.8.2
+      enhanced-resolve: 5.8.3
       micromatch: 4.0.4
       semver: 7.3.5
       typescript: 4.4.3
@@ -16394,6 +16322,9 @@ packages:
       tslib: 2.3.1
     dev: true
 
+  /webidl-conversions/3.0.1:
+    resolution: {integrity: sha1-JFNCdeKnvGvnvIZhHMFq4KVlSHE=}
+
   /webidl-conversions/4.0.2:
     resolution: {integrity: sha512-YQ+BmxuTgd6UXZW3+ICGfyqRyHXVlD5GtQr5+qjiNW7bF0cqrzX500HVXPBOvgXb5YnzDd+h0zqyv61KUD7+Sg==}
 
@@ -16494,7 +16425,7 @@ packages:
       acorn-import-assertions: 1.7.6_acorn@8.5.0
       browserslist: 4.17.0
       chrome-trace-event: 1.0.3
-      enhanced-resolve: 5.8.2
+      enhanced-resolve: 5.8.3
       es-module-lexer: 0.7.1
       eslint-scope: 5.1.1
       events: 3.3.0
@@ -16525,6 +16456,12 @@ packages:
   /whatwg-mimetype/2.3.0:
     resolution: {integrity: sha512-M4yMwr6mAnQz76TbJm914+gPpB/nCwvZbJU28cUD6dR004SAxDLOOSUaB1JDRqLtaOV/vi0IC5lEAGFgrjGv/g==}
     dev: true
+
+  /whatwg-url/5.0.0:
+    resolution: {integrity: sha1-lmRU6HZUYuN2RNNib2dCzotwll0=}
+    dependencies:
+      tr46: 0.0.3
+      webidl-conversions: 3.0.1
 
   /whatwg-url/7.1.0:
     resolution: {integrity: sha512-WUu7Rg1DroM7oQvGWfOiAK21n74Gg+T4elXEQYkOhtyLeWiJFoOGLXPKI/9gzIie9CtwVLm8wtw6YJdKyxSjeg==}
