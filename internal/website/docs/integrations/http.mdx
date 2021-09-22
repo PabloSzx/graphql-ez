@@ -22,7 +22,7 @@ const server = createServer((req, res) => {
   EZApp.requestHandler(req, res);
 });
 
-const EZApp = buildApp({
+const EZApp = ezApp.buildApp({
   server,
   // ...
 });
