@@ -260,7 +260,7 @@ importers:
       cross-env: ^7.0.3
       fastify: ^3.21.6
       graphql: 15.4.0-experimental-stream-defer.1
-      mercurius: ^8.3.0
+      mercurius: ^8.4.0
       require-env-variable: ^3.1.2
       typescript: '>=4.4.2'
     dependencies:
@@ -268,7 +268,7 @@ importers:
       cross-env: 7.0.3
       fastify: 3.21.6
       graphql: 15.4.0-experimental-stream-defer.1
-      mercurius: 8.3.0
+      mercurius: 8.4.0
       require-env-variable: 3.1.2
       typescript: 4.4.3
     devDependencies:
@@ -11895,8 +11895,8 @@ packages:
       yargs-parser: 18.1.3
     dev: true
 
-  /mercurius/8.3.0:
-    resolution: {integrity: sha512-iw6ZxCsgkvCe5sPJadsy1zfzuv906W1rVwFDvADzpj3rT7sKtQcuoydVWMpSXeH9pXKMMZTfX84z0/66FaysdQ==}
+  /mercurius/8.4.0:
+    resolution: {integrity: sha512-Ueget1EbE1nCfWL0G7XHkdx8TP33LcRH+NXtgGVS1ArgJnEMwJ9UGs6yVtsfdyNKREIQuiIE9bXnWDV7VQTwHg==}
     dependencies:
       '@types/isomorphic-form-data': 2.0.0
       end-of-stream: 1.4.4
@@ -11915,7 +11915,7 @@ packages:
       single-user-cache: 0.5.0
       tiny-lru: 7.0.6
       undici: 4.7.0
-      ws: 7.5.5
+      ws: 8.2.2
     transitivePeerDependencies:
       - bufferutil
       - utf-8-validate
@@ -16750,6 +16750,7 @@ packages:
         optional: true
       utf-8-validate:
         optional: true
+    dev: true
 
   /ws/8.2.2:
     resolution: {integrity: sha512-Q6B6H2oc8QY3llc3cB8kVmQ6pnJWVQbP7Q5algTcIxx7YEpc0oU4NBVHlztA7Ekzfhw2r0rPducMUiCGWKQRzw==}
