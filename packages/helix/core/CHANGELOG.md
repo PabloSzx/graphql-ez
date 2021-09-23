@@ -1,5 +1,11 @@
 # @pablosz/graphql-helix
 
+## 2.0.2
+
+### Patch Changes
+
+- 281782c9: Improve error handling
+
 ## 2.0.1
 
 ### Patch Changes
