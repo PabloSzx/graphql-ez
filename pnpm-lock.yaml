@@ -471,7 +471,7 @@ importers:
 
   examples/fastify/giraphql:
     specifiers:
-      '@giraphql/core': ^2.15.2
+      '@giraphql/core': ^2.15.3
       '@graphql-ez/fastify': workspace:^0.9.4
       '@graphql-ez/plugin-graphiql': workspace:^0.10.1
       '@types/node': '>=16'
@@ -481,7 +481,7 @@ importers:
       graphql-ez: workspace:^0.13.1
       typescript: '>=4.4.2'
     dependencies:
-      '@giraphql/core': 2.15.2_34dd13c2583fe2e4418c23a0d30fc388
+      '@giraphql/core': 2.15.3_34dd13c2583fe2e4418c23a0d30fc388
       '@graphql-ez/fastify': link:../../../packages/fastify/main
       '@graphql-ez/plugin-graphiql': link:../../../packages/plugin/graphiql
       fastify: 3.21.6
@@ -3977,8 +3977,8 @@ packages:
     dependencies:
       ajv: 6.12.6
 
-  /@giraphql/core/2.15.2_34dd13c2583fe2e4418c23a0d30fc388:
-    resolution: {integrity: sha512-xJJpX3Poau6wihRXYc/gNkLt7PZxdDIuoQLFTeY21KQSVEKS3Ah59ZU/jE3NnaQ0fDGNZCw/dsWvX4CFKJ89hQ==}
+  /@giraphql/core/2.15.3_34dd13c2583fe2e4418c23a0d30fc388:
+    resolution: {integrity: sha512-Cz7jT3sZmAh9oAZ5eW+ZWapZzcmtAlQS1mFy0DE/ujWblpdtPvPr5hEQIip9rbrDxKVyKzgKWx0ZVNfaXGfhPA==}
     peerDependencies:
       graphql: '>=15.1.0'
     dependencies:
