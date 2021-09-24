@@ -215,7 +215,7 @@ importers:
       cross-env: ^7.0.3
       graphql: 15.4.0-experimental-stream-defer.1
       graphql-ez: workspace:^0.13.1
-      koa: ^2.13.1
+      koa: ^2.13.3
       require-env-variable: ^3.1.2
       typescript: '>=4.4.2'
     dependencies:
@@ -226,7 +226,7 @@ importers:
       cross-env: 7.0.3
       graphql: 15.4.0-experimental-stream-defer.1
       graphql-ez: link:../../../packages/core/main
-      koa: 2.13.1
+      koa: 2.13.3
       require-env-variable: 3.1.2
       typescript: 4.4.3
     devDependencies:
@@ -637,7 +637,7 @@ importers:
       bob-ts: ^1.1.1
       graphql: 15.4.0-experimental-stream-defer.1
       graphql-ez: workspace:^0.13.1
-      koa: ^2.13.1
+      koa: ^2.13.3
       koa-bodyparser: ^4.3.0
       typescript: '>=4.4.2'
     dependencies:
@@ -655,7 +655,7 @@ importers:
       '@koa/router': 10.1.1
       graphql: 15.4.0-experimental-stream-defer.1
       graphql-ez: link:../../../packages/core/main
-      koa: 2.13.1
+      koa: 2.13.3
       koa-bodyparser: 4.3.0
     devDependencies:
       '@types/koa': 2.13.4
@@ -828,7 +828,7 @@ importers:
       graphql-ez: workspace:*
       graphql-modules: ^1.4.4
       graphql-ws: ^5.5.0
-      koa: ^2.13.1
+      koa: ^2.13.3
       lodash: ^4.17.21
       subscriptions-transport-ws-envelop: ^2.0.1
       ts-jest: ^27.0.5
@@ -866,7 +866,7 @@ importers:
       graphql-ez: link:../../packages/core/main
       graphql-modules: 1.4.4_34dd13c2583fe2e4418c23a0d30fc388
       graphql-ws: 5.5.0_34dd13c2583fe2e4418c23a0d30fc388
-      koa: 2.13.1
+      koa: 2.13.3
       lodash: 4.17.21
       subscriptions-transport-ws-envelop: 2.0.1_2f072500c5f49948cffda7c58c9904ce
       ts-jest: 27.0.5_4983e9b3d1f913260771a36e4b65b206
@@ -1372,7 +1372,7 @@ importers:
       graphql: 15.4.0-experimental-stream-defer.1
       graphql-ez: workspace:^0.13.1
       jest: ^27.2.1
-      koa: ^2.13.1
+      koa: ^2.13.3
       koa-bodyparser: ^4.3.0
       ts-jest: ^27.0.5
       typescript: '>=4.4.2'
@@ -1391,7 +1391,7 @@ importers:
       graphql: 15.4.0-experimental-stream-defer.1
       graphql-ez: link:../../core/main
       jest: 27.2.1
-      koa: 2.13.1
+      koa: 2.13.3
       ts-jest: 27.0.5_4983e9b3d1f913260771a36e4b65b206
       typescript: 4.4.3
 
@@ -1408,7 +1408,7 @@ importers:
       graphql: 15.4.0-experimental-stream-defer.1
       graphql-ez: workspace:^0.13.1
       jest: ^27.2.1
-      koa: ^2.13.1
+      koa: ^2.13.3
     dependencies:
       '@graphql-ez/client': link:../../client/main
       '@graphql-ez/utils': link:../../core/utils
@@ -1422,7 +1422,7 @@ importers:
       graphql: 15.4.0-experimental-stream-defer.1
       graphql-ez: link:../../core/main
       jest: 27.2.1
-      koa: 2.13.1
+      koa: 2.13.3
 
   packages/nextjs/main:
     specifiers:
@@ -6244,6 +6244,7 @@ packages:
 
   /any-promise/1.3.0:
     resolution: {integrity: sha1-q8av7tzqUugJzcA3au0845Y10X8=}
+    dev: true
 
   /anymatch/3.1.2:
     resolution: {integrity: sha512-P43ePfOAIupkguHUycrc4qJ9kz8ZiuOUijaETwX7THt0Y/GNK7v0aa8rY816xWjZ7rJdA5XdMcpVFTKMq+RvWg==}
@@ -7951,11 +7952,6 @@ packages:
 
   /debug/2.6.9:
     resolution: {integrity: sha512-bC7ElrdJaJnPbAP+1EotYvqZsb3ecl5wi6Bfi6BJTUcNowp6cvspg0jXznRTKDjm/E7AdgFBVeAPVMNcKGsHMA==}
-    dependencies:
-      ms: 2.0.0
-
-  /debug/3.1.0:
-    resolution: {integrity: sha512-OX8XqP7/1a9cqkxYw2yXss15f26NKWBpDXQd0/uK/KPqdQhxbPa994hnzjcE2VqQpDslf55723cKPUOGSmMY3g==}
     dependencies:
       ms: 2.0.0
 
@@ -11513,23 +11509,18 @@ packages:
       copy-to: 2.0.1
     dev: false
 
-  /koa-compose/3.2.1:
-    resolution: {integrity: sha1-qFzLQLfZhtjlo0Wzoazo6rz1Tec=}
-    dependencies:
-      any-promise: 1.3.0
-
   /koa-compose/4.1.0:
     resolution: {integrity: sha512-8ODW8TrDuMYvXRwra/Kh7/rJo9BtOfPc6qO8eAfC80CnCvSjSl0bkRM24X6/XBBEyj0v1nRUQ1LyOy3dbqOWXw==}
 
-  /koa-convert/1.2.0:
-    resolution: {integrity: sha1-2kCHXfSd4FOQmNFwC1CCDOvNIdA=}
-    engines: {node: '>= 4'}
+  /koa-convert/2.0.0:
+    resolution: {integrity: sha512-asOvN6bFlSnxewce2e/DK3p4tltyfC4VM7ZwuTuepI7dEQVcvpyFuBcEARu1+Hxg8DIwytce2n7jrZtRlPrARA==}
+    engines: {node: '>= 10'}
     dependencies:
       co: 4.6.0
-      koa-compose: 3.2.1
+      koa-compose: 4.1.0
 
-  /koa/2.13.1:
-    resolution: {integrity: sha512-Lb2Dloc72auj5vK4X4qqL7B5jyDPQaZucc9sR/71byg7ryoD1NCaCm63CShk9ID9quQvDEi1bGR/iGjCG7As3w==}
+  /koa/2.13.3:
+    resolution: {integrity: sha512-XhXIoR+ylAwqG3HhXwnMPQAM/4xfywz52OvxZNmxmTWGGHsvmBv4NSIhURha6yMuvEex1WdtplUTHnxnKpQiGw==}
     engines: {node: ^4.8.4 || ^6.10.1 || ^7.10.1 || >= 8.1.4}
     dependencies:
       accepts: 1.3.7
@@ -11537,7 +11528,7 @@ packages:
       content-disposition: 0.5.3
       content-type: 1.0.4
       cookies: 0.8.0
-      debug: 3.1.0
+      debug: 4.3.2
       delegates: 1.0.0
       depd: 2.0.0
       destroy: 1.0.4
@@ -11548,13 +11539,15 @@ packages:
       http-errors: 1.8.0
       is-generator-function: 1.0.10
       koa-compose: 4.1.0
-      koa-convert: 1.2.0
+      koa-convert: 2.0.0
       on-finished: 2.3.0
       only: 0.0.2
       parseurl: 1.3.3
       statuses: 1.5.0
       type-is: 1.6.18
       vary: 1.1.2
+    transitivePeerDependencies:
+      - supports-color
 
   /leven/3.1.0:
     resolution: {integrity: sha512-qsda+H8jTaUaN/x5vzW2rzc+8Rw4TAQ/4KjB46IwK5VH+IlVeeeje/EoZRpiXvIqjFgK84QffqPztGI3VBLG1A==}
