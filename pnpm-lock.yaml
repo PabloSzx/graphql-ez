@@ -55,7 +55,7 @@ importers:
 
   benchmarks/apis/envelop-fastify-raw:
     specifiers:
-      '@envelop/core': ^1.1.0
+      '@envelop/core': ^1.2.0
       '@envelop/graphql-jit': ^1.1.1
       '@envelop/parser-cache': ^1.0.0
       '@envelop/types': ^1.1.0
@@ -68,7 +68,7 @@ importers:
       require-env-variable: ^3.1.2
       typescript: '>=4.4.2'
     dependencies:
-      '@envelop/core': 1.1.0_34dd13c2583fe2e4418c23a0d30fc388
+      '@envelop/core': 1.2.0_34dd13c2583fe2e4418c23a0d30fc388
       '@envelop/graphql-jit': 1.1.1_34dd13c2583fe2e4418c23a0d30fc388
       '@envelop/parser-cache': 1.0.0_34dd13c2583fe2e4418c23a0d30fc388
       '@envelop/types': 1.1.0_34dd13c2583fe2e4418c23a0d30fc388
@@ -1037,7 +1037,7 @@ importers:
 
   packages/core/main:
     specifiers:
-      '@envelop/core': ^1.1.0
+      '@envelop/core': ^1.2.0
       '@envelop/types': ^1.1.0
       '@graphql-ez/utils': workspace:^0.1.2
       '@pablosz/graphql-helix': workspace:^2.0.2
@@ -1048,7 +1048,7 @@ importers:
       tiny-lru: 7.0.6
       ts-jest: ^27.0.5
     dependencies:
-      '@envelop/core': 1.1.0_34dd13c2583fe2e4418c23a0d30fc388
+      '@envelop/core': 1.2.0_34dd13c2583fe2e4418c23a0d30fc388
       '@envelop/types': 1.1.0_34dd13c2583fe2e4418c23a0d30fc388
       '@graphql-ez/utils': link:../utils
       '@pablosz/graphql-helix': link:../../helix/core
@@ -1800,7 +1800,7 @@ importers:
 
   packages/sveltekit/main:
     specifiers:
-      '@envelop/core': ^1.1.0
+      '@envelop/core': ^1.2.0
       '@envelop/disable-introspection': ^1.0.0
       '@envelop/parser-cache': ^1.0.0
       '@envelop/validation-cache': ^1.0.0
@@ -1830,7 +1830,7 @@ importers:
     dependencies:
       '@graphql-ez/utils': link:../../core/utils
     devDependencies:
-      '@envelop/core': 1.1.0_34dd13c2583fe2e4418c23a0d30fc388
+      '@envelop/core': 1.2.0_34dd13c2583fe2e4418c23a0d30fc388
       '@envelop/disable-introspection': 1.0.0_34dd13c2583fe2e4418c23a0d30fc388
       '@envelop/parser-cache': 1.0.0_34dd13c2583fe2e4418c23a0d30fc388
       '@envelop/validation-cache': 1.0.0_34dd13c2583fe2e4418c23a0d30fc388
@@ -3893,8 +3893,8 @@ packages:
     resolution: {integrity: sha512-6U71C2Wp7r5XtFtQzYrW5iKFT67OixrSxjI4MptCHzdSVlgabczzqLe0ZSgnub/5Kp4hSbpDB1tMytZY9pwxxA==}
     dev: false
 
-  /@envelop/core/1.1.0_34dd13c2583fe2e4418c23a0d30fc388:
-    resolution: {integrity: sha512-3IPoF8pdL5MoXOmI43AK5w9T96YBm9INs5QlrudUqZnWDMwWKwgGmYMXzNjVEpyMEv7qlfYUTTEAJqZGrTgOrQ==}
+  /@envelop/core/1.2.0_34dd13c2583fe2e4418c23a0d30fc388:
+    resolution: {integrity: sha512-bVsxJuMleyeq0CI3tWq+bLtyEhf1mbGeu7rK/ZGCAkvFqLbt+dHsh28LSSKk4vcwRpa6AQpJZTQYpo4VjRmZ9Q==}
     peerDependencies:
       graphql: ^14.0.0 || ^15.0.0
     dependencies:
