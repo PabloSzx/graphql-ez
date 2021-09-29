@@ -57,7 +57,7 @@ importers:
     specifiers:
       '@envelop/core': ^1.1.0
       '@envelop/graphql-jit': ^1.1.1
-      '@envelop/parser-cache': ^1.0.0
+      '@envelop/parser-cache': ^1.0.1
       '@envelop/types': ^1.1.0
       '@envelop/validation-cache': '*'
       '@types/node': '>=16.10.1'
@@ -70,7 +70,7 @@ importers:
     dependencies:
       '@envelop/core': 1.1.0_34dd13c2583fe2e4418c23a0d30fc388
       '@envelop/graphql-jit': 1.1.1_34dd13c2583fe2e4418c23a0d30fc388
-      '@envelop/parser-cache': 1.0.0_34dd13c2583fe2e4418c23a0d30fc388
+      '@envelop/parser-cache': 1.0.1_34dd13c2583fe2e4418c23a0d30fc388
       '@envelop/types': 1.1.0_34dd13c2583fe2e4418c23a0d30fc388
       '@envelop/validation-cache': 1.0.0_34dd13c2583fe2e4418c23a0d30fc388
       '@types/node': 16.10.1
@@ -1802,7 +1802,7 @@ importers:
     specifiers:
       '@envelop/core': ^1.1.0
       '@envelop/disable-introspection': ^1.0.0
-      '@envelop/parser-cache': ^1.0.0
+      '@envelop/parser-cache': ^1.0.1
       '@envelop/validation-cache': ^1.0.0
       '@graphql-ez/plugin-altair': workspace:^0.9.2
       '@graphql-ez/plugin-graphiql': workspace:^0.10.1
@@ -1832,7 +1832,7 @@ importers:
     devDependencies:
       '@envelop/core': 1.1.0_34dd13c2583fe2e4418c23a0d30fc388
       '@envelop/disable-introspection': 1.0.0_34dd13c2583fe2e4418c23a0d30fc388
-      '@envelop/parser-cache': 1.0.0_34dd13c2583fe2e4418c23a0d30fc388
+      '@envelop/parser-cache': 1.0.1_34dd13c2583fe2e4418c23a0d30fc388
       '@envelop/validation-cache': 1.0.0_34dd13c2583fe2e4418c23a0d30fc388
       '@graphql-ez/plugin-altair': link:../../plugin/altair
       '@graphql-ez/plugin-graphiql': link:../../plugin/graphiql
@@ -3949,8 +3949,8 @@ packages:
       graphql-modules: 1.4.4_34dd13c2583fe2e4418c23a0d30fc388
     dev: false
 
-  /@envelop/parser-cache/1.0.0_34dd13c2583fe2e4418c23a0d30fc388:
-    resolution: {integrity: sha512-mdMf4wJiMWRRpqUOQkaaa5hP2FUWS80UMjDUJ/Ga2dIXUJZVlPapoWjIRd9JH14wg8n0/jpHs27YR7ETKV259g==}
+  /@envelop/parser-cache/1.0.1_34dd13c2583fe2e4418c23a0d30fc388:
+    resolution: {integrity: sha512-cg53ft1STQ7npaCY+JBEmqV0ro+39JD5w4HmkYaUtEafCF+sC7dNoFRc6I1rLEVq1c8AUvPz2LhXTuJkPoM3+w==}
     peerDependencies:
       graphql: ^14.0.0 || ^15.0.0
     dependencies:
