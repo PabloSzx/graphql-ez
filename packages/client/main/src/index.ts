@@ -4,7 +4,7 @@ import { LazyPromise } from '@graphql-ez/utils/promise';
 import { getURLWebsocketVersion } from '@graphql-ez/utils/url';
 import type { TypedDocumentNode } from '@graphql-typed-document-node/core';
 import type {} from 'eventsource';
-import { ExecutionResult, print } from 'graphql';
+import { ExecutionResult, print, GraphQLError } from 'graphql';
 import type {} from 'graphql-ws';
 import type { IncomingHttpHeaders } from 'http';
 import type {} from 'subscriptions-transport-ws-envelop';
@@ -43,6 +43,12 @@ export async function getJSONFromStream<T>(stream: import('stream').Readable): P
   return JSON.parse(Buffer.concat(chunks).toString('utf-8'));
 }
 
+class GraphQLErrorJSON extends Error {
+  constructor(message: string, public locations: GraphQLError['locations'], public extensions: GraphQLError['extensions']) {
+    super(message);
+  }
+}
+
 export type QueryFunctionPostGet = <TData, TVariables = {}, TExtensions = {}>(
   document: TypedDocumentNode<TData, TVariables> | string,
   options?: {
@@ -66,6 +72,20 @@ export type QueryFunctionPost = <TData, TVariables = {}, TExtensions = {}>(
     operationName?: string;
   }
 ) => Promise<ExecutionResult<TData, TExtensions>>;
+
+export type AssertedQuery = <TData = any, TVariables = {}>(
+  document: TypedDocumentNode<TData, TVariables> | string,
+  options?: {
+    variables?: TVariables;
+    headers?: IncomingHttpHeaders;
+    /**
+     * @default "POST"
+     */
+    method?: 'GET' | 'POST';
+    extensions?: Record<string, unknown>;
+    operationName?: string;
+  }
+) => Promise<TData>;
 
 export function EZClient(options: EZClientOptions) {
   const endpoint = new URL(options.endpoint);
@@ -161,9 +181,41 @@ export function EZClient(options: EZClientOptions) {
     return getJSONFromStream(body);
   };
 
+  const assertedQuery: AssertedQuery = async (document, options) => {
+    try {
+      const result = await query(document, options);
+
+      const { data, errors } = result;
+      if (errors?.length) {
+        if (errors.length > 1) {
+          for (const err of errors) {
+            console.error(err);
+          }
+          const err = Error('Multiple GraphQL Errors');
+          Object.assign(err, { errors });
+          throw err;
+        } else {
+          const err = errors[0]!;
+          throw new GraphQLErrorJSON(err.message, err.locations, err.extensions);
+        }
+      } else if (!data) {
+        throw Error('Data not found in: ' + JSON.stringify(result));
+      }
+
+      return data;
+    } catch (err) {
+      if (err instanceof Error) {
+        Error.captureStackTrace(err, assertedQuery);
+      }
+
+      throw err;
+    }
+  };
+
   return {
     query,
     mutation: queryPost,
+    assertedQuery,
     websockets: {
       async subscribe<TData, TVariables extends Record<string, unknown> = {}>(
         document: TypedDocumentNode<TData, TVariables> | string,
