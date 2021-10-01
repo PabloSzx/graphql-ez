@@ -1497,14 +1497,14 @@ importers:
       cross-fetch: ^3.1.4
       graphql-ez: workspace:^0.13.1
       jest: ^27.2.4
-      mime-types: ^2.1.32
+      mime-types: ^2.1.33
       next: ^11.1.2
       ts-jest: ^27.0.5
     dependencies:
       '@graphql-ez/utils': link:../../core/utils
       altair-static-slim: 4.0.11
       cross-fetch: 3.1.4
-      mime-types: 2.1.32
+      mime-types: 2.1.33
     devDependencies:
       '@types/mime-types': 2.1.1
       '@types/node': 16.10.2
@@ -11997,6 +11997,13 @@ packages:
     engines: {node: '>= 0.6'}
     dependencies:
       mime-db: 1.49.0
+
+  /mime-types/2.1.33:
+    resolution: {integrity: sha512-plLElXp7pRDd0bNZHw+nMd52vRYjLwQjygaNg7ddJ2uJtTlmnTCjWuPKxVu6//AdaRuME84SvLW91sIkBqGT0g==}
+    engines: {node: '>= 0.6'}
+    dependencies:
+      mime-db: 1.50.0
+    dev: false
 
   /mime/1.6.0:
     resolution: {integrity: sha512-x0Vn8spI+wuJ1O6S7gnbaQg8Pxh4NNHb7KSINmEWKiPE4RKOplvijn+NkmYmmRgP68mc70j2EbeTFRsrswaQeg==}
