@@ -1,5 +1,11 @@
 # @graphql-ez/client
 
+## 0.2.3
+
+### Patch Changes
+
+- a7537dc2: add new "assertedQuery" that returns data directly and rejects on error
+
 ## 0.2.2
 
 ### Patch Changes
