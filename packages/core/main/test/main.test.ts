@@ -15,7 +15,7 @@ import { ezAltairIDE } from '@graphql-ez/plugin-altair';
 import { ezGraphiQLIDE } from '@graphql-ez/plugin-graphiql';
 import { ezVoyager } from '@graphql-ez/plugin-voyager';
 
-test.concurrent('basic', async () => {
+test('basic', async () => {
   const { query } = await startFastifyServer({
     createOptions: {
       schema: [CommonSchema.schema],
@@ -40,7 +40,7 @@ test.concurrent('basic', async () => {
   `);
 });
 
-test.concurrent('batched queries', async () => {
+test('batched queries', async () => {
   const { request } = await startFastifyServer({
     createOptions: {
       schema: [CommonSchema.schema],
@@ -85,7 +85,7 @@ test.concurrent('batched queries', async () => {
   `);
 });
 
-test.concurrent('query with @stream', async () => {
+test('query with @stream', async () => {
   const { address } = await startFastifyServer({
     createOptions: {
       schema: [CommonSchema.schema],
@@ -95,7 +95,7 @@ test.concurrent('query with @stream', async () => {
   await expectCommonQueryStream(address);
 });
 
-test.concurrent('SSE subscription', async () => {
+test('SSE subscription', async () => {
   const { address } = await startFastifyServer({
     createOptions: {
       schema: [CommonSchema.schema, PingSubscription.schema],
@@ -105,13 +105,13 @@ test.concurrent('SSE subscription', async () => {
   await expectCommonServerSideEventSubscription(address);
 });
 
-test.concurrent('no schema', async () => {
+test('no schema', async () => {
   await expect(startFastifyServer({})).rejects.toMatchInlineSnapshot(
     `[Error: [graphql-ez] No GraphQL Schema specified!. If you are using a dynamic schema, make sure to set the "schema" configuration property as "dynamic".]`
   );
 });
 
-test.concurrent('external schema', async () => {
+test('external schema', async () => {
   const schema = makeExecutableSchema({
     typeDefs: gql`
       type Query {
@@ -137,7 +137,7 @@ test.concurrent('external schema', async () => {
   expect((await query<{ ok: string }>('{ok}')).data?.ok).toBe('OK');
 });
 
-test.concurrent('presets', async () => {
+test('presets', async () => {
   const schema = makeExecutableSchema({
     typeDefs: gql`
       type Query {

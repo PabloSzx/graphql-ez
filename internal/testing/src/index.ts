@@ -1,7 +1,6 @@
 import { ezSchema, EZSchemaOptions } from '@graphql-ez/plugin-schema';
 import { LazyPromise, PLazy } from '@graphql-ez/utils/promise';
 import { jest } from '@jest/globals';
-import getPort from 'get-port';
 import type { AppOptions, BuildAppOptions } from 'graphql-ez';
 import defaultsDeep from 'lodash/defaultsDeep.js';
 import { resolve } from 'path';
@@ -15,6 +14,10 @@ import {
   SubscriptionsTransportClientOptions,
 } from './ws';
 
+const getPort = LazyPromise(() => {
+  return import('get-port').then(v => v.default);
+});
+
 globalThis.jest ||= jest as any;
 
 export type {} from '@graphql-typed-document-node/core';
@@ -26,6 +29,7 @@ export type {} from 'subscriptions-transport-ws-envelop';
 export type {} from 'undici/types/dispatcher';
 export { default as waitForExpect } from 'wait-for-expect';
 export * from './common';
+export * from './dirname';
 export * from './request';
 export * from './schema';
 export * from './testQueryStream';
@@ -82,7 +86,7 @@ export const startFastifyServer = async ({
 
   await server.ready();
 
-  const port = await getPort();
+  const port = await (await getPort)();
 
   await new Promise<unknown>((resolve, reject) => {
     server.listen(port).then(resolve, reject);
@@ -139,7 +143,7 @@ export const startExpressServer = async ({
 
   server.use(ezApp.router);
 
-  const port = await getPort();
+  const port = await (await getPort)();
 
   await new Promise<void>(resolve => {
     const httpServer = server.listen(port, () => {
@@ -194,7 +198,7 @@ export async function startHTTPServer({
 
   const ezApp = appBuilder.buildApp({ ...buildOptions, server });
 
-  const port = await getPort();
+  const port = await (await getPort)();
 
   await new Promise<void>(resolve => {
     server.listen(port, () => {
@@ -236,7 +240,7 @@ export const startHapiServer = async ({
   clientWebsocketPath,
   autoClose = true,
 }: StartTestServerOptions<import('@graphql-ez/hapi').HapiAppOptions, import('@graphql-ez/hapi').BuildAppOptions>) => {
-  const port = await getPort();
+  const port = await (await getPort)();
 
   const server = (await import('@hapi/hapi')).server({
     port,
@@ -321,7 +325,7 @@ export const startKoaServer = async ({
 
   server.use(router.routes()).use(router.allowedMethods());
 
-  const port = await getPort();
+  const port = await (await getPort)();
 
   await new Promise<void>(resolve => {
     const httpServer = server.listen(port, resolve);
@@ -404,7 +408,7 @@ export async function startNextJSServer(dir: string[], autoClose: boolean = true
 
   await app.ready();
 
-  const port = await getPort();
+  const port = await (await getPort)();
 
   await new Promise((resolve, reject) => {
     app.listen(port).then(resolve, reject);
@@ -416,5 +420,3 @@ export async function startNextJSServer(dir: string[], autoClose: boolean = true
 
   return { ...pool, app, NextJSDir };
 }
-
-export * from './dirname';

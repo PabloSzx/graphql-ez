@@ -1,7 +1,6 @@
 import { LazyPromise } from '@graphql-ez/utils/promise';
 
 const deps = LazyPromise(async () => {
-  console.log(111);
   const [
     mkdirp,
     { dirname },
@@ -10,7 +9,6 @@ const deps = LazyPromise(async () => {
       promises: { readFile, writeFile },
     },
   ] = await Promise.all([import('mkdirp').then(v => v.default), import('path'), import('fs')]);
-  console.log(222);
 
   return {
     mkdirp,

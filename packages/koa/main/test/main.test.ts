@@ -8,7 +8,7 @@ import {
   expectCommonServerSideEventSubscription,
 } from 'graphql-ez-testing';
 
-test.concurrent('basic', async () => {
+test('basic', async () => {
   const { query, addressWithoutProtocol, ezApp } = await startKoaServer({
     createOptions: {
       schema: CommonSchema.schema,
@@ -146,7 +146,7 @@ test.concurrent('basic', async () => {
   `);
 });
 
-test.concurrent('query with @stream', async () => {
+test('query with @stream', async () => {
   const { address } = await startKoaServer({
     createOptions: {
       schema: [CommonSchema.schema],
@@ -156,7 +156,7 @@ test.concurrent('query with @stream', async () => {
   await expectCommonQueryStream(address);
 });
 
-test.concurrent('SSE subscription', async () => {
+test('SSE subscription', async () => {
   const { address } = await startKoaServer({
     createOptions: {
       schema: [CommonSchema.schema, PingSubscription.schema],

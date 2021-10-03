@@ -1,11 +1,13 @@
 import { EZClient } from '@graphql-ez/client';
 import { LazyPromise } from '@graphql-ez/utils';
 import { command } from 'execa';
-import getPort from 'get-port';
 import { getDirname, getStringFromStream } from 'graphql-ez-testing';
+import { createRequire } from 'module';
 import { resolve } from 'path';
 import waitOn from 'wait-on';
-import { createRequire } from 'module';
+const getPort = LazyPromise(() => {
+  return import('get-port').then(v => v.default);
+});
 
 const __dirname = getDirname(import.meta.url);
 
@@ -22,8 +24,9 @@ beforeAll(async () => {
   });
 
   const preview = command(
-    `node ${require.resolve(resolve(__dirname, '../node_modules/@sveltejs/kit/svelte-kit.js'))} preview --port=${(port =
-      await getPort())}`,
+    `node ${require.resolve(resolve(__dirname, '../node_modules/@sveltejs/kit/svelte-kit.js'))} preview --port=${(port = await (
+      await getPort
+    )())}`,
     {
       cwd: resolve(__dirname, './test-example/'),
       stdio: 'ignore',
