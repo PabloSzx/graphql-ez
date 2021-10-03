@@ -64,7 +64,7 @@ const WSDeps = {
     const ws: any = await import('ws');
 
     return {
-      Server: ws.WebSocketServer,
+      Server: ws.WebSocketServer || ws.default.WebSocketServer,
     };
   }),
   subscriptionsTransportWs: LazyPromise(() =>
