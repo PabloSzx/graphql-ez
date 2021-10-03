@@ -14,7 +14,9 @@ import { cleanObject } from '@graphql-ez/utils/object';
 import type { TypedDocumentNode } from '@graphql-typed-document-node/core';
 import { ExecutionResult, GraphQLSchema, print, printSchema } from 'graphql';
 import type { IncomingHttpHeaders } from 'http';
-import { testApiHandler } from 'next-test-api-route-handler';
+import nextTestApiRouteHandler from 'next-test-api-route-handler';
+
+const { testApiHandler } = nextTestApiRouteHandler;
 
 const teardownLazyPromiseList: Promise<void>[] = [];
 

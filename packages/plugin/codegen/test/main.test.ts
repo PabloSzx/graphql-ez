@@ -1,10 +1,12 @@
-import { outputFile, readFile } from 'fs-extra';
+import fsExtra from 'fs-extra';
 import { resolve } from 'path';
 import tmp from 'tmp-promise';
 
 import { CommonSchema, createDeferredPromise, LazyPromise, startFastifyServer, TearDownPromises } from 'graphql-ez-testing';
 
 import { ezCodegen } from '../src';
+
+const { outputFile, readFile } = fsExtra;
 
 test('typescript resolvers', async () => {
   const tempDir = await tmp.dir({

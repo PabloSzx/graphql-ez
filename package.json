@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "private": true,
   "homepage": "https://www.graphql-ez.com",
+  "type": "module",
   "repository": {
     "type": "git",
     "url": "https://github.com/PabloSzx/graphql-ez"
@@ -14,7 +15,7 @@
     "changesets": "changeset",
     "ci:release": "pnpm pretty && pnpm -r publish --access public --no-git-checks",
     "ci:version": "pnpm pretty && changeset version && pnpm i --no-frozen-lockfile --lockfile-only --ignore-scripts && pnpm update -r \"@graphql-ez/*\" graphql-ez",
-    "clean": "rimraf \"**/{node_modules,dist,.next,coverage}\"",
+    "clean": "pnpm dlx rimraf \"**/{node_modules,dist,.next,coverage}\"",
     "dev:cjs": "pnpm -w dev:cjs:all",
     "dev:cjs:all": "bob-esbuild tsc && concurrently pnpm:dev:core pnpm:dev:cjs:express pnpm:dev:cjs:fastify pnpm:dev:cjs:http pnpm:dev:cjs:koa pnpm:dev:cjs:hapi pnpm:dev:next pnpm:dev:cjs:yoga:fastify pnpm:dev:cjs:yoga:express",
     "dev:cjs:express": "pnpm -r --filter @graphql-ez/express dev -- --onSuccess \"cross-env PORT=3001 pnpm -r --filter example-complete-express dev:cjs\"",
@@ -35,17 +36,18 @@
     "dev:mjs:yoga:fastify": "pnpm -r --filter graphql-yoga dev -- --onSuccess \"cross-env PORT=3007 pnpm -r --filter example-yoga-fastify dev:mjs\"",
     "dev:mjs:yoga:express": "pnpm -r --filter @graphql-yoga/express dev -- --onSuccess \"cross-env PORT=3008 pnpm -r --filter example-yoga-express dev:mjs\"",
     "dev:next": "pnpm -r --filter @graphql-ez/nextjs dev -- --onSuccess \"pnpm -r --filter example-complete-nextjs dev -- -p 3006\"",
-    "postinstall": "node patch.js",
+    "postinstall": "node patch.cjs",
     "prepare": "husky install && bob-esbuild tsc && pnpm -r prepack",
     "pretty": "prettier --write \"**/*.{ts,tsx,json,yaml,js,cjs,mjs,mdx,md}\"",
     "pretty:check": "prettier --check \"**/*.{ts,tsx,json,yaml,js,cjs,mjs,mdx}\"",
-    "test": "jest",
+    "test": "cross-env NODE_OPTIONS=--experimental-vm-modules pnpm jest",
     "test:separate": "pnpm -r --filter=\"!graphql-ez-monorepo\" test -- ",
     "typecheck": "bob-esbuild tsc"
   },
   "devDependencies": {
     "@changesets/assemble-release-plan": "^5.0.1",
     "@changesets/cli": "^2.17.0",
+    "@jest/globals": "^27.2.4",
     "@types/jest": "^27.0.2",
     "@types/node": "^16.10.2",
     "bob-esbuild": "^2.0.0",

@@ -3,10 +3,16 @@ import { build } from 'esbuild';
 import { command } from 'execa';
 import { unlinkSync } from 'fs';
 import getPort from 'get-port';
+import { getDirname } from 'graphql-ez-testing';
+import { createRequire } from 'module';
 import { resolve } from 'path';
 import waitOn from 'wait-on';
 
+const __dirname = getDirname(import.meta.url);
+
 const outfile = resolve(__dirname, './worker/bundle.js');
+
+const require = createRequire(import.meta.url);
 
 afterAll(() => {
   try {

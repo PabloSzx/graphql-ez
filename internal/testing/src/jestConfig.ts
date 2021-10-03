@@ -1,8 +1,10 @@
 import { pathsToModuleNameMapper } from 'ts-jest/utils';
 import { relative, resolve } from 'path';
-import { readJSONSync, writeFileSync } from 'fs-extra';
+import fsExtra from 'fs-extra';
 import { execSync } from 'child_process';
 import type { Config } from '@jest/types';
+
+const { readJSONSync, writeFileSync } = fsExtra;
 
 const rootPath = resolve(__dirname, '../../../');
 
@@ -36,12 +38,13 @@ export function getConfig({
   const config: Config.InitialOptions = {
     testMatch: [process.cwd().replace(/\\/g, '/') + '/test/**/*.test.ts'],
     testEnvironment: 'node',
-    transform: { '\\.[jt]sx?$': 'ts-jest' },
+    transform: { '\\.[jt]sx?$': resolve(__dirname, 'esTransform.js') },
     globals: {
       'ts-jest': {
         isolatedModules: true,
       },
     },
+    extensionsToTreatAsEsm: ['.ts'],
     modulePathIgnorePatterns: ['/dist/'],
     testPathIgnorePatterns: ['/node_modules/', '/dist/', '/.next'],
     coveragePathIgnorePatterns: ['node_modules', '/.next'],

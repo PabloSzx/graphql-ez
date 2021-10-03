@@ -1,29 +1,44 @@
-import { existsSync, promises } from 'fs';
-import { dirname } from 'path';
-
 import { LazyPromise } from '@graphql-ez/utils/promise';
 
-const mkdirp = LazyPromise(() => import('mkdirp').then(v => v.default));
+const deps = LazyPromise(async () => {
+  console.log(111);
+  const [
+    mkdirp,
+    { dirname },
+    {
+      existsSync,
+      promises: { readFile, writeFile },
+    },
+  ] = await Promise.all([import('mkdirp').then(v => v.default), import('path'), import('fs')]);
+  console.log(222);
+
+  return {
+    mkdirp,
+    dirname,
+    existsSync,
+    readFile,
+    writeFile,
+  };
+});
 
 /**
  * Write the target file only if the content changed
  */
 export async function writeFileIfChanged(targetPath: string, content: string): Promise<void> {
+  const { mkdirp, dirname, existsSync, readFile, writeFile } = await deps;
   const fileExists = existsSync(targetPath);
 
   if (fileExists) {
-    const existingContent = await promises.readFile(targetPath, {
+    const existingContent = await readFile(targetPath, {
       encoding: 'utf-8',
     });
 
     if (existingContent === content) return;
   }
 
-  await (
-    await mkdirp
-  )(dirname(targetPath));
+  await mkdirp(dirname(targetPath));
 
-  await promises.writeFile(targetPath, content, {
+  await writeFile(targetPath, content, {
     encoding: 'utf-8',
   });
 }

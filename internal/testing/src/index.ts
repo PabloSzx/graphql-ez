@@ -1,5 +1,6 @@
 import { ezSchema, EZSchemaOptions } from '@graphql-ez/plugin-schema';
 import { LazyPromise, PLazy } from '@graphql-ez/utils/promise';
+import { jest } from '@jest/globals';
 import getPort from 'get-port';
 import type { AppOptions, BuildAppOptions } from 'graphql-ez';
 import defaultsDeep from 'lodash/defaultsDeep.js';
@@ -14,6 +15,8 @@ import {
   SubscriptionsTransportClientOptions,
 } from './ws';
 
+globalThis.jest ||= jest as any;
+
 export type {} from '@graphql-typed-document-node/core';
 export type {} from 'express-serve-static-core';
 export type {} from 'graphql';
@@ -21,6 +24,7 @@ export * from 'graphql-ez';
 export type {} from 'graphql-ws';
 export type {} from 'subscriptions-transport-ws-envelop';
 export type {} from 'undici/types/dispatcher';
+export { default as waitForExpect } from 'wait-for-expect';
 export * from './common';
 export * from './request';
 export * from './schema';
@@ -413,4 +417,4 @@ export async function startNextJSServer(dir: string[], autoClose: boolean = true
   return { ...pool, app, NextJSDir };
 }
 
-export { default as waitForExpect } from 'wait-for-expect';
+export * from './dirname';

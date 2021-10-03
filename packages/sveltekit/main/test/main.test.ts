@@ -2,11 +2,16 @@ import { EZClient } from '@graphql-ez/client';
 import { LazyPromise } from '@graphql-ez/utils';
 import { command } from 'execa';
 import getPort from 'get-port';
-import { getStringFromStream } from 'graphql-ez-testing';
+import { getDirname, getStringFromStream } from 'graphql-ez-testing';
 import { resolve } from 'path';
 import waitOn from 'wait-on';
+import { createRequire } from 'module';
+
+const __dirname = getDirname(import.meta.url);
 
 let port: number;
+
+const require = createRequire(import.meta.url);
 
 const TearDownPromises: Promise<unknown>[] = [];
 
