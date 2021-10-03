@@ -906,7 +906,7 @@ importers:
       open-cli: ^7.0.1
       react: ^17.0.2
       react-dom: ^17.0.2
-      react-icons: ^4.2.0
+      react-icons: ^4.3.1
       react-use: ^17.3.1
       remark-admonitions: ^1.2.1
       sharp: ~0.29.1
@@ -932,7 +932,7 @@ importers:
       next-seo: 4.28.1_6fbf59523517da779df50d355b375324
       react: 17.0.2
       react-dom: 17.0.2_react@17.0.2
-      react-icons: 4.2.0_react@17.0.2
+      react-icons: 4.3.1_react@17.0.2
       react-use: 17.3.1_react-dom@17.0.2+react@17.0.2
       remark-admonitions: 1.2.1
       sharp: 0.29.1
@@ -13618,6 +13618,14 @@ packages:
 
   /react-icons/4.2.0_react@17.0.2:
     resolution: {integrity: sha512-rmzEDFt+AVXRzD7zDE21gcxyBizD/3NqjbX6cmViAgdqfJ2UiLer8927/QhhrXQV7dEj/1EGuOTPp7JnLYVJKQ==}
+    peerDependencies:
+      react: '*'
+    dependencies:
+      react: 17.0.2
+    dev: false
+
+  /react-icons/4.3.1_react@17.0.2:
+    resolution: {integrity: sha512-cB10MXLTs3gVuXimblAdI71jrJx8njrJZmNMEMC+sQu5B/BIOmlsAjskdqpn81y8UBVEGuHODd7/ci5DvoSzTQ==}
     peerDependencies:
       react: '*'
     dependencies:
