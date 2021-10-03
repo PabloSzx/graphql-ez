@@ -1,7 +1,7 @@
 import { CreateTestClient, GlobalTeardown } from '@graphql-ez/nextjs-testing';
 import { ezSchema } from '@graphql-ez/plugin-schema';
 import { CommonSchema } from 'graphql-ez-testing';
-import nextTestApiRouteHandler from 'next-test-api-route-handler';
+import * as nextTestApiRouteHandler from 'next-test-api-route-handler';
 import { BuildContextArgs, CreateApp, EZContext, gql } from '../src';
 
 const { testApiHandler } = nextTestApiRouteHandler;
