@@ -1,14 +1,14 @@
+import { EZClient, EZClientOptions } from '@graphql-ez/client';
+import type { BuildAppOptions, ExpressAppOptions, EZApp, EZAppBuilder } from '@graphql-ez/express';
+import { CreateApp, EZContext, GetEnvelopedFn, LazyPromise, PromiseOrValue } from '@graphql-ez/express';
 import assert from 'assert';
 import Express, { Application } from 'express';
-import getPort from 'get-port';
 import { printSchema } from 'graphql';
-
-import { EZClient, EZClientOptions } from '@graphql-ez/client';
-import { CreateApp, EZContext, GetEnvelopedFn, LazyPromise, PromiseOrValue } from '@graphql-ez/express';
-
 import type { Server } from 'http';
 
-import type { BuildAppOptions, EZApp, EZAppBuilder, ExpressAppOptions } from '@graphql-ez/express';
+const getPort = LazyPromise(() => {
+  return import('get-port').then(v => v.default);
+});
 
 const teardownLazyPromiseList: Promise<void>[] = [];
 
@@ -85,7 +85,7 @@ export async function CreateTestClient(
 
   await options.preListen?.(app);
 
-  const port = await getPort();
+  const port = await (await getPort)();
 
   const server = app.listen(port);
 

@@ -11,6 +11,7 @@ export const config: import('bob-esbuild').BobConfig = {
   outputOptions: {
     sourcemap: false,
   },
+  keepDynamicImport: ['get-port'],
   esbuildPluginOptions: isHelixGraphiql
     ? {
         define: (() => {

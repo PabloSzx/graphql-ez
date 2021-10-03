@@ -1,12 +1,14 @@
 import assert from 'assert';
 import Fastify, { FastifyInstance, FastifyServerOptions } from 'fastify';
-import getPort from 'get-port';
 import { printSchema } from 'graphql';
 
 import { EZClient, EZClientOptions } from '@graphql-ez/client';
 import { CreateApp, EZContext, GetEnvelopedFn, LazyPromise, PromiseOrValue } from '@graphql-ez/fastify';
 
 import type { BuildAppOptions, EZApp, EZAppBuilder, FastifyAppOptions } from '@graphql-ez/fastify';
+const getPort = LazyPromise(() => {
+  return import('get-port').then(v => v.default);
+});
 
 const teardownLazyPromiseList: Promise<void>[] = [];
 
@@ -79,7 +81,7 @@ export async function CreateTestClient(
 
   await options.preListen?.(server);
 
-  const port = await getPort();
+  const port = await (await getPort)();
 
   await server.listen(port);
 

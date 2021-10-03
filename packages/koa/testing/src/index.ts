@@ -3,10 +3,12 @@ import type { BuildAppOptions, EZAppBuilder } from '@graphql-ez/koa';
 import { CreateApp, EZContext, GetEnvelopedFn, KoaAppOptions, LazyPromise, PromiseOrValue } from '@graphql-ez/koa';
 import KoaRouter from '@koa/router';
 import assert from 'assert';
-import getPort from 'get-port';
 import { printSchema } from 'graphql';
 import type { Server as httpServer } from 'http';
 import Koa from 'koa';
+const getPort = LazyPromise(() => {
+  return import('get-port').then(v => v.default);
+});
 
 const teardownLazyPromiseList: Promise<void>[] = [];
 
@@ -76,7 +78,7 @@ export async function CreateTestClient(
   }
   app.use(router.routes()).use(router.allowedMethods());
 
-  const port = await getPort();
+  const port = await (await getPort)();
 
   const server = await new Promise<httpServer>(resolve => {
     const server = app.listen(port, () => {

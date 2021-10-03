@@ -825,7 +825,7 @@ importers:
       fastify-nextjs: ^6.0.0
       form-data: ^4.0.0
       fs-extra: ^10.0.0
-      get-port: ^5.1.1
+      get-port: ^6.0.0
       graphql: 15.4.0-experimental-stream-defer.1
       graphql-ez: workspace:*
       graphql-modules: ^1.4.4
@@ -855,7 +855,7 @@ importers:
       '@types/koa__router': 8.0.8
       '@types/node': 16.10.2
       '@types/ws': 8.2.0
-      bob-esbuild-cli: 2.0.0_bob-esbuild@2.0.0
+      bob-esbuild-cli: 2.0.0
       eventsource: 1.1.0
       express: 4.17.1
       fast-safe-stringify: 2.1.1
@@ -863,7 +863,7 @@ importers:
       fastify-nextjs: 6.0.0
       form-data: 4.0.0
       fs-extra: 10.0.0
-      get-port: 5.1.1
+      get-port: 6.0.0
       graphql: 15.4.0-experimental-stream-defer.1
       graphql-ez: link:../../packages/core/main
       graphql-modules: 1.4.4_34dd13c2583fe2e4418c23a0d30fc388
@@ -871,7 +871,7 @@ importers:
       koa: 2.13.3
       lodash: 4.17.21
       subscriptions-transport-ws-envelop: 2.0.1_e1440b74bc35b99eeba899689a79d0dd
-      ts-jest: 27.0.5_52a571d76319e63aeaa66dc9db9e90cc
+      ts-jest: 27.0.5_@types+jest@27.0.2
       undici: 4.7.0
       wait-for-expect: 3.0.2
       ws: 8.2.3
@@ -1011,7 +1011,7 @@ importers:
       changesets-github-release: ^0.0.4
       esbuild: '>=0.13.3'
       execa: ^5.1.1
-      get-port: ^5.1.1
+      get-port: ^6.0.0
       graphql: 15.4.0-experimental-stream-defer.1
       graphql-ez: workspace:^0.13.1
       jest: ^27.2.4
@@ -1024,11 +1024,11 @@ importers:
     devDependencies:
       '@types/node': 16.10.2
       '@types/wait-on': 5.3.1
-      bob-esbuild-cli: 2.0.0_bob-esbuild@2.0.0
+      bob-esbuild-cli: 2.0.0
       changesets-github-release: 0.0.4
       esbuild: 0.13.3
       execa: 5.1.1
-      get-port: 5.1.1
+      get-port: 6.0.0
       graphql: 15.4.0-experimental-stream-defer.1
       graphql-ez: link:../../core/main
       jest: 27.2.4
@@ -1114,18 +1114,18 @@ importers:
       bob-esbuild-cli: ^2.0.0
       changesets-github-release: ^0.0.4
       express: ^4.17.1
-      get-port: ^5.1.1
+      get-port: ^6.0.0
       graphql: 15.4.0-experimental-stream-defer.1
       graphql-ez: workspace:^0.13.1
       jest: ^27.2.4
     dependencies:
       '@graphql-ez/client': link:../../client/main
       '@graphql-ez/utils': link:../../core/utils
-      get-port: 5.1.1
+      get-port: 6.0.0
     devDependencies:
       '@graphql-ez/express': link:../main
       '@types/express': 4.17.13
-      bob-esbuild-cli: 2.0.0_bob-esbuild@2.0.0
+      bob-esbuild-cli: 2.0.0
       changesets-github-release: 0.0.4
       express: 4.17.1
       graphql: 15.4.0-experimental-stream-defer.1
@@ -1167,17 +1167,17 @@ importers:
       bob-esbuild-cli: ^2.0.0
       changesets-github-release: ^0.0.4
       fastify: ^3.22.0
-      get-port: ^5.1.1
+      get-port: ^6.0.0
       graphql: 15.4.0-experimental-stream-defer.1
       graphql-ez: workspace:^0.13.1
       jest: ^27.2.4
     dependencies:
       '@graphql-ez/client': link:../../client/main
       '@graphql-ez/utils': link:../../core/utils
-      get-port: 5.1.1
+      get-port: 6.0.0
     devDependencies:
       '@graphql-ez/fastify': link:../main
-      bob-esbuild-cli: 2.0.0_bob-esbuild@2.0.0
+      bob-esbuild-cli: 2.0.0
       changesets-github-release: 0.0.4
       fastify: 3.22.0
       graphql: 15.4.0-experimental-stream-defer.1
@@ -1215,19 +1215,19 @@ importers:
       '@types/hapi__hapi': ^20.0.9
       bob-esbuild-cli: ^2.0.0
       changesets-github-release: ^0.0.4
-      get-port: ^5.1.1
+      get-port: ^6.0.0
       graphql: 15.4.0-experimental-stream-defer.1
       graphql-ez: workspace:^0.13.1
       jest: ^27.2.4
     dependencies:
       '@graphql-ez/client': link:../../client/main
       '@graphql-ez/utils': link:../../core/utils
-      get-port: 5.1.1
+      get-port: 6.0.0
     devDependencies:
       '@graphql-ez/hapi': link:../main
       '@hapi/hapi': 20.2.0
       '@types/hapi__hapi': 20.0.9
-      bob-esbuild-cli: 2.0.0_bob-esbuild@2.0.0
+      bob-esbuild-cli: 2.0.0
       changesets-github-release: 0.0.4
       graphql: 15.4.0-experimental-stream-defer.1
       graphql-ez: link:../../core/main
@@ -1343,18 +1343,18 @@ importers:
       '@types/node': '>=16.10.1'
       bob-esbuild-cli: ^2.0.0
       changesets-github-release: ^0.0.4
-      get-port: ^5.1.1
+      get-port: ^6.0.0
       graphql: 15.4.0-experimental-stream-defer.1
       graphql-ez: workspace:^0.13.1
       jest: ^27.2.4
     dependencies:
       '@graphql-ez/client': link:../../client/main
       '@graphql-ez/utils': link:../../core/utils
-      get-port: 5.1.1
+      get-port: 6.0.0
     devDependencies:
       '@graphql-ez/http': link:../main
       '@types/node': 16.10.2
-      bob-esbuild-cli: 2.0.0_bob-esbuild@2.0.0
+      bob-esbuild-cli: 2.0.0
       changesets-github-release: 0.0.4
       graphql: 15.4.0-experimental-stream-defer.1
       graphql-ez: link:../../core/main
@@ -1406,7 +1406,7 @@ importers:
       '@types/node': '>=16.10.1'
       bob-esbuild-cli: ^2.0.0
       changesets-github-release: ^0.0.4
-      get-port: ^5.1.1
+      get-port: ^6.0.0
       graphql: 15.4.0-experimental-stream-defer.1
       graphql-ez: workspace:^0.13.1
       jest: ^27.2.4
@@ -1414,12 +1414,12 @@ importers:
     dependencies:
       '@graphql-ez/client': link:../../client/main
       '@graphql-ez/utils': link:../../core/utils
-      get-port: 5.1.1
+      get-port: 6.0.0
     devDependencies:
       '@graphql-ez/koa': link:../main
       '@koa/router': 10.1.1
       '@types/node': 16.10.2
-      bob-esbuild-cli: 2.0.0_bob-esbuild@2.0.0
+      bob-esbuild-cli: 2.0.0
       changesets-github-release: 0.0.4
       graphql: 15.4.0-experimental-stream-defer.1
       graphql-ez: link:../../core/main
@@ -1816,7 +1816,7 @@ importers:
       bob-esbuild-cli: ^2.0.0
       changesets-github-release: ^0.0.4
       execa: ^5.1.1
-      get-port: ^5.1.1
+      get-port: ^6.0.0
       graphql: 15.4.0-experimental-stream-defer.1
       graphql-ez: workspace:^0.13.1
       jest: ^27.2.4
@@ -1839,16 +1839,16 @@ importers:
       '@sveltejs/kit': 1.0.0-next.179_svelte@3.43.1
       '@types/node': 16.10.2
       altair-static-slim: 4.0.11
-      bob-esbuild-cli: 2.0.0_bob-esbuild@2.0.0
+      bob-esbuild-cli: 2.0.0
       changesets-github-release: 0.0.4
       execa: 5.1.1
-      get-port: 5.1.1
+      get-port: 6.0.0
       graphql: 15.4.0-experimental-stream-defer.1
       graphql-ez: link:../../core/main
       jest: 27.2.4
       svelte: 3.43.1
       svelte-check: 2.2.6_svelte@3.43.1
-      svelte-preprocess: 4.9.8_svelte@3.43.1+typescript@4.4.3
+      svelte-preprocess: 4.9.8_svelte@3.43.1
       tiny-lru: 7.0.6
       tslib: 2.3.1
       wait-on: 6.0.0
@@ -6718,6 +6718,16 @@ packages:
   /bn.js/5.2.0:
     resolution: {integrity: sha512-D7iWRBvnZE8ecXiLj/9wbxH7Tk79fAh8IHaTNq1RWRixsS02W+5qS+iE9yq6RYl0asXx5tw0bLhmT5pIfbSquw==}
 
+  /bob-esbuild-cli/2.0.0:
+    resolution: {integrity: sha512-PHnKbBizn11/zFNZF7R69WWB6VlqTsrZGwtFwvNiXTzPUT47ygxCm/AF4ynBn9KSFnuS1ueLA5OPzm1IN4FRNg==}
+    engines: {node: '>=12.0.0'}
+    hasBin: true
+    peerDependencies:
+      bob-esbuild: ^2.0.0
+    dependencies:
+      commander: 8.2.0
+    dev: true
+
   /bob-esbuild-cli/2.0.0_bob-esbuild@2.0.0:
     resolution: {integrity: sha512-PHnKbBizn11/zFNZF7R69WWB6VlqTsrZGwtFwvNiXTzPUT47ygxCm/AF4ynBn9KSFnuS1ueLA5OPzm1IN4FRNg==}
     engines: {node: '>=12.0.0'}
@@ -9377,9 +9387,9 @@ packages:
     engines: {node: '>=8.0.0'}
     dev: true
 
-  /get-port/5.1.1:
-    resolution: {integrity: sha512-g/Q1aTSDOxFpchXC4i8ZWvxA1lnPqx/JHqcpIw0/LX9T8x/GBbi6YnlN5nhaKIFkT8oFsscUKgDJYxfwfS6QsQ==}
-    engines: {node: '>=8'}
+  /get-port/6.0.0:
+    resolution: {integrity: sha512-qSVkVF6Eq1GdL/cBNiFuP4nUHMF7OEMTqEjC6alR2N90u8BFOoO0PFhNTX2QtAUoGrz8NnrSWj85TZ8YXZ6LOA==}
+    engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
 
   /get-stdin/9.0.0:
     resolution: {integrity: sha512-dVKBjfWisLAicarI2Sf+JuBE/DghV4UzNAVe9yhEJuzeREd3JhOTE9cUaJTeSa77fsbQUK3pcOpJfM59+VKZaA==}
@@ -15193,6 +15203,56 @@ packages:
       svelte: 3.43.1
     dev: true
 
+  /svelte-preprocess/4.9.8_svelte@3.43.1:
+    resolution: {integrity: sha512-EQS/oRZzMtYdAprppZxY3HcysKh11w54MgA63ybtL+TAZ4hVqYOnhw41JVJjWN9dhPnNjjLzvbZ2tMhTsla1Og==}
+    engines: {node: '>= 9.11.2'}
+    requiresBuild: true
+    peerDependencies:
+      '@babel/core': ^7.10.2
+      coffeescript: ^2.5.1
+      less: ^3.11.3
+      node-sass: '*'
+      postcss: ^7 || ^8
+      postcss-load-config: ^2.1.0 || ^3.0.0
+      pug: ^3.0.0
+      sass: ^1.26.8
+      stylus: ^0.54.7
+      sugarss: ^2.0.0
+      svelte: ^3.23.0
+      typescript: ^3.9.5 || ^4.0.0
+    peerDependenciesMeta:
+      '@babel/core':
+        optional: true
+      coffeescript:
+        optional: true
+      less:
+        optional: true
+      node-sass:
+        optional: true
+      postcss:
+        optional: true
+      postcss-load-config:
+        optional: true
+      pug:
+        optional: true
+      sass:
+        optional: true
+      stylus:
+        optional: true
+      sugarss:
+        optional: true
+      typescript:
+        optional: true
+    dependencies:
+      '@types/pug': 2.0.5
+      '@types/sass': 1.16.1
+      detect-indent: 6.1.0
+      magic-string: 0.25.7
+      sorcery: 0.10.0
+      strip-indent: 3.0.0
+      svelte: 3.43.1
+    dev: true
+
   /svelte-preprocess/4.9.8_svelte@3.43.1+typescript@4.4.3:
     resolution: {integrity: sha512-EQS/oRZzMtYdAprppZxY3HcysKh11w54MgA63ybtL+TAZ4hVqYOnhw41JVJjWN9dhPnNjjLzvbZ2tMhTsla1Og==}
     engines: {node: '>= 9.11.2'}
@@ -15724,6 +15784,35 @@ packages:
       make-error: 1.3.6
       semver: 7.3.5
       typescript: 4.4.3
+      yargs-parser: 20.2.9
+    dev: true
+
+  /ts-jest/27.0.5_@types+jest@27.0.2:
+    resolution: {integrity: sha512-lIJApzfTaSSbtlksfFNHkWOzLJuuSm4faFAfo5kvzOiRAuoN4/eKxVJ2zEAho8aecE04qX6K1pAzfH5QHL1/8w==}
+    engines: {node: ^10.13.0 || ^12.13.0 || ^14.15.0 || >=15.0.0}
+    hasBin: true
+    peerDependencies:
+      '@babel/core': '>=7.0.0-beta.0 <8'
+      '@types/jest': ^27.0.0
+      babel-jest: '>=27.0.0 <28'
+      jest: ^27.0.0
+      typescript: '>=3.8 <5.0'
+    peerDependenciesMeta:
+      '@babel/core':
+        optional: true
+      '@types/jest':
+        optional: true
+      babel-jest:
+        optional: true
+    dependencies:
+      '@types/jest': 27.0.2
+      bs-logger: 0.2.6
+      fast-json-stable-stringify: 2.1.0
+      jest-util: 27.2.4
+      json5: 2.2.0
+      lodash: 4.17.21
+      make-error: 1.3.6
+      semver: 7.3.5
       yargs-parser: 20.2.9
     dev: true
 

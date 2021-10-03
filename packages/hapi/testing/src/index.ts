@@ -1,12 +1,12 @@
-import assert from 'assert';
-import Hapi from '@hapi/hapi';
-import getPort from 'get-port';
-import { printSchema } from 'graphql';
-
 import { EZClient, EZClientOptions } from '@graphql-ez/client';
-import { CreateApp, EZContext, GetEnvelopedFn, LazyPromise, PromiseOrValue } from '@graphql-ez/hapi';
-
 import type { BuildAppOptions, EZApp, EZAppBuilder, HapiAppOptions } from '@graphql-ez/hapi';
+import { CreateApp, EZContext, GetEnvelopedFn, LazyPromise, PromiseOrValue } from '@graphql-ez/hapi';
+import Hapi from '@hapi/hapi';
+import assert from 'assert';
+import { printSchema } from 'graphql';
+const getPort = LazyPromise(() => {
+  return import('get-port').then(v => v.default);
+});
 
 const teardownLazyPromiseList: Promise<void>[] = [];
 
@@ -31,7 +31,7 @@ export async function CreateTestClient(
     schemaString: string;
   }
 > {
-  const port = await getPort();
+  const port = await (await getPort)();
 
   const server = new Hapi.Server({ ...options.serverOptions, port });
 
