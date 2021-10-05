@@ -279,7 +279,7 @@ importers:
       '@graphql-tools/schema': ^8.2.0
       '@types/autocannon': ^4.1.1
       '@types/cli-table': ^0.3.0
-      '@types/concurrently': ^6.2.1
+      '@types/concurrently': ^6.3.0
       '@types/faker': ^5.5.8
       '@types/md5': ^2.3.1
       '@types/mkdirp': ^1.0.2
@@ -325,7 +325,7 @@ importers:
     devDependencies:
       '@types/autocannon': 4.1.1
       '@types/cli-table': 0.3.0
-      '@types/concurrently': 6.2.1
+      '@types/concurrently': 6.3.0
       '@types/faker': 5.5.8
       '@types/md5': 2.3.1
       '@types/mkdirp': 1.0.2
@@ -888,7 +888,7 @@ importers:
       '@mdx-js/react': ^1.6.22
       '@next/bundle-analyzer': ^11.1.2
       '@theguild/components': ^1.5.0
-      '@types/concurrently': ^6.2.1
+      '@types/concurrently': ^6.3.0
       '@types/mdx-js__react': ^1.5.4
       '@types/node': '>=16.10.1'
       '@types/react': ^17.0.27
@@ -939,7 +939,7 @@ importers:
       shiki: 0.9.11
     devDependencies:
       '@next/bundle-analyzer': 11.1.2
-      '@types/concurrently': 6.2.1
+      '@types/concurrently': 6.3.0
       '@types/mdx-js__react': 1.5.4
       '@types/node': 16.10.2
       '@types/react': 17.0.27
@@ -5473,10 +5473,11 @@ packages:
     resolution: {integrity: sha512-QnZUISJJXyhyD6L1e5QwXDV/A5i2W1/gl6D6YMc8u0ncPepbv/B4w3S+izVvtAg60m6h+JP09+Y/0zF2mojlFQ==}
     dev: true
 
-  /@types/concurrently/6.2.1:
-    resolution: {integrity: sha512-l+AH7GuHYSgIYoXAufh7P9/oYzRobM+m863XobAARzFiafcGdCjMQQ1grLbVc69+AJTBbO3S8mtt2UPsipk6WA==}
+  /@types/concurrently/6.3.0:
+    resolution: {integrity: sha512-R0M9Dt330vtNgNlBYQYniDfI3I3Sk6cu27M1EKS5VFoio2rZqTMuOBGe9DX+ISM0B6y+RGrgtpWCv2k2VBLtbQ==}
     dependencies:
       '@types/node': 16.10.2
+      chalk: 4.1.2
     dev: true
 
   /@types/connect/3.4.35:
