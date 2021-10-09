@@ -157,7 +157,7 @@ importers:
     specifiers:
       '@envelop/graphql-jit': ^1.1.1
       '@graphql-ez/hapi': workspace:^0.8.8
-      '@hapi/hapi': ^20.2.0
+      '@hapi/hapi': ^20.2.1
       '@types/hapi__hapi': ^20.0.9
       benchmark-bench: workspace:1.0.0
       bob-ts: ^1.1.2
@@ -169,7 +169,7 @@ importers:
     dependencies:
       '@envelop/graphql-jit': 1.1.1_34dd13c2583fe2e4418c23a0d30fc388
       '@graphql-ez/hapi': link:../../../packages/hapi/main
-      '@hapi/hapi': 20.2.0
+      '@hapi/hapi': 20.2.1
       '@types/hapi__hapi': 20.0.9
       benchmark-bench: link:../../bench
       cross-env: 7.0.3
@@ -554,7 +554,7 @@ importers:
       '@graphql-ez/plugin-upload': workspace:^0.6.0
       '@graphql-ez/plugin-websockets': workspace:^0.10.0
       '@graphql-typed-document-node/core': ^3.1.0
-      '@hapi/hapi': ^20.2.0
+      '@hapi/hapi': ^20.2.1
       '@types/hapi__hapi': ^20.0.9
       '@types/node': '>=16.10.1'
       bob-ts: ^1.1.2
@@ -572,7 +572,7 @@ importers:
       '@graphql-ez/plugin-upload': link:../../../packages/plugin/upload
       '@graphql-ez/plugin-websockets': link:../../../packages/plugin/websockets
       '@graphql-typed-document-node/core': 3.1.0_34dd13c2583fe2e4418c23a0d30fc388
-      '@hapi/hapi': 20.2.0
+      '@hapi/hapi': 20.2.1
       graphql: 15.4.0-experimental-stream-defer.1
       graphql-ez: link:../../../packages/core/main
     devDependencies:
@@ -802,7 +802,7 @@ importers:
       '@graphql-tools/schema': ^8.2.0
       '@graphql-tools/utils': ^8.2.5
       '@graphql-typed-document-node/core': ^3.1.0
-      '@hapi/hapi': ^20.2.0
+      '@hapi/hapi': ^20.2.1
       '@jest/types': ^27.2.5
       '@koa/router': ^10.1.1
       '@types/eventsource': ^1.1.6
@@ -840,7 +840,7 @@ importers:
       '@graphql-tools/schema': 8.2.0_34dd13c2583fe2e4418c23a0d30fc388
       '@graphql-tools/utils': 8.2.5_34dd13c2583fe2e4418c23a0d30fc388
       '@graphql-typed-document-node/core': 3.1.0_34dd13c2583fe2e4418c23a0d30fc388
-      '@hapi/hapi': 20.2.0
+      '@hapi/hapi': 20.2.1
       '@jest/types': 27.2.5
       '@koa/router': 10.1.1
       '@types/eventsource': 1.1.6
@@ -1209,7 +1209,7 @@ importers:
       '@graphql-ez/client': workspace:^0.2.3
       '@graphql-ez/hapi': workspace:^0.8.8
       '@graphql-ez/utils': workspace:^0.1.2
-      '@hapi/hapi': ^20.2.0
+      '@hapi/hapi': ^20.2.1
       '@types/hapi__hapi': ^20.0.9
       bob-esbuild-cli: ^2.0.0
       changesets-github-release: ^0.0.4
@@ -1223,7 +1223,7 @@ importers:
       get-port: 5.1.1
     devDependencies:
       '@graphql-ez/hapi': link:../main
-      '@hapi/hapi': 20.2.0
+      '@hapi/hapi': 20.2.1
       '@types/hapi__hapi': 20.0.9
       bob-esbuild-cli: 2.0.0_bob-esbuild@2.0.0
       changesets-github-release: 0.0.4
@@ -4503,8 +4503,8 @@ packages:
   /@hapi/file/2.0.0:
     resolution: {integrity: sha512-WSrlgpvEqgPWkI18kkGELEZfXr0bYLtr16iIN4Krh9sRnzBZN6nnWxHFxtsnP684wueEySBbXPDg/WfA9xJdBQ==}
 
-  /@hapi/hapi/20.2.0:
-    resolution: {integrity: sha512-yPH/z8KvlSLV8lI4EuId9z595fKKk5n6YA7H9UddWYWsBXMcnCyoFmHtYq0PCV4sNgKLD6QW9e27R9V9Z9aqqw==}
+  /@hapi/hapi/20.2.1:
+    resolution: {integrity: sha512-OXAU+yWLwkMfPFic+KITo+XPp6Oxpgc9WUH+pxXWcTIuvWbgco5TC/jS8UDvz+NFF5IzRgF2CL6UV/KLdQYUSQ==}
     engines: {node: '>=12.0.0'}
     dependencies:
       '@hapi/accept': 5.0.2
