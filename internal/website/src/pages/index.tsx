@@ -256,7 +256,7 @@ export default function Index() {
                 title: (
                   <IntegrationItemTitle
                     name="SvelteKit"
-                    integrationWebsite="hhttps://kit.svelte.dev/"
+                    integrationWebsite="https://kit.svelte.dev/"
                     logo={<SvelteKitLogo height="80px" />}
                   />
                 ),
