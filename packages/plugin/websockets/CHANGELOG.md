@@ -1,5 +1,11 @@
 # @graphql-ez/plugin-websockets
 
+## 0.10.1
+
+### Patch Changes
+
+- 697dba67: Fix CJS/ESM Interop
+
 ## 0.10.0
 
 ### Minor Changes
