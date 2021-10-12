@@ -1,5 +1,11 @@
 # @graphql-ez/plugin-upload
 
+## 0.6.1
+
+### Patch Changes
+
+- 697dba67: Fix CJS/ESM Interop
+
 ## 0.6.0
 
 ### Minor Changes
