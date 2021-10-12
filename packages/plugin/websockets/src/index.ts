@@ -60,11 +60,10 @@ declare module 'graphql-ez' {
 
 const WSDeps = {
   ws: LazyPromise<Pick<typeof WebSocketNode, 'Server'>>(async () => {
-    // This is due to @types/ws being outdated compared to ws^8
-    const ws: any = await import('ws');
+    const ws = await import('ws');
 
     return {
-      Server: ws.WebSocketServer,
+      Server: ws.WebSocketServer || ws.default.WebSocketServer,
     };
   }),
   subscriptionsTransportWs: LazyPromise(() =>

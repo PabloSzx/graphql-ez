@@ -27,4 +27,7 @@ export const config: import('bob-esbuild').BobConfig = {
         })(),
       }
     : undefined,
+  keepDynamicImport: moduleName => {
+    return /^(ws|graphql-upload)/.test(moduleName);
+  },
 };
