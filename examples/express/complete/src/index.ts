@@ -7,7 +7,7 @@ const app = express();
 buildApp({
   app,
   async prepare() {
-    await import('./modules');
+    await import('./modules/index');
   },
 }).then(EZApp => {
   app.use(EZApp.router);

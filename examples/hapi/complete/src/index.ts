@@ -11,7 +11,7 @@ async function init() {
 
   const EZApp = await buildApp({
     async prepare() {
-      await import('./modules');
+      await import('./modules/index');
     },
   });
 

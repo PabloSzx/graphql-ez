@@ -5,9 +5,9 @@
   "license": "MIT",
   "author": "PabloSzx <pablosaez1995@gmail.com>",
   "scripts": {
-    "dev:cjs": "bob-ts-watch -f cjs -c \"node dist/index.js\"",
-    "dev:mjs": "bob-ts-watch -c \"node dist/index.mjs\"",
-    "start": "bob-ts && node dist/index.mjs"
+    "dev:cjs": "bob-tsm --cjs --watch=src src/index.ts",
+    "dev:mjs": "bob-tsm --watch=src src/index.ts",
+    "start": "bob-tsm src/index.ts"
   },
   "dependencies": {
     "@graphql-yoga/express": "workspace:^1.0.1",
@@ -15,6 +15,6 @@
     "graphql-ez": "workspace:^0.13.1"
   },
   "devDependencies": {
-    "bob-ts": "^1.1.3"
+    "bob-tsm": "^0.2.1"
   }
 }

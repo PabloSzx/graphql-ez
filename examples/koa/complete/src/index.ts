@@ -9,7 +9,7 @@ const router = new KoaRouter();
 
 buildApp({
   async prepare() {
-    await import('./modules');
+    await import('./modules/index');
   },
   router,
   app,

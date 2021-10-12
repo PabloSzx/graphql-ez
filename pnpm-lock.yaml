@@ -64,7 +64,7 @@ importers:
       '@envelop/validation-cache': '*'
       '@types/node': '>=16.10.3'
       benchmark-bench: workspace:1.0.0
-      bob-ts: ^1.1.3
+      bob-tsm: ^0.2.1
       fastify: ^3.22.0
       graphql: 15.4.0-experimental-stream-defer.1
       require-env-variable: ^3.1.2
@@ -82,12 +82,12 @@ importers:
       require-env-variable: 3.1.2
       typescript: 4.4.3
     devDependencies:
-      bob-ts: 1.1.3_96ea800be824d2bbdd96260fc9c061a6
+      bob-tsm: 0.2.1_esbuild@0.13.4
 
   benchmarks/apis/express-graphql:
     specifiers:
       benchmark-bench: workspace:1.0.0
-      bob-ts: ^1.1.3
+      bob-tsm: ^0.2.1
       express: ^4.17.1
       express-graphql: ^0.12.0
       graphql: 15.4.0-experimental-stream-defer.1
@@ -101,7 +101,7 @@ importers:
       require-env-variable: 3.1.2
       typescript: 4.4.3
     devDependencies:
-      bob-ts: 1.1.3_96ea800be824d2bbdd96260fc9c061a6
+      bob-tsm: 0.2.1_esbuild@0.13.4
 
   benchmarks/apis/ez-express:
     specifiers:
@@ -109,7 +109,7 @@ importers:
       '@graphql-ez/express': workspace:^0.9.5
       '@types/express': ^4.17.13
       benchmark-bench: workspace:1.0.0
-      bob-ts: ^1.1.3
+      bob-tsm: ^0.2.1
       cross-env: ^7.0.3
       express: ^4.17.1
       graphql: 15.4.0-experimental-stream-defer.1
@@ -128,14 +128,14 @@ importers:
       require-env-variable: 3.1.2
       typescript: 4.4.3
     devDependencies:
-      bob-ts: 1.1.3_96ea800be824d2bbdd96260fc9c061a6
+      bob-tsm: 0.2.1_esbuild@0.13.4
 
   benchmarks/apis/ez-fastify:
     specifiers:
       '@envelop/graphql-jit': ^1.1.1
       '@graphql-ez/fastify': workspace:^0.9.4
       benchmark-bench: workspace:1.0.0
-      bob-ts: ^1.1.3
+      bob-tsm: ^0.2.1
       cross-env: ^7.0.3
       fastify: ^3.22.0
       graphql: 15.4.0-experimental-stream-defer.1
@@ -153,7 +153,7 @@ importers:
       require-env-variable: 3.1.2
       typescript: 4.4.3
     devDependencies:
-      bob-ts: 1.1.3_96ea800be824d2bbdd96260fc9c061a6
+      bob-tsm: 0.2.1_esbuild@0.13.4
 
   benchmarks/apis/ez-hapi:
     specifiers:
@@ -162,7 +162,7 @@ importers:
       '@hapi/hapi': ^20.2.1
       '@types/hapi__hapi': ^20.0.9
       benchmark-bench: workspace:1.0.0
-      bob-ts: ^1.1.3
+      bob-tsm: ^0.2.1
       cross-env: ^7.0.3
       graphql: 15.4.0-experimental-stream-defer.1
       graphql-ez: workspace:^0.13.1
@@ -180,7 +180,7 @@ importers:
       require-env-variable: 3.1.2
       typescript: 4.4.3
     devDependencies:
-      bob-ts: 1.1.3_96ea800be824d2bbdd96260fc9c061a6
+      bob-tsm: 0.2.1_esbuild@0.13.4
 
   benchmarks/apis/ez-http:
     specifiers:
@@ -188,7 +188,7 @@ importers:
       '@graphql-ez/http': workspace:^0.10.2
       '@types/node': '>=16.10.3'
       benchmark-bench: workspace:1.0.0
-      bob-ts: ^1.1.3
+      bob-tsm: ^0.2.1
       cross-env: ^7.0.3
       graphql: 15.4.0-experimental-stream-defer.1
       graphql-ez: workspace:^0.13.1
@@ -205,7 +205,7 @@ importers:
       require-env-variable: 3.1.2
       typescript: 4.4.3
     devDependencies:
-      bob-ts: 1.1.3_96ea800be824d2bbdd96260fc9c061a6
+      bob-tsm: 0.2.1_esbuild@0.13.4
 
   benchmarks/apis/ez-koa:
     specifiers:
@@ -213,7 +213,7 @@ importers:
       '@graphql-ez/koa': workspace:^0.8.7
       '@koa/router': ^10.1.1
       benchmark-bench: workspace:1.0.0
-      bob-ts: ^1.1.3
+      bob-tsm: ^0.2.1
       cross-env: ^7.0.3
       graphql: 15.4.0-experimental-stream-defer.1
       graphql-ez: workspace:^0.13.1
@@ -232,13 +232,13 @@ importers:
       require-env-variable: 3.1.2
       typescript: 4.4.3
     devDependencies:
-      bob-ts: 1.1.3_96ea800be824d2bbdd96260fc9c061a6
+      bob-tsm: 0.2.1_esbuild@0.13.4
 
   benchmarks/apis/graphql-helix:
     specifiers:
       '@types/node': '>=16.10.3'
       benchmark-bench: workspace:1.0.0
-      bob-ts: ^1.1.3
+      bob-tsm: ^0.2.1
       fastify: ^3.22.0
       graphql: 15.4.0-experimental-stream-defer.1
       graphql-helix: ^1.8.3
@@ -253,12 +253,12 @@ importers:
       typescript: 4.4.3
     devDependencies:
       '@types/node': 16.10.3
-      bob-ts: 1.1.3_96ea800be824d2bbdd96260fc9c061a6
+      bob-tsm: 0.2.1_esbuild@0.13.4
 
   benchmarks/apis/mercurius:
     specifiers:
       benchmark-bench: workspace:1.0.0
-      bob-ts: ^1.1.3
+      bob-tsm: ^0.2.1
       cross-env: ^7.0.3
       fastify: ^3.22.0
       graphql: 15.4.0-experimental-stream-defer.1
@@ -274,7 +274,7 @@ importers:
       require-env-variable: 3.1.2
       typescript: 4.4.3
     devDependencies:
-      bob-ts: 1.1.3_96ea800be824d2bbdd96260fc9c061a6
+      bob-tsm: 0.2.1_esbuild@0.13.4
 
   benchmarks/bench:
     specifiers:
@@ -290,11 +290,11 @@ importers:
       '@types/wait-on': ^5.3.1
       autocannon: ^7.4.0
       bob-esbuild-cli: ^2.0.0
+      bob-tsm: ^0.2.1
       chalk: ^4.1.2
       cli-table: ^0.3.6
       concurrently: ^6.3.0
       cross-env: ^7.0.3
-      esbuild-register: ^3.0.0
       execa: ^5.1.1
       faker: ^5.5.3
       graphql: 15.4.0-experimental-stream-defer.1
@@ -335,7 +335,7 @@ importers:
       '@types/rimraf': 3.0.2
       '@types/wait-on': 5.3.1
       bob-esbuild-cli: 2.0.0_bob-esbuild@2.0.1
-      esbuild-register: 3.0.0_esbuild@0.13.4
+      bob-tsm: 0.2.1_esbuild@0.13.4
 
   examples/cloudflare:
     specifiers:
@@ -413,7 +413,7 @@ importers:
       '@graphql-ez/plugin-codegen': workspace:^0.7.3
       '@graphql-ez/plugin-schema': workspace:^0.7.3
       '@types/node': '>=16.10.3'
-      bob-ts: ^1.1.3
+      bob-tsm: ^0.2.1
       fastify: ^3.22.0
       graphql: 15.4.0-experimental-stream-defer.1
       graphql-ez: workspace:^0.13.1
@@ -426,7 +426,7 @@ importers:
       graphql-ez: link:../../../packages/core/main
     devDependencies:
       '@types/node': 16.10.3
-      bob-ts: 1.1.3_96ea800be824d2bbdd96260fc9c061a6
+      bob-tsm: 0.2.1_esbuild@0.13.4
 
   examples/fastify/complete:
     specifiers:
@@ -443,7 +443,7 @@ importers:
       '@graphql-ez/plugin-websockets': workspace:^0.10.0
       '@types/graphql-upload': ^8.0.7
       '@types/node': '>=16.10.3'
-      bob-ts: ^1.1.3
+      bob-tsm: ^0.2.1
       fastify: ^3.22.0
       graphql: 15.4.0-experimental-stream-defer.1
       graphql-ez: workspace:^0.13.1
@@ -468,7 +468,7 @@ importers:
       graphql-upload: 12.0.0_34dd13c2583fe2e4418c23a0d30fc388
     devDependencies:
       '@types/node': 16.10.3
-      bob-ts: 1.1.3_96ea800be824d2bbdd96260fc9c061a6
+      bob-tsm: 0.2.1_esbuild@0.13.4
       typescript: 4.4.3
 
   examples/fastify/giraphql:
@@ -477,7 +477,7 @@ importers:
       '@graphql-ez/fastify': workspace:^0.9.4
       '@graphql-ez/plugin-graphiql': workspace:^0.10.1
       '@types/node': '>=16.10.3'
-      bob-ts: ^1.1.3
+      bob-tsm: ^0.2.1
       fastify: ^3.22.0
       graphql: 15.4.0-experimental-stream-defer.1
       graphql-ez: workspace:^0.13.1
@@ -491,7 +491,7 @@ importers:
       graphql-ez: link:../../../packages/core/main
     devDependencies:
       '@types/node': 16.10.3
-      bob-ts: 1.1.3_96ea800be824d2bbdd96260fc9c061a6
+      bob-tsm: 0.2.1_esbuild@0.13.4
       typescript: 4.4.3
 
   examples/fastify/nexus:
@@ -499,7 +499,7 @@ importers:
       '@graphql-ez/fastify': workspace:^0.9.4
       '@graphql-ez/plugin-altair': workspace:^0.9.2
       '@types/node': '>=16.10.3'
-      bob-ts: ^1.1.3
+      bob-tsm: ^0.2.1
       fastify: ^3.22.0
       graphql: 15.4.0-experimental-stream-defer.1
       graphql-ez: workspace:^0.13.1
@@ -514,7 +514,7 @@ importers:
       nexus: 1.1.0_34dd13c2583fe2e4418c23a0d30fc388
     devDependencies:
       '@types/node': 16.10.3
-      bob-ts: 1.1.3_96ea800be824d2bbdd96260fc9c061a6
+      bob-tsm: 0.2.1_esbuild@0.13.4
       typescript: 4.4.3
 
   examples/fastify/type-graphql:
@@ -559,7 +559,7 @@ importers:
       '@hapi/hapi': ^20.2.1
       '@types/hapi__hapi': ^20.0.9
       '@types/node': '>=16.10.3'
-      bob-ts: ^1.1.3
+      bob-tsm: ^0.2.1
       graphql: 15.4.0-experimental-stream-defer.1
       graphql-ez: workspace:^0.13.1
       typescript: '>=4.4.2'
@@ -580,7 +580,7 @@ importers:
     devDependencies:
       '@types/hapi__hapi': 20.0.9
       '@types/node': 16.10.3
-      bob-ts: 1.1.3_96ea800be824d2bbdd96260fc9c061a6
+      bob-tsm: 0.2.1_esbuild@0.13.4
       typescript: 4.4.3
 
   examples/http/complete:
@@ -596,7 +596,7 @@ importers:
       '@graphql-ez/plugin-websockets': workspace:^0.10.0
       '@graphql-typed-document-node/core': ^3.1.0
       '@types/node': '>=16.10.3'
-      bob-ts: ^1.1.3
+      bob-tsm: ^0.2.1
       graphql: 15.4.0-experimental-stream-defer.1
       graphql-ez: workspace:^0.13.1
       typescript: '>=4.4.2'
@@ -615,7 +615,7 @@ importers:
       graphql-ez: link:../../../packages/core/main
     devDependencies:
       '@types/node': 16.10.3
-      bob-ts: 1.1.3_96ea800be824d2bbdd96260fc9c061a6
+      bob-tsm: 0.2.1_esbuild@0.13.4
       typescript: 4.4.3
 
   examples/koa/complete:
@@ -636,7 +636,7 @@ importers:
       '@types/koa__router': ^8.0.8
       '@types/koa-bodyparser': ^4.3.3
       '@types/node': '>=16.10.3'
-      bob-ts: ^1.1.3
+      bob-tsm: ^0.2.1
       graphql: 15.4.0-experimental-stream-defer.1
       graphql-ez: workspace:^0.13.1
       koa: ^2.13.3
@@ -664,7 +664,7 @@ importers:
       '@types/koa__router': 8.0.8
       '@types/koa-bodyparser': 4.3.3
       '@types/node': 16.10.3
-      bob-ts: 1.1.3_96ea800be824d2bbdd96260fc9c061a6
+      bob-tsm: 0.2.1_esbuild@0.13.4
       typescript: 4.4.3
 
   examples/nextjs/complete:
@@ -775,7 +775,7 @@ importers:
   examples/yoga/express:
     specifiers:
       '@graphql-yoga/express': workspace:^1.0.1
-      bob-ts: ^1.1.3
+      bob-tsm: ^0.2.1
       graphql: 15.4.0-experimental-stream-defer.1
       graphql-ez: workspace:^0.13.1
     dependencies:
@@ -783,11 +783,11 @@ importers:
       graphql: 15.4.0-experimental-stream-defer.1
       graphql-ez: link:../../../packages/core/main
     devDependencies:
-      bob-ts: 1.1.3_96ea800be824d2bbdd96260fc9c061a6
+      bob-tsm: 0.2.1_esbuild@0.13.4
 
   examples/yoga/fastify:
     specifiers:
-      bob-ts: ^1.1.3
+      bob-tsm: ^0.2.1
       graphql: 15.4.0-experimental-stream-defer.1
       graphql-ez: workspace:^0.13.1
       graphql-yoga: workspace:^1.0.1
@@ -796,7 +796,7 @@ importers:
       graphql-ez: link:../../../packages/core/main
       graphql-yoga: link:../../../yoga/fastify
     devDependencies:
-      bob-ts: 1.1.3_96ea800be824d2bbdd96260fc9c061a6
+      bob-tsm: 0.2.1_esbuild@0.13.4
 
   internal/testing:
     specifiers:
@@ -6782,25 +6782,6 @@ packages:
     transitivePeerDependencies:
       - '@types/node'
       - supports-color
-    dev: true
-
-  /bob-ts/1.1.3_96ea800be824d2bbdd96260fc9c061a6:
-    resolution: {integrity: sha512-0PC1T2IT1mgmKJuakPY55rHs7KZHcAHv6T0U36fD2RrueXQLntbycdaY+wj1eSV47L4XaT0cFjf31z485MFfKw==}
-    engines: {node: ^12.20.0 || >=14.13.0}
-    hasBin: true
-    peerDependencies:
-      '@types/node': '*'
-      esbuild: '*'
-    dependencies:
-      '@types/node': 16.10.3
-      bob-esbuild-plugin: 2.0.0_c7e9429ae5ed78af5cf1b5f10f60a4da
-      commander: 8.2.0
-      esbuild: 0.13.4
-      execa: 5.1.1
-      globby: 12.0.2
-      rollup: 2.58.0
-      rollup-plugin-delete: 2.0.0
-      tree-kill: 1.2.2
     dev: true
 
   /bob-tsm/0.2.1_esbuild@0.13.4:

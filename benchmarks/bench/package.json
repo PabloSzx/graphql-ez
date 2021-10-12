@@ -23,9 +23,9 @@
   "scripts": {
     "build": "bob-esbuild build -i src/schema.ts --bundle --skipTsc",
     "prepack": "bob-esbuild build",
-    "results": "node -r esbuild-register src/results.ts",
-    "start": "node -r esbuild-register src/start.ts",
-    "start-ez-fastify": "node -r esbuild-register src/start-ez-fastify.ts"
+    "results": "bob-tsm --cjs src/results.ts",
+    "start": "bob-tsm src/start.ts",
+    "start-ez-fastify": "bob-tsm src/start-ez-fastify.ts"
   },
   "dependencies": {
     "@graphql-tools/schema": "^8.2.0",
@@ -57,6 +57,6 @@
     "@types/rimraf": "^3.0.2",
     "@types/wait-on": "^5.3.1",
     "bob-esbuild-cli": "^2.0.0",
-    "esbuild-register": "^3.0.0"
+    "bob-tsm": "^0.2.1"
   }
 }

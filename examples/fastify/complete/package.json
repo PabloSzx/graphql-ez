@@ -5,9 +5,9 @@
   "private": true,
   "scripts": {
     "dev": "pnpm dev:mjs",
-    "dev:cjs": "bob-ts-watch -f cjs -c \"node dist/index.js\"",
-    "dev:mjs": "bob-ts-watch -c \"node dist/index.mjs\"",
-    "start": "bob-ts && node dist/index.mjs"
+    "dev:cjs": "bob-tsm --cjs --watch=src src/index.ts",
+    "dev:mjs": "bob-tsm --watch=src src/index.ts",
+    "start": "bob-tsm src/index.ts"
   },
   "dependencies": {
     "@graphql-ez/fastify": "workspace:^0.9.4",
@@ -29,7 +29,7 @@
   },
   "devDependencies": {
     "@types/node": "^16.10.3",
-    "bob-ts": "^1.1.3",
+    "bob-tsm": "^0.2.1",
     "typescript": "^4.4.3"
   }
 }

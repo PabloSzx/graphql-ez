@@ -9,7 +9,7 @@ const server = createServer((req, res) => {
 const EZApp = buildApp({
   server,
   async prepare() {
-    await import('./modules');
+    await import('./modules/index');
   },
 });
 
