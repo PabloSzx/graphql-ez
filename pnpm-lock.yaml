@@ -62,7 +62,7 @@ importers:
       '@envelop/core': ^1.2.0
       '@envelop/graphql-jit': ^1.1.1
       '@envelop/parser-cache': ^1.0.1
-      '@envelop/types': ^1.1.0
+      '@envelop/types': ^1.2.0
       '@envelop/validation-cache': '*'
       '@types/node': '>=16.10.7'
       benchmark-bench: workspace:1.0.0
@@ -75,7 +75,7 @@ importers:
       '@envelop/core': 1.2.0_34dd13c2583fe2e4418c23a0d30fc388
       '@envelop/graphql-jit': 1.1.1_34dd13c2583fe2e4418c23a0d30fc388
       '@envelop/parser-cache': 1.0.1_34dd13c2583fe2e4418c23a0d30fc388
-      '@envelop/types': 1.1.0_34dd13c2583fe2e4418c23a0d30fc388
+      '@envelop/types': 1.2.0_34dd13c2583fe2e4418c23a0d30fc388
       '@envelop/validation-cache': 1.0.1_34dd13c2583fe2e4418c23a0d30fc388
       '@types/node': 16.10.7
       benchmark-bench: link:../../bench
@@ -1042,7 +1042,7 @@ importers:
   packages/core/main:
     specifiers:
       '@envelop/core': ^1.2.0
-      '@envelop/types': ^1.1.0
+      '@envelop/types': ^1.2.0
       '@graphql-ez/utils': workspace:^0.1.2
       '@pablosz/graphql-helix': workspace:^2.0.2
       bob-esbuild-cli: ^2.0.0
@@ -1053,7 +1053,7 @@ importers:
       ts-jest: ^27.0.5
     dependencies:
       '@envelop/core': 1.2.0_34dd13c2583fe2e4418c23a0d30fc388
-      '@envelop/types': 1.1.0_34dd13c2583fe2e4418c23a0d30fc388
+      '@envelop/types': 1.2.0_34dd13c2583fe2e4418c23a0d30fc388
       '@graphql-ez/utils': link:../utils
       '@pablosz/graphql-helix': link:../../helix/core
       tiny-lru: 7.0.6
@@ -3951,6 +3951,14 @@ packages:
       graphql: ^14.0.0 || ^15.0.0
     dependencies:
       graphql: 15.4.0-experimental-stream-defer.1
+
+  /@envelop/types/1.2.0_34dd13c2583fe2e4418c23a0d30fc388:
+    resolution: {integrity: sha512-3EbX78FGfbWlRUAcYrEq4KEKSoY6lb3v7RliTSoe15C6tsJUuIcp6ihUMikBTMHxObqdR/LnF8gU1cPiKo7RLA==}
+    peerDependencies:
+      graphql: ^14.0.0 || ^15.0.0
+    dependencies:
+      graphql: 15.4.0-experimental-stream-defer.1
+    dev: false
 
   /@envelop/validation-cache/1.0.1_34dd13c2583fe2e4418c23a0d30fc388:
     resolution: {integrity: sha512-xW+7uSGEnJyUoqkcdi5dtbLo7LolQ4DFGE8UP7Gc3HUEzKmz3gg0SFSywJa+Z3w4EmLLOmWAKEPP5ikvJayTfg==}
