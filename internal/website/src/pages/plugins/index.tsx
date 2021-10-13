@@ -24,10 +24,8 @@ export const getStaticProps: GetStaticProps<MarketplaceProps> = async () => {
   const data = await Promise.all(
     pluginsData.map(async plugin => {
       const [description, content] = await buildMultipleMDX([
-        `${plugin.stats?.collected?.metadata?.version || ''}\n\n${
-          plugin.descriptionMarkdown || plugin.stats?.collected?.metadata?.description || ''
-        }`,
-        plugin.readme || plugin.stats?.collected?.metadata?.readme || '',
+        `${plugin.stats?.version || ''}\n\n${plugin.descriptionMarkdown || plugin.stats?.description || ''}`,
+        plugin.readme || plugin.stats?.readme || '',
       ]);
       return {
         ...plugin,
@@ -82,14 +80,14 @@ export default function Marketplace({ data }: MarketplaceProps) {
                 <NPMBadge name={rawPlugin.npmPackage} />
                 <PackageInstall packages={packageInstallList(rawPlugin)} />
                 <RemoteGHMarkdown
-                  directory={rawPlugin.stats?.collected?.metadata?.repository?.directory}
-                  repo={rawPlugin.stats?.collected?.metadata?.links?.repository}
+                  directory={rawPlugin.stats?.repositoryDirectory}
+                  repo={rawPlugin.stats?.repositoryLink}
                   content={rawPlugin.content}
                 />
               </>
             ),
           },
-          update: rawPlugin.stats?.collected?.metadata?.date || new Date().toISOString(),
+          update: rawPlugin.stats?.modifiedDate || new Date().toISOString(),
           image: rawPlugin.iconUrl
             ? {
                 height: 60,
@@ -118,10 +116,10 @@ export default function Marketplace({ data }: MarketplaceProps) {
   const trendingItems = useMemo(() => {
     if (marketplaceItems && marketplaceItems.length > 0) {
       return [...marketplaceItems]
-        .filter(i => i.raw.stats?.collected?.npm.downloads)
+        .filter(i => i.raw.stats?.weeklyNPMDownloads)
         .sort((a, b) => {
-          const aMonthlyDownloads = a.raw.stats?.collected.npm.downloads[2].count || 0;
-          const bMonthlyDownloads = b.raw.stats?.collected.npm.downloads[2].count || 0;
+          const aMonthlyDownloads = a.raw.stats?.weeklyNPMDownloads || 0;
+          const bMonthlyDownloads = b.raw.stats?.weeklyNPMDownloads || 0;
 
           return bMonthlyDownloads - aMonthlyDownloads;
         });

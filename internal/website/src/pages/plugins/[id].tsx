@@ -31,7 +31,7 @@ export const getStaticProps: GetStaticProps<PluginPageProps, PluginPageParams> =
     pluginsData.map(async plugin => {
       return {
         ...plugin,
-        mdx: await buildMDX(plugin.readme || plugin.stats?.collected?.metadata?.readme || ''),
+        mdx: await buildMDX(plugin.readme || plugin.stats?.readme || ''),
       };
     })
   );
@@ -93,8 +93,8 @@ export default function PluginPageContent({ data }: PluginPageProps) {
               <NPMBadge name={pluginData.npmPackage} />
               <PackageInstall packages={packageInstallList(pluginData)} />
               <RemoteGHMarkdown
-                directory={pluginData.stats?.collected?.metadata?.repository?.directory}
-                repo={pluginData.stats?.collected?.metadata?.links?.repository}
+                directory={pluginData.stats?.repositoryDirectory}
+                repo={pluginData.stats?.repositoryLink}
                 content={pluginData.mdx}
               />
             </Box>
@@ -109,38 +109,38 @@ export default function PluginPageContent({ data }: PluginPageProps) {
                   <Box>
                     <Code>{pluginData.npmPackage}</Code>
                   </Box>
-                  {pluginData.stats?.collected?.metadata?.license ? (
+                  {pluginData.stats?.license ? (
                     <>
                       <Box>License</Box>
                       <Box>
-                        <Code>{pluginData.stats.collected.metadata.license}</Code>
+                        <Code>{pluginData.stats.license}</Code>
                       </Box>
                     </>
                   ) : null}
-                  {pluginData.stats?.collected?.metadata?.version ? (
+                  {pluginData.stats?.version ? (
                     <>
                       <Box>Version</Box>
                       <Box>
-                        <Code>{pluginData.stats.collected.metadata.version}</Code>
+                        <Code>{pluginData.stats.version}</Code>
                       </Box>
                     </>
                   ) : null}
-                  {pluginData.stats?.collected?.metadata?.date ? (
+                  {pluginData.stats?.modifiedDate ? (
                     <>
                       <Box>Updated</Box>
                       <Box>
-                        <Code>{format(new Date(pluginData.stats.collected.metadata.date), 'MMM do, yyyy')}</Code>
+                        <Code>{format(new Date(pluginData.stats.modifiedDate), 'MMM do, yyyy')}</Code>
                       </Box>
                     </>
                   ) : null}
-                  {pluginData.stats?.collected?.github?.starsCount ? (
+                  {/* {pluginData.stats?.collected?.github?.starsCount ? (
                     <>
                       <Box>Stars</Box>
                       <Box>
                         <Code>{pluginData.stats.collected.github?.starsCount}</Code>
                       </Box>
                     </>
-                  ) : null}
+                  ) : null} */}
                 </SimpleGrid>
               </Box>
               <DocsTOC>
