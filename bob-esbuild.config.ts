@@ -10,6 +10,15 @@ export const config: import('bob-esbuild').BobConfig = {
   verbose: false,
   outputOptions: {
     sourcemap: false,
+    interop(moduleName) {
+      if (moduleName) {
+        if (moduleName.startsWith('ws')) return 'esModule';
+
+        if (moduleName.startsWith('graphql-upload/public/')) return 'defaultOnly';
+      }
+
+      return 'auto';
+    },
   },
   esbuildPluginOptions: isHelixGraphiql
     ? {
@@ -27,7 +36,4 @@ export const config: import('bob-esbuild').BobConfig = {
         })(),
       }
     : undefined,
-  keepDynamicImport: moduleName => {
-    return /^(ws|graphql-upload)/.test(moduleName);
-  },
 };
