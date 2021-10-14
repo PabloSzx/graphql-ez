@@ -6,7 +6,7 @@ Currently this plugin requires the presence of [Schema Plugin](https://www.graph
 
 ## Usage
 
-Check the [GraphQL Scalars website docs](https://www.graphql-scalars.dev/docs/introduction) to see all available scalars, of you can inspect the types of the plugin
+Check the [GraphQL Scalars website docs](https://www.graphql-scalars.dev/docs) to see all available scalars, of you can inspect the types of the plugin
 
 ```ts
 import { ezScalars } from '@graphql-ez/plugin-scalars';
