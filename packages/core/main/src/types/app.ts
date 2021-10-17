@@ -1,17 +1,17 @@
 import type { GetEnvelopedFn, Plugin } from '@envelop/types';
 import type { DocumentNode, GraphQLSchema } from 'graphql';
 import type { IncomingMessage } from 'http';
+import type { InternalAppBuildContextKey } from '../app';
 import type {
   AppOptions,
   BaseAppBuilder,
   BuildAppOptions,
+  EZContext,
   InternalAppBuildContext,
   InternalAppBuildIntegrationContext,
   PromiseOrValue,
-  EZContext,
 } from '../index';
 import type { HandleRequest, PreProcessRequest } from './request';
-import type { InternalAppBuildContextKey } from '../app';
 export interface AdapterFactoryArgs {
   getEnveloped: GetEnvelopedFn<unknown>;
   ctx: InternalAppBuildContext;
@@ -52,7 +52,7 @@ export type EZPlugin =
 
 export type NullableEZPlugin = EZPlugin | null | undefined | boolean;
 
-export type NullableEnvelopPlugin = PromiseOrValue<Plugin | null | undefined | boolean>;
+export type NullableEnvelopPlugin = PromiseOrValue<Plugin<any> | null | undefined | boolean>;
 
 export type EZPreset = {
   self?: EZPlugin;
