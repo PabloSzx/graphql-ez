@@ -1,19 +1,17 @@
-import { envelop, useEnvelop, useSchema } from '@envelop/core';
-
-import { SmartCacheIntrospection } from './smart-cache';
-import { gql } from './utils';
+import { envelop, Plugin, useEnvelop, useSchema } from '@envelop/core';
 import { cleanObject, toPlural } from '@graphql-ez/utils/object';
-
 import type {
+  AdapterFactoryContext,
   AppOptions,
   BaseAppBuilder,
+  EZAppFactoryType,
+  EZPlugin,
+  GetEnvelopedFn,
   InternalAppBuildContext,
   InternalAppBuildIntegrationContext,
-  EZAppFactoryType,
-  AdapterFactoryContext,
-  GetEnvelopedFn,
-  EZPlugin,
 } from './index';
+import { SmartCacheIntrospection } from './smart-cache';
+import { gql } from './utils';
 
 export const InternalAppBuildContextKey = Symbol('graphql-ez-internal-app-build-context');
 
@@ -157,7 +155,9 @@ export function createEZAppFactory(
     Object.freeze(envelopPlugins);
 
     const getEnveloped = envelop({
-      plugins: await Promise.all(envelopPlugins),
+      plugins: (await Promise.all(envelopPlugins)).filter((plugin): plugin is Plugin => {
+        return plugin != null && typeof plugin != 'boolean';
+      }),
       enableInternalTracing: ctx.options.envelop.enableInternalTracing,
     });
 

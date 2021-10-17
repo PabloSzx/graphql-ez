@@ -52,13 +52,15 @@ export type EZPlugin =
 
 export type NullableEZPlugin = EZPlugin | null | undefined | boolean;
 
+export type NullableEnvelopPlugin = PromiseOrValue<Plugin | null | undefined | boolean>;
+
 export type EZPreset = {
   self?: EZPlugin;
 
   options?: AppOptions & { ez?: never; envelop?: never };
 
   ezPlugins?: NullableEZPlugin[];
-  envelopPlugins?: PromiseOrValue<Plugin>[];
+  envelopPlugins?: NullableEnvelopPlugin[];
 };
 
 export type IntegrationsNames =
@@ -99,7 +101,7 @@ declare module '../index' {
      *
      * `You can only mutate this array before calling "buildApp" on in the "prepare" option.`
      */
-    envelopPlugins: PromiseOrValue<Plugin>[];
+    envelopPlugins: NullableEnvelopPlugin[];
 
     [InternalAppBuildContextKey]: InternalAppBuildContext;
   }
@@ -109,7 +111,7 @@ declare module '../index' {
       plugins: readonly EZPlugin[];
     };
     envelop: {
-      plugins: PromiseOrValue<Plugin<any>>[];
+      plugins: NullableEnvelopPlugin[];
       presets: GetEnvelopedFn<unknown>[];
 
       enableInternalTracing?: boolean;
@@ -148,7 +150,7 @@ declare module '../index' {
      * Custom Envelop Plugins
      */
     envelop?: {
-      plugins?: PromiseOrValue<Plugin>[];
+      plugins?: NullableEnvelopPlugin[];
 
       preset?: GetEnvelopedFn<unknown> | GetEnvelopedFn<unknown>[];
 
