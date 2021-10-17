@@ -1,5 +1,11 @@
 # graphql-ez
 
+## 0.13.2
+
+### Patch Changes
+
+- 99bab957: allow nullable Envelop plugins for conditional filtering
+
 ## 0.13.1
 
 ### Patch Changes

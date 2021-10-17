@@ -1,5 +1,13 @@
 # @graphql-ez/plugin-codegen
 
+## 0.7.4
+
+### Patch Changes
+
+- da72c2a6: Improve plugin execution logic
+- Updated dependencies [99bab957]
+  - graphql-ez@0.13.2
+
 ## 0.7.3
 
 ### Patch Changes

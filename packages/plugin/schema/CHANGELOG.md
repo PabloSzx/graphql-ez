@@ -1,5 +1,16 @@
 # @graphql-ez/plugin-schema
 
+## 0.8.0
+
+### Minor Changes
+
+- 9ecb8cba: Improve `registerTypeDefs` & `registerResolvers` helpers using generics and returning the parameters as-is after being added
+
+### Patch Changes
+
+- Updated dependencies [99bab957]
+  - graphql-ez@0.13.2
+
 ## 0.7.3
 
 ### Patch Changes
