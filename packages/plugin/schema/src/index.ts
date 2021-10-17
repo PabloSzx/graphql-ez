@@ -43,11 +43,11 @@ export interface EZSchemaOptions {
 }
 
 export interface RegisterTypeDefs {
-  (...typeDefs: Array<TypeSource>): TypeSource[];
+  <TypeDefs extends [TypeSource, ...Array<TypeSource>]>(...typeDefs: TypeDefs): TypeDefs;
 }
 
 export interface RegisterResolvers {
-  (...resolvers: Array<EZResolvers>): EZResolvers[];
+  <Resolvers extends [EZResolvers, ...Array<EZResolvers>]>(...resolvers: Resolvers): Resolvers;
 }
 
 declare module 'graphql-ez' {
@@ -91,22 +91,22 @@ export const ezSchema = (options: EZSchemaOptions = {}): EZPlugin => {
 
       ctx.appBuilder.registerTypeDefs = registerTypeDefs;
 
-      function registerTypeDefs(...typeDefs: TypeSource[]): TypeSource[] {
+      function registerTypeDefs<TypeDefs extends [TypeSource, ...Array<TypeSource>]>(...typeDefs: TypeDefs): TypeDefs {
         for (const typeDef of typeDefs) {
           (ctx.registeredTypeDefs ||= []).push(typeDef);
         }
 
-        return (ctx.registeredTypeDefs ||= []);
+        return typeDefs;
       }
 
       ctx.appBuilder.registerResolvers = registerResolvers;
 
-      function registerResolvers(...ezResolvers: Array<EZResolvers>): Array<EZResolvers> {
+      function registerResolvers<Resolvers extends [EZResolvers, ...Array<EZResolvers>]>(...ezResolvers: Resolvers): Resolvers {
         for (const resolvers of ezResolvers) {
           (ctx.registeredResolvers ||= []).push(resolvers);
         }
 
-        return (ctx.registeredResolvers ||= []);
+        return ezResolvers;
       }
     },
     async onPreBuild(ctx) {
