@@ -39,18 +39,18 @@ export const ezCodegen = ({ config, enableCodegen, outputSchema }: CodegenOption
       ctx.codegen = { config: { ...config }, enableCodegen, outputSchema };
     },
     onPreBuild(ctx) {
+      if (!ctx.codegen) return;
+
+      const {
+        config: { onError = console.error, onFinish } = {},
+        outputSchema,
+        enableCodegen = process.env.NODE_ENV !== 'production' && process.env.NODE_ENV !== 'test',
+      } = ctx.codegen;
+
+      if (!enableCodegen) return onFinish?.();
+
       ctx.options.envelop.plugins.push({
         onSchemaChange({ schema }) {
-          if (!ctx.codegen) return;
-
-          const {
-            config: { onError = console.error, onFinish } = {},
-            outputSchema,
-            enableCodegen = process.env.NODE_ENV !== 'production' && process.env.NODE_ENV !== 'test',
-          } = ctx.codegen;
-
-          if (!enableCodegen) return onFinish?.();
-
           Promise.all([
             outputSchema
               ? import('./outputSchema').then(({ writeOutputSchema }) => {
