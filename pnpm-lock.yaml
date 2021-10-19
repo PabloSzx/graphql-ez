@@ -219,7 +219,7 @@ importers:
       cross-env: ^7.0.3
       graphql: 15.4.0-experimental-stream-defer.1
       graphql-ez: workspace:^0.13.2
-      koa: ^2.13.3
+      koa: ^2.13.4
       require-env-variable: ^3.1.2
       typescript: '>=4.4.4'
     dependencies:
@@ -230,7 +230,7 @@ importers:
       cross-env: 7.0.3
       graphql: 15.4.0-experimental-stream-defer.1
       graphql-ez: link:../../../packages/core/main
-      koa: 2.13.3
+      koa: 2.13.4
       require-env-variable: 3.1.2
       typescript: 4.4.4
     devDependencies:
@@ -641,7 +641,7 @@ importers:
       bob-tsm: ^0.2.2
       graphql: 15.4.0-experimental-stream-defer.1
       graphql-ez: workspace:^0.13.2
-      koa: ^2.13.3
+      koa: ^2.13.4
       koa-bodyparser: ^4.3.0
       typescript: '>=4.4.4'
     dependencies:
@@ -659,7 +659,7 @@ importers:
       '@koa/router': 10.1.1
       graphql: 15.4.0-experimental-stream-defer.1
       graphql-ez: link:../../../packages/core/main
-      koa: 2.13.3
+      koa: 2.13.4
       koa-bodyparser: 4.3.0
     devDependencies:
       '@types/koa': 2.13.4
@@ -832,7 +832,7 @@ importers:
       graphql-ez: workspace:*
       graphql-modules: ^1.4.4
       graphql-ws: ^5.5.0
-      koa: ^2.13.3
+      koa: ^2.13.4
       lodash: ^4.17.21
       subscriptions-transport-ws-envelop: ^2.0.1
       ts-jest: ^27.0.7
@@ -870,7 +870,7 @@ importers:
       graphql-ez: link:../../packages/core/main
       graphql-modules: 1.4.4_34dd13c2583fe2e4418c23a0d30fc388
       graphql-ws: 5.5.0_34dd13c2583fe2e4418c23a0d30fc388
-      koa: 2.13.3
+      koa: 2.13.4
       lodash: 4.17.21
       subscriptions-transport-ws-envelop: 2.0.1_e1440b74bc35b99eeba899689a79d0dd
       ts-jest: 27.0.7_ae6fe55845de00766954c1a1e71fa583
@@ -1372,7 +1372,7 @@ importers:
       graphql: 15.4.0-experimental-stream-defer.1
       graphql-ez: workspace:^0.13.2
       jest: ^27.3.0
-      koa: ^2.13.3
+      koa: ^2.13.4
       koa-bodyparser: ^4.3.0
       ts-jest: ^27.0.7
       typescript: '>=4.4.4'
@@ -1391,7 +1391,7 @@ importers:
       graphql: 15.4.0-experimental-stream-defer.1
       graphql-ez: link:../../core/main
       jest: 27.3.0
-      koa: 2.13.3
+      koa: 2.13.4
       ts-jest: 27.0.7_ae6fe55845de00766954c1a1e71fa583
       typescript: 4.4.4
 
@@ -1408,7 +1408,7 @@ importers:
       graphql: 15.4.0-experimental-stream-defer.1
       graphql-ez: workspace:^0.13.2
       jest: ^27.3.0
-      koa: ^2.13.3
+      koa: ^2.13.4
     dependencies:
       '@graphql-ez/client': link:../../client/main
       '@graphql-ez/utils': link:../../core/utils
@@ -1422,7 +1422,7 @@ importers:
       graphql: 15.4.0-experimental-stream-defer.1
       graphql-ez: link:../../core/main
       jest: 27.3.0
-      koa: 2.13.3
+      koa: 2.13.4
 
   packages/nextjs/main:
     specifiers:
@@ -11520,8 +11520,8 @@ packages:
       co: 4.6.0
       koa-compose: 4.1.0
 
-  /koa/2.13.3:
-    resolution: {integrity: sha512-XhXIoR+ylAwqG3HhXwnMPQAM/4xfywz52OvxZNmxmTWGGHsvmBv4NSIhURha6yMuvEex1WdtplUTHnxnKpQiGw==}
+  /koa/2.13.4:
+    resolution: {integrity: sha512-43zkIKubNbnrULWlHdN5h1g3SEKXOEzoAlRsHOTFpnlDu8JlAOZSMJBLULusuXRequboiwJcj5vtYXKB3k7+2g==}
     engines: {node: ^4.8.4 || ^6.10.1 || ^7.10.1 || >= 8.1.4}
     dependencies:
       accepts: 1.3.7
