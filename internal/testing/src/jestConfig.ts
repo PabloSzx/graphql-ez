@@ -6,6 +6,8 @@ import type { Config } from '@jest/types';
 
 const rootPath = resolve(__dirname, '../../../');
 
+process.env.TS_JEST_HOOKS = resolve(__dirname, 'tsJestHooks.js');
+
 export function getConfig({
   nextjs,
   ...rest

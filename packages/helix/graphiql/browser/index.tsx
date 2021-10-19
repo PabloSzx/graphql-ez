@@ -335,3 +335,5 @@ export const init = async ({
     document.body
   );
 };
+
+window['GraphQLHelixGraphiQL'] = { init };

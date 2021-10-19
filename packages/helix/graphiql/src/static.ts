@@ -1,7 +1,7 @@
 import { LazyPromise } from '@graphql-ez/utils/promise';
-import { filedirnameFromCaller } from 'filedirname';
+import { fileURLToPath } from 'url';
 import { promises } from 'fs';
-import { resolve } from 'path';
+import { join, dirname } from 'path';
 import type { RenderGraphiQLOptions } from './types';
 
 const safeSerialize = (value: any) => {
@@ -10,16 +10,23 @@ const safeSerialize = (value: any) => {
 
 export * from './types';
 
-const [, dirname] = filedirnameFromCaller();
+const fileDirname = dirname(fileURLToPath(import.meta.url));
 
-export const cssBundlePath = resolve(dirname, './bundle/graphiql.css');
+export const cssBundlePath = join(fileDirname, './bundle/graphiql.css');
 
-export const jsBundlePath = resolve(dirname, './bundle/graphiql.min.js');
+export const jsBundlePath = join(fileDirname, './bundle/graphiql.min.js');
 
 export const bundle = LazyPromise(async () => {
-  const [css, javascript] = await Promise.all([promises.readFile(cssBundlePath), promises.readFile(jsBundlePath)]);
+  const [css, javascript] = await Promise.all([
+    promises.readFile(cssBundlePath, {
+      encoding: 'utf-8',
+    }),
+    promises.readFile(jsBundlePath, {
+      encoding: 'utf-8',
+    }),
+  ]);
 
-  return { css: css.toString('utf-8'), javascript: javascript.toString('utf-8') };
+  return { css, javascript };
 });
 
 export const renderStaticGraphiQL = async (options: RenderGraphiQLOptions = {}): Promise<string> => {

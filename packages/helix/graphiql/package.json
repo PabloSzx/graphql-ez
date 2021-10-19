@@ -27,16 +27,12 @@
     "dist"
   ],
   "scripts": {
-    "after:webpack": "cpy browser/css/graphiql.css bundle/ && node scripts/build-graphiql.cjs && cpy bundle/ src/bundle/ && bob-esbuild build",
-    "build": "pnpm bundle && bob-esbuild build",
-    "bundle": "webpack -c browser/webpack.config.js",
-    "prepack": "bob-esbuild build && cpy bundle/ src/bundle/",
-    "prepublishOnly": "pnpm bundle && bob-esbuild build",
+    "prepack": "concurrently -r \"bob-tsm --cjs browser/build.ts\" \"bob-esbuild build\"",
+    "prepublishOnly": "pnpm prepack",
     "postpublish": "gh-release"
   },
   "dependencies": {
-    "@graphql-ez/utils": "workspace:^0.1.2",
-    "filedirname": "^2.7.0"
+    "@graphql-ez/utils": "workspace:^0.1.2"
   },
   "devDependencies": {
     "@graphiql/toolkit": "^0.2.2",
@@ -51,7 +47,8 @@
     "changesets-github-release": "^0.0.4",
     "concurrently": "^6.3.0",
     "copy-to-clipboard": "^3.3.1",
-    "cpy-cli": "^3.1.1",
+    "cpy": "^8.1.2",
+    "esbuild": "^0.13.8",
     "graphiql": "^1.4.2",
     "graphql": "15.4.0-experimental-stream-defer.1",
     "graphql-ez": "workspace:^0.13.2",
@@ -60,11 +57,7 @@
     "prop-types": "^15.7.2",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "terser-webpack-plugin": "^5.2.4",
-    "ts-loader": "^9.2.6",
-    "typescript": "^4.4.4",
-    "webpack": "^5.58.2",
-    "webpack-cli": "^4.9.1"
+    "typescript": "^4.4.4"
   },
   "publishConfig": {
     "directory": "dist"

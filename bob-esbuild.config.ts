@@ -22,6 +22,7 @@ export const config: import('bob-esbuild').BobConfig = {
   },
   esbuildPluginOptions: isHelixGraphiql
     ? {
+        target: 'node13.2',
         define: (() => {
           const packageJson = JSON.parse(
             readFileSync(resolve(process.cwd(), './package.json'), {
