@@ -1,5 +1,11 @@
 # @pablosz/graphql-helix-graphiql
 
+## 4.1.0
+
+### Minor Changes
+
+- 45014e01: remove /static external dependency
+
 ## 4.0.2
 
 ### Patch Changes
