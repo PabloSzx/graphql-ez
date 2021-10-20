@@ -14,7 +14,7 @@
     "changesets": "changeset",
     "ci:release": "pnpm pretty && pnpm -r publish --access public --no-git-checks",
     "ci:version": "pnpm pretty && changeset version && pnpm i --no-frozen-lockfile --lockfile-only --ignore-scripts && pnpm update -r \"@graphql-ez/*\" graphql-ez",
-    "clean": "rimraf \"**/{node_modules,dist,.next,coverage}\"",
+    "clean": "pnpm dlx rimraf \"**/{node_modules,dist,.next,coverage}\" pnpm-lock.yaml && pnpm i",
     "dev:cjs": "pnpm -w dev:cjs:all",
     "dev:cjs:all": "bob-esbuild tsc && concurrently pnpm:dev:core pnpm:dev:cjs:express pnpm:dev:cjs:fastify pnpm:dev:cjs:http pnpm:dev:cjs:koa pnpm:dev:cjs:hapi pnpm:dev:next pnpm:dev:cjs:yoga:fastify pnpm:dev:cjs:yoga:express",
     "dev:cjs:express": "pnpm -r --filter @graphql-ez/express dev -- --onSuccess \"cross-env PORT=3001 pnpm -r --filter example-complete-express dev:cjs\"",

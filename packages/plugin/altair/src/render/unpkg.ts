@@ -3,7 +3,7 @@ import type { AltairConfigOptions, RenderOptions } from 'altair-static-slim';
 import crossFetch from 'cross-fetch';
 import type { AltairRender } from '../types';
 
-export const altairUnpkgDist = 'https://unpkg.com/altair-static@4.0.9/build/dist/';
+export const altairUnpkgDist = 'https://unpkg.com/altair-static@4.1.0/build/dist/';
 
 function getObjectPropertyForOption(option: any, propertyName: keyof AltairConfigOptions) {
   if (option) {
