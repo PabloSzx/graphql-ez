@@ -1248,7 +1248,7 @@ importers:
     specifiers:
       '@graphiql/toolkit': ^0.2.2
       '@graphql-ez/utils': workspace:^0.1.2
-      '@graphql-tools/url-loader': ^7.2.1
+      '@graphql-tools/url-loader': ^7.3.0
       '@graphql-tools/utils': ^8.4.0
       '@n1ru4l/graphql-live-query': ^0.8.1
       '@types/prettier': ^2.4.1
@@ -1274,7 +1274,7 @@ importers:
       '@graphql-ez/utils': link:../../core/utils
     devDependencies:
       '@graphiql/toolkit': 0.2.2_42db6ef03b5a92d39b1cac00346e9456
-      '@graphql-tools/url-loader': 7.2.1_42db6ef03b5a92d39b1cac00346e9456
+      '@graphql-tools/url-loader': 7.3.0_42db6ef03b5a92d39b1cac00346e9456
       '@graphql-tools/utils': 8.4.0_34dd13c2583fe2e4418c23a0d30fc388
       '@n1ru4l/graphql-live-query': 0.8.1_34dd13c2583fe2e4418c23a0d30fc388
       '@types/prettier': 2.4.1
@@ -1914,7 +1914,7 @@ importers:
       '@graphql-ez/plugin-upload': workspace:^0.6.2
       '@graphql-ez/plugin-websockets': workspace:^0.10.2
       '@graphql-ez/utils': workspace:^0.1.2
-      '@graphql-tools/mock': ^8.4.0
+      '@graphql-tools/mock': ^8.4.1
       '@graphql-tools/utils': ^8.4.0
       bob-esbuild-cli: ^2.0.0
       graphql: 15.4.0-experimental-stream-defer.1
@@ -1928,7 +1928,7 @@ importers:
       '@graphql-ez/plugin-upload': link:../../packages/plugin/upload
       '@graphql-ez/plugin-websockets': link:../../packages/plugin/websockets
       '@graphql-ez/utils': link:../../packages/core/utils
-      '@graphql-tools/mock': 8.4.0_34dd13c2583fe2e4418c23a0d30fc388
+      '@graphql-tools/mock': 8.4.1_34dd13c2583fe2e4418c23a0d30fc388
       '@graphql-tools/utils': 8.4.0_34dd13c2583fe2e4418c23a0d30fc388
       graphql-middleware: 6.1.9_34dd13c2583fe2e4418c23a0d30fc388
     devDependencies:
@@ -4173,8 +4173,8 @@ packages:
       graphql: 15.4.0-experimental-stream-defer.1
       tslib: 2.3.1
 
-  /@graphql-tools/mock/8.4.0_34dd13c2583fe2e4418c23a0d30fc388:
-    resolution: {integrity: sha512-RKcqmw7P5pC2ULh2/kg/erxxsd7lEV/wnI5jNgahkCw8wiSC8OI3SwNMwjfrlpYogs7eEhiXi7Ix6abCiFUURw==}
+  /@graphql-tools/mock/8.4.1_34dd13c2583fe2e4418c23a0d30fc388:
+    resolution: {integrity: sha512-eIW2H1k9b4Sczzy1Za+GdaKBc8lTXo8MbJH4oivh1AoGl6/Tu9jTOOTS/b07zQzG+6sIQG54o9W6s2TqDmD+YQ==}
     peerDependencies:
       graphql: ^14.0.0 || ^15.0.0 || ^16.0.0
     dependencies:
@@ -4228,8 +4228,8 @@ packages:
       tslib: 2.3.1
       value-or-promise: 1.0.11
 
-  /@graphql-tools/url-loader/7.2.1_42db6ef03b5a92d39b1cac00346e9456:
-    resolution: {integrity: sha512-HxnB79vdHpSmkKjKlOM3AHIXjPHey+Sv+cl+Hv63Pd57OvMzyBvb/OkKA2nEj/jMp5VgfJaNwy0mYqNgUH/Fvg==}
+  /@graphql-tools/url-loader/7.3.0_42db6ef03b5a92d39b1cac00346e9456:
+    resolution: {integrity: sha512-VZeeQCt1FotPis87bbjRno/nPN0UbQeTDwF2pXgdlab2X/xw58IPcOZz5cS5lx0qO5zYrs3734fSAo0WjkQtsg==}
     peerDependencies:
       graphql: ^14.0.0 || ^15.0.0 || ^16.0.0
     dependencies:
@@ -4241,6 +4241,7 @@ packages:
       '@types/ws': 8.2.0
       abort-controller: 3.0.0
       cross-fetch: 3.1.4
+      dset: 3.1.0
       extract-files: 11.0.0
       form-data: 4.0.0
       graphql: 15.4.0-experimental-stream-defer.1
@@ -4248,7 +4249,6 @@ packages:
       graphql-ws: 5.5.3_34dd13c2583fe2e4418c23a0d30fc388
       is-promise: 4.0.0
       isomorphic-ws: 4.0.1_ws@8.2.3
-      lodash: 4.17.21
       meros: 1.1.4_@types+node@16.11.1
       subscriptions-transport-ws: 0.10.0_34dd13c2583fe2e4418c23a0d30fc388
       sync-fetch: 0.3.1
