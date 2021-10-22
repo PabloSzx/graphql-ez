@@ -7,7 +7,7 @@
   "main": "dist/index.js",
   "scripts": {
     "dev": "cross-env PORT=3000 bob-tsm --watch=src src/index.ts",
-    "start": "cross-env NODE_ENV=production bob-tsm src/index.ts"
+    "start": "bob-tsm --node-env=prod src/index.ts"
   },
   "dependencies": {
     "benchmark-bench": "workspace:1.0.0",
@@ -18,7 +18,7 @@
     "typescript": "^4.4.4"
   },
   "devDependencies": {
-    "@types/node": "^16.11.1",
-    "bob-tsm": "0.2.3"
+    "@types/node": "^16.11.3",
+    "bob-tsm": "0.3.0"
   }
 }

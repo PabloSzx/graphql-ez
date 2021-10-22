@@ -7,12 +7,12 @@
   "main": "dist/index.js",
   "scripts": {
     "dev": "cross-env PORT=3000 bob-tsm --watch=src src/index.ts",
-    "start": "cross-env NODE_ENV=production bob-tsm src/index.ts"
+    "start": "bob-tsm --node-env=prod src/index.ts"
   },
   "dependencies": {
     "@envelop/graphql-jit": "^1.1.1",
     "@graphql-ez/http": "workspace:^0.10.2",
-    "@types/node": "^16.11.1",
+    "@types/node": "^16.11.3",
     "benchmark-bench": "workspace:1.0.0",
     "cross-env": "^7.0.3",
     "graphql": "15.4.0-experimental-stream-defer.1",
@@ -21,6 +21,6 @@
     "typescript": "^4.4.4"
   },
   "devDependencies": {
-    "bob-tsm": "0.2.3"
+    "bob-tsm": "0.3.0"
   }
 }

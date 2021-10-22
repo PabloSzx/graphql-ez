@@ -22,15 +22,14 @@ const instance = autocannon(
     if (err) console.error(err);
 
     await mkdirp('raw_results');
-    const fileName = resolve('raw_results/' + result.title + '.json');
 
-    writeFile(fileName, JSON.stringify(result, null, 2), {
+    const fileName = resolve('raw_results/' + result.title!.trim() + '.json');
+
+    await writeFile(fileName.replace('|', '_'), JSON.stringify(result, null, 2), {
       encoding: 'utf-8',
-    })
-      .then(() => {
-        console.log('Result written to: ' + fileName);
-      })
-      .catch(console.error);
+    }).then(() => {
+      console.log('Result written to: ' + fileName);
+    });
   }
 );
 

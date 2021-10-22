@@ -24,8 +24,8 @@
     "build": "bob-esbuild build -i src/schema.ts --bundle --skipTsc",
     "prepack": "bob-esbuild build",
     "results": "bob-tsm --cjs src/results.ts",
-    "start": "bob-tsm src/start.ts",
-    "start-ez-fastify": "bob-tsm src/start-ez-fastify.ts"
+    "start": "bob-tsm --node-env=prod src/start.ts",
+    "start-ez-fastify": "bob-tsm --node-env=prod src/start-ez-fastify.ts"
   },
   "dependencies": {
     "@graphql-tools/schema": "^8.3.0",
@@ -42,7 +42,7 @@
     "mkdirp": "^1.0.4",
     "require-env-variable": "^3.1.2",
     "rimraf": "^3.0.2",
-    "systeminformation": "^5.9.7",
+    "systeminformation": "^5.9.8",
     "typescript": "^4.4.4",
     "wait-on": "^6.0.0"
   },
@@ -53,10 +53,10 @@
     "@types/faker": "^5.5.9",
     "@types/md5": "^2.3.1",
     "@types/mkdirp": "^1.0.2",
-    "@types/node": "^16.11.1",
+    "@types/node": "^16.11.3",
     "@types/rimraf": "^3.0.2",
     "@types/wait-on": "^5.3.1",
     "bob-esbuild-cli": "^2.0.0",
-    "bob-tsm": "0.2.3"
+    "bob-tsm": "0.3.0"
   }
 }
