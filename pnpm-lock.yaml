@@ -715,10 +715,18 @@ importers:
 
   examples/nuxt3/complete:
     specifiers:
+      '@graphql-ez/nuxt': workspace:^0.1.0
+      '@graphql-ez/plugin-codegen': workspace:^0.7.4
+      '@graphql-ez/plugin-schema': workspace:^0.8.0
+      graphql: 15.4.0-experimental-stream-defer.1
+      graphql-ez: workspace:^0.13.2
       nuxt3: ^3.0.0-27257216.f5aea9f
-      unenv: ^0.4.0
     dependencies:
-      unenv: 0.4.0
+      '@graphql-ez/nuxt': link:../../../packages/nuxt/main
+      '@graphql-ez/plugin-codegen': link:../../../packages/plugin/codegen
+      '@graphql-ez/plugin-schema': link:../../../packages/plugin/schema
+      graphql: 15.4.0-experimental-stream-defer.1
+      graphql-ez: link:../../../packages/core/main
     devDependencies:
       nuxt3: 3.0.0-27257216.f5aea9f_esbuild@0.13.10
 
@@ -1483,6 +1491,29 @@ importers:
       graphql: 15.4.0-experimental-stream-defer.1
       graphql-ez: link:../../core/main
       next: 12.0.1
+
+  packages/nuxt/main:
+    specifiers:
+      '@graphql-ez/utils': workspace:^0.1.2
+      '@types/node': '>=16.11.1'
+      changesets-github-release: ^0.0.4
+      graphql: 15.4.0-experimental-stream-defer.1
+      graphql-ez: workspace:^0.13.2
+      h3: ^0.3.3
+      jest: ^27.3.1
+      nuxt3: ^3.0.0-27255771.f78ec93
+      typescript: '>=4.4.4'
+    dependencies:
+      '@graphql-ez/utils': link:../../core/utils
+      h3: 0.3.3
+    devDependencies:
+      '@types/node': 16.11.6
+      changesets-github-release: 0.0.4
+      graphql: 15.4.0-experimental-stream-defer.1
+      graphql-ez: link:../../core/main
+      jest: 27.3.1
+      nuxt3: 3.0.0-27257216.f5aea9f_esbuild@0.13.10
+      typescript: 4.4.4
 
   packages/plugin/altair:
     specifiers:
@@ -5202,7 +5233,7 @@ packages:
       hookable: 5.0.0
       jiti: 1.12.9
       lodash.template: 4.5.0
-      mlly: 0.3.7
+      mlly: 0.3.10
       pathe: 0.2.0
       pkg-types: 0.2.3
       rc9: 1.2.0
@@ -5255,7 +5286,7 @@ packages:
       jiti: 1.12.9
       listhen: 0.2.5
       mime: 2.5.2
-      mlly: 0.3.7
+      mlly: 0.3.10
       node-fetch: 2.6.5
       ohmyfetch: 0.4.2
       ora: 6.0.1
@@ -5341,7 +5372,7 @@ packages:
       lodash-es: 4.17.21
       memfs: 3.3.0
       mini-css-extract-plugin: 2.4.3_webpack@5.60.0
-      mlly: 0.3.7
+      mlly: 0.3.10
       pathe: 0.2.0
       pify: 5.0.0
       postcss: 8.3.11
@@ -7765,6 +7796,7 @@ packages:
     dependencies:
       base64-js: 1.5.1
       ieee754: 1.2.1
+    dev: true
 
   /builtin-modules/3.2.0:
     resolution: {integrity: sha512-lGzLKcioL90C7wMczpkY0n/oART3MbBa8R9OFGE1rJxoVI86u4WAGfEk8Wjv10eKSyTHVGkSo3bvBylCEtk7LA==}
@@ -9062,6 +9094,7 @@ packages:
 
   /defu/5.0.0:
     resolution: {integrity: sha512-VHg73EDeRXlu7oYWRmmrNp/nl7QkdXUxkQQKig0Zk8daNmm84AbGoC8Be6/VVLJEKxn12hR0UBmz8O+xQiAPKQ==}
+    dev: true
 
   /del/5.1.0:
     resolution: {integrity: sha512-wH9xOVHnczo9jN2IW68BabcecVPxacIA3g/7z6vhSU/4stOKQzeCRK0yD0A24WiAAUJmmVpWqrERcTxnLo3AnA==}
@@ -10955,7 +10988,6 @@ packages:
 
   /h3/0.3.3:
     resolution: {integrity: sha512-ammvVddtZArv6pnCkl0tEekY8owWPZNZCW4teePYzGwfN2w7kb0wnraLIFnB20mqUU2kCAV5bvI+2mjmGztS3w==}
-    dev: true
 
   /hard-rejection/2.1.0:
     resolution: {integrity: sha512-VIZB+ibDhx7ObhAe7OVtoEbuP4h/MuOTHJ+J8h/eBXotJYl0fBgR72xDFCKgIh22OJZIOVNxBMWuhAr10r8HdA==}
@@ -13421,6 +13453,7 @@ packages:
     resolution: {integrity: sha512-tqkh47FzKeCPD2PUiPB6pkbMzsCasjxAfC62/Wap5qrUWcb+sFasXUC5I3gYM5iBM8v/Qpn4UK0x+j0iHyFPDg==}
     engines: {node: '>=4.0.0'}
     hasBin: true
+    dev: true
 
   /mimic-fn/2.1.0:
     resolution: {integrity: sha512-OqbOk5oEQeAZ8WXWydlu9HJjz9WVdEIvamMCcXmuqUYjTknH/sqsWvhQ3vgwKFRR1HpjvNBKQ37nbJgYzGqGcg==}
@@ -13566,10 +13599,6 @@ packages:
 
   /mlly/0.3.10:
     resolution: {integrity: sha512-vD3A7naDtIOqHYZhnYUrECRO6UODWNqz6T0TS/pxwolzVoWKX/mXJF1XSM3qxruCDtkzJbzJPgesByihY/r3EA==}
-    dev: true
-
-  /mlly/0.3.7:
-    resolution: {integrity: sha512-5UZh8U13T3k88dlXMx/Qq+PU6AKPE+MR40ap9jEs8btslKhCI+IFYSRRhPiTw1k3fsoePGKgNSmW2rgJOMIF9A==}
     dev: true
 
   /modern-normalize/1.1.0:
@@ -14189,7 +14218,7 @@ packages:
       hash-sum: 2.0.0
       hookable: 5.0.0
       ignore: 5.1.8
-      mlly: 0.3.7
+      mlly: 0.3.10
       murmurhash-es: 0.1.1
       nuxi: /nuxi-edge/3.0.0-27257216.f5aea9f
       ohmyfetch: 0.4.2
@@ -18213,6 +18242,7 @@ packages:
       process: 0.11.10
       upath: 2.0.1
       util: 0.12.4
+    dev: true
 
   /unfetch/4.2.0:
     resolution: {integrity: sha512-F9p7yYCn6cIW9El1zi0HI6vqpeIvBsr3dSuRO6Xuppb1u5rXpCPmMvLSyECLhybr9isec8Ohl0hPekMVrEinDA==}
@@ -18442,6 +18472,7 @@ packages:
   /upath/2.0.1:
     resolution: {integrity: sha512-1uEe95xksV1O0CYKXo8vQvN1JEbtJp7lb7C5U9HMsIp6IVwntkH/oNUzyVNQSd4S1sYk2FpSSW44FqMc8qee5w==}
     engines: {node: '>=4'}
+    dev: true
 
   /upper-case-first/2.0.2:
     resolution: {integrity: sha512-514ppYHBaKwfJRK/pNC6c/OxfGa0obSnAl106u97Ed0I625Nin96KAjttZF6ZL3e1XLtphxnqrOi9iWgm+u+bg==}
