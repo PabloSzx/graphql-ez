@@ -1918,9 +1918,9 @@ importers:
       bob-esbuild-cli: ^2.0.0
       graphql: 15.4.0-experimental-stream-defer.1
       graphql-ez: workspace:^0.13.2
-      graphql-middleware: ^6.1.10
+      graphql-middleware: ^6.1.11
     dependencies:
-      '@envelop/graphql-middleware': 1.0.0_3c8d6577ac7cc34bf548e7a7d26b0914
+      '@envelop/graphql-middleware': 1.0.0_29f8ca4e2946710ff2ec5b8ce85754d8
       '@graphql-ez/plugin-codegen': link:../../packages/plugin/codegen
       '@graphql-ez/plugin-graphiql': link:../../packages/plugin/graphiql
       '@graphql-ez/plugin-schema': link:../../packages/plugin/schema
@@ -1929,7 +1929,7 @@ importers:
       '@graphql-ez/utils': link:../../packages/core/utils
       '@graphql-tools/mock': 8.4.2_34dd13c2583fe2e4418c23a0d30fc388
       '@graphql-tools/utils': 8.5.1_34dd13c2583fe2e4418c23a0d30fc388
-      graphql-middleware: 6.1.10_34dd13c2583fe2e4418c23a0d30fc388
+      graphql-middleware: 6.1.11_34dd13c2583fe2e4418c23a0d30fc388
     devDependencies:
       bob-esbuild-cli: 2.0.0_bob-esbuild@2.1.1
       graphql: 15.4.0-experimental-stream-defer.1
@@ -3891,14 +3891,14 @@ packages:
       tiny-lru: 7.0.6
     dev: false
 
-  /@envelop/graphql-middleware/1.0.0_3c8d6577ac7cc34bf548e7a7d26b0914:
+  /@envelop/graphql-middleware/1.0.0_29f8ca4e2946710ff2ec5b8ce85754d8:
     resolution: {integrity: sha512-l8CNoZao+fTMMpsXRpqDL7YqaBKN2377vZqMgB9jBZT6YmErZtfq3c9NeJVnDG1saImvbsqZAYmPfThP8+Wicg==}
     peerDependencies:
       graphql: ^14.0.0 || ^15.0.0
       graphql-middleware: ^6.0.0
     dependencies:
       graphql: 15.4.0-experimental-stream-defer.1
-      graphql-middleware: 6.1.10_34dd13c2583fe2e4418c23a0d30fc388
+      graphql-middleware: 6.1.11_34dd13c2583fe2e4418c23a0d30fc388
     dev: false
 
   /@envelop/graphql-modules/1.0.0_0c945fa5c9e66debae3ebde31cc717a9:
@@ -9377,8 +9377,8 @@ packages:
       graphql-language-service-types: 1.8.2_34dd13c2583fe2e4418c23a0d30fc388
     dev: true
 
-  /graphql-middleware/6.1.10_34dd13c2583fe2e4418c23a0d30fc388:
-    resolution: {integrity: sha512-+vt0aODW9Mz1uZgdnsE3URT4IDUeLGsYYAgIK6jvtBFjBcKhQUWFL0Qjo4jYa/SLuUtrnDsef6nXseOXbye8CQ==}
+  /graphql-middleware/6.1.11_34dd13c2583fe2e4418c23a0d30fc388:
+    resolution: {integrity: sha512-5thAGtAQmuKHsUkGtUFsqqtF78mWcWn//a/8bLaRnCmsQ6gjt+HBcGXmtZgbjmOfQ/UrrgGfwPV2+6w4TahGZA==}
     peerDependencies:
       graphql: ^0.12.0 || ^0.13.0 || ^14.0.0 || ^15.0.0
     dependencies:
