@@ -14,7 +14,8 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "types": ["node", "@emotion/react/types/css-prop"],
-    "importsNotUsedAsValues": "error"
+    "importsNotUsedAsValues": "error",
+    "incremental": true
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
   "exclude": ["node_modules"]
