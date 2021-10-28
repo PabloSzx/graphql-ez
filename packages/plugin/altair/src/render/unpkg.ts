@@ -72,7 +72,7 @@ export const renderAltair = async (options: RenderOptions = {}) => {
 };
 
 export const UnpkgRender: AltairRender = async ({ baseURL, url, altairPath, renderOptions, raw }) => {
-  switch (url && withoutTrailingSlash(url)) {
+  switch (url && withoutTrailingSlash(new URL(url, 'http://_').pathname)) {
     case withoutTrailingSlash(altairPath):
     case withoutTrailingSlash(baseURL):
       return {

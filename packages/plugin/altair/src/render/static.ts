@@ -24,7 +24,7 @@ const AltairDeps = LazyPromise(async () => {
 export const StaticRender: AltairRender = async ({ baseURL, url, altairPath, renderOptions }) => {
   const { renderAltair, getDistDirectory, resolve, readFile, lookup } = await AltairDeps;
 
-  switch (url && withoutTrailingSlash(url)) {
+  switch (url && withoutTrailingSlash(new URL(url, 'http://_').pathname)) {
     case withoutTrailingSlash(altairPath):
     case withoutTrailingSlash(baseURL):
       return {
