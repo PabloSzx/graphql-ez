@@ -1259,7 +1259,7 @@ importers:
       copy-to-clipboard: ^3.3.1
       cpy: ^8.1.2
       esbuild: ^0.13.10
-      graphiql: ^1.4.2
+      graphiql: ^1.4.4
       graphql: 15.4.0-experimental-stream-defer.1
       graphql-ez: workspace:^0.13.2
       graphql-language-service-interface: ^2.8.4
@@ -1285,7 +1285,7 @@ importers:
       copy-to-clipboard: 3.3.1
       cpy: 8.1.2
       esbuild: 0.13.10
-      graphiql: 1.4.2_10f978fe9fdf0de018eb44e01ac2a42f
+      graphiql: 1.4.4_10f978fe9fdf0de018eb44e01ac2a42f
       graphql: 15.4.0-experimental-stream-defer.1
       graphql-ez: link:../../core/main
       graphql-language-service-interface: 2.8.4_34dd13c2583fe2e4418c23a0d30fc388
@@ -3965,6 +3965,19 @@ packages:
       - utf-8-validate
     dev: true
 
+  /@graphiql/toolkit/0.3.1_b56b557014dcbdb229f6af368f56c9e3:
+    resolution: {integrity: sha512-Aiiv8i/xGExx9Kju47nAiL9GscDQFFnTL0o338TKSm3UBodExee59Sf+sCRRXU7jNnSzLmAA4TetvcfmjVsLXA==}
+    peerDependencies:
+      graphql: '>= v14.5.0 <= 15.6.1'
+    dependencies:
+      '@n1ru4l/push-pull-async-iterable-iterator': 3.0.0
+      graphql: 15.4.0-experimental-stream-defer.1
+      graphql-ws: 4.9.0_34dd13c2583fe2e4418c23a0d30fc388
+      meros: 1.1.4_@types+node@16.11.6
+    transitivePeerDependencies:
+      - '@types/node'
+    dev: true
+
   /@graphql-codegen/core/2.2.0_34dd13c2583fe2e4418c23a0d30fc388:
     resolution: {integrity: sha512-xy0t0riVM6Lrv7wAL9vCvX+iJIQyEry/Up83JMtcSPhKWXbWOWGKQp2G0pJ1tZNvNdz4jO59/f8AiBsThwUEGg==}
     peerDependencies:
@@ -4928,6 +4941,11 @@ packages:
   /@n1ru4l/push-pull-async-iterable-iterator/2.1.4:
     resolution: {integrity: sha512-qLIvoOUJ+zritv+BlzcBMePKNjKQzH9Rb2i9W98YXxf/M62Lye8qH0peyiU8yJ1tL0kfulWi31BoK10E6BKJeA==}
     engines: {node: '>=10'}
+    dev: true
+
+  /@n1ru4l/push-pull-async-iterable-iterator/3.0.0:
+    resolution: {integrity: sha512-gwoIwo/Dt1GOI+lbcG1G7IeRM2K+Fo0op3OGyFJ4tXUCf2a3Q8lUCm81aoevrXC0nu4gbAXeOWy7wWxjpSvZUw==}
+    engines: {node: '>=12'}
     dev: true
 
   /@napi-rs/triples/1.0.3:
@@ -9267,28 +9285,26 @@ packages:
     resolution: {integrity: sha512-bzh50DW9kTPM00T8y4o8vQg89Di9oLJVLW/KaOGIXJWP/iqCN6WKYkbNOF04vFLJhwcpYUh9ydh/+5vpOqV4YQ==}
     dev: true
 
-  /graphiql/1.4.2_10f978fe9fdf0de018eb44e01ac2a42f:
-    resolution: {integrity: sha512-TQDuuU/ZqTWV1yQDpVEiKskg0IYA+Wck37DYrrFzLlpgZWRbWiyab1PyHKiRep7J540CgScBg6C/gGCymKyO3g==}
+  /graphiql/1.4.4_10f978fe9fdf0de018eb44e01ac2a42f:
+    resolution: {integrity: sha512-uauk+GnWZAWxAdksyq/NqJgg9UoNVnpn6qna3Gr0mmjy2hAjLjycdKmLyoTt/6ip9DPeJIvW4+CE3jaaKFYl5w==}
     peerDependencies:
       graphql: '>= v14.5.0 <= 15.5.0'
       react: ^16.8.0
       react-dom: ^16.8.0
     dependencies:
-      '@graphiql/toolkit': 0.2.2_b56b557014dcbdb229f6af368f56c9e3
+      '@graphiql/toolkit': 0.3.1_b56b557014dcbdb229f6af368f56c9e3
       codemirror: 5.63.3
       codemirror-graphql: 1.0.2_b7d66d9c41e3f000670673fd74bb99a6
       copy-to-clipboard: 3.3.1
       dset: 3.1.1
       entities: 2.2.0
       graphql: 15.4.0-experimental-stream-defer.1
-      graphql-language-service: 3.1.4_34dd13c2583fe2e4418c23a0d30fc388
+      graphql-language-service: 3.1.5_34dd13c2583fe2e4418c23a0d30fc388
       markdown-it: 10.0.0
       react: 17.0.2
       react-dom: 17.0.2_react@17.0.2
     transitivePeerDependencies:
       - '@types/node'
-      - bufferutil
-      - utf-8-validate
     dev: true
 
   /graphql-helix/1.8.4_34dd13c2583fe2e4418c23a0d30fc388:
@@ -9366,8 +9382,8 @@ packages:
       nullthrows: 1.1.1
     dev: true
 
-  /graphql-language-service/3.1.4_34dd13c2583fe2e4418c23a0d30fc388:
-    resolution: {integrity: sha512-AF98AT4wLxkE9q1gRf20Yn0EPgd5SctRiw1IkGFivPr98pEX0sKqUcIcIHePn2mxqf73jlWUJV5v6l/CB1gdqQ==}
+  /graphql-language-service/3.1.5_34dd13c2583fe2e4418c23a0d30fc388:
+    resolution: {integrity: sha512-q6HCfppHwfwsJ11XW2bvgV23hysf30LCQDjnD+LMtYV3fqm/LoJhtW1aSprqJh5toHmQYxjnDNTGafBecOPZgg==}
     hasBin: true
     peerDependencies:
       graphql: '>= v14.5.0 <= 15.5.0'
