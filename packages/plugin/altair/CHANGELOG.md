@@ -1,5 +1,11 @@
 # @graphql-ez/plugin-altair
 
+## 0.9.4
+
+### Patch Changes
+
+- 9c38a60e: Strip search params from path matching
+
 ## 0.9.3
 
 ### Patch Changes
