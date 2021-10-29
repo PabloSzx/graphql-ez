@@ -1244,7 +1244,7 @@ importers:
 
   packages/helix/graphiql:
     specifiers:
-      '@graphiql/toolkit': ^0.3.1
+      '@graphiql/toolkit': ^0.3.2
       '@graphql-ez/utils': workspace:^0.1.2
       '@graphql-tools/url-loader': ^7.4.2
       '@graphql-tools/utils': ^8.5.1
@@ -1271,7 +1271,7 @@ importers:
     dependencies:
       '@graphql-ez/utils': link:../../core/utils
     devDependencies:
-      '@graphiql/toolkit': 0.3.1_b56b557014dcbdb229f6af368f56c9e3
+      '@graphiql/toolkit': 0.3.2_b56b557014dcbdb229f6af368f56c9e3
       '@graphql-tools/url-loader': 7.4.2_b56b557014dcbdb229f6af368f56c9e3
       '@graphql-tools/utils': 8.5.1_34dd13c2583fe2e4418c23a0d30fc388
       '@n1ru4l/graphql-live-query': 0.8.1_34dd13c2583fe2e4418c23a0d30fc388
@@ -3948,8 +3948,8 @@ packages:
       graphql: 15.4.0-experimental-stream-defer.1
     dev: false
 
-  /@graphiql/toolkit/0.3.1_b56b557014dcbdb229f6af368f56c9e3:
-    resolution: {integrity: sha512-Aiiv8i/xGExx9Kju47nAiL9GscDQFFnTL0o338TKSm3UBodExee59Sf+sCRRXU7jNnSzLmAA4TetvcfmjVsLXA==}
+  /@graphiql/toolkit/0.3.2_b56b557014dcbdb229f6af368f56c9e3:
+    resolution: {integrity: sha512-IweIT9VC8uDovg7kuCO9YqZcnIuWU8IGzrpUisXv6CUNK2Ed1ke8yERDTMmF/rjvLd2DeVZwM8iEOjEs4sUJQw==}
     peerDependencies:
       graphql: '>= v14.5.0 <= 15.6.1'
     dependencies:
@@ -9270,7 +9270,7 @@ packages:
       react: ^16.8.0
       react-dom: ^16.8.0
     dependencies:
-      '@graphiql/toolkit': 0.3.1_b56b557014dcbdb229f6af368f56c9e3
+      '@graphiql/toolkit': 0.3.2_b56b557014dcbdb229f6af368f56c9e3
       codemirror: 5.63.3
       codemirror-graphql: 1.0.2_b7d66d9c41e3f000670673fd74bb99a6
       copy-to-clipboard: 3.3.1
