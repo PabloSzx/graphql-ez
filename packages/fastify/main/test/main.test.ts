@@ -5,6 +5,7 @@ import {
   expectCommonServerSideEventSubscription,
   PingSubscription,
   startFastifyServer,
+  testIfStreamDefer,
 } from 'graphql-ez-testing';
 
 test.concurrent('basic', async () => {
@@ -145,7 +146,7 @@ test.concurrent('basic', async () => {
   `);
 });
 
-test.concurrent('query with @stream', async () => {
+testIfStreamDefer('query with @stream', async () => {
   const { address } = await startFastifyServer({
     createOptions: {
       schema: [CommonSchema.schema],

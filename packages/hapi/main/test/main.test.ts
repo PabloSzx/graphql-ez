@@ -6,6 +6,7 @@ import {
   startHapiServer,
   expectCommonQueryStream,
   expectCommonServerSideEventSubscription,
+  testIfStreamDefer,
 } from 'graphql-ez-testing';
 
 test.concurrent('basic', async () => {
@@ -146,7 +147,7 @@ test.concurrent('basic', async () => {
   `);
 });
 
-test.concurrent('query with @stream', async () => {
+testIfStreamDefer('query with @stream', async () => {
   const { address } = await startHapiServer({
     createOptions: {
       schema: [CommonSchema.schema],

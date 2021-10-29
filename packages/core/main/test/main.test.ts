@@ -7,6 +7,7 @@ import {
   useSchema,
   expectCommonQueryStream,
   expectCommonServerSideEventSubscription,
+  testIfStreamDefer,
 } from 'graphql-ez-testing';
 
 import { useExtendContext } from '@envelop/core';
@@ -85,7 +86,7 @@ test.concurrent('batched queries', async () => {
   `);
 });
 
-test.concurrent('query with @stream', async () => {
+testIfStreamDefer('query with @stream', async () => {
   const { address } = await startFastifyServer({
     createOptions: {
       schema: [CommonSchema.schema],

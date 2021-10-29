@@ -28,6 +28,7 @@ export * from './testQueryStream';
 export * from './testServerSideEvents';
 export * from './upload';
 export * from './ws';
+export * from './streamDeferTest';
 
 export interface StartTestServerOptions<CreateOptions extends AppOptions, BuildOptions extends BuildAppOptions> {
   createOptions?: Omit<CreateOptions, 'schema'> & EZSchemaOptions;

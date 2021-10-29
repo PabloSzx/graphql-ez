@@ -208,7 +208,7 @@ export const processRequest = async <TContext = {}, TRootValue = {}>(
 
           // Operations that use @defer, @stream and @live will return an `AsyncIterable` instead of an
           // execution result.
-          if (isAsyncIterable<unknown>(result)) {
+          if (isAsyncIterable<Record<string, any>>(result)) {
             return {
               type: isEventStream ? 'PUSH' : 'MULTIPART_RESPONSE',
               subscribe: async onResult => {

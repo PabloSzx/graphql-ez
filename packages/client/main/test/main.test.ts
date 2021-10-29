@@ -5,6 +5,7 @@ import {
   startFastifyServer,
   TearDownPromises,
   LazyPromise,
+  testIfStreamDefer,
 } from 'graphql-ez-testing';
 
 import { ezGraphQLModules } from '@graphql-ez/plugin-modules';
@@ -210,7 +211,7 @@ test.concurrent('legacy websockets', async () => {
   await (await websockets.client).dispose();
 });
 
-test.concurrent('query stream with @stream', async () => {
+testIfStreamDefer('query stream with @stream', async () => {
   const { address } = await startFastifyServer({
     createOptions: {
       prepare(appBuilder) {
