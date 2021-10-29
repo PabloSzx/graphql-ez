@@ -36,7 +36,7 @@
     "dev:mjs:yoga:express": "pnpm -r --filter @graphql-yoga/express dev -- --onSuccess \"cross-env PORT=3008 pnpm -r --filter example-yoga-express dev:mjs\"",
     "dev:next": "pnpm -r --filter @graphql-ez/nextjs dev -- --onSuccess \"pnpm -r --filter example-complete-nextjs dev -- -p 3006\"",
     "postinstall": "node patch.cjs",
-    "prepare": "husky install && bob-esbuild tsc && pnpm -r prepack",
+    "prepare": "husky install && bob-esbuild tsc && (pnpm -r prepack || exit 0)",
     "pretty": "prettier --write \"**/*.{ts,tsx,json,yaml,js,cjs,mjs,mdx,md}\"",
     "pretty:check": "prettier --check \"**/*.{ts,tsx,json,yaml,js,cjs,mjs,mdx}\"",
     "test": "jest",

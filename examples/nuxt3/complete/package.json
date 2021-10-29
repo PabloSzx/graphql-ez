@@ -1,0 +1,18 @@
+{
+  "private": true,
+  "scripts": {
+    "dev": "nuxt dev",
+    "build": "nuxt build",
+    "start": "node .output/server/index.mjs"
+  },
+  "devDependencies": {
+    "nuxt3": "^3.0.0-27257216.f5aea9f"
+  },
+  "dependencies": {
+    "@graphql-ez/nuxt": "workspace:^0.1.0",
+    "@graphql-ez/plugin-codegen": "workspace:^0.7.4",
+    "@graphql-ez/plugin-schema": "workspace:^0.8.0",
+    "graphql": "15.4.0-experimental-stream-defer.1",
+    "graphql-ez": "workspace:^0.13.2"
+  }
+}

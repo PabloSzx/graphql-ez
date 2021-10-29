@@ -1,0 +1,64 @@
+{
+  "name": "@graphql-ez/nuxt",
+  "version": "0.1.0",
+  "homepage": "https://www.graphql-ez.com",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/PabloSzx/graphql-ez",
+    "directory": "packages/nuxt"
+  },
+  "license": "MIT",
+  "author": "PabloSz <pablosaez1995@gmail.com>",
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "require": "./dist/index.js",
+      "import": "./dist/index.mjs"
+    },
+    "./*": {
+      "require": "./dist/*.js",
+      "import": "./dist/*.mjs"
+    }
+  },
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "dev": "bob-esbuild watch",
+    "prepack": "bob-esbuild build",
+    "postpublish": "gh-release"
+  },
+  "dependencies": {
+    "@graphql-ez/utils": "workspace:^0.1.2",
+    "h3": "^0.3.3"
+  },
+  "devDependencies": {
+    "@types/node": "^16.11.3",
+    "changesets-github-release": "^0.0.4",
+    "graphql": "15.4.0-experimental-stream-defer.1",
+    "graphql-ez": "workspace:^0.13.2",
+    "jest": "^27.3.1",
+    "nuxt3": "^3.0.0-27255771.f78ec93",
+    "typescript": "^4.4.4"
+  },
+  "peerDependencies": {
+    "@types/node": "*",
+    "graphql": "*",
+    "graphql-ez": "workspace:^0.13.2",
+    "nuxt3": "*"
+  },
+  "peerDependenciesMeta": {
+    "graphql": {
+      "optional": true
+    },
+    "nuxt3": {
+      "optional": true
+    }
+  },
+  "engines": {
+    "node": "^12.20.0 || >=14.13.0"
+  },
+  "publishConfig": {
+    "directory": "dist"
+  }
+}
