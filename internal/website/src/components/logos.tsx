@@ -13,19 +13,14 @@ import WorktopLogoImage from '../../public/assets/logos/worktop.png';
 import SvelteKitLogoImage from '../../public/assets/logos/sveltekit.webp';
 import VercelLogoImage from '../../public/assets/logos/vercel.png';
 
-export type LogoImageProps = Partial<Omit<ImageProps, 'src' | 'blurDataURL'>>;
+export type LogoImageProps = Partial<Omit<ImageProps, 'src' | 'blurDataURL'>> & { className: string };
 
-export const baseLogoStyles: LogoImageProps = {
-  css: {
-    backgroundColor: 'white',
-    borderRadius: '10px',
-    objectFit: 'contain',
-    padding: '3px !important',
-  },
+export const baseLogoStyles: Partial<LogoImageProps> = {
   layout: 'intrinsic',
   width: '110px',
   height: '50px',
   placeholder: 'blur',
+  objectFit: 'contain',
 };
 
 export const ExpressLogo = (props: LogoImageProps) => {
