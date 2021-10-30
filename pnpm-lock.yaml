@@ -1905,7 +1905,7 @@ importers:
 
   yoga/preset:
     specifiers:
-      '@envelop/graphql-middleware': ^1.0.0
+      '@envelop/graphql-middleware': ^1.1.0
       '@graphql-ez/plugin-codegen': workspace:^0.7.4
       '@graphql-ez/plugin-graphiql': workspace:^0.10.2
       '@graphql-ez/plugin-schema': workspace:^0.8.0
@@ -1919,7 +1919,7 @@ importers:
       graphql-ez: workspace:^0.13.2
       graphql-middleware: ^6.1.11
     dependencies:
-      '@envelop/graphql-middleware': 1.0.0_29f8ca4e2946710ff2ec5b8ce85754d8
+      '@envelop/graphql-middleware': 1.1.0_29f8ca4e2946710ff2ec5b8ce85754d8
       '@graphql-ez/plugin-codegen': link:../../packages/plugin/codegen
       '@graphql-ez/plugin-graphiql': link:../../packages/plugin/graphiql
       '@graphql-ez/plugin-schema': link:../../packages/plugin/schema
@@ -3890,10 +3890,10 @@ packages:
       tiny-lru: 7.0.6
     dev: false
 
-  /@envelop/graphql-middleware/1.0.0_29f8ca4e2946710ff2ec5b8ce85754d8:
-    resolution: {integrity: sha512-l8CNoZao+fTMMpsXRpqDL7YqaBKN2377vZqMgB9jBZT6YmErZtfq3c9NeJVnDG1saImvbsqZAYmPfThP8+Wicg==}
+  /@envelop/graphql-middleware/1.1.0_29f8ca4e2946710ff2ec5b8ce85754d8:
+    resolution: {integrity: sha512-jCLVQTQzEtbtBbWHC/VUbameL/59jxi0qzsFuUill8fmMiq0ut6IoXZNjxftbZgbNsF7JnX9gVBNhJcFz6pFxA==}
     peerDependencies:
-      graphql: ^14.0.0 || ^15.0.0
+      graphql: ^14.0.0 || ^15.0.0 || ^16.0.0
       graphql-middleware: ^6.0.0
     dependencies:
       graphql: 15.4.0-experimental-stream-defer.1
