@@ -1574,7 +1574,7 @@ importers:
 
   packages/plugin/dataloader:
     specifiers:
-      '@envelop/dataloader': ^1.0.0
+      '@envelop/dataloader': ^1.1.0
       bob-esbuild-cli: ^2.0.0
       changesets-github-release: ^0.0.4
       dataloader: ^2.0.0
@@ -1583,7 +1583,7 @@ importers:
       jest: ^27.3.1
       ts-jest: ^27.0.7
     dependencies:
-      '@envelop/dataloader': 1.0.0_1e69ec074ba37991a02dc0e22dcbc7f5
+      '@envelop/dataloader': 1.1.0_1e69ec074ba37991a02dc0e22dcbc7f5
       dataloader: 2.0.0
     devDependencies:
       bob-esbuild-cli: 2.0.0_bob-esbuild@2.1.1
@@ -3870,11 +3870,11 @@ packages:
       '@envelop/types': 1.3.0_34dd13c2583fe2e4418c23a0d30fc388
       graphql: 15.4.0-experimental-stream-defer.1
 
-  /@envelop/dataloader/1.0.0_1e69ec074ba37991a02dc0e22dcbc7f5:
-    resolution: {integrity: sha512-4/uwE+hcbR3nZ2Z0x/szoif5sDLtRDUJpfu5EKkYA15T5sbncYNsNEac6sIAj54JmSLWBV2gCP3HdwThLeMC0Q==}
+  /@envelop/dataloader/1.1.0_1e69ec074ba37991a02dc0e22dcbc7f5:
+    resolution: {integrity: sha512-M+FU5/46jMOimfJP7mZ9cGaEAJfHfxgsvRqqHxdz4mk4eiB15XBhBcyZwOg49RmjErxY39aOza3Cwi/nscs/0Q==}
     peerDependencies:
       dataloader: ^2.0.0
-      graphql: ^14.0.0 || ^15.0.0
+      graphql: ^14.0.0 || ^15.0.0 || ^16.0.0
     dependencies:
       dataloader: 2.0.0
       graphql: 15.4.0-experimental-stream-defer.1
