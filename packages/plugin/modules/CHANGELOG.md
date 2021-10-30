@@ -1,5 +1,17 @@
 # @graphql-ez/plugin-modules
 
+## 0.9.0
+
+### Minor Changes
+
+- d512e36b: graphql-modules major update
+
+### Patch Changes
+
+- 0bc0dc8f: Bump Envelop
+- Updated dependencies [0bc0dc8f]
+  - graphql-ez@0.13.3
+
 ## 0.8.2
 
 ### Patch Changes
