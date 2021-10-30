@@ -1,5 +1,11 @@
 # @pablosz/graphql-helix-graphiql
 
+## 4.1.2
+
+### Patch Changes
+
+- 390ab83d: Update graphiql
+
 ## 4.1.1
 
 ### Patch Changes

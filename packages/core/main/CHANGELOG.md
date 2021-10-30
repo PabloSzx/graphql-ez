@@ -1,5 +1,11 @@
 # graphql-ez
 
+## 0.13.3
+
+### Patch Changes
+
+- 0bc0dc8f: Bump Envelop
+
 ## 0.13.2
 
 ### Patch Changes
