@@ -60,7 +60,7 @@ importers:
     specifiers:
       '@envelop/core': ^1.4.0
       '@envelop/graphql-jit': ^1.1.1
-      '@envelop/parser-cache': ^2.0.0
+      '@envelop/parser-cache': ^2.1.0
       '@envelop/types': ^1.3.0
       '@envelop/validation-cache': '*'
       '@types/node': '>=16.11.6'
@@ -73,7 +73,7 @@ importers:
     dependencies:
       '@envelop/core': 1.4.0_34dd13c2583fe2e4418c23a0d30fc388
       '@envelop/graphql-jit': 1.1.1_34dd13c2583fe2e4418c23a0d30fc388
-      '@envelop/parser-cache': 2.0.0_34dd13c2583fe2e4418c23a0d30fc388
+      '@envelop/parser-cache': 2.1.0_34dd13c2583fe2e4418c23a0d30fc388
       '@envelop/types': 1.3.0_34dd13c2583fe2e4418c23a0d30fc388
       '@envelop/validation-cache': 2.0.0_34dd13c2583fe2e4418c23a0d30fc388
       '@types/node': 16.11.6
@@ -3910,10 +3910,10 @@ packages:
       graphql-modules: 1.4.4_34dd13c2583fe2e4418c23a0d30fc388
     dev: false
 
-  /@envelop/parser-cache/2.0.0_34dd13c2583fe2e4418c23a0d30fc388:
-    resolution: {integrity: sha512-rfPeE2Wo85Dud2Q78cFa7bcSi8erOjEKt8yKY9m03TmwRc65GCyFHoFoPSKlH6BPg+zAN5Cp0nD/gxpefvCPZA==}
+  /@envelop/parser-cache/2.1.0_34dd13c2583fe2e4418c23a0d30fc388:
+    resolution: {integrity: sha512-e/Q4ccVLDgBgaNHl1M2JcDm4Gxzk+SdxmTvRS4kwGdBQTto3qQXaYo1i2n0nMGu3YTWnU4014w0ifGGtrtWZtQ==}
     peerDependencies:
-      graphql: ^14.0.0 || ^15.0.0
+      graphql: ^14.0.0 || ^15.0.0 || ^16.0.0
     dependencies:
       graphql: 15.4.0-experimental-stream-defer.1
       tiny-lru: 7.0.6
