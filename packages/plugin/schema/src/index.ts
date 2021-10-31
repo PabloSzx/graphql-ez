@@ -1,11 +1,9 @@
+import { cleanObject, toPlural } from '@graphql-ez/utils/object';
+import type * as GraphQLToolSchema from '@graphql-tools/schema';
+import type { IExecutableSchemaDefinition, MergeSchemasConfig } from '@graphql-tools/schema';
+import type { IResolvers, TypeSource } from '@graphql-tools/utils';
 import { DocumentNode, GraphQLSchema, isSchema } from 'graphql';
 import { EZContext, EZPlugin, EZResolvers, LazyPromise, useSchema } from 'graphql-ez';
-import { cleanObject, toPlural } from '@graphql-ez/utils/object';
-
-import type { IResolvers, TypeSource } from '@graphql-tools/utils';
-import type { IExecutableSchemaDefinition, MergeSchemasConfig } from '@graphql-tools/schema';
-
-import type * as GraphQLToolSchema from '@graphql-tools/schema';
 
 export interface EZExecutableSchemaDefinition<TContext = EZContext>
   extends Omit<IExecutableSchemaDefinition<TContext>, 'resolvers'> {
@@ -46,8 +44,73 @@ export interface RegisterTypeDefs {
   <TypeDefs extends [TypeSource, ...Array<TypeSource>]>(...typeDefs: TypeDefs): TypeDefs;
 }
 
+/**
+ * @comment Explicit function overload workaround until https://github.com/microsoft/TypeScript/issues/45617 is fixed
+ */
 export interface RegisterResolvers {
+  <Resolvers extends EZResolvers>(resolvers: Resolvers): [Resolvers];
+  <Resolvers extends EZResolvers, Resolvers2 extends EZResolvers>(resolvers: Resolvers, resolvers2: Resolvers2): [
+    Resolvers,
+    Resolvers2
+  ];
+  <Resolvers extends EZResolvers, Resolvers2 extends EZResolvers, Resolvers3 extends EZResolvers>(
+    resolvers: Resolvers,
+    resolvers2: Resolvers2,
+    resolvers3: Resolvers3
+  ): [Resolvers, Resolvers2, Resolvers3];
+  <Resolvers extends EZResolvers, Resolvers2 extends EZResolvers, Resolvers3 extends EZResolvers, Resolvers4 extends EZResolvers>(
+    resolvers: Resolvers,
+    resolvers2: Resolvers2,
+    resolvers3: Resolvers3,
+    resolvers4: Resolvers4
+  ): [Resolvers, Resolvers2, Resolvers3, Resolvers4];
+  <
+    Resolvers extends EZResolvers,
+    Resolvers2 extends EZResolvers,
+    Resolvers3 extends EZResolvers,
+    Resolvers4 extends EZResolvers,
+    Resolvers5 extends EZResolvers
+  >(
+    resolvers: Resolvers,
+    resolvers2: Resolvers2,
+    resolvers3: Resolvers3,
+    resolvers4: Resolvers4,
+    resolvers5: Resolvers5
+  ): [Resolvers, Resolvers2, Resolvers3, Resolvers4, Resolvers5];
   <Resolvers extends [EZResolvers, ...Array<EZResolvers>]>(...resolvers: Resolvers): Resolvers;
+}
+
+/**
+ * @comment Explicit function overload workaround until https://github.com/microsoft/TypeScript/issues/45617 is fixed
+ */
+export interface RegisterSchemas {
+  <Schemas extends EZSchema>(schemas: Schemas): [Schemas];
+  <Schemas extends EZSchema, Schemas2 extends EZSchema>(schemas: Schemas, schemas2: Schemas2): [Schemas, Schemas2];
+  <Schemas extends EZSchema, Schemas2 extends EZSchema, Schemas3 extends EZSchema>(
+    schemas: Schemas,
+    schemas2: Schemas2,
+    schemas3: Schemas3
+  ): [Schemas, Schemas2, Schemas3];
+  <Schemas extends EZSchema, Schemas2 extends EZSchema, Schemas3 extends EZSchema, Schemas4 extends EZSchema>(
+    schemas: Schemas,
+    schemas2: Schemas2,
+    schemas3: Schemas3,
+    schemas4: Schemas4
+  ): [Schemas, Schemas2, Schemas3, Schemas4];
+  <
+    Schemas extends EZSchema,
+    Schemas2 extends EZSchema,
+    Schemas3 extends EZSchema,
+    Schemas4 extends EZSchema,
+    Schemas5 extends EZSchema
+  >(
+    schemas: Schemas,
+    schemas2: Schemas2,
+    schemas3: Schemas3,
+    schemas4: Schemas4,
+    schemas5: Schemas5
+  ): [Schemas, Schemas2, Schemas3, Schemas4, Schemas5];
+  <Schemas extends [EZSchema, ...Array<EZSchema>]>(...schemas: Schemas): Schemas;
 }
 
 declare module 'graphql-ez' {
@@ -67,6 +130,7 @@ declare module 'graphql-ez' {
 
     registeredTypeDefs?: TypeSource[];
     registeredResolvers?: EZResolvers[];
+    registeredSchemas?: EZSchema[];
   }
 
   interface EZResolvers extends IResolvers<any, EZContext> {}
@@ -75,6 +139,8 @@ declare module 'graphql-ez' {
     registerTypeDefs: RegisterTypeDefs;
 
     registerResolvers: RegisterResolvers;
+
+    registerSchemas: RegisterSchemas;
   }
 }
 
@@ -108,6 +174,14 @@ export const ezSchema = (options: EZSchemaOptions = {}): EZPlugin => {
 
         return ezResolvers;
       }
+
+      function registerSchemas<Schemas extends [EZSchema, ...Array<EZSchema>]>(...schemas: Schemas): Schemas {
+        (ctx.registeredSchemas ||= []).push(...schemas);
+
+        return schemas;
+      }
+
+      ctx.appBuilder.registerSchemas = registerSchemas;
     },
     async onPreBuild(ctx) {
       const options = schemaPlugin.options;
@@ -119,10 +193,12 @@ export const ezSchema = (options: EZSchemaOptions = {}): EZPlugin => {
         ...toPlural(options.mergeSchemasConfig?.resolvers),
       ];
 
-      const schemaList =
-        ctx.options.schema && ctx.options.schema !== 'dynamic'
+      const schemaList = [
+        ...(ctx.registeredSchemas || []),
+        ...(ctx.options.schema && ctx.options.schema !== 'dynamic'
           ? [ctx.options.schema, ...toPlural(options.schema)]
-          : toPlural(options.schema);
+          : toPlural(options.schema)),
+      ];
 
       const registeredResolvers = ctx.registeredResolvers;
       const registeredTypeDefs = ctx.registeredTypeDefs;

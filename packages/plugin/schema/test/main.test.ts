@@ -1,6 +1,5 @@
-import { buildClientSchema, getIntrospectionQuery, IntrospectionQuery, printSchema } from 'graphql';
+import { buildClientSchema, getIntrospectionQuery, IntrospectionQuery, lexicographicSortSchema, printSchema } from 'graphql';
 import { CommonSchema, gql, makeExecutableSchema, startFastifyServer } from 'graphql-ez-testing';
-
 import { ezGraphQLModules } from '../../modules/src/index';
 import { ezScalars } from '../../scalars/src/index';
 import { ezSchema } from '../src';
@@ -50,6 +49,55 @@ test('registerResolvers works as expected', async () => {
           Query: {
             hello() {
               return 'OK';
+            },
+          },
+        });
+      },
+    },
+  });
+
+  expect(await query('{hello}')).toMatchInlineSnapshot(`
+Object {
+  "data": Object {
+    "hello": "OK",
+  },
+  "http": Object {
+    "headers": Object {
+      "connection": "keep-alive",
+      "content-length": "23",
+      "content-type": "application/json; charset=utf-8",
+      "keep-alive": "timeout=5",
+    },
+    "statusCode": 200,
+  },
+}
+`);
+});
+
+test('registerSchemas works as expected', async () => {
+  const { query } = await startFastifyServer({
+    createOptions: {
+      ez: {
+        plugins: [
+          ezSchema({
+            transformFinalSchema: lexicographicSortSchema,
+          }),
+        ],
+      },
+    },
+    buildOptions: {
+      prepare({ gql, registerSchemas }) {
+        registerSchemas({
+          typeDefs: gql`
+            type Query {
+              hello: String!
+            }
+          `,
+          resolvers: {
+            Query: {
+              hello() {
+                return 'OK';
+              },
             },
           },
         });
