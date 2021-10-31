@@ -14,8 +14,5 @@ module.exports = withBundleAnalyzer(
   withGuildDocs({
     i18n,
     getRoutes,
-    experimental: {
-      esmExternals: false,
-    },
   })
 );
