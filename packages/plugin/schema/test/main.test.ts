@@ -74,7 +74,7 @@ Object {
 `);
 });
 
-test('registerSchemas works as expected', async () => {
+test('registerSchema works as expected', async () => {
   const { query } = await startFastifyServer({
     createOptions: {
       ez: {
@@ -86,8 +86,8 @@ test('registerSchemas works as expected', async () => {
       },
     },
     buildOptions: {
-      prepare({ gql, registerSchemas }) {
-        registerSchemas({
+      prepare({ gql, registerSchema }) {
+        registerSchema({
           typeDefs: gql`
             type Query {
               hello: String!

@@ -140,7 +140,7 @@ declare module 'graphql-ez' {
 
     registerResolvers: RegisterResolvers;
 
-    registerSchemas: RegisterSchemas;
+    registerSchema: RegisterSchemas;
   }
 }
 
@@ -175,13 +175,13 @@ export const ezSchema = (options: EZSchemaOptions = {}): EZPlugin => {
         return ezResolvers;
       }
 
-      function registerSchemas<Schemas extends [EZSchema, ...Array<EZSchema>]>(...schemas: Schemas): Schemas {
+      function registerSchema<Schemas extends [EZSchema, ...Array<EZSchema>]>(...schemas: Schemas): Schemas {
         (ctx.registeredSchemas ||= []).push(...schemas);
 
         return schemas;
       }
 
-      ctx.appBuilder.registerSchemas = registerSchemas;
+      ctx.appBuilder.registerSchema = registerSchema;
     },
     async onPreBuild(ctx) {
       const options = schemaPlugin.options;
