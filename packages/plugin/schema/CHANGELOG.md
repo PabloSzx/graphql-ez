@@ -1,5 +1,11 @@
 # @graphql-ez/plugin-schema
 
+## 0.8.1
+
+### Patch Changes
+
+- fdd38795: Fix registerResolvers types auto-completion & add registerSchema helper
+
 ## 0.8.0
 
 ### Minor Changes
