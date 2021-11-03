@@ -823,7 +823,7 @@ importers:
       express: ^4.17.1
       fast-safe-stringify: ^2.1.1
       fastify: ^3.22.1
-      fastify-nextjs: ^6.0.0
+      fastify-nextjs: ^7.0.0
       form-data: ^4.0.0
       fs-extra: ^10.0.0
       get-port: ^5.1.1
@@ -861,7 +861,7 @@ importers:
       express: 4.17.1
       fast-safe-stringify: 2.1.1
       fastify: 3.22.1
-      fastify-nextjs: 6.0.0
+      fastify-nextjs: 7.0.0
       form-data: 4.0.0
       fs-extra: 10.0.0
       get-port: 5.1.1
@@ -8640,11 +8640,11 @@ packages:
   /fastify-error/0.3.1:
     resolution: {integrity: sha512-oCfpcsDndgnDVgiI7bwFKAun2dO+4h84vBlkWsWnz/OUK9Reff5UFoFl241xTiLeHWX/vU9zkDVXqYUxjOwHcQ==}
 
-  /fastify-nextjs/6.0.0:
-    resolution: {integrity: sha512-57lS13W4K5kymq8LsnGeYT37zSAMGkEeZaiKGY8CiiMulPmDwain1xK9WG/ELizpxHzhYVj9vTnITdGU3gWO6Q==}
+  /fastify-nextjs/7.0.0:
+    resolution: {integrity: sha512-IhJq48Aumku14sAhuZU8QQKn2MMjHEbJUOgPmGnV+EY3KSYSeOXaW190I3YwtxlgWGGzH51VHGsyX8cwYUK9hg==}
     engines: {node: '>=10'}
     peerDependencies:
-      next: 9.x.x || 10.x.x || 11.x.x
+      next: 9.x.x || 10.x.x || 11.x.x || 12.x.x
     dependencies:
       fastify-plugin: 3.0.0
       under-pressure: 5.8.0
