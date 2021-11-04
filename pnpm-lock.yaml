@@ -1248,7 +1248,7 @@ importers:
       '@graphql-ez/utils': workspace:^0.1.2
       '@graphql-tools/url-loader': ^7.5.1
       '@graphql-tools/utils': ^8.5.2
-      '@n1ru4l/graphql-live-query': ^0.8.2
+      '@n1ru4l/graphql-live-query': ^0.9.0
       '@types/prettier': ^2.4.1
       '@types/prop-types': ^15.7.4
       '@types/react': ^17.0.34
@@ -1274,7 +1274,7 @@ importers:
       '@graphiql/toolkit': 0.3.2_b56b557014dcbdb229f6af368f56c9e3
       '@graphql-tools/url-loader': 7.5.1_b56b557014dcbdb229f6af368f56c9e3
       '@graphql-tools/utils': 8.5.2_34dd13c2583fe2e4418c23a0d30fc388
-      '@n1ru4l/graphql-live-query': 0.8.2_34dd13c2583fe2e4418c23a0d30fc388
+      '@n1ru4l/graphql-live-query': 0.9.0_34dd13c2583fe2e4418c23a0d30fc388
       '@types/prettier': 2.4.1
       '@types/prop-types': 15.7.4
       '@types/react': 17.0.34
@@ -4872,6 +4872,14 @@ packages:
     resolution: {integrity: sha512-StBuj5gxoVbFx2axvJF6ArnHVqVnibYeekRjO2T1KbUWyR+SbxaqDg9E3Ch9XkJnQAb+7HKW2JSUc+jnuqsXxQ==}
     peerDependencies:
       graphql: ^15.4.0
+    dependencies:
+      graphql: 15.4.0-experimental-stream-defer.1
+    dev: true
+
+  /@n1ru4l/graphql-live-query/0.9.0_34dd13c2583fe2e4418c23a0d30fc388:
+    resolution: {integrity: sha512-BTpWy1e+FxN82RnLz4x1+JcEewVdfmUhV1C6/XYD5AjS7PQp9QFF7K8bCD6gzPTr2l+prvqOyVueQhFJxB1vfg==}
+    peerDependencies:
+      graphql: ^15.4.0 || ^16.0.0
     dependencies:
       graphql: 15.4.0-experimental-stream-defer.1
     dev: true
