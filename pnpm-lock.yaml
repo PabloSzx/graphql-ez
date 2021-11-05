@@ -1530,7 +1530,7 @@ importers:
       '@graphql-codegen/core': ^2.3.0
       '@graphql-codegen/plugin-helpers': ^2.3.1
       '@graphql-codegen/typed-document-node': ^2.2.0
-      '@graphql-codegen/typescript': ^2.3.0
+      '@graphql-codegen/typescript': ^2.3.1
       '@graphql-codegen/typescript-operations': ^2.2.0
       '@graphql-codegen/typescript-resolvers': ^2.4.0
       '@graphql-ez/utils': workspace:^0.1.2
@@ -1552,7 +1552,7 @@ importers:
       '@graphql-codegen/core': 2.3.0_34dd13c2583fe2e4418c23a0d30fc388
       '@graphql-codegen/plugin-helpers': 2.3.1_34dd13c2583fe2e4418c23a0d30fc388
       '@graphql-codegen/typed-document-node': 2.2.0_34dd13c2583fe2e4418c23a0d30fc388
-      '@graphql-codegen/typescript': 2.3.0_34dd13c2583fe2e4418c23a0d30fc388
+      '@graphql-codegen/typescript': 2.3.1_34dd13c2583fe2e4418c23a0d30fc388
       '@graphql-codegen/typescript-operations': 2.2.0_34dd13c2583fe2e4418c23a0d30fc388
       '@graphql-codegen/typescript-resolvers': 2.4.0_34dd13c2583fe2e4418c23a0d30fc388
       '@graphql-ez/utils': link:../../core/utils
@@ -3997,6 +3997,17 @@ packages:
       tslib: 2.3.1
     dev: false
 
+  /@graphql-codegen/schema-ast/2.4.0_34dd13c2583fe2e4418c23a0d30fc388:
+    resolution: {integrity: sha512-xsLd4mF0H3mPp7Z2PHZ2Sv1KKIb/FOORqhDc9XHCnHJJ/h9nmaleKSTxTGzSUfIAQ1aCNzVilcaUwlenK+MMBQ==}
+    peerDependencies:
+      graphql: ^0.8.0 || ^0.9.0 || ^0.10.0 || ^0.11.0 || ^0.12.0 || ^0.13.0 || ^14.0.0 || ^15.0.0 || ^16.0.0
+    dependencies:
+      '@graphql-codegen/plugin-helpers': 2.3.1_34dd13c2583fe2e4418c23a0d30fc388
+      '@graphql-tools/utils': 8.5.2_34dd13c2583fe2e4418c23a0d30fc388
+      graphql: 15.4.0-experimental-stream-defer.1
+      tslib: 2.3.1
+    dev: false
+
   /@graphql-codegen/typed-document-node/2.2.0_34dd13c2583fe2e4418c23a0d30fc388:
     resolution: {integrity: sha512-A/owHXw3f+OLCefY3qQnfQ5nEMbqQ5U/BEufRP3K15XXXUnoF1PpLvFrN0RcWRJtuzHfByt7Z2oKnNBEKyMUGg==}
     peerDependencies:
@@ -4018,7 +4029,7 @@ packages:
       graphql: ^0.8.0 || ^0.9.0 || ^0.10.0 || ^0.11.0 || ^0.12.0 || ^0.13.0 || ^14.0.0 || ^15.0.0
     dependencies:
       '@graphql-codegen/plugin-helpers': 2.3.1_34dd13c2583fe2e4418c23a0d30fc388
-      '@graphql-codegen/typescript': 2.3.0_34dd13c2583fe2e4418c23a0d30fc388
+      '@graphql-codegen/typescript': 2.3.1_34dd13c2583fe2e4418c23a0d30fc388
       '@graphql-codegen/visitor-plugin-common': 2.5.0_34dd13c2583fe2e4418c23a0d30fc388
       auto-bind: 4.0.0
       graphql: 15.4.0-experimental-stream-defer.1
@@ -4033,7 +4044,7 @@ packages:
       graphql: ^0.8.0 || ^0.9.0 || ^0.10.0 || ^0.11.0 || ^0.12.0 || ^0.13.0 || ^14.0.0 || ^15.0.0
     dependencies:
       '@graphql-codegen/plugin-helpers': 2.3.1_34dd13c2583fe2e4418c23a0d30fc388
-      '@graphql-codegen/typescript': 2.3.0_34dd13c2583fe2e4418c23a0d30fc388
+      '@graphql-codegen/typescript': 2.3.1_34dd13c2583fe2e4418c23a0d30fc388
       '@graphql-codegen/visitor-plugin-common': 2.5.0_34dd13c2583fe2e4418c23a0d30fc388
       '@graphql-tools/utils': 8.5.2_34dd13c2583fe2e4418c23a0d30fc388
       auto-bind: 4.0.0
@@ -4043,12 +4054,13 @@ packages:
       - supports-color
     dev: false
 
-  /@graphql-codegen/typescript/2.3.0_34dd13c2583fe2e4418c23a0d30fc388:
-    resolution: {integrity: sha512-bsq+y0cyrltVfpK5/JVz90lMBFby/Q+4oxiFGpjVdAjv/dbS9Bu476tQlN0Es76fc88Ce25wD40JXKfgWQDqKw==}
+  /@graphql-codegen/typescript/2.3.1_34dd13c2583fe2e4418c23a0d30fc388:
+    resolution: {integrity: sha512-5wfuJhXnDVdufznLZG2/YlPMy5qGVYAEodBACVT8Dfgnt7T8eQOdaTfEPh04hqf/WR6DDoiLrJDcdyqWUO305w==}
     peerDependencies:
-      graphql: ^0.12.0 || ^0.13.0 || ^14.0.0 || ^15.0.0
+      graphql: ^0.12.0 || ^0.13.0 || ^14.0.0 || ^15.0.0 || ^16.0.0
     dependencies:
       '@graphql-codegen/plugin-helpers': 2.3.1_34dd13c2583fe2e4418c23a0d30fc388
+      '@graphql-codegen/schema-ast': 2.4.0_34dd13c2583fe2e4418c23a0d30fc388
       '@graphql-codegen/visitor-plugin-common': 2.5.0_34dd13c2583fe2e4418c23a0d30fc388
       auto-bind: 4.0.0
       graphql: 15.4.0-experimental-stream-defer.1
@@ -6245,7 +6257,7 @@ packages:
       postcss: ^8.1.0
     dependencies:
       browserslist: 4.17.6
-      caniuse-lite: 1.0.30001277
+      caniuse-lite: 1.0.30001278
       fraction.js: 4.1.1
       normalize-range: 0.1.2
       picocolors: 1.0.0
@@ -6703,7 +6715,7 @@ packages:
     engines: {node: ^6 || ^7 || ^8 || ^9 || ^10 || ^11 || ^12 || >=13.7}
     hasBin: true
     dependencies:
-      caniuse-lite: 1.0.30001277
+      caniuse-lite: 1.0.30001278
       colorette: 1.4.0
       electron-to-chromium: 1.3.889
       escalade: 3.1.1
@@ -6714,7 +6726,7 @@ packages:
     engines: {node: ^6 || ^7 || ^8 || ^9 || ^10 || ^11 || ^12 || >=13.7}
     hasBin: true
     dependencies:
-      caniuse-lite: 1.0.30001277
+      caniuse-lite: 1.0.30001278
       electron-to-chromium: 1.3.889
       escalade: 3.1.1
       node-releases: 2.0.1
@@ -6854,8 +6866,8 @@ packages:
     engines: {node: '>=10'}
     dev: true
 
-  /caniuse-lite/1.0.30001277:
-    resolution: {integrity: sha512-J2WtYj2Pl6LBEG214XmbGw1gzZEsYuinQFPqYtpZDB3/vm49qNlrcbJrTMkHKmdRDdmXYwkG0tgOBJsuI+J12Q==}
+  /caniuse-lite/1.0.30001278:
+    resolution: {integrity: sha512-mpF9KeH8u5cMoEmIic/cr7PNS+F5LWBk0t2ekGT60lFf0Wq+n9LspAj0g3P+o7DQhD3sUdlMln4YFAWhFYn9jg==}
 
   /capital-case/1.0.4:
     resolution: {integrity: sha512-ds37W8CytHgwnhGGTi88pcPyR15qoNkOpYwmMMfnWqqWgESapLqvDx6huFjQ5vqWSn2Z06173XNA7LtMOeUh1A==}
@@ -7599,7 +7611,7 @@ packages:
     peerDependencies:
       postcss: ^8.2.15
     dependencies:
-      caniuse-lite: 1.0.30001277
+      caniuse-lite: 1.0.30001278
       postcss: 8.2.15
 
   /cssnano-simple/3.0.0_postcss@8.2.15:
@@ -11966,7 +11978,7 @@ packages:
       browserify-zlib: 0.2.0
       browserslist: 4.16.6
       buffer: 5.6.0
-      caniuse-lite: 1.0.30001277
+      caniuse-lite: 1.0.30001278
       chalk: 2.4.2
       chokidar: 3.5.1
       constants-browserify: 1.0.0
@@ -12050,7 +12062,7 @@ packages:
       browserify-zlib: 0.2.0
       browserslist: 4.16.6
       buffer: 5.6.0
-      caniuse-lite: 1.0.30001277
+      caniuse-lite: 1.0.30001278
       chalk: 2.4.2
       chokidar: 3.5.1
       constants-browserify: 1.0.0
