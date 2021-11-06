@@ -1,5 +1,13 @@
 # @graphql-ez/plugin-dataloader
 
+## 0.5.6
+
+### Patch Changes
+
+- 012d019e: Bump Envelop
+- Updated dependencies [012d019e]
+  - graphql-ez@0.13.4
+
 ## 0.5.5
 
 ### Patch Changes

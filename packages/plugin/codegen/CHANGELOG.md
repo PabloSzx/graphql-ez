@@ -1,5 +1,13 @@
 # @graphql-ez/plugin-codegen
 
+## 0.7.6
+
+### Patch Changes
+
+- 764a8ba3: Bump graphql-codegen
+- Updated dependencies [012d019e]
+  - graphql-ez@0.13.4
+
 ## 0.7.5
 
 ### Patch Changes
