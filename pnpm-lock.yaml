@@ -1246,7 +1246,7 @@ importers:
     specifiers:
       '@graphiql/toolkit': ^0.3.2
       '@graphql-ez/utils': workspace:^0.1.2
-      '@graphql-tools/url-loader': ^7.5.1
+      '@graphql-tools/url-loader': ^7.5.2
       '@graphql-tools/utils': ^8.5.2
       '@n1ru4l/graphql-live-query': ^0.9.0
       '@types/prettier': ^2.4.1
@@ -1272,7 +1272,7 @@ importers:
       '@graphql-ez/utils': link:../../core/utils
     devDependencies:
       '@graphiql/toolkit': 0.3.2_b56b557014dcbdb229f6af368f56c9e3
-      '@graphql-tools/url-loader': 7.5.1_b56b557014dcbdb229f6af368f56c9e3
+      '@graphql-tools/url-loader': 7.5.2_b56b557014dcbdb229f6af368f56c9e3
       '@graphql-tools/utils': 8.5.2_34dd13c2583fe2e4418c23a0d30fc388
       '@n1ru4l/graphql-live-query': 0.9.0_34dd13c2583fe2e4418c23a0d30fc388
       '@types/prettier': 2.4.1
@@ -4203,15 +4203,15 @@ packages:
       tslib: 2.3.1
       value-or-promise: 1.0.11
 
-  /@graphql-tools/url-loader/7.5.1_b56b557014dcbdb229f6af368f56c9e3:
-    resolution: {integrity: sha512-P782cv7xB0D98ExUBUvNXmMckDIEgJjcNRRfe20fEa3Bh6snhNwL1aIHfQ3w6bzqU8Kdp4pMiOkamoHWbEsOHw==}
+  /@graphql-tools/url-loader/7.5.2_b56b557014dcbdb229f6af368f56c9e3:
+    resolution: {integrity: sha512-EilHqbhUY/qg55SSEdklDhPXgSz9+9a63SX3mcD8J2qwZHJD/wOLcyKs8m6BXfuGwUiuB0j3fmDSEVmva2onBg==}
     peerDependencies:
       graphql: ^14.0.0 || ^15.0.0 || ^16.0.0
     dependencies:
       '@graphql-tools/delegate': 8.4.1_34dd13c2583fe2e4418c23a0d30fc388
       '@graphql-tools/utils': 8.5.2_34dd13c2583fe2e4418c23a0d30fc388
       '@graphql-tools/wrap': 8.3.1_34dd13c2583fe2e4418c23a0d30fc388
-      '@n1ru4l/graphql-live-query': 0.8.2_34dd13c2583fe2e4418c23a0d30fc388
+      '@n1ru4l/graphql-live-query': 0.9.0_34dd13c2583fe2e4418c23a0d30fc388
       '@types/websocket': 1.0.4
       '@types/ws': 8.2.0
       cross-undici-fetch: 0.0.20
@@ -4878,14 +4878,6 @@ packages:
     dependencies:
       call-me-maybe: 1.0.1
       glob-to-regexp: 0.3.0
-    dev: true
-
-  /@n1ru4l/graphql-live-query/0.8.2_34dd13c2583fe2e4418c23a0d30fc388:
-    resolution: {integrity: sha512-StBuj5gxoVbFx2axvJF6ArnHVqVnibYeekRjO2T1KbUWyR+SbxaqDg9E3Ch9XkJnQAb+7HKW2JSUc+jnuqsXxQ==}
-    peerDependencies:
-      graphql: ^15.4.0
-    dependencies:
-      graphql: 15.4.0-experimental-stream-defer.1
     dev: true
 
   /@n1ru4l/graphql-live-query/0.9.0_34dd13c2583fe2e4418c23a0d30fc388:
