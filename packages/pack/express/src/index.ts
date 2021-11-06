@@ -1,5 +1,5 @@
 import { BuildAppOptions, CreateApp, ExpressAppOptions, EZApp, EZAppBuilder, EZPlugin } from '@graphql-ez/express';
-import { BaseYogaConfig, getYogaPreset } from '@graphql-yoga/preset';
+import { BasePackConfig, getYogaPreset } from '@graphql-ez/pack-preset';
 import Express, { Application } from 'express';
 import { gql, LazyPromise, PickRequired } from 'graphql-ez';
 import type { Server as httpServer } from 'http';
@@ -7,7 +7,7 @@ import type { Server as httpsServer, ServerOptions as httpsServerOptions } from 
 import type { ListenOptions } from 'net';
 
 export interface YogaConfig
-  extends BaseYogaConfig,
+  extends BasePackConfig,
     Pick<
       ExpressAppOptions,
       | 'path'

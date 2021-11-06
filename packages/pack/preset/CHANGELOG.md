@@ -1,4 +1,4 @@
-# @graphql-yoga/preset
+# @graphql-ez/pack-preset
 
 ## 1.0.5
 

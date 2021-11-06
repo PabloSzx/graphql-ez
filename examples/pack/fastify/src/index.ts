@@ -1,4 +1,4 @@
-import { BuildContextArgs, gql, GraphQLServer, InferContext } from '@graphql-yoga/express';
+import { BuildContextArgs, gql, GraphQLServer, InferContext } from '@graphql-ez/pack-fastify';
 
 function buildContext({ req }: BuildContextArgs) {
   return {
@@ -11,6 +11,9 @@ declare module 'graphql-ez' {
 }
 
 const { start } = GraphQLServer({
+  serverOptions: {
+    logger: true,
+  },
   codegen: true,
   websockets: true,
   uploads: true,
@@ -31,11 +34,7 @@ const { start } = GraphQLServer({
   buildContext,
 });
 
-start()
-  .then(({ listenOptions }) => {
-    console.log(`Listening on ${listenOptions.host}:${listenOptions.port}!`);
-  })
-  .catch(err => {
-    console.error(err);
-    process.exit(1);
-  });
+start().catch(err => {
+  console.error(err);
+  process.exit(1);
+});

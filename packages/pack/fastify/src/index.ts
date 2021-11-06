@@ -1,5 +1,5 @@
 import { BuildAppOptions, CreateApp, EZApp, EZAppBuilder, EZPlugin, FastifyAppOptions, PickRequired } from '@graphql-ez/fastify';
-import { BaseYogaConfig, getYogaPreset } from '@graphql-yoga/preset';
+import { BasePackConfig, getYogaPreset } from '@graphql-ez/pack-preset';
 import Fastify, { FastifyHttpsOptions, FastifyInstance, FastifyLoggerInstance, FastifyServerOptions } from 'fastify';
 import { gql, LazyPromise } from 'graphql-ez';
 import type { Server as HttpServer } from 'http';
@@ -7,7 +7,7 @@ import type { Server as httpsServer } from 'https';
 import type { ListenOptions } from 'net';
 
 export interface YogaConfig
-  extends BaseYogaConfig,
+  extends BasePackConfig,
     Pick<
       FastifyAppOptions,
       | 'path'

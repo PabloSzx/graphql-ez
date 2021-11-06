@@ -3,18 +3,14 @@ import { ezGraphiQLIDE, GraphiQLOptions } from '@graphql-ez/plugin-graphiql';
 import { ezSchema, EZSchemaOptions } from '@graphql-ez/plugin-schema';
 import { ezUpload, GraphQLUploadConfig } from '@graphql-ez/plugin-upload';
 import { ezWebSockets, WebSocketOptions } from '@graphql-ez/plugin-websockets';
-import { LazyPromise } from '@graphql-ez/utils/promise';
 import type { IMocks, IMockStore, TypePolicy } from '@graphql-tools/mock';
 import type { EZPreset, EZResolvers, NullableEZPlugin, Plugin as EnvelopPlugin, PromiseOrValue } from 'graphql-ez';
-import type { IMiddleware, IMiddlewareGenerator } from 'graphql-middleware';
 
-export interface BaseYogaConfig extends EZSchemaOptions {
+export interface BasePackConfig extends EZSchemaOptions {
   /**
    * @default false
    */
   uploads?: GraphQLUploadConfig;
-
-  middlewares?: Array<IMiddleware | IMiddlewareGenerator<any, any, any>>;
 
   /**
    * @default false
@@ -54,14 +50,13 @@ export interface BaseYogaConfig extends EZSchemaOptions {
     | boolean;
 }
 
-export interface PresetConfig extends BaseYogaConfig {
+export interface PresetConfig extends BasePackConfig {
   ezOptions?: EZPreset['options'];
 }
 
 export function getYogaPreset(config: PresetConfig = {}): EZPreset {
   const {
     uploads = false,
-    middlewares,
     codegen = false,
     websockets = false,
     graphiql = true,
@@ -123,10 +118,6 @@ export function getYogaPreset(config: PresetConfig = {}): EZPreset {
 
   if (websockets) {
     ezPlugins.push(ezWebSockets(typeof websockets === 'boolean' ? 'adaptive' : websockets));
-  }
-
-  if (middlewares) {
-    envelopPlugins.push(LazyPromise(() => import('@envelop/graphql-middleware').then(v => v.useGraphQLMiddleware(middlewares))));
   }
 
   return preset;

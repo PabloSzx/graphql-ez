@@ -6,7 +6,14 @@
   "access": "public",
   "baseBranch": "main",
   "updateInternalDependencies": "patch",
-  "ignore": ["example-*", "example-yoga-fastify", "graphql-ez-*", "benchmark-*", "@graphql-yoga/*", "graphql-yoga"],
+  "ignore": [
+    "example-*",
+    "example-yoga-fastify",
+    "graphql-ez-*",
+    "benchmark-*",
+    "@@graphql-ez/pack-fastify/*",
+    "@graphql-ez/pack-fastify"
+  ],
   "___experimentalUnsafeOptions_WILL_CHANGE_IN_PATCH": {
     "onlyUpdatePeerDependentsWhenOutOfRange": true
   }
