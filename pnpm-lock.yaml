@@ -1427,7 +1427,7 @@ importers:
       graphql-ez: workspace:^0.13.3
       jest: ^27.3.1
       next: ^12.0.3
-      next-test-api-route-handler: ^2.2.1
+      next-test-api-route-handler: ^2.3.1
       react: ^17.0.2
       react-dom: ^17.0.2
       ts-jest: ^27.0.7
@@ -1446,7 +1446,7 @@ importers:
       graphql-ez: link:../../core/main
       jest: 27.3.1
       next: 12.0.3_react-dom@17.0.2+react@17.0.2
-      next-test-api-route-handler: 2.2.1_next@12.0.3
+      next-test-api-route-handler: 2.3.1_next@12.0.3
       react: 17.0.2
       react-dom: 17.0.2_react@17.0.2
       ts-jest: 27.0.7_2c4ca6574207836d1023f54689cc81ac
@@ -1462,11 +1462,11 @@ importers:
       graphql: 15.4.0-experimental-stream-defer.1
       graphql-ez: workspace:^0.13.3
       next: ^12.0.3
-      next-test-api-route-handler: ^2.2.1
+      next-test-api-route-handler: ^2.3.1
     dependencies:
       '@graphql-ez/utils': link:../../core/utils
       '@graphql-typed-document-node/core': 3.1.0_34dd13c2583fe2e4418c23a0d30fc388
-      next-test-api-route-handler: 2.2.1_next@12.0.3
+      next-test-api-route-handler: 2.3.1_next@12.0.3
     devDependencies:
       '@graphql-ez/nextjs': link:../main
       '@types/node': 16.11.6
@@ -11928,12 +11928,13 @@ packages:
       react-dom: 17.0.2_react@17.0.2
     dev: false
 
-  /next-test-api-route-handler/2.2.1_next@12.0.3:
-    resolution: {integrity: sha512-IW9zTfHkNwKjeckfY2IoE0PDSzpukCOcChQZ7kiZoMJ5rUOHAp2GYJSVtvrtFmgrItq+mbtVYqusxSkXtJVGAQ==}
+  /next-test-api-route-handler/2.3.1_next@12.0.3:
+    resolution: {integrity: sha512-P9tl/IXzMS7pMgeEqJ3SKG2dE2WP2HMcmwZDZ88t2iZ3rJ+c6PKdviZbwghHC39jeb9CmsF+OoO2sbfUS6jflw==}
     engines: {node: '>=12'}
     peerDependencies:
       next: '>=9'
     dependencies:
+      cookie: 0.4.1
       debug: 4.3.2
       isomorphic-unfetch: 3.1.0
       next: 12.0.3_react-dom@17.0.2+react@17.0.2
