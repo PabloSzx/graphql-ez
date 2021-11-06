@@ -10,12 +10,12 @@ import {
   handleRequest,
   InternalAppBuildContext,
   InternalAppBuildContextKey,
+  InternalAppBuildIntegrationContext,
   LazyPromise,
   ProcessRequestOptions,
 } from 'graphql-ez';
-import type { InternalAppBuildIntegrationContext } from 'graphql-yoga';
 import type { IncomingMessage } from 'http';
-import { Handler, Router, compose } from 'worktop';
+import { compose, Handler, Router } from 'worktop';
 import { Config as CorsConfig, preflight } from 'worktop/cors';
 import type { ServerRequest } from 'worktop/request';
 import type { ServerResponse } from 'worktop/response';
