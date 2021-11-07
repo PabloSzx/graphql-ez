@@ -1244,7 +1244,7 @@ importers:
 
   packages/helix/graphiql:
     specifiers:
-      '@graphiql/toolkit': ^0.3.2
+      '@graphiql/toolkit': ^0.4.0
       '@graphql-ez/utils': workspace:^0.1.2
       '@graphql-tools/url-loader': ^7.5.2
       '@graphql-tools/utils': ^8.5.3
@@ -1271,7 +1271,7 @@ importers:
     dependencies:
       '@graphql-ez/utils': link:../../core/utils
     devDependencies:
-      '@graphiql/toolkit': 0.3.2_b56b557014dcbdb229f6af368f56c9e3
+      '@graphiql/toolkit': 0.4.0_b56b557014dcbdb229f6af368f56c9e3
       '@graphql-tools/url-loader': 7.5.2_b56b557014dcbdb229f6af368f56c9e3
       '@graphql-tools/utils': 8.5.3_34dd13c2583fe2e4418c23a0d30fc388
       '@n1ru4l/graphql-live-query': 0.9.0_34dd13c2583fe2e4418c23a0d30fc388
@@ -3962,6 +3962,19 @@ packages:
     resolution: {integrity: sha512-IweIT9VC8uDovg7kuCO9YqZcnIuWU8IGzrpUisXv6CUNK2Ed1ke8yERDTMmF/rjvLd2DeVZwM8iEOjEs4sUJQw==}
     peerDependencies:
       graphql: '>= v14.5.0 <= 15.6.1'
+    dependencies:
+      '@n1ru4l/push-pull-async-iterable-iterator': 3.1.0
+      graphql: 15.4.0-experimental-stream-defer.1
+      graphql-ws: 4.9.0_34dd13c2583fe2e4418c23a0d30fc388
+      meros: 1.1.4_@types+node@16.11.6
+    transitivePeerDependencies:
+      - '@types/node'
+    dev: true
+
+  /@graphiql/toolkit/0.4.0_b56b557014dcbdb229f6af368f56c9e3:
+    resolution: {integrity: sha512-a5MC4h9Sn34CYooBoCW+wrUHXvRgvUJp11zdjstZuszSO1HjZ3iuJSD3JngPbQc7iWA+RaaLmP14+D3GDc1h8A==}
+    peerDependencies:
+      graphql: '>= 15.5.0 <= 16.0.0-experimental-stream-defer.5'
     dependencies:
       '@n1ru4l/push-pull-async-iterable-iterator': 3.1.0
       graphql: 15.4.0-experimental-stream-defer.1
