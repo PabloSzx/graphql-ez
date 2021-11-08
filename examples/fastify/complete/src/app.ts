@@ -2,7 +2,7 @@ import { BuildContextArgs, CreateApp, gql, InferContext, readStreamToBuffer } fr
 import { ezAltairIDE } from '@graphql-ez/plugin-altair';
 import { ezCodegen } from '@graphql-ez/plugin-codegen';
 import { ezDataLoader } from '@graphql-ez/plugin-dataloader';
-import { ezGraphiQLIDE } from '@graphql-ez/plugin-graphiql';
+import { ezStaticGraphiQLIDE } from '@graphql-ez/plugin-graphiql/static';
 import { ezGraphQLModules } from '@graphql-ez/plugin-modules';
 import { ezScalars } from '@graphql-ez/plugin-scalars';
 import { ezSchema } from '@graphql-ez/plugin-schema';
@@ -42,7 +42,7 @@ export const { registerModule, buildApp, registerDataLoader } = CreateApp({
         DateTime: 1,
       }),
       ezAltairIDE(),
-      ezGraphiQLIDE({
+      ezStaticGraphiQLIDE({
         path: '/graphql',
         hybridSubscriptionTransportConfig: {
           default: 'sse',
