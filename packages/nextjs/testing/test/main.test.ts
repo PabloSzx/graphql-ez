@@ -31,8 +31,7 @@ test('from preset', async () => {
 
 type User {
   id: Int!
-}
-"
+}"
 `);
 });
 

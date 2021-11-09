@@ -295,8 +295,7 @@ test('all scalars', async () => {
 
     type User {
       id: Int!
-    }
-    "
+    }"
   `);
 });
 
@@ -325,8 +324,7 @@ test('scalars in list', async () => {
 
     type User {
       id: Int!
-    }
-    "
+    }"
   `);
 });
 
@@ -360,7 +358,6 @@ test('scalars in object', async () => {
 
     type User {
       id: Int!
-    }
-    "
+    }"
   `);
 });

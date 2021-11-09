@@ -53,8 +53,7 @@ test('works', async () => {
 type User {
   id: ID!
   name: String!
-}
-"
+}"
 `);
 
   await expect(query('{hello}')).resolves.toMatchInlineSnapshot(`

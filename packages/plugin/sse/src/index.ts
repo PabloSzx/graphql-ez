@@ -58,7 +58,7 @@ export const ezSSE = (options: GraphQLSSEOptions = {}): EZPlugin => {
         ...options,
         execute,
         subscribe,
-        validate,
+        validate: validate as HandlerOptions['validate'],
         async onSubscribe(req, _res, params) {
           const contextArgsData = { req };
           const { schema, parse, contextFactory } = getEnveloped(
