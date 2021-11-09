@@ -11,6 +11,12 @@ import type {
   validate,
 } from 'graphql';
 
+export type ResultType<T> = T extends AsyncGenerator<infer U>
+  ? ResultType<U>
+  : T extends PromiseLike<infer U>
+  ? ResultType<U>
+  : T;
+
 export interface ExecutionPatchResult<TData = { [key: string]: any }, TExtensions = { [key: string]: any }> {
   errors?: ReadonlyArray<GraphQLError>;
   data?: TData | null;
@@ -88,8 +94,13 @@ export interface ProcessRequestOptions<TContext, TRootValue> {
   extensions?: string | Record<string, unknown>;
 }
 
+export type PayloadType =
+  | ResultType<ReturnType<typeof execute>>
+  | ResultType<ReturnType<typeof subscribe>>
+  | ExecutionPatchResult;
+
 export interface FormatPayloadParams<TContext, TRootValue> {
-  payload: ExecutionResult | ExecutionPatchResult;
+  payload: PayloadType;
   contextValue?: TContext;
   document?: DocumentNode;
   operation?: OperationDefinitionNode;
