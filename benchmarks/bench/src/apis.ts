@@ -4,7 +4,7 @@ export function startBench(env: NodeJS.ProcessEnv) {
   return concurrently(
     [
       {
-        command: 'wait-on tcp:4000 -s 1 && cross-env PORT=4000 node -r esbuild-register src/bench.ts && kill-port 4000',
+        command: 'wait-on tcp:4000 -s 1 && cross-env PORT=4000 bob-tsm --cjs src/bench.ts && kill-port 4000',
         env,
       },
     ],
