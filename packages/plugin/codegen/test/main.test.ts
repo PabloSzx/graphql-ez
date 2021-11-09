@@ -83,7 +83,7 @@ test('typescript resolvers', async () => {
       __typename?: 'Query';
       hello: Scalars['String'];
       users: Array<User>;
-      stream: Array<Scalars['String']>;
+      stream?: Maybe<Array<Scalars['String']>>;
       context: Scalars['String'];
     };
 
@@ -179,7 +179,7 @@ test('typescript resolvers', async () => {
     > = {
       hello?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
       users?: Resolver<Array<ResolversTypes['User']>, ParentType, ContextType>;
-      stream?: Resolver<Array<ResolversTypes['String']>, ParentType, ContextType>;
+      stream?: Resolver<Maybe<Array<ResolversTypes['String']>>, ParentType, ContextType>;
       context?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
     };
 
@@ -232,7 +232,7 @@ test('typescript resolvers', async () => {
     "type Query {
       hello: String!
       users: [User!]!
-      stream: [String!]!
+      stream: [String!]
       context: String!
     }
 
@@ -253,7 +253,7 @@ test('typescript resolvers', async () => {
     type Query {
       hello: String!
       users: [User!]!
-      stream: [String!]!
+      stream: [String!]
       context: String!
     }
 

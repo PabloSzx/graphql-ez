@@ -22,17 +22,17 @@ test('from preset', async () => {
         `);
 
   expect(schemaString).toMatchInlineSnapshot(`
-"type Query {
-  hello: String!
-  users: [User!]!
-  stream: [String!]!
-  context: String!
-}
+    "type Query {
+      hello: String!
+      users: [User!]!
+      stream: [String!]
+      context: String!
+    }
 
-type User {
-  id: Int!
-}"
-`);
+    type User {
+      id: Int!
+    }"
+  `);
 });
 
 test('from config', async () => {

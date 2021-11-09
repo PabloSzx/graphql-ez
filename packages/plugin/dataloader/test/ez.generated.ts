@@ -23,7 +23,7 @@ export type Query = {
   __typename?: 'Query';
   hello: Scalars['String'];
   users: Array<User>;
-  stream: Array<Scalars['String']>;
+  stream?: Maybe<Array<Scalars['String']>>;
   context: Scalars['String'];
 };
 
@@ -120,7 +120,7 @@ export type QueryResolvers<
 > = {
   hello?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   users?: Resolver<Array<ResolversTypes['User']>, ParentType, ContextType>;
-  stream?: Resolver<Array<ResolversTypes['String']>, ParentType, ContextType>;
+  stream?: Resolver<Maybe<Array<ResolversTypes['String']>>, ParentType, ContextType>;
   context?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
 };
 

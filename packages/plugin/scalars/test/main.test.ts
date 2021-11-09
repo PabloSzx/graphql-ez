@@ -289,7 +289,7 @@ test('all scalars', async () => {
     type Query {
       hello: String!
       users: [User!]!
-      stream: [String!]!
+      stream: [String!]
       context: String!
     }
 
@@ -318,7 +318,7 @@ test('scalars in list', async () => {
     type Query {
       hello: String!
       users: [User!]!
-      stream: [String!]!
+      stream: [String!]
       context: String!
     }
 
@@ -352,7 +352,7 @@ test('scalars in object', async () => {
     type Query {
       hello: String!
       users: [User!]!
-      stream: [String!]!
+      stream: [String!]
       context: String!
     }
 

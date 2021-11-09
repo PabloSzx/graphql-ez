@@ -54,7 +54,7 @@ export const CommonSchema = {
     type Query {
       hello: String!
       users: [User!]!
-      stream: [String!]!
+      stream: [String!]
       context: String!
     }
     type User {

@@ -132,17 +132,17 @@ test.concurrent('basic', async () => {
   `);
 
   expect(printSchema((await ezApp.getEnveloped)().schema)).toMatchInlineSnapshot(`
-"type Query {
-  hello: String!
-  users: [User!]!
-  stream: [String!]!
-  context: String!
-}
+    "type Query {
+      hello: String!
+      users: [User!]!
+      stream: [String!]
+      context: String!
+    }
 
-type User {
-  id: Int!
-}"
-`);
+    type User {
+      id: Int!
+    }"
+  `);
 });
 
 testIfStreamDefer('query with @stream', async () => {
