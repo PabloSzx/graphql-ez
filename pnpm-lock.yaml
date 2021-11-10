@@ -1541,7 +1541,7 @@ importers:
       '@graphql-codegen/typescript-operations': ^2.2.0
       '@graphql-codegen/typescript-resolvers': ^2.4.0
       '@graphql-ez/utils': workspace:^0.1.2
-      '@graphql-tools/graphql-file-loader': ^7.3.2
+      '@graphql-tools/graphql-file-loader': ^7.3.3
       '@graphql-tools/load': ^7.4.1
       '@graphql-tools/utils': ^8.5.3
       '@types/mkdirp': ^1.0.2
@@ -1563,7 +1563,7 @@ importers:
       '@graphql-codegen/typescript-operations': 2.2.0_564d67cac1c5d7d887d57591dff0ccf7
       '@graphql-codegen/typescript-resolvers': 2.4.0_564d67cac1c5d7d887d57591dff0ccf7
       '@graphql-ez/utils': link:../../core/utils
-      '@graphql-tools/graphql-file-loader': 7.3.2_564d67cac1c5d7d887d57591dff0ccf7
+      '@graphql-tools/graphql-file-loader': 7.3.3_564d67cac1c5d7d887d57591dff0ccf7
       '@graphql-tools/load': 7.4.1_564d67cac1c5d7d887d57591dff0ccf7
       '@graphql-tools/utils': 8.5.3_564d67cac1c5d7d887d57591dff0ccf7
       mkdirp: 1.0.4
@@ -1919,7 +1919,7 @@ importers:
       '@graphql-ez/plugin-upload': workspace:^0.6.2
       '@graphql-ez/plugin-websockets': workspace:^0.10.2
       '@graphql-ez/utils': workspace:^0.1.2
-      '@graphql-tools/mock': ^8.4.2
+      '@graphql-tools/mock': ^8.4.3
       '@graphql-tools/utils': ^8.5.3
       bob-esbuild-cli: ^3.0.0
       graphql: 16.0.0-experimental-stream-defer.5
@@ -1933,7 +1933,7 @@ importers:
       '@graphql-ez/plugin-upload': link:../../packages/plugin/upload
       '@graphql-ez/plugin-websockets': link:../../packages/plugin/websockets
       '@graphql-ez/utils': link:../../packages/core/utils
-      '@graphql-tools/mock': 8.4.2_564d67cac1c5d7d887d57591dff0ccf7
+      '@graphql-tools/mock': 8.4.3_564d67cac1c5d7d887d57591dff0ccf7
       '@graphql-tools/utils': 8.5.3_564d67cac1c5d7d887d57591dff0ccf7
       graphql-middleware: 6.1.12_564d67cac1c5d7d887d57591dff0ccf7
     devDependencies:
@@ -4157,8 +4157,8 @@ packages:
       tslib: 2.3.1
       value-or-promise: 1.0.11
 
-  /@graphql-tools/graphql-file-loader/7.3.2_564d67cac1c5d7d887d57591dff0ccf7:
-    resolution: {integrity: sha512-4vzHdPIYo25bleMeZNZf1IV6Betd5COERn+fTGQDBS98ONDU2d/kXe4lD1N2bBNp5bwrd1Sd5TeDgHPYXKB8kQ==}
+  /@graphql-tools/graphql-file-loader/7.3.3_564d67cac1c5d7d887d57591dff0ccf7:
+    resolution: {integrity: sha512-6kUJZiNpYKVhum9E5wfl5PyLLupEDYdH7c8l6oMrk6c7EPEVs6iSUyB7yQoWrtJccJLULBW2CRQ5IHp5JYK0mA==}
     peerDependencies:
       graphql: ^14.0.0 || ^15.0.0 || ^16.0.0
     dependencies:
@@ -4212,8 +4212,8 @@ packages:
       tslib: 2.3.1
     dev: false
 
-  /@graphql-tools/mock/8.4.2_564d67cac1c5d7d887d57591dff0ccf7:
-    resolution: {integrity: sha512-2v4v99mWUB1by+6Bk01PoJCUVnYoNSOT0E5VvFRf5oMwJPaRKLAbC+IjZaRoen1tWpVrg+3Coub7co8jyhvm/Q==}
+  /@graphql-tools/mock/8.4.3_564d67cac1c5d7d887d57591dff0ccf7:
+    resolution: {integrity: sha512-jj7obzDz4FAfmIGSh1Mo6cUs9d8MSaN6TH/iju3Qyuz6CZ6NLuJrWOg50ysEUgkT4Y/Aey8SlWOf/U15Z7qWYw==}
     peerDependencies:
       graphql: ^14.0.0 || ^15.0.0 || ^16.0.0
     dependencies:
