@@ -95,89 +95,97 @@ export function CreateApp(config: KoaAppOptions = {}): EZAppBuilder {
   const { appBuilder, onIntegrationRegister, ...commonApp } = ezApp;
 
   const buildApp: EZAppBuilder['buildApp'] = async function buildApp(buildOptions) {
-    const { getEnveloped } = await appBuilder(buildOptions, async ({ ctx, getEnveloped }) => {
-      const router = buildOptions.router;
-      const {
-        cors,
-        onAppRegister,
+    const { getEnveloped, app } = await appBuilder(buildOptions, async ({ ctx, getEnveloped }) => {
+      try {
+        const router = buildOptions.router;
+        const {
+          cors,
+          onAppRegister,
 
-        bodyParserOptions = {},
-        buildContext,
+          bodyParserOptions = {},
+          buildContext,
 
-        processRequestOptions,
-      } = appConfig;
+          processRequestOptions,
+        } = appConfig;
 
-      const integration: InternalAppBuildIntegrationContext = {
-        koa: { router, app: buildOptions.app },
-      };
-
-      if (onAppRegister) await onAppRegister({ ctx, integration, getEnveloped });
-
-      await onIntegrationRegister(integration);
-
-      if (cors) {
-        const koaCors = (await import('@koa/cors')).default;
-
-        router.use(koaCors(typeof appConfig.cors === 'boolean' ? undefined : appConfig.cors));
-      }
-
-      if (bodyParserOptions) router.use(bodyParser(bodyParserOptions));
-
-      const {
-        preProcessRequest,
-        options: { customHandleRequest },
-      } = ctx;
-
-      const requestHandler = customHandleRequest || handleRequest;
-
-      const main: KoaRouter.Middleware = ctx => {
-        const request = {
-          body: ctx.request.body,
-          headers: ctx.request.headers,
-          method: ctx.request.method,
-          query: ctx.request.query,
+        const integration: InternalAppBuildIntegrationContext = {
+          koa: { router, app: buildOptions.app },
         };
 
-        const req = ctx.req;
+        if (onAppRegister) await onAppRegister({ ctx, integration, getEnveloped });
 
-        return requestHandler({
-          req,
-          request,
-          baseOptions: appConfig,
-          buildContext,
-          contextArgs() {
-            return {
-              req,
-              koa: {
-                request: ctx.request,
-                response: ctx.response,
-              },
-            };
-          },
-          getEnveloped,
-          onResponse(result) {
-            ctx.type = 'application/json';
-            ctx.response.status = result.status;
+        await onIntegrationRegister(integration);
 
-            for (const { name, value } of result.headers) {
-              ctx.response.set(name, value);
-            }
+        if (cors) {
+          const koaCors = (await import('@koa/cors')).default;
 
-            ctx.response.body = result.payload;
-          },
-          onMultiPartResponse(result, defaultHandle) {
-            return defaultHandle(req, ctx.res, result);
-          },
-          onPushResponse(result, defaultHandle) {
-            return defaultHandle(req, ctx.res, result);
-          },
-          processRequestOptions: processRequestOptions && (() => processRequestOptions(ctx.request, ctx.response)),
+          router.use(koaCors(typeof appConfig.cors === 'boolean' ? undefined : appConfig.cors));
+        }
+
+        if (bodyParserOptions) router.use(bodyParser(bodyParserOptions));
+
+        const {
           preProcessRequest,
-        });
-      };
+          options: { customHandleRequest },
+        } = ctx;
 
-      router.get(path, main).post(path, main);
+        const requestHandler = customHandleRequest || handleRequest;
+
+        const main: KoaRouter.Middleware = ctx => {
+          const request = {
+            body: ctx.request.body,
+            headers: ctx.request.headers,
+            method: ctx.request.method,
+            query: ctx.request.query,
+          };
+
+          const req = ctx.req;
+
+          return requestHandler({
+            req,
+            request,
+            baseOptions: appConfig,
+            buildContext,
+            contextArgs() {
+              return {
+                req,
+                koa: {
+                  request: ctx.request,
+                  response: ctx.response,
+                },
+              };
+            },
+            getEnveloped,
+            onResponse(result) {
+              ctx.type = 'application/json';
+              ctx.response.status = result.status;
+
+              for (const { name, value } of result.headers) {
+                ctx.response.set(name, value);
+              }
+
+              ctx.response.body = result.payload;
+            },
+            onMultiPartResponse(result, defaultHandle) {
+              return defaultHandle(req, ctx.res, result);
+            },
+            onPushResponse(result, defaultHandle) {
+              return defaultHandle(req, ctx.res, result);
+            },
+            processRequestOptions: processRequestOptions && (() => processRequestOptions(ctx.request, ctx.response)),
+            preProcessRequest,
+          });
+        };
+
+        router.get(path, main).post(path, main);
+      } catch (error) {
+        return error;
+      }
     });
+
+    const error = await app;
+
+    if (error) throw error;
 
     return {
       getEnveloped,
