@@ -1,5 +1,13 @@
 # @graphql-ez/koa
 
+## 0.8.8
+
+### Patch Changes
+
+- 27b97281: Fix: handle async build
+- Updated dependencies [27970292]
+  - graphql-ez@0.13.5
+
 ## 0.8.7
 
 ### Patch Changes

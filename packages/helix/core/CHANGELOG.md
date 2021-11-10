@@ -1,5 +1,11 @@
 # @pablosz/graphql-helix
 
+## 2.0.3
+
+### Patch Changes
+
+- 13cb6398: Improve formatPayload "payload" type
+
 ## 2.0.2
 
 ### Patch Changes
