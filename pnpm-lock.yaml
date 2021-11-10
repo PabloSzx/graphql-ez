@@ -262,7 +262,7 @@ importers:
       cross-env: ^7.0.3
       fastify: ^3.23.1
       graphql: ^15.7.2
-      mercurius: ^8.8.0
+      mercurius: ^8.9.0
       require-env-variable: ^3.1.2
       typescript: '>=4.4.4'
     dependencies:
@@ -270,7 +270,7 @@ importers:
       cross-env: 7.0.3
       fastify: 3.23.1
       graphql: 15.7.2
-      mercurius: 8.8.0
+      mercurius: 8.9.0
       require-env-variable: 3.1.2
       typescript: 4.4.4
     devDependencies:
@@ -4335,6 +4335,14 @@ packages:
       graphql: ^0.8.0 || ^0.9.0 || ^0.10.0 || ^0.11.0 || ^0.12.0 || ^0.13.0 || ^14.0.0 || ^15.0.0
     dependencies:
       graphql: 16.0.0-experimental-stream-defer.5
+
+  /@graphql-typed-document-node/core/3.1.0_graphql@15.7.2:
+    resolution: {integrity: sha512-wYn6r8zVZyQJ6rQaALBEln5B1pzxb9shV5Ef97kTvn6yVGrqyXVnDqnU24MXnFubR+rZjBY9NWuxX3FB2sTsjg==}
+    peerDependencies:
+      graphql: ^0.8.0 || ^0.9.0 || ^0.10.0 || ^0.11.0 || ^0.12.0 || ^0.13.0 || ^14.0.0 || ^15.0.0
+    dependencies:
+      graphql: 15.7.2
+    dev: false
 
   /@guild-docs/client/1.2.1_524bd70407c13195eee4e997e9c98338:
     resolution: {integrity: sha512-io0evzi/pBE+b3SRnpWgCkRK7fzYqOFEdrRGowBaGJxwsB7RXL2D3zsDEEMKn0NSXueDFmxKJ6T6Aavce56x9w==}
@@ -9296,20 +9304,6 @@ packages:
       graphql: 16.0.0-experimental-stream-defer.5
     dev: false
 
-  /graphql-jit/0.6.0_graphql@15.7.2:
-    resolution: {integrity: sha512-jyn9M0Hib9tIy+hvwvRAI5DlO6c7ZpzZcJdFsTPZJaleE+SV+OEB/81ez0S7DZsJ0MdVVkRVBgiCrZQD/oFO6Q==}
-    peerDependencies:
-      graphql: '>=15'
-    dependencies:
-      fast-json-stringify: 1.21.0
-      generate-function: 2.3.1
-      graphql: 15.7.2
-      json-schema: 0.2.5
-      lodash.memoize: 4.1.2
-      lodash.merge: 4.6.2
-      lodash.mergewith: 4.6.2
-    dev: false
-
   /graphql-jit/0.7.0_564d67cac1c5d7d887d57591dff0ccf7:
     resolution: {integrity: sha512-NN0e8tl6S46zcDGbTp5B9pWSARDx8cmrGds5V0t5X8RqsLqckJG1cr4HvpVBsSjbuphj2PXBlnk49L3ddFGJhw==}
     peerDependencies:
@@ -9319,6 +9313,21 @@ packages:
       fast-json-stringify: 1.21.0
       generate-function: 2.3.1
       graphql: 16.0.0-experimental-stream-defer.5
+      json-schema: 0.2.5
+      lodash.memoize: 4.1.2
+      lodash.merge: 4.6.2
+      lodash.mergewith: 4.6.2
+    dev: false
+
+  /graphql-jit/0.7.0_graphql@15.7.2:
+    resolution: {integrity: sha512-NN0e8tl6S46zcDGbTp5B9pWSARDx8cmrGds5V0t5X8RqsLqckJG1cr4HvpVBsSjbuphj2PXBlnk49L3ddFGJhw==}
+    peerDependencies:
+      graphql: '>=15'
+    dependencies:
+      '@graphql-typed-document-node/core': 3.1.0_graphql@15.7.2
+      fast-json-stringify: 1.21.0
+      generate-function: 2.3.1
+      graphql: 15.7.2
       json-schema: 0.2.5
       lodash.memoize: 4.1.2
       lodash.merge: 4.6.2
@@ -11619,8 +11628,8 @@ packages:
       yargs-parser: 18.1.3
     dev: true
 
-  /mercurius/8.8.0:
-    resolution: {integrity: sha512-P69GlC+fWtREWnV6MXUYty6T7+mda/EeNVJWWBnMbFfxFWs4nQ1H/Km1IaiL8Lzzp89Upln0342UMpypQF9q7g==}
+  /mercurius/8.9.0:
+    resolution: {integrity: sha512-r/9RGQxrxYuUjYbslhlDKJtpBq4UhrBErRfaw6fa9rUQLgxQmUj3cfALou74YmkVpmloohWqyS82ifQCpgdIVg==}
     dependencies:
       '@types/isomorphic-form-data': 2.0.0
       end-of-stream: 1.4.4
@@ -11630,13 +11639,13 @@ packages:
       fastify-static: 4.5.0
       fastify-websocket: 4.0.0
       graphql: 15.7.2
-      graphql-jit: 0.6.0_graphql@15.7.2
+      graphql-jit: 0.7.0_graphql@15.7.2
       mqemitter: 4.5.0
       p-map: 4.0.0
       promise.allsettled: 1.0.5
       readable-stream: 3.6.0
       secure-json-parse: 2.4.0
-      single-user-cache: 0.5.0
+      single-user-cache: 0.6.0
       tiny-lru: 7.0.6
       undici: 4.9.5
       ws: 8.2.3
@@ -13899,8 +13908,9 @@ packages:
     dependencies:
       ret: 0.2.2
 
-  /safe-stable-stringify/1.1.1:
-    resolution: {integrity: sha512-ERq4hUjKDbJfE4+XtZLFPCDi8Vb1JqaxAPTxWFLBx8XcAlf9Bda/ZJdVezs/NAfsMQScyIlUMx+Yeu7P7rx5jw==}
+  /safe-stable-stringify/2.2.0:
+    resolution: {integrity: sha512-C6AuMdYPuPV/P1leplHNu0lgc2LAElq/g3TdoksDCIVtBhr78o/CH03bt/9SKqugFbKU9CUjsNlCu0fjtQzQUw==}
+    engines: {node: '>=10'}
     dev: false
 
   /safer-buffer/2.1.2:
@@ -14133,10 +14143,10 @@ packages:
       is-arrayish: 0.3.2
     dev: false
 
-  /single-user-cache/0.5.0:
-    resolution: {integrity: sha512-PpQ7w+Y67r3wHjWgM/u18oHtzGWGKXr3Z7FvGzarnDsiFadIWkMAvcXWa6AhcRjB2+28KjqhLNok196nssos3Q==}
+  /single-user-cache/0.6.0:
+    resolution: {integrity: sha512-uMrANoiybpbsrVDbZ2M7GPzxeqZiirwkVnsDAre1zGhXAAw+2dImTxu7h0l1sIVtwGeJnVsRxgG4I5rZrUX0rw==}
     dependencies:
-      safe-stable-stringify: 1.1.1
+      safe-stable-stringify: 2.2.0
     dev: false
 
   /sirv/1.0.18:
