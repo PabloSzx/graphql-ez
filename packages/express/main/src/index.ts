@@ -96,82 +96,95 @@ export function CreateApp(config: ExpressAppOptions = {}): EZAppBuilder {
   const { appBuilder, onIntegrationRegister, ...commonApp } = ezApp;
 
   const buildApp: EZAppBuilder['buildApp'] = async function buildApp(buildOptions) {
-    const { app: router, getEnveloped } = await appBuilder(buildOptions, async ({ ctx, getEnveloped }) => {
-      const router = Router();
+    const { app, getEnveloped } = await appBuilder(
+      buildOptions,
+      async ({ ctx, getEnveloped }): Promise<{ router: Router } | { error: unknown }> => {
+        try {
+          const router = Router();
 
-      const { cors, bodyParserJSONOptions = {}, buildContext, onAppRegister, processRequestOptions } = config;
+          const { cors, bodyParserJSONOptions = {}, buildContext, onAppRegister, processRequestOptions } = config;
 
-      const integration: InternalAppBuildIntegrationContext = {
-        express: { router, app: buildOptions.app, server: buildOptions.server },
-      };
-      if (onAppRegister) await onAppRegister({ ctx, integration, getEnveloped });
+          const integration: InternalAppBuildIntegrationContext = {
+            express: { router, app: buildOptions.app, server: buildOptions.server },
+          };
+          if (onAppRegister) await onAppRegister({ ctx, integration, getEnveloped });
 
-      await onIntegrationRegister(integration);
+          await onIntegrationRegister(integration);
 
-      if (cors) {
-        const corsMiddleware = (await import('cors')).default;
-        router.use(corsMiddleware(getObjectValue(cors)));
-      }
+          if (cors) {
+            const corsMiddleware = (await import('cors')).default;
+            router.use(corsMiddleware(getObjectValue(cors)));
+          }
 
-      if (bodyParserJSONOptions) router.use(json(getObjectValue(bodyParserJSONOptions)));
+          if (bodyParserJSONOptions) router.use(json(getObjectValue(bodyParserJSONOptions)));
 
-      const {
-        preProcessRequest,
-        options: { customHandleRequest },
-      } = ctx;
+          const {
+            preProcessRequest,
+            options: { customHandleRequest },
+          } = ctx;
 
-      const requestHandler = customHandleRequest || handleRequest;
+          const requestHandler = customHandleRequest || handleRequest;
 
-      const ExpressRequestHandler: RequestHandler = (req, res, next) => {
-        const request = {
-          body: req.body,
-          headers: req.headers,
-          method: req.method,
-          query: req.query,
-        };
-
-        return requestHandler({
-          req,
-          request,
-          getEnveloped,
-          baseOptions: config,
-          contextArgs() {
-            return {
-              req,
-              express: {
-                req,
-                res,
-              },
+          const ExpressRequestHandler: RequestHandler = (req, res, next) => {
+            const request = {
+              body: req.body,
+              headers: req.headers,
+              method: req.method,
+              query: req.query,
             };
-          },
-          buildContext,
-          onResponse(result) {
-            res.type('application/json');
-            for (const { name, value } of result.headers) {
-              res.setHeader(name, value);
-            }
 
-            res.status(result.status);
-            res.send(result.payload);
-          },
-          onMultiPartResponse(result, defaultHandle) {
-            return defaultHandle(req, res, result);
-          },
-          onPushResponse(result, defaultHandle) {
-            return defaultHandle(req, res, result);
-          },
-          processRequestOptions: processRequestOptions && (() => processRequestOptions(req, res)),
-          preProcessRequest,
-        }).catch(next);
-      };
+            return requestHandler({
+              req,
+              request,
+              getEnveloped,
+              baseOptions: config,
+              contextArgs() {
+                return {
+                  req,
+                  express: {
+                    req,
+                    res,
+                  },
+                };
+              },
+              buildContext,
+              onResponse(result) {
+                res.type('application/json');
+                for (const { name, value } of result.headers) {
+                  res.setHeader(name, value);
+                }
 
-      router.get(path, ExpressRequestHandler).post(path, ExpressRequestHandler);
+                res.status(result.status);
+                res.send(result.payload);
+              },
+              onMultiPartResponse(result, defaultHandle) {
+                return defaultHandle(req, res, result);
+              },
+              onPushResponse(result, defaultHandle) {
+                return defaultHandle(req, res, result);
+              },
+              processRequestOptions: processRequestOptions && (() => processRequestOptions(req, res)),
+              preProcessRequest,
+            }).catch(next);
+          };
 
-      return router;
-    });
+          router.get(path, ExpressRequestHandler).post(path, ExpressRequestHandler);
+
+          return { router };
+        } catch (error) {
+          return {
+            error,
+          };
+        }
+      }
+    );
+
+    const result = await app;
+
+    if ('error' in result) throw result.error;
 
     return {
-      router: await router,
+      router: result.router,
       getEnveloped,
       path,
       [InternalAppBuildContextKey]: commonApp[InternalAppBuildContextKey],
