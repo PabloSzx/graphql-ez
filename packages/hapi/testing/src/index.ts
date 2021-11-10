@@ -1,6 +1,5 @@
 import assert from 'assert';
 import Hapi from '@hapi/hapi';
-import getPort from 'get-port';
 import { printSchema } from 'graphql';
 
 import { EZClient, EZClientOptions } from '@graphql-ez/client';
@@ -31,9 +30,7 @@ export async function CreateTestClient(
     schemaString: string;
   }
 > {
-  const port = await getPort();
-
-  const server = new Hapi.Server({ ...options.serverOptions, port });
+  const server = new Hapi.Server({ ...options.serverOptions, port: 0 });
 
   let ezAppPath: string;
 
@@ -82,6 +79,8 @@ export async function CreateTestClient(
   await options.preListen?.(server);
 
   await server.start();
+
+  const port = server.info.port;
 
   teardownLazyPromiseList.push(
     LazyPromise(async () => {

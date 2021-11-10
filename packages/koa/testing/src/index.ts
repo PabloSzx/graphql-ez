@@ -3,7 +3,6 @@ import type { BuildAppOptions, EZAppBuilder } from '@graphql-ez/koa';
 import { CreateApp, EZContext, GetEnvelopedFn, KoaAppOptions, LazyPromise, PromiseOrValue } from '@graphql-ez/koa';
 import KoaRouter from '@koa/router';
 import assert from 'assert';
-import getPort from 'get-port';
 import { printSchema } from 'graphql';
 import type { Server as httpServer } from 'http';
 import Koa from 'koa';
@@ -76,11 +75,19 @@ export async function CreateTestClient(
   }
   app.use(router.routes()).use(router.allowedMethods());
 
-  const port = await getPort();
+  const [server, port] = await new Promise<[httpServer, number]>((resolve, reject) => {
+    const server = app.listen(0, () => {
+      try {
+        const addressInfo = server.address();
 
-  const server = await new Promise<httpServer>(resolve => {
-    const server = app.listen(port, () => {
-      resolve(server);
+        if (addressInfo == null || typeof addressInfo !== 'object') {
+          return reject(Error('Invalid Server'));
+        }
+
+        resolve([server, addressInfo.port]);
+      } catch (err) {
+        reject(err);
+      }
     });
   });
 

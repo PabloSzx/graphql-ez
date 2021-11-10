@@ -2,7 +2,6 @@ import { EZClient, EZClientOptions } from '@graphql-ez/client';
 import type { AppOptions, BuildAppOptions, EZAppBuilder } from '@graphql-ez/http';
 import { AsyncRequestHandler, CreateApp, EZContext, GetEnvelopedFn, LazyPromise, PromiseOrValue } from '@graphql-ez/http';
 import assert from 'assert';
-import getPort from 'get-port';
 import { printSchema } from 'graphql';
 import { createServer, Server } from 'http';
 
@@ -71,11 +70,19 @@ export async function CreateTestClient(
     throw Error('Invalid EZ App');
   }
 
-  const port = await getPort();
+  const port = await new Promise<number>((resolve, reject) => {
+    server.listen(0, '127.0.0.1', 441, () => {
+      try {
+        const addressInfo = server.address();
 
-  await new Promise<void>(resolve => {
-    server.listen(port, '127.0.0.1', 441, () => {
-      resolve();
+        if (addressInfo == null || typeof addressInfo !== 'object') {
+          return reject(Error('Invalid Server'));
+        }
+
+        resolve(addressInfo.port);
+      } catch (err) {
+        reject(err);
+      }
     });
   });
 

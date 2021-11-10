@@ -1,6 +1,5 @@
 import assert from 'assert';
 import Express, { Application } from 'express';
-import getPort from 'get-port';
 import { printSchema } from 'graphql';
 
 import { EZClient, EZClientOptions } from '@graphql-ez/client';
@@ -85,9 +84,21 @@ export async function CreateTestClient(
 
   await options.preListen?.(app);
 
-  const port = await getPort();
+  const [server, port] = await new Promise<[Server, number]>((resolve, reject) => {
+    try {
+      const server = app.listen(0);
 
-  const server = app.listen(port);
+      const addressInfo = server.address();
+
+      if (addressInfo == null || typeof addressInfo !== 'object') {
+        return reject(Error('Invalid Server'));
+      }
+
+      resolve([server, addressInfo.port]);
+    } catch (err) {
+      reject(err);
+    }
+  });
 
   const closeServer = LazyPromise<void>(() => new Promise(resolve => server.close(() => resolve())));
 

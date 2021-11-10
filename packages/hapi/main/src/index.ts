@@ -101,7 +101,7 @@ export function CreateApp(config: HapiAppOptions = {}): EZAppBuilder {
   const { appBuilder, onIntegrationRegister, ...commonApp } = ezApp;
 
   const buildApp: EZAppBuilder['buildApp'] = async function buildApp(buildOptions = {}) {
-    const { app: registerApp, getEnveloped } = await appBuilder(buildOptions, async ({ ctx, getEnveloped }) => {
+    const { app: registerApp, getEnveloped } = await appBuilder(buildOptions, ({ ctx, getEnveloped }) => {
       const { buildContext, onAppRegister, processRequestOptions } = appConfig;
 
       return async function register(server: Server) {
@@ -194,9 +194,7 @@ export function CreateApp(config: HapiAppOptions = {}): EZAppBuilder {
       hapiPlugin: {
         name: 'EZApp',
         async register(server) {
-          await (
-            await registerApp
-          )(server);
+          await registerApp(server);
         },
       },
       getEnveloped,

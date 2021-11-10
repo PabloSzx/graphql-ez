@@ -1,6 +1,5 @@
 import assert from 'assert';
 import Fastify, { FastifyInstance, FastifyServerOptions } from 'fastify';
-import getPort from 'get-port';
 import { printSchema } from 'graphql';
 
 import { EZClient, EZClientOptions } from '@graphql-ez/client';
@@ -79,9 +78,19 @@ export async function CreateTestClient(
 
   await options.preListen?.(server);
 
-  const port = await getPort();
+  const port = await server.listen(0).then(() => {
+    try {
+      const addressInfo = server.server.address();
 
-  await server.listen(port);
+      if (addressInfo == null || typeof addressInfo !== 'object') {
+        throw Error('Invalid Server');
+      }
+
+      return addressInfo.port;
+    } catch (err) {
+      throw err;
+    }
+  });
 
   teardownLazyPromiseList.push(
     LazyPromise(async () => {

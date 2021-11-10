@@ -168,7 +168,7 @@ describe('fastify', () => {
 });
 
 describe('express', () => {
-  test.concurrent('adaptive', async () => {
+  test('adaptive', async () => {
     const { GraphQLWSWebsocketsClient, SubscriptionsTransportWebsocketsClient } = await startExpressServer({
       createOptions: {
         ez: {
@@ -183,7 +183,7 @@ describe('express', () => {
 });
 
 describe('http', () => {
-  test.concurrent('adaptive', async () => {
+  test('adaptive', async () => {
     const { GraphQLWSWebsocketsClient, SubscriptionsTransportWebsocketsClient } = await startHTTPServer({
       createOptions: {
         ez: {
@@ -198,7 +198,7 @@ describe('http', () => {
 });
 
 describe('hapi', () => {
-  test.concurrent('adaptive', async () => {
+  test('adaptive', async () => {
     const { GraphQLWSWebsocketsClient, SubscriptionsTransportWebsocketsClient } = await startHapiServer({
       createOptions: {
         ez: {
@@ -213,7 +213,7 @@ describe('hapi', () => {
 });
 
 describe('koa', () => {
-  test.concurrent('adaptive', async () => {
+  test('adaptive', async () => {
     const { GraphQLWSWebsocketsClient, SubscriptionsTransportWebsocketsClient } = await startKoaServer({
       createOptions: {
         ez: {

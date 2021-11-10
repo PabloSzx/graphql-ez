@@ -1,6 +1,5 @@
 import { ezSchema, EZSchemaOptions } from '@graphql-ez/plugin-schema';
 import { LazyPromise, PLazy } from '@graphql-ez/utils/promise';
-import getPort from 'get-port';
 import type { AppOptions, BuildAppOptions } from 'graphql-ez';
 import defaultsDeep from 'lodash/defaultsDeep.js';
 import { resolve } from 'path';
@@ -79,10 +78,20 @@ export const startFastifyServer = async ({
 
   await server.ready();
 
-  const port = await getPort();
+  const port = await new Promise<number>((resolve, reject) => {
+    server.listen(0).then(() => {
+      try {
+        const addressInfo = server.server.address();
 
-  await new Promise<unknown>((resolve, reject) => {
-    server.listen(port).then(resolve, reject);
+        if (addressInfo == null || typeof addressInfo !== 'object') {
+          return reject(Error('Invalid Server'));
+        }
+
+        resolve(addressInfo.port);
+      } catch (err) {
+        reject(err);
+      }
+    }, reject);
 
     autoClose && TearDownPromises.push(new PLazy<void>(resolve => server.close(resolve)));
   });
@@ -136,11 +145,19 @@ export const startExpressServer = async ({
 
   server.use(ezApp.router);
 
-  const port = await getPort();
+  const port = await new Promise<number>((resolve, reject) => {
+    const httpServer = server.listen(0, () => {
+      try {
+        const addressInfo = httpServer.address();
 
-  await new Promise<void>(resolve => {
-    const httpServer = server.listen(port, () => {
-      resolve();
+        if (addressInfo == null || typeof addressInfo !== 'object') {
+          return reject(Error('Invalid Server'));
+        }
+
+        resolve(addressInfo.port);
+      } catch (err) {
+        reject(err);
+      }
     });
 
     autoClose && TearDownPromises.push(new PLazy<unknown>(resolve => httpServer.close(resolve)));
@@ -191,11 +208,19 @@ export async function startHTTPServer({
 
   const ezApp = appBuilder.buildApp({ ...buildOptions, server });
 
-  const port = await getPort();
+  const port = await new Promise<number>((resolve, reject) => {
+    server.listen(0, () => {
+      try {
+        const addressInfo = server.address();
 
-  await new Promise<void>(resolve => {
-    server.listen(port, () => {
-      resolve();
+        if (addressInfo == null || typeof addressInfo !== 'object') {
+          return reject(Error('Invalid Server'));
+        }
+
+        resolve(addressInfo.port);
+      } catch (err) {
+        reject(err);
+      }
     });
 
     autoClose &&
@@ -233,10 +258,8 @@ export const startHapiServer = async ({
   clientWebsocketPath,
   autoClose = true,
 }: StartTestServerOptions<import('@graphql-ez/hapi').HapiAppOptions, import('@graphql-ez/hapi').BuildAppOptions>) => {
-  const port = await getPort();
-
   const server = (await import('@hapi/hapi')).server({
-    port,
+    port: 0,
     host: 'localhost',
   });
 
@@ -260,6 +283,8 @@ export const startHapiServer = async ({
   await server.register(ezApp.hapiPlugin);
 
   await server.start();
+
+  const port = typeof server.info.port === 'string' ? parseInt(server.info.port) : server.info.port;
 
   autoClose &&
     TearDownPromises.push(
@@ -295,7 +320,7 @@ export const startKoaServer = async ({
   const Koa = (await import('koa')).default;
   const KoaRouter = (await import('@koa/router')).default;
 
-  const server = new Koa();
+  const app = new Koa();
 
   const router = new KoaRouter();
 
@@ -314,14 +339,24 @@ export const startKoaServer = async ({
   }
   const appBuilder = CreateApp(opts);
 
-  const ezApp = await appBuilder.buildApp({ ...buildOptions, app: server, router });
+  const ezApp = await appBuilder.buildApp({ ...buildOptions, app, router });
 
-  server.use(router.routes()).use(router.allowedMethods());
+  app.use(router.routes()).use(router.allowedMethods());
 
-  const port = await getPort();
+  const port = await new Promise<number>((resolve, reject) => {
+    const httpServer = app.listen(0, () => {
+      try {
+        const addressInfo = httpServer.address();
 
-  await new Promise<void>(resolve => {
-    const httpServer = server.listen(port, resolve);
+        if (addressInfo == null || typeof addressInfo !== 'object') {
+          return reject(Error('Invalid Server'));
+        }
+
+        resolve(addressInfo.port);
+      } catch (err) {
+        reject(err);
+      }
+    });
 
     autoClose && TearDownPromises.push(new PLazy(resolve => httpServer.close(resolve)));
   });
@@ -331,7 +366,7 @@ export const startKoaServer = async ({
   return {
     appBuilder,
     ezApp,
-    server,
+    server: app,
     ...pool,
     GraphQLWSWebsocketsClient: createGraphQLWSWebsocketsClient(pool.address, clientWebsocketPath, graphqlWsClientOptions),
     SubscriptionsTransportWebsocketsClient: createSubscriptionsTransportWebsocketsClient(
@@ -401,10 +436,20 @@ export async function startNextJSServer(dir: string[], autoClose: boolean = true
 
   await app.ready();
 
-  const port = await getPort();
+  const port = await new Promise<number>((resolve, reject) => {
+    app.listen(0).then(() => {
+      try {
+        const addressInfo = app.server.address();
 
-  await new Promise((resolve, reject) => {
-    app.listen(port).then(resolve, reject);
+        if (addressInfo == null || typeof addressInfo !== 'object') {
+          return reject(Error('Invalid Server'));
+        }
+
+        resolve(addressInfo.port);
+      } catch (err) {
+        reject(err);
+      }
+    }, reject);
 
     autoClose && TearDownPromises.push(new PLazy<void>(resolve => app.close(resolve)));
   });
