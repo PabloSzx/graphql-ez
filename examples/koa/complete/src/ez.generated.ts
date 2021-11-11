@@ -119,6 +119,7 @@ export type ResolversTypes = {
   Subscription: ResolverTypeWrapper<{}>;
   Mutation: ResolverTypeWrapper<{}>;
   Boolean: ResolverTypeWrapper<Scalars['Boolean']>;
+  Int: ResolverTypeWrapper<Scalars['Int']>;
 };
 
 /** Mapping between all available schema types and the resolvers parents */
@@ -130,6 +131,7 @@ export type ResolversParentTypes = {
   Subscription: {};
   Mutation: {};
   Boolean: Scalars['Boolean'];
+  Int: Scalars['Int'];
 };
 
 export interface UploadScalarConfig extends GraphQLScalarTypeConfig<ResolversTypes['Upload'], any> {
