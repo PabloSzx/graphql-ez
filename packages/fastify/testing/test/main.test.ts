@@ -6,7 +6,7 @@ import { CreateTestClient, GlobalTeardown } from '../src';
 
 afterAll(GlobalTeardown);
 
-test.concurrent('from preset', async () => {
+test('from preset', async () => {
   const ezAppBuilder = CreateApp({
     schema: CommonSchema.schema,
   });
@@ -26,7 +26,7 @@ test.concurrent('from preset', async () => {
   }
 });
 
-test.concurrent('from config', async () => {
+test('from config', async () => {
   const { query } = await CreateTestClient({
     schema: CommonSchema.schema,
   });
@@ -40,7 +40,7 @@ test.concurrent('from config', async () => {
               `);
 });
 
-test.concurrent('from built app', async () => {
+test('from built app', async () => {
   const ezAppBuilder = CreateApp({
     schema: CommonSchema.schema,
   });
@@ -58,7 +58,7 @@ test.concurrent('from built app', async () => {
                 `);
 });
 
-test.concurrent('detect invalid app', async () => {
+test('detect invalid app', async () => {
   await expect(
     CreateTestClient({
       asPreset: undefined,

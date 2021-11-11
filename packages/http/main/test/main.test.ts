@@ -9,7 +9,7 @@ import {
   testIfStreamDefer,
 } from 'graphql-ez-testing';
 
-test.concurrent('basic', async () => {
+test('basic', async () => {
   const { query, addressWithoutProtocol, ezApp } = await startHTTPServer({
     createOptions: {
       schema: CommonSchema.schema,
@@ -156,7 +156,7 @@ testIfStreamDefer('query with @stream', async () => {
   await expectCommonQueryStream(address);
 });
 
-test.concurrent('SSE subscription', async () => {
+test('SSE subscription', async () => {
   const { address } = await startHTTPServer({
     createOptions: {
       schema: [CommonSchema.schema, PingSubscription.schema],

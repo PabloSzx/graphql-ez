@@ -1,5 +1,6 @@
 export const TearDownPromises: Promise<unknown>[] = [];
 
-afterAll(async () => {
-  await Promise.all(TearDownPromises);
-});
+typeof afterAll !== 'undefined' &&
+  afterAll(async () => {
+    Promise.allSettled(TearDownPromises);
+  });

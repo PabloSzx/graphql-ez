@@ -558,7 +558,7 @@ test('nextjs', async () => {
     }
   `);
 
-  testApiHandler({
+  await testApiHandler({
     async handler(req, res) {
       await StaticGraphiQLHandler({
         endpoint: '/api/graphql',

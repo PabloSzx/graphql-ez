@@ -49,7 +49,7 @@ test('from config', async () => {
         `);
 });
 
-test.concurrent('from built app should throw', async () => {
+test('from built app should throw', async () => {
   const ezAppBuilder = CreateApp({
     schema: CommonSchema.schema,
   });
@@ -59,7 +59,7 @@ test.concurrent('from built app should throw', async () => {
   await expect(CreateTestClient(builtApp as any)).rejects.toMatchInlineSnapshot(`[Error: Invalid EZ App]`);
 });
 
-test.concurrent('detect invalid app', async () => {
+test('detect invalid app', async () => {
   await expect(
     CreateTestClient({
       asPreset: undefined,

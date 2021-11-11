@@ -14,7 +14,7 @@ import { ezGraphiQLIDE, GraphiQLHandler } from '../src';
 
 afterAll(GlobalTeardown);
 
-test('fastify', async () => {
+test.only('fastify', async () => {
   const { request } = await startFastifyServer({
     createOptions: {
       schema: [CommonSchema],
@@ -558,7 +558,7 @@ test('nextjs', async () => {
     }
   `);
 
-  testApiHandler({
+  await testApiHandler({
     async handler(req, res) {
       await GraphiQLHandler({
         endpoint: '/api/graphql',
