@@ -1,5 +1,13 @@
 # @graphql-ez/fastify-testing
 
+## 0.1.3
+
+### Patch Changes
+
+- 9a9dd4d7: Use .listen(0) instead of get-port
+- Updated dependencies [27970292]
+  - graphql-ez@0.13.5
+
 ## 0.1.2
 
 ### Patch Changes

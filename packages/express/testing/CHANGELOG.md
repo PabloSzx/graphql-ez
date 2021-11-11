@@ -1,5 +1,15 @@
 # @graphql-ez/express-testing
 
+## 0.1.3
+
+### Patch Changes
+
+- 9a9dd4d7: Use .listen(0) instead of get-port
+- Updated dependencies [a408c6e0]
+- Updated dependencies [27970292]
+  - @graphql-ez/express@0.9.6
+  - graphql-ez@0.13.5
+
 ## 0.1.2
 
 ### Patch Changes

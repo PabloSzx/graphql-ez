@@ -1,5 +1,13 @@
 # graphql-ez
 
+## 0.13.5
+
+### Patch Changes
+
+- 27970292: Bump Envelop
+- Updated dependencies [13cb6398]
+  - @pablosz/graphql-helix@2.0.3
+
 ## 0.13.4
 
 ### Patch Changes

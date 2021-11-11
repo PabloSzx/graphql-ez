@@ -1,5 +1,13 @@
 # @graphql-ez/express
 
+## 0.9.6
+
+### Patch Changes
+
+- a408c6e0: Prevent unhandled rejection warning
+- Updated dependencies [27970292]
+  - graphql-ez@0.13.5
+
 ## 0.9.5
 
 ### Patch Changes
