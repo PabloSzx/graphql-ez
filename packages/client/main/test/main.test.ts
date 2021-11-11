@@ -17,7 +17,7 @@ afterAll(async () => {
   await Promise.allSettled(TearDownPromises);
 });
 
-test.concurrent('sse', async () => {
+test('sse', async () => {
   const { address } = await startFastifyServer({
     createOptions: {
       prepare(appBuilder) {
@@ -56,7 +56,7 @@ test.concurrent('sse', async () => {
   }
 });
 
-test.concurrent('basic query', async () => {
+test('basic query', async () => {
   const { address, server } = await startFastifyServer({
     createOptions: {
       prepare(appBuilder) {
@@ -91,7 +91,7 @@ test.concurrent('basic query', async () => {
   await server.close();
 });
 
-test.concurrent('websockets', async () => {
+test('websockets', async () => {
   const { address } = await startFastifyServer({
     createOptions: {
       prepare(appBuilder) {
@@ -151,7 +151,7 @@ test.concurrent('websockets', async () => {
   await (await websockets.client).dispose();
 });
 
-test.concurrent('legacy websockets', async () => {
+test('legacy websockets', async () => {
   const { address } = await startFastifyServer({
     createOptions: {
       prepare(appBuilder) {
