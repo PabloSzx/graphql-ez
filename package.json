@@ -40,6 +40,7 @@
     "pretty": "prettier --write \"**/*.{ts,tsx,json,yaml,js,cjs,mjs,mdx,md}\"",
     "pretty:check": "prettier --check \"**/*.{ts,tsx,json,yaml,js,cjs,mjs,mdx}\"",
     "test": "jest",
+    "test:integration": "pnpm i && pnpm -r test:mocha --workspace-concurrency 1",
     "test:separate": "pnpm -r --filter=\"!graphql-ez-monorepo\" test -- ",
     "typecheck": "bob-esbuild tsc"
   },

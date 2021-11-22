@@ -42,7 +42,7 @@ jobs:
         run: pnpm pretty:check
       - name: Test
         run: pnpm test -- --logHeapUsage
-      - name: Test Mocha
-        run: pnpm -r test:mocha
+      - name: Test Integration
+        run: pnpm test:integration
       - name: Test ESM
         run: node scripts/test-esm.mjs
