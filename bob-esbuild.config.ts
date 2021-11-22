@@ -5,7 +5,7 @@ const isHelixGraphiql = process.cwd().endsWith(sep + 'graphiql');
 
 export const config: import('bob-esbuild').BobConfig = {
   tsc: {
-    dirs: ['packages/*/*', 'internal/*', 'yoga/*', 'benchmarks/bench'],
+    dirs: ['packages/*/*', 'internal/*', 'benchmarks/bench'],
   },
   verbose: false,
   outputOptions: {

@@ -42,12 +42,10 @@
       "@graphql-ez/utils/*": ["packages/core/utils/src/*.ts"],
       "@pablosz/graphql-helix": ["packages/helix/core/src/index.ts"],
       "@pablosz/graphql-helix-graphiql": ["packages/helix/graphiql/src/index.ts"],
-      "@pablosz/graphql-helix-graphiql/*": ["packages/helix/graphiql/src/*.ts"],
-      "@graphql-yoga/preset": ["yoga/preset/src/index.ts"],
-      "graphql-yoga": ["yoga/fastify/src/index.ts"]
+      "@pablosz/graphql-helix-graphiql/*": ["packages/helix/graphiql/src/*.ts"]
     },
     "importsNotUsedAsValues": "error"
   },
   "exclude": ["**/dist", "**/website", "**/coverage", "**/.next", "**/browser", "**/test-example"],
-  "include": ["packages", "yoga", "internal", "bob-esbuild.config.ts", "jest.config.js", "benchmarks/bench", "integration"]
+  "include": ["packages", "internal", "bob-esbuild.config.ts", "jest.config.js", "benchmarks/bench", "integration"]
 }
