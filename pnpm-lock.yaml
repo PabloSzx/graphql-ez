@@ -1004,7 +1004,7 @@ importers:
       '@types/eventsource': ^1.1.7
       '@types/extract-files': ^8.1.1
       '@types/node': '>=16.11.7'
-      '@types/node-fetch': ^2.5.12
+      '@types/node-fetch': ^3.0.2
       '@types/ws': ^8.2.0
       bob-esbuild-cli: ^3.0.1
       changesets-github-release: ^0.0.4
@@ -1036,7 +1036,7 @@ importers:
       '@graphql-typed-document-node/core': 3.1.1_564d67cac1c5d7d887d57591dff0ccf7
       '@types/extract-files': 8.1.1
       '@types/node': 16.11.9
-      '@types/node-fetch': 2.5.12
+      '@types/node-fetch': 3.0.3
       '@types/ws': 8.2.0
       bob-esbuild-cli: 3.0.1_bob-esbuild@3.1.1
       changesets-github-release: 0.0.4
@@ -1748,7 +1748,7 @@ importers:
     specifiers:
       '@graphql-ez/utils': workspace:^0.1.2
       '@types/graphql-upload': ^8.0.7
-      '@types/node-fetch': ^2.5.12
+      '@types/node-fetch': ^3.0.2
       bob-esbuild-cli: ^3.0.1
       changesets-github-release: ^0.0.4
       graphql: 16.0.0-experimental-stream-defer.5
@@ -1761,7 +1761,7 @@ importers:
       '@graphql-ez/utils': link:../../core/utils
     devDependencies:
       '@types/graphql-upload': 8.0.7
-      '@types/node-fetch': 2.5.12
+      '@types/node-fetch': 3.0.3
       bob-esbuild-cli: 3.0.1_bob-esbuild@3.1.1
       changesets-github-release: 0.0.4
       graphql: 16.0.0-experimental-stream-defer.5
@@ -5839,11 +5839,11 @@ packages:
     resolution: {integrity: sha512-scN0hAWyLVAvLR9AyW7HoFF5sJZglyBsbPuHO4fv7JRvfmPBMfp1ozWqOf/e4wwPNxezBZXRfWzMb6iFLgEVRA==}
     dev: true
 
-  /@types/node-fetch/2.5.12:
-    resolution: {integrity: sha512-MKgC4dlq4kKNa/mYrwpKfzQMB5X3ee5U6fSprkKpToBqBmX4nFZL9cW5jl6sWn+xpRJ7ypWh2yyqqr8UUCstSw==}
+  /@types/node-fetch/3.0.3:
+    resolution: {integrity: sha512-HhggYPH5N+AQe/OmN6fmhKmRRt2XuNJow+R3pQwJxOOF9GuwM7O2mheyGeIrs5MOIeNjDEdgdoyHBOrFeJBR3g==}
+    deprecated: This is a stub types definition. node-fetch provides its own type definitions, so you do not need this installed.
     dependencies:
-      '@types/node': 16.11.9
-      form-data: 3.0.1
+      node-fetch: 2.6.6
     dev: true
 
   /@types/node/16.11.9:
