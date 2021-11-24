@@ -734,7 +734,7 @@ importers:
       '@graphql-ez/sveltekit': workspace:^0.1.2
       '@graphql-tools/schema': ^8.3.1
       '@sveltejs/adapter-node': ^1.0.0-next.55
-      '@sveltejs/kit': ^1.0.0-next.196
+      '@sveltejs/kit': ^1.0.0-next.200
       altair-static-slim: 4.2.1
       graphql: 16.0.0-experimental-stream-defer.5
       graphql-ez: workspace:^0.13.5
@@ -756,7 +756,7 @@ importers:
       graphql: 16.0.0-experimental-stream-defer.5
       graphql-ez: link:../../packages/core/main
     devDependencies:
-      '@sveltejs/kit': 1.0.0-next.196_svelte@3.44.2
+      '@sveltejs/kit': 1.0.0-next.200_svelte@3.44.2
       svelte: 3.44.2
       svelte-check: 2.2.10_svelte@3.44.2
       svelte-preprocess: 4.9.8_svelte@3.44.2+typescript@4.5.2
@@ -1372,21 +1372,21 @@ importers:
     dependencies:
       '@graphql-ez/utils': link:../../core/utils
     devDependencies:
-      '@graphiql/toolkit': 0.4.2_564d67cac1c5d7d887d57591dff0ccf7
-      '@graphql-tools/url-loader': 7.5.2_564d67cac1c5d7d887d57591dff0ccf7
+      '@graphiql/toolkit': 0.4.2_79d4818837173bb1e603dd5b2b9d21bc
+      '@graphql-tools/url-loader': 7.5.2_79d4818837173bb1e603dd5b2b9d21bc
       '@graphql-tools/utils': 8.5.3_564d67cac1c5d7d887d57591dff0ccf7
       '@n1ru4l/graphql-live-query': 0.9.0_564d67cac1c5d7d887d57591dff0ccf7
       '@types/prettier': 2.4.2
       '@types/prop-types': 15.7.4
       '@types/react': 17.0.36
       '@types/react-dom': 17.0.11
-      bob-esbuild-cli: 3.0.1
+      bob-esbuild-cli: 3.0.1_bob-esbuild@3.1.1
       changesets-github-release: 0.0.4
       concurrently: 6.4.0
       copy-to-clipboard: 3.3.1
       cpy: 8.1.2
       esbuild: 0.13.15
-      graphiql: 1.5.4_8404e33f1d8742d834393a5eb1abbe5b
+      graphiql: 1.5.4_273d7e168828403fecec331b922b5e0e
       graphql: 16.0.0-experimental-stream-defer.5
       graphql-ez: link:../../core/main
       graphql-language-service-interface: 2.9.3_564d67cac1c5d7d887d57591dff0ccf7
@@ -1594,12 +1594,12 @@ importers:
     devDependencies:
       '@types/mime-types': 2.1.1
       '@types/node': 16.11.9
-      bob-esbuild-cli: 3.0.1
+      bob-esbuild-cli: 3.0.1_bob-esbuild@3.1.1
       changesets-github-release: 0.0.4
       graphql-ez: link:../../core/main
       jest: 27.3.1
       next: 12.0.4
-      ts-jest: 27.0.7_jest@27.3.1
+      ts-jest: 27.0.7_7e2a439bb7b53c38ff0c1a3c5e04c2c5
 
   packages/plugin/automatic-persisted-queries:
     specifiers:
@@ -1894,7 +1894,7 @@ importers:
       '@graphql-ez/utils': workspace:^0.1.2
       '@graphql-tools/schema': ^8.3.1
       '@sveltejs/adapter-node': ^1.0.0-next.55
-      '@sveltejs/kit': ^1.0.0-next.196
+      '@sveltejs/kit': ^1.0.0-next.200
       '@types/node': ^16.11.9
       altair-static-slim: 4.2.1
       bob-esbuild-cli: ^3.0.1
@@ -1920,10 +1920,10 @@ importers:
       '@graphql-ez/plugin-voyager': link:../../plugin/voyager
       '@graphql-tools/schema': 8.3.1_564d67cac1c5d7d887d57591dff0ccf7
       '@sveltejs/adapter-node': 1.0.0-next.55
-      '@sveltejs/kit': 1.0.0-next.196_svelte@3.44.2
+      '@sveltejs/kit': 1.0.0-next.200_svelte@3.44.2
       '@types/node': 16.11.9
       altair-static-slim: 4.2.1
-      bob-esbuild-cli: 3.0.1
+      bob-esbuild-cli: 3.0.1_bob-esbuild@3.1.1
       changesets-github-release: 0.0.4
       execa: 5.1.1
       get-port: 5.1.1
@@ -1932,7 +1932,7 @@ importers:
       jest: 27.3.1
       svelte: 3.44.2
       svelte-check: 2.2.10_svelte@3.44.2
-      svelte-preprocess: 4.9.8_svelte@3.44.2
+      svelte-preprocess: 4.9.8_svelte@3.44.2+typescript@4.5.2
       tiny-lru: 7.0.6
       tslib: 2.3.1
       wait-on: 6.0.0
@@ -4097,7 +4097,7 @@ packages:
       graphql: 16.0.0-experimental-stream-defer.5
     dev: false
 
-  /@graphiql/toolkit/0.4.2_564d67cac1c5d7d887d57591dff0ccf7:
+  /@graphiql/toolkit/0.4.2_79d4818837173bb1e603dd5b2b9d21bc:
     resolution: {integrity: sha512-14uG67QrONbRrhXwvBJFsMfcQfexmGhj7dgkputesx9xuPUkcCDNmVULnVA8sGYt8P/rSvjkfQYx3rtfW+GhAQ==}
     peerDependencies:
       graphql: ^15.5.0 || ^16.0.0
@@ -4105,7 +4105,7 @@ packages:
     dependencies:
       '@n1ru4l/push-pull-async-iterable-iterator': 3.1.0
       graphql: 16.0.0-experimental-stream-defer.5
-      meros: 1.1.4
+      meros: 1.1.4_@types+node@16.11.9
     transitivePeerDependencies:
       - '@types/node'
     dev: true
@@ -4396,7 +4396,7 @@ packages:
       value-or-promise: 1.0.11
     dev: false
 
-  /@graphql-tools/url-loader/7.5.2_564d67cac1c5d7d887d57591dff0ccf7:
+  /@graphql-tools/url-loader/7.5.2_79d4818837173bb1e603dd5b2b9d21bc:
     resolution: {integrity: sha512-EilHqbhUY/qg55SSEdklDhPXgSz9+9a63SX3mcD8J2qwZHJD/wOLcyKs8m6BXfuGwUiuB0j3fmDSEVmva2onBg==}
     peerDependencies:
       graphql: ^14.0.0 || ^15.0.0 || ^16.0.0
@@ -4414,7 +4414,7 @@ packages:
       graphql-sse: 1.0.6_564d67cac1c5d7d887d57591dff0ccf7
       graphql-ws: 5.5.5_564d67cac1c5d7d887d57591dff0ccf7
       isomorphic-ws: 4.0.1_ws@8.2.3
-      meros: 1.1.4
+      meros: 1.1.4_@types+node@16.11.9
       subscriptions-transport-ws: 0.11.0_564d67cac1c5d7d887d57591dff0ccf7
       sync-fetch: 0.3.1
       tslib: 2.3.1
@@ -5543,8 +5543,8 @@ packages:
       esbuild: 0.13.15
       tiny-glob: 0.2.9
 
-  /@sveltejs/kit/1.0.0-next.196_svelte@3.44.2:
-    resolution: {integrity: sha512-z7sA/2/3Il5biibjPXCYXJC11TyFhgCvMaJvvbtMnu2l3EmOmJBMS+r2djGptzfFsugSVNwGQFn8+ldWQWq3jA==}
+  /@sveltejs/kit/1.0.0-next.200_svelte@3.44.2:
+    resolution: {integrity: sha512-UuUiZ5HhqQyjfq/MP3ak+zfzwh3jm+AOJ5n5tncfAd8B9lUWiuNBcYw9VHvxjO63t1eKsNbf3l7TIvfuUO6NBA==}
     engines: {node: '>=14.13'}
     hasBin: true
     peerDependencies:
@@ -6713,16 +6713,6 @@ packages:
 
   /bn.js/5.2.0:
     resolution: {integrity: sha512-D7iWRBvnZE8ecXiLj/9wbxH7Tk79fAh8IHaTNq1RWRixsS02W+5qS+iE9yq6RYl0asXx5tw0bLhmT5pIfbSquw==}
-
-  /bob-esbuild-cli/3.0.1:
-    resolution: {integrity: sha512-YpR8vEBqdiG+IVrgJA3hdIJnh1P6KKxDFO6RTXbbnhjGSmv9k7h4K86PKfCG6cKWJ9zkaE8iDF+i6T0pUfnI9A==}
-    engines: {node: '>=12.0.0'}
-    hasBin: true
-    peerDependencies:
-      bob-esbuild: ^3.1.1
-    dependencies:
-      commander: 8.3.0
-    dev: true
 
   /bob-esbuild-cli/3.0.1_bob-esbuild@3.1.1:
     resolution: {integrity: sha512-YpR8vEBqdiG+IVrgJA3hdIJnh1P6KKxDFO6RTXbbnhjGSmv9k7h4K86PKfCG6cKWJ9zkaE8iDF+i6T0pUfnI9A==}
@@ -9449,14 +9439,14 @@ packages:
     resolution: {integrity: sha512-bzh50DW9kTPM00T8y4o8vQg89Di9oLJVLW/KaOGIXJWP/iqCN6WKYkbNOF04vFLJhwcpYUh9ydh/+5vpOqV4YQ==}
     dev: true
 
-  /graphiql/1.5.4_8404e33f1d8742d834393a5eb1abbe5b:
+  /graphiql/1.5.4_273d7e168828403fecec331b922b5e0e:
     resolution: {integrity: sha512-VWxV6w4vneFqW/hUBGlNMnSO2Zi+4BKv5SK+f9K3pvhRIIjBtXpzHluEpwYHyi+CuiEEuaSCpmqes/CItpDkYw==}
     peerDependencies:
       graphql: ^15.5.0 || ^16.0.0
       react: ^16.8.0 || ^17.0.0 || ^18.0.0
       react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
     dependencies:
-      '@graphiql/toolkit': 0.4.2_564d67cac1c5d7d887d57591dff0ccf7
+      '@graphiql/toolkit': 0.4.2_79d4818837173bb1e603dd5b2b9d21bc
       codemirror: 5.64.0
       codemirror-graphql: 1.2.2_1809e88ba6c90b0b0a4d559d9f8af976
       copy-to-clipboard: 3.3.1
@@ -11842,7 +11832,7 @@ packages:
     resolution: {integrity: sha512-8q7VEgMJW4J8tcfVPy8g09NcQwZdbwFEqhe/WZkoIzjn/3TGDwtOCYtXGxA3O8tPzpczCCDgv+P2P5y00ZJOOg==}
     engines: {node: '>= 8'}
 
-  /meros/1.1.4:
+  /meros/1.1.4_@types+node@16.11.9:
     resolution: {integrity: sha512-E9ZXfK9iQfG9s73ars9qvvvbSIkJZF5yOo9j4tcwM5tN8mUKfj/EKN5PzOr3ZH0y5wL7dLAHw3RVEfpQV9Q7VQ==}
     engines: {node: '>=12'}
     peerDependencies:
@@ -11850,6 +11840,8 @@ packages:
     peerDependenciesMeta:
       '@types/node':
         optional: true
+    dependencies:
+      '@types/node': 16.11.9
     dev: true
 
   /methods/1.1.2:
@@ -14963,56 +14955,6 @@ packages:
       svelte: 3.44.2
     dev: true
 
-  /svelte-preprocess/4.9.8_svelte@3.44.2:
-    resolution: {integrity: sha512-EQS/oRZzMtYdAprppZxY3HcysKh11w54MgA63ybtL+TAZ4hVqYOnhw41JVJjWN9dhPnNjjLzvbZ2tMhTsla1Og==}
-    engines: {node: '>= 9.11.2'}
-    requiresBuild: true
-    peerDependencies:
-      '@babel/core': ^7.10.2
-      coffeescript: ^2.5.1
-      less: ^3.11.3
-      node-sass: '*'
-      postcss: ^7 || ^8
-      postcss-load-config: ^2.1.0 || ^3.0.0
-      pug: ^3.0.0
-      sass: ^1.26.8
-      stylus: ^0.54.7
-      sugarss: ^2.0.0
-      svelte: ^3.23.0
-      typescript: ^3.9.5 || ^4.0.0
-    peerDependenciesMeta:
-      '@babel/core':
-        optional: true
-      coffeescript:
-        optional: true
-      less:
-        optional: true
-      node-sass:
-        optional: true
-      postcss:
-        optional: true
-      postcss-load-config:
-        optional: true
-      pug:
-        optional: true
-      sass:
-        optional: true
-      stylus:
-        optional: true
-      sugarss:
-        optional: true
-      typescript:
-        optional: true
-    dependencies:
-      '@types/pug': 2.0.5
-      '@types/sass': 1.43.0
-      detect-indent: 6.1.0
-      magic-string: 0.25.7
-      sorcery: 0.10.0
-      strip-indent: 3.0.0
-      svelte: 3.44.2
-    dev: true
-
   /svelte-preprocess/4.9.8_svelte@3.44.2+typescript@4.5.2:
     resolution: {integrity: sha512-EQS/oRZzMtYdAprppZxY3HcysKh11w54MgA63ybtL+TAZ4hVqYOnhw41JVJjWN9dhPnNjjLzvbZ2tMhTsla1Og==}
     engines: {node: '>= 9.11.2'}
@@ -15486,35 +15428,6 @@ packages:
       make-error: 1.3.6
       semver: 7.3.5
       typescript: 4.5.2
-      yargs-parser: 20.2.9
-    dev: true
-
-  /ts-jest/27.0.7_jest@27.3.1:
-    resolution: {integrity: sha512-O41shibMqzdafpuP+CkrOL7ykbmLh+FqQrXEmV9CydQ5JBk0Sj0uAEF5TNNe94fZWKm3yYvWa/IbyV4Yg1zK2Q==}
-    engines: {node: ^10.13.0 || ^12.13.0 || ^14.15.0 || >=15.0.0}
-    hasBin: true
-    peerDependencies:
-      '@babel/core': '>=7.0.0-beta.0 <8'
-      '@types/jest': ^27.0.0
-      babel-jest: '>=27.0.0 <28'
-      jest: ^27.0.0
-      typescript: '>=3.8 <5.0'
-    peerDependenciesMeta:
-      '@babel/core':
-        optional: true
-      '@types/jest':
-        optional: true
-      babel-jest:
-        optional: true
-    dependencies:
-      bs-logger: 0.2.6
-      fast-json-stable-stringify: 2.1.0
-      jest: 27.3.1
-      jest-util: 27.3.1
-      json5: 2.2.0
-      lodash.memoize: 4.1.2
-      make-error: 1.3.6
-      semver: 7.3.5
       yargs-parser: 20.2.9
     dev: true
 
