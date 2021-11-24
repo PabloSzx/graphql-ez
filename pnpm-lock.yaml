@@ -1345,7 +1345,7 @@ importers:
 
   packages/helix/graphiql:
     specifiers:
-      '@graphiql/toolkit': ^0.4.0
+      '@graphiql/toolkit': ^0.4.2
       '@graphql-ez/utils': workspace:^0.1.2
       '@graphql-tools/url-loader': ^7.5.2
       '@graphql-tools/utils': ^8.5.3
@@ -1372,7 +1372,7 @@ importers:
     dependencies:
       '@graphql-ez/utils': link:../../core/utils
     devDependencies:
-      '@graphiql/toolkit': 0.4.0_79d4818837173bb1e603dd5b2b9d21bc
+      '@graphiql/toolkit': 0.4.2_79d4818837173bb1e603dd5b2b9d21bc
       '@graphql-tools/url-loader': 7.5.2_79d4818837173bb1e603dd5b2b9d21bc
       '@graphql-tools/utils': 8.5.3_564d67cac1c5d7d887d57591dff0ccf7
       '@n1ru4l/graphql-live-query': 0.9.0_564d67cac1c5d7d887d57591dff0ccf7
@@ -4039,14 +4039,14 @@ packages:
       graphql: 16.0.0-experimental-stream-defer.5
     dev: false
 
-  /@graphiql/toolkit/0.4.0_79d4818837173bb1e603dd5b2b9d21bc:
-    resolution: {integrity: sha512-a5MC4h9Sn34CYooBoCW+wrUHXvRgvUJp11zdjstZuszSO1HjZ3iuJSD3JngPbQc7iWA+RaaLmP14+D3GDc1h8A==}
+  /@graphiql/toolkit/0.4.2_79d4818837173bb1e603dd5b2b9d21bc:
+    resolution: {integrity: sha512-14uG67QrONbRrhXwvBJFsMfcQfexmGhj7dgkputesx9xuPUkcCDNmVULnVA8sGYt8P/rSvjkfQYx3rtfW+GhAQ==}
     peerDependencies:
-      graphql: '>= 15.5.0 <= 16.0.0-experimental-stream-defer.5'
+      graphql: ^15.5.0 || ^16.0.0
+      graphql-ws: '>= 4.5.0'
     dependencies:
       '@n1ru4l/push-pull-async-iterable-iterator': 3.1.0
       graphql: 16.0.0-experimental-stream-defer.5
-      graphql-ws: 4.9.0_564d67cac1c5d7d887d57591dff0ccf7
       meros: 1.1.4_@types+node@16.11.9
     transitivePeerDependencies:
       - '@types/node'
@@ -9378,7 +9378,7 @@ packages:
       react: ^16.8.0 || ^17.0.0 || ^18.0.0
       react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
     dependencies:
-      '@graphiql/toolkit': 0.4.0_79d4818837173bb1e603dd5b2b9d21bc
+      '@graphiql/toolkit': 0.4.2_79d4818837173bb1e603dd5b2b9d21bc
       codemirror: 5.64.0
       codemirror-graphql: 1.1.0_1809e88ba6c90b0b0a4d559d9f8af976
       copy-to-clipboard: 3.3.1
@@ -9392,6 +9392,7 @@ packages:
       react-dom: 17.0.2_react@17.0.2
     transitivePeerDependencies:
       - '@types/node'
+      - graphql-ws
     dev: true
 
   /graphql-esm/16.0.1:
@@ -9569,15 +9570,6 @@ packages:
       http-errors: 1.8.1
       isobject: 4.0.0
       object-path: 0.11.8
-
-  /graphql-ws/4.9.0_564d67cac1c5d7d887d57591dff0ccf7:
-    resolution: {integrity: sha512-sHkK9+lUm20/BGawNEWNtVAeJzhZeBg21VmvmLoT5NdGVeZWv5PdIhkcayQIAgjSyyQ17WMKmbDijIPG2On+Ag==}
-    engines: {node: '>=10'}
-    peerDependencies:
-      graphql: '>=0.11 <=15'
-    dependencies:
-      graphql: 16.0.0-experimental-stream-defer.5
-    dev: true
 
   /graphql-ws/5.5.5_564d67cac1c5d7d887d57591dff0ccf7:
     resolution: {integrity: sha512-hvyIS71vs4Tu/yUYHPvGXsTgo0t3arU820+lT5VjZS2go0ewp2LqyCgxEN56CzOG7Iys52eRhHBiD1gGRdiQtw==}
