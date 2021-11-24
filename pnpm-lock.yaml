@@ -1347,7 +1347,7 @@ importers:
     specifiers:
       '@graphiql/toolkit': ^0.4.0
       '@graphql-ez/utils': workspace:^0.1.2
-      '@graphql-tools/url-loader': ^7.5.2
+      '@graphql-tools/url-loader': ^7.5.3
       '@graphql-tools/utils': ^8.5.3
       '@n1ru4l/graphql-live-query': ^0.9.0
       '@types/prettier': ^2.4.2
@@ -1373,7 +1373,7 @@ importers:
       '@graphql-ez/utils': link:../../core/utils
     devDependencies:
       '@graphiql/toolkit': 0.4.0_79d4818837173bb1e603dd5b2b9d21bc
-      '@graphql-tools/url-loader': 7.5.2_79d4818837173bb1e603dd5b2b9d21bc
+      '@graphql-tools/url-loader': 7.5.3_79d4818837173bb1e603dd5b2b9d21bc
       '@graphql-tools/utils': 8.5.3_564d67cac1c5d7d887d57591dff0ccf7
       '@n1ru4l/graphql-live-query': 0.9.0_564d67cac1c5d7d887d57591dff0ccf7
       '@types/prettier': 2.4.2
@@ -4338,8 +4338,8 @@ packages:
       value-or-promise: 1.0.11
     dev: false
 
-  /@graphql-tools/url-loader/7.5.2_79d4818837173bb1e603dd5b2b9d21bc:
-    resolution: {integrity: sha512-EilHqbhUY/qg55SSEdklDhPXgSz9+9a63SX3mcD8J2qwZHJD/wOLcyKs8m6BXfuGwUiuB0j3fmDSEVmva2onBg==}
+  /@graphql-tools/url-loader/7.5.3_79d4818837173bb1e603dd5b2b9d21bc:
+    resolution: {integrity: sha512-VKMRJ4TOeVIdulkCLGSBUr4stRRwOGcVRXDeoUF+86K32Ufo0H2V0lz7QwS/bCl8GXV19FMgHZCDl4BMJyOXEA==}
     peerDependencies:
       graphql: ^14.0.0 || ^15.0.0 || ^16.0.0
     dependencies:
@@ -4349,20 +4349,20 @@ packages:
       '@n1ru4l/graphql-live-query': 0.9.0_564d67cac1c5d7d887d57591dff0ccf7
       '@types/websocket': 1.0.4
       '@types/ws': 8.2.0
-      cross-undici-fetch: 0.0.20
+      cross-undici-fetch: 0.0.26
       dset: 3.1.1
       extract-files: 11.0.0
       graphql: 16.0.0-experimental-stream-defer.5
       graphql-sse: 1.0.6_564d67cac1c5d7d887d57591dff0ccf7
       graphql-ws: 5.5.5_564d67cac1c5d7d887d57591dff0ccf7
-      isomorphic-ws: 4.0.1_ws@8.2.3
+      isomorphic-ws: 4.0.1_ws@8.3.0
       meros: 1.1.4_@types+node@16.11.9
       subscriptions-transport-ws: 0.11.0_564d67cac1c5d7d887d57591dff0ccf7
       sync-fetch: 0.3.1
       tslib: 2.3.1
       valid-url: 1.0.9
       value-or-promise: 1.0.11
-      ws: 8.2.3
+      ws: 8.3.0
     transitivePeerDependencies:
       - '@types/node'
       - bufferutil
@@ -7673,8 +7673,8 @@ packages:
       shebang-command: 2.0.0
       which: 2.0.2
 
-  /cross-undici-fetch/0.0.20:
-    resolution: {integrity: sha512-5d3WBC4VRHpFndECK9bx4TngXrw0OUXdhX561Ty1ZoqMASz9uf55BblhTC1CO6GhMWnvk9SOqYEXQliq6D2P4A==}
+  /cross-undici-fetch/0.0.26:
+    resolution: {integrity: sha512-aMDRrLbWr0TGXfY92stlV+XOGpskeqFmWmrKSWsnc8w6gK5LPE83NBh7O7N6gCb2xjwHcm1Yn2nBXMEVH2RBcA==}
     dependencies:
       abort-controller: 3.0.0
       form-data: 4.0.0
@@ -10631,6 +10631,14 @@ packages:
       ws: '*'
     dependencies:
       ws: 8.2.3
+
+  /isomorphic-ws/4.0.1_ws@8.3.0:
+    resolution: {integrity: sha512-BhBvN2MBpWTaSHdWRb/bwdZJ1WaehQ2L1KngkCkfLUGF0mAWAT1sQUQacEmQ0jXkFw/czDXPNQSL5u2/Krsz1w==}
+    peerDependencies:
+      ws: '*'
+    dependencies:
+      ws: 8.3.0
+    dev: true
 
   /istanbul-lib-coverage/3.2.0:
     resolution: {integrity: sha512-eOeJ5BHCmHYvQK7xt9GkdHuzuCGS1Y6g9Gvnx3Ym33fz/HpLRYxiS0wHNr+m/MBC8B647Xt608vCDEvhl9c6Mw==}
@@ -16277,6 +16285,19 @@ packages:
         optional: true
       utf-8-validate:
         optional: true
+
+  /ws/8.3.0:
+    resolution: {integrity: sha512-Gs5EZtpqZzLvmIM59w4igITU57lrtYVFneaa434VROv4thzJyV6UjIL3D42lslWlI+D4KzLYnxSwtfuiO79sNw==}
+    engines: {node: '>=10.0.0'}
+    peerDependencies:
+      bufferutil: ^4.0.1
+      utf-8-validate: ^5.0.2
+    peerDependenciesMeta:
+      bufferutil:
+        optional: true
+      utf-8-validate:
+        optional: true
+    dev: true
 
   /xml-name-validator/3.0.0:
     resolution: {integrity: sha512-A5CUptxDsvxKJEU3yO6DuWBSJz/qizqzJKOMIfUJHETbBw/sFaDxgd6fxm1ewUaM0jZ444Fc5vC5ROYurg/4Pw==}
