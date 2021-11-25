@@ -1345,7 +1345,7 @@ importers:
 
   packages/helix/graphiql:
     specifiers:
-      '@graphiql/toolkit': ^0.4.0
+      '@graphiql/toolkit': ^0.4.2
       '@graphql-ez/utils': workspace:^0.1.2
       '@graphql-tools/url-loader': ^7.5.2
       '@graphql-tools/utils': ^8.5.3
@@ -1360,10 +1360,10 @@ importers:
       copy-to-clipboard: ^3.3.1
       cpy: ^8.1.2
       esbuild: ^0.13.15
-      graphiql: ^1.5.1
+      graphiql: ^1.5.4
       graphql: 16.0.0-experimental-stream-defer.5
       graphql-ez: workspace:^0.13.5
-      graphql-language-service-interface: ^2.9.1
+      graphql-language-service-interface: ^2.9.3
       prettier: ^2.4.1
       prop-types: ^15.7.2
       react: ^17.0.2
@@ -1372,24 +1372,24 @@ importers:
     dependencies:
       '@graphql-ez/utils': link:../../core/utils
     devDependencies:
-      '@graphiql/toolkit': 0.4.0_79d4818837173bb1e603dd5b2b9d21bc
-      '@graphql-tools/url-loader': 7.5.2_79d4818837173bb1e603dd5b2b9d21bc
+      '@graphiql/toolkit': 0.4.2_564d67cac1c5d7d887d57591dff0ccf7
+      '@graphql-tools/url-loader': 7.5.2_564d67cac1c5d7d887d57591dff0ccf7
       '@graphql-tools/utils': 8.5.3_564d67cac1c5d7d887d57591dff0ccf7
       '@n1ru4l/graphql-live-query': 0.9.0_564d67cac1c5d7d887d57591dff0ccf7
       '@types/prettier': 2.4.2
       '@types/prop-types': 15.7.4
       '@types/react': 17.0.36
       '@types/react-dom': 17.0.11
-      bob-esbuild-cli: 3.0.1_bob-esbuild@3.1.1
+      bob-esbuild-cli: 3.0.1
       changesets-github-release: 0.0.4
       concurrently: 6.4.0
       copy-to-clipboard: 3.3.1
       cpy: 8.1.2
       esbuild: 0.13.15
-      graphiql: 1.5.1_273d7e168828403fecec331b922b5e0e
+      graphiql: 1.5.4_8404e33f1d8742d834393a5eb1abbe5b
       graphql: 16.0.0-experimental-stream-defer.5
       graphql-ez: link:../../core/main
-      graphql-language-service-interface: 2.9.1_564d67cac1c5d7d887d57591dff0ccf7
+      graphql-language-service-interface: 2.9.3_564d67cac1c5d7d887d57591dff0ccf7
       prettier: 2.4.1
       prop-types: 15.7.2
       react: 17.0.2
@@ -3760,6 +3760,64 @@ packages:
     resolution: {integrity: sha512-kaMn2rueJ0PL1TYVGknTCh0X0x0d9G+FNXAFep7/4uqecEZoQb/63o6rOmMuiqI09zLuHV6xhKRXinokV/MY9A==}
     dev: true
 
+  /@codemirror/highlight/0.19.6:
+    resolution: {integrity: sha512-+eibu6on9quY8uN3xJ/n3rH+YIDLlpX7YulVmFvqAIz/ukRQ5tWaBmB7fMixHmnmRIRBRZgB8rNtonuMwZSAHQ==}
+    dependencies:
+      '@codemirror/language': 0.19.5
+      '@codemirror/rangeset': 0.19.2
+      '@codemirror/state': 0.19.6
+      '@codemirror/view': 0.19.20
+      '@lezer/common': 0.15.9
+      style-mod: 4.0.0
+    dev: true
+
+  /@codemirror/language/0.19.5:
+    resolution: {integrity: sha512-FnIST07vaM99mv1mJaMMLvxiHSDGgP3wdlcEZzmidndWdbxjrYYYnJzVUOEkeZJNGOfrtPRMF62UCyrTjQMR3g==}
+    dependencies:
+      '@codemirror/state': 0.19.6
+      '@codemirror/text': 0.19.5
+      '@codemirror/view': 0.19.20
+      '@lezer/common': 0.15.9
+      '@lezer/lr': 0.15.4
+    dev: true
+
+  /@codemirror/rangeset/0.19.2:
+    resolution: {integrity: sha512-5d+X8LtmeZtfFtKrSx57bIHRUpKv2HD0b74clp4fGA7qJLLfYehF6FGkJJxJb8lKsqAga1gdjjWr0jiypmIxoQ==}
+    dependencies:
+      '@codemirror/state': 0.19.6
+    dev: true
+
+  /@codemirror/state/0.19.6:
+    resolution: {integrity: sha512-sqIQZE9VqwQj7D4c2oz9mfLhlT1ElAzGB5lO1lE33BPyrdNy1cJyCIOecT4cn4VeJOFrnjOeu+IftZ3zqdFETw==}
+    dependencies:
+      '@codemirror/text': 0.19.5
+    dev: true
+
+  /@codemirror/stream-parser/0.19.2:
+    resolution: {integrity: sha512-hBKRQlyu8GUOrY33xZ6/1kAfNZ8ZUm6cX9a7mPx8zAAqnpz/fpksC/qJRrkg1mPMBwxm+JG4fqAwDGJ3gLVniQ==}
+    dependencies:
+      '@codemirror/highlight': 0.19.6
+      '@codemirror/language': 0.19.5
+      '@codemirror/state': 0.19.6
+      '@codemirror/text': 0.19.5
+      '@lezer/common': 0.15.9
+      '@lezer/lr': 0.15.4
+    dev: true
+
+  /@codemirror/text/0.19.5:
+    resolution: {integrity: sha512-Syu5Xc7tZzeUAM/y4fETkT0zgGr48rDG+w4U38bPwSIUr+L9S/7w2wDE1WGNzjaZPz12F6gb1gxWiSTg9ocLow==}
+    dev: true
+
+  /@codemirror/view/0.19.20:
+    resolution: {integrity: sha512-j4cI/Egdhha77pMfKQQWZmpkcF7vhe21LqdZs8hsG09OtvsPVCHUXmfB0u7nMpcX1JR8aZ3ob9g6FMr+OVtjgA==}
+    dependencies:
+      '@codemirror/rangeset': 0.19.2
+      '@codemirror/state': 0.19.6
+      '@codemirror/text': 0.19.5
+      style-mod: 4.0.0
+      w3c-keyname: 2.2.4
+    dev: true
+
   /@ctrl/tinycolor/3.4.0:
     resolution: {integrity: sha512-JZButFdZ1+/xAfpguQHoabIXkcqRRKpMrWKBkpEZZyxfY9C1DpADFB8PEqGSTeFr135SaTRfKqGKx5xSCLI7ZQ==}
     engines: {node: '>=10'}
@@ -4039,15 +4097,15 @@ packages:
       graphql: 16.0.0-experimental-stream-defer.5
     dev: false
 
-  /@graphiql/toolkit/0.4.0_79d4818837173bb1e603dd5b2b9d21bc:
-    resolution: {integrity: sha512-a5MC4h9Sn34CYooBoCW+wrUHXvRgvUJp11zdjstZuszSO1HjZ3iuJSD3JngPbQc7iWA+RaaLmP14+D3GDc1h8A==}
+  /@graphiql/toolkit/0.4.2_564d67cac1c5d7d887d57591dff0ccf7:
+    resolution: {integrity: sha512-14uG67QrONbRrhXwvBJFsMfcQfexmGhj7dgkputesx9xuPUkcCDNmVULnVA8sGYt8P/rSvjkfQYx3rtfW+GhAQ==}
     peerDependencies:
-      graphql: '>= 15.5.0 <= 16.0.0-experimental-stream-defer.5'
+      graphql: ^15.5.0 || ^16.0.0
+      graphql-ws: '>= 4.5.0'
     dependencies:
       '@n1ru4l/push-pull-async-iterable-iterator': 3.1.0
       graphql: 16.0.0-experimental-stream-defer.5
-      graphql-ws: 4.9.0_564d67cac1c5d7d887d57591dff0ccf7
-      meros: 1.1.4_@types+node@16.11.9
+      meros: 1.1.4
     transitivePeerDependencies:
       - '@types/node'
     dev: true
@@ -4338,7 +4396,7 @@ packages:
       value-or-promise: 1.0.11
     dev: false
 
-  /@graphql-tools/url-loader/7.5.2_79d4818837173bb1e603dd5b2b9d21bc:
+  /@graphql-tools/url-loader/7.5.2_564d67cac1c5d7d887d57591dff0ccf7:
     resolution: {integrity: sha512-EilHqbhUY/qg55SSEdklDhPXgSz9+9a63SX3mcD8J2qwZHJD/wOLcyKs8m6BXfuGwUiuB0j3fmDSEVmva2onBg==}
     peerDependencies:
       graphql: ^14.0.0 || ^15.0.0 || ^16.0.0
@@ -4356,7 +4414,7 @@ packages:
       graphql-sse: 1.0.6_564d67cac1c5d7d887d57591dff0ccf7
       graphql-ws: 5.5.5_564d67cac1c5d7d887d57591dff0ccf7
       isomorphic-ws: 4.0.1_ws@8.2.3
-      meros: 1.1.4_@types+node@16.11.9
+      meros: 1.1.4
       subscriptions-transport-ws: 0.11.0_564d67cac1c5d7d887d57591dff0ccf7
       sync-fetch: 0.3.1
       tslib: 2.3.1
@@ -4988,6 +5046,16 @@ packages:
       path-to-regexp: 6.2.0
     transitivePeerDependencies:
       - supports-color
+
+  /@lezer/common/0.15.9:
+    resolution: {integrity: sha512-N86tOY/g9pZQuKbmUjL4TQTegm4/34TZXxp1TYYFGdd9Rnhd9RPjQ3zp4q5qp/2qs4xlF4Dheg19K+JqAtvZxg==}
+    dev: true
+
+  /@lezer/lr/0.15.4:
+    resolution: {integrity: sha512-vwgG80sihEGJn6wJp6VijXrnzVai/KPva/OzYKaWvIx0IiXKjoMQ8UAwcgpSBwfS4Fbz3IKOX/cCNXU3r1FvpQ==}
+    dependencies:
+      '@lezer/common': 0.15.9
+    dev: true
 
   /@manypkg/find-root/1.1.0:
     resolution: {integrity: sha512-mki5uBvhHzO8kYYix/WRy2WX8S3B5wdVSc9D6KcU5lQNglP2yt58/VfLuAK49glRXChosY8ap2oJ1qgma3GUVA==}
@@ -6646,6 +6714,16 @@ packages:
   /bn.js/5.2.0:
     resolution: {integrity: sha512-D7iWRBvnZE8ecXiLj/9wbxH7Tk79fAh8IHaTNq1RWRixsS02W+5qS+iE9yq6RYl0asXx5tw0bLhmT5pIfbSquw==}
 
+  /bob-esbuild-cli/3.0.1:
+    resolution: {integrity: sha512-YpR8vEBqdiG+IVrgJA3hdIJnh1P6KKxDFO6RTXbbnhjGSmv9k7h4K86PKfCG6cKWJ9zkaE8iDF+i6T0pUfnI9A==}
+    engines: {node: '>=12.0.0'}
+    hasBin: true
+    peerDependencies:
+      bob-esbuild: ^3.1.1
+    dependencies:
+      commander: 8.3.0
+    dev: true
+
   /bob-esbuild-cli/3.0.1_bob-esbuild@3.1.1:
     resolution: {integrity: sha512-YpR8vEBqdiG+IVrgJA3hdIJnh1P6KKxDFO6RTXbbnhjGSmv9k7h4K86PKfCG6cKWJ9zkaE8iDF+i6T0pUfnI9A==}
     engines: {node: '>=12.0.0'}
@@ -7324,16 +7402,16 @@ packages:
     engines: {node: '>=0.10.0'}
     dev: false
 
-  /codemirror-graphql/1.1.0_1809e88ba6c90b0b0a4d559d9f8af976:
-    resolution: {integrity: sha512-bp2XUg7epL07kJcylM8VCISK6X+rFsHL2lUkPQAw2v721MVhn+80FgjMP8tiZCOfJgHn1+JgsA71L5nOHWgUdA==}
+  /codemirror-graphql/1.2.2_1809e88ba6c90b0b0a4d559d9f8af976:
+    resolution: {integrity: sha512-52fJOx9JdPejPfbBr9fMGspBo3qRfYu1Cuwr4Z6Rtd13n42mCfdCnAnCSnOtzr9oiTj1hva+CDZhbA1vkUtaDg==}
     peerDependencies:
       codemirror: ^5.58.2
-      graphql: '>= 15.5.0 <= 16.0.0-experimental-stream-defer.5'
+      graphql: ^15.5.0 || ^16.0.0
     dependencies:
+      '@codemirror/stream-parser': 0.19.2
       codemirror: 5.64.0
       graphql: 16.0.0-experimental-stream-defer.5
-      graphql-language-service-interface: 2.9.1_564d67cac1c5d7d887d57591dff0ccf7
-      graphql-language-service-parser: 1.10.0_564d67cac1c5d7d887d57591dff0ccf7
+      graphql-language-service: 3.2.3_564d67cac1c5d7d887d57591dff0ccf7
     dev: true
 
   /codemirror/5.64.0:
@@ -9371,27 +9449,28 @@ packages:
     resolution: {integrity: sha512-bzh50DW9kTPM00T8y4o8vQg89Di9oLJVLW/KaOGIXJWP/iqCN6WKYkbNOF04vFLJhwcpYUh9ydh/+5vpOqV4YQ==}
     dev: true
 
-  /graphiql/1.5.1_273d7e168828403fecec331b922b5e0e:
-    resolution: {integrity: sha512-D/ihDMKk+NJwgi6aNSzyNJbK5prg7oDL4F2jLcyZJj0E/ZzBldTDJwvZfoRVBCJCEK5HhvPhxBieH90bhdZTig==}
+  /graphiql/1.5.4_8404e33f1d8742d834393a5eb1abbe5b:
+    resolution: {integrity: sha512-VWxV6w4vneFqW/hUBGlNMnSO2Zi+4BKv5SK+f9K3pvhRIIjBtXpzHluEpwYHyi+CuiEEuaSCpmqes/CItpDkYw==}
     peerDependencies:
-      graphql: '>= 15.5.0 <= 16.0.0-experimental-stream-defer.5'
+      graphql: ^15.5.0 || ^16.0.0
       react: ^16.8.0 || ^17.0.0 || ^18.0.0
       react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
     dependencies:
-      '@graphiql/toolkit': 0.4.0_79d4818837173bb1e603dd5b2b9d21bc
+      '@graphiql/toolkit': 0.4.2_564d67cac1c5d7d887d57591dff0ccf7
       codemirror: 5.64.0
-      codemirror-graphql: 1.1.0_1809e88ba6c90b0b0a4d559d9f8af976
+      codemirror-graphql: 1.2.2_1809e88ba6c90b0b0a4d559d9f8af976
       copy-to-clipboard: 3.3.1
       dset: 3.1.1
       entities: 2.2.0
       escape-html: 1.0.3
       graphql: 16.0.0-experimental-stream-defer.5
-      graphql-language-service: 3.2.1_564d67cac1c5d7d887d57591dff0ccf7
+      graphql-language-service: 3.2.3_564d67cac1c5d7d887d57591dff0ccf7
       markdown-it: 12.2.0
       react: 17.0.2
       react-dom: 17.0.2_react@17.0.2
     transitivePeerDependencies:
       - '@types/node'
+      - graphql-ws
     dev: true
 
   /graphql-esm/16.0.1:
@@ -9437,56 +9516,56 @@ packages:
       lodash.mergewith: 4.6.2
     dev: false
 
-  /graphql-language-service-interface/2.9.1_564d67cac1c5d7d887d57591dff0ccf7:
-    resolution: {integrity: sha512-yGsE67fxJBXxY82+rLDMvUpmzpOUM8XFB+k+xOTUyABWs27osKaoGiuDDXAVGg1adhm+cpunWbipe763ZJkAVA==}
+  /graphql-language-service-interface/2.9.3_564d67cac1c5d7d887d57591dff0ccf7:
+    resolution: {integrity: sha512-ie5OjsXOuHd9XBWyNy9SR3noDTMbOm0ixiqrEHprlJ4naxRUrUi1Y+9Rd1rDo2BEiN1NPcYvDRRg5E/Yvqp53Q==}
     peerDependencies:
-      graphql: '>= 15.5.0 <= 16.0.0-experimental-stream-defer.5'
+      graphql: ^15.5.0 || ^16.0.0
     dependencies:
       graphql: 16.0.0-experimental-stream-defer.5
-      graphql-language-service-parser: 1.10.0_564d67cac1c5d7d887d57591dff0ccf7
-      graphql-language-service-types: 1.8.3_564d67cac1c5d7d887d57591dff0ccf7
-      graphql-language-service-utils: 2.6.0_564d67cac1c5d7d887d57591dff0ccf7
+      graphql-language-service-parser: 1.10.2_564d67cac1c5d7d887d57591dff0ccf7
+      graphql-language-service-types: 1.8.5_564d67cac1c5d7d887d57591dff0ccf7
+      graphql-language-service-utils: 2.6.2_564d67cac1c5d7d887d57591dff0ccf7
       vscode-languageserver-types: 3.16.0
     dev: true
 
-  /graphql-language-service-parser/1.10.0_564d67cac1c5d7d887d57591dff0ccf7:
-    resolution: {integrity: sha512-cLExv0EjqT2hsKdwVTPmKU6eMfjZAjxqywgCPnWD48eJn6tyuePMyG7ye+jpX1PRPPx/cDHfFJGf8sUclchvng==}
+  /graphql-language-service-parser/1.10.2_564d67cac1c5d7d887d57591dff0ccf7:
+    resolution: {integrity: sha512-xtBqzMXW5qJwHPmtDuiuUq4mZ3q31XThMp4TrNNVJ7HsiDxNSfOEaX069YXuiDRkVXjLYcCvt/JPsTgEASREzQ==}
     peerDependencies:
-      graphql: '>= 15.5.0 <= 16.0.0-experimental-stream-defer.5'
+      graphql: ^15.5.0 || ^16.0.0
     dependencies:
       graphql: 16.0.0-experimental-stream-defer.5
-      graphql-language-service-types: 1.8.3_564d67cac1c5d7d887d57591dff0ccf7
+      graphql-language-service-types: 1.8.5_564d67cac1c5d7d887d57591dff0ccf7
     dev: true
 
-  /graphql-language-service-types/1.8.3_564d67cac1c5d7d887d57591dff0ccf7:
-    resolution: {integrity: sha512-m+RHnlGkKDcesW/gC4M7I2pSmWJB84uWS6LtnjplO/07JN312nJCJYCwV/DBny2m1fmSOxN7H/o+JW0l56KwBA==}
+  /graphql-language-service-types/1.8.5_564d67cac1c5d7d887d57591dff0ccf7:
+    resolution: {integrity: sha512-LEhm0ZC2XtasCwy5YQSbXlrN4Zj4epTFF7fjSq75aWUjLoN/iEFE1yTjvoH+1UmZnCvLbTlvL5dVNDtUysBW8A==}
     peerDependencies:
-      graphql: '>= 15.5.0 <= 16.0.0-experimental-stream-defer.5'
+      graphql: ^15.5.0 || ^16.0.0
     dependencies:
       graphql: 16.0.0-experimental-stream-defer.5
     dev: true
 
-  /graphql-language-service-utils/2.6.0_564d67cac1c5d7d887d57591dff0ccf7:
-    resolution: {integrity: sha512-idqwmbREixhDuQMcYp8WH0btQT02xZny8MO/HduNTVjnPrmTYnZUbpZ9AejdflmaKoS0o8nNvgXQ0GpIOzbG5g==}
+  /graphql-language-service-utils/2.6.2_564d67cac1c5d7d887d57591dff0ccf7:
+    resolution: {integrity: sha512-YyOUsbHJHruW1hjciBw5Em1XENw/OLFnA4RLrLaHvLTDSEoQsa8esiMTMHWq9cM1Ywh1jBWr8A5T3fNyPf4fNQ==}
     peerDependencies:
-      graphql: '>= 15.5.0 <= 16.0.0-experimental-stream-defer.5'
+      graphql: ^15.5.0 || ^16.0.0
     dependencies:
       graphql: 16.0.0-experimental-stream-defer.5
-      graphql-language-service-types: 1.8.3_564d67cac1c5d7d887d57591dff0ccf7
+      graphql-language-service-types: 1.8.5_564d67cac1c5d7d887d57591dff0ccf7
       nullthrows: 1.1.1
     dev: true
 
-  /graphql-language-service/3.2.1_564d67cac1c5d7d887d57591dff0ccf7:
-    resolution: {integrity: sha512-w1FxU85zo1zuktcBZ3J5hk3OfxQv3GkzC/NKNh84gcyUZnJc+LOGq+gFzoPhfVdJO+v7JYkP73d3B48cbmmFDA==}
+  /graphql-language-service/3.2.3_564d67cac1c5d7d887d57591dff0ccf7:
+    resolution: {integrity: sha512-/SmGcCetAn7hEsbmH/pxgQvcfCSAz9/JT0ve9ZOkVk7xXTVbss6PD6aT5KuZhpG2fFOLuI5kbCN6cNvjGHXeFA==}
     hasBin: true
     peerDependencies:
-      graphql: '>= 15.5.0 <= 16.0.0-experimental-stream-defer.5'
+      graphql: ^15.5.0 || ^16.0.0
     dependencies:
       graphql: 16.0.0-experimental-stream-defer.5
-      graphql-language-service-interface: 2.9.1_564d67cac1c5d7d887d57591dff0ccf7
-      graphql-language-service-parser: 1.10.0_564d67cac1c5d7d887d57591dff0ccf7
-      graphql-language-service-types: 1.8.3_564d67cac1c5d7d887d57591dff0ccf7
-      graphql-language-service-utils: 2.6.0_564d67cac1c5d7d887d57591dff0ccf7
+      graphql-language-service-interface: 2.9.3_564d67cac1c5d7d887d57591dff0ccf7
+      graphql-language-service-parser: 1.10.2_564d67cac1c5d7d887d57591dff0ccf7
+      graphql-language-service-types: 1.8.5_564d67cac1c5d7d887d57591dff0ccf7
+      graphql-language-service-utils: 2.6.2_564d67cac1c5d7d887d57591dff0ccf7
     dev: true
 
   /graphql-modules/2.0.0_564d67cac1c5d7d887d57591dff0ccf7:
@@ -9569,15 +9648,6 @@ packages:
       http-errors: 1.8.1
       isobject: 4.0.0
       object-path: 0.11.8
-
-  /graphql-ws/4.9.0_564d67cac1c5d7d887d57591dff0ccf7:
-    resolution: {integrity: sha512-sHkK9+lUm20/BGawNEWNtVAeJzhZeBg21VmvmLoT5NdGVeZWv5PdIhkcayQIAgjSyyQ17WMKmbDijIPG2On+Ag==}
-    engines: {node: '>=10'}
-    peerDependencies:
-      graphql: '>=0.11 <=15'
-    dependencies:
-      graphql: 16.0.0-experimental-stream-defer.5
-    dev: true
 
   /graphql-ws/5.5.5_564d67cac1c5d7d887d57591dff0ccf7:
     resolution: {integrity: sha512-hvyIS71vs4Tu/yUYHPvGXsTgo0t3arU820+lT5VjZS2go0ewp2LqyCgxEN56CzOG7Iys52eRhHBiD1gGRdiQtw==}
@@ -11772,7 +11842,7 @@ packages:
     resolution: {integrity: sha512-8q7VEgMJW4J8tcfVPy8g09NcQwZdbwFEqhe/WZkoIzjn/3TGDwtOCYtXGxA3O8tPzpczCCDgv+P2P5y00ZJOOg==}
     engines: {node: '>= 8'}
 
-  /meros/1.1.4_@types+node@16.11.9:
+  /meros/1.1.4:
     resolution: {integrity: sha512-E9ZXfK9iQfG9s73ars9qvvvbSIkJZF5yOo9j4tcwM5tN8mUKfj/EKN5PzOr3ZH0y5wL7dLAHw3RVEfpQV9Q7VQ==}
     engines: {node: '>=12'}
     peerDependencies:
@@ -11780,8 +11850,6 @@ packages:
     peerDependenciesMeta:
       '@types/node':
         optional: true
-    dependencies:
-      '@types/node': 16.11.9
     dev: true
 
   /methods/1.1.2:
@@ -14725,6 +14793,10 @@ packages:
       peek-readable: 4.0.1
     dev: true
 
+  /style-mod/4.0.0:
+    resolution: {integrity: sha512-OPhtyEjyyN9x3nhPsu76f52yUGXiZcgvsrFVtvTkyGRQJ0XK+GPc6ov1z+lRpbeabka+MYEQxOYRnt5nF30aMw==}
+    dev: true
+
   /style-to-object/0.3.0:
     resolution: {integrity: sha512-CzFnRRXhzWIdItT3OmF8SQfWyahHhjq3HwcMNCNLn+N7klOOqPjMeG/4JSu77D7ypZdGvSzvkrbyeTMizz2VrA==}
     dependencies:
@@ -16016,6 +16088,10 @@ packages:
     resolution: {integrity: sha512-z8P5DvDNjKDoFIHK7q8r8lackT6l+jo/Ye3HOle7l9nICP9lf1Ci25fy9vHd0JOWewkIFzXIEig3TdKT7JQ5fQ==}
     dependencies:
       browser-process-hrtime: 1.0.0
+    dev: true
+
+  /w3c-keyname/2.2.4:
+    resolution: {integrity: sha512-tOhfEwEzFLJzf6d1ZPkYfGj+FWhIpBux9ppoP3rlclw3Z0BZv3N7b7030Z1kYth+6rDuAsXUFr+d0VE6Ed1ikw==}
     dev: true
 
   /w3c-xmlserializer/2.0.0:
