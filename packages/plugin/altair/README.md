@@ -165,7 +165,7 @@ export default UnpkgAltairHandler({
 ### Vercel Usage
 
 For Vercel you need to use this plugin's handler explicitly in your API routes in conjunction with a custom `vercel.json`,
-for example, following the file structure: `/api/altair/.ts`, and using these snippets:
+for example, following the file structure: `/api/altair.ts`, and using these snippets:
 
 ```ts
 // /api/altair.ts
@@ -208,4 +208,36 @@ const ezApp = CreateApp({
   },
   // ...
 });
+```
+
+### Sveltekit Usage
+
+Altair requires a _"wildcard"_ route, therefore, you have to define the endpoint as [Fallthrough Routes](https://kit.svelte.dev/docs#routing-advanced-fallthrough-routes), for example `/src/routes/api/[...any].ts`
+
+For example:
+
+```ts
+// /src/routes/api/[...any].ts
+
+// import { ezAltairIDE } from '@graphql-ez/plugin-altair';
+import { ezUnpkgAltairIDE } from '@graphql-ez/plugin-altair/unpkg';
+
+const ezApp = CreateApp({
+  path: '/api/graphql',
+  ez: {
+    plugins: [
+      // ...
+      ezUnpkgAltairIDE({
+        path: '/api/altair',
+      }),
+    ],
+  },
+  // ...
+});
+
+const { handler } = ezApp.buildApp();
+
+export const get = handler;
+
+export const post = handler;
 ```
