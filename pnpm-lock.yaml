@@ -700,7 +700,7 @@ importers:
       next: ^12.0.4
       react: ^17.0.2
       react-dom: ^17.0.2
-      react-query: ^3.33.6
+      react-query: ^3.33.7
       typescript: ^4.5.2
     dependencies:
       '@graphql-ez/nextjs': link:../../../packages/nextjs/main
@@ -718,7 +718,7 @@ importers:
       next: 12.0.4_react-dom@17.0.2+react@17.0.2
       react: 17.0.2
       react-dom: 17.0.2_react@17.0.2
-      react-query: 3.33.6_react-dom@17.0.2+react@17.0.2
+      react-query: 3.33.7_react-dom@17.0.2+react@17.0.2
     devDependencies:
       '@types/node': 16.11.10
       '@types/react': 17.0.37
@@ -2727,7 +2727,7 @@ packages:
     resolution: {integrity: sha512-99catp6bHCaxr4sJ/DbTGgHS4+Rs2RVd2g7iOap6SLGPDknRK9ztKNsE/Fg6QhSeh1FGE5f6gHGQmvvn3I3xhw==}
     engines: {node: '>=6.9.0'}
     dependencies:
-      regenerator-runtime: 0.13.4
+      regenerator-runtime: 0.13.9
 
   /@babel/runtime/7.16.3:
     resolution: {integrity: sha512-WBwekcqacdY2e9AF/Q7WLFUWmdJGJTkbjqTjoMDgXkVZ3ZRUvOPsLb5KdwISoQVsbP+DQzVZW4Zhci0DvpbNTQ==}
@@ -13588,8 +13588,8 @@ packages:
       react-fast-compare: 3.2.0
     dev: false
 
-  /react-query/3.33.6_react-dom@17.0.2+react@17.0.2:
-    resolution: {integrity: sha512-prOMxzd4Utyl1AsR5PKqEeDUpx91BwJH+bm9LaQ9YooS68joGzsIDdNCe7m/lHQZI73NOqGJBPV5rFCHHwJRwQ==}
+  /react-query/3.33.7_react-dom@17.0.2+react@17.0.2:
+    resolution: {integrity: sha512-uL/1ZatxcRyvfhbNPeuOlLVbcdMQKzQ2t+SQLJMrMM0plfa/Al3buaPbGsbsmIwvyWeI4CVkkSBKzQIkU4p9MQ==}
     peerDependencies:
       react: ^16.8.0 || ^17.0.0
       react-dom: '*'
