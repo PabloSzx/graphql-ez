@@ -7,7 +7,7 @@ overrides:
   glob-parent@<5.1.2: '>=5.1.2'
   set-value@<4.0.1: '>=4.0.1'
   axios@<=0.21.1: '>=0.21.2'
-  ansi-regex@>2.1.1 <5.0.1: '>=5.0.1'
+  ansi-regex@>2.1.1 <5.0.1: ^5.0.1
   json-schema@<0.4.0: '>=0.4.0'
 
 importers:
@@ -6255,11 +6255,6 @@ packages:
   /ansi-regex/5.0.1:
     resolution: {integrity: sha512-quJQXlTSUGL2LH9SUXo8VwsY4soanhgo6LNSm84E1LBcE8s3O0wpdiRzyR9z/ZZJMlMWv37qOOb9pdJlMUEKFQ==}
     engines: {node: '>=8'}
-
-  /ansi-regex/6.0.1:
-    resolution: {integrity: sha512-n5M855fKb2SsfMIiFFoVrABHJC8QtHwVx+mHWP3QcEqBHYienj5dHSgjbxtC0WEZXYt4wcD6zrQElDPhFuZgfA==}
-    engines: {node: '>=12'}
-    dev: true
 
   /ansi-styles/3.2.1:
     resolution: {integrity: sha512-VT0ZI6kZRdTh8YyJw3SMbYm/u+NqfsAxEpWO0Pf9sq8/e94WxxOpPKx9FR1FlyCtOVDNOQ+8ntlqFxiRc+r5qA==}
@@ -14802,7 +14797,7 @@ packages:
     resolution: {integrity: sha1-qEeQIusaw2iocTibY1JixQXuNo8=}
     engines: {node: '>=4'}
     dependencies:
-      ansi-regex: 6.0.1
+      ansi-regex: 5.0.1
     dev: true
 
   /strip-ansi/6.0.1:
