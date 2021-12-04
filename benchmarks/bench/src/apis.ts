@@ -130,6 +130,7 @@ export async function benchCache() {
   const env: NodeJS.ProcessEnv = {
     SUBTITLE: 'Cache',
     CACHE: 'true',
+    NODE_ENV: 'production',
   };
   await benchEZFastify(env);
   await benchEZExpress(env);
@@ -144,6 +145,7 @@ export async function benchJit() {
   const env: NodeJS.ProcessEnv = {
     SUBTITLE: 'Jit',
     JIT: 'true',
+    NODE_ENV: 'production',
   };
   await benchEZFastify(env);
   await benchEZExpress(env);
@@ -159,6 +161,7 @@ export async function benchJitCache() {
     SUBTITLE: 'JitCache',
     JIT: 'true',
     CACHE: 'true',
+    NODE_ENV: 'production',
   };
   await benchEZFastify(env);
   await benchEZExpress(env);
@@ -172,6 +175,7 @@ export async function benchJitCache() {
 export async function benchVanilla() {
   const env: NodeJS.ProcessEnv = {
     SUBTITLE: 'Vanilla',
+    NODE_ENV: 'production',
   };
   await benchEZFastify(env);
   await benchEZExpress(env);
@@ -188,12 +192,14 @@ export async function benchAllEZFastify() {
   const env1: NodeJS.ProcessEnv = {
     SUBTITLE: 'Cache',
     CACHE: 'true',
+    NODE_ENV: 'production',
   };
   await benchEZFastify(env1);
 
   const env2: NodeJS.ProcessEnv = {
     SUBTITLE: 'Jit',
     JIT: 'true',
+    NODE_ENV: 'production',
   };
   await benchEZFastify(env2);
 
@@ -201,11 +207,13 @@ export async function benchAllEZFastify() {
     SUBTITLE: 'JitCache',
     JIT: 'true',
     CACHE: 'true',
+    NODE_ENV: 'production',
   };
   await benchEZFastify(env3);
 
   const env4: NodeJS.ProcessEnv = {
     SUBTITLE: 'Vanilla',
+    NODE_ENV: 'production',
   };
   await benchEZFastify(env4);
 }
