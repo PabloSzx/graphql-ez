@@ -1749,13 +1749,13 @@ importers:
       changesets-github-release: ^0.0.4
       graphql: 16.0.0-experimental-stream-defer.5
       graphql-ez: workspace:^0.13.5
-      graphql-scalars: ^1.13.6
+      graphql-scalars: ^1.14.1
       jest: ^27.4.3
       ts-jest: ^27.0.7
     dependencies:
       '@graphql-ez/utils': link:../../core/utils
       '@graphql-tools/utils': 8.5.3_564d67cac1c5d7d887d57591dff0ccf7
-      graphql-scalars: 1.13.6_564d67cac1c5d7d887d57591dff0ccf7
+      graphql-scalars: 1.14.1_564d67cac1c5d7d887d57591dff0ccf7
     devDependencies:
       bob-esbuild-cli: 3.0.1_bob-esbuild@3.1.1
       changesets-github-release: 0.0.4
@@ -9673,8 +9673,8 @@ packages:
       graphql: 16.0.0-experimental-stream-defer.5
     dev: false
 
-  /graphql-scalars/1.13.6_564d67cac1c5d7d887d57591dff0ccf7:
-    resolution: {integrity: sha512-jetz3kAsAC2dNkw/fMbsT0XR+sd2rOtnOuW+6v5BjLcPR2QGgvL64tNINVRrzVuGHvDRgvoAvzwE+Z68zCsi4Q==}
+  /graphql-scalars/1.14.1_564d67cac1c5d7d887d57591dff0ccf7:
+    resolution: {integrity: sha512-IrJ2SI9IkCmWHyr7yIvtPNGWTWF3eTS+iNnw1DQMmEtsOgs1dUmT0ge+8M1+1xm+q3/5ZqB95yUYyThDyOTE+Q==}
     engines: {node: '>=10'}
     peerDependencies:
       graphql: ^0.8.0 || ^0.9.0 || ^0.10.0 || ^0.11.0 || ^0.12.0 || ^0.13.0 || ^14.0.0 || ^15.0.0 || ^16.0.0
