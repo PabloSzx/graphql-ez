@@ -36,7 +36,7 @@ importers:
       mocha: ^9.1.3
       prettier: ^2.5.1
       pretty-quick: ^3.1.2
-      ts-jest: ^27.1.0
+      ts-jest: ~27.0.7
       typescript: ^4.5.2
     devDependencies:
       '@changesets/assemble-release-plan': 5.0.3
@@ -61,7 +61,7 @@ importers:
       mocha: 9.1.3
       prettier: 2.5.1
       pretty-quick: 3.1.2_prettier@2.5.1
-      ts-jest: 27.1.0_d967a5c71b36617f9eaef12c091f7695
+      ts-jest: 27.0.7_d967a5c71b36617f9eaef12c091f7695
       typescript: 4.5.2
 
   benchmarks/apis/envelop-fastify-raw:
@@ -945,7 +945,7 @@ importers:
       koa: ^2.13.4
       lodash: ^4.17.21
       subscriptions-transport-ws-envelop: ^2.0.1
-      ts-jest: ^27.1.0
+      ts-jest: ~27.0.7
       undici: ^4.11.0
       wait-for-expect: ^3.0.2
       ws: ^8.3.0
@@ -982,7 +982,7 @@ importers:
       koa: 2.13.4
       lodash: 4.17.21
       subscriptions-transport-ws-envelop: 2.0.1_4f04692cf0bb9cee693a4bea850b59f6
-      ts-jest: 27.1.0_d967a5c71b36617f9eaef12c091f7695
+      ts-jest: 27.0.7_d967a5c71b36617f9eaef12c091f7695
       undici: 4.11.0
       wait-for-expect: 3.0.2
       ws: 8.3.0
@@ -1157,7 +1157,7 @@ importers:
       graphql: 16.0.0-experimental-stream-defer.5
       jest: ^27.4.3
       tiny-lru: 7.0.6
-      ts-jest: ^27.1.0
+      ts-jest: ~27.0.7
     dependencies:
       '@envelop/core': 1.6.2_564d67cac1c5d7d887d57591dff0ccf7
       '@envelop/types': 1.5.1_564d67cac1c5d7d887d57591dff0ccf7
@@ -1169,7 +1169,7 @@ importers:
       changesets-github-release: 0.0.4
       graphql: 16.0.0-experimental-stream-defer.5
       jest: 27.4.3
-      ts-jest: 27.1.0_d967a5c71b36617f9eaef12c091f7695
+      ts-jest: 27.0.7_d967a5c71b36617f9eaef12c091f7695
 
   packages/core/utils:
     specifiers:
@@ -1195,7 +1195,7 @@ importers:
       graphql: 16.0.0-experimental-stream-defer.5
       graphql-ez: workspace:^0.13.5
       jest: ^27.4.3
-      ts-jest: ^27.1.0
+      ts-jest: ~27.0.7
       typescript: ^4.5.2
     dependencies:
       '@graphql-ez/utils': link:../../core/utils
@@ -1211,7 +1211,7 @@ importers:
       graphql: 16.0.0-experimental-stream-defer.5
       graphql-ez: link:../../core/main
       jest: 27.4.3
-      ts-jest: 27.1.0_d967a5c71b36617f9eaef12c091f7695
+      ts-jest: 27.0.7_d967a5c71b36617f9eaef12c091f7695
       typescript: 4.5.2
 
   packages/express/testing:
@@ -1250,7 +1250,7 @@ importers:
       graphql: 16.0.0-experimental-stream-defer.5
       graphql-ez: workspace:^0.13.5
       jest: ^27.4.3
-      ts-jest: ^27.1.0
+      ts-jest: ~27.0.7
       typescript: ^4.5.2
     dependencies:
       '@graphql-ez/utils': link:../../core/utils
@@ -1263,7 +1263,7 @@ importers:
       graphql: 16.0.0-experimental-stream-defer.5
       graphql-ez: link:../../core/main
       jest: 27.4.3
-      ts-jest: 27.1.0_d967a5c71b36617f9eaef12c091f7695
+      ts-jest: 27.0.7_d967a5c71b36617f9eaef12c091f7695
       typescript: 4.5.2
 
   packages/fastify/testing:
@@ -1298,7 +1298,7 @@ importers:
       graphql: 16.0.0-experimental-stream-defer.5
       graphql-ez: workspace:^0.13.5
       jest: ^27.4.3
-      ts-jest: ^27.1.0
+      ts-jest: ~27.0.7
       typescript: ^4.5.2
     devDependencies:
       '@types/hapi__hapi': 20.0.9
@@ -1308,7 +1308,7 @@ importers:
       graphql: 16.0.0-experimental-stream-defer.5
       graphql-ez: link:../../core/main
       jest: 27.4.3
-      ts-jest: 27.1.0_d967a5c71b36617f9eaef12c091f7695
+      ts-jest: 27.0.7_d967a5c71b36617f9eaef12c091f7695
       typescript: 4.5.2
 
   packages/hapi/testing:
@@ -1410,7 +1410,7 @@ importers:
       graphql: 16.0.0-experimental-stream-defer.5
       graphql-ez: workspace:^0.13.5
       jest: ^27.4.3
-      ts-jest: ^27.1.0
+      ts-jest: ~27.0.7
       typescript: ^4.5.2
     dependencies:
       '@graphql-ez/utils': link:../../core/utils
@@ -1423,7 +1423,7 @@ importers:
       graphql: 16.0.0-experimental-stream-defer.5
       graphql-ez: link:../../core/main
       jest: 27.4.3
-      ts-jest: 27.1.0_d967a5c71b36617f9eaef12c091f7695
+      ts-jest: 27.0.7_d967a5c71b36617f9eaef12c091f7695
       typescript: 4.5.2
 
   packages/http/testing:
@@ -1465,7 +1465,7 @@ importers:
       jest: ^27.4.3
       koa: ^2.13.4
       koa-bodyparser: ^4.3.0
-      ts-jest: ^27.1.0
+      ts-jest: ~27.0.7
       typescript: ^4.5.2
     dependencies:
       '@koa/cors': 3.1.0
@@ -1483,7 +1483,7 @@ importers:
       graphql-ez: link:../../core/main
       jest: 27.4.3
       koa: 2.13.4
-      ts-jest: 27.1.0_d967a5c71b36617f9eaef12c091f7695
+      ts-jest: 27.0.7_d967a5c71b36617f9eaef12c091f7695
       typescript: 4.5.2
 
   packages/koa/testing:
@@ -1530,7 +1530,7 @@ importers:
       next-test-api-route-handler: ^2.3.4
       react: ^17.0.2
       react-dom: ^17.0.2
-      ts-jest: ^27.1.0
+      ts-jest: ~27.0.7
       typescript: ^4.5.2
     dependencies:
       '@types/cors': 2.8.12
@@ -1549,7 +1549,7 @@ importers:
       next-test-api-route-handler: 2.3.4_next@12.0.7
       react: 17.0.2
       react-dom: 17.0.2_react@17.0.2
-      ts-jest: 27.1.0_d967a5c71b36617f9eaef12c091f7695
+      ts-jest: 27.0.7_d967a5c71b36617f9eaef12c091f7695
       typescript: 4.5.2
 
   packages/nextjs/testing:
@@ -1588,7 +1588,7 @@ importers:
       jest: ^27.4.3
       mime-types: ^2.1.34
       next: ^12.0.7
-      ts-jest: ^27.1.0
+      ts-jest: ~27.0.7
     dependencies:
       '@graphql-ez/utils': link:../../core/utils
       altair-static-slim: 4.2.1
@@ -1602,7 +1602,7 @@ importers:
       graphql-ez: link:../../core/main
       jest: 27.4.3
       next: 12.0.7
-      ts-jest: 27.1.0_d967a5c71b36617f9eaef12c091f7695
+      ts-jest: 27.0.7_d967a5c71b36617f9eaef12c091f7695
 
   packages/plugin/automatic-persisted-queries:
     specifiers:
@@ -1613,7 +1613,7 @@ importers:
       graphql-ez: workspace:^0.13.5
       jest: ^27.4.3
       tiny-lru: ^7.0.6
-      ts-jest: ^27.1.0
+      ts-jest: ~27.0.7
     dependencies:
       '@graphql-tools/utils': 8.5.3_564d67cac1c5d7d887d57591dff0ccf7
       tiny-lru: 7.0.6
@@ -1623,7 +1623,7 @@ importers:
       graphql: 16.0.0-experimental-stream-defer.5
       graphql-ez: link:../../core/main
       jest: 27.4.3
-      ts-jest: 27.1.0_d967a5c71b36617f9eaef12c091f7695
+      ts-jest: 27.0.7_d967a5c71b36617f9eaef12c091f7695
 
   packages/plugin/codegen:
     specifiers:
@@ -1647,7 +1647,7 @@ importers:
       mkdirp: ^1.0.4
       prettier: ^2.5.1
       tmp-promise: ^3.0.3
-      ts-jest: ^27.1.0
+      ts-jest: ~27.0.7
     dependencies:
       '@graphql-codegen/core': 2.3.0_564d67cac1c5d7d887d57591dff0ccf7
       '@graphql-codegen/plugin-helpers': 2.3.1_564d67cac1c5d7d887d57591dff0ccf7
@@ -1670,7 +1670,7 @@ importers:
       graphql-ez: link:../../core/main
       jest: 27.4.3
       tmp-promise: 3.0.3
-      ts-jest: 27.1.0_d967a5c71b36617f9eaef12c091f7695
+      ts-jest: 27.0.7_d967a5c71b36617f9eaef12c091f7695
 
   packages/plugin/dataloader:
     specifiers:
@@ -1681,7 +1681,7 @@ importers:
       graphql: 16.0.0-experimental-stream-defer.5
       graphql-ez: workspace:^0.13.5
       jest: ^27.4.3
-      ts-jest: ^27.1.0
+      ts-jest: ~27.0.7
     dependencies:
       '@envelop/dataloader': 1.2.1_d936a67b9a06b4b2ac1311c0cb72fb75
       dataloader: 2.0.0
@@ -1691,7 +1691,7 @@ importers:
       graphql: 16.0.0-experimental-stream-defer.5
       graphql-ez: link:../../core/main
       jest: 27.4.3
-      ts-jest: 27.1.0_d967a5c71b36617f9eaef12c091f7695
+      ts-jest: 27.0.7_d967a5c71b36617f9eaef12c091f7695
 
   packages/plugin/graphiql:
     specifiers:
@@ -1703,7 +1703,7 @@ importers:
       graphql-ez: workspace:^0.13.5
       jest: ^27.4.3
       next: ^12.0.7
-      ts-jest: ^27.1.0
+      ts-jest: ~27.0.7
     dependencies:
       '@graphql-ez/utils': link:../../core/utils
       '@pablosz/graphql-helix-graphiql': link:../../helix/graphiql
@@ -1714,7 +1714,7 @@ importers:
       graphql-ez: link:../../core/main
       jest: 27.4.3
       next: 12.0.7
-      ts-jest: 27.1.0_d967a5c71b36617f9eaef12c091f7695
+      ts-jest: 27.0.7_d967a5c71b36617f9eaef12c091f7695
 
   packages/plugin/modules:
     specifiers:
@@ -1727,7 +1727,7 @@ importers:
       graphql-ez: workspace:^0.13.5
       graphql-modules: ^2.0.0
       jest: ^27.4.3
-      ts-jest: ^27.1.0
+      ts-jest: ~27.0.7
     dependencies:
       '@envelop/graphql-modules': 1.2.1_973fafceac8dcbc4988aabffd57b7a1a
       '@graphql-ez/utils': link:../../core/utils
@@ -1739,7 +1739,7 @@ importers:
       graphql: 16.0.0-experimental-stream-defer.5
       graphql-ez: link:../../core/main
       jest: 27.4.3
-      ts-jest: 27.1.0_d967a5c71b36617f9eaef12c091f7695
+      ts-jest: 27.0.7_d967a5c71b36617f9eaef12c091f7695
 
   packages/plugin/scalars:
     specifiers:
@@ -1751,7 +1751,7 @@ importers:
       graphql-ez: workspace:^0.13.5
       graphql-scalars: ^1.14.1
       jest: ^27.4.3
-      ts-jest: ^27.1.0
+      ts-jest: ~27.0.7
     dependencies:
       '@graphql-ez/utils': link:../../core/utils
       '@graphql-tools/utils': 8.5.3_564d67cac1c5d7d887d57591dff0ccf7
@@ -1762,7 +1762,7 @@ importers:
       graphql: 16.0.0-experimental-stream-defer.5
       graphql-ez: link:../../core/main
       jest: 27.4.3
-      ts-jest: 27.1.0_d967a5c71b36617f9eaef12c091f7695
+      ts-jest: 27.0.7_d967a5c71b36617f9eaef12c091f7695
 
   packages/plugin/schema:
     specifiers:
@@ -1775,7 +1775,7 @@ importers:
       graphql: 16.0.0-experimental-stream-defer.5
       graphql-ez: workspace:^0.13.5
       jest: ^27.4.3
-      ts-jest: ^27.1.0
+      ts-jest: ~27.0.7
       typescript: ^4.5.2
     dependencies:
       '@graphql-ez/utils': link:../../core/utils
@@ -1788,7 +1788,7 @@ importers:
       graphql: 16.0.0-experimental-stream-defer.5
       graphql-ez: link:../../core/main
       jest: 27.4.3
-      ts-jest: 27.1.0_d967a5c71b36617f9eaef12c091f7695
+      ts-jest: 27.0.7_d967a5c71b36617f9eaef12c091f7695
       typescript: 4.5.2
 
   packages/plugin/sse:
@@ -1824,7 +1824,7 @@ importers:
       graphql-upload: ^13.0.0
       jest: ^27.4.3
       node-fetch: ^2.6.6
-      ts-jest: ^27.1.0
+      ts-jest: ~27.0.7
     dependencies:
       '@graphql-ez/utils': link:../../core/utils
     devDependencies:
@@ -1837,7 +1837,7 @@ importers:
       graphql-upload: 13.0.0_564d67cac1c5d7d887d57591dff0ccf7
       jest: 27.4.3
       node-fetch: 2.6.6
-      ts-jest: 27.1.0_d967a5c71b36617f9eaef12c091f7695
+      ts-jest: 27.0.7_d967a5c71b36617f9eaef12c091f7695
 
   packages/plugin/voyager:
     specifiers:
@@ -1848,7 +1848,7 @@ importers:
       graphql-ez: workspace:^0.13.5
       jest: ^27.4.3
       next: ^12.0.7
-      ts-jest: ^27.1.0
+      ts-jest: ~27.0.7
     dependencies:
       '@graphql-ez/utils': link:../../core/utils
     devDependencies:
@@ -1858,7 +1858,7 @@ importers:
       graphql-ez: link:../../core/main
       jest: 27.4.3
       next: 12.0.7
-      ts-jest: 27.1.0_d967a5c71b36617f9eaef12c091f7695
+      ts-jest: 27.0.7_d967a5c71b36617f9eaef12c091f7695
 
   packages/plugin/websockets:
     specifiers:
@@ -1871,7 +1871,7 @@ importers:
       graphql-ws: ^5.5.5
       jest: ^27.4.3
       subscriptions-transport-ws-envelop: ^2.0.1
-      ts-jest: ^27.1.0
+      ts-jest: ~27.0.7
       ws: ^8.3.0
     dependencies:
       '@graphql-ez/utils': link:../../core/utils
@@ -1885,7 +1885,7 @@ importers:
       graphql: 16.0.0-experimental-stream-defer.5
       graphql-ez: link:../../core/main
       jest: 27.4.3
-      ts-jest: 27.1.0_d967a5c71b36617f9eaef12c091f7695
+      ts-jest: 27.0.7_d967a5c71b36617f9eaef12c091f7695
 
   packages/sveltekit/main:
     specifiers:
@@ -15484,8 +15484,8 @@ packages:
     resolution: {integrity: sha512-Z86EW+fFFh/IFB1fqQ3/+7Zpf9t2ebOAxNI/V6Wo7r5gqiqtxmgTlQ1qbqQcjLKYeSHPTsEmvlJUDg/EuL0uHQ==}
     dev: false
 
-  /ts-jest/27.1.0_d967a5c71b36617f9eaef12c091f7695:
-    resolution: {integrity: sha512-ZouWlP03JMtzfNHg0ZeDrxAESYGmVhWyHtIl2/01kBbXaMbTr4Vhv6/GeMxUed6GFg/4ycMo+yU6Eo9gI16xTQ==}
+  /ts-jest/27.0.7_d967a5c71b36617f9eaef12c091f7695:
+    resolution: {integrity: sha512-O41shibMqzdafpuP+CkrOL7ykbmLh+FqQrXEmV9CydQ5JBk0Sj0uAEF5TNNe94fZWKm3yYvWa/IbyV4Yg1zK2Q==}
     engines: {node: ^10.13.0 || ^12.13.0 || ^14.15.0 || >=15.0.0}
     hasBin: true
     peerDependencies:
@@ -15504,7 +15504,6 @@ packages:
     dependencies:
       '@types/jest': 27.0.3
       bs-logger: 0.2.6
-      esbuild: 0.14.2
       fast-json-stable-stringify: 2.1.0
       jest: 27.4.3
       jest-util: 27.4.2
