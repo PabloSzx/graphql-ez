@@ -929,7 +929,7 @@ importers:
       '@types/koa': ^2.13.4
       '@types/koa__router': ^8.0.11
       '@types/node': ^16.11.11
-      '@types/ws': ^8.2.1
+      '@types/ws': ^8.2.2
       bob-esbuild-cli: ^3.0.1
       eventsource: ^1.1.0
       express: ^4.17.1
@@ -966,7 +966,7 @@ importers:
       '@types/koa': 2.13.4
       '@types/koa__router': 8.0.11
       '@types/node': 16.11.11
-      '@types/ws': 8.2.1
+      '@types/ws': 8.2.2
       bob-esbuild-cli: 3.0.1_bob-esbuild@3.1.1
       eventsource: 1.1.0
       express: 4.17.1
@@ -1073,7 +1073,7 @@ importers:
       '@types/extract-files': ^8.1.1
       '@types/node': ^16.11.11
       '@types/node-fetch': ^2.5.12
-      '@types/ws': ^8.2.1
+      '@types/ws': ^8.2.2
       bob-esbuild-cli: ^3.0.1
       changesets-github-release: ^0.0.4
       eventsource: ^1.1.0
@@ -1105,7 +1105,7 @@ importers:
       '@types/extract-files': 8.1.1
       '@types/node': 16.11.11
       '@types/node-fetch': 2.5.12
-      '@types/ws': 8.2.1
+      '@types/ws': 8.2.2
       bob-esbuild-cli: 3.0.1_bob-esbuild@3.1.1
       changesets-github-release: 0.0.4
       graphql: 16.0.0-experimental-stream-defer.5
@@ -1863,7 +1863,7 @@ importers:
   packages/plugin/websockets:
     specifiers:
       '@graphql-ez/utils': workspace:^0.1.2
-      '@types/ws': ^8.2.1
+      '@types/ws': ^8.2.2
       bob-esbuild-cli: ^3.0.1
       changesets-github-release: ^0.0.4
       graphql: 16.0.0-experimental-stream-defer.5
@@ -1875,7 +1875,7 @@ importers:
       ws: ^8.3.0
     dependencies:
       '@graphql-ez/utils': link:../../core/utils
-      '@types/ws': 8.2.1
+      '@types/ws': 8.2.2
       graphql-ws: 5.5.5_564d67cac1c5d7d887d57591dff0ccf7
       subscriptions-transport-ws-envelop: 2.0.1_4f04692cf0bb9cee693a4bea850b59f6
       ws: 8.3.0
@@ -6070,6 +6070,12 @@ packages:
 
   /@types/ws/8.2.1:
     resolution: {integrity: sha512-SqQ+LhVZaJi7c7sYVkjWALDigi/Wy7h7Iu72gkQp8Y8OWw/DddEVBrTSKu86pQftV2+Gm8lYM61hadPKqyaIeg==}
+    dependencies:
+      '@types/node': 16.11.11
+    dev: true
+
+  /@types/ws/8.2.2:
+    resolution: {integrity: sha512-NOn5eIcgWLOo6qW8AcuLZ7G8PycXu0xTxxkS6Q18VWFxgPUSOwV0pBj2a/4viNZVu25i7RIB7GttdkAIUUXOOg==}
     dependencies:
       '@types/node': 16.11.11
 
