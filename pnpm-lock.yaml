@@ -66,7 +66,7 @@ importers:
 
   benchmarks/apis/envelop-fastify-raw:
     specifiers:
-      '@envelop/core': ^1.6.2
+      '@envelop/core': ^1.6.4
       '@envelop/graphql-jit': ^1.3.1
       '@envelop/parser-cache': ^2.2.1
       '@envelop/types': ^1.5.1
@@ -79,11 +79,11 @@ importers:
       require-env-variable: ^4.0.0
       typescript: ^4.5.2
     dependencies:
-      '@envelop/core': 1.6.2_564d67cac1c5d7d887d57591dff0ccf7
-      '@envelop/graphql-jit': 1.3.1_00ff07bcac63d553a68089b7598c9258
-      '@envelop/parser-cache': 2.2.1_00ff07bcac63d553a68089b7598c9258
+      '@envelop/core': 1.6.4_564d67cac1c5d7d887d57591dff0ccf7
+      '@envelop/graphql-jit': 1.3.1_13b9a2bcdd34ecbdd420753467cc6e75
+      '@envelop/parser-cache': 2.2.1_13b9a2bcdd34ecbdd420753467cc6e75
       '@envelop/types': 1.5.1_564d67cac1c5d7d887d57591dff0ccf7
-      '@envelop/validation-cache': 2.2.1_00ff07bcac63d553a68089b7598c9258
+      '@envelop/validation-cache': 2.2.1_13b9a2bcdd34ecbdd420753467cc6e75
       '@types/node': 16.11.12
       benchmark-bench: link:../../bench
       fastify: 3.24.1
@@ -1148,7 +1148,7 @@ importers:
 
   packages/core/main:
     specifiers:
-      '@envelop/core': ^1.6.2
+      '@envelop/core': ^1.6.4
       '@envelop/types': ^1.5.1
       '@graphql-ez/utils': workspace:^0.1.2
       '@pablosz/graphql-helix': workspace:^2.0.3
@@ -1159,7 +1159,7 @@ importers:
       tiny-lru: 7.0.6
       ts-jest: ~27.0.7
     dependencies:
-      '@envelop/core': 1.6.2_564d67cac1c5d7d887d57591dff0ccf7
+      '@envelop/core': 1.6.4_564d67cac1c5d7d887d57591dff0ccf7
       '@envelop/types': 1.5.1_564d67cac1c5d7d887d57591dff0ccf7
       '@graphql-ez/utils': link:../utils
       '@pablosz/graphql-helix': link:../../helix/core
@@ -1889,7 +1889,7 @@ importers:
 
   packages/sveltekit/main:
     specifiers:
-      '@envelop/core': ^1.6.2
+      '@envelop/core': ^1.6.4
       '@graphql-ez/plugin-altair': workspace:^0.9.4
       '@graphql-ez/plugin-graphiql': workspace:^0.11.0
       '@graphql-ez/plugin-schema': workspace:^0.8.1
@@ -1916,7 +1916,7 @@ importers:
     dependencies:
       '@graphql-ez/utils': link:../../core/utils
     devDependencies:
-      '@envelop/core': 1.6.2_564d67cac1c5d7d887d57591dff0ccf7
+      '@envelop/core': 1.6.4_564d67cac1c5d7d887d57591dff0ccf7
       '@graphql-ez/plugin-altair': link:../../plugin/altair
       '@graphql-ez/plugin-graphiql': link:../../plugin/graphiql
       '@graphql-ez/plugin-schema': link:../../plugin/schema
@@ -3969,8 +3969,8 @@ packages:
       - typescript
     dev: true
 
-  /@envelop/core/1.6.2_34dd13c2583fe2e4418c23a0d30fc388:
-    resolution: {integrity: sha512-otrNSlMgR0e8xG2tHI5Lcsg4YWKdUngRBn/dhxzTK2KFOOQa4mEfQI5k3/hESFlC8WFbP2pvNmegPjxa7aK4eA==}
+  /@envelop/core/1.6.4_34dd13c2583fe2e4418c23a0d30fc388:
+    resolution: {integrity: sha512-/cUMG0ZVNwwNOu1ZFxFgzo7DyB17nkwpFZAAidkY+g+yNBWu+V76kwziH5Qdu7ca3Rv4F8u1Y0BWRlvMunb2sQ==}
     peerDependencies:
       graphql: ^14.0.0 || ^15.0.0 || ^16.0.0
     dependencies:
@@ -3978,16 +3978,16 @@ packages:
       graphql: 15.4.0-experimental-stream-defer.1
     dev: false
 
-  /@envelop/core/1.6.2_564d67cac1c5d7d887d57591dff0ccf7:
-    resolution: {integrity: sha512-otrNSlMgR0e8xG2tHI5Lcsg4YWKdUngRBn/dhxzTK2KFOOQa4mEfQI5k3/hESFlC8WFbP2pvNmegPjxa7aK4eA==}
+  /@envelop/core/1.6.4_564d67cac1c5d7d887d57591dff0ccf7:
+    resolution: {integrity: sha512-/cUMG0ZVNwwNOu1ZFxFgzo7DyB17nkwpFZAAidkY+g+yNBWu+V76kwziH5Qdu7ca3Rv4F8u1Y0BWRlvMunb2sQ==}
     peerDependencies:
       graphql: ^14.0.0 || ^15.0.0 || ^16.0.0
     dependencies:
       '@envelop/types': 1.5.1_564d67cac1c5d7d887d57591dff0ccf7
       graphql: 16.0.0-experimental-stream-defer.5
 
-  /@envelop/core/1.6.2_graphql-esm@16.0.1:
-    resolution: {integrity: sha512-otrNSlMgR0e8xG2tHI5Lcsg4YWKdUngRBn/dhxzTK2KFOOQa4mEfQI5k3/hESFlC8WFbP2pvNmegPjxa7aK4eA==}
+  /@envelop/core/1.6.4_graphql-esm@16.0.1:
+    resolution: {integrity: sha512-/cUMG0ZVNwwNOu1ZFxFgzo7DyB17nkwpFZAAidkY+g+yNBWu+V76kwziH5Qdu7ca3Rv4F8u1Y0BWRlvMunb2sQ==}
     peerDependencies:
       graphql: ^14.0.0 || ^15.0.0 || ^16.0.0
     dependencies:
@@ -3995,8 +3995,8 @@ packages:
       graphql: /graphql-esm/16.0.1
     dev: false
 
-  /@envelop/core/1.6.2_graphql@15.8.0:
-    resolution: {integrity: sha512-otrNSlMgR0e8xG2tHI5Lcsg4YWKdUngRBn/dhxzTK2KFOOQa4mEfQI5k3/hESFlC8WFbP2pvNmegPjxa7aK4eA==}
+  /@envelop/core/1.6.4_graphql@15.8.0:
+    resolution: {integrity: sha512-/cUMG0ZVNwwNOu1ZFxFgzo7DyB17nkwpFZAAidkY+g+yNBWu+V76kwziH5Qdu7ca3Rv4F8u1Y0BWRlvMunb2sQ==}
     peerDependencies:
       graphql: ^14.0.0 || ^15.0.0 || ^16.0.0
     dependencies:
@@ -4015,13 +4015,13 @@ packages:
       graphql: 16.0.0-experimental-stream-defer.5
     dev: false
 
-  /@envelop/graphql-jit/1.3.1_00ff07bcac63d553a68089b7598c9258:
+  /@envelop/graphql-jit/1.3.1_13b9a2bcdd34ecbdd420753467cc6e75:
     resolution: {integrity: sha512-9BdMuQVt0/g1YkSQRzipCzgxp9UAC5DQw2yQXuCrXcdWPEaLxf6Nxokx0GznoxGxulGLiR/iTuboqH6Kt24HLA==}
     peerDependencies:
       '@envelop/core': ^1.6.1
       graphql: ^14.0.0 || ^15.0.0 || ^16.0.0
     dependencies:
-      '@envelop/core': 1.6.2_564d67cac1c5d7d887d57591dff0ccf7
+      '@envelop/core': 1.6.4_564d67cac1c5d7d887d57591dff0ccf7
       graphql: 16.0.0-experimental-stream-defer.5
       graphql-jit: 0.7.2_564d67cac1c5d7d887d57591dff0ccf7
       tiny-lru: 7.0.6
@@ -4049,13 +4049,13 @@ packages:
       graphql-modules: 2.0.0_564d67cac1c5d7d887d57591dff0ccf7
     dev: false
 
-  /@envelop/parser-cache/2.2.1_00ff07bcac63d553a68089b7598c9258:
+  /@envelop/parser-cache/2.2.1_13b9a2bcdd34ecbdd420753467cc6e75:
     resolution: {integrity: sha512-7PHYjln5Jl0JieCd5mVCKZoCpxyL3EQf2etxvmB1ALB6D9QjLYSv+zSPQRT/rmeDtLDohFKVN6cIyhYNSUG2bQ==}
     peerDependencies:
       '@envelop/core': ^1.6.1
       graphql: ^14.0.0 || ^15.0.0 || ^16.0.0
     dependencies:
-      '@envelop/core': 1.6.2_564d67cac1c5d7d887d57591dff0ccf7
+      '@envelop/core': 1.6.4_564d67cac1c5d7d887d57591dff0ccf7
       graphql: 16.0.0-experimental-stream-defer.5
       tiny-lru: 7.0.6
     dev: false
@@ -4091,13 +4091,13 @@ packages:
       graphql: 15.8.0
     dev: false
 
-  /@envelop/validation-cache/2.2.1_00ff07bcac63d553a68089b7598c9258:
+  /@envelop/validation-cache/2.2.1_13b9a2bcdd34ecbdd420753467cc6e75:
     resolution: {integrity: sha512-AVGalLVZD9Ujnx9bKks33HA4eM9KCc7UKeYhc9z+/4xp0TINSm3vyaKpnpbVirUAwlALZH3bUxUQLUt8x3FDOQ==}
     peerDependencies:
       '@envelop/core': ^1.6.1
       graphql: ^14.0.0 || ^15.0.0 || ^16.0.0
     dependencies:
-      '@envelop/core': 1.6.2_564d67cac1c5d7d887d57591dff0ccf7
+      '@envelop/core': 1.6.4_564d67cac1c5d7d887d57591dff0ccf7
       graphql: 16.0.0-experimental-stream-defer.5
       tiny-lru: 7.0.6
     dev: false
@@ -16603,7 +16603,7 @@ packages:
       graphql:
         optional: true
     dependencies:
-      '@envelop/core': 1.6.2_34dd13c2583fe2e4418c23a0d30fc388
+      '@envelop/core': 1.6.4_34dd13c2583fe2e4418c23a0d30fc388
       '@envelop/types': 1.5.1_34dd13c2583fe2e4418c23a0d30fc388
       '@graphql-ez/utils': link:packages/core/utils
       '@pablosz/graphql-helix': link:packages/helix/core
@@ -16623,7 +16623,7 @@ packages:
       graphql:
         optional: true
     dependencies:
-      '@envelop/core': 1.6.2_graphql-esm@16.0.1
+      '@envelop/core': 1.6.4_graphql-esm@16.0.1
       '@envelop/types': 1.5.1_graphql-esm@16.0.1
       '@graphql-ez/utils': link:packages/core/utils
       '@pablosz/graphql-helix': link:packages/helix/core
@@ -16643,7 +16643,7 @@ packages:
       graphql:
         optional: true
     dependencies:
-      '@envelop/core': 1.6.2_graphql@15.8.0
+      '@envelop/core': 1.6.4_graphql@15.8.0
       '@envelop/types': 1.5.1_graphql@15.8.0
       '@graphql-ez/utils': link:packages/core/utils
       '@pablosz/graphql-helix': link:packages/helix/core
