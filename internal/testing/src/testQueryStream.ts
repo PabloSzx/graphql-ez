@@ -6,7 +6,7 @@ import assert from 'assert';
 export async function expectCommonQueryStream(address: string) {
   const client = new undici.Client(address);
 
-  const done = createDeferredPromise();
+  const done = createDeferredPromise<number>();
 
   try {
     await client.stream(
@@ -28,8 +28,6 @@ export async function expectCommonQueryStream(address: string) {
       ({ opaque, statusCode }) => {
         assert(opaque instanceof PassThrough);
 
-        expect(statusCode).toBe(200);
-
         (async () => {
           const chunks: string[] = [];
 
@@ -43,14 +41,16 @@ export async function expectCommonQueryStream(address: string) {
 
           expect(chunks).toHaveLength(3);
 
-          done.resolve();
+          done.resolve(statusCode);
         })().catch(done.reject);
 
         return opaque;
       }
     );
 
-    await done.promise;
+    const statusCode = await done.promise;
+
+    expect(statusCode).toBe(200);
   } finally {
     await client.close();
   }

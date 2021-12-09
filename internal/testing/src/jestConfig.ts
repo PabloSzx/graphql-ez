@@ -2,7 +2,7 @@ import type { Config } from '@jest/types';
 import { execSync } from 'child_process';
 import { readJSONSync, writeFileSync } from 'fs-extra';
 import { relative, resolve } from 'path';
-import { pathsToModuleNameMapper } from 'ts-jest/utils';
+import { pathsToModuleNameMapper } from 'ts-jest';
 
 const rootPath = resolve(__dirname, '../../../');
 
