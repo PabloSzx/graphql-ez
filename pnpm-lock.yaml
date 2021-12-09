@@ -1394,7 +1394,7 @@ importers:
       copy-to-clipboard: ^3.3.1
       cpy: ^8.1.2
       esbuild: ^0.14.2
-      graphiql: ^1.5.15
+      graphiql: ^1.5.16
       graphql: 16.0.0-experimental-stream-defer.5
       graphql-ez: workspace:^0.13.5
       graphql-language-service-interface: ^2.10.1
@@ -1420,7 +1420,7 @@ importers:
       copy-to-clipboard: 3.3.1
       cpy: 8.1.2
       esbuild: 0.14.2
-      graphiql: 1.5.15_25616be26632aa11e37c3764600c0b86
+      graphiql: 1.5.16_25616be26632aa11e37c3764600c0b86
       graphql: 16.0.0-experimental-stream-defer.5
       graphql-ez: link:../../core/main
       graphql-language-service-interface: 2.10.1_1c5f21f56e1cd64bab46d3f140f6b7f3
@@ -7488,8 +7488,8 @@ packages:
     engines: {node: '>=0.10.0'}
     dev: false
 
-  /codemirror-graphql/1.2.10_657913e6f9792add033c4379bf2f817c:
-    resolution: {integrity: sha512-SwjGzCCjswj1/VFCg1fcpQfU/dCWA15afrmaQkdIQ/9f4AzRY/nVzpPczJMpefU+N4p9i7zjOZzv5CucJjcvfA==}
+  /codemirror-graphql/1.2.11_657913e6f9792add033c4379bf2f817c:
+    resolution: {integrity: sha512-pB3LVgrwj+qfO1vaVvnzTYBKhkms1hU/t0fiOM7tiov/Kq+l1BXCgYJyh5/muGDxpz7hqzg/fWJwIYNi40kLiA==}
     peerDependencies:
       codemirror: ^5.58.2
       graphql: ^15.5.0 || ^16.0.0
@@ -7497,7 +7497,7 @@ packages:
       '@codemirror/stream-parser': 0.19.2
       codemirror: 5.64.0
       graphql: 16.0.0-experimental-stream-defer.5
-      graphql-language-service: 4.1.3_1c5f21f56e1cd64bab46d3f140f6b7f3
+      graphql-language-service: 4.1.4_1c5f21f56e1cd64bab46d3f140f6b7f3
     transitivePeerDependencies:
       - '@types/node'
       - bufferutil
@@ -9577,8 +9577,8 @@ packages:
     resolution: {integrity: sha512-bzh50DW9kTPM00T8y4o8vQg89Di9oLJVLW/KaOGIXJWP/iqCN6WKYkbNOF04vFLJhwcpYUh9ydh/+5vpOqV4YQ==}
     dev: true
 
-  /graphiql/1.5.15_25616be26632aa11e37c3764600c0b86:
-    resolution: {integrity: sha512-1achmzipKexDOxeBkue4i5rTFrFnV321KZbV48SRcNqcI9JSdganUhiwIQRg6YFPTVQACv2bLrh4YZ2Ca3RA9w==}
+  /graphiql/1.5.16_25616be26632aa11e37c3764600c0b86:
+    resolution: {integrity: sha512-G1ucZ+1GS6Soq+ftr7eOihy6BcmJHYo29j1/GxXKclUr/z768WWjjIqDcF1/+geI0KOzVeEKkceA1bgT5hG4oQ==}
     peerDependencies:
       graphql: ^15.5.0 || ^16.0.0
       react: ^16.8.0 || ^17.0.0 || ^18.0.0
@@ -9586,13 +9586,13 @@ packages:
     dependencies:
       '@graphiql/toolkit': 0.4.2_ac75187f8b1a0a4094888b90ecc637e1
       codemirror: 5.64.0
-      codemirror-graphql: 1.2.10_657913e6f9792add033c4379bf2f817c
+      codemirror-graphql: 1.2.11_657913e6f9792add033c4379bf2f817c
       copy-to-clipboard: 3.3.1
       dset: 3.1.1
       entities: 2.2.0
       escape-html: 1.0.3
       graphql: 16.0.0-experimental-stream-defer.5
-      graphql-language-service: 4.1.3_1c5f21f56e1cd64bab46d3f140f6b7f3
+      graphql-language-service: 4.1.4_1c5f21f56e1cd64bab46d3f140f6b7f3
       markdown-it: 12.3.0
       react: 17.0.2
       react-dom: 17.0.2_react@17.0.2
@@ -9690,6 +9690,24 @@ packages:
       - utf-8-validate
     dev: true
 
+  /graphql-language-service-interface/2.10.2_1c5f21f56e1cd64bab46d3f140f6b7f3:
+    resolution: {integrity: sha512-RKIEBPhRMWdXY3fxRs99XysTDnEgAvNbu8ov/5iOlnkZsWQNzitjtd0O0l1CutQOQt3iXoHde7w8uhCnKL4tcg==}
+    peerDependencies:
+      graphql: ^15.5.0 || ^16.0.0
+    dependencies:
+      graphql: 16.0.0-experimental-stream-defer.5
+      graphql-config: 4.1.0_1c5f21f56e1cd64bab46d3f140f6b7f3
+      graphql-language-service-parser: 1.10.4_1c5f21f56e1cd64bab46d3f140f6b7f3
+      graphql-language-service-types: 1.8.7_1c5f21f56e1cd64bab46d3f140f6b7f3
+      graphql-language-service-utils: 2.7.1_1c5f21f56e1cd64bab46d3f140f6b7f3
+      vscode-languageserver-types: 3.16.0
+    transitivePeerDependencies:
+      - '@types/node'
+      - bufferutil
+      - typescript
+      - utf-8-validate
+    dev: true
+
   /graphql-language-service-parser/1.10.4_1c5f21f56e1cd64bab46d3f140f6b7f3:
     resolution: {integrity: sha512-duDE+0aeKLFVrb9Kf28U84ZEHhHcvTjWIT6dJbIAQJWBaDoht0D4BK9EIhd94I3DtKRc1JCJb2+70y1lvP/hiA==}
     peerDependencies:
@@ -9735,14 +9753,14 @@ packages:
       - utf-8-validate
     dev: true
 
-  /graphql-language-service/4.1.3_1c5f21f56e1cd64bab46d3f140f6b7f3:
-    resolution: {integrity: sha512-YFKugtrB1+kh4QHgnoGung8jz3cl77LySl7lgkRC8Nyz59cVwpHNcp5yXDTCvfu1nrrJEp7jAMiWNRBvUM8JuQ==}
+  /graphql-language-service/4.1.4_1c5f21f56e1cd64bab46d3f140f6b7f3:
+    resolution: {integrity: sha512-LJk1vwwWwh8onewIzjbXXfa7C5mI6tNN67yztFbmQmfDQv1naZfqKLitudQWaDwJgLqAlpKIefRaeU3cNYHRFQ==}
     hasBin: true
     peerDependencies:
       graphql: ^15.5.0 || ^16.0.0
     dependencies:
       graphql: 16.0.0-experimental-stream-defer.5
-      graphql-language-service-interface: 2.10.1_1c5f21f56e1cd64bab46d3f140f6b7f3
+      graphql-language-service-interface: 2.10.2_1c5f21f56e1cd64bab46d3f140f6b7f3
       graphql-language-service-parser: 1.10.4_1c5f21f56e1cd64bab46d3f140f6b7f3
       graphql-language-service-types: 1.8.7_1c5f21f56e1cd64bab46d3f140f6b7f3
       graphql-language-service-utils: 2.7.1_1c5f21f56e1cd64bab46d3f140f6b7f3
