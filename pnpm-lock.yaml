@@ -737,7 +737,7 @@ importers:
       '@graphql-ez/sveltekit': workspace:^0.1.2
       '@graphql-tools/schema': ^8.3.1
       '@sveltejs/adapter-node': ^1.0.0-next.55
-      '@sveltejs/kit': ^1.0.0-next.201
+      '@sveltejs/kit': ^1.0.0-next.202
       altair-static-slim: 4.2.1
       graphql: 16.0.0-experimental-stream-defer.5
       graphql-ez: workspace:^0.13.5
@@ -759,7 +759,7 @@ importers:
       graphql: 16.0.0-experimental-stream-defer.5
       graphql-ez: link:../../packages/core/main
     devDependencies:
-      '@sveltejs/kit': 1.0.0-next.201_svelte@3.44.2
+      '@sveltejs/kit': 1.0.0-next.202_svelte@3.44.2
       svelte: 3.44.2
       svelte-check: 2.2.10_svelte@3.44.2
       svelte-preprocess: 4.9.8_svelte@3.44.2+typescript@4.5.3
@@ -1928,7 +1928,7 @@ importers:
       '@graphql-ez/utils': workspace:^0.1.2
       '@graphql-tools/schema': ^8.3.1
       '@sveltejs/adapter-node': ^1.0.0-next.55
-      '@sveltejs/kit': ^1.0.0-next.201
+      '@sveltejs/kit': ^1.0.0-next.202
       '@types/node': ^16.11.12
       altair-static-slim: 4.2.1
       bob-esbuild-cli: ^3.0.1
@@ -1954,7 +1954,7 @@ importers:
       '@graphql-ez/plugin-voyager': link:../../plugin/voyager
       '@graphql-tools/schema': 8.3.1_564d67cac1c5d7d887d57591dff0ccf7
       '@sveltejs/adapter-node': 1.0.0-next.55
-      '@sveltejs/kit': 1.0.0-next.201_svelte@3.44.2
+      '@sveltejs/kit': 1.0.0-next.202_svelte@3.44.2
       '@types/node': 16.11.12
       altair-static-slim: 4.2.1
       bob-esbuild-cli: 3.0.1_bob-esbuild@3.2.0
@@ -5638,18 +5638,18 @@ packages:
       esbuild: 0.14.2
       tiny-glob: 0.2.9
 
-  /@sveltejs/kit/1.0.0-next.201_svelte@3.44.2:
-    resolution: {integrity: sha512-WcYexOEPWgDWOk0oOteTU5QwWykdIcOFJig+akeHqwE/jVtPURLZFtTNx0ymUWXN4S+dUXf60KF6HEMv74FHpA==}
+  /@sveltejs/kit/1.0.0-next.202_svelte@3.44.2:
+    resolution: {integrity: sha512-rXmJ0FplkWvD1CaeCfejRYhOJYrlmeUm5Fkw7gIKDdWPQev5rqOhd9B9ZvRpq35oMqCAwaOfK+e5S6k+83feEQ==}
     engines: {node: '>=14.13'}
     hasBin: true
     peerDependencies:
       svelte: ^3.44.0
     dependencies:
-      '@sveltejs/vite-plugin-svelte': 1.0.0-next.31_svelte@3.44.2+vite@2.7.1
+      '@sveltejs/vite-plugin-svelte': 1.0.0-next.31_svelte@3.44.2+vite@2.7.2
       cheap-watch: 1.0.4
       sade: 1.7.4
       svelte: 3.44.2
-      vite: 2.7.1
+      vite: 2.7.2
     transitivePeerDependencies:
       - diff-match-patch
       - less
@@ -5658,7 +5658,7 @@ packages:
       - supports-color
     dev: true
 
-  /@sveltejs/vite-plugin-svelte/1.0.0-next.31_svelte@3.44.2+vite@2.7.1:
+  /@sveltejs/vite-plugin-svelte/1.0.0-next.31_svelte@3.44.2+vite@2.7.2:
     resolution: {integrity: sha512-8K3DcGP1V+XBv389u32S6wt8xiun6hHd5wn28AKLSoNTIhOmJOA2RJUJzp0seTRI86Shme4lzHI2Fgq4qz1wXQ==}
     engines: {node: ^14.13.1 || >= 16}
     peerDependencies:
@@ -5676,7 +5676,7 @@ packages:
       require-relative: 0.8.7
       svelte: 3.44.2
       svelte-hmr: 0.14.7_svelte@3.44.2
-      vite: 2.7.1
+      vite: 2.7.2
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -16301,8 +16301,8 @@ packages:
       vfile-message: 3.0.2
     dev: false
 
-  /vite/2.7.1:
-    resolution: {integrity: sha512-TDXXhcu5lyQ6uosK4ZWaOyB4VzOiizk0biitRzDzaEtgSUi8rVYPc4k1xgOjLSf0OuceDJmojFKXHOX9DB1WuQ==}
+  /vite/2.7.2:
+    resolution: {integrity: sha512-wMffVVdKZRZP/HwW3yttKL8X+IJePz7bUcnGm0vqljffpVwHpjWC3duZtJQHAGvy+wrTjmwU7vkULpZ1dVXY6w==}
     engines: {node: '>=12.2.0'}
     hasBin: true
     peerDependencies:
