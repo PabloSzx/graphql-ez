@@ -1,5 +1,15 @@
 # @graphql-ez/plugin-graphiql
 
+## 0.11.1
+
+### Patch Changes
+
+- 18850f7a: Update graphiql
+- Updated dependencies [d6e322d7]
+- Updated dependencies [18850f7a]
+  - graphql-ez@0.13.6
+  - @pablosz/graphql-helix-graphiql@4.2.1
+
 ## 0.11.0
 
 ### Minor Changes
