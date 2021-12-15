@@ -1,5 +1,16 @@
 # @graphql-ez/plugin-upload
 
+## 0.7.0
+
+### Minor Changes
+
+- 2dbd418c: Update graphql-upload peer dependency
+
+### Patch Changes
+
+- Updated dependencies [d6e322d7]
+  - graphql-ez@0.13.6
+
 ## 0.6.2
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # graphql-ez
 
+## 0.13.6
+
+### Patch Changes
+
+- d6e322d7: Allow disabled Envelop plugin
+
 ## 0.13.5
 
 ### Patch Changes
