@@ -14,7 +14,7 @@ import { cleanObject } from '@graphql-ez/utils/object';
 import type { TypedDocumentNode } from '@graphql-typed-document-node/core';
 import { ExecutionResult, GraphQLSchema, print, printSchema } from 'graphql';
 import type { IncomingHttpHeaders } from 'http';
-import { testApiHandler } from 'next-test-api-route-handler';
+import { testApiHandler, NtarhParameters } from 'next-test-api-route-handler';
 
 const teardownLazyPromiseList: Promise<void>[] = [];
 
@@ -23,6 +23,8 @@ export const GlobalTeardown = async () => {
 };
 
 export { testApiHandler };
+
+export type TestFetch = Parameters<NtarhParameters['test']>[0]['fetch'];
 
 export type QueryFunction = <TData, TVariables = {}, TExtensions = {}>(
   document: string | TypedDocumentNode<TData, TVariables>,
@@ -41,7 +43,7 @@ export async function CreateTestClient(
     headers?: IncomingHttpHeaders;
   } = {}
 ): Promise<{
-  testFetch: (init: RequestInit) => ReturnType<typeof fetch>;
+  testFetch: TestFetch;
   query: QueryFunction;
   mutation: QueryFunction;
   getEnveloped: GetEnvelopedFn<EZContext>;
@@ -89,7 +91,7 @@ export async function CreateTestClient(
     })
   );
 
-  let testFetch!: (init: RequestInit) => ReturnType<typeof fetch>;
+  let testFetch!: TestFetch;
 
   const headers = cleanObject(options.headers);
 
@@ -113,11 +115,11 @@ export async function CreateTestClient(
       headers: {
         'content-type': 'application/json',
         ...getHeaders(headersArg),
-      } as HeadersInit,
+      },
       body: JSON.stringify({ query: queryString, variables, operationName, extensions }),
     });
 
-    const data = await response.json();
+    const data = (await response.json()) as ExecutionResult<any, any>;
 
     return data;
   };
