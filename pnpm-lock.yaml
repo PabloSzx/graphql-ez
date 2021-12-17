@@ -97,14 +97,14 @@ importers:
     specifiers:
       benchmark-bench: workspace:1.0.0
       bob-tsm: ^0.3.8
-      express: ^4.17.1
+      express: ^4.17.2
       express-graphql: ^0.12.0
       graphql: 16.0.0-experimental-stream-defer.5
       require-env-variable: ^4.0.0
       typescript: ^4.5.4
     dependencies:
       benchmark-bench: link:../../bench
-      express: 4.17.1
+      express: 4.17.2
       express-graphql: 0.12.0_564d67cac1c5d7d887d57591dff0ccf7
       graphql: 16.0.0-experimental-stream-defer.5
       require-env-variable: 4.0.0
@@ -120,7 +120,7 @@ importers:
       benchmark-bench: workspace:1.0.0
       bob-tsm: ^0.3.8
       cross-env: ^7.0.3
-      express: ^4.17.1
+      express: ^4.17.2
       graphql: 16.0.0-experimental-stream-defer.5
       graphql-ez: workspace:^0.13.6
       require-env-variable: ^4.0.0
@@ -131,7 +131,7 @@ importers:
       '@types/express': 4.17.13
       benchmark-bench: link:../../bench
       cross-env: 7.0.3
-      express: 4.17.1
+      express: 4.17.2
       graphql: 16.0.0-experimental-stream-defer.5
       graphql-ez: link:../../../packages/core/main
       require-env-variable: 4.0.0
@@ -393,7 +393,7 @@ importers:
       '@types/express': ^4.17.13
       '@types/node': ^17.0.0
       bob-tsm: ^0.3.8
-      express: ^4.17.1
+      express: ^4.17.2
       graphql: 16.0.0-experimental-stream-defer.5
       graphql-ez: workspace:^0.13.6
       typescript: ^4.5.4
@@ -408,7 +408,7 @@ importers:
       '@graphql-ez/plugin-upload': link:../../../packages/plugin/upload
       '@graphql-ez/plugin-websockets': link:../../../packages/plugin/websockets
       '@graphql-typed-document-node/core': 3.1.1_564d67cac1c5d7d887d57591dff0ccf7
-      express: 4.17.1
+      express: 4.17.2
       graphql: 16.0.0-experimental-stream-defer.5
       graphql-ez: link:../../../packages/core/main
     devDependencies:
@@ -963,7 +963,7 @@ importers:
       '@types/ws': ^8.2.2
       bob-esbuild-cli: ^3.0.1
       eventsource: ^1.1.0
-      express: ^4.17.1
+      express: ^4.17.2
       fast-safe-stringify: ^2.1.1
       fastify: ^3.25.0
       fastify-nextjs: ^7.0.0
@@ -1000,7 +1000,7 @@ importers:
       '@types/ws': 8.2.2
       bob-esbuild-cli: 3.0.1_bob-esbuild@3.2.1
       eventsource: 1.1.0
-      express: 4.17.1
+      express: 4.17.2
       fast-safe-stringify: 2.1.1
       fastify: 3.25.0
       fastify-nextjs: 7.0.0
@@ -1222,7 +1222,7 @@ importers:
       bob-esbuild-cli: ^3.0.1
       changesets-github-release: ^0.0.4
       cors: ^2.8.5
-      express: ^4.17.1
+      express: ^4.17.2
       graphql: 16.0.0-experimental-stream-defer.5
       graphql-ez: workspace:^0.13.6
       jest: ^27.4.5
@@ -1238,7 +1238,7 @@ importers:
       '@types/node': 17.0.0
       bob-esbuild-cli: 3.0.1_bob-esbuild@3.2.1
       changesets-github-release: 0.0.4
-      express: 4.17.1
+      express: 4.17.2
       graphql: 16.0.0-experimental-stream-defer.5
       graphql-ez: link:../../core/main
       jest: 27.4.5
@@ -1253,7 +1253,7 @@ importers:
       '@types/express': ^4.17.13
       bob-esbuild-cli: ^3.0.1
       changesets-github-release: ^0.0.4
-      express: ^4.17.1
+      express: ^4.17.2
       graphql: 16.0.0-experimental-stream-defer.5
       graphql-ez: workspace:^0.13.6
       jest: ^27.4.5
@@ -1265,7 +1265,7 @@ importers:
       '@types/express': 4.17.13
       bob-esbuild-cli: 3.0.1_bob-esbuild@3.2.1
       changesets-github-release: 0.0.4
-      express: 4.17.1
+      express: 4.17.2
       graphql: 16.0.0-experimental-stream-defer.5
       graphql-ez: link:../../core/main
       jest: 27.4.5
@@ -6928,6 +6928,7 @@ packages:
       qs: 6.7.0
       raw-body: 2.4.0
       type-is: 1.6.18
+    dev: true
 
   /body-parser/1.19.1:
     resolution: {integrity: sha512-8ljfQi5eBk8EJfECMrgqNGWPEY5jWP+1IzkzkGdFFEwFQZZyaZ21UqdaHktgiMlH0xLHqIFtE/u2OYE5dOtViA==}
@@ -6943,7 +6944,6 @@ packages:
       qs: 6.9.6
       raw-body: 2.4.2
       type-is: 1.6.18
-    dev: true
 
   /boxen/1.3.0:
     resolution: {integrity: sha512-TNPjfTr432qx7yOjQyaXm3dSR0MH9vXp7eT1BFSl/C51g+EFnOR9hTg1IreahGBmDNCehscshe45f+C1TBZbLw==}
@@ -7751,6 +7751,7 @@ packages:
     engines: {node: '>= 0.6'}
     dependencies:
       safe-buffer: 5.1.2
+    dev: true
 
   /content-disposition/0.5.4:
     resolution: {integrity: sha512-FveZTNuGw04cxlAiWbzi6zTAL/lhehaWbTtgluJh4/E95DqMwTmha3KZN1aAWA8cFIhHzMZUvLevkw5Rqk+tSQ==}
@@ -7778,6 +7779,7 @@ packages:
   /cookie/0.4.0:
     resolution: {integrity: sha512-+Hp8fLp57wnUSt0tY0tHEXh4voZRDnoIrZPqlo3DPiI4y9lwg/jqx+1Om94/W6ZaPDOUbnjOt/99w66zk+l1Xg==}
     engines: {node: '>= 0.6'}
+    dev: true
 
   /cookie/0.4.1:
     resolution: {integrity: sha512-ZwrFkGJxUR3EIoXtO+yVE69Eb7KlixbaeAWfBQB9vVsNn/o+Yw69gBWSSDK825hQNdN+wF8zELf3dFNl/kxkUA==}
@@ -8922,6 +8924,42 @@ packages:
       send: 0.17.1
       serve-static: 1.14.1
       setprototypeof: 1.1.1
+      statuses: 1.5.0
+      type-is: 1.6.18
+      utils-merge: 1.0.1
+      vary: 1.1.2
+    dev: true
+
+  /express/4.17.2:
+    resolution: {integrity: sha512-oxlxJxcQlYwqPWKVJJtvQiwHgosH/LrLSPA+H4UxpyvSS6jC5aH+5MoHFM+KABgTOt0APue4w66Ha8jCUo9QGg==}
+    engines: {node: '>= 0.10.0'}
+    dependencies:
+      accepts: 1.3.7
+      array-flatten: 1.1.1
+      body-parser: 1.19.1
+      content-disposition: 0.5.4
+      content-type: 1.0.4
+      cookie: 0.4.1
+      cookie-signature: 1.0.6
+      debug: 2.6.9
+      depd: 1.1.2
+      encodeurl: 1.0.2
+      escape-html: 1.0.3
+      etag: 1.8.1
+      finalhandler: 1.1.2
+      fresh: 0.5.2
+      merge-descriptors: 1.0.1
+      methods: 1.1.2
+      on-finished: 2.3.0
+      parseurl: 1.3.3
+      path-to-regexp: 0.1.7
+      proxy-addr: 2.0.7
+      qs: 6.9.6
+      range-parser: 1.2.1
+      safe-buffer: 5.2.1
+      send: 0.17.2
+      serve-static: 1.14.2
+      setprototypeof: 1.2.0
       statuses: 1.5.0
       type-is: 1.6.18
       utils-merge: 1.0.1
@@ -10263,6 +10301,7 @@ packages:
       setprototypeof: 1.1.1
       statuses: 1.5.0
       toidentifier: 1.0.0
+    dev: true
 
   /http-errors/1.7.3:
     resolution: {integrity: sha512-ZTTX0MWrsQ2ZAhA1cejAwDLycFsd7I7nVtnkT3Ol0aqodaKW+0CTZDQ1uBv5whptCnc8e8HeRRJxRs0kmm/Qfw==}
@@ -10471,6 +10510,7 @@ packages:
 
   /inherits/2.0.3:
     resolution: {integrity: sha1-Yzwsg+PaQqUC9SRmAiSA9CCCYd4=}
+    dev: true
 
   /inherits/2.0.4:
     resolution: {integrity: sha512-k/vGaX4/Yla3WzyMCvTQOXYeIHvqOKtnqBduzTHpzpQZzAskKMhZ2K+EnBiSM9zGSoIFeMpXKxa4dYeZIQqewQ==}
@@ -12342,6 +12382,7 @@ packages:
 
   /ms/2.1.1:
     resolution: {integrity: sha512-tgp+dl5cGk28utYktBsrFqA7HKgrhgPsg6Z/EfhWI4gl1Hwq8B/GmY/0oXZ6nF8hDVesS/FpnYaD/kOWhYQvyg==}
+    dev: true
 
   /ms/2.1.2:
     resolution: {integrity: sha512-sGkPx+VjMtmA6MX27oA4FBFELFCZZ4S4XqeGOXCv68tT+jb3vk/RyaKWP0PTKyWtmLSM0b+adUTEvbs1PEaH2w==}
@@ -13563,11 +13604,11 @@ packages:
   /qs/6.7.0:
     resolution: {integrity: sha512-VCdBRNFTX1fyE7Nb6FYoURo/SPe62QCaAyzJvUjwRaIsc+NePBEniHlvxFmmX56+HZphIGtV0XeCirBtpDrTyQ==}
     engines: {node: '>=0.6'}
+    dev: true
 
   /qs/6.9.6:
     resolution: {integrity: sha512-TIRk4aqYLNoJUbd+g2lEdz5kLWIuTMRagAXxl78Q0RiVjAOugHmeKNGdd3cwo/ktpf9aL9epCfFqWDEKysUlLQ==}
     engines: {node: '>=0.6'}
-    dev: true
 
   /querystring-es3/0.2.1:
     resolution: {integrity: sha1-nsYfeQSYdXB9aUFFlv2Qek1xHnM=}
@@ -13622,6 +13663,7 @@ packages:
       http-errors: 1.7.2
       iconv-lite: 0.4.24
       unpipe: 1.0.0
+    dev: true
 
   /raw-body/2.4.1:
     resolution: {integrity: sha512-9WmIKF6mkvA0SLmA2Knm9+qj89e+j1zqgyn8aXGd7+nAduPoqgI9lO57SAZNn/Byzo5P7JhXTyg9PzaJbH73bA==}
@@ -14480,6 +14522,7 @@ packages:
       on-finished: 2.3.0
       range-parser: 1.2.1
       statuses: 1.5.0
+    dev: true
 
   /send/0.17.2:
     resolution: {integrity: sha512-UJYB6wFSJE3G00nEivR5rgWp8c2xXvJ3OPWPhmuteU0IKj8nKbG3DrjiOmLwpnHGYWAVwA69zmTm++YG0Hmwww==}
@@ -14498,7 +14541,6 @@ packages:
       on-finished: 2.3.0
       range-parser: 1.2.1
       statuses: 1.5.0
-    dev: false
 
   /sentence-case/3.0.4:
     resolution: {integrity: sha512-8LS0JInaQMCRoQ7YUytAo/xUu5W2XnQxV2HI/6uM6U7CITS1RqPElr30V6uIqyMKM9lJGRVFy5/4CuzcixNYSg==}
@@ -14521,6 +14563,16 @@ packages:
       escape-html: 1.0.3
       parseurl: 1.3.3
       send: 0.17.1
+    dev: true
+
+  /serve-static/1.14.2:
+    resolution: {integrity: sha512-+TMNA9AFxUEGuC0z2mevogSnn9MXKb4fa7ngeRMJaaGv8vTwnIEkKi+QGvPt33HSnf8pRS+WGM0EbMtCJLKMBQ==}
+    engines: {node: '>= 0.8.0'}
+    dependencies:
+      encodeurl: 1.0.2
+      escape-html: 1.0.3
+      parseurl: 1.3.3
+      send: 0.17.2
 
   /set-blocking/2.0.0:
     resolution: {integrity: sha1-BF+XgtARrppoA93TgrJDkrPYkPc=}
