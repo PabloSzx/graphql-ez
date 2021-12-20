@@ -979,7 +979,7 @@ importers:
       ts-jest: ^27.1.2
       undici: ^4.12.0
       wait-for-expect: ^3.0.2
-      ws: ^8.3.0
+      ws: ^8.4.0
     devDependencies:
       '@graphql-ez/utils': link:../../packages/core/utils
       '@graphql-tools/schema': 8.3.1_564d67cac1c5d7d887d57591dff0ccf7
@@ -1012,11 +1012,11 @@ importers:
       graphql-ws: 5.5.5_564d67cac1c5d7d887d57591dff0ccf7
       koa: 2.13.4
       lodash: 4.17.21
-      subscriptions-transport-ws-envelop: 2.0.1_4f04692cf0bb9cee693a4bea850b59f6
+      subscriptions-transport-ws-envelop: 2.0.1_0ff03ce0385fa70e1e88e3f20e0f04fe
       ts-jest: 27.1.2_aa940249d37aeb083e8e1f65c1365977
       undici: 4.12.0
       wait-for-expect: 3.0.2
-      ws: 8.3.0
+      ws: 8.4.0
 
   internal/website:
     specifiers:
@@ -1117,7 +1117,7 @@ importers:
       node-fetch: ^2.6.6
       subscriptions-transport-ws-envelop: ^2.0.1
       undici: ^4.12.0
-      ws: ^8.3.0
+      ws: ^8.4.0
     dependencies:
       '@graphql-ez/utils': link:../../core/utils
       '@graphql-tools/utils': 8.5.5_564d67cac1c5d7d887d57591dff0ccf7
@@ -1126,11 +1126,11 @@ importers:
       extract-files: 11.0.0
       form-data: 4.0.0
       graphql-ws: 5.5.5_564d67cac1c5d7d887d57591dff0ccf7
-      isomorphic-ws: 4.0.1_ws@8.3.0
+      isomorphic-ws: 4.0.1_ws@8.4.0
       node-fetch: 2.6.6
-      subscriptions-transport-ws-envelop: 2.0.1_4f04692cf0bb9cee693a4bea850b59f6
+      subscriptions-transport-ws-envelop: 2.0.1_0ff03ce0385fa70e1e88e3f20e0f04fe
       undici: 4.12.0
-      ws: 8.3.0
+      ws: 8.4.0
     devDependencies:
       '@graphql-typed-document-node/core': 3.1.1_564d67cac1c5d7d887d57591dff0ccf7
       '@types/extract-files': 8.1.1
@@ -1903,13 +1903,13 @@ importers:
       jest: ^27.4.5
       subscriptions-transport-ws-envelop: ^2.0.1
       ts-jest: ^27.1.2
-      ws: ^8.3.0
+      ws: ^8.4.0
     dependencies:
       '@graphql-ez/utils': link:../../core/utils
       '@types/ws': 8.2.2
       graphql-ws: 5.5.5_564d67cac1c5d7d887d57591dff0ccf7
-      subscriptions-transport-ws-envelop: 2.0.1_4f04692cf0bb9cee693a4bea850b59f6
-      ws: 8.3.0
+      subscriptions-transport-ws-envelop: 2.0.1_0ff03ce0385fa70e1e88e3f20e0f04fe
+      ws: 8.4.0
     devDependencies:
       bob-esbuild-cli: 3.0.1_bob-esbuild@3.2.1
       changesets-github-release: 0.0.4
@@ -10918,6 +10918,14 @@ packages:
       ws: '*'
     dependencies:
       ws: 8.3.0
+    dev: true
+
+  /isomorphic-ws/4.0.1_ws@8.4.0:
+    resolution: {integrity: sha512-BhBvN2MBpWTaSHdWRb/bwdZJ1WaehQ2L1KngkCkfLUGF0mAWAT1sQUQacEmQ0jXkFw/czDXPNQSL5u2/Krsz1w==}
+    peerDependencies:
+      ws: '*'
+    dependencies:
+      ws: 8.4.0
 
   /istanbul-lib-coverage/3.2.0:
     resolution: {integrity: sha512-eOeJ5BHCmHYvQK7xt9GkdHuzuCGS1Y6g9Gvnx3Ym33fz/HpLRYxiS0wHNr+m/MBC8B647Xt608vCDEvhl9c6Mw==}
@@ -15084,7 +15092,7 @@ packages:
       minimist: 1.2.5
     dev: false
 
-  /subscriptions-transport-ws-envelop/2.0.1_4f04692cf0bb9cee693a4bea850b59f6:
+  /subscriptions-transport-ws-envelop/2.0.1_0ff03ce0385fa70e1e88e3f20e0f04fe:
     resolution: {integrity: sha512-Y3olO759E5as/nTdFVkSC45q0TOe3OaEQIUzINg0mIXM6cggvJ4Tb0OExHVt6ASKJP7mXHmitFyI/XGkI1dYmw==}
     peerDependencies:
       graphql: '>=0.10.0'
@@ -15093,10 +15101,10 @@ packages:
       backo2: 1.0.2
       eventemitter3: 4.0.7
       graphql: 16.0.0-experimental-stream-defer.5
-      isomorphic-ws: 4.0.1_ws@8.3.0
+      isomorphic-ws: 4.0.1_ws@8.4.0
       iterall: 1.3.0
       symbol-observable: 4.0.0
-      ws: 8.3.0
+      ws: 8.4.0
 
   /subscriptions-transport-ws/0.11.0_564d67cac1c5d7d887d57591dff0ccf7:
     resolution: {integrity: sha512-8D4C6DIH5tGiAIpp5I0wD/xRlNiZAPGHygzCe7VzyzUoxHtawzjNAY9SUTXU05/EY2NMY9/9GF0ycizkXr1CWQ==}
@@ -16575,6 +16583,18 @@ packages:
 
   /ws/8.3.0:
     resolution: {integrity: sha512-Gs5EZtpqZzLvmIM59w4igITU57lrtYVFneaa434VROv4thzJyV6UjIL3D42lslWlI+D4KzLYnxSwtfuiO79sNw==}
+    engines: {node: '>=10.0.0'}
+    peerDependencies:
+      bufferutil: ^4.0.1
+      utf-8-validate: ^5.0.2
+    peerDependenciesMeta:
+      bufferutil:
+        optional: true
+      utf-8-validate:
+        optional: true
+
+  /ws/8.4.0:
+    resolution: {integrity: sha512-IHVsKe2pjajSUIl4KYMQOdlyliovpEPquKkqbwswulszzI7r0SfQrxnXdWAEqOlDCLrVSJzo+O1hAwdog2sKSQ==}
     engines: {node: '>=10.0.0'}
     peerDependencies:
       bufferutil: ^4.0.1
