@@ -977,7 +977,7 @@ importers:
       lodash: ^4.17.21
       subscriptions-transport-ws-envelop: ^2.0.1
       ts-jest: ^27.1.2
-      undici: ^4.12.0
+      undici: ^4.12.1
       wait-for-expect: ^3.0.2
       ws: ^8.3.0
     devDependencies:
@@ -1014,7 +1014,7 @@ importers:
       lodash: 4.17.21
       subscriptions-transport-ws-envelop: 2.0.1_4f04692cf0bb9cee693a4bea850b59f6
       ts-jest: 27.1.2_aa940249d37aeb083e8e1f65c1365977
-      undici: 4.12.0
+      undici: 4.12.1
       wait-for-expect: 3.0.2
       ws: 8.3.0
 
@@ -1116,7 +1116,7 @@ importers:
       jest: ^27.4.5
       node-fetch: ^2.6.6
       subscriptions-transport-ws-envelop: ^2.0.1
-      undici: ^4.12.0
+      undici: ^4.12.1
       ws: ^8.3.0
     dependencies:
       '@graphql-ez/utils': link:../../core/utils
@@ -1129,7 +1129,7 @@ importers:
       isomorphic-ws: 4.0.1_ws@8.3.0
       node-fetch: 2.6.6
       subscriptions-transport-ws-envelop: 2.0.1_4f04692cf0bb9cee693a4bea850b59f6
-      undici: 4.12.0
+      undici: 4.12.1
       ws: 8.3.0
     devDependencies:
       '@graphql-typed-document-node/core': 3.1.1_564d67cac1c5d7d887d57591dff0ccf7
@@ -1156,7 +1156,7 @@ importers:
       graphql-ez: workspace:^0.13.6
       jest: ^27.4.5
       miniflare: ^1.4.1
-      undici: ^4.12.0
+      undici: ^4.12.1
       wait-on: ^6.0.0
       worktop: ^0.7.3
     dependencies:
@@ -1173,7 +1173,7 @@ importers:
       graphql-ez: link:../../core/main
       jest: 27.4.5
       miniflare: 1.4.1
-      undici: 4.12.0
+      undici: 4.12.1
       wait-on: 6.0.0
       worktop: 0.7.3
 
@@ -15896,6 +15896,10 @@ packages:
 
   /undici/4.12.0:
     resolution: {integrity: sha512-sJ4CyO3ZPaoxWpLQTJpH/gWD+tCIra2OJ9UPvrX1siyJkgh8NOAybRejJ/g2xHyOdAuoSE0lPRJwRl8AZSXYJQ==}
+    engines: {node: '>=12.18'}
+
+  /undici/4.12.1:
+    resolution: {integrity: sha512-MSfap7YiQJqTPP12C11PFRs9raZuVicDbwsZHTjB0a8+SsCqt7KdUis54f373yf7ZFhJzAkGJLaKm0202OIxHg==}
     engines: {node: '>=12.18'}
 
   /unherit/1.1.3:
