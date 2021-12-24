@@ -1,5 +1,11 @@
 # @graphql-ez/nextjs-testing
 
+## 0.2.0
+
+### Minor Changes
+
+- 77494a50: Bump next-test-api-route-handler to [^3.0.0](https://github.com/Xunnamius/next-test-api-route-handler/releases/tag/v3.0.0)
+
 ## 0.1.2
 
 ### Patch Changes
