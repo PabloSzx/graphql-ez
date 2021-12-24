@@ -1,5 +1,11 @@
 # @graphql-ez/plugin-altair
 
+## 0.9.6
+
+### Patch Changes
+
+- cae81a59: Update Altair version to 4.3.1
+
 ## 0.9.5
 
 ### Patch Changes
