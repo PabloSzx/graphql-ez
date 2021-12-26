@@ -15,8 +15,8 @@ test('from preset', async () => {
 
   try {
     await expect(query('{hello}')).resolves.toMatchInlineSnapshot(`
-            Object {
-              "data": Object {
+            {
+              "data": {
                 "hello": "Hello World!",
               },
             }
@@ -32,12 +32,12 @@ test('from config', async () => {
   });
 
   await expect(query('{hello}')).resolves.toMatchInlineSnapshot(`
-                Object {
-                  "data": Object {
-                    "hello": "Hello World!",
-                  },
-                }
-              `);
+          {
+            "data": {
+              "hello": "Hello World!",
+            },
+          }
+        `);
 });
 
 test('from built app', async () => {
@@ -50,12 +50,12 @@ test('from built app', async () => {
   const { query } = await CreateTestClient(builtApp);
 
   await expect(query('{hello}')).resolves.toMatchInlineSnapshot(`
-                  Object {
-                    "data": Object {
-                      "hello": "Hello World!",
-                    },
-                  }
-                `);
+          {
+            "data": {
+              "hello": "Hello World!",
+            },
+          }
+        `);
 });
 
 test('detect invalid app', async () => {

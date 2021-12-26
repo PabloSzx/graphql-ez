@@ -74,34 +74,34 @@ test('works', async () => {
   });
 
   expect(await query('{users{id idMulti}}')).toMatchInlineSnapshot(`
-Object {
-  "data": Object {
-    "users": Array [
-      Object {
-        "id": 0,
-        "idMulti": 2,
+    {
+      "data": {
+        "users": [
+          {
+            "id": 0,
+            "idMulti": 2,
+          },
+          {
+            "id": 1,
+            "idMulti": 4,
+          },
+          {
+            "id": 2,
+            "idMulti": 6,
+          },
+        ],
       },
-      Object {
-        "id": 1,
-        "idMulti": 4,
+      "http": {
+        "headers": {
+          "connection": "keep-alive",
+          "content-length": "83",
+          "content-type": "application/json; charset=utf-8",
+          "keep-alive": "timeout=5",
+        },
+        "statusCode": 200,
       },
-      Object {
-        "id": 2,
-        "idMulti": 6,
-      },
-    ],
-  },
-  "http": Object {
-    "headers": Object {
-      "connection": "keep-alive",
-      "content-length": "83",
-      "content-type": "application/json; charset=utf-8",
-      "keep-alive": "timeout=5",
-    },
-    "statusCode": 200,
-  },
-}
-`);
+    }
+  `);
 
   await codegenDone.promise;
 });

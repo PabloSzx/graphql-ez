@@ -101,6 +101,7 @@ export const ezGraphQLModules = ({ graphqlSchemaConfig, ...config }: EZGraphQLMo
 
         return createApplication({
           modules: extraModules ? [...extraModules, ...modulesList] : modulesList,
+          ...config,
           schemaBuilder: graphqlSchemaConfig
             ? input =>
                 new GraphQLSchema({
@@ -108,7 +109,6 @@ export const ezGraphQLModules = ({ graphqlSchemaConfig, ...config }: EZGraphQLMo
                   ...graphqlSchemaConfig,
                 })
             : config.schemaBuilder,
-          ...config,
         });
       }));
 

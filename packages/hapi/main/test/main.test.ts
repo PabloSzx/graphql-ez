@@ -32,35 +32,35 @@ test('basic', async () => {
       ).data!.context.replace(new RegExp(addressWithoutProtocol, 'g'), '__host__')
     )
   ).toMatchInlineSnapshot(`
-    Object {
-      "document": Object {
-        "definitions": Array [
-          Object {
-            "directives": Array [],
+    {
+      "document": {
+        "definitions": [
+          {
+            "directives": [],
             "kind": "OperationDefinition",
-            "loc": Object {
+            "loc": {
               "end": 9,
               "start": 0,
             },
             "operation": "query",
-            "selectionSet": Object {
+            "selectionSet": {
               "kind": "SelectionSet",
-              "loc": Object {
+              "loc": {
                 "end": 9,
                 "start": 0,
               },
-              "selections": Array [
-                Object {
-                  "arguments": Array [],
-                  "directives": Array [],
+              "selections": [
+                {
+                  "arguments": [],
+                  "directives": [],
                   "kind": "Field",
-                  "loc": Object {
+                  "loc": {
                     "end": 8,
                     "start": 1,
                   },
-                  "name": Object {
+                  "name": {
                     "kind": "Name",
-                    "loc": Object {
+                    "loc": {
                       "end": 8,
                       "start": 1,
                     },
@@ -69,43 +69,43 @@ test('basic', async () => {
                 },
               ],
             },
-            "variableDefinitions": Array [],
+            "variableDefinitions": [],
           },
         ],
         "kind": "Document",
-        "loc": Object {
+        "loc": {
           "end": 9,
           "start": 0,
         },
       },
       "foo": "bar",
       "ip": "127.0.0.1",
-      "operation": Object {
-        "directives": Array [],
+      "operation": {
+        "directives": [],
         "kind": "OperationDefinition",
-        "loc": Object {
+        "loc": {
           "end": 9,
           "start": 0,
         },
         "operation": "query",
-        "selectionSet": Object {
+        "selectionSet": {
           "kind": "SelectionSet",
-          "loc": Object {
+          "loc": {
             "end": 9,
             "start": 0,
           },
-          "selections": Array [
-            Object {
-              "arguments": Array [],
-              "directives": Array [],
+          "selections": [
+            {
+              "arguments": [],
+              "directives": [],
               "kind": "Field",
-              "loc": Object {
+              "loc": {
                 "end": 8,
                 "start": 1,
               },
-              "name": Object {
+              "name": {
                 "kind": "Name",
-                "loc": Object {
+                "loc": {
                   "end": 8,
                   "start": 1,
                 },
@@ -114,26 +114,51 @@ test('basic', async () => {
             },
           ],
         },
-        "variableDefinitions": Array [],
+        "variableDefinitions": [],
       },
-      "request": Object {
-        "body": Object {
+      "request": {
+        "body": {
           "query": "{context}",
         },
-        "headers": Object {
+        "headers": {
           "connection": "keep-alive",
           "content-length": "21",
           "content-type": "application/json",
           "host": "__host__",
         },
         "method": "post",
-        "query": Object {},
+        "query": {},
       },
     }
   `);
 
   expect(printSchema(ezApp.getEnveloped().schema)).toMatchInlineSnapshot(`
-    "type Query {
+    "\\"\\"\\"
+    Directs the executor to defer this fragment when the \`if\` argument is true or undefined.
+    \\"\\"\\"
+    directive @defer(
+      \\"\\"\\"Deferred when true or undefined.\\"\\"\\"
+      if: Boolean
+
+      \\"\\"\\"Unique name\\"\\"\\"
+      label: String
+    ) on FRAGMENT_SPREAD | INLINE_FRAGMENT
+
+    \\"\\"\\"
+    Directs the executor to stream plural fields when the \`if\` argument is true or undefined.
+    \\"\\"\\"
+    directive @stream(
+      \\"\\"\\"Stream when true or undefined.\\"\\"\\"
+      if: Boolean
+
+      \\"\\"\\"Unique name\\"\\"\\"
+      label: String
+
+      \\"\\"\\"Number of items to return immediately\\"\\"\\"
+      initialCount: Int = 0
+    ) on FIELD
+
+    type Query {
       hello: String!
       users: [User!]!
       stream: [String!]

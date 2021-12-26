@@ -16,6 +16,31 @@ test('all scalars', async () => {
 
   expect(printSchema(buildClientSchema((await query<IntrospectionQuery>(getIntrospectionQuery())).data!))).toMatchInlineSnapshot(`
     "\\"\\"\\"
+    Directs the executor to defer this fragment when the \`if\` argument is true or undefined.
+    \\"\\"\\"
+    directive @defer(
+      \\"\\"\\"Deferred when true or undefined.\\"\\"\\"
+      if: Boolean
+
+      \\"\\"\\"Unique name\\"\\"\\"
+      label: String
+    ) on FRAGMENT_SPREAD | INLINE_FRAGMENT
+
+    \\"\\"\\"
+    Directs the executor to stream plural fields when the \`if\` argument is true or undefined.
+    \\"\\"\\"
+    directive @stream(
+      \\"\\"\\"Stream when true or undefined.\\"\\"\\"
+      if: Boolean
+
+      \\"\\"\\"Unique name\\"\\"\\"
+      label: String
+
+      \\"\\"\\"Number of items to return immediately\\"\\"\\"
+      initialCount: Int = 0
+    ) on FIELD
+
+    \\"\\"\\"
     A date string, such as 2007-12-03, compliant with the \`full-date\` format outlined in section 5.6 of the RFC 3339 profile of the ISO 8601 standard for representation of dates and times using the Gregorian calendar.
     \\"\\"\\"
     scalar Date
@@ -40,48 +65,10 @@ test('all scalars', async () => {
     \\"\\"\\"
     scalar UtcOffset
 
-    \\"\\"\\"
-
-        A string representing a duration conforming to the ISO8601 standard,
-        such as: P1W1DT13H23M34S
-        P is the duration designator (for period) placed at the start of the duration representation.
-        Y is the year designator that follows the value for the number of years.
-        M is the month designator that follows the value for the number of months.
-        W is the week designator that follows the value for the number of weeks.
-        D is the day designator that follows the value for the number of days.
-        T is the time designator that precedes the time components of the representation.
-        H is the hour designator that follows the value for the number of hours.
-        M is the minute designator that follows the value for the number of minutes.
-        S is the second designator that follows the value for the number of seconds.
-
-        Note the time designator, T, that precedes the time value.
-
-        Matches moment.js, Luxon and DateFns implementations
-        ,/. is valid for decimal places and +/- is a valid prefix
-      
-    \\"\\"\\"
+    \\"\\\\n    A string representing a duration conforming to the ISO8601 standard,\\\\n    such as: P1W1DT13H23M34S\\\\n    P is the duration designator (for period) placed at the start of the duration representation.\\\\n    Y is the year designator that follows the value for the number of years.\\\\n    M is the month designator that follows the value for the number of months.\\\\n    W is the week designator that follows the value for the number of weeks.\\\\n    D is the day designator that follows the value for the number of days.\\\\n    T is the time designator that precedes the time components of the representation.\\\\n    H is the hour designator that follows the value for the number of hours.\\\\n    M is the minute designator that follows the value for the number of minutes.\\\\n    S is the second designator that follows the value for the number of seconds.\\\\n\\\\n    Note the time designator, T, that precedes the time value.\\\\n\\\\n    Matches moment.js, Luxon and DateFns implementations\\\\n    ,/. is valid for decimal places and +/- is a valid prefix\\\\n  \\"
     scalar Duration
 
-    \\"\\"\\"
-
-        A string representing a duration conforming to the ISO8601 standard,
-        such as: P1W1DT13H23M34S
-        P is the duration designator (for period) placed at the start of the duration representation.
-        Y is the year designator that follows the value for the number of years.
-        M is the month designator that follows the value for the number of months.
-        W is the week designator that follows the value for the number of weeks.
-        D is the day designator that follows the value for the number of days.
-        T is the time designator that precedes the time components of the representation.
-        H is the hour designator that follows the value for the number of hours.
-        M is the minute designator that follows the value for the number of minutes.
-        S is the second designator that follows the value for the number of seconds.
-
-        Note the time designator, T, that precedes the time value.
-
-        Matches moment.js, Luxon and DateFns implementations
-        ,/. is valid for decimal places and +/- is a valid prefix
-      
-    \\"\\"\\"
+    \\"\\\\n    A string representing a duration conforming to the ISO8601 standard,\\\\n    such as: P1W1DT13H23M34S\\\\n    P is the duration designator (for period) placed at the start of the duration representation.\\\\n    Y is the year designator that follows the value for the number of years.\\\\n    M is the month designator that follows the value for the number of months.\\\\n    W is the week designator that follows the value for the number of weeks.\\\\n    D is the day designator that follows the value for the number of days.\\\\n    T is the time designator that precedes the time components of the representation.\\\\n    H is the hour designator that follows the value for the number of hours.\\\\n    M is the minute designator that follows the value for the number of minutes.\\\\n    S is the second designator that follows the value for the number of seconds.\\\\n\\\\n    Note the time designator, T, that precedes the time value.\\\\n\\\\n    Matches moment.js, Luxon and DateFns implementations\\\\n    ,/. is valid for decimal places and +/- is a valid prefix\\\\n  \\"
     scalar ISO8601Duration
 
     \\"\\"\\"
@@ -311,6 +298,31 @@ test('scalars in list', async () => {
 
   expect(printSchema(buildClientSchema((await query<IntrospectionQuery>(getIntrospectionQuery())).data!))).toMatchInlineSnapshot(`
     "\\"\\"\\"
+    Directs the executor to defer this fragment when the \`if\` argument is true or undefined.
+    \\"\\"\\"
+    directive @defer(
+      \\"\\"\\"Deferred when true or undefined.\\"\\"\\"
+      if: Boolean
+
+      \\"\\"\\"Unique name\\"\\"\\"
+      label: String
+    ) on FRAGMENT_SPREAD | INLINE_FRAGMENT
+
+    \\"\\"\\"
+    Directs the executor to stream plural fields when the \`if\` argument is true or undefined.
+    \\"\\"\\"
+    directive @stream(
+      \\"\\"\\"Stream when true or undefined.\\"\\"\\"
+      if: Boolean
+
+      \\"\\"\\"Unique name\\"\\"\\"
+      label: String
+
+      \\"\\"\\"Number of items to return immediately\\"\\"\\"
+      initialCount: Int = 0
+    ) on FIELD
+
+    \\"\\"\\"
     A field whose value is a Currency: https://en.wikipedia.org/wiki/ISO_4217.
     \\"\\"\\"
     scalar Currency
@@ -345,6 +357,31 @@ test('scalars in object', async () => {
 
   expect(printSchema(buildClientSchema((await query<IntrospectionQuery>(getIntrospectionQuery())).data!))).toMatchInlineSnapshot(`
     "\\"\\"\\"
+    Directs the executor to defer this fragment when the \`if\` argument is true or undefined.
+    \\"\\"\\"
+    directive @defer(
+      \\"\\"\\"Deferred when true or undefined.\\"\\"\\"
+      if: Boolean
+
+      \\"\\"\\"Unique name\\"\\"\\"
+      label: String
+    ) on FRAGMENT_SPREAD | INLINE_FRAGMENT
+
+    \\"\\"\\"
+    Directs the executor to stream plural fields when the \`if\` argument is true or undefined.
+    \\"\\"\\"
+    directive @stream(
+      \\"\\"\\"Stream when true or undefined.\\"\\"\\"
+      if: Boolean
+
+      \\"\\"\\"Unique name\\"\\"\\"
+      label: String
+
+      \\"\\"\\"Number of items to return immediately\\"\\"\\"
+      initialCount: Int = 0
+    ) on FIELD
+
+    \\"\\"\\"
     A date-time string at UTC, such as 2007-12-03T10:15:30Z, compliant with the \`date-time\` format outlined in section 5.6 of the RFC 3339 profile of the ISO 8601 standard for representation of dates and times using the Gregorian calendar.
     \\"\\"\\"
     scalar DateTime

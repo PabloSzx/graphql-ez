@@ -174,6 +174,31 @@ test('typescript resolvers', async () => {
       Boolean: Scalars['Boolean'];
     };
 
+    export type DeferDirectiveArgs = {
+      if?: Maybe<Scalars['Boolean']>;
+      label?: Maybe<Scalars['String']>;
+    };
+
+    export type DeferDirectiveResolver<Result, Parent, ContextType = EZContext, Args = DeferDirectiveArgs> = DirectiveResolverFn<
+      Result,
+      Parent,
+      ContextType,
+      Args
+    >;
+
+    export type StreamDirectiveArgs = {
+      if?: Maybe<Scalars['Boolean']>;
+      label?: Maybe<Scalars['String']>;
+      initialCount?: Maybe<Scalars['Int']>;
+    };
+
+    export type StreamDirectiveResolver<Result, Parent, ContextType = EZContext, Args = StreamDirectiveArgs> = DirectiveResolverFn<
+      Result,
+      Parent,
+      ContextType,
+      Args
+    >;
+
     export type QueryResolvers<
       ContextType = EZContext,
       ParentType extends ResolversParentTypes['Query'] = ResolversParentTypes['Query']
@@ -195,6 +220,11 @@ test('typescript resolvers', async () => {
     export type Resolvers<ContextType = EZContext> = {
       Query?: QueryResolvers<ContextType>;
       User?: UserResolvers<ContextType>;
+    };
+
+    export type DirectiveResolvers<ContextType = EZContext> = {
+      defer?: DeferDirectiveResolver<any, any, ContextType>;
+      stream?: StreamDirectiveResolver<any, any, ContextType>;
     };
 
     export type HelloQueryVariables = Exact<{ [key: string]: never }>;
@@ -230,7 +260,32 @@ test('typescript resolvers', async () => {
   expect(Object.keys(introspectionJson)).toStrictEqual(['__schema']);
 
   expect(printSchema(buildClientSchema(introspectionJson))).toMatchInlineSnapshot(`
-    "type Query {
+    "\\"\\"\\"
+    Directs the executor to defer this fragment when the \`if\` argument is true or undefined.
+    \\"\\"\\"
+    directive @defer(
+      \\"\\"\\"Deferred when true or undefined.\\"\\"\\"
+      if: Boolean
+
+      \\"\\"\\"Unique name\\"\\"\\"
+      label: String
+    ) on FRAGMENT_SPREAD | INLINE_FRAGMENT
+
+    \\"\\"\\"
+    Directs the executor to stream plural fields when the \`if\` argument is true or undefined.
+    \\"\\"\\"
+    directive @stream(
+      \\"\\"\\"Stream when true or undefined.\\"\\"\\"
+      if: Boolean
+
+      \\"\\"\\"Unique name\\"\\"\\"
+      label: String
+
+      \\"\\"\\"Number of items to return immediately\\"\\"\\"
+      initialCount: Int = 0
+    ) on FIELD
+
+    type Query {
       hello: String!
       users: [User!]!
       stream: [String!]
@@ -250,6 +305,34 @@ test('typescript resolvers', async () => {
     "schema {
       query: Query
     }
+
+    \\"Directs the executor to defer this fragment when the \`if\` argument is true or undefined.\\"
+    directive @defer(
+      \\"\\"\\"
+      Deferred when true or undefined.
+      \\"\\"\\"
+      if: Boolean
+      \\"\\"\\"
+      Unique name
+      \\"\\"\\"
+      label: String
+    ) on FRAGMENT_SPREAD | INLINE_FRAGMENT
+
+    \\"Directs the executor to stream plural fields when the \`if\` argument is true or undefined.\\"
+    directive @stream(
+      \\"\\"\\"
+      Stream when true or undefined.
+      \\"\\"\\"
+      if: Boolean
+      \\"\\"\\"
+      Unique name
+      \\"\\"\\"
+      label: String
+      \\"\\"\\"
+      Number of items to return immediately
+      \\"\\"\\"
+      initialCount: Int = 0
+    ) on FIELD
 
     type Query {
       hello: String!

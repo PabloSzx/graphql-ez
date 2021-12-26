@@ -15,6 +15,7 @@ import { CreateApp } from '@graphql-ez/fastify';
 import { ezAltairIDE } from '@graphql-ez/plugin-altair';
 import { ezGraphiQLIDE } from '@graphql-ez/plugin-graphiql';
 import { ezVoyager } from '@graphql-ez/plugin-voyager';
+import { GraphQLSchema } from 'graphql';
 
 test('basic', async () => {
   const { query } = await startFastifyServer({
@@ -24,12 +25,12 @@ test('basic', async () => {
   });
 
   expect(await query(`{hello}`)).toMatchInlineSnapshot(`
-    Object {
-      "data": Object {
+    {
+      "data": {
         "hello": "Hello World!",
       },
-      "http": Object {
-        "headers": Object {
+      "http": {
+        "headers": {
           "connection": "keep-alive",
           "content-length": "33",
           "content-type": "application/json; charset=utf-8",
@@ -71,14 +72,14 @@ test('batched queries', async () => {
       })
     )
   ).toMatchInlineSnapshot(`
-    Array [
-      Object {
-        "data": Object {
+    [
+      {
+        "data": {
           "hello": "Hello World!",
         },
       },
-      Object {
-        "data": Object {
+      {
+        "data": {
           "hello": "Hello World!",
         },
       },
@@ -90,6 +91,12 @@ testIfStreamDefer('query with @stream', async () => {
   const { address } = await startFastifyServer({
     createOptions: {
       schema: [CommonSchema.schema],
+      transformFinalSchema(schema) {
+        return new GraphQLSchema({
+          ...schema.toConfig(),
+          enableDeferStream: true,
+        });
+      },
     },
   });
 
@@ -168,9 +175,9 @@ test('presets', async () => {
   });
 
   expect(ezPlugins).toMatchInlineSnapshot(`
-    Array [
-      Object {
-        "compatibilityList": Object {
+    [
+      {
+        "compatibilityList": {
           "cloudflare": true,
           "express": true,
           "fastify": true,
@@ -189,17 +196,17 @@ test('presets', async () => {
   `);
 
   expect(envelopPlugins).toMatchInlineSnapshot(`
-    Array [
-      Object {
+    [
+      {
         "onContextBuilding": [Function],
       },
     ]
   `);
 
   expect(asPreset.ezPlugins).toMatchInlineSnapshot(`
-    Array [
-      Object {
-        "compatibilityList": Object {
+    [
+      {
+        "compatibilityList": {
           "cloudflare": true,
           "express": true,
           "fastify": true,
@@ -220,9 +227,9 @@ test('presets', async () => {
   envelopPlugins.push(useExtendContext(() => ({})));
 
   expect(ezPlugins).toMatchInlineSnapshot(`
-    Array [
-      Object {
-        "compatibilityList": Object {
+    [
+      {
+        "compatibilityList": {
           "cloudflare": true,
           "express": true,
           "fastify": true,
@@ -240,19 +247,19 @@ test('presets', async () => {
     ]
   `);
   expect(envelopPlugins).toMatchInlineSnapshot(`
-    Array [
-      Object {
+    [
+      {
         "onContextBuilding": [Function],
       },
-      Object {
+      {
         "onContextBuilding": [Function],
       },
     ]
   `);
   expect(asPreset.ezPlugins).toMatchInlineSnapshot(`
-    Array [
-      Object {
-        "compatibilityList": Object {
+    [
+      {
+        "compatibilityList": {
           "cloudflare": true,
           "express": true,
           "fastify": true,
@@ -270,8 +277,8 @@ test('presets', async () => {
     ]
   `);
   expect(asPreset.envelopPlugins).toMatchInlineSnapshot(`
-    Array [
-      Object {
+    [
+      {
         "onContextBuilding": [Function],
       },
     ]
@@ -287,9 +294,9 @@ test('presets', async () => {
   });
 
   expect(appBuilder.ezPlugins).toMatchInlineSnapshot(`
-    Array [
-      Object {
-        "compatibilityList": Object {
+    [
+      {
+        "compatibilityList": {
           "cloudflare": true,
           "express": true,
           "fastify": true,
@@ -303,8 +310,8 @@ test('presets', async () => {
         "onIntegrationRegister": [Function],
         "onRegister": [Function],
       },
-      Object {
-        "compatibilityList": Object {
+      {
+        "compatibilityList": {
           "cloudflare": true,
           "express": true,
           "fastify": true,
@@ -323,11 +330,11 @@ test('presets', async () => {
   `);
 
   expect(appBuilder.envelopPlugins).toMatchInlineSnapshot(`
-    Array [
-      Object {
+    [
+      {
         "onContextBuilding": [Function],
       },
-      Object {
+      {
         "onPluginInit": [Function],
       },
     ]

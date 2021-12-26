@@ -24,8 +24,8 @@ test('basic direct api handler', async () => {
       });
 
       await expect(res.json()).resolves.toMatchInlineSnapshot(`
-Object {
-  "data": Object {
+{
+  "data": {
     "hello": "Hello World!",
   },
 }
@@ -76,35 +76,79 @@ test('with testing client', async () => {
   ).data!.context;
 
   expect(JSON.parse(contextString.replace(/localhost:(.+?)"/g, '__host__"'))).toMatchInlineSnapshot(`
-Object {
-  "document": Object {
-    "definitions": Array [
-      Object {
-        "directives": Array [],
+    {
+      "document": {
+        "definitions": [
+          {
+            "directives": [],
+            "kind": "OperationDefinition",
+            "loc": {
+              "end": 9,
+              "start": 0,
+            },
+            "operation": "query",
+            "selectionSet": {
+              "kind": "SelectionSet",
+              "loc": {
+                "end": 9,
+                "start": 0,
+              },
+              "selections": [
+                {
+                  "arguments": [],
+                  "directives": [],
+                  "kind": "Field",
+                  "loc": {
+                    "end": 8,
+                    "start": 1,
+                  },
+                  "name": {
+                    "kind": "Name",
+                    "loc": {
+                      "end": 8,
+                      "start": 1,
+                    },
+                    "value": "context",
+                  },
+                },
+              ],
+            },
+            "variableDefinitions": [],
+          },
+        ],
+        "kind": "Document",
+        "loc": {
+          "end": 9,
+          "start": 0,
+        },
+      },
+      "foo": "bar",
+      "operation": {
+        "directives": [],
         "kind": "OperationDefinition",
-        "loc": Object {
+        "loc": {
           "end": 9,
           "start": 0,
         },
         "operation": "query",
-        "selectionSet": Object {
+        "selectionSet": {
           "kind": "SelectionSet",
-          "loc": Object {
+          "loc": {
             "end": 9,
             "start": 0,
           },
-          "selections": Array [
-            Object {
-              "arguments": Array [],
-              "directives": Array [],
+          "selections": [
+            {
+              "arguments": [],
+              "directives": [],
               "kind": "Field",
-              "loc": Object {
+              "loc": {
                 "end": 8,
                 "start": 1,
               },
-              "name": Object {
+              "name": {
                 "kind": "Name",
-                "loc": Object {
+                "loc": {
                   "end": 8,
                   "start": 1,
                 },
@@ -113,68 +157,24 @@ Object {
             },
           ],
         },
-        "variableDefinitions": Array [],
+        "variableDefinitions": [],
       },
-    ],
-    "kind": "Document",
-    "loc": Object {
-      "end": 9,
-      "start": 0,
-    },
-  },
-  "foo": "bar",
-  "operation": Object {
-    "directives": Array [],
-    "kind": "OperationDefinition",
-    "loc": Object {
-      "end": 9,
-      "start": 0,
-    },
-    "operation": "query",
-    "selectionSet": Object {
-      "kind": "SelectionSet",
-      "loc": Object {
-        "end": 9,
-        "start": 0,
-      },
-      "selections": Array [
-        Object {
-          "arguments": Array [],
-          "directives": Array [],
-          "kind": "Field",
-          "loc": Object {
-            "end": 8,
-            "start": 1,
-          },
-          "name": Object {
-            "kind": "Name",
-            "loc": Object {
-              "end": 8,
-              "start": 1,
-            },
-            "value": "context",
-          },
+      "request": {
+        "body": {
+          "query": "{context}",
         },
-      ],
-    },
-    "variableDefinitions": Array [],
-  },
-  "request": Object {
-    "body": Object {
-      "query": "{context}",
-    },
-    "headers": Object {
-      "accept": "*/*",
-      "accept-encoding": "gzip,deflate",
-      "connection": "close",
-      "content-length": "21",
-      "content-type": "application/json",
-      "host": "__host__",
-      "user-agent": "node-fetch/1.0 (+https://github.com/bitinn/node-fetch)",
-    },
-    "method": "POST",
-    "query": Object {},
-  },
-}
-`);
+        "headers": {
+          "accept": "*/*",
+          "accept-encoding": "gzip,deflate",
+          "connection": "close",
+          "content-length": "21",
+          "content-type": "application/json",
+          "host": "__host__",
+          "user-agent": "node-fetch/1.0 (+https://github.com/bitinn/node-fetch)",
+        },
+        "method": "POST",
+        "query": {},
+      },
+    }
+  `);
 });

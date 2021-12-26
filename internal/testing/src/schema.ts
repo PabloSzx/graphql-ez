@@ -1,17 +1,15 @@
-import safeStringify from 'fast-safe-stringify';
 import { gql } from '@graphql-ez/utils/gql';
+import { makeExecutableSchema } from '@graphql-tools/schema';
+import safeStringify from 'fast-safe-stringify';
+import { GraphQLSchema } from 'graphql';
+import type { EZContext } from 'graphql-ez';
 import { createModule } from 'graphql-modules';
 
-import { makeExecutableSchema } from '@graphql-tools/schema';
-
-import type { EZContext } from 'graphql-ez';
+export * from '@graphql-ez/plugin-schema';
 export type {} from 'graphql';
+export { makeExecutableSchema };
 
 export const sleep = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
-
-export * from '@graphql-ez/plugin-schema';
-
-export { makeExecutableSchema };
 
 export const PingSubscription = {
   typeDefs: gql`
@@ -87,9 +85,12 @@ export const CommonSchema = {
     },
   },
   get schema() {
-    return makeExecutableSchema({
-      typeDefs: CommonSchema.typeDefs,
-      resolvers: CommonSchema.resolvers,
+    return new GraphQLSchema({
+      ...makeExecutableSchema({
+        typeDefs: CommonSchema.typeDefs,
+        resolvers: CommonSchema.resolvers,
+      }).toConfig(),
+      enableDeferStream: true,
     });
   },
   get module() {

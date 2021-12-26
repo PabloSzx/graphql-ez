@@ -22,12 +22,12 @@ test('register module with extra modules', async () => {
   });
 
   expect(await query('{hello}')).toMatchInlineSnapshot(`
-    Object {
-      "data": Object {
+    {
+      "data": {
         "hello": "Hello World!",
       },
-      "http": Object {
-        "headers": Object {
+      "http": {
+        "headers": {
           "connection": "keep-alive",
           "content-length": "33",
           "content-type": "application/json; charset=utf-8",
@@ -70,12 +70,12 @@ test('adding module', async () => {
   });
 
   expect(await query('{hello}')).toMatchInlineSnapshot(`
-    Object {
-      "data": Object {
+    {
+      "data": {
         "hello": "Hello World!",
       },
-      "http": Object {
-        "headers": Object {
+      "http": {
+        "headers": {
           "connection": "keep-alive",
           "content-length": "33",
           "content-type": "application/json; charset=utf-8",

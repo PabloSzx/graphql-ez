@@ -58,7 +58,8 @@ export const startFastifyServer = async ({
 
   const { CreateApp } = await import('@graphql-ez/fastify');
 
-  const { schema, mergeSchemasConfig, ...opts } = createOptions || {};
+  const { schema, mergeSchemasConfig, transformFinalSchema, executableSchemaConfig, graphqlSchemaConfig, ...opts } =
+    createOptions || {};
 
   if (schema) {
     defaultsDeep(opts, {
@@ -67,7 +68,9 @@ export const startFastifyServer = async ({
       },
     } as AppOptions);
 
-    opts.ez?.plugins?.push(ezSchema({ schema, mergeSchemasConfig }));
+    opts.ez?.plugins?.push(
+      ezSchema({ schema, mergeSchemasConfig, transformFinalSchema, executableSchemaConfig, graphqlSchemaConfig })
+    );
   }
 
   const appBuilder = CreateApp({ ...opts });

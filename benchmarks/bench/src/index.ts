@@ -4,6 +4,8 @@ import { makeExecutableSchema } from '@graphql-tools/schema';
 
 import { data } from './schema/data';
 
+import type { GraphQLSchema } from 'graphql';
+
 export const schema = makeExecutableSchema({
   typeDefs: `
   type Author {
@@ -33,6 +35,6 @@ export const schema = makeExecutableSchema({
       authors: () => data,
     },
   },
-});
+}) as unknown as GraphQLSchema;
 
 export type {} from 'graphql';

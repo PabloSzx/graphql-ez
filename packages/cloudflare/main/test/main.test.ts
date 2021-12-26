@@ -42,8 +42,8 @@ test('works', async () => {
     });
 
     await expect(client.query('{hello}')).resolves.toMatchInlineSnapshot(`
-            Object {
-              "data": Object {
+            {
+              "data": {
                 "hello": "Hello World!",
               },
             }

@@ -70,7 +70,7 @@ test('fastify', async () => {
 
   const { data } = JSON.parse(res.body);
   expect(data).toMatchInlineSnapshot(`
-    Object {
+    {
       "uploadFileToBase64": "aGVsbG8td29ybGQ=",
     }
   `);
@@ -137,7 +137,7 @@ test('express', async () => {
 
   const { data } = await response.json();
   expect(data).toMatchInlineSnapshot(`
-    Object {
+    {
       "uploadFileToBase64": "aGVsbG8td29ybGQ=",
     }
   `);
@@ -175,7 +175,7 @@ test('koa', async () => {
 
   const { data } = await response.json();
   expect(data).toMatchInlineSnapshot(`
-    Object {
+    {
       "uploadFileToBase64": "aGVsbG8td29ybGQ=",
     }
   `);

@@ -14,15 +14,40 @@ test('from preset', async () => {
   const { query, schemaString } = await CreateTestClient(ezApp);
 
   await expect(query('{hello}')).resolves.toMatchInlineSnapshot(`
-          Object {
-            "data": Object {
+          {
+            "data": {
               "hello": "Hello World!",
             },
           }
         `);
 
   expect(schemaString).toMatchInlineSnapshot(`
-    "type Query {
+    "\\"\\"\\"
+    Directs the executor to defer this fragment when the \`if\` argument is true or undefined.
+    \\"\\"\\"
+    directive @defer(
+      \\"\\"\\"Deferred when true or undefined.\\"\\"\\"
+      if: Boolean
+
+      \\"\\"\\"Unique name\\"\\"\\"
+      label: String
+    ) on FRAGMENT_SPREAD | INLINE_FRAGMENT
+
+    \\"\\"\\"
+    Directs the executor to stream plural fields when the \`if\` argument is true or undefined.
+    \\"\\"\\"
+    directive @stream(
+      \\"\\"\\"Stream when true or undefined.\\"\\"\\"
+      if: Boolean
+
+      \\"\\"\\"Unique name\\"\\"\\"
+      label: String
+
+      \\"\\"\\"Number of items to return immediately\\"\\"\\"
+      initialCount: Int = 0
+    ) on FIELD
+
+    type Query {
       hello: String!
       users: [User!]!
       stream: [String!]
@@ -41,8 +66,8 @@ test('from config', async () => {
   });
 
   await expect(query('{hello}')).resolves.toMatchInlineSnapshot(`
-          Object {
-            "data": Object {
+          {
+            "data": {
               "hello": "Hello World!",
             },
           }

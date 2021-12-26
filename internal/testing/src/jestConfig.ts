@@ -52,6 +52,9 @@ export function getConfig({
     globalSetup: nextjs ? './setup-test.js' : undefined,
     watchman: false,
     testTimeout: 10000,
+    snapshotFormat: {
+      printBasicPrototype: false,
+    },
     ...rest,
   };
 

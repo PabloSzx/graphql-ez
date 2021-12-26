@@ -80,8 +80,8 @@ test('basic query', async () => {
       },
     })
   ).resolves.toMatchInlineSnapshot(`
-          Object {
-            "data": Object {
+          {
+            "data": {
               "hello": "Hello World!",
             },
           }
@@ -120,8 +120,8 @@ test('websockets', async () => {
     });
 
     await expect(done.promise).resolves.toMatchInlineSnapshot(`
-            Object {
-              "data": Object {
+            {
+              "data": {
                 "hello": "Hello World!",
               },
             }
@@ -180,8 +180,8 @@ test('legacy websockets', async () => {
     });
 
     await expect(done.promise).resolves.toMatchInlineSnapshot(`
-            Object {
-              "data": Object {
+            {
+              "data": {
                 "hello2": "Hello World!",
               },
             }
@@ -219,7 +219,14 @@ testIfStreamDefer('query stream with @stream', async () => {
         appBuilder.registerModule(PingSubscription.module);
       },
       ez: {
-        plugins: [ezGraphQLModules(), ezWebSockets()],
+        plugins: [
+          ezGraphQLModules({
+            graphqlSchemaConfig: {
+              enableDeferStream: true,
+            },
+          }),
+          ezWebSockets(),
+        ],
       },
     },
   });

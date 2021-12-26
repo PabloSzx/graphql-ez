@@ -494,8 +494,8 @@ test('nextjs', async () => {
   });
 
   expect(await query('{hello}')).toMatchInlineSnapshot(`
-    Object {
-      "data": Object {
+    {
+      "data": {
         "hello": "Hello World!",
       },
     }
@@ -582,7 +582,7 @@ window.addEventListener('load', function(event) {
   });
 
   expect(await warnCalled.promise).toMatchInlineSnapshot(`
-    Array [
+    [
       "[graphql-ez] You don't need to add the Voyager plugin in your EZ App for Next.js, use \\"VoyagerHandler\\" directly in your API Routes.",
     ]
   `);

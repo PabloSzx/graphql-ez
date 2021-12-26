@@ -91,12 +91,12 @@ test('fastify-same-path', async () => {
   `);
 
   await expect(query('{hello}', { method: 'GET' })).resolves.toMatchInlineSnapshot(`
-          Object {
-            "data": Object {
+          {
+            "data": {
               "hello": "Hello World!",
             },
-            "http": Object {
-              "headers": Object {
+            "http": {
+              "headers": {
                 "connection": "keep-alive",
                 "content-length": "33",
                 "content-type": "application/json; charset=utf-8",
@@ -185,12 +185,12 @@ test('express-same-path', async () => {
   `);
 
   await expect(query('{hello}', { method: 'GET' })).resolves.toMatchInlineSnapshot(`
-          Object {
-            "data": Object {
+          {
+            "data": {
               "hello": "Hello World!",
             },
-            "http": Object {
-              "headers": Object {
+            "http": {
+              "headers": {
                 "connection": "keep-alive",
                 "content-length": "33",
                 "content-type": "application/json; charset=utf-8",
@@ -281,12 +281,12 @@ test('http-same-path', async () => {
   `);
 
   await expect(query('{hello}', { method: 'GET' })).resolves.toMatchInlineSnapshot(`
-          Object {
-            "data": Object {
+          {
+            "data": {
               "hello": "Hello World!",
             },
-            "http": Object {
-              "headers": Object {
+            "http": {
+              "headers": {
                 "connection": "keep-alive",
                 "content-type": "application/json",
                 "keep-alive": "timeout=5",
@@ -374,12 +374,12 @@ test('hapi-same-path', async () => {
   `);
 
   await expect(query('{hello}', { method: 'GET' })).resolves.toMatchInlineSnapshot(`
-          Object {
-            "data": Object {
+          {
+            "data": {
               "hello": "Hello World!",
             },
-            "http": Object {
-              "headers": Object {
+            "http": {
+              "headers": {
                 "accept-ranges": "bytes",
                 "cache-control": "no-cache",
                 "connection": "keep-alive",
@@ -469,12 +469,12 @@ test('koa-same-path', async () => {
   `);
 
   await expect(query('{hello}', { method: 'GET' })).resolves.toMatchInlineSnapshot(`
-          Object {
-            "data": Object {
+          {
+            "data": {
               "hello": "Hello World!",
             },
-            "http": Object {
-              "headers": Object {
+            "http": {
+              "headers": {
                 "connection": "keep-alive",
                 "content-length": "33",
                 "content-type": "application/json; charset=utf-8",
@@ -551,8 +551,8 @@ test('nextjs', async () => {
   `);
 
   expect(await query('{hello}')).toMatchInlineSnapshot(`
-    Object {
-      "data": Object {
+    {
+      "data": {
         "hello": "Hello World!",
       },
     }

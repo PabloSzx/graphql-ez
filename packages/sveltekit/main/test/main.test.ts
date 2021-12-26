@@ -64,8 +64,8 @@ testSkipNode12('basic schema', async () => {
   );
 
   await expect(query('{hello}')).resolves.toMatchInlineSnapshot(`
-          Object {
-            "data": Object {
+          {
+            "data": {
               "hello": "Hello World!",
             },
           }
@@ -76,16 +76,16 @@ testSkipNode12('basic schema', async () => {
       method: 'GET',
     })
   ).resolves.toMatchInlineSnapshot(`
-                  Object {
-                    "data": Object {
-                      "hello": "Hello World!",
-                    },
-                  }
-              `);
+          {
+            "data": {
+              "hello": "Hello World!",
+            },
+          }
+        `);
 
   await expect(query('{ctx}')).resolves.toMatchInlineSnapshot(`
-          Object {
-            "data": Object {
+          {
+            "data": {
               "ctx": "{
             \\"foo\\": \\"bar\\"
           }",

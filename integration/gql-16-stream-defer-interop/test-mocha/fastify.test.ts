@@ -23,6 +23,9 @@ test('Hello World', async () => {
               },
             },
           },
+          graphqlSchemaConfig: {
+            enableDeferStream: true,
+          },
         }),
       ],
     },
