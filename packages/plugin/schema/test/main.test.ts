@@ -417,3 +417,72 @@ Object {
 }
 `);
 });
+
+test('adds the specified graphql schema config', async () => {
+  const { query } = await startFastifyServer({
+    createOptions: {
+      ez: {
+        plugins: [
+          ezSchema({
+            schema: makeExecutableSchema({
+              typeDefs: gql`
+                type Query {
+                  hello: String!
+                }
+              `,
+            }),
+            graphqlSchemaConfig: {
+              enableDeferStream: true,
+            },
+          }),
+        ],
+      },
+    },
+    buildOptions: {
+      prepare({ registerResolvers }) {
+        registerResolvers({
+          Query: {
+            hello() {
+              return 'Hello World!';
+            },
+          },
+        });
+      },
+    },
+  });
+
+  const schemaString = printSchema(buildClientSchema((await query<IntrospectionQuery>(getIntrospectionQuery())).data!));
+
+  expect(schemaString).toContain('@defer');
+
+  expect(schemaString).toMatchInlineSnapshot(`
+    "\\"\\"\\"
+    Directs the executor to defer this fragment when the \`if\` argument is true or undefined.
+    \\"\\"\\"
+    directive @defer(
+      \\"\\"\\"Deferred when true or undefined.\\"\\"\\"
+      if: Boolean
+
+      \\"\\"\\"Unique name\\"\\"\\"
+      label: String
+    ) on FRAGMENT_SPREAD | INLINE_FRAGMENT
+
+    \\"\\"\\"
+    Directs the executor to stream plural fields when the \`if\` argument is true or undefined.
+    \\"\\"\\"
+    directive @stream(
+      \\"\\"\\"Stream when true or undefined.\\"\\"\\"
+      if: Boolean
+
+      \\"\\"\\"Unique name\\"\\"\\"
+      label: String
+
+      \\"\\"\\"Number of items to return immediately\\"\\"\\"
+      initialCount: Int = 0
+    ) on FIELD
+
+    type Query {
+      hello: String!
+    }"
+  `);
+});

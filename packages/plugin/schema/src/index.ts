@@ -2,7 +2,7 @@ import { cleanObject, toPlural } from '@graphql-ez/utils/object';
 import type * as GraphQLToolSchema from '@graphql-tools/schema';
 import type { IExecutableSchemaDefinition, MergeSchemasConfig } from '@graphql-tools/schema';
 import type { IResolvers, TypeSource } from '@graphql-tools/utils';
-import { DocumentNode, GraphQLSchema, isSchema } from 'graphql';
+import { DocumentNode, GraphQLSchema, GraphQLSchemaConfig, isSchema } from 'graphql';
 import { EZContext, EZPlugin, EZResolvers, LazyPromise, useSchema } from 'graphql-ez';
 
 export interface EZExecutableSchemaDefinition<TContext = EZContext>
@@ -33,6 +33,11 @@ export interface EZSchemaOptions {
    * Customize configuration of executable schema definition
    */
   executableSchemaConfig?: Partial<EZExecutableSchemaDefinition>;
+
+  /**
+   * Build Schema Config
+   */
+  graphqlSchemaConfig?: Partial<GraphQLSchemaConfig>;
 
   /**
    * Transform the final schema obtained
@@ -271,6 +276,9 @@ export const ezSchema = (options: EZSchemaOptions = {}): EZPlugin => {
       if (finalSchema) {
         if (options.transformFinalSchema) {
           finalSchema = await options.transformFinalSchema(finalSchema);
+        }
+        if (options.graphqlSchemaConfig) {
+          finalSchema = new GraphQLSchema({ ...finalSchema.toConfig(), ...options.graphqlSchemaConfig });
         }
         ctx.options.envelop.plugins.push(useSchema(finalSchema));
       }
