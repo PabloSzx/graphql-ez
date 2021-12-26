@@ -1,13 +1,14 @@
+import { useGraphQLModules } from '@envelop/graphql-modules';
 import { gql } from '@graphql-ez/utils/gql';
 import { toPlural } from '@graphql-ez/utils/object';
 import { LazyPromise } from '@graphql-ez/utils/promise';
-import { createApplication, createModule } from 'graphql-modules';
-
-import { useGraphQLModules } from '@envelop/graphql-modules';
+import { makeExecutableSchema } from '@graphql-tools/schema';
 import { isDocumentNode } from '@graphql-tools/utils';
-
-import type { EZResolvers, EZPlugin, Plugin as EnvelopPlugin } from 'graphql-ez';
-import type { ModuleConfig, Module, TypeDefs, Application, ApplicationConfig } from 'graphql-modules';
+import type { GraphQLSchemaConfig } from 'graphql';
+import { GraphQLSchema } from 'graphql';
+import type { EZPlugin, EZResolvers, Plugin as EnvelopPlugin } from 'graphql-ez';
+import type { Application, ApplicationConfig, Module, ModuleConfig, TypeDefs } from 'graphql-modules';
+import { createApplication, createModule } from 'graphql-modules';
 
 export type EnvelopModuleConfig = Omit<ModuleConfig, 'typeDefs' | 'id' | 'resolvers'> & {
   id?: string;
@@ -40,7 +41,14 @@ export interface RegisterModule {
   (typeDefs: TypeDefs, options?: EnvelopModuleConfig): Module;
 }
 
-export const ezGraphQLModules = (config: Partial<Omit<ApplicationConfig, 'modules'>> = {}): EZPlugin => {
+export interface EZGraphQLModulesConfig extends Partial<Omit<ApplicationConfig, 'modules'>> {
+  /**
+   * Build Schema Config
+   */
+  graphqlSchemaConfig?: Partial<GraphQLSchemaConfig>;
+}
+
+export const ezGraphQLModules = ({ graphqlSchemaConfig, ...config }: EZGraphQLModulesConfig = {}): EZPlugin => {
   const registerModuleState = {
     acumId: 0,
   };
@@ -93,6 +101,13 @@ export const ezGraphQLModules = (config: Partial<Omit<ApplicationConfig, 'module
 
         return createApplication({
           modules: extraModules ? [...extraModules, ...modulesList] : modulesList,
+          schemaBuilder: graphqlSchemaConfig
+            ? input =>
+                new GraphQLSchema({
+                  ...(config.schemaBuilder || makeExecutableSchema)(input).toConfig(),
+                  ...graphqlSchemaConfig,
+                })
+            : config.schemaBuilder,
           ...config,
         });
       }));
