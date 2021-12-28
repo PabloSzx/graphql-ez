@@ -125,3 +125,5 @@ export const ezGraphQLModules = ({ graphqlSchemaConfig, ...config }: EZGraphQLMo
 };
 
 export { gql };
+
+export * as GraphQLModules from 'graphql-modules';
