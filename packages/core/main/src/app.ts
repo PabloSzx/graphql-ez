@@ -11,7 +11,7 @@ import type {
   InternalAppBuildIntegrationContext,
 } from './index';
 import { SmartCacheIntrospection } from './smart-cache';
-import { gql } from './utils';
+import { gql, LazyPromise } from './utils';
 
 export const InternalAppBuildContextKey = Symbol('graphql-ez-internal-app-build-context');
 
@@ -98,6 +98,9 @@ export function createEZAppFactory(
     },
     envelopPlugins,
     ezPlugins,
+    modulesApplication: LazyPromise(() => {
+      throw Error('[graphql-ez] To use "modulesApplication" you have to add the "ezGraphQLModules" plugin first!');
+    }),
     [InternalAppBuildContextKey]: null as any,
   };
 

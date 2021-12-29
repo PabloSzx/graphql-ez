@@ -24,6 +24,7 @@ export type EnvelopModuleConfig = Omit<ModuleConfig, 'typeDefs' | 'id' | 'resolv
 declare module 'graphql-ez' {
   interface BaseAppBuilder {
     registerModule: RegisterModule;
+    modulesApplication: Promise<Application>;
   }
 
   interface InternalAppBuildContext {
@@ -81,36 +82,39 @@ export const ezGraphQLModules = ({ graphqlSchemaConfig, ...config }: EZGraphQLMo
         return firstParam;
       }
 
-      const modulesApplication = (ctx.modulesApplication = LazyPromise(async () => {
-        const [extraSchemaDefs, modulesList] = await Promise.all([
-          Promise.all(ctx.extraSchemaDefinitions || []),
-          Promise.all(modules),
-        ]);
+      const modulesApplication =
+        (ctx.appBuilder.modulesApplication =
+        ctx.modulesApplication =
+          LazyPromise(async () => {
+            const [extraSchemaDefs, modulesList] = await Promise.all([
+              Promise.all(ctx.extraSchemaDefinitions || []),
+              Promise.all(modules),
+            ]);
 
-        const extraModules = extraSchemaDefs.length
-          ? extraSchemaDefs.map(({ id, resolvers, typeDefs }) => {
-              const moduleTypeDefs = toPlural(typeDefs).map(v => (typeof v === 'string' ? gql(v) : v));
-              return createModule({
-                id,
-                dirname: id,
-                typeDefs: moduleTypeDefs,
-                resolvers,
-              });
-            })
-          : undefined;
-
-        return createApplication({
-          modules: extraModules ? [...extraModules, ...modulesList] : modulesList,
-          ...config,
-          schemaBuilder: graphqlSchemaConfig
-            ? input =>
-                new GraphQLSchema({
-                  ...(config.schemaBuilder || makeExecutableSchema)(input).toConfig(),
-                  ...graphqlSchemaConfig,
+            const extraModules = extraSchemaDefs.length
+              ? extraSchemaDefs.map(({ id, resolvers, typeDefs }) => {
+                  const moduleTypeDefs = toPlural(typeDefs).map(v => (typeof v === 'string' ? gql(v) : v));
+                  return createModule({
+                    id,
+                    dirname: id,
+                    typeDefs: moduleTypeDefs,
+                    resolvers,
+                  });
                 })
-            : config.schemaBuilder,
-        });
-      }));
+              : undefined;
+
+            return createApplication({
+              modules: extraModules ? [...extraModules, ...modulesList] : modulesList,
+              ...config,
+              schemaBuilder: graphqlSchemaConfig
+                ? input =>
+                    new GraphQLSchema({
+                      ...(config.schemaBuilder || makeExecutableSchema)(input).toConfig(),
+                      ...graphqlSchemaConfig,
+                    })
+                : config.schemaBuilder,
+            });
+          }));
 
       ctx.modulesEnvelopPlugin = LazyPromise(async () => {
         return useGraphQLModules(await modulesApplication);
