@@ -1,5 +1,16 @@
 # @graphql-ez/plugin-modules
 
+## 0.10.0
+
+### Minor Changes
+
+- 9e67d8a4: new "graphqlSchemaConfig" option, which adds the specified graphql-js schema config in the schema builder
+
+### Patch Changes
+
+- ab6a2694: Expose modules application in app builder
+- 2adfb301: Re-export graphql-modules as "GraphQLModules"
+
 ## 0.9.1
 
 ### Patch Changes
