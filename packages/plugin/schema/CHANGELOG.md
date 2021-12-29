@@ -1,5 +1,11 @@
 # @graphql-ez/plugin-schema
 
+## 0.8.2
+
+### Patch Changes
+
+- 8d8ffe53: new "graphqlSchemaConfig" option to add raw graphql-js config to final schema
+
 ## 0.8.1
 
 ### Patch Changes
