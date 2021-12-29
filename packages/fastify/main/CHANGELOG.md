@@ -1,5 +1,13 @@
 # @graphql-ez/fastify
 
+## 0.9.5
+
+### Patch Changes
+
+- d8d5f71e: Expose "ready" promise to built EZApp
+- Updated dependencies [2cdb0fcf]
+  - graphql-ez@0.13.7
+
 ## 0.9.4
 
 ### Patch Changes

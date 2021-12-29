@@ -1,5 +1,11 @@
 # graphql-ez
 
+## 0.13.7
+
+### Patch Changes
+
+- 2cdb0fcf: remove "true" from nullable plugin types
+
 ## 0.13.6
 
 ### Patch Changes
