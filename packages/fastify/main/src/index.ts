@@ -57,6 +57,8 @@ export interface EZApp {
 
   readonly path: string;
 
+  readonly ready: Promise<void>;
+
   [InternalAppBuildContextKey]: InternalAppBuildContext;
 }
 
@@ -178,6 +180,9 @@ export function CreateApp(config: FastifyAppOptions = {}): EZAppBuilder {
       fastifyPlugin,
       getEnveloped: LazyPromise(() => appPromise.then(v => v.getEnveloped)),
       path,
+      ready: LazyPromise(async () => {
+        await appPromise;
+      }),
       [InternalAppBuildContextKey]: ezApp[InternalAppBuildContextKey],
     };
   };
