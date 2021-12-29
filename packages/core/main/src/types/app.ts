@@ -51,9 +51,9 @@ export type EZPlugin =
       >;
     });
 
-export type NullableEZPlugin = EZPlugin | null | undefined | boolean;
+export type NullableEZPlugin = EZPlugin | null | undefined | false;
 
-export type NullableEnvelopPlugin = PluginOrDisabledPlugin | PromiseOrValue<Plugin<any> | null | undefined | boolean>;
+export type NullableEnvelopPlugin = PluginOrDisabledPlugin | PromiseOrValue<Plugin<any> | null | undefined | false>;
 
 export type EZPreset = {
   self?: EZPlugin;
