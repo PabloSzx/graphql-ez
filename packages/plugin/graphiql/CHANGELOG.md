@@ -1,5 +1,11 @@
 # @graphql-ez/plugin-graphiql
 
+## 0.11.2
+
+### Patch Changes
+
+- 86d855bc: Update for @sveltejs/kit@^1.0.0-next.208
+
 ## 0.11.1
 
 ### Patch Changes
