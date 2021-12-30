@@ -734,7 +734,7 @@ importers:
       '@graphql-ez/plugin-voyager': workspace:^0.9.0
       '@graphql-ez/sveltekit': workspace:^0.1.2
       '@graphql-tools/schema': ^8.3.1
-      '@sveltejs/adapter-node': ^1.0.0-next.56
+      '@sveltejs/adapter-node': ^1.0.0-next.57
       '@sveltejs/kit': ^1.0.0-next.206
       altair-static-slim: 4.3.1
       graphql: 16.1.0-experimental-stream-defer.6
@@ -752,7 +752,7 @@ importers:
       '@graphql-ez/plugin-voyager': link:../../packages/plugin/voyager
       '@graphql-ez/sveltekit': link:../../packages/sveltekit/main
       '@graphql-tools/schema': 8.3.1_7cd0a77a72827e2622373a4a49802d3d
-      '@sveltejs/adapter-node': 1.0.0-next.56
+      '@sveltejs/adapter-node': 1.0.0-next.57
       altair-static-slim: 4.3.1
       graphql: 16.1.0-experimental-stream-defer.6
       graphql-ez: link:../../packages/core/main
@@ -1927,7 +1927,7 @@ importers:
       '@graphql-ez/plugin-voyager': workspace:^0.9.0
       '@graphql-ez/utils': workspace:^0.1.2
       '@graphql-tools/schema': ^8.3.1
-      '@sveltejs/adapter-node': ^1.0.0-next.56
+      '@sveltejs/adapter-node': ^1.0.0-next.57
       '@sveltejs/kit': ^1.0.0-next.206
       '@types/node': ^17.0.4
       altair-static-slim: 4.3.1
@@ -1953,7 +1953,7 @@ importers:
       '@graphql-ez/plugin-schema': link:../../plugin/schema
       '@graphql-ez/plugin-voyager': link:../../plugin/voyager
       '@graphql-tools/schema': 8.3.1_7cd0a77a72827e2622373a4a49802d3d
-      '@sveltejs/adapter-node': 1.0.0-next.56
+      '@sveltejs/adapter-node': 1.0.0-next.57
       '@sveltejs/kit': 1.0.0-next.206_svelte@3.44.3
       '@types/node': 17.0.5
       altair-static-slim: 4.3.1
@@ -5696,10 +5696,9 @@ packages:
       '@sinonjs/commons': 1.8.3
     dev: true
 
-  /@sveltejs/adapter-node/1.0.0-next.56:
-    resolution: {integrity: sha512-NY3CFUeczH/1g3rOtq9blHJ4Am99ZiUVVDibioD5GFctBH27TDVeZrpssGWngD0Ybkojpl8fXR7mTZZdOEx9qg==}
+  /@sveltejs/adapter-node/1.0.0-next.57:
+    resolution: {integrity: sha512-R1GT2Sank+1Ig2WSsh6v3dhQeMj9U27GW78Sypv3ZKmv/qOr4pqoXF0nR1VItn0gMuexOAYKJFTxiuD+5yeLeg==}
     dependencies:
-      esbuild: 0.14.9
       tiny-glob: 0.2.9
 
   /@sveltejs/kit/1.0.0-next.206_svelte@3.44.3:
@@ -8538,6 +8537,7 @@ packages:
     cpu: [arm64]
     os: [android]
     requiresBuild: true
+    dev: true
     optional: true
 
   /esbuild-darwin-64/0.14.9:
@@ -8545,6 +8545,7 @@ packages:
     cpu: [x64]
     os: [darwin]
     requiresBuild: true
+    dev: true
     optional: true
 
   /esbuild-darwin-arm64/0.14.9:
@@ -8552,6 +8553,7 @@ packages:
     cpu: [arm64]
     os: [darwin]
     requiresBuild: true
+    dev: true
     optional: true
 
   /esbuild-freebsd-64/0.14.9:
@@ -8559,6 +8561,7 @@ packages:
     cpu: [x64]
     os: [freebsd]
     requiresBuild: true
+    dev: true
     optional: true
 
   /esbuild-freebsd-arm64/0.14.9:
@@ -8566,6 +8569,7 @@ packages:
     cpu: [arm64]
     os: [freebsd]
     requiresBuild: true
+    dev: true
     optional: true
 
   /esbuild-linux-32/0.14.9:
@@ -8573,6 +8577,7 @@ packages:
     cpu: [ia32]
     os: [linux]
     requiresBuild: true
+    dev: true
     optional: true
 
   /esbuild-linux-64/0.14.9:
@@ -8580,6 +8585,7 @@ packages:
     cpu: [x64]
     os: [linux]
     requiresBuild: true
+    dev: true
     optional: true
 
   /esbuild-linux-arm/0.14.9:
@@ -8587,6 +8593,7 @@ packages:
     cpu: [arm]
     os: [linux]
     requiresBuild: true
+    dev: true
     optional: true
 
   /esbuild-linux-arm64/0.14.9:
@@ -8594,6 +8601,7 @@ packages:
     cpu: [arm64]
     os: [linux]
     requiresBuild: true
+    dev: true
     optional: true
 
   /esbuild-linux-mips64le/0.14.9:
@@ -8601,6 +8609,7 @@ packages:
     cpu: [mips64el]
     os: [linux]
     requiresBuild: true
+    dev: true
     optional: true
 
   /esbuild-linux-ppc64le/0.14.9:
@@ -8608,6 +8617,7 @@ packages:
     cpu: [ppc64]
     os: [linux]
     requiresBuild: true
+    dev: true
     optional: true
 
   /esbuild-linux-s390x/0.14.9:
@@ -8615,6 +8625,7 @@ packages:
     cpu: [s390x]
     os: [linux]
     requiresBuild: true
+    dev: true
     optional: true
 
   /esbuild-netbsd-64/0.14.9:
@@ -8622,6 +8633,7 @@ packages:
     cpu: [x64]
     os: [netbsd]
     requiresBuild: true
+    dev: true
     optional: true
 
   /esbuild-openbsd-64/0.14.9:
@@ -8629,6 +8641,7 @@ packages:
     cpu: [x64]
     os: [openbsd]
     requiresBuild: true
+    dev: true
     optional: true
 
   /esbuild-sunos-64/0.14.9:
@@ -8636,6 +8649,7 @@ packages:
     cpu: [x64]
     os: [sunos]
     requiresBuild: true
+    dev: true
     optional: true
 
   /esbuild-windows-32/0.14.9:
@@ -8643,6 +8657,7 @@ packages:
     cpu: [ia32]
     os: [win32]
     requiresBuild: true
+    dev: true
     optional: true
 
   /esbuild-windows-64/0.14.9:
@@ -8650,6 +8665,7 @@ packages:
     cpu: [x64]
     os: [win32]
     requiresBuild: true
+    dev: true
     optional: true
 
   /esbuild-windows-arm64/0.14.9:
@@ -8657,6 +8673,7 @@ packages:
     cpu: [arm64]
     os: [win32]
     requiresBuild: true
+    dev: true
     optional: true
 
   /esbuild/0.14.9:
@@ -8682,6 +8699,7 @@ packages:
       esbuild-windows-32: 0.14.9
       esbuild-windows-64: 0.14.9
       esbuild-windows-arm64: 0.14.9
+    dev: true
 
   /escalade/3.1.1:
     resolution: {integrity: sha512-k0er2gUkLf8O0zKJiAhmkTnJlTvINGv7ygDNPbeIsX/TJjGJZHuh9B2UxbsaEkmlEo9MfhrSzmhIlhRlI2GXnw==}
@@ -12448,7 +12466,7 @@ packages:
       next: '>=9'
     dependencies:
       cookie: 0.4.1
-      next: 12.0.7
+      next: 12.0.7_react-dom@17.0.2+react@17.0.2
       node-fetch: 2.6.6
 
   /next/12.0.7:
