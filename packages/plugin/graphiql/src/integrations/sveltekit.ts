@@ -1,5 +1,5 @@
 import type { IntegrationRegisterHandler } from 'graphql-ez';
-import { shouldRenderGraphiQL, getPathname } from '../utils';
+import { shouldRenderGraphiQL } from '../utils';
 
 export const handleSvelteKit: IntegrationRegisterHandler<'sveltekit'> = async ({ ctx, integration: { handlers } }) => {
   if (!ctx.graphiql) return;
@@ -24,7 +24,7 @@ export const handleSvelteKit: IntegrationRegisterHandler<'sveltekit'> = async ({
         !shouldRenderGraphiQL({
           headers: req.headers,
           method: req.method,
-          query: Object.fromEntries(req.query),
+          query: Object.fromEntries(req.url.searchParams),
         })
       ) {
         return;
@@ -37,13 +37,13 @@ export const handleSvelteKit: IntegrationRegisterHandler<'sveltekit'> = async ({
   // only if the path and request path match, method is GET and no query params are specified
   else if (ctx.options.path === path) {
     handlers.push(async req => {
-      if (getPathname(req.path) !== path) return;
+      if (req.url.pathname !== path) return;
 
       if (
         !shouldRenderGraphiQL({
           headers: req.headers,
           method: req.method,
-          query: Object.fromEntries(req.query),
+          query: Object.fromEntries(req.url.searchParams),
         })
       ) {
         return;
@@ -56,7 +56,7 @@ export const handleSvelteKit: IntegrationRegisterHandler<'sveltekit'> = async ({
   // to render graphiql if the path matches and method is GET
   else {
     handlers.push(async req => {
-      if (getPathname(req.path) !== path || req.method !== 'GET') return;
+      if (req.url.pathname !== path || req.method !== 'GET') return;
 
       return objResponse;
     });

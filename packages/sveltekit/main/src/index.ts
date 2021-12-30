@@ -1,4 +1,3 @@
-import { getPathname } from '@graphql-ez/utils/url';
 import type { EndpointOutput, RequestHandler } from '@sveltejs/kit';
 import type { ResponseHeaders } from '@sveltejs/kit/types/helper';
 import type { ServerRequest, ServerResponse } from '@sveltejs/kit/types/hooks';
@@ -142,12 +141,12 @@ export function CreateApp(config: SvelteKitAppOptions = {}): EZAppBuilder {
             for (const response of result) if (response != null) return response;
           }
 
-          if (path && getPathname(req.path) !== path) return;
+          if (path && req.url.pathname !== path) return;
 
           const request = {
             headers: req.headers,
             method: req.method,
-            query: Object.fromEntries(req.query),
+            query: Object.fromEntries(req.url.searchParams),
             body: req.body,
           };
 

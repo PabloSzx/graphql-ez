@@ -1,4 +1,4 @@
-import { getPathname, withoutTrailingSlash, withTrailingSlash } from '@graphql-ez/utils/url';
+import { withoutTrailingSlash, withTrailingSlash } from '@graphql-ez/utils/url';
 import type { IntegrationRegisterHandler } from 'graphql-ez';
 
 export const handleSvelteKit: IntegrationRegisterHandler<'sveltekit'> = async ({ ctx, integration: { handlers } }) => {
@@ -21,7 +21,7 @@ export const handleSvelteKit: IntegrationRegisterHandler<'sveltekit'> = async ({
   const baseURLNoTrailing = withoutTrailingSlash(ctx.altair.baseURL);
 
   handlers.push(async req => {
-    const pathname = getPathname(req.path)!;
+    const pathname = req.url.pathname;
 
     if (pathname === baseURLTrailing || pathname === baseURLNoTrailing || pathname.startsWith(baseURLTrailing)) {
       const { status, content, contentType } = await render({
@@ -32,7 +32,7 @@ export const handleSvelteKit: IntegrationRegisterHandler<'sveltekit'> = async ({
           endpointURL: endpoint,
           baseURL,
         },
-        url: req.path,
+        url: req.url.pathname,
       });
 
       return {

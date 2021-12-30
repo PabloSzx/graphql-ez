@@ -93,7 +93,6 @@ export type ResolversTypes = {
   Query: ResolverTypeWrapper<{}>;
   String: ResolverTypeWrapper<Scalars['String']>;
   Boolean: ResolverTypeWrapper<Scalars['Boolean']>;
-  Int: ResolverTypeWrapper<Scalars['Int']>;
 };
 
 /** Mapping between all available schema types and the resolvers parents */
@@ -101,7 +100,6 @@ export type ResolversParentTypes = {
   Query: {};
   String: Scalars['String'];
   Boolean: Scalars['Boolean'];
-  Int: Scalars['Int'];
 };
 
 export type QueryResolvers<
