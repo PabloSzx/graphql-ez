@@ -1,5 +1,11 @@
 # @graphql-ez/plugin-voyager
 
+## 0.9.1
+
+### Patch Changes
+
+- 86d855bc: Update for @sveltejs/kit@^1.0.0-next.208
+
 ## 0.9.0
 
 ### Minor Changes

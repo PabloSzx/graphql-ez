@@ -1,5 +1,11 @@
 # @graphql-ez/plugin-codegen
 
+## 0.7.7
+
+### Patch Changes
+
+- 8090ce6b: Bump codegen versions
+
 ## 0.7.6
 
 ### Patch Changes

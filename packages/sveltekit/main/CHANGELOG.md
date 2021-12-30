@@ -1,5 +1,11 @@
 # @graphql-ez/sveltekit
 
+## 0.1.3
+
+### Patch Changes
+
+- 86d855bc: Update for @sveltejs/kit@^1.0.0-next.208
+
 ## 0.1.2
 
 ### Patch Changes
