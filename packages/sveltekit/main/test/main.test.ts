@@ -2,7 +2,6 @@ import { EZClient } from '@graphql-ez/client';
 import { LazyPromise } from '@graphql-ez/utils';
 import { command } from 'execa';
 import getPort from 'get-port';
-import { getStringFromStream } from 'graphql-ez-testing';
 import { resolve } from 'path';
 import waitOn from 'wait-on';
 
@@ -107,14 +106,12 @@ testSkipNode12('altair', async () => {
 
   expect(
     (
-      await getStringFromStream(
-        (
-          await client.request({
-            path: '/altair',
-            method: 'GET',
-          })
-        ).body
-      )
+      await (
+        await client.request({
+          path: '/altair',
+          method: 'GET',
+        })
+      ).body.text()
     ).slice(0, 300)
   ).toMatchInlineSnapshot(`
     "<!doctype html>
@@ -135,14 +132,12 @@ testSkipNode12('altair', async () => {
 
   expect(
     (
-      await getStringFromStream(
-        (
-          await client.request({
-            path: '/altair/styles.css',
-            method: 'GET',
-          })
-        ).body
-      )
+      await (
+        await client.request({
+          path: '/altair/styles.css',
+          method: 'GET',
+        })
+      ).body.text()
     ).slice(0, 300)
   ).toMatchInlineSnapshot(
     `"@charset \\"UTF-8\\";[class*=ant-]::-ms-clear,[class*=ant-] input::-ms-clear,[class*=ant-] input::-ms-reveal,[class^=ant-]::-ms-clear,[class^=ant-] input::-ms-clear,[class^=ant-] input::-ms-reveal{display:none}body,html{width:100%}input::-ms-clear,input::-ms-reveal{display:none}*,:after,:before{box-sizi"`
@@ -162,17 +157,15 @@ testSkipNode12('graphiql', async () => {
 
   expect(
     (
-      await getStringFromStream(
-        (
-          await client.request({
-            path: '/graphql',
-            method: 'GET',
-            headers: {
-              accept: 'text/html',
-            },
-          })
-        ).body
-      )
+      await (
+        await client.request({
+          path: '/graphql',
+          method: 'GET',
+          headers: {
+            accept: 'text/html',
+          },
+        })
+      ).body.text()
     ).slice(0, 300)
   ).toMatchInlineSnapshot(`
     "
@@ -203,14 +196,12 @@ testSkipNode12('voyager', async () => {
 
   expect(
     (
-      await getStringFromStream(
-        (
-          await client.request({
-            path: '/voyager',
-            method: 'GET',
-          })
-        ).body
-      )
+      await (
+        await client.request({
+          path: '/voyager',
+          method: 'GET',
+        })
+      ).body.text()
     ).slice(0, 300)
   ).toMatchInlineSnapshot(`
     "

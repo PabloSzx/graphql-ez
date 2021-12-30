@@ -4,7 +4,7 @@ import { LazyPromise } from '@graphql-ez/utils/promise';
 import { getURLWebsocketVersion } from '@graphql-ez/utils/url';
 import type { TypedDocumentNode } from '@graphql-typed-document-node/core';
 import type {} from 'eventsource';
-import { ExecutionResult, print, GraphQLError } from 'graphql';
+import { ExecutionResult, GraphQLError, print } from 'graphql';
 import type {} from 'graphql-ws';
 import type { IncomingHttpHeaders } from 'http';
 import type {} from 'subscriptions-transport-ws-envelop';
@@ -21,26 +21,6 @@ export interface EZClientOptions {
   headers?: IncomingHttpHeaders;
   graphQLWSClientOptions?: Partial<GraphQLWSClientOptions>;
   subscriptionsTransportClientOptions?: SubscriptionsTransportClientOptions;
-}
-
-export async function getStringFromStream(stream: import('stream').Readable): Promise<string> {
-  const chunks: Uint8Array[] = [];
-
-  for await (const chunk of stream) {
-    chunks.push(chunk);
-  }
-
-  return Buffer.concat(chunks).toString('utf-8');
-}
-
-export async function getJSONFromStream<T>(stream: import('stream').Readable): Promise<T> {
-  const chunks: Uint8Array[] = [];
-
-  for await (const chunk of stream) {
-    chunks.push(chunk);
-  }
-
-  return JSON.parse(Buffer.concat(chunks).toString('utf-8'));
 }
 
 class GraphQLErrorJSON extends Error {
@@ -145,13 +125,15 @@ export function EZClient(options: EZClientOptions) {
 
     if (!headers['content-type']?.startsWith('application/json')) {
       console.error({
-        body: await getStringFromStream(body),
+        body: await body.text(),
         headers,
       });
       throw Error('Unexpected content type received: ' + headers['content-type']);
     }
 
-    return getJSONFromStream(body);
+    const json = await body.json();
+
+    return json;
   };
 
   const queryPost: QueryFunctionPost = async function queryPost(
@@ -172,13 +154,14 @@ export function EZClient(options: EZClientOptions) {
 
     if (!headers['content-type']?.startsWith('application/json')) {
       console.error({
-        body: await getStringFromStream(body),
+        body: await body.text(),
         headers,
       });
       throw Error('Unexpected content type received: ' + headers['content-type']);
     }
 
-    return getJSONFromStream(body);
+    const json = await body.json();
+    return json;
   };
 
   const assertedQuery: AssertedQuery = async (document, options) => {

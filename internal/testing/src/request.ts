@@ -9,26 +9,6 @@ import { TearDownPromises } from './common';
 
 export type { RequestOptions, TypedDocumentNode };
 
-export async function getStringFromStream(stream: import('stream').Readable): Promise<string> {
-  const chunks: Uint8Array[] = [];
-
-  for await (const chunk of stream) {
-    chunks.push(chunk);
-  }
-
-  return Buffer.concat(chunks).toString('utf-8');
-}
-
-export async function getJSONFromStream<T>(stream: import('stream').Readable): Promise<T> {
-  const chunks: Uint8Array[] = [];
-
-  for await (const chunk of stream) {
-    chunks.push(chunk);
-  }
-
-  return JSON.parse(Buffer.concat(chunks).toString('utf-8'));
-}
-
 export function getRequestPool(port: number, path = '/graphql') {
   const address = `http://127.0.0.1:${port}`;
   const addressWithoutProtocol = `127.0.0.1:${port}`;
@@ -45,13 +25,13 @@ export function getRequestPool(port: number, path = '/graphql') {
     async request(options: Omit<RequestOptions, 'origin'>) {
       const { body } = await requestPool.request({ ...options, origin: address });
 
-      return getStringFromStream(body);
+      return body.text();
     },
 
     async requestRaw(options: Omit<RequestOptions, 'origin'>) {
       const { body, ...rest } = await requestPool.request({ ...options, origin: address });
 
-      return { body: getStringFromStream(body), ...rest };
+      return { body: await body.text(), ...rest };
     },
     async query<TData, TVariables = {}>(
       document?: TypedDocumentNode<TData, TVariables> | string,
@@ -101,13 +81,13 @@ export function getRequestPool(port: number, path = '/graphql') {
 
       if (!headers['content-type']?.startsWith('application/json')) {
         console.error({
-          body: await getStringFromStream(body),
+          body: await body.text(),
           headers,
         });
         throw Error('Unexpected content type received: ' + headers['content-type']);
       }
 
-      return { ...(await getJSONFromStream(body)), http: { statusCode, headers } };
+      return { ...(await body.json()), http: { statusCode, headers } };
     },
     async batchedQueries(
       queries: Array<{
@@ -147,13 +127,13 @@ export function getRequestPool(port: number, path = '/graphql') {
 
       if (!headers['content-type']?.startsWith('application/json')) {
         console.error({
-          body: await getStringFromStream(body),
+          body: await body.text(),
           headers,
         });
         throw Error('Unexpected content type received: ' + headers['content-type']);
       }
 
-      return { result: await getJSONFromStream(body), http: { statusCode, headers } };
+      return { result: await body.json(), http: { statusCode, headers } };
     },
   };
 }
