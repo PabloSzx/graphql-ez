@@ -449,7 +449,7 @@ importers:
       '@graphql-ez/plugin-upload': workspace:^0.7.0
       '@graphql-ez/plugin-voyager': workspace:^0.9.1
       '@graphql-ez/plugin-websockets': workspace:^0.10.2
-      '@types/graphql-upload': ^8.0.7
+      '@types/graphql-upload': ^8.0.8
       '@types/node': ^17.0.4
       bob-tsm: ^0.4.4
       fastify: ^3.25.3
@@ -469,7 +469,7 @@ importers:
       '@graphql-ez/plugin-upload': link:../../../packages/plugin/upload
       '@graphql-ez/plugin-voyager': link:../../../packages/plugin/voyager
       '@graphql-ez/plugin-websockets': link:../../../packages/plugin/websockets
-      '@types/graphql-upload': 8.0.7
+      '@types/graphql-upload': 8.0.8
       fastify: 3.25.3
       graphql: 16.1.0-experimental-stream-defer.6
       graphql-ez: link:../../../packages/core/main
@@ -1846,7 +1846,7 @@ importers:
   packages/plugin/upload:
     specifiers:
       '@graphql-ez/utils': workspace:^0.1.2
-      '@types/graphql-upload': ^8.0.7
+      '@types/graphql-upload': ^8.0.8
       '@types/node-fetch': ^2.5.12
       bob-esbuild-cli: ^3.0.1
       changesets-github-release: ^0.0.4
@@ -1859,7 +1859,7 @@ importers:
     dependencies:
       '@graphql-ez/utils': link:../../core/utils
     devDependencies:
-      '@types/graphql-upload': 8.0.7
+      '@types/graphql-upload': 8.0.8
       '@types/node-fetch': 2.5.12
       bob-esbuild-cli: 3.0.1_bob-esbuild@3.2.2
       changesets-github-release: 0.0.4
@@ -5914,8 +5914,8 @@ packages:
       '@types/node': 17.0.5
     dev: true
 
-  /@types/graphql-upload/8.0.7:
-    resolution: {integrity: sha512-uXhInuUY/W6n9a+PdCt9vcZ7z2m+NzByBJFvvDM+46pljqEwXXnIAjsEI1Dka2FKRTGthetm/imN//RhtEEYSA==}
+  /@types/graphql-upload/8.0.8:
+    resolution: {integrity: sha512-jrAJGnfK4qqRlKoofK14mGsYF/k21q3Q3Kl2aYDjUBEVSFtnM61NcvV6eMSjFnrXYe5FetWINpTtEcSNzbvNMQ==}
     dependencies:
       '@types/express': 4.17.13
       '@types/fs-capacitor': 2.0.0
