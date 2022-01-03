@@ -11,7 +11,7 @@ export function startBench(env: NodeJS.ProcessEnv) {
     {
       raw: true,
     }
-  ).catch(err => {
+  ).result.catch(err => {
     console.error(err);
   });
 }
@@ -31,7 +31,7 @@ export function api(cwd: string, env: NodeJS.ProcessEnv) {
       cwd,
       raw: true,
     }
-  ).catch(err => {
+  ).result.catch(err => {
     console.error(err);
   });
 }
