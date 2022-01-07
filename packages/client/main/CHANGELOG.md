@@ -1,5 +1,16 @@
 # @graphql-ez/client
 
+## 0.3.0
+
+### Minor Changes
+
+- 4cd305e4: Use ".json()" and ".text()" undici body mixins
+
+### Patch Changes
+
+- Updated dependencies [170e7b66]
+  - @graphql-ez/utils@0.1.3
+
 ## 0.2.3
 
 ### Patch Changes

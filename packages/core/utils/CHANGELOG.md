@@ -1,5 +1,11 @@
 # @graphql-ez/utils
 
+## 0.1.3
+
+### Patch Changes
+
+- 170e7b66: Remove Error.captureStackTrace usage
+
 ## 0.1.2
 
 ### Patch Changes

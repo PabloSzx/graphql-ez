@@ -1,5 +1,16 @@
 # @graphql-ez/http-testing
 
+## 0.1.4
+
+### Patch Changes
+
+- Updated dependencies [170e7b66]
+- Updated dependencies [52bc26a7]
+- Updated dependencies [4cd305e4]
+  - @graphql-ez/utils@0.1.3
+  - graphql-ez@0.13.8
+  - @graphql-ez/client@0.3.0
+
 ## 0.1.3
 
 ### Patch Changes

@@ -1,5 +1,13 @@
 # graphql-ez
 
+## 0.13.8
+
+### Patch Changes
+
+- 52bc26a7: Bump @envelop/core
+- Updated dependencies [170e7b66]
+  - @graphql-ez/utils@0.1.3
+
 ## 0.13.7
 
 ### Patch Changes
