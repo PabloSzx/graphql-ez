@@ -28,7 +28,7 @@ test('works', async () => {
 
   const port = await getPort();
 
-  const miniflare = command(`${require.resolve('miniflare/dist/bootstrap.js')} ${outfile} -p ${port}`, {
+  const miniflare = command(`${require.resolve('../node_modules/miniflare/bootstrap.js')} ${outfile} -p ${port}`, {
     stdio: 'ignore',
   });
 
