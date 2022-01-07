@@ -168,7 +168,7 @@ export function CreateApp(config: SvelteKitAppOptions = {}): EZAppBuilder {
             }
           );
 
-          const responseHeaders: NonNullable<EndpointOutput['headers']> = {};
+          const responseHeaders: ResponseHeaders = {};
 
           return requestHandler<EndpointOutput>({
             request,

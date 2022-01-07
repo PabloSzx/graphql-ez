@@ -210,7 +210,9 @@ export function CreateApp(config: HttpAppOptions = {}): EZAppBuilder {
               }
             });
           } else if (handleNotFound) {
-            return res.writeHead(404).end();
+            res.writeHead(404).end();
+
+            return;
           }
         };
 
