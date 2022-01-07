@@ -3,6 +3,7 @@ import { build } from 'esbuild';
 import { command } from 'execa';
 import { unlinkSync } from 'fs';
 import getPort from 'get-port';
+import { testIfNode16OrPlus } from 'graphql-ez-testing';
 import { resolve } from 'path';
 import waitOn from 'wait-on';
 
@@ -16,7 +17,7 @@ afterAll(() => {
   }
 });
 
-test('works', async () => {
+testIfNode16OrPlus('works', async () => {
   await build({
     entryPoints: [resolve(__dirname, './worker/worker.ts')],
     bundle: true,
