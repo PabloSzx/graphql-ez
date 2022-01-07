@@ -1,5 +1,11 @@
 # @graphql-ez/client
 
+## 0.3.1
+
+### Patch Changes
+
+- acc0cae3: Fix node-fetch version
+
 ## 0.3.0
 
 ### Minor Changes
