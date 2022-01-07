@@ -1747,7 +1747,7 @@ importers:
 
   packages/plugin/modules:
     specifiers:
-      '@envelop/graphql-modules': ^1.2.1
+      '@envelop/graphql-modules': ^2.0.0
       '@graphql-ez/utils': workspace:^0.1.2
       '@graphql-tools/schema': ^8.3.1
       '@graphql-tools/utils': ^8.6.0
@@ -1759,7 +1759,7 @@ importers:
       jest: ^27.4.7
       ts-jest: ^27.1.2
     dependencies:
-      '@envelop/graphql-modules': 1.2.1_20fcf085353426178dd20ecec18dca56
+      '@envelop/graphql-modules': 2.0.0_20fcf085353426178dd20ecec18dca56
       '@graphql-ez/utils': link:../../core/utils
       '@graphql-tools/schema': 8.3.1_7cd0a77a72827e2622373a4a49802d3d
       '@graphql-tools/utils': 8.6.0_7cd0a77a72827e2622373a4a49802d3d
@@ -4139,10 +4139,10 @@ packages:
       tiny-lru: 7.0.6
     dev: false
 
-  /@envelop/graphql-modules/1.2.1_20fcf085353426178dd20ecec18dca56:
-    resolution: {integrity: sha512-A1TJk175CSFckrdhI203k+zN9sh5YHXRp8UQipfrPI06tbXoaNqgl8zhsliMiYiUdQKUgefn69iga0oDgzYD/g==}
+  /@envelop/graphql-modules/2.0.0_20fcf085353426178dd20ecec18dca56:
+    resolution: {integrity: sha512-qzxqjOfzhH6rkAPrWHT99pNsvRbMwAseP+r5A1druGHrCcxBrhNeip+aGYvGAN3cLI5oqPV4BrtOvgNAh8LKig==}
     peerDependencies:
-      '@envelop/core': ^1.6.1
+      '@envelop/core': ^1.7.0
       graphql: ^14.0.0 || ^15.0.0 || ^16.0.0
       graphql-modules: ^1 || ^2.0.0
     dependencies:
