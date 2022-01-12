@@ -299,7 +299,7 @@ importers:
       '@types/node': ^17.0.4
       '@types/rimraf': ^3.0.2
       '@types/wait-on': ^5.3.1
-      autocannon: ^7.5.1
+      autocannon: ^7.6.0
       bob-tsm: ^0.4.4
       chalk: ^5.0.0
       cli-table: ^0.3.11
@@ -317,7 +317,7 @@ importers:
       wait-on: ^6.0.0
     dependencies:
       '@graphql-tools/schema': 8.3.1_7cd0a77a72827e2622373a4a49802d3d
-      autocannon: 7.5.1
+      autocannon: 7.6.0
       chalk: 5.0.0
       cli-table: 0.3.11
       concurrently: 7.0.0
@@ -2085,8 +2085,8 @@ packages:
       '@algolia/requester-common': 4.11.0
     dev: false
 
-  /@assemblyscript/loader/0.10.1:
-    resolution: {integrity: sha512-H71nDOOL8Y7kWRLqf6Sums+01Q5msqBW2KhDUTemh1tvY04eSkSXrK0uj/4mmY0Xr16/3zyZmsrxN7CKuRbNRg==}
+  /@assemblyscript/loader/0.19.22:
+    resolution: {integrity: sha512-ksrMVpPOatD7ZzXCw+c/g3zId5rm8MMnQe7P32dH/qtDrgT9SbQjJYEngRP0YhRF0qrBCga2PtpID7arqphGyg==}
     dev: false
 
   /@babel/code-frame/7.12.11:
@@ -6692,8 +6692,8 @@ packages:
     engines: {node: '>=8'}
     dev: false
 
-  /autocannon/7.5.1:
-    resolution: {integrity: sha512-d66F31riFsclURyxH+1N4SSBS6EmpjUXJ6W0Xa1BV/Dwi4xjAvkPgyOcAfhf4kNHIgVXCZtdu9Sy97SpKDBgIg==}
+  /autocannon/7.6.0:
+    resolution: {integrity: sha512-p/E4/a1vLxMWOCeiIj6/WEQ2C6nseaCDcVIa3lXdjJ5xtfF/TNWl+UVvpXcwzXGXt/lOq8v1NGnkslqCwgf4Hw==}
     hasBin: true
     dependencies:
       chalk: 4.1.2
@@ -6703,11 +6703,13 @@ packages:
       cross-argv: 2.0.0
       form-data: 4.0.0
       has-async-hooks: 1.0.0
-      hdr-histogram-js: 2.0.3
+      hdr-histogram-js: 3.0.0
       hdr-histogram-percentiles-obj: 3.0.0
       http-parser-js: 0.5.5
-      hyperid: 2.3.1
+      hyperid: 3.0.0
+      lodash.chunk: 4.2.0
       lodash.clonedeep: 4.5.0
+      lodash.flatten: 4.4.0
       manage-path: 2.0.0
       on-net-listen: 1.1.2
       pretty-bytes: 5.6.0
@@ -10177,10 +10179,11 @@ packages:
       space-separated-tokens: 1.1.5
     dev: false
 
-  /hdr-histogram-js/2.0.3:
-    resolution: {integrity: sha512-Hkn78wwzWHNCp2uarhzQ2SGFLU3JY8SBDDd3TAABK4fc30wm+MuPOrg5QVFVfkKOQd6Bfz3ukJEI+q9sXEkK1g==}
+  /hdr-histogram-js/3.0.0:
+    resolution: {integrity: sha512-/EpvQI2/Z98mNFYEnlqJ8Ogful8OpArLG/6Tf2bPnkutBVLIeMVNHjk1ZDfshF2BUweipzbk+dB1hgSB7SIakw==}
+    engines: {node: '>=14'}
     dependencies:
-      '@assemblyscript/loader': 0.10.1
+      '@assemblyscript/loader': 0.19.22
       base64-js: 1.5.1
       pako: 1.0.11
     dev: false
@@ -10364,8 +10367,8 @@ packages:
     hasBin: true
     dev: true
 
-  /hyperid/2.3.1:
-    resolution: {integrity: sha512-mIbI7Ymn6MCdODaW1/6wdf5lvvXzmPsARN4zTLakMmcziBOuP4PxCBJvHF6kbAIHX6H4vAELx/pDmt0j6Th5RQ==}
+  /hyperid/3.0.0:
+    resolution: {integrity: sha512-vwl5ARjv9KGKphUpKrNlCpH6oC3qnlCxz7WRG24h53MvkWGit2Iwbv/H8usILbMohBsaRgs8Ieumgy7+oafuyw==}
     dependencies:
       uuid: 8.3.2
       uuid-parse: 1.1.0
@@ -11764,12 +11767,20 @@ packages:
     dependencies:
       p-locate: 5.0.0
 
+  /lodash.chunk/4.2.0:
+    resolution: {integrity: sha1-ZuXOH3btJ7QwPYxlEujRIW6BBrw=}
+    dev: false
+
   /lodash.clonedeep/4.5.0:
     resolution: {integrity: sha1-4j8/nE+Pvd6HJSnBBxhXoIblzO8=}
     dev: false
 
   /lodash.flatmap/4.5.0:
     resolution: {integrity: sha1-74y/QI9uSCaGYzRTBcaswLd4cC4=}
+    dev: false
+
+  /lodash.flatten/4.4.0:
+    resolution: {integrity: sha1-8xwiIlqWMtK7+OSt2+8kCqdlph8=}
     dev: false
 
   /lodash.get/4.4.2:
@@ -16616,7 +16627,7 @@ packages:
       graphql: '*'
     dependencies:
       '@graphql-tools/schema': 8.3.1_graphql@16.2.0
-      autocannon: 7.5.1
+      autocannon: 7.6.0
       chalk: 5.0.0
       cli-table: 0.3.11
       concurrently: 7.0.0
