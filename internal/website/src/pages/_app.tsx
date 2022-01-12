@@ -1,7 +1,7 @@
 import { chakra, extendTheme, Heading, HStack, LinkBox, LinkOverlay, theme as chakraTheme, VStack } from '@chakra-ui/react';
 import { mode } from '@chakra-ui/theme-tools';
 import { AppSeoProps, CombinedThemeProvider, DocsPage, ExtendComponents, handlePushRoute } from '@guild-docs/client';
-import { Footer, Subheader } from '@theguild/components';
+import { Subheader } from '@theguild/components';
 import { appWithTranslation } from 'next-i18next';
 import type { AppProps } from 'next/app';
 import '../../public/style.css';
@@ -151,7 +151,6 @@ function AppContent(appProps: AppProps) {
       ) : (
         <Component {...pageProps} />
       )}
-      <Footer />
     </>
   );
 }
