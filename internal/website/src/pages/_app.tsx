@@ -1,13 +1,12 @@
-import '../../public/style.css';
-import '../components/logos';
-
 import { chakra, extendTheme, Heading, HStack, LinkBox, LinkOverlay, theme as chakraTheme, VStack } from '@chakra-ui/react';
 import { mode } from '@chakra-ui/theme-tools';
-import { ClassNames } from '@emotion/react';
 import { AppSeoProps, CombinedThemeProvider, DocsPage, ExtendComponents, handlePushRoute } from '@guild-docs/client';
-import { Footer, Header, Subheader } from '@theguild/components';
+import { Footer, Subheader } from '@theguild/components';
 import { appWithTranslation } from 'next-i18next';
 import type { AppProps } from 'next/app';
+import '../../public/style.css';
+import '../components/logos';
+import { ThemeSwitch } from '../components/ThemeSwitch';
 
 ExtendComponents({
   Heading,
@@ -72,79 +71,63 @@ function AppContent(appProps: AppProps) {
 
   return (
     <>
-      <ClassNames>
-        {({ css }) => {
-          return (
-            <>
-              <Header
-                accentColor={accentColor}
-                activeLink="/open-source"
-                themeSwitch
-                containerProps={{
-                  className: css({
-                    'menu > button:first-of-type': {
-                      display: 'none !important',
-                    },
-                  }),
-                }}
-              />
-
-              <Subheader
-                activeLink={router.asPath}
-                product={{
-                  title: 'GraphQL EZ',
-                  description: '',
-                  image: {
-                    src: '/assets/ez/logo_small.svg',
-                    alt: 'Docs',
-                  },
-                  onClick: e => handlePushRoute('/', e),
-                }}
-                links={[
-                  {
-                    children: 'Home',
-                    title: 'GraphQL EZ',
-                    href: '/',
-                    onClick: e => handlePushRoute('/', e),
-                  },
-                  {
-                    children: 'Docs & API',
-                    title: 'Read more about GraphQL EZ',
-                    href: '/docs',
-                    onClick: e => handlePushRoute('/docs', e),
-                  },
-                  {
-                    children: 'Plugin Hub',
-                    title: 'Check all the available plugins',
-                    href: '/plugins',
-                    onClick: e => handlePushRoute('/plugins', e),
-                  },
-                  {
-                    children: 'Envelop',
-                    href: 'https://www.envelop.dev/',
-                    target: '_blank',
-                    rel: 'noopener',
-                    title: 'Read more about Envelop. The underlying GraphQL Engine',
-                  },
-                  {
-                    children: 'GitHub',
-                    href: 'https://github.com/PabloSzx/graphql-ez',
-                    target: '_blank',
-                    rel: 'noopener norefereer',
-                    title: "Head to the project's GitHub",
-                  },
-                ]}
-                cta={{
-                  children: 'Get Started',
-                  title: 'Start using GraphQL EZ',
-                  href: '/docs',
-                  onClick: e => handlePushRoute('/docs', e),
-                }}
-              />
-            </>
-          );
+      <Subheader
+        activeLink={router.asPath}
+        product={{
+          title: 'GraphQL EZ',
+          description: '',
+          image: {
+            src: '/assets/ez/logo_small.svg',
+            alt: 'Docs',
+          },
+          onClick: e => handlePushRoute('/', e),
         }}
-      </ClassNames>
+        links={[
+          {
+            children: 'Home',
+            title: 'GraphQL EZ',
+            href: '/',
+            onClick: e => handlePushRoute('/', e),
+          },
+          {
+            children: 'Docs & API',
+            title: 'Read more about GraphQL EZ',
+            href: '/docs',
+            onClick: e => handlePushRoute('/docs', e),
+          },
+          {
+            children: 'Plugin Hub',
+            title: 'Check all the available plugins',
+            href: '/plugins',
+            onClick: e => handlePushRoute('/plugins', e),
+          },
+          {
+            children: 'Envelop',
+            href: 'https://www.envelop.dev/',
+            target: '_blank',
+            rel: 'noopener',
+            title: 'Read more about Envelop. The underlying GraphQL Engine',
+          },
+          {
+            children: 'GitHub',
+            href: 'https://github.com/PabloSzx/graphql-ez',
+            target: '_blank',
+            rel: 'noopener norefereer',
+            title: "Head to the project's GitHub",
+          },
+          {
+            children: <ThemeSwitch />,
+            href: undefined as any,
+            title: '',
+          },
+        ]}
+        cta={{
+          children: 'Get Started',
+          title: 'Start using GraphQL EZ',
+          href: '/docs',
+          onClick: e => handlePushRoute('/docs', e),
+        }}
+      />
 
       {isDocs ? (
         <DocsPage
