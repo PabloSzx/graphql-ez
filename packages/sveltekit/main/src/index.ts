@@ -141,7 +141,10 @@ export function CreateApp(config: SvelteKitAppOptions = {}): EZAppBuilder {
             for (const response of result) if (response != null) return response;
           }
 
-          if (path && req.url.pathname !== path) return;
+          if (path && req.url.pathname !== path)
+            return {
+              fallthrough: true,
+            };
 
           const request = {
             headers: req.headers,
