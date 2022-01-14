@@ -32,7 +32,7 @@ importers:
       graphql-ez-testing: workspace:^1.0.0
       husky: 7.0.4
       jest: ^27.4.7
-      mocha: ^9.1.3
+      mocha: ^9.1.4
       prettier: ^2.5.1
       pretty-quick: ^3.1.3
       ts-jest: ^27.1.2
@@ -57,7 +57,7 @@ importers:
       graphql-ez-testing: link:internal/testing
       husky: 7.0.4
       jest: 27.4.7
-      mocha: 9.1.3
+      mocha: 9.1.4
       prettier: 2.5.1
       pretty-quick: 3.1.3_prettier@2.5.1
       ts-jest: 27.1.2_7609bee14171c797989ff7e78c897b81
@@ -794,7 +794,7 @@ importers:
       fastify: ^3.25.3
       graphql: 15.8.0
       graphql-ez: workspace:^0.13.8
-      mocha: ^9.1.3
+      mocha: ^9.1.4
     dependencies:
       '@graphql-ez/fastify': file:packages/fastify/main_fca521629dfdac0f01d11cb3b595a1b1
       '@graphql-ez/fastify-testing': file:packages/fastify/testing_ba27895bb977aff29ad6625e179f33a8
@@ -804,7 +804,7 @@ importers:
       fastify: 3.25.3
       graphql: 15.8.0
       graphql-ez: file:packages/core/main_graphql@15.8.0
-      mocha: 9.1.3
+      mocha: 9.1.4
     dependenciesMeta:
       '@graphql-ez/fastify':
         injected: true
@@ -825,7 +825,7 @@ importers:
       fastify: ^3.25.3
       graphql: 15.4.0-experimental-stream-defer.1
       graphql-ez: workspace:^0.13.8
-      mocha: ^9.1.3
+      mocha: ^9.1.4
     dependencies:
       '@graphql-ez/fastify': file:packages/fastify/main_24433edf08813e774aa618d5661199ce
       '@graphql-ez/fastify-testing': file:packages/fastify/testing_01d0c38f0870e83d52751d4644bc6a69
@@ -835,7 +835,7 @@ importers:
       fastify: 3.25.3
       graphql: 15.4.0-experimental-stream-defer.1
       graphql-ez: file:packages/core/main_34dd13c2583fe2e4418c23a0d30fc388
-      mocha: 9.1.3
+      mocha: 9.1.4
     dependenciesMeta:
       '@graphql-ez/fastify':
         injected: true
@@ -856,7 +856,7 @@ importers:
       fastify: ^3.25.3
       graphql: npm:graphql-esm@^16.0.1
       graphql-ez: workspace:^0.13.8
-      mocha: ^9.1.3
+      mocha: ^9.1.4
     dependencies:
       '@graphql-ez/fastify': file:packages/fastify/main_e9108624f6c41282974e8c3f63b4af84
       '@graphql-ez/fastify-testing': file:packages/fastify/testing_ef373051bfa648487c48c832e8ddb221
@@ -866,7 +866,7 @@ importers:
       fastify: 3.25.3
       graphql: /graphql-esm/16.0.1
       graphql-ez: file:packages/core/main_graphql-esm@16.0.1
-      mocha: 9.1.3
+      mocha: 9.1.4
     dependenciesMeta:
       '@graphql-ez/fastify':
         injected: true
@@ -887,7 +887,7 @@ importers:
       fastify: ^3.25.3
       graphql: 16.2.0
       graphql-ez: workspace:^0.13.8
-      mocha: ^9.1.3
+      mocha: ^9.1.4
     dependencies:
       '@graphql-ez/fastify': file:packages/fastify/main_a63d36e008e952d32f11e852b817e5f1
       '@graphql-ez/fastify-testing': file:packages/fastify/testing_6836b81b17ac3750f7eb265d7e99572c
@@ -897,7 +897,7 @@ importers:
       fastify: 3.25.3
       graphql: 16.2.0
       graphql-ez: file:packages/core/main_graphql@16.2.0
-      mocha: 9.1.3
+      mocha: 9.1.4
     dependenciesMeta:
       '@graphql-ez/fastify':
         injected: true
@@ -918,7 +918,7 @@ importers:
       fastify: ^3.25.3
       graphql: 16.1.0-experimental-stream-defer.6
       graphql-ez: workspace:^0.13.8
-      mocha: ^9.1.3
+      mocha: ^9.1.4
     dependencies:
       '@graphql-ez/fastify': file:packages/fastify/main_e25da4d5547928f8a58c9942a61e7bcf
       '@graphql-ez/fastify-testing': file:packages/fastify/testing_967ed804784bfb1898c825d90ca47a98
@@ -928,7 +928,7 @@ importers:
       fastify: 3.25.3
       graphql: 16.1.0-experimental-stream-defer.6
       graphql-ez: file:packages/core/main_7cd0a77a72827e2622373a4a49802d3d
-      mocha: 9.1.3
+      mocha: 9.1.4
     dependenciesMeta:
       '@graphql-ez/fastify':
         injected: true
@@ -11836,8 +11836,8 @@ packages:
     hasBin: true
     dev: false
 
-  /mocha/9.1.3:
-    resolution: {integrity: sha512-Xcpl9FqXOAYqI3j79pEtHBBnQgVXIhpULjGQa7DVb0Po+VzmSIK9kanAiWLHoRR/dbZ2qpdPshuXr8l1VaHCzw==}
+  /mocha/9.1.4:
+    resolution: {integrity: sha512-+q2aV5VlJZuLgCWoBvGI5zEwPF9eEI0kr/sAA9Jm4xMND7RfIEyF8JE7C0JIg8WXRG+P1sdIAb5ccoHPlXLzcw==}
     engines: {node: '>= 12.0.0'}
     hasBin: true
     dependencies:
