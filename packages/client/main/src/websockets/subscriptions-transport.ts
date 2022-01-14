@@ -1,14 +1,9 @@
-import { print, ExecutionResult } from 'graphql';
-import {
-  ClientOptions as SubscriptionsTransportClientOptions,
-  SubscriptionClient as SubscriptionsTransportClient,
-} from 'subscriptions-transport-ws-envelop/client';
-import { isDocumentNode } from '@graphql-tools/utils';
-
-import ws from 'isomorphic-ws';
-import { createDeferredPromise, DeferredPromise } from '@graphql-ez/utils/promise';
-
+import { isDocumentNode } from '@graphql-ez/utils/document';
+import { createDeferredPromise, DeferredPromise, LazyPromise } from '@graphql-ez/utils/promise';
+import { ExecutionResult, print } from 'graphql';
+import type { SubscriptionsTransportClientOptions } from '../deps.js';
 import type { SubscribeFunction } from '../types';
+import { lazyDeps } from '../utils';
 
 export type { SubscriptionsTransportClientOptions };
 
@@ -16,17 +11,27 @@ export function createSubscriptionsTransportWebsocketsClient(
   wsEndpoint: string,
   options: SubscriptionsTransportClientOptions = {}
 ) {
-  const client = new SubscriptionsTransportClient(
-    wsEndpoint,
-    {
-      lazy: true,
-      ...options,
-    },
-    ws
-  );
+  const client = LazyPromise(async () => {
+    const { SubscriptionsTransportClient, ws } = await lazyDeps;
+
+    return new SubscriptionsTransportClient(
+      wsEndpoint,
+      {
+        lazy: true,
+        ...options,
+      },
+      ws
+    );
+  });
 
   const subscribe: SubscribeFunction = function subscribe(query, { onData, variables, operationName, extensions } = {}) {
-    let unsubscribe = () => {};
+    let unsubscribeFn: () => void;
+
+    const unsubscribe = async () => {
+      if (!unsubscribeFn) await done;
+
+      unsubscribeFn?.();
+    };
 
     let deferValuePromise: DeferredPromise<ExecutionResult<any> | null> | null = createDeferredPromise();
 
@@ -42,36 +47,40 @@ export function createSubscriptionsTransportWebsocketsClient(
 
     const iterator = iteratorGenerator();
 
-    const done = new Promise<void>((resolve, reject) => {
-      const { subscribe } = client.request({
-        query: isDocumentNode(query) ? print(query) : query,
-        variables,
-        operationName,
-        extensions,
-      });
+    const done = new Promise<void>(async (resolve, reject) => {
+      try {
+        const { subscribe } = (await client).request({
+          query: isDocumentNode(query) ? print(query) : query,
+          variables,
+          operationName,
+          extensions,
+        });
 
-      client.onError(err => {
-        reject(err);
-      });
-
-      const result = subscribe({
-        next(value: ExecutionResult<any>) {
-          onData?.(value);
-          deferValuePromise?.resolve(value);
-          deferValuePromise = createDeferredPromise();
-        },
-        error(err) {
+        (await client).onError(err => {
           reject(err);
-          deferValuePromise?.reject(err);
-          deferValuePromise = null;
-        },
-        complete() {
-          resolve();
-          deferValuePromise?.resolve(null);
-          deferValuePromise = null;
-        },
-      });
-      unsubscribe = result.unsubscribe;
+        });
+
+        const result = subscribe({
+          next(value: ExecutionResult<any>) {
+            onData?.(value);
+            deferValuePromise?.resolve(value);
+            deferValuePromise = createDeferredPromise();
+          },
+          error(err) {
+            reject(err);
+            deferValuePromise?.reject(err);
+            deferValuePromise = null;
+          },
+          complete() {
+            resolve();
+            deferValuePromise?.resolve(null);
+            deferValuePromise = null;
+          },
+        });
+        unsubscribeFn = result.unsubscribe;
+      } catch (err) {
+        reject(err);
+      }
     });
 
     return {

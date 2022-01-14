@@ -19,7 +19,7 @@ importers:
       '@types/jest': ^27.4.0
       '@types/mocha': ^9.0.0
       '@types/node': ^17.0.4
-      bob-esbuild: ^3.2.2
+      bob-esbuild: ^3.2.3
       bob-esbuild-cli: ^3.0.1
       bob-tsm: ^0.4.4
       chalk: ^5.0.0
@@ -44,8 +44,8 @@ importers:
       '@types/jest': 27.4.0
       '@types/mocha': 9.0.0
       '@types/node': 17.0.8
-      bob-esbuild: 3.2.2_esbuild@0.14.11+typescript@4.5.4
-      bob-esbuild-cli: 3.0.1_bob-esbuild@3.2.2
+      bob-esbuild: 3.2.3_esbuild@0.14.11+typescript@4.5.4
+      bob-esbuild-cli: 3.0.1_bob-esbuild@3.2.3
       bob-tsm: 0.4.4_esbuild@0.14.11+typescript@4.5.4
       chalk: 5.0.0
       changesets-github-release: 0.0.4
@@ -995,7 +995,7 @@ importers:
       '@types/koa__router': 8.0.11
       '@types/node': 17.0.8
       '@types/ws': 8.2.2
-      bob-esbuild-cli: 3.0.1_bob-esbuild@3.2.2
+      bob-esbuild-cli: 3.0.1_bob-esbuild@3.2.3
       eventsource: 1.1.0
       express: 4.17.2
       fast-safe-stringify: 2.1.1
@@ -1095,49 +1095,47 @@ importers:
   packages/client/main:
     specifiers:
       '@graphql-ez/utils': workspace:^0.1.3
-      '@graphql-tools/utils': ^8.6.1
       '@graphql-typed-document-node/core': ^3.1.1
       '@types/eventsource': ^1.1.8
       '@types/extract-files': ^8.1.1
       '@types/node': ^17.0.4
       '@types/node-fetch': ^2.5.12
       '@types/ws': ^8.2.2
-      bob-esbuild-cli: ^3.0.1
+      bob-ts: ^3.0.1
       changesets-github-release: ^0.0.4
       eventsource: ^1.1.0
       extract-files: ^11.0.0
       form-data: ^4.0.0
       graphql: 16.1.0-experimental-stream-defer.6
       graphql-ws: ^5.5.5
-      isomorphic-ws: ^4.0.1
       jest: ^27.4.7
       node-fetch: ^2.6.6
+      rimraf: ^3.0.2
       subscriptions-transport-ws-envelop: ^2.0.2
       undici: ^4.12.2
       ws: ^8.4.2
     dependencies:
       '@graphql-ez/utils': link:../../core/utils
-      '@graphql-tools/utils': 8.6.1_7cd0a77a72827e2622373a4a49802d3d
-      '@types/eventsource': 1.1.8
-      eventsource: 1.1.0
-      extract-files: 11.0.0
-      form-data: 4.0.0
-      graphql-ws: 5.5.5_7cd0a77a72827e2622373a4a49802d3d
-      isomorphic-ws: 4.0.1_ws@8.4.2
-      node-fetch: 2.6.6
-      subscriptions-transport-ws-envelop: 2.0.2_b2207f5750eea93f0e48656fb27e3e28
       undici: 4.12.2
-      ws: 8.4.2
     devDependencies:
       '@graphql-typed-document-node/core': 3.1.1_7cd0a77a72827e2622373a4a49802d3d
+      '@types/eventsource': 1.1.8
       '@types/extract-files': 8.1.1
       '@types/node': 17.0.8
       '@types/node-fetch': 2.5.12
       '@types/ws': 8.2.2
-      bob-esbuild-cli: 3.0.1_bob-esbuild@3.2.2
+      bob-ts: 3.0.1_74b606df015848a84d3ecd7816cb8275
       changesets-github-release: 0.0.4
+      eventsource: 1.1.0
+      extract-files: 11.0.0
+      form-data: 4.0.0
       graphql: 16.1.0-experimental-stream-defer.6
+      graphql-ws: 5.5.5_7cd0a77a72827e2622373a4a49802d3d
       jest: 27.4.7
+      node-fetch: 2.6.6
+      rimraf: 3.0.2
+      subscriptions-transport-ws-envelop: 2.0.2_b2207f5750eea93f0e48656fb27e3e28
+      ws: 8.4.2
 
   packages/cloudflare/main:
     specifiers:
@@ -1161,7 +1159,7 @@ importers:
     devDependencies:
       '@types/node': 17.0.8
       '@types/wait-on': 5.3.1
-      bob-esbuild-cli: 3.0.1_bob-esbuild@3.2.2
+      bob-esbuild-cli: 3.0.1_bob-esbuild@3.2.3
       changesets-github-release: 0.0.4
       esbuild: 0.14.11
       execa: 5.1.1
@@ -1193,7 +1191,7 @@ importers:
       '@pablosz/graphql-helix': link:../../helix/core
       tiny-lru: 7.0.6
     devDependencies:
-      bob-esbuild-cli: 3.0.1_bob-esbuild@3.2.2
+      bob-esbuild-cli: 3.0.1_bob-esbuild@3.2.3
       changesets-github-release: 0.0.4
       graphql: 16.1.0-experimental-stream-defer.6
       jest: 27.4.7
@@ -1206,7 +1204,7 @@ importers:
       graphql: 16.1.0-experimental-stream-defer.6
     devDependencies:
       '@types/node': 17.0.8
-      bob-esbuild-cli: 3.0.1_bob-esbuild@3.2.2
+      bob-esbuild-cli: 3.0.1_bob-esbuild@3.2.3
       graphql: 16.1.0-experimental-stream-defer.6
 
   packages/express/main:
@@ -1233,7 +1231,7 @@ importers:
     devDependencies:
       '@types/express': 4.17.13
       '@types/node': 17.0.8
-      bob-esbuild-cli: 3.0.1_bob-esbuild@3.2.2
+      bob-esbuild-cli: 3.0.1_bob-esbuild@3.2.3
       changesets-github-release: 0.0.4
       express: 4.17.2
       graphql: 16.1.0-experimental-stream-defer.6
@@ -1260,7 +1258,7 @@ importers:
     devDependencies:
       '@graphql-ez/express': link:../main
       '@types/express': 4.17.13
-      bob-esbuild-cli: 3.0.1_bob-esbuild@3.2.2
+      bob-esbuild-cli: 3.0.1_bob-esbuild@3.2.3
       changesets-github-release: 0.0.4
       express: 4.17.2
       graphql: 16.1.0-experimental-stream-defer.6
@@ -1285,7 +1283,7 @@ importers:
       fastify-cors: 6.0.2
     devDependencies:
       '@types/node': 17.0.8
-      bob-esbuild-cli: 3.0.1_bob-esbuild@3.2.2
+      bob-esbuild-cli: 3.0.1_bob-esbuild@3.2.3
       changesets-github-release: 0.0.4
       fastify: 3.25.3
       graphql: 16.1.0-experimental-stream-defer.6
@@ -1310,7 +1308,7 @@ importers:
       '@graphql-ez/utils': link:../../core/utils
     devDependencies:
       '@graphql-ez/fastify': link:../main
-      bob-esbuild-cli: 3.0.1_bob-esbuild@3.2.2
+      bob-esbuild-cli: 3.0.1_bob-esbuild@3.2.3
       changesets-github-release: 0.0.4
       fastify: 3.25.3
       graphql: 16.1.0-experimental-stream-defer.6
@@ -1331,7 +1329,7 @@ importers:
     devDependencies:
       '@types/hapi__hapi': 20.0.10
       '@types/node': 17.0.8
-      bob-esbuild-cli: 3.0.1_bob-esbuild@3.2.2
+      bob-esbuild-cli: 3.0.1_bob-esbuild@3.2.3
       changesets-github-release: 0.0.4
       graphql: 16.1.0-experimental-stream-defer.6
       graphql-ez: link:../../core/main
@@ -1358,7 +1356,7 @@ importers:
       '@graphql-ez/hapi': link:../main
       '@hapi/hapi': 20.2.1
       '@types/hapi__hapi': 20.0.10
-      bob-esbuild-cli: 3.0.1_bob-esbuild@3.2.2
+      bob-esbuild-cli: 3.0.1_bob-esbuild@3.2.3
       changesets-github-release: 0.0.4
       graphql: 16.1.0-experimental-stream-defer.6
       graphql-ez: link:../../core/main
@@ -1370,7 +1368,7 @@ importers:
       changesets-github-release: ^0.0.4
       graphql: 16.1.0-experimental-stream-defer.6
     devDependencies:
-      bob-esbuild-cli: 3.0.1_bob-esbuild@3.2.2
+      bob-esbuild-cli: 3.0.1_bob-esbuild@3.2.3
       changesets-github-release: 0.0.4
       graphql: 16.1.0-experimental-stream-defer.6
 
@@ -1411,7 +1409,7 @@ importers:
       '@types/prop-types': 15.7.4
       '@types/react': 17.0.38
       '@types/react-dom': 17.0.11
-      bob-esbuild-cli: 3.0.1_bob-esbuild@3.2.2
+      bob-esbuild-cli: 3.0.1_bob-esbuild@3.2.3
       changesets-github-release: 0.0.4
       concurrently: 7.0.0
       copy-to-clipboard: 3.3.1
@@ -1446,7 +1444,7 @@ importers:
       cors: 2.8.5
     devDependencies:
       '@types/node': 17.0.8
-      bob-esbuild-cli: 3.0.1_bob-esbuild@3.2.2
+      bob-esbuild-cli: 3.0.1_bob-esbuild@3.2.3
       changesets-github-release: 0.0.4
       graphql: 16.1.0-experimental-stream-defer.6
       graphql-ez: link:../../core/main
@@ -1471,7 +1469,7 @@ importers:
     devDependencies:
       '@graphql-ez/http': link:../main
       '@types/node': 17.0.8
-      bob-esbuild-cli: 3.0.1_bob-esbuild@3.2.2
+      bob-esbuild-cli: 3.0.1_bob-esbuild@3.2.3
       changesets-github-release: 0.0.4
       graphql: 16.1.0-experimental-stream-defer.6
       graphql-ez: link:../../core/main
@@ -1505,7 +1503,7 @@ importers:
       '@types/koa': 2.13.4
       '@types/koa__router': 8.0.11
       '@types/node': 17.0.8
-      bob-esbuild-cli: 3.0.1_bob-esbuild@3.2.2
+      bob-esbuild-cli: 3.0.1_bob-esbuild@3.2.3
       changesets-github-release: 0.0.4
       graphql: 16.1.0-experimental-stream-defer.6
       graphql-ez: link:../../core/main
@@ -1534,7 +1532,7 @@ importers:
       '@graphql-ez/koa': link:../main
       '@koa/router': 10.1.1
       '@types/node': 17.0.8
-      bob-esbuild-cli: 3.0.1_bob-esbuild@3.2.2
+      bob-esbuild-cli: 3.0.1_bob-esbuild@3.2.3
       changesets-github-release: 0.0.4
       graphql: 16.1.0-experimental-stream-defer.6
       graphql-ez: link:../../core/main
@@ -1568,7 +1566,7 @@ importers:
       '@types/node': 17.0.8
       '@types/react': 17.0.38
       '@types/react-dom': 17.0.11
-      bob-esbuild-cli: 3.0.1_bob-esbuild@3.2.2
+      bob-esbuild-cli: 3.0.1_bob-esbuild@3.2.3
       changesets-github-release: 0.0.4
       graphql: 16.1.0-experimental-stream-defer.6
       graphql-ez: link:../../core/main
@@ -1625,7 +1623,7 @@ importers:
     devDependencies:
       '@types/mime-types': 2.1.1
       '@types/node': 17.0.8
-      bob-esbuild-cli: 3.0.1_bob-esbuild@3.2.2
+      bob-esbuild-cli: 3.0.1_bob-esbuild@3.2.3
       changesets-github-release: 0.0.4
       graphql-ez: link:../../core/main
       jest: 27.4.7
@@ -1634,7 +1632,7 @@ importers:
 
   packages/plugin/automatic-persisted-queries:
     specifiers:
-      '@graphql-tools/utils': ^8.6.1
+      '@graphql-ez/utils': workspace:^0.1.3
       bob-esbuild-cli: ^3.0.1
       changesets-github-release: ^0.0.4
       graphql: 16.1.0-experimental-stream-defer.6
@@ -1643,10 +1641,10 @@ importers:
       tiny-lru: ^7.0.6
       ts-jest: ^27.1.2
     dependencies:
-      '@graphql-tools/utils': 8.6.1_7cd0a77a72827e2622373a4a49802d3d
+      '@graphql-ez/utils': link:../../core/utils
       tiny-lru: 7.0.6
     devDependencies:
-      bob-esbuild-cli: 3.0.1_bob-esbuild@3.2.2
+      bob-esbuild-cli: 3.0.1_bob-esbuild@3.2.3
       changesets-github-release: 0.0.4
       graphql: 16.1.0-experimental-stream-defer.6
       graphql-ez: link:../../core/main
@@ -1692,7 +1690,7 @@ importers:
     devDependencies:
       '@types/mkdirp': 1.0.2
       '@types/prettier': 2.4.3
-      bob-esbuild-cli: 3.0.1_bob-esbuild@3.2.2
+      bob-esbuild-cli: 3.0.1_bob-esbuild@3.2.3
       changesets-github-release: 0.0.4
       graphql: 16.1.0-experimental-stream-defer.6
       graphql-ez: link:../../core/main
@@ -1714,7 +1712,7 @@ importers:
       '@envelop/dataloader': 2.0.0_c021e90865183cb897904920907fd1b6
       dataloader: 2.0.0
     devDependencies:
-      bob-esbuild-cli: 3.0.1_bob-esbuild@3.2.2
+      bob-esbuild-cli: 3.0.1_bob-esbuild@3.2.3
       changesets-github-release: 0.0.4
       graphql: 16.1.0-experimental-stream-defer.6
       graphql-ez: link:../../core/main
@@ -1737,7 +1735,7 @@ importers:
       '@pablosz/graphql-helix-graphiql': link:../../helix/graphiql
     devDependencies:
       '@types/node': 17.0.8
-      bob-esbuild-cli: 3.0.1_bob-esbuild@3.2.2
+      bob-esbuild-cli: 3.0.1_bob-esbuild@3.2.3
       changesets-github-release: 0.0.4
       graphql-ez: link:../../core/main
       jest: 27.4.7
@@ -1749,7 +1747,6 @@ importers:
       '@envelop/graphql-modules': ^2.0.0
       '@graphql-ez/utils': workspace:^0.1.3
       '@graphql-tools/schema': ^8.3.1
-      '@graphql-tools/utils': ^8.6.1
       bob-esbuild-cli: ^3.0.1
       changesets-github-release: ^0.0.4
       graphql: 16.1.0-experimental-stream-defer.6
@@ -1761,10 +1758,9 @@ importers:
       '@envelop/graphql-modules': 2.0.0_20fcf085353426178dd20ecec18dca56
       '@graphql-ez/utils': link:../../core/utils
       '@graphql-tools/schema': 8.3.1_7cd0a77a72827e2622373a4a49802d3d
-      '@graphql-tools/utils': 8.6.1_7cd0a77a72827e2622373a4a49802d3d
       graphql-modules: 2.0.0_7cd0a77a72827e2622373a4a49802d3d
     devDependencies:
-      bob-esbuild-cli: 3.0.1_bob-esbuild@3.2.2
+      bob-esbuild-cli: 3.0.1_bob-esbuild@3.2.3
       changesets-github-release: 0.0.4
       graphql: 16.1.0-experimental-stream-defer.6
       graphql-ez: link:../../core/main
@@ -1787,7 +1783,7 @@ importers:
       '@graphql-tools/utils': 8.6.1_7cd0a77a72827e2622373a4a49802d3d
       graphql-scalars: 1.14.1_7cd0a77a72827e2622373a4a49802d3d
     devDependencies:
-      bob-esbuild-cli: 3.0.1_bob-esbuild@3.2.2
+      bob-esbuild-cli: 3.0.1_bob-esbuild@3.2.3
       changesets-github-release: 0.0.4
       graphql: 16.1.0-experimental-stream-defer.6
       graphql-ez: link:../../core/main
@@ -1800,7 +1796,7 @@ importers:
       '@graphql-tools/schema': ^8.3.1
       '@graphql-tools/utils': ^8.6.1
       '@types/node': ^17.0.4
-      bob-esbuild: ^3.2.2
+      bob-esbuild: ^3.2.3
       changesets-github-release: ^0.0.4
       graphql: 16.1.0-experimental-stream-defer.6
       graphql-ez: workspace:^0.13.8
@@ -1813,7 +1809,7 @@ importers:
       '@graphql-tools/utils': 8.6.1_7cd0a77a72827e2622373a4a49802d3d
     devDependencies:
       '@types/node': 17.0.8
-      bob-esbuild: 3.2.2_esbuild@0.14.11+typescript@4.5.4
+      bob-esbuild: 3.2.3_esbuild@0.14.11+typescript@4.5.4
       changesets-github-release: 0.0.4
       graphql: 16.1.0-experimental-stream-defer.6
       graphql-ez: link:../../core/main
@@ -1836,7 +1832,7 @@ importers:
       graphql-sse: 1.0.6_7cd0a77a72827e2622373a4a49802d3d
     devDependencies:
       '@types/node': 17.0.8
-      bob-esbuild-cli: 3.0.1_bob-esbuild@3.2.2
+      bob-esbuild-cli: 3.0.1_bob-esbuild@3.2.3
       changesets-github-release: 0.0.4
       graphql: 16.1.0-experimental-stream-defer.6
       graphql-ez: link:../../core/main
@@ -1860,7 +1856,7 @@ importers:
     devDependencies:
       '@types/graphql-upload': 8.0.9
       '@types/node-fetch': 2.5.12
-      bob-esbuild-cli: 3.0.1_bob-esbuild@3.2.2
+      bob-esbuild-cli: 3.0.1_bob-esbuild@3.2.3
       changesets-github-release: 0.0.4
       graphql: 16.1.0-experimental-stream-defer.6
       graphql-ez: link:../../core/main
@@ -1883,7 +1879,7 @@ importers:
       '@graphql-ez/utils': link:../../core/utils
     devDependencies:
       '@types/node': 17.0.8
-      bob-esbuild-cli: 3.0.1_bob-esbuild@3.2.2
+      bob-esbuild-cli: 3.0.1_bob-esbuild@3.2.3
       changesets-github-release: 0.0.4
       graphql-ez: link:../../core/main
       jest: 27.4.7
@@ -1910,7 +1906,7 @@ importers:
       subscriptions-transport-ws-envelop: 2.0.2_b2207f5750eea93f0e48656fb27e3e28
       ws: 8.4.2
     devDependencies:
-      bob-esbuild-cli: 3.0.1_bob-esbuild@3.2.2
+      bob-esbuild-cli: 3.0.1_bob-esbuild@3.2.3
       changesets-github-release: 0.0.4
       graphql: 16.1.0-experimental-stream-defer.6
       graphql-ez: link:../../core/main
@@ -1956,7 +1952,7 @@ importers:
       '@sveltejs/kit': 1.0.0-next.230_svelte@3.46.1
       '@types/node': 17.0.8
       altair-static-slim: 4.3.1
-      bob-esbuild-cli: 3.0.1_bob-esbuild@3.2.2
+      bob-esbuild-cli: 3.0.1_bob-esbuild@3.2.3
       changesets-github-release: 0.0.4
       execa: 5.1.1
       get-port: 5.1.1
@@ -1985,7 +1981,7 @@ importers:
     devDependencies:
       '@types/node': 17.0.8
       '@vercel/node': 1.12.1
-      bob-esbuild-cli: 3.0.1_bob-esbuild@3.2.2
+      bob-esbuild-cli: 3.0.1_bob-esbuild@3.2.3
       graphql: 16.1.0-experimental-stream-defer.6
       graphql-ez: link:../../core/main
 
@@ -5672,6 +5668,11 @@ packages:
       '@octokit/openapi-types': 11.2.0
     dev: true
 
+  /@pnpm/types/7.9.0:
+    resolution: {integrity: sha512-WJol7zZKMktP8bvoFEh/ANCrYsIDcfpGFgRZmAMeULuskFVND4NLXXIkBqNhtmv+ipt6mVUnsZTGHrVaXrlsNA==}
+    engines: {node: '>=12.17'}
+    dev: true
+
   /@polka/url/1.0.0-next.21:
     resolution: {integrity: sha512-a5Sab1C4/icpTZVzZc5Ghpz88yQtGOyNqYXcZgOssB2uuAr+wF/MvN6bgtW32q7HHrvBki+BsZ0OuNv6EV3K9g==}
     dev: true
@@ -5917,6 +5918,7 @@ packages:
 
   /@types/eventsource/1.1.8:
     resolution: {integrity: sha512-fJQNt9LijJCZwYvM6O30uLzdpAK9zs52Uc9iUW9M2Zsg0HQM6DLf6QysjC/wuFX+0798B8AppVMvgdO6IftPKQ==}
+    dev: true
 
   /@types/express-serve-static-core/4.17.28:
     resolution: {integrity: sha512-P1BJAEAW3E2DJUlkgq4tOL3RyMunoWXqbSCygWo5ZIWTjUgN1YnaXWW4VWl/oc8vs/XoYibEGBKP0uZyF4AHig==}
@@ -6870,14 +6872,14 @@ packages:
       inherits: 2.0.4
       readable-stream: 3.6.0
 
-  /bob-esbuild-cli/3.0.1_bob-esbuild@3.2.2:
+  /bob-esbuild-cli/3.0.1_bob-esbuild@3.2.3:
     resolution: {integrity: sha512-YpR8vEBqdiG+IVrgJA3hdIJnh1P6KKxDFO6RTXbbnhjGSmv9k7h4K86PKfCG6cKWJ9zkaE8iDF+i6T0pUfnI9A==}
     engines: {node: '>=12.0.0'}
     hasBin: true
     peerDependencies:
       bob-esbuild: ^3.1.1
     dependencies:
-      bob-esbuild: 3.2.2_esbuild@0.14.11+typescript@4.5.4
+      bob-esbuild: 3.2.3_esbuild@0.14.11+typescript@4.5.4
       commander: 8.3.0
     dev: true
 
@@ -6892,12 +6894,29 @@ packages:
       rollup: 2.64.0
     dev: true
 
-  /bob-esbuild/3.2.2_esbuild@0.14.11+typescript@4.5.4:
-    resolution: {integrity: sha512-NSAz4qw9UF0THG8+f1150M9UVxDX+PEdJxouWuWVxm1Wmq9G7f8Ubip5efdVfJ0wSyHqmcsdyk7elAicJpfk3Q==}
+  /bob-esbuild/3.2.3_esbuild@0.14.11+typescript@4.5.4:
+    resolution: {integrity: sha512-4oCxvi+ZJftxbaS12SsrLWoTVBqiGAwMKZ1lIndNhAv+dqQ2O6QzyystkKJ8WBw+JOk++yrC6eqI8ZsNjODI5A==}
     peerDependencies:
+      esbuild: '>=0.14.11'
+      typescript: '*'
+    dependencies:
+      '@pnpm/types': 7.9.0
+      bob-esbuild-plugin: 3.1.3_esbuild@0.14.11+rollup@2.64.0
+      esbuild: 0.14.11
+      rollup: 2.64.0
+      typescript: 4.5.4
+    dev: true
+
+  /bob-ts/3.0.1_74b606df015848a84d3ecd7816cb8275:
+    resolution: {integrity: sha512-G1viymS87p1FvGCUTFF7YYvZ6qAZFbx3n0UldSnTmwtj2iOEVffgufJLAMguDITW1zbpJVNSmrPCDKlmF0wRdA==}
+    engines: {node: ^12.20.0 || >=14.13.0}
+    hasBin: true
+    peerDependencies:
+      '@types/node': '*'
       esbuild: '>=0.14.9'
       typescript: '*'
     dependencies:
+      '@types/node': 17.0.8
       bob-esbuild-plugin: 3.1.3_esbuild@0.14.11+rollup@2.64.0
       esbuild: 0.14.11
       rollup: 2.64.0
@@ -8521,6 +8540,7 @@ packages:
     engines: {node: '>=0.12.0'}
     dependencies:
       original: 1.0.2
+    dev: true
 
   /execa/0.7.0:
     resolution: {integrity: sha1-lEvs00zEHuMqY6n68nrVpl/Fl3c=}
@@ -8694,6 +8714,7 @@ packages:
   /extract-files/11.0.0:
     resolution: {integrity: sha512-FuoE1qtbJ4bBVvv94CC7s0oTnKUGvQs+Rjf1L2SJFfS+HTVVjhPFtehPdQ0JiGPqVNfSSZvL5yzHHQq2Z4WNhQ==}
     engines: {node: ^12.20 || >= 14.13}
+    dev: true
 
   /extract-files/9.0.0:
     resolution: {integrity: sha512-CvdFfHkC95B4bBBk36hcEmvdR2awOdhhVUYH6S/zrVj3477zven/fJMYg7121h4T1xHZC+tetUpubpAhxwI7hQ==}
@@ -12386,6 +12407,7 @@ packages:
     resolution: {integrity: sha512-hyBVl6iqqUOJ8FqRe+l/gS8H+kKYjrEndd5Pm1MfBtsEKA038HkkdbAl/72EAXGyonD/PFsvmVG+EvcIpliMBg==}
     dependencies:
       url-parse: 1.5.4
+    dev: true
 
   /os-tmpdir/1.0.2:
     resolution: {integrity: sha1-u+Z0BseaqFxc/sdm/lc0VV36EnQ=}
@@ -12945,6 +12967,7 @@ packages:
 
   /querystringify/2.2.0:
     resolution: {integrity: sha512-FIqgj2EUvTa7R50u0rGsyTftzjYmv/a3hO345bZNrqabNqjtgiDMgmo4mkUjd+nzU5oF3dClKqFIPUKybUyqoQ==}
+    dev: true
 
   /queue-microtask/1.2.3:
     resolution: {integrity: sha512-NuaNSa6flKT5JaSYQzJok04JzTL1CA6aGhv5rfLW3PgqA+M2ChpZQnAC8h8i4ZFkBS8X5RqkDBHA7r4hej3K9A==}
@@ -13557,6 +13580,7 @@ packages:
 
   /requires-port/1.0.0:
     resolution: {integrity: sha1-kl0mAdOaxIXgkc8NpcbmlNw9yv8=}
+    dev: true
 
   /resize-observer-polyfill/1.5.1:
     resolution: {integrity: sha512-LwZrotdHOo12nQuZlHEmtuXdqGoOD0OhaxopaNFxWzInpEgaLWoVuAMbTzixuosCx2nEG58ngzW3vxdWoxIgdg==}
@@ -15408,6 +15432,7 @@ packages:
     dependencies:
       querystringify: 2.2.0
       requires-port: 1.0.0
+    dev: true
 
   /use-callback-ref/1.2.5_b08e3c15324cbe90a6ff8fcd416c932c:
     resolution: {integrity: sha512-gN3vgMISAgacF7sqsLPByqoePooY3n2emTH59Ur5d/M8eg4WTWu1xp8i8DHjohftIyEx0S08RiYxbffr4j8Peg==}

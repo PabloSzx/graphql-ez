@@ -1,15 +1,11 @@
+import { createDeferredPromise, DeferredPromise } from '@graphql-ez/utils/promise';
+import type { TypedDocumentNode } from '@graphql-typed-document-node/core';
 import assert from 'assert';
 import { print } from 'graphql';
+import type { IncomingHttpHeaders } from 'http';
 import { PassThrough } from 'stream';
-
-import { createDeferredPromise, DeferredPromise } from '@graphql-ez/utils/promise';
-
 import type { Client } from 'undici';
 
-import type { TypedDocumentNode } from '@graphql-typed-document-node/core';
-import type { IncomingHttpHeaders } from 'http';
-
-import type {} from 'undici/types/dispatcher';
 export function createStreamHelper(
   client: Client,
   path: string,

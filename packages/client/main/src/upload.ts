@@ -1,31 +1,16 @@
-import { LazyPromise } from '@graphql-ez/utils';
 import { ReadStream } from 'fs';
 import { print } from 'graphql';
 import type { IncomingHttpHeaders } from 'http';
 import type { QueryFunctionPost } from './';
+import { lazyDeps } from './utils';
 
 export function createUploadQuery(
   endpoint: string,
   getHeaders: (headers?: IncomingHttpHeaders) => Record<string, any>,
   defaultQuery: QueryFunctionPost
 ): QueryFunctionPost {
-  const deps = LazyPromise(async () => {
-    const [{ default: fetch }, { extractFiles }, { default: FormData }] = await Promise.all([
-      import('node-fetch'),
-      import('extract-files'),
-      import('form-data'),
-    ]);
-
-    return {
-      fetch,
-      extractFiles,
-      FormData,
-    };
-  });
-
   return async function (document, { variables, headers: headersArg, extensions, operationName } = {}) {
-    const { FormData, extractFiles, fetch } = await deps;
-
+    const { extractFiles, FormData, nodeFetch } = await lazyDeps;
     const queryString = typeof document === 'string' ? document : print(document);
 
     const mainBody = {
@@ -53,7 +38,7 @@ export function createUploadQuery(
         form.append(++i + '', file);
       });
 
-      const response = await fetch(endpoint, {
+      const response = await nodeFetch(endpoint, {
         method: 'POST',
         headers: { ...getHeaders(headersArg), ...form.getHeaders() },
         body: form,

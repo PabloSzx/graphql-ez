@@ -113,7 +113,7 @@ test('websockets', async () => {
   {
     const done = createDeferredPromise<unknown>();
 
-    const { unsubscribe } = await websockets.subscribe<number>('{hello}', {
+    const { unsubscribe } = websockets.subscribe<number>('{hello}', {
       onData(value) {
         done.resolve(value);
       },
@@ -131,7 +131,7 @@ test('websockets', async () => {
   }
 
   {
-    const { iterator, unsubscribe } = await websockets.subscribe('subscription{ping}');
+    const { iterator, unsubscribe } = websockets.subscribe('subscription{ping}');
 
     let i = 0;
     for await (const value of iterator) {
@@ -168,12 +168,12 @@ test('legacy websockets', async () => {
     endpoint: address + '/graphql',
   });
 
-  TearDownPromises.push(LazyPromise(async () => (await websockets.client).dispose()));
+  TearDownPromises.push(LazyPromise(async () => (await websockets.legacy.client).close()));
 
   {
     const done = createDeferredPromise<unknown>();
 
-    const { unsubscribe } = await websockets.legacy.subscribe('{hello2: hello}', {
+    const { unsubscribe } = websockets.legacy.subscribe('{hello2: hello}', {
       onData(value) {
         done.resolve(value);
       },
@@ -191,7 +191,7 @@ test('legacy websockets', async () => {
   }
 
   {
-    const { iterator, unsubscribe } = await websockets.legacy.subscribe('subscription{ping}');
+    const { iterator, unsubscribe } = websockets.legacy.subscribe('subscription{ping}');
 
     let i = 0;
     for await (const value of iterator) {
@@ -208,7 +208,7 @@ test('legacy websockets', async () => {
     unsubscribe();
   }
 
-  await (await websockets.client).dispose();
+  (await websockets.legacy.client).close();
 });
 
 testIfStreamDefer('query stream with @stream', async () => {

@@ -1,11 +1,10 @@
-import EventSource, { EventSourceInitDict } from 'eventsource';
-import { ExecutionResult, print, stripIgnoredCharacters } from 'graphql';
-
 import { createDeferredPromise, DeferredPromise } from '@graphql-ez/utils/promise';
-
 import type { TypedDocumentNode } from '@graphql-typed-document-node/core';
-import type { SubscribeOptions, SubscribeFunction } from './types';
+import { ExecutionResult, print, stripIgnoredCharacters } from 'graphql';
 import type { IncomingHttpHeaders } from 'http';
+import type { EventSourceInitDict } from './deps.js';
+import type { SubscribeFunction, SubscribeOptions } from './types';
+import { lazyDeps } from './utils';
 
 export function createSSESubscription(
   href: string,
@@ -28,33 +27,39 @@ export function createSSESubscription(
   ) {
     const queryString = typeof document === 'string' ? document : print(document);
 
-    const eventSource = new EventSource(
-      `${href}?query=${encodeURIComponent(stripIgnoredCharacters(queryString))}${
-        variables ? '&variables=' + encodeURIComponent(JSON.stringify(variables)) : ''
-      }${extensions ? '&extensions=' + encodeURIComponent(JSON.stringify(extensions)) : ''}${
-        operationName ? '&operationName=' + encodeURIComponent(operationName) : ''
-      }`,
-      {
-        ...rest,
-        headers: getHeaders(headers),
-      }
-    );
-
     let deferValuePromise: DeferredPromise<ExecutionResult<any> | null> | null = createDeferredPromise();
 
-    const done = new Promise<void>((resolve, reject) => {
-      eventSource.onerror = evt => {
-        console.error(evt);
-        reject(evt.data);
-        // deferValuePromise?.reject(value)
-      };
-      eventSource.onmessage = evt => {
-        const value = JSON.parse(evt.data);
-        onData?.(value);
-        deferValuePromise?.resolve(value);
-        deferValuePromise = createDeferredPromise();
-        resolve();
-      };
+    let eventSource: import('./deps').EventSource | undefined;
+
+    const done = new Promise<void>(async (resolve, reject) => {
+      const { EventSource } = await lazyDeps;
+      eventSource = new EventSource(
+        `${href}?query=${encodeURIComponent(stripIgnoredCharacters(queryString))}${
+          variables ? '&variables=' + encodeURIComponent(JSON.stringify(variables)) : ''
+        }${extensions ? '&extensions=' + encodeURIComponent(JSON.stringify(extensions)) : ''}${
+          operationName ? '&operationName=' + encodeURIComponent(operationName) : ''
+        }`,
+        {
+          ...rest,
+          headers: getHeaders(headers),
+        }
+      );
+      try {
+        eventSource.onerror = evt => {
+          console.error(evt);
+          reject(evt.data);
+          // deferValuePromise?.reject(value)
+        };
+        eventSource.onmessage = evt => {
+          const value = JSON.parse(evt.data);
+          onData?.(value);
+          deferValuePromise?.resolve(value);
+          deferValuePromise = createDeferredPromise();
+          resolve();
+        };
+      } catch (err) {
+        reject(err);
+      }
     });
 
     async function* iteratorGenerator() {
@@ -70,8 +75,10 @@ export function createSSESubscription(
     const iterator = iteratorGenerator();
 
     return {
-      unsubscribe() {
-        eventSource.close();
+      async unsubscribe() {
+        if (!eventSource) await done;
+
+        eventSource?.close();
       },
       done,
       iterator,

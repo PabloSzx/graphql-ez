@@ -27,7 +27,7 @@ export interface SubscribeFunction<TExtra extends Record<string, any> = {}> {
     options?: SubscribeOptions<TResult, TVariables, TExtensions, TExtra>
   ): {
     done: Promise<void>;
-    unsubscribe: () => void;
+    unsubscribe: () => Promise<void>;
     iterator: AsyncGenerator<ExecutionResult<TResult>, void>;
   };
 }
