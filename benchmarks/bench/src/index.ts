@@ -36,5 +36,3 @@ export const schema = makeExecutableSchema({
     },
   },
 }) as unknown as GraphQLSchema;
-
-export type {} from 'graphql';

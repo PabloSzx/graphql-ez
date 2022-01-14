@@ -1,5 +1,5 @@
 import { EZClient } from '@graphql-ez/client';
-import { LazyPromise } from '@graphql-ez/utils';
+import { LazyPromise } from '@graphql-ez/utils/promise';
 import { command } from 'execa';
 import getPort from 'get-port';
 import { resolve } from 'path';

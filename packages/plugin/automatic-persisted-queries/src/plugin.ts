@@ -1,5 +1,6 @@
+import { isDocumentNode } from '@graphql-ez/utils/document';
 import crypto from 'crypto';
-import { createLRUStore, PersistedQueryStore } from './store';
+import { GraphQLError } from 'graphql';
 import type { EZPlugin, PreProcessRequest, PreProcessRequestOptions } from 'graphql-ez';
 import {
   createErrorResponse,
@@ -7,8 +8,7 @@ import {
   PersistedQueryNotFoundError,
   PersistedQueryNotSupportedError,
 } from './errors';
-import { GraphQLError } from 'graphql';
-import { isDocumentNode } from '@graphql-tools/utils';
+import { createLRUStore, PersistedQueryStore } from './store';
 
 export interface PersistedQuery {
   version: number;

@@ -1,9 +1,9 @@
 import { useGraphQLModules } from '@envelop/graphql-modules';
+import { isDocumentNode } from '@graphql-ez/utils/document';
 import { gql } from '@graphql-ez/utils/gql';
 import { toPlural } from '@graphql-ez/utils/object';
 import { LazyPromise } from '@graphql-ez/utils/promise';
 import { makeExecutableSchema } from '@graphql-tools/schema';
-import { isDocumentNode } from '@graphql-tools/utils';
 import type { GraphQLSchemaConfig } from 'graphql';
 import { GraphQLSchema } from 'graphql';
 import type { EZPlugin, EZResolvers, Plugin as EnvelopPlugin } from 'graphql-ez';
@@ -128,6 +128,5 @@ export const ezGraphQLModules = ({ graphqlSchemaConfig, ...config }: EZGraphQLMo
   };
 };
 
-export { gql };
-
 export * as GraphQLModules from 'graphql-modules';
+export { gql };

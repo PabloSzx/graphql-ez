@@ -6,7 +6,6 @@ import type { EZContext } from 'graphql-ez';
 import { createModule } from 'graphql-modules';
 
 export * from '@graphql-ez/plugin-schema';
-export type {} from 'graphql';
 export { makeExecutableSchema };
 
 export const sleep = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));

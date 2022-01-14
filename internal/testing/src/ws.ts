@@ -7,7 +7,7 @@ import {
 import ws from 'ws';
 
 import { LazyPromise } from '@graphql-ez/utils/promise';
-import { isDocumentNode } from '@graphql-tools/utils';
+import { isDocumentNode } from '@graphql-ez/utils/document';
 
 import { TearDownPromises } from './common';
 
