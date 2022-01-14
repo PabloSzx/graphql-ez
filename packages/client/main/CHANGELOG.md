@@ -1,5 +1,17 @@
 # @graphql-ez/client
 
+## 0.4.0
+
+### Minor Changes
+
+- 2fcfc849: Bundle and lazy import upload/websocket/stream dependencies
+
+### Patch Changes
+
+- 2fcfc849: Add basic documentation
+- Updated dependencies [20315168]
+  - @graphql-ez/utils@0.1.4
+
 ## 0.3.1
 
 ### Patch Changes

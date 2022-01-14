@@ -1,5 +1,13 @@
 # @graphql-ez/plugin-modules
 
+## 0.10.1
+
+### Patch Changes
+
+- 20315168: use "isDocumentNode" from graphql-ez/utils, remove graphql-tools/utils dependency
+- Updated dependencies [20315168]
+  - @graphql-ez/utils@0.1.4
+
 ## 0.10.0
 
 ### Minor Changes
