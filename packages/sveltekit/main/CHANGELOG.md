@@ -1,5 +1,13 @@
 # @graphql-ez/sveltekit
 
+## 0.1.4
+
+### Patch Changes
+
+- e7bf6c0e: add `{ fallthrough: true }` on not found
+- Updated dependencies [20315168]
+  - @graphql-ez/utils@0.1.4
+
 ## 0.1.3
 
 ### Patch Changes
