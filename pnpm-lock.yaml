@@ -21,7 +21,7 @@ importers:
       '@types/node': ^17.0.4
       bob-esbuild: ^3.2.3
       bob-esbuild-cli: ^3.0.1
-      bob-tsm: ^0.4.5
+      bob-tsm: ^0.4.6
       chalk: ^5.0.0
       changesets-github-release: ^0.0.4
       concurrently: ^7.0.0
@@ -46,7 +46,7 @@ importers:
       '@types/node': 17.0.8
       bob-esbuild: 3.2.3_esbuild@0.14.11+typescript@4.5.4
       bob-esbuild-cli: 3.0.1_bob-esbuild@3.2.3
-      bob-tsm: 0.4.5_esbuild@0.14.11+typescript@4.5.4
+      bob-tsm: 0.4.6_esbuild@0.14.11+typescript@4.5.4
       chalk: 5.0.0
       changesets-github-release: 0.0.4
       concurrently: 7.0.0
@@ -72,7 +72,7 @@ importers:
       '@envelop/validation-cache': '*'
       '@types/node': ^17.0.4
       benchmark-bench: workspace:1.0.0
-      bob-tsm: ^0.4.5
+      bob-tsm: ^0.4.6
       fastify: ^3.25.3
       graphql: 16.1.0-experimental-stream-defer.6
       require-env-variable: ^4.0.0
@@ -90,12 +90,12 @@ importers:
       require-env-variable: 4.0.0
       typescript: 4.5.4
     devDependencies:
-      bob-tsm: 0.4.5_esbuild@0.14.11+typescript@4.5.4
+      bob-tsm: 0.4.6_esbuild@0.14.11+typescript@4.5.4
 
   benchmarks/apis/express-graphql:
     specifiers:
       benchmark-bench: workspace:1.0.0
-      bob-tsm: ^0.4.5
+      bob-tsm: ^0.4.6
       express: ^4.17.2
       express-graphql: ^0.12.0
       graphql: 16.1.0-experimental-stream-defer.6
@@ -109,7 +109,7 @@ importers:
       require-env-variable: 4.0.0
       typescript: 4.5.4
     devDependencies:
-      bob-tsm: 0.4.5_esbuild@0.14.11+typescript@4.5.4
+      bob-tsm: 0.4.6_esbuild@0.14.11+typescript@4.5.4
 
   benchmarks/apis/ez-express:
     specifiers:
@@ -117,7 +117,7 @@ importers:
       '@graphql-ez/express': workspace:^0.9.6
       '@types/express': ^4.17.13
       benchmark-bench: workspace:1.0.0
-      bob-tsm: ^0.4.5
+      bob-tsm: ^0.4.6
       cross-env: ^7.0.3
       express: ^4.17.2
       graphql: 16.1.0-experimental-stream-defer.6
@@ -136,14 +136,14 @@ importers:
       require-env-variable: 4.0.0
       typescript: 4.5.4
     devDependencies:
-      bob-tsm: 0.4.5_esbuild@0.14.11+typescript@4.5.4
+      bob-tsm: 0.4.6_esbuild@0.14.11+typescript@4.5.4
 
   benchmarks/apis/ez-fastify:
     specifiers:
       '@envelop/graphql-jit': ^2.0.0
       '@graphql-ez/fastify': workspace:^0.9.5
       benchmark-bench: workspace:1.0.0
-      bob-tsm: ^0.4.5
+      bob-tsm: ^0.4.6
       cross-env: ^7.0.3
       fastify: ^3.25.3
       graphql: 16.1.0-experimental-stream-defer.6
@@ -161,7 +161,7 @@ importers:
       require-env-variable: 4.0.0
       typescript: 4.5.4
     devDependencies:
-      bob-tsm: 0.4.5_esbuild@0.14.11+typescript@4.5.4
+      bob-tsm: 0.4.6_esbuild@0.14.11+typescript@4.5.4
 
   benchmarks/apis/ez-hapi:
     specifiers:
@@ -170,7 +170,7 @@ importers:
       '@hapi/hapi': ^20.2.1
       '@types/hapi__hapi': ^20.0.10
       benchmark-bench: workspace:1.0.0
-      bob-tsm: ^0.4.5
+      bob-tsm: ^0.4.6
       cross-env: ^7.0.3
       graphql: 16.1.0-experimental-stream-defer.6
       graphql-ez: workspace:^0.13.8
@@ -188,7 +188,7 @@ importers:
       require-env-variable: 4.0.0
       typescript: 4.5.4
     devDependencies:
-      bob-tsm: 0.4.5_esbuild@0.14.11+typescript@4.5.4
+      bob-tsm: 0.4.6_esbuild@0.14.11+typescript@4.5.4
 
   benchmarks/apis/ez-http:
     specifiers:
@@ -196,7 +196,7 @@ importers:
       '@graphql-ez/http': workspace:^0.10.2
       '@types/node': ^17.0.4
       benchmark-bench: workspace:1.0.0
-      bob-tsm: ^0.4.5
+      bob-tsm: ^0.4.6
       cross-env: ^7.0.3
       graphql: 16.1.0-experimental-stream-defer.6
       graphql-ez: workspace:^0.13.8
@@ -213,7 +213,7 @@ importers:
       require-env-variable: 4.0.0
       typescript: 4.5.4
     devDependencies:
-      bob-tsm: 0.4.5_esbuild@0.14.11+typescript@4.5.4
+      bob-tsm: 0.4.6_esbuild@0.14.11+typescript@4.5.4
 
   benchmarks/apis/ez-koa:
     specifiers:
@@ -221,7 +221,7 @@ importers:
       '@graphql-ez/koa': workspace:^0.8.8
       '@koa/router': ^10.1.1
       benchmark-bench: workspace:1.0.0
-      bob-tsm: ^0.4.5
+      bob-tsm: ^0.4.6
       cross-env: ^7.0.3
       graphql: 16.1.0-experimental-stream-defer.6
       graphql-ez: workspace:^0.13.8
@@ -240,13 +240,13 @@ importers:
       require-env-variable: 4.0.0
       typescript: 4.5.4
     devDependencies:
-      bob-tsm: 0.4.5_esbuild@0.14.11+typescript@4.5.4
+      bob-tsm: 0.4.6_esbuild@0.14.11+typescript@4.5.4
 
   benchmarks/apis/graphql-helix:
     specifiers:
       '@types/node': ^17.0.4
       benchmark-bench: workspace:1.0.0
-      bob-tsm: ^0.4.5
+      bob-tsm: ^0.4.6
       fastify: ^3.25.3
       graphql: 16.1.0-experimental-stream-defer.6
       graphql-helix: ^1.11.0
@@ -261,12 +261,12 @@ importers:
       typescript: 4.5.4
     devDependencies:
       '@types/node': 17.0.8
-      bob-tsm: 0.4.5_esbuild@0.14.11+typescript@4.5.4
+      bob-tsm: 0.4.6_esbuild@0.14.11+typescript@4.5.4
 
   benchmarks/apis/mercurius:
     specifiers:
       benchmark-bench: workspace:1.0.0
-      bob-tsm: ^0.4.5
+      bob-tsm: ^0.4.6
       cross-env: ^7.0.3
       fastify: ^3.25.3
       graphql: ^16.2.0
@@ -282,7 +282,7 @@ importers:
       require-env-variable: 4.0.0
       typescript: 4.5.4
     devDependencies:
-      bob-tsm: 0.4.5_esbuild@0.14.11+typescript@4.5.4
+      bob-tsm: 0.4.6_esbuild@0.14.11+typescript@4.5.4
     dependenciesMeta:
       benchmark-bench:
         injected: true
@@ -299,7 +299,7 @@ importers:
       '@types/rimraf': ^3.0.2
       '@types/wait-on': ^5.3.1
       autocannon: ^7.6.0
-      bob-tsm: ^0.4.5
+      bob-tsm: ^0.4.6
       chalk: ^5.0.0
       cli-table: ^0.3.11
       concurrently: ^7.0.0
@@ -339,7 +339,7 @@ importers:
       '@types/node': 17.0.8
       '@types/rimraf': 3.0.2
       '@types/wait-on': 5.3.1
-      bob-tsm: 0.4.5_esbuild@0.14.11+typescript@4.5.4
+      bob-tsm: 0.4.6_esbuild@0.14.11+typescript@4.5.4
       graphql: 16.1.0-experimental-stream-defer.6
 
   examples/cloudflare:
@@ -387,7 +387,7 @@ importers:
       '@graphql-typed-document-node/core': ^3.1.1
       '@types/express': ^4.17.13
       '@types/node': ^17.0.4
-      bob-tsm: ^0.4.5
+      bob-tsm: ^0.4.6
       express: ^4.17.2
       graphql: 16.1.0-experimental-stream-defer.6
       graphql-ez: workspace:^0.13.8
@@ -409,7 +409,7 @@ importers:
     devDependencies:
       '@types/express': 4.17.13
       '@types/node': 17.0.8
-      bob-tsm: 0.4.5_esbuild@0.14.11+typescript@4.5.4
+      bob-tsm: 0.4.6_esbuild@0.14.11+typescript@4.5.4
       typescript: 4.5.4
 
   examples/fastify/basic:
@@ -418,7 +418,7 @@ importers:
       '@graphql-ez/plugin-codegen': workspace:^0.7.7
       '@graphql-ez/plugin-schema': workspace:^0.8.2
       '@types/node': ^17.0.4
-      bob-tsm: ^0.4.5
+      bob-tsm: ^0.4.6
       fastify: ^3.25.3
       graphql: 16.1.0-experimental-stream-defer.6
       graphql-ez: workspace:^0.13.8
@@ -431,7 +431,7 @@ importers:
       graphql-ez: link:../../../packages/core/main
     devDependencies:
       '@types/node': 17.0.8
-      bob-tsm: 0.4.5_esbuild@0.14.11+typescript@4.5.4
+      bob-tsm: 0.4.6_esbuild@0.14.11+typescript@4.5.4
 
   examples/fastify/complete:
     specifiers:
@@ -448,7 +448,7 @@ importers:
       '@graphql-ez/plugin-websockets': workspace:^0.10.2
       '@types/graphql-upload': ^8.0.9
       '@types/node': ^17.0.4
-      bob-tsm: ^0.4.5
+      bob-tsm: ^0.4.6
       fastify: ^3.25.3
       graphql: 16.1.0-experimental-stream-defer.6
       graphql-ez: workspace:^0.13.8
@@ -473,7 +473,7 @@ importers:
       graphql-upload: 13.0.0_7cd0a77a72827e2622373a4a49802d3d
     devDependencies:
       '@types/node': 17.0.8
-      bob-tsm: 0.4.5_esbuild@0.14.11+typescript@4.5.4
+      bob-tsm: 0.4.6_esbuild@0.14.11+typescript@4.5.4
       typescript: 4.5.4
 
   examples/fastify/giraphql:
@@ -482,7 +482,7 @@ importers:
       '@graphql-ez/fastify': workspace:^0.9.5
       '@graphql-ez/plugin-graphiql': workspace:^0.11.2
       '@types/node': ^17.0.4
-      bob-tsm: ^0.4.5
+      bob-tsm: ^0.4.6
       fastify: ^3.25.3
       graphql: 16.1.0-experimental-stream-defer.6
       graphql-ez: workspace:^0.13.8
@@ -496,7 +496,7 @@ importers:
       graphql-ez: link:../../../packages/core/main
     devDependencies:
       '@types/node': 17.0.8
-      bob-tsm: 0.4.5_esbuild@0.14.11+typescript@4.5.4
+      bob-tsm: 0.4.6_esbuild@0.14.11+typescript@4.5.4
       typescript: 4.5.4
 
   examples/fastify/nexus:
@@ -504,7 +504,7 @@ importers:
       '@graphql-ez/fastify': workspace:^0.9.5
       '@graphql-ez/plugin-altair': workspace:^0.9.7
       '@types/node': ^17.0.4
-      bob-tsm: ^0.4.5
+      bob-tsm: ^0.4.6
       fastify: ^3.25.3
       graphql: 16.1.0-experimental-stream-defer.6
       graphql-ez: workspace:^0.13.8
@@ -519,7 +519,7 @@ importers:
       nexus: 1.1.0_7cd0a77a72827e2622373a4a49802d3d
     devDependencies:
       '@types/node': 17.0.8
-      bob-tsm: 0.4.5_esbuild@0.14.11+typescript@4.5.4
+      bob-tsm: 0.4.6_esbuild@0.14.11+typescript@4.5.4
       typescript: 4.5.4
 
   examples/fastify/type-graphql:
@@ -569,7 +569,7 @@ importers:
       '@hapi/hapi': ^20.2.1
       '@types/hapi__hapi': ^20.0.10
       '@types/node': ^17.0.4
-      bob-tsm: ^0.4.5
+      bob-tsm: ^0.4.6
       graphql: 16.1.0-experimental-stream-defer.6
       graphql-ez: workspace:^0.13.8
       typescript: ^4.5.4
@@ -590,7 +590,7 @@ importers:
     devDependencies:
       '@types/hapi__hapi': 20.0.10
       '@types/node': 17.0.8
-      bob-tsm: 0.4.5_esbuild@0.14.11+typescript@4.5.4
+      bob-tsm: 0.4.6_esbuild@0.14.11+typescript@4.5.4
       typescript: 4.5.4
 
   examples/http/complete:
@@ -606,7 +606,7 @@ importers:
       '@graphql-ez/plugin-websockets': workspace:^0.10.2
       '@graphql-typed-document-node/core': ^3.1.1
       '@types/node': ^17.0.4
-      bob-tsm: ^0.4.5
+      bob-tsm: ^0.4.6
       graphql: 16.1.0-experimental-stream-defer.6
       graphql-ez: workspace:^0.13.8
       typescript: ^4.5.4
@@ -625,7 +625,7 @@ importers:
       graphql-ez: link:../../../packages/core/main
     devDependencies:
       '@types/node': 17.0.8
-      bob-tsm: 0.4.5_esbuild@0.14.11+typescript@4.5.4
+      bob-tsm: 0.4.6_esbuild@0.14.11+typescript@4.5.4
       typescript: 4.5.4
 
   examples/koa/complete:
@@ -646,7 +646,7 @@ importers:
       '@types/koa__router': ^8.0.11
       '@types/koa-bodyparser': ^4.3.5
       '@types/node': ^17.0.4
-      bob-tsm: ^0.4.5
+      bob-tsm: ^0.4.6
       graphql: 16.1.0-experimental-stream-defer.6
       graphql-ez: workspace:^0.13.8
       koa: ^2.13.4
@@ -674,7 +674,7 @@ importers:
       '@types/koa__router': 8.0.11
       '@types/koa-bodyparser': 4.3.5
       '@types/node': 17.0.8
-      bob-tsm: 0.4.5_esbuild@0.14.11+typescript@4.5.4
+      bob-tsm: 0.4.6_esbuild@0.14.11+typescript@4.5.4
       typescript: 4.5.4
 
   examples/nextjs/complete:
@@ -1030,7 +1030,7 @@ importers:
       '@types/node': ^17.0.4
       '@types/react': ^17.0.38
       '@types/react-dom': ^17.0.11
-      bob-tsm: ^0.4.5
+      bob-tsm: ^0.4.6
       concurrently: ^7.0.0
       cross-env: ^7.0.3
       date-fns: ^2.28.0
@@ -1079,7 +1079,7 @@ importers:
       '@types/node': 17.0.8
       '@types/react': 17.0.38
       '@types/react-dom': 17.0.11
-      bob-tsm: 0.4.5_esbuild@0.14.11+typescript@4.5.4
+      bob-tsm: 0.4.6_esbuild@0.14.11+typescript@4.5.4
       concurrently: 7.0.0
       cross-env: 7.0.3
       esbuild: 0.14.11
@@ -6897,12 +6897,12 @@ packages:
       typescript: 4.5.4
     dev: true
 
-  /bob-tsm/0.4.5_esbuild@0.14.11+typescript@4.5.4:
-    resolution: {integrity: sha512-Va1UR5rsZa3zeK68J8WOXMe+bT7gp8J0GDUj87rt78p8Z9Gv/8YSp9YSL9+zu7gKGOUFEr3QC4AVKK6qISFexQ==}
+  /bob-tsm/0.4.6_esbuild@0.14.11+typescript@4.5.4:
+    resolution: {integrity: sha512-CrNjbphPfTiK73CFczwGpF15THOe7/glwF9Yu+24yy1dsZyB803LBzJ26MEAXFGy0x7ni1OqpogVB8LYDmZQaA==}
     engines: {node: ^12.20.0 || >=14.13.0}
     hasBin: true
     peerDependencies:
-      esbuild: '>=0.14.11'
+      esbuild: '>=0.14.13'
       typescript: '>=4.1.2'
     peerDependenciesMeta:
       typescript:
