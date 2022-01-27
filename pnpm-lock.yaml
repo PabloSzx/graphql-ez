@@ -346,9 +346,9 @@ importers:
     specifiers:
       '@graphql-ez/cloudflare': workspace:*
       '@graphql-ez/plugin-altair': workspace:^0.9.7
-      '@graphql-ez/plugin-graphiql': workspace:^0.11.2
+      '@graphql-ez/plugin-graphiql': workspace:^0.11.3
       '@graphql-ez/plugin-schema': workspace:^0.8.2
-      '@graphql-ez/plugin-voyager': workspace:^0.9.1
+      '@graphql-ez/plugin-voyager': workspace:^0.9.2
       '@types/node': ^17.0.12
       clipboardy: ^3.0.0
       concurrently: ^7.0.0
@@ -378,7 +378,7 @@ importers:
       '@graphql-ez/express': workspace:^0.9.6
       '@graphql-ez/plugin-altair': workspace:^0.9.7
       '@graphql-ez/plugin-codegen': workspace:^0.7.7
-      '@graphql-ez/plugin-graphiql': workspace:^0.11.2
+      '@graphql-ez/plugin-graphiql': workspace:^0.11.3
       '@graphql-ez/plugin-modules': workspace:^0.10.1
       '@graphql-ez/plugin-scalars': workspace:^0.7.3
       '@graphql-ez/plugin-schema': workspace:^0.8.2
@@ -439,12 +439,12 @@ importers:
       '@graphql-ez/plugin-altair': workspace:^0.9.7
       '@graphql-ez/plugin-codegen': workspace:^0.7.7
       '@graphql-ez/plugin-dataloader': workspace:^0.5.6
-      '@graphql-ez/plugin-graphiql': workspace:^0.11.2
+      '@graphql-ez/plugin-graphiql': workspace:^0.11.3
       '@graphql-ez/plugin-modules': workspace:^0.10.1
       '@graphql-ez/plugin-scalars': workspace:^0.7.3
       '@graphql-ez/plugin-schema': workspace:^0.8.2
       '@graphql-ez/plugin-upload': workspace:^0.7.0
-      '@graphql-ez/plugin-voyager': workspace:^0.9.1
+      '@graphql-ez/plugin-voyager': workspace:^0.9.2
       '@graphql-ez/plugin-websockets': workspace:^0.10.2
       '@types/graphql-upload': ^8.0.10
       '@types/node': ^17.0.12
@@ -480,7 +480,7 @@ importers:
     specifiers:
       '@giraphql/core': ^2.23.0
       '@graphql-ez/fastify': workspace:^0.9.5
-      '@graphql-ez/plugin-graphiql': workspace:^0.11.2
+      '@graphql-ez/plugin-graphiql': workspace:^0.11.3
       '@types/node': ^17.0.12
       bob-tsm: ^0.4.6
       fastify: ^3.27.0
@@ -536,12 +536,12 @@ importers:
       type-graphql: ^1.1.1
       typescript: ^4.5.5
     dependencies:
-      '@graphql-ez/fastify': file:packages/fastify/main_4137cdcce88bafeb62c459a46513f09d
+      '@graphql-ez/fastify': link:../../../packages/fastify/main
       '@graphql-ez/plugin-altair': link:../../../packages/plugin/altair
       class-validator: 0.13.2
       fastify: 3.27.0
       graphql: 15.8.0
-      graphql-ez: file:packages/core/main_graphql@15.8.0
+      graphql-ez: link:../../../packages/core/main
       reflect-metadata: 0.1.13
       type-graphql: 1.1.1_aea24acf06b899fbc466d3b3b949c72d
     devDependencies:
@@ -559,7 +559,7 @@ importers:
       '@graphql-ez/hapi': workspace:^0.8.8
       '@graphql-ez/plugin-altair': workspace:^0.9.7
       '@graphql-ez/plugin-codegen': workspace:^0.7.7
-      '@graphql-ez/plugin-graphiql': workspace:^0.11.2
+      '@graphql-ez/plugin-graphiql': workspace:^0.11.3
       '@graphql-ez/plugin-modules': workspace:^0.10.1
       '@graphql-ez/plugin-scalars': workspace:^0.7.3
       '@graphql-ez/plugin-schema': workspace:^0.8.2
@@ -598,7 +598,7 @@ importers:
       '@graphql-ez/http': workspace:^0.10.2
       '@graphql-ez/plugin-altair': workspace:^0.9.7
       '@graphql-ez/plugin-codegen': workspace:^0.7.7
-      '@graphql-ez/plugin-graphiql': workspace:^0.11.2
+      '@graphql-ez/plugin-graphiql': workspace:^0.11.3
       '@graphql-ez/plugin-modules': workspace:^0.10.1
       '@graphql-ez/plugin-scalars': workspace:^0.7.3
       '@graphql-ez/plugin-schema': workspace:^0.8.2
@@ -633,7 +633,7 @@ importers:
       '@graphql-ez/koa': workspace:^0.8.8
       '@graphql-ez/plugin-altair': workspace:^0.9.7
       '@graphql-ez/plugin-codegen': workspace:^0.7.7
-      '@graphql-ez/plugin-graphiql': workspace:^0.11.2
+      '@graphql-ez/plugin-graphiql': workspace:^0.11.3
       '@graphql-ez/plugin-modules': workspace:^0.10.1
       '@graphql-ez/plugin-scalars': workspace:^0.7.3
       '@graphql-ez/plugin-schema': workspace:^0.8.2
@@ -682,11 +682,11 @@ importers:
       '@graphql-ez/nextjs': workspace:^0.10.0
       '@graphql-ez/plugin-altair': workspace:^0.9.7
       '@graphql-ez/plugin-codegen': workspace:^0.7.7
-      '@graphql-ez/plugin-graphiql': workspace:^0.11.2
+      '@graphql-ez/plugin-graphiql': workspace:^0.11.3
       '@graphql-ez/plugin-modules': workspace:^0.10.1
       '@graphql-ez/plugin-scalars': workspace:^0.7.3
       '@graphql-ez/plugin-upload': workspace:^0.7.0
-      '@graphql-ez/plugin-voyager': workspace:^0.9.1
+      '@graphql-ez/plugin-voyager': workspace:^0.9.2
       '@graphql-typed-document-node/core': ^3.1.1
       '@types/node': ^17.0.12
       '@types/react': ^17.0.38
@@ -726,10 +726,10 @@ importers:
     specifiers:
       '@graphql-ez/plugin-altair': workspace:^0.9.7
       '@graphql-ez/plugin-codegen': workspace:^0.7.7
-      '@graphql-ez/plugin-graphiql': workspace:^0.11.2
+      '@graphql-ez/plugin-graphiql': workspace:^0.11.3
       '@graphql-ez/plugin-schema': workspace:^0.8.2
-      '@graphql-ez/plugin-voyager': workspace:^0.9.1
-      '@graphql-ez/sveltekit': workspace:^0.1.4
+      '@graphql-ez/plugin-voyager': workspace:^0.9.2
+      '@graphql-ez/sveltekit': workspace:^0.2.0
       '@graphql-tools/schema': ^8.3.1
       '@sveltejs/adapter-node': ^1.0.0-next.61
       '@sveltejs/kit': ^1.0.0-next.244
@@ -764,9 +764,9 @@ importers:
   examples/vercel:
     specifiers:
       '@graphql-ez/plugin-altair': workspace:^0.9.7
-      '@graphql-ez/plugin-graphiql': workspace:^0.11.2
+      '@graphql-ez/plugin-graphiql': workspace:^0.11.3
       '@graphql-ez/plugin-schema': workspace:^0.8.2
-      '@graphql-ez/plugin-voyager': workspace:^0.9.1
+      '@graphql-ez/plugin-voyager': workspace:^0.9.2
       '@graphql-ez/vercel': workspace:^0.1.1
       graphql: 16.1.0-experimental-stream-defer.6
       graphql-ez: workspace:^0.13.8
@@ -794,14 +794,14 @@ importers:
       graphql-ez: workspace:^0.13.8
       mocha: ^9.2.0
     dependencies:
-      '@graphql-ez/fastify': file:packages/fastify/main_4137cdcce88bafeb62c459a46513f09d
-      '@graphql-ez/fastify-testing': file:packages/fastify/testing_b67af092d6ed5a9d56b3715676d46879
-      '@graphql-ez/plugin-schema': file:packages/plugin/schema_graphql-ez@0.13.8+graphql@15.8.0
+      '@graphql-ez/fastify': link:../../packages/fastify/main
+      '@graphql-ez/fastify-testing': link:../../packages/fastify/testing
+      '@graphql-ez/plugin-schema': link:../../packages/plugin/schema
       c8: 7.11.0
       chai: 4.3.6
       fastify: 3.27.0
       graphql: 15.8.0
-      graphql-ez: file:packages/core/main_graphql@15.8.0
+      graphql-ez: link:../../packages/core/main
       mocha: 9.2.0
     dependenciesMeta:
       '@graphql-ez/fastify':
@@ -825,14 +825,14 @@ importers:
       graphql-ez: workspace:^0.13.8
       mocha: ^9.2.0
     dependencies:
-      '@graphql-ez/fastify': file:packages/fastify/main_0f03d92b23ddbe18ec261070bc034d9b
-      '@graphql-ez/fastify-testing': file:packages/fastify/testing_b5fb49adf4babebe690dcfa8297b8a1b
-      '@graphql-ez/plugin-schema': file:packages/plugin/schema_126a461a9dad8ba6a209d762ead41fb1
+      '@graphql-ez/fastify': link:../../packages/fastify/main
+      '@graphql-ez/fastify-testing': link:../../packages/fastify/testing
+      '@graphql-ez/plugin-schema': link:../../packages/plugin/schema
       c8: 7.11.0
       chai: 4.3.6
       fastify: 3.27.0
       graphql: 15.4.0-experimental-stream-defer.1
-      graphql-ez: file:packages/core/main_34dd13c2583fe2e4418c23a0d30fc388
+      graphql-ez: link:../../packages/core/main
       mocha: 9.2.0
     dependenciesMeta:
       '@graphql-ez/fastify':
@@ -856,14 +856,14 @@ importers:
       graphql-ez: workspace:^0.13.8
       mocha: ^9.2.0
     dependencies:
-      '@graphql-ez/fastify': file:packages/fastify/main_26ee37f68d6d390ab6ed4feffddf88f0
-      '@graphql-ez/fastify-testing': file:packages/fastify/testing_7d79ea1bdd0cfea04aff74b0cf695f59
-      '@graphql-ez/plugin-schema': file:packages/plugin/schema_bf557f974af3af5000be0d5cde90c5bd
+      '@graphql-ez/fastify': link:../../packages/fastify/main
+      '@graphql-ez/fastify-testing': link:../../packages/fastify/testing
+      '@graphql-ez/plugin-schema': link:../../packages/plugin/schema
       c8: 7.11.0
       chai: 4.3.6
       fastify: 3.27.0
       graphql: /graphql-esm/16.0.1
-      graphql-ez: file:packages/core/main_graphql-esm@16.0.1
+      graphql-ez: link:../../packages/core/main
       mocha: 9.2.0
     dependenciesMeta:
       '@graphql-ez/fastify':
@@ -887,14 +887,14 @@ importers:
       graphql-ez: workspace:^0.13.8
       mocha: ^9.2.0
     dependencies:
-      '@graphql-ez/fastify': file:packages/fastify/main_cf8250c06a77e8beece9b6a17d9f91a2
-      '@graphql-ez/fastify-testing': file:packages/fastify/testing_4fa2a2c0a2597450eca9bfe2bebb1095
-      '@graphql-ez/plugin-schema': file:packages/plugin/schema_graphql-ez@0.13.8+graphql@16.3.0
+      '@graphql-ez/fastify': link:../../packages/fastify/main
+      '@graphql-ez/fastify-testing': link:../../packages/fastify/testing
+      '@graphql-ez/plugin-schema': link:../../packages/plugin/schema
       c8: 7.11.0
       chai: 4.3.6
       fastify: 3.27.0
       graphql: 16.3.0
-      graphql-ez: file:packages/core/main_graphql@16.3.0
+      graphql-ez: link:../../packages/core/main
       mocha: 9.2.0
     dependenciesMeta:
       '@graphql-ez/fastify':
@@ -918,14 +918,14 @@ importers:
       graphql-ez: workspace:^0.13.8
       mocha: ^9.2.0
     dependencies:
-      '@graphql-ez/fastify': file:packages/fastify/main_cb14cf4fe6df1b8c649d628e6d8a9a2f
-      '@graphql-ez/fastify-testing': file:packages/fastify/testing_24556f6a17844312506cac1019c98a61
-      '@graphql-ez/plugin-schema': file:packages/plugin/schema_40c9f2f9873dcff0ec041a635395e6d1
+      '@graphql-ez/fastify': link:../../packages/fastify/main
+      '@graphql-ez/fastify-testing': link:../../packages/fastify/testing
+      '@graphql-ez/plugin-schema': link:../../packages/plugin/schema
       c8: 7.11.0
       chai: 4.3.6
       fastify: 3.27.0
       graphql: 16.1.0-experimental-stream-defer.6
-      graphql-ez: file:packages/core/main_7cd0a77a72827e2622373a4a49802d3d
+      graphql-ez: link:../../packages/core/main
       mocha: 9.2.0
     dependenciesMeta:
       '@graphql-ez/fastify':
@@ -1913,9 +1913,9 @@ importers:
     specifiers:
       '@envelop/core': ^1.7.1
       '@graphql-ez/plugin-altair': workspace:^0.9.7
-      '@graphql-ez/plugin-graphiql': workspace:^0.11.2
+      '@graphql-ez/plugin-graphiql': workspace:^0.11.3
       '@graphql-ez/plugin-schema': workspace:^0.8.2
-      '@graphql-ez/plugin-voyager': workspace:^0.9.1
+      '@graphql-ez/plugin-voyager': workspace:^0.9.2
       '@graphql-ez/utils': workspace:^0.1.4
       '@graphql-tools/schema': ^8.3.1
       '@sveltejs/adapter-node': ^1.0.0-next.67
@@ -4044,15 +4044,6 @@ packages:
       - typescript
     dev: true
 
-  /@envelop/core/1.7.1_34dd13c2583fe2e4418c23a0d30fc388:
-    resolution: {integrity: sha512-ZxeQs4G0FOzoFAH+zskubx5aM9kx6BiUvcSI9Lo3MfYBmnK7cjwcwDdwk6Mq48QDuAeVdGfDmQz+BiWg0k2GmQ==}
-    peerDependencies:
-      graphql: ^14.0.0 || ^15.0.0 || ^16.0.0
-    dependencies:
-      '@envelop/types': 1.5.1_34dd13c2583fe2e4418c23a0d30fc388
-      graphql: 15.4.0-experimental-stream-defer.1
-    dev: false
-
   /@envelop/core/1.7.1_7cd0a77a72827e2622373a4a49802d3d:
     resolution: {integrity: sha512-ZxeQs4G0FOzoFAH+zskubx5aM9kx6BiUvcSI9Lo3MfYBmnK7cjwcwDdwk6Mq48QDuAeVdGfDmQz+BiWg0k2GmQ==}
     peerDependencies:
@@ -4060,33 +4051,6 @@ packages:
     dependencies:
       '@envelop/types': 1.5.1_7cd0a77a72827e2622373a4a49802d3d
       graphql: 16.1.0-experimental-stream-defer.6
-
-  /@envelop/core/1.7.1_graphql-esm@16.0.1:
-    resolution: {integrity: sha512-ZxeQs4G0FOzoFAH+zskubx5aM9kx6BiUvcSI9Lo3MfYBmnK7cjwcwDdwk6Mq48QDuAeVdGfDmQz+BiWg0k2GmQ==}
-    peerDependencies:
-      graphql: ^14.0.0 || ^15.0.0 || ^16.0.0
-    dependencies:
-      '@envelop/types': 1.5.1_graphql-esm@16.0.1
-      graphql: /graphql-esm/16.0.1
-    dev: false
-
-  /@envelop/core/1.7.1_graphql@15.8.0:
-    resolution: {integrity: sha512-ZxeQs4G0FOzoFAH+zskubx5aM9kx6BiUvcSI9Lo3MfYBmnK7cjwcwDdwk6Mq48QDuAeVdGfDmQz+BiWg0k2GmQ==}
-    peerDependencies:
-      graphql: ^14.0.0 || ^15.0.0 || ^16.0.0
-    dependencies:
-      '@envelop/types': 1.5.1_graphql@15.8.0
-      graphql: 15.8.0
-    dev: false
-
-  /@envelop/core/1.7.1_graphql@16.3.0:
-    resolution: {integrity: sha512-ZxeQs4G0FOzoFAH+zskubx5aM9kx6BiUvcSI9Lo3MfYBmnK7cjwcwDdwk6Mq48QDuAeVdGfDmQz+BiWg0k2GmQ==}
-    peerDependencies:
-      graphql: ^14.0.0 || ^15.0.0 || ^16.0.0
-    dependencies:
-      '@envelop/types': 1.5.1_graphql@16.3.0
-      graphql: 16.3.0
-    dev: false
 
   /@envelop/dataloader/2.0.0_c021e90865183cb897904920907fd1b6:
     resolution: {integrity: sha512-Rrg59qoM1zkBwtBRDrziQV6LHGsegZbA5FW1SRvEPL9WtaujNOCiM4vLKudkEC+R6WjnxoGGFhl3Lyhc73q9tQ==}
@@ -4144,44 +4108,12 @@ packages:
       tiny-lru: 7.0.6
     dev: false
 
-  /@envelop/types/1.5.1_34dd13c2583fe2e4418c23a0d30fc388:
-    resolution: {integrity: sha512-NrwLVzyNqiSzgRRqOxkU2IgRc5hSGS73VsgxqchU3jl36rYo7AXVAnITkytmB9wk+jN2vUOVvayLkaTXooARwg==}
-    peerDependencies:
-      graphql: ^14.0.0 || ^15.0.0 || ^16.0.0
-    dependencies:
-      graphql: 15.4.0-experimental-stream-defer.1
-    dev: false
-
   /@envelop/types/1.5.1_7cd0a77a72827e2622373a4a49802d3d:
     resolution: {integrity: sha512-NrwLVzyNqiSzgRRqOxkU2IgRc5hSGS73VsgxqchU3jl36rYo7AXVAnITkytmB9wk+jN2vUOVvayLkaTXooARwg==}
     peerDependencies:
       graphql: ^14.0.0 || ^15.0.0 || ^16.0.0
     dependencies:
       graphql: 16.1.0-experimental-stream-defer.6
-
-  /@envelop/types/1.5.1_graphql-esm@16.0.1:
-    resolution: {integrity: sha512-NrwLVzyNqiSzgRRqOxkU2IgRc5hSGS73VsgxqchU3jl36rYo7AXVAnITkytmB9wk+jN2vUOVvayLkaTXooARwg==}
-    peerDependencies:
-      graphql: ^14.0.0 || ^15.0.0 || ^16.0.0
-    dependencies:
-      graphql: /graphql-esm/16.0.1
-    dev: false
-
-  /@envelop/types/1.5.1_graphql@15.8.0:
-    resolution: {integrity: sha512-NrwLVzyNqiSzgRRqOxkU2IgRc5hSGS73VsgxqchU3jl36rYo7AXVAnITkytmB9wk+jN2vUOVvayLkaTXooARwg==}
-    peerDependencies:
-      graphql: ^14.0.0 || ^15.0.0 || ^16.0.0
-    dependencies:
-      graphql: 15.8.0
-    dev: false
-
-  /@envelop/types/1.5.1_graphql@16.3.0:
-    resolution: {integrity: sha512-NrwLVzyNqiSzgRRqOxkU2IgRc5hSGS73VsgxqchU3jl36rYo7AXVAnITkytmB9wk+jN2vUOVvayLkaTXooARwg==}
-    peerDependencies:
-      graphql: ^14.0.0 || ^15.0.0 || ^16.0.0
-    dependencies:
-      graphql: 16.3.0
-    dev: false
 
   /@envelop/validation-cache/3.0.0_0721a9057fca88abf04f34ba6ce34818:
     resolution: {integrity: sha512-JqTA6huTygAlQilaVEM77DlFdGSptf5ElOWX7wdu0VC15h2Np7MmnsyOcy7xQI1Sc7B3oaNSo12l3QD6K28vOQ==}
@@ -4412,16 +4344,6 @@ packages:
       p-limit: 3.1.0
       tslib: 2.3.1
 
-  /@graphql-tools/merge/8.2.1_34dd13c2583fe2e4418c23a0d30fc388:
-    resolution: {integrity: sha512-Q240kcUszhXiAYudjuJgNuLgy9CryDP3wp83NOZQezfA6h3ByYKU7xI6DiKrdjyVaGpYN3ppUmdj0uf5GaXzMA==}
-    peerDependencies:
-      graphql: ^14.0.0 || ^15.0.0 || ^16.0.0
-    dependencies:
-      '@graphql-tools/utils': 8.6.1_34dd13c2583fe2e4418c23a0d30fc388
-      graphql: 15.4.0-experimental-stream-defer.1
-      tslib: 2.3.1
-    dev: false
-
   /@graphql-tools/merge/8.2.1_7cd0a77a72827e2622373a4a49802d3d:
     resolution: {integrity: sha512-Q240kcUszhXiAYudjuJgNuLgy9CryDP3wp83NOZQezfA6h3ByYKU7xI6DiKrdjyVaGpYN3ppUmdj0uf5GaXzMA==}
     peerDependencies:
@@ -4430,26 +4352,6 @@ packages:
       '@graphql-tools/utils': 8.6.1_7cd0a77a72827e2622373a4a49802d3d
       graphql: 16.1.0-experimental-stream-defer.6
       tslib: 2.3.1
-
-  /@graphql-tools/merge/8.2.1_graphql-esm@16.0.1:
-    resolution: {integrity: sha512-Q240kcUszhXiAYudjuJgNuLgy9CryDP3wp83NOZQezfA6h3ByYKU7xI6DiKrdjyVaGpYN3ppUmdj0uf5GaXzMA==}
-    peerDependencies:
-      graphql: ^14.0.0 || ^15.0.0 || ^16.0.0
-    dependencies:
-      '@graphql-tools/utils': 8.6.1_graphql-esm@16.0.1
-      graphql: /graphql-esm/16.0.1
-      tslib: 2.3.1
-    dev: false
-
-  /@graphql-tools/merge/8.2.1_graphql@15.8.0:
-    resolution: {integrity: sha512-Q240kcUszhXiAYudjuJgNuLgy9CryDP3wp83NOZQezfA6h3ByYKU7xI6DiKrdjyVaGpYN3ppUmdj0uf5GaXzMA==}
-    peerDependencies:
-      graphql: ^14.0.0 || ^15.0.0 || ^16.0.0
-    dependencies:
-      '@graphql-tools/utils': 8.6.1_graphql@15.8.0
-      graphql: 15.8.0
-      tslib: 2.3.1
-    dev: false
 
   /@graphql-tools/merge/8.2.1_graphql@16.3.0:
     resolution: {integrity: sha512-Q240kcUszhXiAYudjuJgNuLgy9CryDP3wp83NOZQezfA6h3ByYKU7xI6DiKrdjyVaGpYN3ppUmdj0uf5GaXzMA==}
@@ -4484,18 +4386,6 @@ packages:
       - supports-color
     dev: false
 
-  /@graphql-tools/schema/8.3.1_34dd13c2583fe2e4418c23a0d30fc388:
-    resolution: {integrity: sha512-3R0AJFe715p4GwF067G5i0KCr/XIdvSfDLvTLEiTDQ8V/hwbOHEKHKWlEBHGRQwkG5lwFQlW1aOn7VnlPERnWQ==}
-    peerDependencies:
-      graphql: ^14.0.0 || ^15.0.0 || ^16.0.0
-    dependencies:
-      '@graphql-tools/merge': 8.2.1_34dd13c2583fe2e4418c23a0d30fc388
-      '@graphql-tools/utils': 8.6.1_34dd13c2583fe2e4418c23a0d30fc388
-      graphql: 15.4.0-experimental-stream-defer.1
-      tslib: 2.3.1
-      value-or-promise: 1.0.11
-    dev: false
-
   /@graphql-tools/schema/8.3.1_7cd0a77a72827e2622373a4a49802d3d:
     resolution: {integrity: sha512-3R0AJFe715p4GwF067G5i0KCr/XIdvSfDLvTLEiTDQ8V/hwbOHEKHKWlEBHGRQwkG5lwFQlW1aOn7VnlPERnWQ==}
     peerDependencies:
@@ -4506,30 +4396,6 @@ packages:
       graphql: 16.1.0-experimental-stream-defer.6
       tslib: 2.3.1
       value-or-promise: 1.0.11
-
-  /@graphql-tools/schema/8.3.1_graphql-esm@16.0.1:
-    resolution: {integrity: sha512-3R0AJFe715p4GwF067G5i0KCr/XIdvSfDLvTLEiTDQ8V/hwbOHEKHKWlEBHGRQwkG5lwFQlW1aOn7VnlPERnWQ==}
-    peerDependencies:
-      graphql: ^14.0.0 || ^15.0.0 || ^16.0.0
-    dependencies:
-      '@graphql-tools/merge': 8.2.1_graphql-esm@16.0.1
-      '@graphql-tools/utils': 8.6.1_graphql-esm@16.0.1
-      graphql: /graphql-esm/16.0.1
-      tslib: 2.3.1
-      value-or-promise: 1.0.11
-    dev: false
-
-  /@graphql-tools/schema/8.3.1_graphql@15.8.0:
-    resolution: {integrity: sha512-3R0AJFe715p4GwF067G5i0KCr/XIdvSfDLvTLEiTDQ8V/hwbOHEKHKWlEBHGRQwkG5lwFQlW1aOn7VnlPERnWQ==}
-    peerDependencies:
-      graphql: ^14.0.0 || ^15.0.0 || ^16.0.0
-    dependencies:
-      '@graphql-tools/merge': 8.2.1_graphql@15.8.0
-      '@graphql-tools/utils': 8.6.1_graphql@15.8.0
-      graphql: 15.8.0
-      tslib: 2.3.1
-      value-or-promise: 1.0.11
-    dev: false
 
   /@graphql-tools/schema/8.3.1_graphql@16.3.0:
     resolution: {integrity: sha512-3R0AJFe715p4GwF067G5i0KCr/XIdvSfDLvTLEiTDQ8V/hwbOHEKHKWlEBHGRQwkG5lwFQlW1aOn7VnlPERnWQ==}
@@ -4575,15 +4441,6 @@ packages:
       - utf-8-validate
     dev: true
 
-  /@graphql-tools/utils/8.6.1_34dd13c2583fe2e4418c23a0d30fc388:
-    resolution: {integrity: sha512-uxcfHCocp4ENoIiovPxUWZEHOnbXqj3ekWc0rm7fUhW93a1xheARNHcNKhwMTR+UKXVJbTFQdGI1Rl5XdyvDBg==}
-    peerDependencies:
-      graphql: ^14.0.0 || ^15.0.0 || ^16.0.0
-    dependencies:
-      graphql: 15.4.0-experimental-stream-defer.1
-      tslib: 2.3.1
-    dev: false
-
   /@graphql-tools/utils/8.6.1_7cd0a77a72827e2622373a4a49802d3d:
     resolution: {integrity: sha512-uxcfHCocp4ENoIiovPxUWZEHOnbXqj3ekWc0rm7fUhW93a1xheARNHcNKhwMTR+UKXVJbTFQdGI1Rl5XdyvDBg==}
     peerDependencies:
@@ -4591,24 +4448,6 @@ packages:
     dependencies:
       graphql: 16.1.0-experimental-stream-defer.6
       tslib: 2.3.1
-
-  /@graphql-tools/utils/8.6.1_graphql-esm@16.0.1:
-    resolution: {integrity: sha512-uxcfHCocp4ENoIiovPxUWZEHOnbXqj3ekWc0rm7fUhW93a1xheARNHcNKhwMTR+UKXVJbTFQdGI1Rl5XdyvDBg==}
-    peerDependencies:
-      graphql: ^14.0.0 || ^15.0.0 || ^16.0.0
-    dependencies:
-      graphql: /graphql-esm/16.0.1
-      tslib: 2.3.1
-    dev: false
-
-  /@graphql-tools/utils/8.6.1_graphql@15.8.0:
-    resolution: {integrity: sha512-uxcfHCocp4ENoIiovPxUWZEHOnbXqj3ekWc0rm7fUhW93a1xheARNHcNKhwMTR+UKXVJbTFQdGI1Rl5XdyvDBg==}
-    peerDependencies:
-      graphql: ^14.0.0 || ^15.0.0 || ^16.0.0
-    dependencies:
-      graphql: 15.8.0
-      tslib: 2.3.1
-    dev: false
 
   /@graphql-tools/utils/8.6.1_graphql@16.3.0:
     resolution: {integrity: sha512-uxcfHCocp4ENoIiovPxUWZEHOnbXqj3ekWc0rm7fUhW93a1xheARNHcNKhwMTR+UKXVJbTFQdGI1Rl5XdyvDBg==}
@@ -15795,424 +15634,4 @@ packages:
       wait-on: 6.0.0
     transitivePeerDependencies:
       - debug
-    dev: false
-
-  file:packages/core/main_34dd13c2583fe2e4418c23a0d30fc388:
-    resolution: {directory: packages/core/main, type: directory}
-    id: file:packages/core/main
-    name: graphql-ez
-    version: 0.13.8
-    engines: {node: ^12.20.0 || >=14.13.0}
-    peerDependencies:
-      graphql: '*'
-    peerDependenciesMeta:
-      graphql:
-        optional: true
-    dependencies:
-      '@envelop/core': 1.7.1_34dd13c2583fe2e4418c23a0d30fc388
-      '@envelop/types': 1.5.1_34dd13c2583fe2e4418c23a0d30fc388
-      '@graphql-ez/utils': link:packages/core/utils
-      '@pablosz/graphql-helix': link:packages/helix/core
-      graphql: 15.4.0-experimental-stream-defer.1
-      tiny-lru: 7.0.6
-    dev: false
-
-  file:packages/core/main_7cd0a77a72827e2622373a4a49802d3d:
-    resolution: {directory: packages/core/main, type: directory}
-    id: file:packages/core/main
-    name: graphql-ez
-    version: 0.13.8
-    engines: {node: ^12.20.0 || >=14.13.0}
-    peerDependencies:
-      graphql: '*'
-    peerDependenciesMeta:
-      graphql:
-        optional: true
-    dependencies:
-      '@envelop/core': 1.7.1_7cd0a77a72827e2622373a4a49802d3d
-      '@envelop/types': 1.5.1_7cd0a77a72827e2622373a4a49802d3d
-      '@graphql-ez/utils': link:packages/core/utils
-      '@pablosz/graphql-helix': link:packages/helix/core
-      graphql: 16.1.0-experimental-stream-defer.6
-      tiny-lru: 7.0.6
-    dev: false
-
-  file:packages/core/main_graphql-esm@16.0.1:
-    resolution: {directory: packages/core/main, type: directory}
-    id: file:packages/core/main
-    name: graphql-ez
-    version: 0.13.8
-    engines: {node: ^12.20.0 || >=14.13.0}
-    peerDependencies:
-      graphql: '*'
-    peerDependenciesMeta:
-      graphql:
-        optional: true
-    dependencies:
-      '@envelop/core': 1.7.1_graphql-esm@16.0.1
-      '@envelop/types': 1.5.1_graphql-esm@16.0.1
-      '@graphql-ez/utils': link:packages/core/utils
-      '@pablosz/graphql-helix': link:packages/helix/core
-      graphql: /graphql-esm/16.0.1
-      tiny-lru: 7.0.6
-    dev: false
-
-  file:packages/core/main_graphql@15.8.0:
-    resolution: {directory: packages/core/main, type: directory}
-    id: file:packages/core/main
-    name: graphql-ez
-    version: 0.13.8
-    engines: {node: ^12.20.0 || >=14.13.0}
-    peerDependencies:
-      graphql: '*'
-    peerDependenciesMeta:
-      graphql:
-        optional: true
-    dependencies:
-      '@envelop/core': 1.7.1_graphql@15.8.0
-      '@envelop/types': 1.5.1_graphql@15.8.0
-      '@graphql-ez/utils': link:packages/core/utils
-      '@pablosz/graphql-helix': link:packages/helix/core
-      graphql: 15.8.0
-      tiny-lru: 7.0.6
-    dev: false
-
-  file:packages/core/main_graphql@16.3.0:
-    resolution: {directory: packages/core/main, type: directory}
-    id: file:packages/core/main
-    name: graphql-ez
-    version: 0.13.8
-    engines: {node: ^12.20.0 || >=14.13.0}
-    peerDependencies:
-      graphql: '*'
-    peerDependenciesMeta:
-      graphql:
-        optional: true
-    dependencies:
-      '@envelop/core': 1.7.1_graphql@16.3.0
-      '@envelop/types': 1.5.1_graphql@16.3.0
-      '@graphql-ez/utils': link:packages/core/utils
-      '@pablosz/graphql-helix': link:packages/helix/core
-      graphql: 16.3.0
-      tiny-lru: 7.0.6
-    dev: false
-
-  file:packages/fastify/main_0f03d92b23ddbe18ec261070bc034d9b:
-    resolution: {directory: packages/fastify/main, type: directory}
-    id: file:packages/fastify/main
-    name: '@graphql-ez/fastify'
-    version: 0.9.5
-    engines: {node: ^12.20.0 || >=14.13.0}
-    peerDependencies:
-      '@types/node': '*'
-      fastify: ^3.25.3
-      graphql: '*'
-      graphql-ez: workspace:^0.13.7
-    peerDependenciesMeta:
-      fastify:
-        optional: true
-      graphql:
-        optional: true
-    dependencies:
-      '@graphql-ez/utils': link:packages/core/utils
-      '@types/node': 17.0.12
-      fastify: 3.27.0
-      fastify-cors: 6.0.2
-      graphql: 15.4.0-experimental-stream-defer.1
-      graphql-ez: file:packages/core/main_34dd13c2583fe2e4418c23a0d30fc388
-    dev: false
-
-  file:packages/fastify/main_26ee37f68d6d390ab6ed4feffddf88f0:
-    resolution: {directory: packages/fastify/main, type: directory}
-    id: file:packages/fastify/main
-    name: '@graphql-ez/fastify'
-    version: 0.9.5
-    engines: {node: ^12.20.0 || >=14.13.0}
-    peerDependencies:
-      '@types/node': '*'
-      fastify: ^3.25.3
-      graphql: '*'
-      graphql-ez: workspace:^0.13.7
-    peerDependenciesMeta:
-      fastify:
-        optional: true
-      graphql:
-        optional: true
-    dependencies:
-      '@graphql-ez/utils': link:packages/core/utils
-      '@types/node': 17.0.12
-      fastify: 3.27.0
-      fastify-cors: 6.0.2
-      graphql: /graphql-esm/16.0.1
-      graphql-ez: file:packages/core/main_graphql-esm@16.0.1
-    dev: false
-
-  file:packages/fastify/main_4137cdcce88bafeb62c459a46513f09d:
-    resolution: {directory: packages/fastify/main, type: directory}
-    id: file:packages/fastify/main
-    name: '@graphql-ez/fastify'
-    version: 0.9.5
-    engines: {node: ^12.20.0 || >=14.13.0}
-    peerDependencies:
-      '@types/node': '*'
-      fastify: ^3.25.3
-      graphql: '*'
-      graphql-ez: workspace:^0.13.7
-    peerDependenciesMeta:
-      fastify:
-        optional: true
-      graphql:
-        optional: true
-    dependencies:
-      '@graphql-ez/utils': link:packages/core/utils
-      '@types/node': 17.0.12
-      fastify: 3.27.0
-      fastify-cors: 6.0.2
-      graphql: 15.8.0
-      graphql-ez: file:packages/core/main_graphql@15.8.0
-    dev: false
-
-  file:packages/fastify/main_cb14cf4fe6df1b8c649d628e6d8a9a2f:
-    resolution: {directory: packages/fastify/main, type: directory}
-    id: file:packages/fastify/main
-    name: '@graphql-ez/fastify'
-    version: 0.9.5
-    engines: {node: ^12.20.0 || >=14.13.0}
-    peerDependencies:
-      '@types/node': '*'
-      fastify: ^3.25.3
-      graphql: '*'
-      graphql-ez: workspace:^0.13.7
-    peerDependenciesMeta:
-      fastify:
-        optional: true
-      graphql:
-        optional: true
-    dependencies:
-      '@graphql-ez/utils': link:packages/core/utils
-      '@types/node': 17.0.12
-      fastify: 3.27.0
-      fastify-cors: 6.0.2
-      graphql: 16.1.0-experimental-stream-defer.6
-      graphql-ez: file:packages/core/main_7cd0a77a72827e2622373a4a49802d3d
-    dev: false
-
-  file:packages/fastify/main_cf8250c06a77e8beece9b6a17d9f91a2:
-    resolution: {directory: packages/fastify/main, type: directory}
-    id: file:packages/fastify/main
-    name: '@graphql-ez/fastify'
-    version: 0.9.5
-    engines: {node: ^12.20.0 || >=14.13.0}
-    peerDependencies:
-      '@types/node': '*'
-      fastify: ^3.25.3
-      graphql: '*'
-      graphql-ez: workspace:^0.13.7
-    peerDependenciesMeta:
-      fastify:
-        optional: true
-      graphql:
-        optional: true
-    dependencies:
-      '@graphql-ez/utils': link:packages/core/utils
-      '@types/node': 17.0.12
-      fastify: 3.27.0
-      fastify-cors: 6.0.2
-      graphql: 16.3.0
-      graphql-ez: file:packages/core/main_graphql@16.3.0
-    dev: false
-
-  file:packages/fastify/testing_24556f6a17844312506cac1019c98a61:
-    resolution: {directory: packages/fastify/testing, type: directory}
-    id: file:packages/fastify/testing
-    name: '@graphql-ez/fastify-testing'
-    version: 0.1.5
-    peerDependencies:
-      '@graphql-ez/fastify': workspace:^0.9.4
-      fastify: ^3.25.3
-      graphql: '*'
-      graphql-ez: workspace:^0.13.8
-    dependencies:
-      '@graphql-ez/client': link:packages/client/main
-      '@graphql-ez/fastify': file:packages/fastify/main_cb14cf4fe6df1b8c649d628e6d8a9a2f
-      '@graphql-ez/utils': link:packages/core/utils
-      fastify: 3.27.0
-      graphql: 16.1.0-experimental-stream-defer.6
-      graphql-ez: file:packages/core/main_7cd0a77a72827e2622373a4a49802d3d
-    dev: false
-
-  file:packages/fastify/testing_4fa2a2c0a2597450eca9bfe2bebb1095:
-    resolution: {directory: packages/fastify/testing, type: directory}
-    id: file:packages/fastify/testing
-    name: '@graphql-ez/fastify-testing'
-    version: 0.1.5
-    peerDependencies:
-      '@graphql-ez/fastify': workspace:^0.9.4
-      fastify: ^3.25.3
-      graphql: '*'
-      graphql-ez: workspace:^0.13.8
-    dependencies:
-      '@graphql-ez/client': link:packages/client/main
-      '@graphql-ez/fastify': file:packages/fastify/main_cf8250c06a77e8beece9b6a17d9f91a2
-      '@graphql-ez/utils': link:packages/core/utils
-      fastify: 3.27.0
-      graphql: 16.3.0
-      graphql-ez: file:packages/core/main_graphql@16.3.0
-    dev: false
-
-  file:packages/fastify/testing_7d79ea1bdd0cfea04aff74b0cf695f59:
-    resolution: {directory: packages/fastify/testing, type: directory}
-    id: file:packages/fastify/testing
-    name: '@graphql-ez/fastify-testing'
-    version: 0.1.5
-    peerDependencies:
-      '@graphql-ez/fastify': workspace:^0.9.4
-      fastify: ^3.25.3
-      graphql: '*'
-      graphql-ez: workspace:^0.13.8
-    dependencies:
-      '@graphql-ez/client': link:packages/client/main
-      '@graphql-ez/fastify': file:packages/fastify/main_26ee37f68d6d390ab6ed4feffddf88f0
-      '@graphql-ez/utils': link:packages/core/utils
-      fastify: 3.27.0
-      graphql: /graphql-esm/16.0.1
-      graphql-ez: file:packages/core/main_graphql-esm@16.0.1
-    dev: false
-
-  file:packages/fastify/testing_b5fb49adf4babebe690dcfa8297b8a1b:
-    resolution: {directory: packages/fastify/testing, type: directory}
-    id: file:packages/fastify/testing
-    name: '@graphql-ez/fastify-testing'
-    version: 0.1.5
-    peerDependencies:
-      '@graphql-ez/fastify': workspace:^0.9.4
-      fastify: ^3.25.3
-      graphql: '*'
-      graphql-ez: workspace:^0.13.8
-    dependencies:
-      '@graphql-ez/client': link:packages/client/main
-      '@graphql-ez/fastify': file:packages/fastify/main_0f03d92b23ddbe18ec261070bc034d9b
-      '@graphql-ez/utils': link:packages/core/utils
-      fastify: 3.27.0
-      graphql: 15.4.0-experimental-stream-defer.1
-      graphql-ez: file:packages/core/main_34dd13c2583fe2e4418c23a0d30fc388
-    dev: false
-
-  file:packages/fastify/testing_b67af092d6ed5a9d56b3715676d46879:
-    resolution: {directory: packages/fastify/testing, type: directory}
-    id: file:packages/fastify/testing
-    name: '@graphql-ez/fastify-testing'
-    version: 0.1.5
-    peerDependencies:
-      '@graphql-ez/fastify': workspace:^0.9.4
-      fastify: ^3.25.3
-      graphql: '*'
-      graphql-ez: workspace:^0.13.8
-    dependencies:
-      '@graphql-ez/client': link:packages/client/main
-      '@graphql-ez/fastify': file:packages/fastify/main_4137cdcce88bafeb62c459a46513f09d
-      '@graphql-ez/utils': link:packages/core/utils
-      fastify: 3.27.0
-      graphql: 15.8.0
-      graphql-ez: file:packages/core/main_graphql@15.8.0
-    dev: false
-
-  file:packages/plugin/schema_126a461a9dad8ba6a209d762ead41fb1:
-    resolution: {directory: packages/plugin/schema, type: directory}
-    id: file:packages/plugin/schema
-    name: '@graphql-ez/plugin-schema'
-    version: 0.8.2
-    engines: {node: ^12.20.0 || >=14.13.0}
-    peerDependencies:
-      graphql: '*'
-      graphql-ez: workspace:^0.13.2
-    peerDependenciesMeta:
-      graphql:
-        optional: true
-    dependencies:
-      '@graphql-ez/utils': link:packages/core/utils
-      '@graphql-tools/schema': 8.3.1_34dd13c2583fe2e4418c23a0d30fc388
-      '@graphql-tools/utils': 8.6.1_34dd13c2583fe2e4418c23a0d30fc388
-      graphql: 15.4.0-experimental-stream-defer.1
-      graphql-ez: file:packages/core/main_34dd13c2583fe2e4418c23a0d30fc388
-    dev: false
-
-  file:packages/plugin/schema_40c9f2f9873dcff0ec041a635395e6d1:
-    resolution: {directory: packages/plugin/schema, type: directory}
-    id: file:packages/plugin/schema
-    name: '@graphql-ez/plugin-schema'
-    version: 0.8.2
-    engines: {node: ^12.20.0 || >=14.13.0}
-    peerDependencies:
-      graphql: '*'
-      graphql-ez: workspace:^0.13.2
-    peerDependenciesMeta:
-      graphql:
-        optional: true
-    dependencies:
-      '@graphql-ez/utils': link:packages/core/utils
-      '@graphql-tools/schema': 8.3.1_7cd0a77a72827e2622373a4a49802d3d
-      '@graphql-tools/utils': 8.6.1_7cd0a77a72827e2622373a4a49802d3d
-      graphql: 16.1.0-experimental-stream-defer.6
-      graphql-ez: file:packages/core/main_7cd0a77a72827e2622373a4a49802d3d
-    dev: false
-
-  file:packages/plugin/schema_bf557f974af3af5000be0d5cde90c5bd:
-    resolution: {directory: packages/plugin/schema, type: directory}
-    id: file:packages/plugin/schema
-    name: '@graphql-ez/plugin-schema'
-    version: 0.8.2
-    engines: {node: ^12.20.0 || >=14.13.0}
-    peerDependencies:
-      graphql: '*'
-      graphql-ez: workspace:^0.13.2
-    peerDependenciesMeta:
-      graphql:
-        optional: true
-    dependencies:
-      '@graphql-ez/utils': link:packages/core/utils
-      '@graphql-tools/schema': 8.3.1_graphql-esm@16.0.1
-      '@graphql-tools/utils': 8.6.1_graphql-esm@16.0.1
-      graphql: /graphql-esm/16.0.1
-      graphql-ez: file:packages/core/main_graphql-esm@16.0.1
-    dev: false
-
-  file:packages/plugin/schema_graphql-ez@0.13.8+graphql@15.8.0:
-    resolution: {directory: packages/plugin/schema, type: directory}
-    id: file:packages/plugin/schema
-    name: '@graphql-ez/plugin-schema'
-    version: 0.8.2
-    engines: {node: ^12.20.0 || >=14.13.0}
-    peerDependencies:
-      graphql: '*'
-      graphql-ez: workspace:^0.13.2
-    peerDependenciesMeta:
-      graphql:
-        optional: true
-    dependencies:
-      '@graphql-ez/utils': link:packages/core/utils
-      '@graphql-tools/schema': 8.3.1_graphql@15.8.0
-      '@graphql-tools/utils': 8.6.1_graphql@15.8.0
-      graphql: 15.8.0
-      graphql-ez: file:packages/core/main_graphql@15.8.0
-    dev: false
-
-  file:packages/plugin/schema_graphql-ez@0.13.8+graphql@16.3.0:
-    resolution: {directory: packages/plugin/schema, type: directory}
-    id: file:packages/plugin/schema
-    name: '@graphql-ez/plugin-schema'
-    version: 0.8.2
-    engines: {node: ^12.20.0 || >=14.13.0}
-    peerDependencies:
-      graphql: '*'
-      graphql-ez: workspace:^0.13.2
-    peerDependenciesMeta:
-      graphql:
-        optional: true
-    dependencies:
-      '@graphql-ez/utils': link:packages/core/utils
-      '@graphql-tools/schema': 8.3.1_graphql@16.3.0
-      '@graphql-tools/utils': 8.6.1_graphql@16.3.0
-      graphql: 16.3.0
-      graphql-ez: file:packages/core/main_graphql@16.3.0
     dev: false

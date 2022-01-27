@@ -1,5 +1,11 @@
 # @graphql-ez/plugin-voyager
 
+## 0.9.2
+
+### Patch Changes
+
+- 3f318cfe: Support sveltekit >= 1.0.0-next.234
+
 ## 0.9.1
 
 ### Patch Changes

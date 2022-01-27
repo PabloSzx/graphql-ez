@@ -1,5 +1,11 @@
 # @graphql-ez/plugin-graphiql
 
+## 0.11.3
+
+### Patch Changes
+
+- 3f318cfe: Support sveltekit >= 1.0.0-next.234
+
 ## 0.11.2
 
 ### Patch Changes
