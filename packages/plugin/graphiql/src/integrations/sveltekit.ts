@@ -22,8 +22,8 @@ export const handleSvelteKit: IntegrationRegisterHandler<'sveltekit'> = async ({
     handlers.push(async req => {
       if (
         !shouldRenderGraphiQL({
-          headers: req.headers,
-          method: req.method,
+          headers: req.request.headers,
+          method: req.request.method,
           query: Object.fromEntries(req.url.searchParams),
         })
       ) {
@@ -41,8 +41,8 @@ export const handleSvelteKit: IntegrationRegisterHandler<'sveltekit'> = async ({
 
       if (
         !shouldRenderGraphiQL({
-          headers: req.headers,
-          method: req.method,
+          headers: req.request.headers,
+          method: req.request.method,
           query: Object.fromEntries(req.url.searchParams),
         })
       ) {
@@ -56,7 +56,7 @@ export const handleSvelteKit: IntegrationRegisterHandler<'sveltekit'> = async ({
   // to render graphiql if the path matches and method is GET
   else {
     handlers.push(async req => {
-      if (req.url.pathname !== path || req.method !== 'GET') return;
+      if (req.url.pathname !== path || req.request.method !== 'GET') return;
 
       return objResponse;
     });

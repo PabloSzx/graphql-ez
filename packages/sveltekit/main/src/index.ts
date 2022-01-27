@@ -1,6 +1,5 @@
-import type { EndpointOutput, RequestHandler } from '@sveltejs/kit';
+import type { EndpointOutput, RequestHandler, RequestEvent } from '@sveltejs/kit';
 import type { ResponseHeaders } from '@sveltejs/kit/types/helper';
-import type { ServerRequest, ServerResponse } from '@sveltejs/kit/types/hooks';
 import {
   AppOptions,
   BaseAppBuilder,
@@ -35,9 +34,9 @@ export interface EZApp {
   [InternalAppBuildContextKey]: InternalAppBuildContext;
 }
 
-export interface SvelteKitContextArgs<Locals = Record<string, any>, Body = unknown> extends BuildContextArgs {
+export interface SvelteKitContextArgs<Locals = Record<string, any>> extends BuildContextArgs {
   sveltekit: {
-    req: ServerRequest<Locals, Body>;
+    req: RequestEvent<Locals>;
     responseHeaders: ResponseHeaders;
   };
 }
@@ -45,7 +44,7 @@ export interface SvelteKitContextArgs<Locals = Record<string, any>, Body = unkno
 declare module 'graphql-ez' {
   interface BuildContextArgs {
     sveltekit?: {
-      req: ServerRequest<any, any>;
+      req: RequestEvent;
       responseHeaders: ResponseHeaders;
     };
   }
@@ -56,7 +55,7 @@ declare module 'graphql-ez' {
 }
 
 export interface SvelteKitHandlerContext {
-  handlers: Array<(req: ServerRequest) => PromiseOrValue<ServerResponse | null | undefined | void>>;
+  handlers: Array<(req: RequestEvent) => PromiseOrValue<EndpointOutput | null | undefined | void>>;
 }
 
 export interface SvelteKitAppOptions extends AppOptions {
@@ -68,9 +67,7 @@ export interface SvelteKitAppOptions extends AppOptions {
   /**
    * Customize some Helix processRequest options
    */
-  processRequestOptions?: <Locals = Record<string, any>, Body = unknown>(
-    req: ServerRequest<Locals, Body>
-  ) => ProcessRequestOptions;
+  processRequestOptions?: <Locals = Record<string, any>>(req: RequestEvent<Locals>) => ProcessRequestOptions;
 
   /**
    * The path of where the EZ App is being served.
@@ -146,17 +143,21 @@ export function CreateApp(config: SvelteKitAppOptions = {}): EZAppBuilder {
               fallthrough: true,
             };
 
+          const headers = Object.fromEntries(req.request.headers);
+
+          const method = req.request.method;
+
           const request = {
-            headers: req.headers,
-            method: req.method,
+            headers,
+            method,
             query: Object.fromEntries(req.url.searchParams),
-            body: req.body,
+            body: req.request.body && (await req.request.json().catch(() => null)),
           };
 
           const trapReq = new Proxy<IncomingMessage>(
             {
-              headers: req.headers,
-              method: req.method,
+              headers,
+              method,
             } as IncomingMessage,
             {
               get(target, key) {

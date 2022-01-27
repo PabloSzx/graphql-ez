@@ -195,7 +195,7 @@ export const ezVoyager = (options: VoyagerPluginOptions | boolean = true): EZPlu
           const path = voyager.path;
 
           handlers.push(req => {
-            if (req.method !== 'GET' || path !== req.url.pathname) return;
+            if (req.request.method !== 'GET' || path !== req.url.pathname) return;
 
             return {
               status: 200,

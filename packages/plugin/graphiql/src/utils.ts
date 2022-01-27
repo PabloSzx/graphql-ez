@@ -7,11 +7,11 @@ export const shouldRenderGraphiQL = ({
   method,
   query,
 }: {
-  headers: any;
+  headers: Headers | Record<string, unknown>;
   method: string;
   query: Record<string, unknown>;
 }): boolean => {
-  const accept = typeof headers.get === 'function' ? headers.get('accept') : (headers as any).accept;
+  const accept = typeof headers.get === 'function' ? headers.get('accept') : (headers as Record<string, unknown>).accept;
 
   return (
     isHttpMethod('GET', method) && accept?.includes('text/html') && (!!query.share || !(query['query'] || query['extensions']))
