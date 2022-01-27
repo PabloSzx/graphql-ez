@@ -1,5 +1,11 @@
 # @graphql-ez/sveltekit
 
+## 0.2.0
+
+### Minor Changes
+
+- 3f318cfe: Support sveltekit >= 1.0.0-next.234
+
 ## 0.1.4
 
 ### Patch Changes
