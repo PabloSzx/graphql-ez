@@ -508,7 +508,7 @@ importers:
       fastify: ^3.27.0
       graphql: 16.1.0-experimental-stream-defer.6
       graphql-ez: workspace:^0.13.8
-      nexus: ^1.1.0
+      nexus: ^1.2.0
       typescript: ^4.5.5
     dependencies:
       '@graphql-ez/fastify': link:../../../packages/fastify/main
@@ -516,7 +516,7 @@ importers:
       fastify: 3.27.0
       graphql: 16.1.0-experimental-stream-defer.6
       graphql-ez: link:../../../packages/core/main
-      nexus: 1.1.0_7cd0a77a72827e2622373a4a49802d3d
+      nexus: 1.2.0_7cd0a77a72827e2622373a4a49802d3d
     devDependencies:
       '@types/node': 17.0.12
       bob-tsm: 0.4.6_esbuild@0.14.14+typescript@4.5.5
@@ -12532,8 +12532,8 @@ packages:
       - '@babel/core'
       - babel-plugin-macros
 
-  /nexus/1.1.0_7cd0a77a72827e2622373a4a49802d3d:
-    resolution: {integrity: sha512-jUhbg22gKVY2YwZm726BrbfHaQ7Xzc0hNXklygDhuqaVxCuHCgFMhWa2svNWd1npe8kfeiu5nbwnz+UnhNXzCQ==}
+  /nexus/1.2.0_7cd0a77a72827e2622373a4a49802d3d:
+    resolution: {integrity: sha512-7+0240LrQNnKKLTgbxM6KLLdfMgm4wp1TPAULim0lGmHfX7QsJK39i2KmFdMr3WdsAKoybMmwyrJtaYOq0q62g==}
     peerDependencies:
       graphql: ^14.5.8 || 15.x || *
     dependencies:
