@@ -972,7 +972,7 @@ importers:
       lodash: ^4.17.21
       subscriptions-transport-ws-envelop: ^2.0.2
       ts-jest: ^27.1.3
-      undici: ^4.12.2
+      undici: ^4.13.0
       wait-for-expect: ^3.0.2
       ws: ^8.4.2
     devDependencies:
@@ -1009,7 +1009,7 @@ importers:
       lodash: 4.17.21
       subscriptions-transport-ws-envelop: 2.0.2_b2207f5750eea93f0e48656fb27e3e28
       ts-jest: 27.1.3_44cbe48923fdd361d5f2b0b99651a69b
-      undici: 4.12.2
+      undici: 4.13.0
       wait-for-expect: 3.0.2
       ws: 8.4.2
 
@@ -1108,11 +1108,11 @@ importers:
       node-fetch: ^2.6.7
       rimraf: ^3.0.2
       subscriptions-transport-ws-envelop: ^2.0.2
-      undici: ^4.12.2
+      undici: ^4.13.0
       ws: ^8.4.2
     dependencies:
       '@graphql-ez/utils': link:../../core/utils
-      undici: 4.12.2
+      undici: 4.13.0
     devDependencies:
       '@graphql-typed-document-node/core': 3.1.1_7cd0a77a72827e2622373a4a49802d3d
       '@types/eventsource': 1.1.8
@@ -1147,7 +1147,7 @@ importers:
       graphql-ez: workspace:^0.13.8
       jest: ^27.4.7
       miniflare: ^2.2.0
-      undici: ^4.12.2
+      undici: ^4.13.0
       wait-on: ^6.0.0
       worktop: ^0.7.3
     dependencies:
@@ -1164,7 +1164,7 @@ importers:
       graphql-ez: link:../../core/main
       jest: 27.4.7
       miniflare: 2.2.0
-      undici: 4.12.2
+      undici: 4.13.0
       wait-on: 6.0.0
       worktop: 0.7.3
 
@@ -15612,6 +15612,10 @@ packages:
     resolution: {integrity: sha512-RZj6SbkQFs5O/pJCboGEo6l5DTCe3Zg4r/8Z/0/2qnIv08+s6zL4akohOPMYWKc3mzwv15WTvsfMWaafZcvYoQ==}
     engines: {node: '>=12.18'}
 
+  /undici/4.13.0:
+    resolution: {integrity: sha512-8lk8S/f2V0VUNGf2scU2b+KI2JSzEQLdCyRNRF3XmHu+5jectlSDaPSBCXAHFaUlt1rzngzOBVDgJS9/Gue/KA==}
+    engines: {node: '>=12.18'}
+
   /unherit/1.1.3:
     resolution: {integrity: sha512-Ft16BJcnapDKp0+J/rqFC3Rrk6Y/Ng4nzsC028k2jdDII/rdZ7Wd3pPT/6+vIIxRagwRc9K0IUX0Ra4fKvw+WQ==}
     dependencies:
@@ -15823,7 +15827,7 @@ packages:
     engines: {node: '>=8.5.0'}
     peerDependencies:
       '@types/react': ^16.8.0 || ^17.0.0
-      react: ^16.8.0 || ^17.0.0 || *
+      react: ^16.8.0 || ^17.0.0 || * || *
     peerDependenciesMeta:
       '@types/react':
         optional: true
