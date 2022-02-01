@@ -24,6 +24,12 @@ export default MDXPage(
     renderTitle(title) {
       return `${title} - GraphQL EZ`;
     },
+    giscus: {
+      repo: 'pabloszx/graphql-ez',
+      repoId: 'MDEwOlJlcG9zaXRvcnkzNzQ3Mzk2NzI=',
+      category: 'Q&A',
+      categoryId: 'DIC_kwDOFlYS2M4B-eNs',
+    },
   }
 );
 
