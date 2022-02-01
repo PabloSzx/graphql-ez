@@ -732,7 +732,7 @@ importers:
       '@graphql-ez/sveltekit': workspace:^0.2.0
       '@graphql-tools/schema': ^8.3.1
       '@sveltejs/adapter-node': ^1.0.0-next.67
-      '@sveltejs/kit': ^1.0.0-next.252
+      '@sveltejs/kit': ^1.0.0-next.253
       altair-static-slim: 4.3.1
       graphql: 16.1.0-experimental-stream-defer.6
       graphql-ez: workspace:^0.13.8
@@ -754,7 +754,7 @@ importers:
       graphql: 16.1.0-experimental-stream-defer.6
       graphql-ez: link:../../packages/core/main
     devDependencies:
-      '@sveltejs/kit': 1.0.0-next.252_svelte@3.46.3
+      '@sveltejs/kit': 1.0.0-next.253_svelte@3.46.3
       svelte: 3.46.3
       svelte-check: 2.4.1_svelte@3.46.3
       svelte-preprocess: 4.10.2_svelte@3.46.3+typescript@4.5.5
@@ -1921,7 +1921,7 @@ importers:
       '@graphql-ez/utils': workspace:^0.1.4
       '@graphql-tools/schema': ^8.3.1
       '@sveltejs/adapter-node': ^1.0.0-next.67
-      '@sveltejs/kit': ^1.0.0-next.252
+      '@sveltejs/kit': ^1.0.0-next.253
       '@types/node': ^17.0.14
       altair-static-slim: 4.3.1
       bob-esbuild-cli: ^3.0.1
@@ -1947,7 +1947,7 @@ importers:
       '@graphql-ez/plugin-voyager': link:../../plugin/voyager
       '@graphql-tools/schema': 8.3.1_7cd0a77a72827e2622373a4a49802d3d
       '@sveltejs/adapter-node': 1.0.0-next.67
-      '@sveltejs/kit': 1.0.0-next.252_svelte@3.46.3
+      '@sveltejs/kit': 1.0.0-next.253_svelte@3.46.3
       '@types/node': 17.0.14
       altair-static-slim: 4.3.1
       bob-esbuild-cli: 3.0.1_bob-esbuild@3.2.3
@@ -6093,8 +6093,8 @@ packages:
     dependencies:
       tiny-glob: 0.2.9
 
-  /@sveltejs/kit/1.0.0-next.252_svelte@3.46.3:
-    resolution: {integrity: sha512-cUreghq9H4WZyqwR/whBP1w+IQbR/VYKCmOduBYykj1lSeVZrUIlX+usxpNTtOCmekP7RPGDhQHfYyb58FbD3g==}
+  /@sveltejs/kit/1.0.0-next.253_svelte@3.46.3:
+    resolution: {integrity: sha512-rOO4aObxtFXkTv8vfuPx1UEu1kx2zPB6HSWcKbU0iYP8i2RHXSO2sLXlKbrrZUXsPhmi9bTSgEDUaqn7ShgwGw==}
     engines: {node: '>=14.13'}
     hasBin: true
     peerDependencies:
@@ -15699,7 +15699,7 @@ packages:
     resolution: {integrity: sha512-k9jnrjYNwN6xYLj1iaGhonDghfvmeTmYjAiGvOr7clwKfPjMXJf4/HOr7oT5tJwYafgp2tG2l3eZEOfoELiMcA==}
     engines: {node: '>=8.5.0'}
     peerDependencies:
-      react: ^16.8.0 || ^17.0.0 || *
+      react: ^16.8.0 || ^17.0.0 || * || *
     peerDependenciesMeta:
       react:
         optional: true
