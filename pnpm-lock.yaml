@@ -1039,7 +1039,7 @@ importers:
       next: ^12.0.10
       next-i18next: ^10.2.0
       next-remote-watch: ^1.0.0
-      next-seo: ^5.0.0
+      next-seo: ^5.1.0
       open-cli: ^7.0.1
       react: ^17.0.2
       react-dom: ^17.0.2
@@ -1065,7 +1065,7 @@ importers:
       framer-motion: 6.2.3_react-dom@17.0.2+react@17.0.2
       next: 12.0.10_react-dom@17.0.2+react@17.0.2
       next-i18next: 10.2.0_61390be992b634a688f7c2555547b55b
-      next-seo: 5.0.0_61390be992b634a688f7c2555547b55b
+      next-seo: 5.1.0_61390be992b634a688f7c2555547b55b
       react: 17.0.2
       react-dom: 17.0.2_react@17.0.2
       react-icons: 4.3.1_react@17.0.2
@@ -5033,7 +5033,7 @@ packages:
   /@graphql-tools/wrap/8.3.3_7cd0a77a72827e2622373a4a49802d3d:
     resolution: {integrity: sha512-TpXN1S4Cv+oMA1Zsg9Nu4N9yrFxLuJkX+CTtSRrrdfETGHIxqfyDkm5slPDCckxP+RILA00g8ny2jzsYyNvX1w==}
     peerDependencies:
-      graphql: ^14.0.0 || ^15.0.0 || ^16.0.0 || *
+      graphql: ^14.0.0 || ^15.0.0 || ^16.0.0 || * || *
     dependencies:
       '@graphql-tools/delegate': 8.4.3_7cd0a77a72827e2622373a4a49802d3d
       '@graphql-tools/schema': 8.3.1_7cd0a77a72827e2622373a4a49802d3d
@@ -5101,7 +5101,7 @@ packages:
       immer: 9.0.12
       next: 12.0.10_react-dom@17.0.2+react@17.0.2
       next-i18next: 10.2.0_61390be992b634a688f7c2555547b55b
-      next-seo: 5.0.0_61390be992b634a688f7c2555547b55b
+      next-seo: 5.1.0_61390be992b634a688f7c2555547b55b
       nprogress: 0.2.0
       react: 17.0.2
       react-dom: 17.0.2_react@17.0.2
@@ -9765,7 +9765,7 @@ packages:
   /graphql-language-service-parser/1.10.4_38067b7d4ab3971b860d28108234b353:
     resolution: {integrity: sha512-duDE+0aeKLFVrb9Kf28U84ZEHhHcvTjWIT6dJbIAQJWBaDoht0D4BK9EIhd94I3DtKRc1JCJb2+70y1lvP/hiA==}
     peerDependencies:
-      graphql: ^15.5.0 || ^16.0.0 || *
+      graphql: ^15.5.0 || ^16.0.0 || * || *
     dependencies:
       graphql: 16.1.0-experimental-stream-defer.6
       graphql-language-service-types: 1.8.7_38067b7d4ab3971b860d28108234b353
@@ -9780,7 +9780,7 @@ packages:
   /graphql-language-service-types/1.8.7_38067b7d4ab3971b860d28108234b353:
     resolution: {integrity: sha512-LP/Mx0nFBshYEyD0Ny6EVGfacJAGVx+qXtlJP4hLzUdBNOGimfDNtMVIdZANBXHXcM41MDgMHTnyEx2g6/Ttbw==}
     peerDependencies:
-      graphql: ^15.5.0 || ^16.0.0 || *
+      graphql: ^15.5.0 || ^16.0.0 || * || *
     dependencies:
       graphql: 16.1.0-experimental-stream-defer.6
       graphql-config: 4.1.0_38067b7d4ab3971b860d28108234b353
@@ -9796,7 +9796,7 @@ packages:
   /graphql-language-service-utils/2.7.1_38067b7d4ab3971b860d28108234b353:
     resolution: {integrity: sha512-Wci5MbrQj+6d7rfvbORrA9uDlfMysBWYaG49ST5TKylNaXYFf3ixFOa74iM1KtM9eidosUbI3E1JlWi0JaidJA==}
     peerDependencies:
-      graphql: ^15.5.0 || ^16.0.0 || *
+      graphql: ^15.5.0 || ^16.0.0 || * || *
     dependencies:
       '@types/json-schema': 7.0.9
       graphql: 16.1.0-experimental-stream-defer.6
@@ -9876,7 +9876,7 @@ packages:
     resolution: {integrity: sha512-y2mVBN2KwNrzxX2KBncQ6kzc6JWvecxuBernrl0j65hsr6MAS3+Yn8PTFSOgRmtolxugepxveyZVQEuaNEbw3w==}
     engines: {node: '>=12'}
     peerDependencies:
-      graphql: '>=0.11 <=16 || *'
+      graphql: '>=0.11 <=16 || * || *'
     dependencies:
       graphql: 16.1.0-experimental-stream-defer.6
 
@@ -12264,8 +12264,8 @@ packages:
       express: 4.17.2
     dev: true
 
-  /next-seo/5.0.0_61390be992b634a688f7c2555547b55b:
-    resolution: {integrity: sha512-uCa8hoE5VQz4D2NqZAPhqR64hY5LSmaq70wmfGK09U57TMY7XzsDI+MjfZo0MgHJM87bj3Fd/oMQbDcZ/YWhJQ==}
+  /next-seo/5.1.0_61390be992b634a688f7c2555547b55b:
+    resolution: {integrity: sha512-ampuQfNTOi1x+xtRIb6CZGunIo6rQXtMo2Tyu861d5GjJFIwfOXsA4lzCa4+e2rLkyXDyVpavNNUZWa3US9ELw==}
     peerDependencies:
       next: ^8.1.1-canary.54 || >=9.0.0 || *
       react: '>=16.0.0 || *'
