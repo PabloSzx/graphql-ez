@@ -1046,7 +1046,7 @@ importers:
       react-icons: ^4.3.1
       react-use: ^17.3.2
       remark-admonitions: ^1.2.1
-      sharp: ~0.29.3
+      sharp: ~0.30.0
       shiki: ^0.10.0
       typescript: ^4.5.5
       wait-on: ^6.0.0
@@ -1071,7 +1071,7 @@ importers:
       react-icons: 4.3.1_react@17.0.2
       react-use: 17.3.2_react-dom@17.0.2+react@17.0.2
       remark-admonitions: 1.2.1
-      sharp: 0.29.3
+      sharp: 0.30.0
       shiki: 0.10.0
     devDependencies:
       '@next/bundle-analyzer': 12.0.10
@@ -4768,7 +4768,7 @@ packages:
   /@graphql-tools/delegate/8.4.3_7cd0a77a72827e2622373a4a49802d3d:
     resolution: {integrity: sha512-hKTJdJXJnKL0+2vpU+Kt7OHQTIXZ9mBmNBwHsYiG5WNArz/vNI7910r6TC2XMf/e7zhyyK+mXxMDBmDQkkJagA==}
     peerDependencies:
-      graphql: ^14.0.0 || ^15.0.0 || ^16.0.0 || *
+      graphql: ^14.0.0 || ^15.0.0 || ^16.0.0 || * || *
     dependencies:
       '@graphql-tools/batch-execute': 8.3.1_7cd0a77a72827e2622373a4a49802d3d
       '@graphql-tools/schema': 8.3.1_7cd0a77a72827e2622373a4a49802d3d
@@ -5033,7 +5033,7 @@ packages:
   /@graphql-tools/wrap/8.3.3_7cd0a77a72827e2622373a4a49802d3d:
     resolution: {integrity: sha512-TpXN1S4Cv+oMA1Zsg9Nu4N9yrFxLuJkX+CTtSRrrdfETGHIxqfyDkm5slPDCckxP+RILA00g8ny2jzsYyNvX1w==}
     peerDependencies:
-      graphql: ^14.0.0 || ^15.0.0 || ^16.0.0 || *
+      graphql: ^14.0.0 || ^15.0.0 || ^16.0.0 || * || *
     dependencies:
       '@graphql-tools/delegate': 8.4.3_7cd0a77a72827e2622373a4a49802d3d
       '@graphql-tools/schema': 8.3.1_7cd0a77a72827e2622373a4a49802d3d
@@ -8348,12 +8348,6 @@ packages:
     engines: {node: '>=8'}
     dev: true
 
-  /detect-libc/1.0.3:
-    resolution: {integrity: sha1-+hN8S9aY7fVc1c0CrFWfkaTEups=}
-    engines: {node: '>=0.10'}
-    hasBin: true
-    dev: false
-
   /detect-libc/2.0.0:
     resolution: {integrity: sha512-S55LzUl8HUav8l9E2PBTlC5PAJrHK7tkM+XXFGD+fbsbkTzhCpG6K05LxJcUOEWzMa4v6ptcMZ9s3fOdJDu0Zw==}
     engines: {node: '>=8'}
@@ -9876,7 +9870,7 @@ packages:
     resolution: {integrity: sha512-y2mVBN2KwNrzxX2KBncQ6kzc6JWvecxuBernrl0j65hsr6MAS3+Yn8PTFSOgRmtolxugepxveyZVQEuaNEbw3w==}
     engines: {node: '>=12'}
     peerDependencies:
-      graphql: '>=0.11 <=16 || *'
+      graphql: '>=0.11 <=16 || * || *'
     dependencies:
       graphql: 16.1.0-experimental-stream-defer.6
 
@@ -14128,13 +14122,13 @@ packages:
   /setprototypeof/1.2.0:
     resolution: {integrity: sha512-E5LDX7Wrp85Kil5bhZv46j8jOeboKq5JMmYM3gVGdGH8xFpPWXUMsNrlODCrkoxMEeNi/XZIwuRvY4XNwYMJpw==}
 
-  /sharp/0.29.3:
-    resolution: {integrity: sha512-fKWUuOw77E4nhpyzCCJR1ayrttHoFHBT2U/kR/qEMRhvPEcluG4BKj324+SCO1e84+knXHwhJ1HHJGnUt4ElGA==}
+  /sharp/0.30.0:
+    resolution: {integrity: sha512-L3m/l6yQFr3oGBUzcSAlN/R9yGFPYqM9FpMUe6Z4nHg4sWtP3hW1rcz+aaHklhD4wX5Jqh5PY9z+A1d4Qt3Hfg==}
     engines: {node: '>=12.13.0'}
     requiresBuild: true
     dependencies:
       color: 4.2.0
-      detect-libc: 1.0.3
+      detect-libc: 2.0.0
       node-addon-api: 4.3.0
       prebuild-install: 7.0.1
       semver: 7.3.5
@@ -15659,7 +15653,7 @@ packages:
     engines: {node: '>=8.5.0'}
     peerDependencies:
       '@types/react': ^16.8.0 || ^17.0.0
-      react: ^16.8.0 || ^17.0.0 || *
+      react: ^16.8.0 || ^17.0.0 || * || *
     peerDependenciesMeta:
       '@types/react':
         optional: true
@@ -15699,7 +15693,7 @@ packages:
     resolution: {integrity: sha512-k9jnrjYNwN6xYLj1iaGhonDghfvmeTmYjAiGvOr7clwKfPjMXJf4/HOr7oT5tJwYafgp2tG2l3eZEOfoELiMcA==}
     engines: {node: '>=8.5.0'}
     peerDependencies:
-      react: ^16.8.0 || ^17.0.0 || *
+      react: ^16.8.0 || ^17.0.0 || * || *
     peerDependenciesMeta:
       react:
         optional: true
@@ -16022,7 +16016,7 @@ packages:
   /wide-align/1.1.5:
     resolution: {integrity: sha512-eDMORYaPNZ4sQIuuYPDHdQvf4gyCF9rEEV/yPxGfwPkRodwEgiMUUXTx/dex+Me0wxx53S+NgUHaP7y3MGlDmg==}
     dependencies:
-      string-width: 1.0.2
+      string-width: 4.2.3
     dev: false
 
   /word-wrap/1.2.3:
