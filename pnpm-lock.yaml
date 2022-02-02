@@ -28,7 +28,7 @@ importers:
       cross-env: ^7.0.3
       esbuild: ^0.14.16
       fastify: ^3.27.0
-      globby: ^13.1.0
+      globby: ^13.1.1
       graphql-ez-testing: workspace:^1.0.0
       husky: 7.0.4
       jest: ^27.4.7
@@ -53,7 +53,7 @@ importers:
       cross-env: 7.0.3
       esbuild: 0.14.16
       fastify: 3.27.0
-      globby: 13.1.0
+      globby: 13.1.1
       graphql-ez-testing: link:internal/testing
       husky: 7.0.4
       jest: 27.4.7
@@ -9606,8 +9606,8 @@ packages:
       merge2: 1.4.1
       slash: 3.0.0
 
-  /globby/13.1.0:
-    resolution: {integrity: sha512-BECc0Q0jlCk2BLaY2DuHFCdKo+Es6OzOHECV4KpNtVtgXZobl4jmLThiBPY+RiHoOFeI0pd1G035CFLFP/o2Fg==}
+  /globby/13.1.1:
+    resolution: {integrity: sha512-XMzoDZbGZ37tufiv7g0N4F/zp3zkwdFtVbV3EHsVl1KQr4RPLfNoT068/97RPshz2J5xYNEjLKKBKaGHifBd3Q==}
     engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
     dependencies:
       dir-glob: 3.0.1
