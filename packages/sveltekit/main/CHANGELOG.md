@@ -1,5 +1,16 @@
 # @graphql-ez/sveltekit
 
+## 0.3.0
+
+### Minor Changes
+
+- 7f38965d: Support for @sveltejs/kit@1.0.0-next.257, app-level types breaking change: https://github.com/sveltejs/kit/pull/3670
+
+### Patch Changes
+
+- Updated dependencies [8fa923b6]
+  - graphql-ez@0.14.0
+
 ## 0.2.0
 
 ### Minor Changes

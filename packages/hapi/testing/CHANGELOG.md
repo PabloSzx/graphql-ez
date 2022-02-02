@@ -1,5 +1,13 @@
 # @graphql-ez/hapi-testing
 
+## 0.1.6
+
+### Patch Changes
+
+- Updated dependencies [8fa923b6]
+  - graphql-ez@0.14.0
+  - @graphql-ez/hapi@0.8.9
+
 ## 0.1.5
 
 ### Patch Changes

@@ -1,6 +1,6 @@
 {
   "name": "@graphql-ez/express-testing",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "repository": {
     "type": "git",
     "url": "https://github.com/PabloSzx/graphql-ez",
@@ -33,21 +33,21 @@
     "@graphql-ez/utils": "workspace:^0.1.4"
   },
   "devDependencies": {
-    "@graphql-ez/express": "workspace:^0.9.6",
+    "@graphql-ez/express": "workspace:^0.9.7",
     "@types/express": "^4.17.13",
     "bob-esbuild-cli": "^3.0.1",
     "changesets-github-release": "^0.1.0",
     "express": "^4.17.2",
     "graphql": "16.1.0-experimental-stream-defer.6",
-    "graphql-ez": "workspace:^0.13.8",
+    "graphql-ez": "workspace:^0.14.0",
     "jest": "^27.4.7"
   },
   "peerDependencies": {
-    "@graphql-ez/express": "workspace:^0.9.6",
+    "@graphql-ez/express": "workspace:^0.9.7",
     "@types/express": "*",
     "express": "*",
     "graphql": "*",
-    "graphql-ez": "workspace:^0.13.8"
+    "graphql-ez": "workspace:^0.14.0"
   },
   "publishConfig": {
     "directory": "dist"

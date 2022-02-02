@@ -1,5 +1,16 @@
 # @graphql-ez/plugin-dataloader
 
+## 0.6.0
+
+### Minor Changes
+
+- 8fa923b6: Update to [@envelop/core@^2.0.0](https://github.com/dotansimha/envelop/releases/tag/%40envelop%2Fcore%402.0.0)
+
+### Patch Changes
+
+- Updated dependencies [8fa923b6]
+  - graphql-ez@0.14.0
+
 ## 0.5.6
 
 ### Patch Changes
