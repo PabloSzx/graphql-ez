@@ -34,9 +34,9 @@ export interface EZApp {
   [InternalAppBuildContextKey]: InternalAppBuildContext;
 }
 
-export interface SvelteKitContextArgs<Locals = Record<string, any>> extends BuildContextArgs {
+export interface SvelteKitContextArgs extends BuildContextArgs {
   sveltekit: {
-    req: RequestEvent<Locals>;
+    req: RequestEvent;
     responseHeaders: ResponseHeaders;
   };
 }
@@ -67,7 +67,7 @@ export interface SvelteKitAppOptions extends AppOptions {
   /**
    * Customize some Helix processRequest options
    */
-  processRequestOptions?: <Locals = Record<string, any>>(req: RequestEvent<Locals>) => ProcessRequestOptions;
+  processRequestOptions?: (req: RequestEvent) => ProcessRequestOptions;
 
   /**
    * The path of where the EZ App is being served.
