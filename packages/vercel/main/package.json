@@ -1,6 +1,6 @@
 {
   "name": "@graphql-ez/vercel",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "repository": {
     "type": "git",
     "url": "https://github.com/PabloSzx/graphql-ez",
@@ -36,13 +36,13 @@
     "@vercel/node": "^1.12.1",
     "bob-esbuild-cli": "^3.0.1",
     "graphql": "16.1.0-experimental-stream-defer.6",
-    "graphql-ez": "workspace:^0.13.8"
+    "graphql-ez": "workspace:^0.14.0"
   },
   "peerDependencies": {
     "@types/node": "*",
     "@vercel/node": "^1.12.1",
     "graphql": "*",
-    "graphql-ez": "workspace:^0.13.8"
+    "graphql-ez": "workspace:^0.14.0"
   },
   "publishConfig": {
     "directory": "dist"

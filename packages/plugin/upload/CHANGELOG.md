@@ -1,5 +1,12 @@
 # @graphql-ez/plugin-upload
 
+## 0.7.1
+
+### Patch Changes
+
+- Updated dependencies [8fa923b6]
+  - graphql-ez@0.14.0
+
 ## 0.7.0
 
 ### Minor Changes

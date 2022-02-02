@@ -1,5 +1,12 @@
 # @graphql-ez/vercel
 
+## 0.1.2
+
+### Patch Changes
+
+- Updated dependencies [8fa923b6]
+  - graphql-ez@0.14.0
+
 ## 0.1.1
 
 ### Patch Changes
