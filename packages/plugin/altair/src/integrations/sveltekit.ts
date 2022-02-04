@@ -20,11 +20,11 @@ export const handleSvelteKit: IntegrationRegisterHandler<'sveltekit'> = async ({
   const baseURLTrailing = withTrailingSlash(ctx.altair.baseURL);
   const baseURLNoTrailing = withoutTrailingSlash(ctx.altair.baseURL);
 
-  handlers.push(async req => {
+  handlers.push(req => {
     const pathname = req.url.pathname;
 
     if (pathname === baseURLTrailing || pathname === baseURLNoTrailing || pathname.startsWith(baseURLTrailing)) {
-      const { status, content, contentType } = await render({
+      return render({
         baseURL,
         altairPath: path,
         renderOptions: {
@@ -33,13 +33,13 @@ export const handleSvelteKit: IntegrationRegisterHandler<'sveltekit'> = async ({
           baseURL,
         },
         url: req.url.pathname,
+      }).then(({ status, content, contentType }) => {
+        return {
+          headers: contentType ? { 'content-type': contentType } : ({} as {}),
+          status,
+          body: content,
+        };
       });
-
-      return {
-        headers: contentType ? { 'content-type': contentType } : ({} as {}),
-        status,
-        body: content,
-      };
     }
 
     return;

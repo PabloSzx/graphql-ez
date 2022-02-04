@@ -19,7 +19,7 @@ export const handleSvelteKit: IntegrationRegisterHandler<'sveltekit'> = async ({
   // If no root path is specific, the expected behavior is
   // to render graphiql only if the method is GET and no query params are specified
   if (!ctx.options.path) {
-    handlers.push(async req => {
+    handlers.push(req => {
       if (
         !shouldRenderGraphiQL({
           headers: req.request.headers,
@@ -36,7 +36,7 @@ export const handleSvelteKit: IntegrationRegisterHandler<'sveltekit'> = async ({
   // If root path is specified and the path is the same as the root, the expected behavior is to render graphiql
   // only if the path and request path match, method is GET and no query params are specified
   else if (ctx.options.path === path) {
-    handlers.push(async req => {
+    handlers.push(req => {
       if (req.url.pathname !== path) return;
 
       if (
@@ -55,7 +55,7 @@ export const handleSvelteKit: IntegrationRegisterHandler<'sveltekit'> = async ({
   // If root path is different than the graphiql one, the expected behavior is
   // to render graphiql if the path matches and method is GET
   else {
-    handlers.push(async req => {
+    handlers.push(req => {
       if (req.url.pathname !== path || req.request.method !== 'GET') return;
 
       return objResponse;
