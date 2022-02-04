@@ -1,4 +1,4 @@
-import type { EndpointOutput, RequestHandler, RequestEvent } from '@sveltejs/kit';
+import type { RequestHandler, RequestEvent } from '@sveltejs/kit';
 import type { ResponseHeaders } from '@sveltejs/kit/types/helper';
 import {
   AppOptions,
@@ -55,7 +55,7 @@ declare module 'graphql-ez' {
 }
 
 export interface SvelteKitHandlerContext {
-  handlers: Array<(req: RequestEvent) => PromiseOrValue<EndpointOutput | null | undefined | void>>;
+  handlers: Array<(req: RequestEvent) => ReturnType<RequestHandler> | PromiseOrValue<null | undefined | void>>;
 }
 
 export interface SvelteKitAppOptions extends AppOptions {
@@ -174,7 +174,7 @@ export function CreateApp(config: SvelteKitAppOptions = {}): EZAppBuilder {
 
           const responseHeaders: ResponseHeaders = {};
 
-          return requestHandler<EndpointOutput>({
+          return requestHandler({
             request,
             req: trapReq,
             getEnveloped,
