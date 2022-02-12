@@ -3,13 +3,13 @@ import { LazyPromise } from '@graphql-ez/utils/promise';
 import type { TypedDocumentNode } from '@graphql-typed-document-node/core';
 import { DocumentNode, ExecutionResult, print } from 'graphql';
 import type { IncomingHttpHeaders } from 'http';
-import { Pool } from 'undici';
 import type { RequestOptions } from 'undici/types/dispatcher';
 import { TearDownPromises } from './common';
 
 export type { RequestOptions, TypedDocumentNode };
 
-export function getRequestPool(port: number, path = '/graphql') {
+export async function getRequestPool(port: number, path = '/graphql') {
+  const { Pool } = await import('undici');
   const address = `http://127.0.0.1:${port}`;
   const addressWithoutProtocol = `127.0.0.1:${port}`;
   const requestPool = new Pool(address, {

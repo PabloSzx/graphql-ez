@@ -1,9 +1,10 @@
-import { EZClient } from '@graphql-ez/client';
 import { LazyPromise } from '@graphql-ez/utils/promise';
 import { command } from 'execa';
 import getPort from 'get-port';
 import { resolve } from 'path';
 import waitOn from 'wait-on';
+
+const EZClientPromise = LazyPromise(() => import('@graphql-ez/client').then(v => v.EZClient));
 
 let port: number;
 
@@ -52,7 +53,7 @@ afterAll(async () => {
 const testSkipNode12 = isNode12 ? test.skip : test;
 
 testSkipNode12('basic schema', async () => {
-  const { client, query } = EZClient({
+  const { client, query } = (await EZClientPromise)({
     endpoint: `http://127.0.0.1:${port}/graphql`,
   });
 
@@ -94,7 +95,7 @@ testSkipNode12('basic schema', async () => {
 });
 
 testSkipNode12('altair', async () => {
-  const { client } = EZClient({
+  const { client } = (await EZClientPromise)({
     endpoint: `http://127.0.0.1:${port}/graphql`,
   });
 
@@ -145,7 +146,7 @@ testSkipNode12('altair', async () => {
 });
 
 testSkipNode12('graphiql', async () => {
-  const { client } = EZClient({
+  const { client } = (await EZClientPromise)({
     endpoint: `http://127.0.0.1:${port}/graphql`,
   });
 
@@ -184,7 +185,7 @@ testSkipNode12('graphiql', async () => {
 });
 
 testSkipNode12('voyager', async () => {
-  const { client } = EZClient({
+  const { client } = (await EZClientPromise)({
     endpoint: `http://127.0.0.1:${port}/graphql`,
   });
 

@@ -1,4 +1,3 @@
-import { EZClient } from '@graphql-ez/client';
 import { build } from 'esbuild';
 import { command } from 'execa';
 import { unlinkSync } from 'fs';
@@ -18,6 +17,8 @@ afterAll(() => {
 });
 
 testIfNode16OrPlus('works', async () => {
+  const { EZClient } = await import('@graphql-ez/client');
+
   await build({
     entryPoints: [resolve(__dirname, './worker/worker.ts')],
     bundle: true,
@@ -52,6 +53,6 @@ testIfNode16OrPlus('works', async () => {
   } finally {
     miniflare.kill();
 
-    client.client.close();
+    await client.client.close();
   }
 });

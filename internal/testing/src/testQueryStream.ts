@@ -1,10 +1,10 @@
 import { createDeferredPromise } from '@graphql-ez/utils/promise';
 import { PassThrough } from 'stream';
-import undici from 'undici';
 import assert from 'assert';
 
 export async function expectCommonQueryStream(address: string) {
-  const client = new undici.Client(address);
+  const { Client } = await import('undici');
+  const client = new Client(address);
 
   const done = createDeferredPromise<number>();
 

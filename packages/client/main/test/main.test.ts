@@ -254,5 +254,5 @@ testIfStreamDefer('query stream with @stream', async () => {
     }
   }
 
-  client.close();
+  await client.close();
 });

@@ -93,7 +93,7 @@ export const startFastifyServer = async ({
     autoClose && TearDownPromises.push(new PLazy<void>(resolve => server.close(resolve)));
   });
 
-  const pool = getRequestPool(port);
+  const pool = await getRequestPool(port);
 
   return {
     appBuilder,
@@ -160,7 +160,7 @@ export const startExpressServer = async ({
     autoClose && TearDownPromises.push(new PLazy<unknown>(resolve => httpServer.close(resolve)));
   });
 
-  const pool = getRequestPool(port);
+  const pool = await getRequestPool(port);
 
   return {
     appBuilder,
@@ -231,7 +231,7 @@ export async function startHTTPServer({
       );
   });
 
-  const pool = getRequestPool(port);
+  const pool = await getRequestPool(port);
 
   return {
     appBuilder,
@@ -290,7 +290,7 @@ export const startHapiServer = async ({
       })
     );
 
-  const pool = getRequestPool(port);
+  const pool = await getRequestPool(port);
 
   return {
     appBuilder,
@@ -358,7 +358,7 @@ export const startKoaServer = async ({
     autoClose && TearDownPromises.push(new PLazy(resolve => httpServer.close(resolve)));
   });
 
-  const pool = getRequestPool(port);
+  const pool = await getRequestPool(port);
 
   return {
     appBuilder,
@@ -451,7 +451,7 @@ export async function startNextJSServer(dir: string[], autoClose: boolean = true
     autoClose && TearDownPromises.push(new PLazy<void>(resolve => app.close(resolve)));
   });
 
-  const pool = getRequestPool(port, '/api/graphql');
+  const pool = await getRequestPool(port, '/api/graphql');
 
   return { ...pool, app, NextJSDir };
 }
