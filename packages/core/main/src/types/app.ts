@@ -73,7 +73,8 @@ export type IntegrationsNames =
   | 'hapi'
   | 'cloudflare'
   | 'sveltekit'
-  | 'vercel';
+  | 'vercel'
+  | 'remix';
 
 export interface AdapterFactoryContext {
   integrationName: IntegrationsNames;
