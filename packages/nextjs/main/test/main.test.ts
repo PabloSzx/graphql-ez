@@ -171,6 +171,7 @@ test('with testing client', async () => {
           "content-type": "application/json",
           "host": "__host__",
           "user-agent": "node-fetch/1.0 (+https://github.com/bitinn/node-fetch)",
+          "x-msw-bypass": "true",
         },
         "method": "POST",
         "query": {},
