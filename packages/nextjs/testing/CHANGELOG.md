@@ -1,5 +1,12 @@
 # @graphql-ez/nextjs-testing
 
+## 0.2.2
+
+### Patch Changes
+
+- ee12b555: Add new "assertedQuery" to test client
+- e1ff833e: Update next-test-api-route-handler
+
 ## 0.2.1
 
 ### Patch Changes

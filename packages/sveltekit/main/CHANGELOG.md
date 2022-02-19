@@ -1,5 +1,11 @@
 # @graphql-ez/sveltekit
 
+## 0.3.1
+
+### Patch Changes
+
+- f4e85c0c: Expand integration handlers return type to match sveltekit's
+
 ## 0.3.0
 
 ### Minor Changes
