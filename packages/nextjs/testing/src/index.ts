@@ -12,7 +12,7 @@ import {
 } from '@graphql-ez/nextjs';
 import { cleanObject } from '@graphql-ez/utils/object';
 import type { TypedDocumentNode } from '@graphql-typed-document-node/core';
-import { ExecutionResult, GraphQLSchema, print, printSchema } from 'graphql';
+import { ExecutionResult, GraphQLSchema, print, printSchema, GraphQLError } from 'graphql';
 import type { IncomingHttpHeaders } from 'http';
 import { testApiHandler, NtarhParameters } from 'next-test-api-route-handler';
 
@@ -36,6 +36,22 @@ export type QueryFunction = <TData, TVariables = {}, TExtensions = {}>(
   }
 ) => Promise<ExecutionResult<TData, TExtensions>>;
 
+export type AssertedQuery = <TData = any, TVariables = {}>(
+  document: TypedDocumentNode<TData, TVariables> | string,
+  options?: {
+    variables?: TVariables;
+    headers?: IncomingHttpHeaders;
+    extensions?: Record<string, unknown>;
+    operationName?: string;
+  }
+) => Promise<TData>;
+
+class GraphQLErrorJSON extends Error {
+  constructor(message: string, public locations: GraphQLError['locations'], public extensions: GraphQLError['extensions']) {
+    super(message);
+  }
+}
+
 export async function CreateTestClient(
   ezApp: PromiseOrValue<(EZAppBuilder | NextAppOptions) & { getEnveloped?: never }>,
   options: {
@@ -46,6 +62,7 @@ export async function CreateTestClient(
   testFetch: TestFetch;
   query: QueryFunction;
   mutation: QueryFunction;
+  assertedQuery: AssertedQuery;
   getEnveloped: GetEnvelopedFn<EZContext>;
   schema: GraphQLSchema;
   schemaString: string;
@@ -124,6 +141,37 @@ export async function CreateTestClient(
     return data;
   };
 
+  const assertedQuery: AssertedQuery = async (document, options) => {
+    try {
+      const result = await query(document, options);
+
+      const { data, errors } = result;
+      if (errors?.length) {
+        if (errors.length > 1) {
+          for (const err of errors) {
+            console.error(err);
+          }
+          const err = Error('Multiple GraphQL Errors');
+          Object.assign(err, { errors });
+          throw err;
+        } else {
+          const err = errors[0]!;
+          throw new GraphQLErrorJSON(err.message, err.locations, err.extensions);
+        }
+      } else if (!data) {
+        throw Error('Data not found in: ' + JSON.stringify(result));
+      }
+
+      return data;
+    } catch (err) {
+      if (err instanceof Error) {
+        Error.captureStackTrace(err, assertedQuery);
+      }
+
+      throw err;
+    }
+  };
+
   const doneTestApiHandler = testApiHandler({
     handler: ezHandler,
     async test({ fetch }) {
@@ -148,6 +196,7 @@ export async function CreateTestClient(
     testFetch,
     query,
     mutation: query,
+    assertedQuery,
     getEnveloped: getEnvelopedValue,
     get schema() {
       return getEnvelopedValue().schema;
