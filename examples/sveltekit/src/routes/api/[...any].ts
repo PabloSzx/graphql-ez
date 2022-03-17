@@ -1,13 +1,12 @@
-import { CreateApp, SvelteKitContextArgs } from '@graphql-ez/sveltekit';
+import { CreateApp, type SvelteKitContextArgs } from '@graphql-ez/sveltekit';
 import { ezSchema, gql } from '@graphql-ez/plugin-schema';
 import { ezGraphiQLIDE } from '@graphql-ez/plugin-graphiql';
 import { ezUnpkgAltairIDE } from '@graphql-ez/plugin-altair/unpkg';
 import { ezVoyager } from '@graphql-ez/plugin-voyager';
 import { ezCodegen } from '@graphql-ez/plugin-codegen';
 
-const buildContext = ({ sveltekit }: SvelteKitContextArgs<{ asd: string }, {}>) => {
-  sveltekit.req.locals.asd;
-
+const buildContext = ({ sveltekit }: SvelteKitContextArgs) => {
+  console.log(sveltekit);
   return {};
 };
 
