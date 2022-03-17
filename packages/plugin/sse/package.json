@@ -29,8 +29,8 @@
     "postpublish": "gh-release"
   },
   "devDependencies": {
-    "@types/node": "^17.0.18",
-    "bob-esbuild-cli": "^3.0.1",
+    "@types/node": "^17.0.21",
+    "bob-esbuild-cli": "^3.0.2",
     "changesets-github-release": "^0.1.0",
     "graphql": "16.1.0-experimental-stream-defer.6",
     "graphql-ez": "workspace:^0.14.0",
@@ -43,7 +43,7 @@
   },
   "dependencies": {
     "@graphql-ez/utils": "workspace:^0.1.4",
-    "graphql-sse": "^1.0.6"
+    "graphql-sse": "^1.1.0"
   },
   "publishConfig": {
     "directory": "dist"
