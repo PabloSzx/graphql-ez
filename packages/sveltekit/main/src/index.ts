@@ -1,5 +1,5 @@
-import type { RequestHandler, RequestEvent } from '@sveltejs/kit';
-import type { ResponseHeaders } from '@sveltejs/kit/types/helper';
+import type { RequestHandler } from '@sveltejs/kit';
+import type { RequestEvent, ResponseHeaders } from '@sveltejs/kit/types/private';
 import {
   AppOptions,
   BaseAppBuilder,
@@ -137,10 +137,12 @@ export function CreateApp(config: SvelteKitAppOptions = {}): EZAppBuilder {
             for (const response of result) if (response != null) return response;
           }
 
-          if (path && req.url.pathname !== path)
+          if (path && req.url.pathname !== path) {
             return {
-              fallthrough: true,
+              status: 404,
+              body: null,
             };
+          }
 
           const headers = Object.fromEntries(req.request.headers);
 

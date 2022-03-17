@@ -1,8 +1,8 @@
 {
   "name": "example-sveltekit-playground",
   "version": "0.0.1",
-  "type": "module",
   "private": true,
+  "type": "module",
   "scripts": {
     "build": "svelte-kit build",
     "check": "svelte-check --tsconfig ./tsconfig.json",
@@ -18,13 +18,13 @@
     "@graphql-ez/plugin-voyager": "workspace:^0.9.3",
     "@graphql-ez/sveltekit": "workspace:^0.3.1",
     "@graphql-tools/schema": "^8.3.3",
-    "@sveltejs/adapter-node": "^1.0.0-next.68",
+    "@sveltejs/adapter-node": "^1.0.0-next.73",
     "altair-static-slim": "4.4.1",
     "graphql": "16.1.0-experimental-stream-defer.6",
     "graphql-ez": "workspace:^0.14.0"
   },
   "devDependencies": {
-    "@sveltejs/kit": "^1.0.0-next.278",
+    "@sveltejs/kit": "^1.0.0-next.301",
     "svelte": "^3.46.4",
     "svelte-check": "^2.4.6",
     "svelte-preprocess": "^4.10.4",
