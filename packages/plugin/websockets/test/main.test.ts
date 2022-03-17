@@ -94,11 +94,6 @@ describe('fastify', () => {
   });
 
   test('only new', async () => {
-    const warnSpy = jest.spyOn(console, 'warn').mockImplementation(message => {
-      expect(message).toMatchInlineSnapshot(
-        `"WebSocket protocol error occured. It was most likely caused due to an unsupported subprotocol \\"graphql-ws\\" requested by the client. graphql-ws implements exclusively the \\"graphql-transport-ws\\" subprotocol, please make sure that the client implements it too."`
-      );
-    });
     const { GraphQLWSWebsocketsClient, SubscriptionsTransportWebsocketsClient } = await startFastifyServer({
       createOptions: {
         ez: {
@@ -115,13 +110,9 @@ describe('fastify', () => {
           throw Error("DIDN'T THROW");
         })
         .catch(err => {
-          expect(err).toMatchInlineSnapshot(
-            `[Error: A message was not sent because socket is not connected, is closing or is already closed. Message was: {"type":"connection_init","payload":{}}]`
-          );
+          expect(err.message).toMatchInlineSnapshot(`"Server sent no subprotocol"`);
         }),
     ]);
-
-    expect(warnSpy).toBeCalledTimes(1);
   });
 
   test('only legacy', async () => {
