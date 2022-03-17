@@ -273,6 +273,22 @@ test('all scalars', async () => {
     \\"\\"\\"
     scalar DID
 
+    \\"\\"\\"A country code as defined by ISO 3166-1 alpha-2\\"\\"\\"
+    scalar CountryCode
+
+    \\"\\"\\"The locale in the format of a BCP 47 (RFC 5646) standard string\\"\\"\\"
+    scalar Locale
+
+    \\"\\"\\"
+    In the US, an ABA routing transit number (\`ABA RTN\`) is a nine-digit code to identify the financial institution.
+    \\"\\"\\"
+    scalar RoutingNumber
+
+    \\"\\"\\"
+    Banking account number is a string of 5 to 17 alphanumeric values for representing an generic account number
+    \\"\\"\\"
+    scalar AccountNumber
+
     type Query {
       hello: String!
       users: [User!]!
