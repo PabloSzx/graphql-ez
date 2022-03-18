@@ -1,5 +1,11 @@
 # graphql-ez
 
+## 0.14.1
+
+### Patch Changes
+
+- 6a80979f: Bump envelop/core
+
 ## 0.14.0
 
 ### Minor Changes

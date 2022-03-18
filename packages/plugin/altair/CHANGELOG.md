@@ -1,5 +1,14 @@
 # @graphql-ez/plugin-altair
 
+## 0.9.9
+
+### Patch Changes
+
+- b4a82dc6: New "disableIf" configuration to disable altair usage on specific request-conditionals
+- 6a80979f: Update altair to 4.4.1
+- Updated dependencies [6a80979f]
+  - graphql-ez@0.14.1
+
 ## 0.9.8
 
 ### Patch Changes

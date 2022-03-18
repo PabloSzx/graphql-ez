@@ -1,5 +1,11 @@
 # @graphql-ez/client
 
+## 0.4.1
+
+### Patch Changes
+
+- 6a80979f: Update undici
+
 ## 0.4.0
 
 ### Minor Changes

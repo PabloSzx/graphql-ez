@@ -1,6 +1,6 @@
 {
   "name": "@graphql-ez/sveltekit",
-  "version": "0.3.1",
+  "version": "0.4.0",
   "homepage": "https://www.graphql-ez.com",
   "repository": {
     "type": "git",
@@ -33,9 +33,9 @@
   },
   "devDependencies": {
     "@envelop/core": "^2.1.0",
-    "@graphql-ez/plugin-altair": "workspace:^0.9.8",
+    "@graphql-ez/plugin-altair": "workspace:^0.9.9",
     "@graphql-ez/plugin-graphiql": "workspace:^0.11.4",
-    "@graphql-ez/plugin-schema": "workspace:^0.8.3",
+    "@graphql-ez/plugin-schema": "workspace:^0.8.4",
     "@graphql-ez/plugin-voyager": "workspace:^0.9.3",
     "@graphql-tools/schema": "^8.3.3",
     "@sveltejs/adapter-node": "^1.0.0-next.73",
@@ -47,7 +47,7 @@
     "execa": "^5.1.1",
     "get-port": "^5.1.1",
     "graphql": "16.1.0-experimental-stream-defer.6",
-    "graphql-ez": "workspace:^0.14.0",
+    "graphql-ez": "workspace:^0.14.1",
     "jest": "^27.5.1",
     "svelte": "^3.46.4",
     "svelte-check": "^2.4.6",
@@ -60,7 +60,7 @@
     "@sveltejs/kit": "^1.0.0-next.301",
     "@types/node": "*",
     "graphql": "*",
-    "graphql-ez": "workspace:^0.14.0"
+    "graphql-ez": "workspace:^0.14.1"
   },
   "publishConfig": {
     "directory": "dist"
