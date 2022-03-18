@@ -1,25 +1,19 @@
 import { getObjectValue } from '@graphql-ez/utils/object';
 import { LazyPromise } from '@graphql-ez/utils/promise';
 import { withoutTrailingSlash, withTrailingSlash } from '@graphql-ez/utils/url';
-
-import { onIntegrationRegister } from './integrations';
-
 import type { EZPlugin, PickRequired } from 'graphql-ez';
-import type { RenderOptions } from 'altair-static-slim';
+import { onIntegrationRegister } from './integrations';
 import type { AltairOptions, IDEHandler } from './types';
 
-export function AltairHandlerDeps(options: AltairOptions): {
-  path: string;
-  baseURL: string;
-  renderOptions: RenderOptions;
-} {
-  let { path = '/altair', baseURL: baseURLOpt, endpoint: endpointURL, ...renderOptions } = options;
+export function AltairHandlerDeps(options: AltairOptions) {
+  let { path = '/altair', baseURL: baseURLOpt, endpoint: endpointURL, disableIf, ...renderOptions } = options;
 
   const baseURL = baseURLOpt || path + '/';
 
   return {
     path,
     baseURL,
+    disableIf,
     renderOptions: {
       ...renderOptions,
       endpointURL,
@@ -70,20 +64,25 @@ export const ezAltairIDE = (options: AltairOptions | boolean = true): EZPlugin =
 };
 
 export function AltairHandler(options: PickRequired<AltairOptions, 'path'>): IDEHandler {
-  const { path, baseURL, renderOptions } = AltairHandlerDeps(options);
+  const { path, baseURL, renderOptions, disableIf } = AltairHandlerDeps(options);
 
   return async function (req, res) {
     const { StaticRender } = await import('./render/static');
 
-    const { status, content, contentType } = await StaticRender({
+    const { status, content, contentType, isBasePath } = await StaticRender({
       altairPath: path,
       baseURL,
       url: req.url,
       renderOptions,
     });
 
+    if (isBasePath && disableIf?.(req)) {
+      res.writeHead(404).end();
+
+      return;
+    }
+
     if (contentType) res.setHeader('content-type', contentType);
-    res.writeHead(status);
-    res.end(content);
+    res.writeHead(status).end(content);
   };
 }

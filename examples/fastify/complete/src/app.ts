@@ -41,7 +41,11 @@ export const { registerModule, buildApp, registerDataLoader } = CreateApp({
       ezScalars({
         DateTime: 1,
       }),
-      ezAltairIDE(),
+      ezAltairIDE({
+        disableIf(req) {
+          return !req.url || new URL(req.url, 'http://_').searchParams.get('secret') !== 'supersecret';
+        },
+      }),
       ezStaticGraphiQLIDE({
         path: '/graphql',
         hybridSubscriptionTransportConfig: {

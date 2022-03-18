@@ -79,21 +79,22 @@ export const UnpkgRender: AltairRender = async ({ baseURL, url, altairPath, rend
         status: 200,
         contentType: 'text/html',
         content: await renderAltair({ ...renderOptions, baseURL: withTrailingSlash(baseURL) }),
+        isBasePath: true,
       };
     default:
-      if (!url) return { status: 404 };
+      if (!url) return { status: 404, isBasePath: false };
 
       const resolvedPath = altairUnpkgDist + url.slice(baseURL.length);
 
       const fetchResult = await fetchFn(resolvedPath).catch(() => null);
 
-      if (!fetchResult) return { status: 404 };
+      if (!fetchResult) return { status: 404, isBasePath: false };
 
       const result = await fetchResult.arrayBuffer().catch(() => null);
 
       const contentType = fetchResult.headers.get('content-type');
 
-      if (!contentType || !result) return { status: 404 };
+      if (!contentType || !result) return { status: 404, isBasePath: false };
 
       const content = raw ? undefined : Buffer.from(result);
 
@@ -102,6 +103,7 @@ export const UnpkgRender: AltairRender = async ({ baseURL, url, altairPath, rend
         contentType,
         content,
         rawContent: raw ? result : undefined,
+        isBasePath: false,
       };
   }
 };

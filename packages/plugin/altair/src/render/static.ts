@@ -31,9 +31,10 @@ export const StaticRender: AltairRender = async ({ baseURL, url, altairPath, ren
         status: 200,
         contentType: 'text/html',
         content: renderAltair({ ...renderOptions, baseURL: withTrailingSlash(baseURL) }),
+        isBasePath: true,
       };
     default:
-      if (!url) return { status: 404 };
+      if (!url) return { status: 404, isBasePath: false };
 
       const resolvedPath = resolve(getDistDirectory(), url.slice(baseURL.length));
 
@@ -41,12 +42,13 @@ export const StaticRender: AltairRender = async ({ baseURL, url, altairPath, ren
 
       const contentType = lookup(resolvedPath);
 
-      if (!contentType || !result) return { status: 404 };
+      if (!contentType || !result) return { status: 404, isBasePath: false };
 
       return {
         status: 200,
         contentType,
         content: result,
+        isBasePath: false,
       };
   }
 };

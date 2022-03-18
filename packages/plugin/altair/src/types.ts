@@ -12,6 +12,11 @@ export interface AltairOptions extends Omit<RenderOptions, 'endpointURL'> {
    * URL to set as the server endpoint
    */
   endpoint?: string;
+
+  /**
+   * Disable Altair integration based on specific request-based conditional
+   */
+  disableIf?: (req: IncomingMessage) => boolean;
 }
 
 export type IDEHandler = (req: IncomingMessage, res: ServerResponse) => Promise<void>;
@@ -27,6 +32,7 @@ export type AltairRender = (options: {
   contentType?: string;
   content?: string | Buffer;
   rawContent?: ArrayBuffer;
+  isBasePath: boolean;
 }>;
 
 declare module 'graphql-ez' {

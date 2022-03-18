@@ -6,14 +6,14 @@ import { onIntegrationRegister } from './integrations';
 import type { AltairOptions, IDEHandler } from './types';
 
 export function UnpkgAltairHandler(options: PickRequired<AltairOptions, 'path'>): IDEHandler {
-  let { path, baseURL: baseURLOpt, endpoint = '/api/graphql', ...renderOptions } = options;
+  let { path, baseURL: baseURLOpt, endpoint = '/api/graphql', disableIf, ...renderOptions } = options;
 
   const baseURL = baseURLOpt || path + '/';
 
   return async function (req, res) {
     const { UnpkgRender } = await import('./render/unpkg');
 
-    const { status, content, contentType } = await UnpkgRender({
+    const { status, content, contentType, isBasePath } = await UnpkgRender({
       altairPath: path,
       baseURL,
       url: req.url,
@@ -24,9 +24,14 @@ export function UnpkgAltairHandler(options: PickRequired<AltairOptions, 'path'>)
       },
     });
 
+    if (isBasePath && disableIf?.(req)) {
+      res.writeHead(404).end();
+
+      return;
+    }
+
     if (contentType) res.setHeader('content-type', contentType);
-    res.writeHead(status);
-    res.end(content);
+    res.writeHead(status).end(content);
   };
 }
 
