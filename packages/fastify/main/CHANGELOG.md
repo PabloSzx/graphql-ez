@@ -1,5 +1,13 @@
 # @graphql-ez/fastify
 
+## 0.9.7
+
+### Patch Changes
+
+- 6a80979f: Envelop update
+- Updated dependencies [6a80979f]
+  - graphql-ez@0.14.1
+
 ## 0.9.6
 
 ### Patch Changes

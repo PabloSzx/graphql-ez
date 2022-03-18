@@ -1,5 +1,16 @@
 # @graphql-ez/sveltekit
 
+## 0.4.0
+
+### Minor Changes
+
+- c995ca1e: Update sveltekit to "@sveltejs/kit": "^1.0.0-next.301" + "@sveltejs/adapter-node": "^1.0.0-next.73"
+
+### Patch Changes
+
+- Updated dependencies [6a80979f]
+  - graphql-ez@0.14.1
+
 ## 0.3.1
 
 ### Patch Changes
