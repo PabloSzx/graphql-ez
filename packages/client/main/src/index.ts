@@ -20,6 +20,7 @@ export interface EZClientOptions {
   headers?: IncomingHttpHeaders;
   graphQLWSClientOptions?: Partial<GraphQLWSClientOptions>;
   subscriptionsTransportClientOptions?: SubscriptionsTransportClientOptions;
+  unidiClientOptions?: Client.Options;
 }
 
 class GraphQLErrorJSON extends Error {
@@ -78,7 +79,7 @@ export function EZClient(options: EZClientOptions) {
 
   const endpointPathname = endpoint.pathname;
 
-  const client = new Client(endpointOrigin);
+  const client = new Client(endpointOrigin, options.unidiClientOptions);
 
   const graphqlWS = createGraphQLWSWebsocketsClient(websocketEndpoint, options.graphQLWSClientOptions);
 
