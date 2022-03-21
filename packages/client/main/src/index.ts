@@ -4,7 +4,7 @@ import { getURLWebsocketVersion } from '@graphql-ez/utils/url';
 import type { TypedDocumentNode } from '@graphql-typed-document-node/core';
 import type { ExecutionResult, GraphQLError } from 'graphql';
 import type { IncomingHttpHeaders } from 'http';
-import { Client } from 'undici';
+import { Client, Dispatcher } from 'undici';
 import { createSSESubscription } from './sse';
 import { createStreamHelper } from './stream';
 import type { SubscribeFunction, SubscribeOptions } from './types';
@@ -25,47 +25,43 @@ export interface EZClientOptions {
 }
 
 class GraphQLErrorJSON extends Error {
-  constructor(message: string, public locations: GraphQLError['locations'], public extensions: GraphQLError['extensions']) {
+  public locations: GraphQLError['locations'] | undefined;
+  public extensions: GraphQLError['extensions'] | undefined;
+  constructor(message: string, locations: GraphQLError['locations'], extensions: GraphQLError['extensions']) {
     super(message);
+    if (locations) this.locations = locations;
+    if (extensions) this.extensions = extensions;
   }
+}
+
+export interface QueryOptions<TVariables = {}> {
+  variables?: TVariables;
+  headers?: IncomingHttpHeaders;
+  /**
+   * @default "POST"
+   */
+  method?: 'GET' | 'POST';
+  extensions?: Record<string, unknown>;
+  operationName?: string;
+  /**
+   * Customize and/or override the default undici request options
+   */
+  requestOptions?: Partial<Dispatcher.RequestOptions>;
 }
 
 export type QueryFunctionPostGet = <TData, TVariables = {}, TExtensions = {}>(
   document: TypedDocumentNode<TData, TVariables> | string,
-  options?: {
-    variables?: TVariables;
-    headers?: IncomingHttpHeaders;
-    /**
-     * @default "POST"
-     */
-    method?: 'GET' | 'POST';
-    extensions?: Record<string, unknown>;
-    operationName?: string;
-  }
+  options?: QueryOptions
 ) => Promise<ExecutionResult<TData, TExtensions>>;
 
 export type QueryFunctionPost = <TData, TVariables = {}, TExtensions = {}>(
   document: TypedDocumentNode<TData, TVariables> | string,
-  options?: {
-    variables?: TVariables;
-    headers?: IncomingHttpHeaders;
-    extensions?: Record<string, unknown>;
-    operationName?: string;
-  }
+  options?: Omit<QueryOptions, 'method'>
 ) => Promise<ExecutionResult<TData, TExtensions>>;
 
 export type AssertedQuery = <TData = any, TVariables = {}>(
   document: TypedDocumentNode<TData, TVariables> | string,
-  options?: {
-    variables?: TVariables;
-    headers?: IncomingHttpHeaders;
-    /**
-     * @default "POST"
-     */
-    method?: 'GET' | 'POST';
-    extensions?: Record<string, unknown>;
-    operationName?: string;
-  }
+  options?: QueryOptions
 ) => Promise<TData>;
 
 export function EZClient(options: EZClientOptions) {
@@ -100,7 +96,7 @@ export function EZClient(options: EZClientOptions) {
 
   const query: QueryFunctionPostGet = async function query(
     document,
-    { variables, headers: headersArg, method = 'POST', extensions, operationName } = {}
+    { variables, headers: headersArg, method = 'POST', extensions, operationName, requestOptions } = {}
   ) {
     const { body, headers } = await client.request(
       method === 'GET'
@@ -110,6 +106,7 @@ export function EZClient(options: EZClientOptions) {
             path:
               endpointPathname +
               documentParamsToURIParams({ query: getQueryString(document), extensions, operationName, variables }),
+            ...requestOptions,
           }
         : {
             method: 'POST',
@@ -117,8 +114,9 @@ export function EZClient(options: EZClientOptions) {
               'content-type': 'application/json',
               ...getHeaders(headersArg),
             },
-            body: JSON.stringify({ query: getQueryString(document), variables }),
+            body: JSON.stringify({ query: getQueryString(document), extensions, operationName, variables }),
             path: endpointPathname,
+            ...requestOptions,
           }
     );
 
@@ -135,30 +133,8 @@ export function EZClient(options: EZClientOptions) {
     return json;
   };
 
-  const queryPost: QueryFunctionPost = async function queryPost(
-    document,
-    { variables, headers: headersArg, extensions, operationName } = {}
-  ) {
-    const { body, headers } = await client.request({
-      method: 'POST',
-      headers: {
-        'content-type': 'application/json',
-        ...getHeaders(headersArg),
-      },
-      body: JSON.stringify({ query: getQueryString(document), variables, operationName, extensions }),
-      path: endpointPathname,
-    });
-
-    if (!headers['content-type']?.startsWith('application/json')) {
-      console.error({
-        body: await body.text(),
-        headers,
-      });
-      throw Error('Unexpected content type received: ' + headers['content-type']);
-    }
-
-    const json = await body.json();
-    return json;
+  const queryPost: QueryFunctionPost = function queryPost(document, options) {
+    return query(document, { ...options, method: 'POST' });
   };
 
   const assertedQuery: AssertedQuery = async (document, options) => {
