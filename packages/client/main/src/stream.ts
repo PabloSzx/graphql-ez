@@ -1,10 +1,10 @@
 import { createDeferredPromise, DeferredPromise } from '@graphql-ez/utils/promise';
 import type { TypedDocumentNode } from '@graphql-typed-document-node/core';
 import assert from 'assert';
-import { print } from 'graphql';
 import type { IncomingHttpHeaders } from 'http';
 import { PassThrough } from 'stream';
 import type { Client } from 'undici';
+import { getQueryString } from './utils';
 
 export function createStreamHelper(
   client: Client,
@@ -25,8 +25,6 @@ export function createStreamHelper(
       operationName?: string;
     } = {}
   ) {
-    const queryString = typeof document === 'string' ? document : print(document);
-
     let deferValuePromise: DeferredPromise<string | null> | null = createDeferredPromise();
 
     async function* iteratorGenerator() {
@@ -53,7 +51,7 @@ export function createStreamHelper(
       {
         path,
         method: 'POST',
-        body: JSON.stringify({ query: queryString, variables, extensions, operationName }),
+        body: JSON.stringify({ query: getQueryString(document), variables, extensions, operationName }),
         headers: {
           'content-type': 'application/json',
           ...getHeaders(headersArg),

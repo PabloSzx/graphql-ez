@@ -1,9 +1,8 @@
-import { isDocumentNode } from '@graphql-ez/utils/document';
 import { createDeferredPromise, DeferredPromise, LazyPromise } from '@graphql-ez/utils/promise';
-import { ExecutionResult, print } from 'graphql';
+import type { ExecutionResult } from 'graphql';
 import type { SubscriptionsTransportClientOptions } from '../deps.js';
 import type { SubscribeFunction } from '../types';
-import { lazyDeps } from '../utils';
+import { getQueryString, lazyDeps } from '../utils';
 
 export type { SubscriptionsTransportClientOptions };
 
@@ -50,7 +49,7 @@ export function createSubscriptionsTransportWebsocketsClient(
     const done = new Promise<void>(async (resolve, reject) => {
       try {
         const { subscribe } = (await client).request({
-          query: isDocumentNode(query) ? print(query) : query,
+          query: getQueryString(query),
           variables,
           operationName,
           extensions,

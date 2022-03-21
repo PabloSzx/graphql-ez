@@ -1,8 +1,7 @@
 import { ReadStream } from 'fs';
-import { print } from 'graphql';
 import type { IncomingHttpHeaders } from 'http';
 import type { QueryFunctionPost } from './';
-import { lazyDeps } from './utils';
+import { getQueryString, lazyDeps } from './utils';
 
 export function createUploadQuery(
   endpoint: string,
@@ -11,10 +10,9 @@ export function createUploadQuery(
 ): QueryFunctionPost {
   return async function (document, { variables, headers: headersArg, extensions, operationName } = {}) {
     const { extractFiles, FormData, nodeFetch } = await lazyDeps;
-    const queryString = typeof document === 'string' ? document : print(document);
 
     const mainBody = {
-      query: queryString,
+      query: getQueryString(document),
       variables,
       operationName,
     };

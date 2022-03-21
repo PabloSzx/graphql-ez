@@ -1,9 +1,8 @@
-import { isDocumentNode } from '@graphql-ez/utils/document';
 import { createDeferredPromise, DeferredPromise, LazyPromise } from '@graphql-ez/utils/promise';
-import { ExecutionResult, print } from 'graphql';
+import type { ExecutionResult } from 'graphql';
 import type { GraphQLWSClient, GraphQLWSClientOptions } from '../deps.js';
 import type { SubscribeFunction } from '../types';
-import { lazyDeps } from '../utils';
+import { getQueryString, lazyDeps } from '../utils';
 
 export type { GraphQLWSClientOptions };
 
@@ -45,7 +44,7 @@ export function createGraphQLWSWebsocketsClient(wsEndpoint: string, options: Par
       try {
         unsubscribeFn = (await client).subscribe(
           {
-            query: isDocumentNode(query) ? print(query) : query,
+            query: getQueryString(query),
             variables,
             operationName,
             extensions,

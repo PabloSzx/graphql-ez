@@ -2,13 +2,14 @@ import { documentParamsToURIParams } from '@graphql-ez/utils/clientURI';
 import { cleanObject } from '@graphql-ez/utils/object';
 import { getURLWebsocketVersion } from '@graphql-ez/utils/url';
 import type { TypedDocumentNode } from '@graphql-typed-document-node/core';
-import { ExecutionResult, GraphQLError, print } from 'graphql';
+import type { ExecutionResult, GraphQLError } from 'graphql';
 import type { IncomingHttpHeaders } from 'http';
 import { Client } from 'undici';
 import { createSSESubscription } from './sse';
 import { createStreamHelper } from './stream';
 import type { SubscribeFunction, SubscribeOptions } from './types';
 import { createUploadQuery } from './upload';
+import { getQueryString } from './utils';
 import { createGraphQLWSWebsocketsClient, GraphQLWSClientOptions } from './websockets/graphql-ws';
 import {
   createSubscriptionsTransportWebsocketsClient,
@@ -101,13 +102,14 @@ export function EZClient(options: EZClientOptions) {
     document,
     { variables, headers: headersArg, method = 'POST', extensions, operationName } = {}
   ) {
-    const queryString = typeof document === 'string' ? document : print(document);
     const { body, headers } = await client.request(
       method === 'GET'
         ? {
             method: 'GET',
             headers: getHeaders(headersArg),
-            path: endpointPathname + documentParamsToURIParams({ query: queryString, extensions, operationName, variables }),
+            path:
+              endpointPathname +
+              documentParamsToURIParams({ query: getQueryString(document), extensions, operationName, variables }),
           }
         : {
             method: 'POST',
@@ -115,7 +117,7 @@ export function EZClient(options: EZClientOptions) {
               'content-type': 'application/json',
               ...getHeaders(headersArg),
             },
-            body: JSON.stringify({ query: queryString, variables }),
+            body: JSON.stringify({ query: getQueryString(document), variables }),
             path: endpointPathname,
           }
     );
@@ -137,15 +139,13 @@ export function EZClient(options: EZClientOptions) {
     document,
     { variables, headers: headersArg, extensions, operationName } = {}
   ) {
-    const queryString = typeof document === 'string' ? document : print(document);
-
     const { body, headers } = await client.request({
       method: 'POST',
       headers: {
         'content-type': 'application/json',
         ...getHeaders(headersArg),
       },
-      body: JSON.stringify({ query: queryString, variables, operationName, extensions }),
+      body: JSON.stringify({ query: getQueryString(document), variables, operationName, extensions }),
       path: endpointPathname,
     });
 

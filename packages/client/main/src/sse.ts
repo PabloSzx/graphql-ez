@@ -1,10 +1,10 @@
 import { createDeferredPromise, DeferredPromise } from '@graphql-ez/utils/promise';
 import type { TypedDocumentNode } from '@graphql-typed-document-node/core';
-import { ExecutionResult, print, stripIgnoredCharacters } from 'graphql';
+import { ExecutionResult, stripIgnoredCharacters } from 'graphql';
 import type { IncomingHttpHeaders } from 'http';
 import type { EventSourceInitDict } from './deps.js';
 import type { SubscribeFunction, SubscribeOptions } from './types';
-import { lazyDeps } from './utils';
+import { getQueryString, lazyDeps } from './utils';
 
 export function createSSESubscription(
   href: string,
@@ -25,8 +25,6 @@ export function createSSESubscription(
       ...rest
     }: SubscribeOptions<TData, TVariables, TExtensions, EventSourceInitDict> = {}
   ) {
-    const queryString = typeof document === 'string' ? document : print(document);
-
     let deferValuePromise: DeferredPromise<ExecutionResult<any> | null> | null = createDeferredPromise();
 
     let eventSource: import('./deps').EventSource | undefined;
@@ -34,7 +32,7 @@ export function createSSESubscription(
     const done = new Promise<void>(async (resolve, reject) => {
       const { EventSource } = await lazyDeps;
       eventSource = new EventSource(
-        `${href}?query=${encodeURIComponent(stripIgnoredCharacters(queryString))}${
+        `${href}?query=${encodeURIComponent(stripIgnoredCharacters(getQueryString(document)))}${
           variables ? '&variables=' + encodeURIComponent(JSON.stringify(variables)) : ''
         }${extensions ? '&extensions=' + encodeURIComponent(JSON.stringify(extensions)) : ''}${
           operationName ? '&operationName=' + encodeURIComponent(operationName) : ''
