@@ -1,5 +1,12 @@
 # @graphql-ez/client
 
+## 0.4.2
+
+### Patch Changes
+
+- 85a59b34: cache document print with WeakMap
+- ec18e5a1: Allow give custom undici client options
+
 ## 0.4.1
 
 ### Patch Changes
