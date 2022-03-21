@@ -957,7 +957,7 @@ importers:
       '@types/node': ^17.0.21
       '@types/ws': ^8.5.3
       bob-esbuild-cli: ^3.0.2
-      eventsource: ^1.1.0
+      eventsource: ^2.0.0
       express: ^4.17.3
       fast-safe-stringify: ^2.1.1
       fastify: ^3.27.4
@@ -994,7 +994,7 @@ importers:
       '@types/node': 17.0.21
       '@types/ws': 8.5.3
       bob-esbuild-cli: 3.0.2_bob-esbuild@3.2.5
-      eventsource: 1.1.0
+      eventsource: 2.0.0
       express: 4.17.3
       fast-safe-stringify: 2.1.1
       fastify: 3.27.4
@@ -1097,7 +1097,7 @@ importers:
       '@types/ws': ^8.5.3
       bob-ts: ^3.1.1
       changesets-github-release: ^0.1.0
-      eventsource: ^1.1.0
+      eventsource: ^2.0.0
       extract-files: ^11.0.0
       form-data: ^4.0.0
       graphql: 16.1.0-experimental-stream-defer.6
@@ -1120,7 +1120,7 @@ importers:
       '@types/ws': 8.5.3
       bob-ts: 3.1.1_738abcd01278e5c06957008fdfa59a6c
       changesets-github-release: 0.1.0
-      eventsource: 1.1.0
+      eventsource: 2.0.0
       extract-files: 11.0.0
       form-data: 4.0.0
       graphql: 16.1.0-experimental-stream-defer.6
@@ -8873,11 +8873,9 @@ packages:
     resolution: {integrity: sha512-yT4htzImIQAf7mFV3heqTRNVwysZIgQjrribiCYQk152gcG6shz/WU/6xVGr0oDzkzcDPhMcCYy4lEKBiadSRA==}
     dev: false
 
-  /eventsource/1.1.0:
-    resolution: {integrity: sha512-VSJjT5oCNrFvCS6igjzPAt5hBzQ2qPBFIbJ03zLI9SE0mxwZpMw6BfJrbFHm1a141AavMEB8JHmBhWAd66PfCg==}
-    engines: {node: '>=0.12.0'}
-    dependencies:
-      original: 1.0.2
+  /eventsource/2.0.0:
+    resolution: {integrity: sha512-U9TI2qLWwedwiDLCbSUoSAPHGK2P7nT6/f25wBzMy9tWOKgFoNY4n+GYCPCYg3sGKrIoCmpChJoO3KKymcLo8A==}
+    engines: {node: '>=12.0.0'}
     dev: true
 
   /execa/4.1.0:
@@ -13009,12 +13007,6 @@ packages:
       word-wrap: 1.2.3
     dev: true
 
-  /original/1.0.2:
-    resolution: {integrity: sha512-hyBVl6iqqUOJ8FqRe+l/gS8H+kKYjrEndd5Pm1MfBtsEKA038HkkdbAl/72EAXGyonD/PFsvmVG+EvcIpliMBg==}
-    dependencies:
-      url-parse: 1.5.10
-    dev: true
-
   /os-tmpdir/1.0.2:
     resolution: {integrity: sha1-u+Z0BseaqFxc/sdm/lc0VV36EnQ=}
     engines: {node: '>=0.10.0'}
@@ -13580,10 +13572,6 @@ packages:
   /qs/6.9.7:
     resolution: {integrity: sha512-IhMFgUmuNpyRfxA90umL7ByLlgRXu6tIfKPpF5TmcfRLlLCckfP/g3IQmju6jjpu+Hh8rA+2p6A27ZSPOOHdKw==}
     engines: {node: '>=0.6'}
-
-  /querystringify/2.2.0:
-    resolution: {integrity: sha512-FIqgj2EUvTa7R50u0rGsyTftzjYmv/a3hO345bZNrqabNqjtgiDMgmo4mkUjd+nzU5oF3dClKqFIPUKybUyqoQ==}
-    dev: true
 
   /queue-microtask/1.2.3:
     resolution: {integrity: sha512-NuaNSa6flKT5JaSYQzJok04JzTL1CA6aGhv5rfLW3PgqA+M2ChpZQnAC8h8i4ZFkBS8X5RqkDBHA7r4hej3K9A==}
@@ -14203,10 +14191,6 @@ packages:
 
   /require-main-filename/2.0.0:
     resolution: {integrity: sha512-NKN5kMDylKuldxYLSUfrbo5Tuzh4hd+2E8NPPX02mZtn1VuREQToYe/ZdlJy+J3uCpfaiGF05e7B8W0iXbQHmg==}
-
-  /requires-port/1.0.0:
-    resolution: {integrity: sha1-kl0mAdOaxIXgkc8NpcbmlNw9yv8=}
-    dev: true
 
   /resize-observer-polyfill/1.5.1:
     resolution: {integrity: sha512-LwZrotdHOo12nQuZlHEmtuXdqGoOD0OhaxopaNFxWzInpEgaLWoVuAMbTzixuosCx2nEG58ngzW3vxdWoxIgdg==}
@@ -15965,13 +15949,6 @@ packages:
   /urix/0.1.0:
     resolution: {integrity: sha1-2pN/emLiH+wf0Y1Js1wpNQZ6bHI=}
     deprecated: Please see https://github.com/lydell/urix#deprecated
-    dev: true
-
-  /url-parse/1.5.10:
-    resolution: {integrity: sha512-WypcfiRhfeUP9vvF0j6rw0J3hrWrw6iZv3+22h6iRMJ/8z1Tj6XfLP4DsUix5MhMPnXpiHDoKyoZ/bdCkwBCiQ==}
-    dependencies:
-      querystringify: 2.2.0
-      requires-port: 1.0.0
     dev: true
 
   /use-callback-ref/1.2.5_6acae0b0a4a23c4372144902affe8735:
