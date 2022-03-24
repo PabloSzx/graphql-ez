@@ -967,7 +967,7 @@ importers:
       graphql: 16.1.0-experimental-stream-defer.6
       graphql-ez: workspace:*
       graphql-modules: ^2.0.0
-      graphql-ws: ^5.6.3
+      graphql-ws: ^5.6.4
       koa: ^2.13.4
       lodash: ^4.17.21
       subscriptions-transport-ws-envelop: ^2.0.2
@@ -1004,7 +1004,7 @@ importers:
       graphql: 16.1.0-experimental-stream-defer.6
       graphql-ez: link:../../packages/core/main
       graphql-modules: 2.0.0_7cd0a77a72827e2622373a4a49802d3d
-      graphql-ws: 5.6.3_7cd0a77a72827e2622373a4a49802d3d
+      graphql-ws: 5.6.4_7cd0a77a72827e2622373a4a49802d3d
       koa: 2.13.4
       lodash: 4.17.21
       subscriptions-transport-ws-envelop: 2.0.2_c9997057fe0c129e53c44fb246d7da85
@@ -1101,7 +1101,7 @@ importers:
       extract-files: ^11.0.0
       form-data: ^4.0.0
       graphql: 16.1.0-experimental-stream-defer.6
-      graphql-ws: ^5.6.3
+      graphql-ws: ^5.6.4
       jest: ^27.5.1
       node-fetch: ^2.6.7
       rimraf: ^3.0.2
@@ -1124,7 +1124,7 @@ importers:
       extract-files: 11.0.0
       form-data: 4.0.0
       graphql: 16.1.0-experimental-stream-defer.6
-      graphql-ws: 5.6.3_7cd0a77a72827e2622373a4a49802d3d
+      graphql-ws: 5.6.4_7cd0a77a72827e2622373a4a49802d3d
       jest: 27.5.1
       node-fetch: 2.6.7
       rimraf: 3.0.2
@@ -1387,7 +1387,7 @@ importers:
       graphql: 16.1.0-experimental-stream-defer.6
       graphql-ez: workspace:^0.14.1
       graphql-language-service-interface: ^2.10.2
-      graphql-ws: ^5.6.3
+      graphql-ws: ^5.6.4
       prettier: ^2.6.0
       prop-types: ^15.8.1
       react: ^17.0.2
@@ -1396,7 +1396,7 @@ importers:
     dependencies:
       '@graphql-ez/utils': link:../../core/utils
     devDependencies:
-      '@graphiql/toolkit': 0.4.2_0dc70165d3c7a7483d4408460877598a
+      '@graphiql/toolkit': 0.4.2_f2f56643da627abe580e02b0c7c7c701
       '@graphql-tools/url-loader': 7.9.4_abe133a89046cea308a1ad3e1a31936e
       '@graphql-tools/utils': 8.6.3_7cd0a77a72827e2622373a4a49802d3d
       '@n1ru4l/graphql-live-query': 0.9.0_7cd0a77a72827e2622373a4a49802d3d
@@ -1410,11 +1410,11 @@ importers:
       copy-to-clipboard: 3.3.1
       cpy: 8.1.2
       esbuild: 0.14.27
-      graphiql: 1.7.1_448c778c798019f6072acb17ca15dfaa
+      graphiql: 1.7.1_e5b01849d8eaa85e248e0af49174b0c1
       graphql: 16.1.0-experimental-stream-defer.6
       graphql-ez: link:../../core/main
       graphql-language-service-interface: 2.10.2_5037a608a05cd92eb5b4217ce8a251b5
-      graphql-ws: 5.6.3_7cd0a77a72827e2622373a4a49802d3d
+      graphql-ws: 5.6.4_7cd0a77a72827e2622373a4a49802d3d
       prettier: 2.6.0
       prop-types: 15.8.1
       react: 17.0.2
@@ -1890,7 +1890,7 @@ importers:
       changesets-github-release: ^0.1.0
       graphql: 16.1.0-experimental-stream-defer.6
       graphql-ez: workspace:^0.14.1
-      graphql-ws: ^5.6.3
+      graphql-ws: ^5.6.4
       jest: ^27.5.1
       subscriptions-transport-ws-envelop: ^2.0.2
       ts-jest: ^27.1.3
@@ -1898,7 +1898,7 @@ importers:
     dependencies:
       '@graphql-ez/utils': link:../../core/utils
       '@types/ws': 8.5.3
-      graphql-ws: 5.6.3_7cd0a77a72827e2622373a4a49802d3d
+      graphql-ws: 5.6.4_7cd0a77a72827e2622373a4a49802d3d
       subscriptions-transport-ws-envelop: 2.0.2_c9997057fe0c129e53c44fb246d7da85
       ws: 8.5.0
     devDependencies:
@@ -4534,7 +4534,7 @@ packages:
     dependencies:
       ajv: 6.12.6
 
-  /@graphiql/toolkit/0.4.2_0dc70165d3c7a7483d4408460877598a:
+  /@graphiql/toolkit/0.4.2_f2f56643da627abe580e02b0c7c7c701:
     resolution: {integrity: sha512-14uG67QrONbRrhXwvBJFsMfcQfexmGhj7dgkputesx9xuPUkcCDNmVULnVA8sGYt8P/rSvjkfQYx3rtfW+GhAQ==}
     peerDependencies:
       graphql: '*'
@@ -4542,7 +4542,7 @@ packages:
     dependencies:
       '@n1ru4l/push-pull-async-iterable-iterator': 3.2.0
       graphql: 16.1.0-experimental-stream-defer.6
-      graphql-ws: 5.6.3_7cd0a77a72827e2622373a4a49802d3d
+      graphql-ws: 5.6.4_7cd0a77a72827e2622373a4a49802d3d
       meros: 1.2.0_@types+node@17.0.22
     transitivePeerDependencies:
       - '@types/node'
@@ -4888,7 +4888,7 @@ packages:
       extract-files: 11.0.0
       graphql: 16.1.0-experimental-stream-defer.6
       graphql-sse: 1.1.0_7cd0a77a72827e2622373a4a49802d3d
-      graphql-ws: 5.6.3_7cd0a77a72827e2622373a4a49802d3d
+      graphql-ws: 5.6.4_7cd0a77a72827e2622373a4a49802d3d
       isomorphic-ws: 4.0.1_ws@8.5.0
       meros: 1.2.0_@types+node@17.0.22
       subscriptions-transport-ws: 0.11.0_7cd0a77a72827e2622373a4a49802d3d
@@ -9671,7 +9671,7 @@ packages:
     resolution: {integrity: sha512-bzh50DW9kTPM00T8y4o8vQg89Di9oLJVLW/KaOGIXJWP/iqCN6WKYkbNOF04vFLJhwcpYUh9ydh/+5vpOqV4YQ==}
     dev: true
 
-  /graphiql/1.7.1_448c778c798019f6072acb17ca15dfaa:
+  /graphiql/1.7.1_e5b01849d8eaa85e248e0af49174b0c1:
     resolution: {integrity: sha512-diEftHKsFtONUy90v1bZYgjCsJmRRVlnS72kYdv2lTETr1jgWN8V1nLepGl47xoQg8j0Bw9Er3v0wHnOdB5JxA==}
     peerDependencies:
       graphql: '*'
@@ -9683,7 +9683,7 @@ packages:
       react-dom:
         optional: true
     dependencies:
-      '@graphiql/toolkit': 0.4.2_0dc70165d3c7a7483d4408460877598a
+      '@graphiql/toolkit': 0.4.2_f2f56643da627abe580e02b0c7c7c701
       codemirror: 5.65.2
       codemirror-graphql: 1.2.13_4e2ffa6f977d68c70b14bc1482ace0b8
       copy-to-clipboard: 3.3.1
@@ -9948,8 +9948,8 @@ packages:
       http-errors: 1.8.1
       object-path: 0.11.8
 
-  /graphql-ws/5.6.3_7cd0a77a72827e2622373a4a49802d3d:
-    resolution: {integrity: sha512-ZolWOi6bzI35ovGROCZROB9nDbwZiJdIsaPdzW/jkICCGNb3qL/33IONY/yQiBa+Je2uA11HfY4Uxse4+/ePYA==}
+  /graphql-ws/5.6.4_7cd0a77a72827e2622373a4a49802d3d:
+    resolution: {integrity: sha512-5r8tAzznI1zeh7k12+3z07KkgXPckQbnC9h4kJ2TBDWG2wb26TJTbVHQOiAncDBgPbtXtc1A2BlttiRuPH2t/w==}
     engines: {node: '>=10'}
     peerDependencies:
       graphql: '*'
