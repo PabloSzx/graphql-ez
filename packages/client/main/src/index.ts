@@ -121,11 +121,15 @@ export function EZClient(options: EZClientOptions) {
     );
 
     if (!headers['content-type']?.startsWith('application/json')) {
+      const errorBody =
+        (await body.text().catch(err => {
+          console.error(err);
+        })) || 'No body';
       console.error({
-        body: await body.text(),
+        body: errorBody,
         headers,
       });
-      throw Error('Unexpected content type received: ' + headers['content-type']);
+      throw Error(`Unexpected content type received: ${headers['content-type']}, BodyText: ${errorBody}`);
     }
 
     const json = await body.json();
