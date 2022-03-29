@@ -61,6 +61,11 @@ test('all scalars', async () => {
     scalar Timestamp
 
     \\"\\"\\"
+    A field whose value exists in the standard IANA Time Zone Database: https://www.iana.org/time-zones
+    \\"\\"\\"
+    scalar TimeZone
+
+    \\"\\"\\"
     A field whose value is a UTC Offset: https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
     \\"\\"\\"
     scalar UtcOffset
