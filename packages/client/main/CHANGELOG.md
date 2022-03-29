@@ -1,5 +1,17 @@
 # @graphql-ez/client
 
+## 0.5.0
+
+### Minor Changes
+
+- aa79d433: Update undici to v5
+
+### Patch Changes
+
+- 67a2b806: Update eventsource to v2 (ref: https://github.com/EventSource/eventsource/blob/HEAD/HISTORY.md#200)
+- 885dbe06: Add error body text on `Unexpected content type` error
+- d2e563ad: Allow customize/override undici request options
+
 ## 0.4.2
 
 ### Patch Changes
