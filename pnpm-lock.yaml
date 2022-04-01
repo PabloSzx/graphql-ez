@@ -24,16 +24,16 @@ importers:
       bob-tsm: ^0.4.7
       chalk: ^5.0.1
       changesets-github-release: ^0.1.0
-      concurrently: ^7.1.0
+      concurrently: ^7.0.0
       cross-env: ^7.0.3
-      esbuild: ^0.14.30
+      esbuild: ^0.14.28
       fastify: ^3.27.4
       globby: ^13.1.1
       graphql-ez-testing: workspace:^1.0.0
       husky: 7.0.4
       jest: ^27.5.1
       mocha: ^9.2.2
-      prettier: ^2.6.2
+      prettier: ^2.6.1
       pretty-quick: ^3.1.3
       ts-jest: ^27.1.4
       typescript: ^4.6.3
@@ -65,10 +65,10 @@ importers:
 
   benchmarks/apis/envelop-fastify-raw:
     specifiers:
-      '@envelop/core': ^2.2.0
-      '@envelop/graphql-jit': ^4.1.0
-      '@envelop/parser-cache': ^4.2.0
-      '@envelop/types': ^2.1.0
+      '@envelop/core': ^2.1.0
+      '@envelop/graphql-jit': ^4.0.0
+      '@envelop/parser-cache': ^4.1.0
+      '@envelop/types': ^2.0.0
       '@envelop/validation-cache': '*'
       '@types/node': ^17.0.23
       benchmark-bench: workspace:1.0.0
@@ -113,7 +113,7 @@ importers:
 
   benchmarks/apis/ez-express:
     specifiers:
-      '@envelop/graphql-jit': ^4.1.0
+      '@envelop/graphql-jit': ^4.0.0
       '@graphql-ez/express': workspace:^0.9.7
       '@types/express': ^4.17.13
       benchmark-bench: workspace:1.0.0
@@ -140,7 +140,7 @@ importers:
 
   benchmarks/apis/ez-fastify:
     specifiers:
-      '@envelop/graphql-jit': ^4.1.0
+      '@envelop/graphql-jit': ^4.0.0
       '@graphql-ez/fastify': workspace:^0.9.7
       benchmark-bench: workspace:1.0.0
       bob-tsm: ^0.4.7
@@ -165,7 +165,7 @@ importers:
 
   benchmarks/apis/ez-hapi:
     specifiers:
-      '@envelop/graphql-jit': ^4.1.0
+      '@envelop/graphql-jit': ^4.0.0
       '@graphql-ez/hapi': workspace:^0.8.9
       '@hapi/hapi': ^20.2.1
       '@types/hapi__hapi': ^20.0.10
@@ -192,7 +192,7 @@ importers:
 
   benchmarks/apis/ez-http:
     specifiers:
-      '@envelop/graphql-jit': ^4.1.0
+      '@envelop/graphql-jit': ^4.0.0
       '@graphql-ez/http': workspace:^0.10.3
       '@types/node': ^17.0.23
       benchmark-bench: workspace:1.0.0
@@ -217,7 +217,7 @@ importers:
 
   benchmarks/apis/ez-koa:
     specifiers:
-      '@envelop/graphql-jit': ^4.1.0
+      '@envelop/graphql-jit': ^4.0.0
       '@graphql-ez/koa': workspace:^0.8.10
       '@koa/router': ^10.1.1
       benchmark-bench: workspace:1.0.0
@@ -290,7 +290,7 @@ importers:
   benchmarks/bench:
     specifiers:
       '@faker-js/faker': ^6.1.1
-      '@graphql-tools/schema': ^8.3.6
+      '@graphql-tools/schema': ^8.3.5
       '@types/autocannon': ^7.6.1
       '@types/cli-table': ^0.3.0
       '@types/md5': ^2.3.2
@@ -302,7 +302,7 @@ importers:
       bob-tsm: ^0.4.7
       chalk: ^5.0.1
       cli-table: ^0.3.11
-      concurrently: ^7.1.0
+      concurrently: ^7.0.0
       cross-env: ^7.0.3
       graphql: 16.1.0-experimental-stream-defer.6
       kill-port: ^1.6.1
@@ -349,11 +349,11 @@ importers:
       '@graphql-ez/plugin-voyager': workspace:^0.9.3
       '@types/node': ^17.0.23
       clipboardy: ^3.0.0
-      concurrently: ^7.1.0
-      esbuild: ^0.14.30
+      concurrently: ^7.0.0
+      esbuild: ^0.14.28
       graphql: 16.1.0-experimental-stream-defer.6
       graphql-ez: workspace:^0.14.1
-      miniflare: ^2.4.0
+      miniflare: ^2.3.0
       worktop: ^0.7.3
     dependencies:
       '@graphql-ez/cloudflare': link:../../packages/cloudflare/main
@@ -692,7 +692,7 @@ importers:
       graphql: 16.1.0-experimental-stream-defer.6
       graphql-ez: workspace:^0.14.1
       graphql-request: ^4.2.0
-      next: ^12.1.4
+      next: ^12.1.2
       react: ^17.0.2
       react-dom: ^17.0.2
       react-query: ^3.34.19
@@ -728,13 +728,13 @@ importers:
       '@graphql-ez/plugin-schema': workspace:^0.8.4
       '@graphql-ez/plugin-voyager': workspace:^0.9.3
       '@graphql-ez/sveltekit': workspace:^0.4.0
-      '@graphql-tools/schema': ^8.3.6
+      '@graphql-tools/schema': ^8.3.5
       '@sveltejs/adapter-node': ^1.0.0-next.73
       '@sveltejs/kit': ^1.0.0-next.304
       altair-static-slim: 4.4.1
       graphql: 16.1.0-experimental-stream-defer.6
       graphql-ez: workspace:^0.14.1
-      svelte: ^3.46.6
+      svelte: ^3.46.4
       svelte-check: ^2.4.6
       svelte-preprocess: ^4.10.4
       tslib: ^2.3.1
@@ -938,7 +938,7 @@ importers:
   internal/testing:
     specifiers:
       '@graphql-ez/utils': workspace:^0.1.4
-      '@graphql-tools/schema': ^8.3.6
+      '@graphql-tools/schema': ^8.3.5
       '@graphql-tools/utils': ^8.6.5
       '@graphql-typed-document-node/core': ^3.1.1
       '@hapi/hapi': ^20.2.1
@@ -1021,20 +1021,20 @@ importers:
       '@emotion/styled': ^11.8.1
       '@guild-docs/client': 2.0.1
       '@guild-docs/server': 3.0.1
-      '@mdx-js/react': ^2.1.1
-      '@next/bundle-analyzer': ^12.1.4
-      '@theguild/components': ^1.10.3
+      '@mdx-js/react': ^2.1.0
+      '@next/bundle-analyzer': ^12.1.2
+      '@theguild/components': ^1.10.2
       '@types/mdx-js__react': ^1.5.5
       '@types/node': ^17.0.23
       '@types/react': ^17.0.43
       '@types/react-dom': ^17.0.14
       bob-tsm: ^0.4.7
-      concurrently: ^7.1.0
+      concurrently: ^7.0.0
       cross-env: ^7.0.3
       date-fns: ^2.28.0
-      esbuild: ^0.14.30
+      esbuild: ^0.14.28
       framer-motion: ^6.2.8
-      next: ^12.1.4
+      next: ^12.1.2
       next-i18next: ^10.5.0
       next-remote-watch: ^1.0.0
       next-seo: ^5.3.0
@@ -1054,7 +1054,7 @@ importers:
       '@chakra-ui/utils': 1.10.4
       '@emotion/react': 11.8.2_03a98942b76c57740a9573edba2d1cc1
       '@emotion/styled': 11.8.1_ab60dc3cf3b46d6599c9cb98d57741dd
-      '@guild-docs/client': 2.0.0_3943c25412776603b1675f8838ceb739
+      '@guild-docs/client': 2.0.1_3943c25412776603b1675f8838ceb739
       '@guild-docs/server': 3.0.1_60c9429b1712d07292e4d1a2603f8a02
       '@mdx-js/react': 2.1.1_react@17.0.2
       '@theguild/components': 1.10.3_b5d7bf22a7b46dd4876f0e926ab0c987
@@ -1136,13 +1136,13 @@ importers:
       '@types/wait-on': ^5.3.1
       bob-esbuild-cli: ^3.0.2
       changesets-github-release: ^0.1.0
-      esbuild: ^0.14.30
+      esbuild: ^0.14.28
       execa: ^5.1.1
       get-port: ^5.1.1
       graphql: 16.1.0-experimental-stream-defer.6
       graphql-ez: workspace:^0.14.1
       jest: ^27.5.1
-      miniflare: ^2.4.0
+      miniflare: ^2.3.0
       undici: ^5.0.0
       wait-on: ^6.0.1
       worktop: ^0.7.3
@@ -1166,8 +1166,8 @@ importers:
 
   packages/core/main:
     specifiers:
-      '@envelop/core': ^2.2.0
-      '@envelop/types': ^2.1.0
+      '@envelop/core': ^2.1.0
+      '@envelop/types': ^2.0.0
       '@graphql-ez/utils': workspace:^0.1.4
       '@pablosz/graphql-helix': workspace:^2.0.3
       bob-esbuild-cli: ^3.0.2
@@ -1368,7 +1368,7 @@ importers:
     specifiers:
       '@graphiql/toolkit': 0.4.2
       '@graphql-ez/utils': workspace:^0.1.4
-      '@graphql-tools/url-loader': ^7.9.8
+      '@graphql-tools/url-loader': ^7.9.7
       '@graphql-tools/utils': ^8.6.5
       '@n1ru4l/graphql-live-query': ^0.9.0
       '@types/prettier': ^2.4.4
@@ -1377,16 +1377,16 @@ importers:
       '@types/react-dom': ^17.0.14
       bob-esbuild-cli: ^3.0.2
       changesets-github-release: ^0.1.0
-      concurrently: ^7.1.0
+      concurrently: ^7.0.0
       copy-to-clipboard: ^3.3.1
       cpy: ^8.1.2
-      esbuild: ^0.14.30
-      graphiql: ^1.8.3
+      esbuild: ^0.14.28
+      graphiql: ^1.8.1
       graphql: 16.1.0-experimental-stream-defer.6
       graphql-ez: workspace:^0.14.1
       graphql-language-service-interface: ^2.10.2
       graphql-ws: ^5.6.4
-      prettier: ^2.6.2
+      prettier: ^2.6.1
       prop-types: ^15.8.1
       react: ^17.0.2
       react-dom: ^17.0.2
@@ -1535,7 +1535,7 @@ importers:
 
   packages/nextjs/main:
     specifiers:
-      '@graphql-tools/schema': ^8.3.6
+      '@graphql-tools/schema': ^8.3.5
       '@types/cors': ^2.8.12
       '@types/node': ^17.0.23
       '@types/react': ^17.0.43
@@ -1546,7 +1546,7 @@ importers:
       graphql: 16.1.0-experimental-stream-defer.6
       graphql-ez: workspace:^0.14.1
       jest: ^27.5.1
-      next: ^12.1.4
+      next: ^12.1.2
       next-test-api-route-handler: ^3.1.2
       react: ^17.0.2
       react-dom: ^17.0.2
@@ -1581,7 +1581,7 @@ importers:
       changesets-github-release: ^0.1.0
       graphql: 16.1.0-experimental-stream-defer.6
       graphql-ez: workspace:^0.14.1
-      next: ^12.1.4
+      next: ^12.1.2
       next-test-api-route-handler: ^3.1.2
     dependencies:
       '@graphql-ez/utils': link:../../core/utils
@@ -1607,7 +1607,7 @@ importers:
       graphql-ez: workspace:^0.14.1
       jest: ^27.5.1
       mime-types: ^2.1.35
-      next: ^12.1.4
+      next: ^12.1.2
       ts-jest: ^27.1.4
     dependencies:
       '@graphql-ez/utils': link:../../core/utils
@@ -1655,7 +1655,7 @@ importers:
       '@graphql-codegen/typescript-resolvers': ^2.6.1
       '@graphql-ez/utils': workspace:^0.1.4
       '@graphql-tools/graphql-file-loader': ^7.3.7
-      '@graphql-tools/load': ^7.5.6
+      '@graphql-tools/load': ^7.5.5
       '@graphql-tools/utils': ^8.6.5
       '@types/mkdirp': ^1.0.2
       '@types/prettier': ^2.4.4
@@ -1665,7 +1665,7 @@ importers:
       graphql-ez: workspace:^0.14.1
       jest: ^27.5.1
       mkdirp: ^1.0.4
-      prettier: ^2.6.2
+      prettier: ^2.6.1
       tmp-promise: ^3.0.3
       ts-jest: ^27.1.4
     dependencies:
@@ -1694,7 +1694,7 @@ importers:
 
   packages/plugin/dataloader:
     specifiers:
-      '@envelop/dataloader': ^3.2.0
+      '@envelop/dataloader': ^3.1.0
       bob-esbuild-cli: ^3.0.2
       changesets-github-release: ^0.1.0
       dataloader: ^2.0.0
@@ -1722,7 +1722,7 @@ importers:
       changesets-github-release: ^0.1.0
       graphql-ez: workspace:^0.14.1
       jest: ^27.5.1
-      next: ^12.1.4
+      next: ^12.1.2
       ts-jest: ^27.1.4
     dependencies:
       '@graphql-ez/utils': link:../../core/utils
@@ -1738,9 +1738,9 @@ importers:
 
   packages/plugin/modules:
     specifiers:
-      '@envelop/graphql-modules': ^3.2.0
+      '@envelop/graphql-modules': ^3.1.0
       '@graphql-ez/utils': workspace:^0.1.4
-      '@graphql-tools/schema': ^8.3.6
+      '@graphql-tools/schema': ^8.3.5
       bob-esbuild-cli: ^3.0.2
       changesets-github-release: ^0.1.0
       graphql: 16.1.0-experimental-stream-defer.6
@@ -1769,7 +1769,7 @@ importers:
       changesets-github-release: ^0.1.0
       graphql: 16.1.0-experimental-stream-defer.6
       graphql-ez: workspace:^0.14.1
-      graphql-scalars: ^1.17.0
+      graphql-scalars: ^1.16.0
       jest: ^27.5.1
       ts-jest: ^27.1.4
     dependencies:
@@ -1787,7 +1787,7 @@ importers:
   packages/plugin/schema:
     specifiers:
       '@graphql-ez/utils': workspace:^0.1.4
-      '@graphql-tools/schema': ^8.3.6
+      '@graphql-tools/schema': ^8.3.5
       '@graphql-tools/utils': ^8.6.5
       '@types/node': ^17.0.23
       bob-esbuild: ^3.2.5
@@ -1867,7 +1867,7 @@ importers:
       changesets-github-release: ^0.1.0
       graphql-ez: workspace:^0.14.1
       jest: ^27.5.1
-      next: ^12.1.4
+      next: ^12.1.2
       ts-jest: ^27.1.4
     dependencies:
       '@graphql-ez/utils': link:../../core/utils
@@ -1909,13 +1909,13 @@ importers:
 
   packages/sveltekit/main:
     specifiers:
-      '@envelop/core': ^2.2.0
+      '@envelop/core': ^2.1.0
       '@graphql-ez/plugin-altair': workspace:^0.9.9
       '@graphql-ez/plugin-graphiql': workspace:^0.11.4
       '@graphql-ez/plugin-schema': workspace:^0.8.4
       '@graphql-ez/plugin-voyager': workspace:^0.9.3
       '@graphql-ez/utils': workspace:^0.1.4
-      '@graphql-tools/schema': ^8.3.6
+      '@graphql-tools/schema': ^8.3.5
       '@sveltejs/adapter-node': ^1.0.0-next.73
       '@sveltejs/kit': ^1.0.0-next.304
       '@types/node': ^17.0.23
@@ -1927,7 +1927,7 @@ importers:
       graphql: 16.1.0-experimental-stream-defer.6
       graphql-ez: workspace:^0.14.1
       jest: ^27.5.1
-      svelte: ^3.46.6
+      svelte: ^3.46.4
       svelte-check: ^2.4.6
       svelte-preprocess: ^4.10.4
       tiny-lru: ^8.0.2
@@ -5079,8 +5079,8 @@ packages:
       graphql: 16.3.0
     dev: false
 
-  /@guild-docs/client/2.0.0_3943c25412776603b1675f8838ceb739:
-    resolution: {integrity: sha512-z+spylhlosVun4j8143mg6tNeB+RDkqD8KHkg+BnBy2pft5ASfqZhugsOJ/zlw7RuQNKT9ccL7YKhGXtGgTLGA==}
+  /@guild-docs/client/2.0.1_3943c25412776603b1675f8838ceb739:
+    resolution: {integrity: sha512-Op4Z+5mh0E2TKYFTBJpZh7W+huOTJIUS6UzJfzJWkeqgrTrlqMb96hRdgrjXytWYSFwa7rgnPWkJSi92CiwJ9g==}
     peerDependencies:
       '@chakra-ui/icons': '*'
       '@chakra-ui/react': '*'
