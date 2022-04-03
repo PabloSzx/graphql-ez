@@ -4,7 +4,7 @@ import type { GraphQLWSClient, GraphQLWSClientOptions } from '../deps.js';
 import type { SubscribeFunction } from '../types';
 import { getQueryString, lazyDeps } from '../utils';
 
-export type { GraphQLWSClientOptions };
+export type { GraphQLWSClientOptions, GraphQLWSClient };
 
 export function createGraphQLWSWebsocketsClient(wsEndpoint: string, options: Partial<GraphQLWSClientOptions> = {}) {
   const client: Promise<GraphQLWSClient> = LazyPromise(async () => {

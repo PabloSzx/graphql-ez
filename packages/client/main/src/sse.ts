@@ -6,11 +6,13 @@ import type { EventSourceInitDict } from './deps.js';
 import type { SubscribeFunction, SubscribeOptions } from './types';
 import { getQueryString, lazyDeps } from './utils';
 
+export type SubscribeSSE = SubscribeFunction<EventSourceInitDict & { headers?: Partial<IncomingHttpHeaders> }>;
+
 export function createSSESubscription(
   href: string,
   getHeaders: (headers: IncomingHttpHeaders | undefined) => IncomingHttpHeaders
 ) {
-  const subscribe: SubscribeFunction<EventSourceInitDict> = function subscribe<
+  const subscribe: SubscribeSSE = function subscribe<
     TData,
     TVariables extends Record<string, unknown> = {},
     TExtensions extends Record<string, unknown> = {}
@@ -39,7 +41,7 @@ export function createSSESubscription(
         }`,
         {
           ...rest,
-          headers: getHeaders(headers),
+          headers: getHeaders(headers as IncomingHttpHeaders),
         }
       );
       try {

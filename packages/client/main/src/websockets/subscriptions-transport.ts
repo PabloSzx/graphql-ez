@@ -1,10 +1,10 @@
 import { createDeferredPromise, DeferredPromise, LazyPromise } from '@graphql-ez/utils/promise';
 import type { ExecutionResult } from 'graphql';
-import type { SubscriptionsTransportClientOptions } from '../deps.js';
+import type { SubscriptionsTransportClientOptions, SubscriptionsTransportClient } from '../deps.js';
 import type { SubscribeFunction } from '../types';
 import { getQueryString, lazyDeps } from '../utils';
 
-export type { SubscriptionsTransportClientOptions };
+export type { SubscriptionsTransportClientOptions, SubscriptionsTransportClient };
 
 export function createSubscriptionsTransportWebsocketsClient(
   wsEndpoint: string,

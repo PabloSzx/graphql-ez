@@ -4,15 +4,16 @@ import { getURLWebsocketVersion } from '@graphql-ez/utils/url';
 import type { TypedDocumentNode } from '@graphql-typed-document-node/core';
 import type { ExecutionResult, GraphQLError } from 'graphql';
 import type { IncomingHttpHeaders } from 'http';
-import { Client, Dispatcher } from 'undici';
-import { createSSESubscription } from './sse';
-import { createStreamHelper } from './stream';
+import { Dispatcher, Pool } from 'undici';
+import { createSSESubscription, SubscribeSSE } from './sse';
+import { createStreamHelper, Stream } from './stream';
 import type { SubscribeFunction, SubscribeOptions } from './types';
 import { createUploadQuery } from './upload';
 import { getQueryString } from './utils';
-import { createGraphQLWSWebsocketsClient, GraphQLWSClientOptions } from './websockets/graphql-ws';
+import { createGraphQLWSWebsocketsClient, GraphQLWSClient, GraphQLWSClientOptions } from './websockets/graphql-ws';
 import {
   createSubscriptionsTransportWebsocketsClient,
+  SubscriptionsTransportClient,
   SubscriptionsTransportClientOptions,
 } from './websockets/subscriptions-transport';
 
@@ -21,7 +22,7 @@ export interface EZClientOptions {
   headers?: IncomingHttpHeaders;
   graphQLWSClientOptions?: Partial<GraphQLWSClientOptions>;
   subscriptionsTransportClientOptions?: SubscriptionsTransportClientOptions;
-  unidiClientOptions?: Client.Options;
+  undiciOptions?: Pool.Options;
 }
 
 class GraphQLErrorJSON extends Error {
@@ -34,7 +35,7 @@ class GraphQLErrorJSON extends Error {
   }
 }
 
-export interface QueryOptions<TVariables = {}> {
+export interface QueryOptions<TVariables extends Record<string, any>> {
   variables?: TVariables;
   headers?: IncomingHttpHeaders;
   /**
@@ -49,22 +50,22 @@ export interface QueryOptions<TVariables = {}> {
   requestOptions?: Partial<Dispatcher.RequestOptions>;
 }
 
-export type QueryFunctionPostGet = <TData, TVariables = {}, TExtensions = {}>(
+export type QueryFunctionPostGet = <TData, TVariables extends Record<string, any> = {}, TExtensions = {}>(
   document: TypedDocumentNode<TData, TVariables> | string,
-  options?: QueryOptions
+  options?: QueryOptions<TVariables>
 ) => Promise<ExecutionResult<TData, TExtensions>>;
 
-export type QueryFunctionPost = <TData, TVariables = {}, TExtensions = {}>(
+export type QueryFunctionPost = <TData, TVariables extends Record<string, any> = {}, TExtensions = {}>(
   document: TypedDocumentNode<TData, TVariables> | string,
-  options?: Omit<QueryOptions, 'method'>
+  options?: Omit<QueryOptions<TVariables>, 'method'>
 ) => Promise<ExecutionResult<TData, TExtensions>>;
 
-export type AssertedQuery = <TData = any, TVariables = {}>(
+export type AssertedQuery = <TData = any, TVariables extends Record<string, any> = Record<string, unknown>>(
   document: TypedDocumentNode<TData, TVariables> | string,
-  options?: QueryOptions
+  options?: QueryOptions<TVariables>
 ) => Promise<TData>;
 
-export function EZClient(options: EZClientOptions) {
+export function EZClient(options: EZClientOptions): EZClientInstance {
   const endpoint = new URL(options.endpoint);
 
   const websocketEndpoint = getURLWebsocketVersion(
@@ -76,7 +77,9 @@ export function EZClient(options: EZClientOptions) {
 
   const endpointPathname = endpoint.pathname;
 
-  const client = new Client(endpointOrigin, options.unidiClientOptions);
+  const client = new Pool(endpointOrigin, {
+    ...options.undiciOptions,
+  });
 
   const graphqlWS = createGraphQLWSWebsocketsClient(websocketEndpoint, options.graphQLWSClientOptions);
 
@@ -121,14 +124,7 @@ export function EZClient(options: EZClientOptions) {
     );
 
     if (!headers['content-type']?.startsWith('application/json')) {
-      const errorBody =
-        (await body.text().catch(err => {
-          console.error(err);
-        })) || 'No body';
-      console.error({
-        body: errorBody,
-        headers,
-      });
+      const errorBody = (await body.text().catch(() => null)) || 'No body';
       throw Error(`Unexpected content type received: ${headers['content-type']}, BodyText: ${errorBody}`);
     }
 
@@ -148,9 +144,6 @@ export function EZClient(options: EZClientOptions) {
       const { data, errors } = result;
       if (errors?.length) {
         if (errors.length > 1) {
-          for (const err of errors) {
-            console.error(err);
-          }
           const err = Error('Multiple GraphQL Errors');
           Object.assign(err, { errors });
           throw err;
@@ -176,14 +169,14 @@ export function EZClient(options: EZClientOptions) {
     document: TypedDocumentNode<TData, TVariables> | string,
     options?: SubscribeOptions<TData, TVariables>
   ) {
-    return graphqlWS.subscribe(document, { ...options, headers: getHeaders(options?.headers) });
+    return graphqlWS.subscribe(document, options);
   };
 
   const legacySubscribe: SubscribeFunction = function subscribe<TData, TVariables extends Record<string, unknown> = {}>(
     document: TypedDocumentNode<TData, TVariables> | string,
     options?: SubscribeOptions<TData, TVariables>
   ) {
-    return legacyTransport.subscribe(document, { ...options, headers: getHeaders(options?.headers) });
+    return legacyTransport.subscribe(document, options);
   };
 
   return {
@@ -207,4 +200,24 @@ export function EZClient(options: EZClientOptions) {
     },
     uploadQuery: createUploadQuery(endpointHref, getHeaders, queryPost),
   };
+}
+
+export interface EZClientInstance {
+  query: QueryFunctionPostGet;
+  mutation: QueryFunctionPost;
+  assertedQuery: AssertedQuery;
+  websockets: {
+    subscribe: SubscribeFunction<{}>;
+    client: Promise<GraphQLWSClient>;
+    legacy: {
+      subscribe: SubscribeFunction<{}>;
+      client: Promise<SubscriptionsTransportClient>;
+    };
+  };
+  stream: Stream;
+  sseSubscribe: SubscribeSSE;
+  client: Pool;
+  headers: Partial<IncomingHttpHeaders>;
+  setHeaders(headersToAssign: Partial<IncomingHttpHeaders>): void;
+  uploadQuery: QueryFunctionPost;
 }

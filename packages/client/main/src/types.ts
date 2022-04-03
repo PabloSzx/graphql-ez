@@ -1,6 +1,5 @@
 import type { ExecutionResult } from 'graphql';
 import type { TypedDocumentNode } from '@graphql-typed-document-node/core';
-import type { IncomingHttpHeaders } from 'http';
 
 export type SubscribeOptions<
   TResult,
@@ -12,7 +11,6 @@ export type SubscribeOptions<
   variables?: TVariables;
   operationName?: string;
   extensions?: TExtensions | null;
-  headers?: IncomingHttpHeaders;
 } & Partial<TExtra>;
 
 export interface SubscribeFunction<TExtra extends Record<string, any> = {}> {

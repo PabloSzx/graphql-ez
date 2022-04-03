@@ -3,14 +3,29 @@ import type { TypedDocumentNode } from '@graphql-typed-document-node/core';
 import assert from 'assert';
 import type { IncomingHttpHeaders } from 'http';
 import { PassThrough } from 'stream';
-import type { Client } from 'undici';
+import type { Pool, Dispatcher } from 'undici';
 import { getQueryString } from './utils';
 
+export type Stream = <TData, TVariables extends Record<string, unknown> = {}>(
+  document: TypedDocumentNode<TData, TVariables> | string,
+  options?: {
+    variables?: TVariables;
+    headers?: IncomingHttpHeaders;
+    extensions?: Record<string, unknown>;
+    operationName?: string;
+  }
+) => {
+  iterator: AsyncGenerator<string, void, unknown>;
+  opaque: PassThrough;
+  done: Promise<Dispatcher.StreamData>;
+  stop: () => void;
+};
+
 export function createStreamHelper(
-  client: Client,
+  pool: Pool,
   path: string,
   getHeaders: (headers: IncomingHttpHeaders | undefined) => IncomingHttpHeaders
-) {
+): Stream {
   return function stream<TData, TVariables extends Record<string, unknown> = {}>(
     document: TypedDocumentNode<TData, TVariables> | string,
     {
@@ -47,7 +62,7 @@ export function createStreamHelper(
       opaque.end();
     };
 
-    const done = client.stream(
+    const done = pool.stream(
       {
         path,
         method: 'POST',
