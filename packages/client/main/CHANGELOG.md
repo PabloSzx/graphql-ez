@@ -1,5 +1,17 @@
 # @graphql-ez/client
 
+## 0.6.0
+
+### Minor Changes
+
+- af8b9804: Change from Undici Client instance to Undici Pool instance (improve concurrency, use "undiciOptions.connections" option to limit it)
+- 58fb3284: Fix query variables types from typed document node
+- 58fb3284: Remove unused "headers" option on graphql-ws and legacy ws subscribe
+
+### Patch Changes
+
+- 58fb3284: Remove console.error calls
+
 ## 0.5.0
 
 ### Minor Changes

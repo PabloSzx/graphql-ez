@@ -1,5 +1,19 @@
 # @graphql-ez/fastify-testing
 
+## 0.2.0
+
+### Minor Changes
+
+- af8b9804: Change from Undici Client instance to Undici Pool instance (improve concurrency, use "undiciOptions.connections" option to limit it)
+
+### Patch Changes
+
+- Updated dependencies [af8b9804]
+- Updated dependencies [58fb3284]
+- Updated dependencies [58fb3284]
+- Updated dependencies [58fb3284]
+  - @graphql-ez/client@0.6.0
+
 ## 0.1.7
 
 ### Patch Changes
