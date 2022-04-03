@@ -166,6 +166,7 @@ test('legacy websockets', async () => {
 
   const { websockets } = EZClient({
     endpoint: address + '/graphql',
+    undiciOptions: {},
   });
 
   TearDownPromises.push(LazyPromise(async () => (await websockets.legacy.client).close()));
