@@ -1,8 +1,8 @@
 {
   "name": "example-cloudflare",
   "version": "0.0.1",
-  "license": "MIT",
   "private": true,
+  "license": "MIT",
   "scripts": {
     "build": "esbuild src/index.ts --tsconfig=./tsconfig.json --target=es2020 --minify --bundle --outfile=dist/worker.js && node postbuild.mjs",
     "dev": "concurrently -r \"esbuild src/index.ts --tsconfig=./tsconfig.json --target=es2020 --minify --bundle --outfile=dist/worker.js --watch\" \"miniflare dist/worker.js --watch\"",
@@ -23,6 +23,6 @@
     "clipboardy": "^3.0.0",
     "concurrently": "^7.0.0",
     "esbuild": "^0.14.36",
-    "miniflare": "^2.3.0"
+    "miniflare": "^2.4.0"
   }
 }
