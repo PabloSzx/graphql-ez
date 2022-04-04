@@ -19,7 +19,7 @@ importers:
       '@types/jest': ^27.4.1
       '@types/mocha': ^9.1.0
       '@types/node': ^17.0.23
-      bob-esbuild: ^3.2.5
+      bob-esbuild: ^3.2.6
       bob-esbuild-cli: ^3.0.2
       bob-tsm: ^0.4.7
       chalk: ^5.0.1
@@ -44,8 +44,8 @@ importers:
       '@types/jest': 27.4.1
       '@types/mocha': 9.1.0
       '@types/node': 17.0.23
-      bob-esbuild: 3.2.5_esbuild@0.14.36+typescript@4.6.3
-      bob-esbuild-cli: 3.0.2_bob-esbuild@3.2.5
+      bob-esbuild: 3.2.6_esbuild@0.14.36+typescript@4.6.3
+      bob-esbuild-cli: 3.0.2_bob-esbuild@3.2.6
       bob-tsm: 0.4.7_esbuild@0.14.36+typescript@4.6.3
       chalk: 5.0.1
       changesets-github-release: 0.1.0
@@ -1802,7 +1802,7 @@ importers:
       '@graphql-tools/schema': ^8.3.7
       '@graphql-tools/utils': ^8.6.6
       '@types/node': ^17.0.23
-      bob-esbuild: ^3.2.5
+      bob-esbuild: ^3.2.6
       changesets-github-release: ^0.1.0
       graphql: 16.1.0-experimental-stream-defer.6
       graphql-ez: workspace:^0.14.1
@@ -1815,7 +1815,7 @@ importers:
       '@graphql-tools/utils': 8.6.6_7cd0a77a72827e2622373a4a49802d3d
     devDependencies:
       '@types/node': 17.0.23
-      bob-esbuild: 3.2.5_typescript@4.6.3
+      bob-esbuild: 3.2.6_typescript@4.6.3
       changesets-github-release: 0.1.0
       graphql: 16.1.0-experimental-stream-defer.6
       graphql-ez: link:../../core/main
@@ -6312,9 +6312,9 @@ packages:
       - supports-color
     dev: false
 
-  /@pnpm/types/7.10.0:
-    resolution: {integrity: sha512-7NKyfwepNccR6f9htiXAw0tt6rCajvtiX5HsTOi3odSFJ04iri43yjh70Ekw25hAynQwRR0rkJ7l6BBNFrJ/2g==}
-    engines: {node: '>=12.17'}
+  /@pnpm/types/8.0.0:
+    resolution: {integrity: sha512-Ahxjk7CtuPt+0mnqpKFksru3bnZdAZtmv6Lz+OFqOSSiEC1XLxVmkkuyhcAV58r6fa9PiOSBFXHtYnnJLo25/g==}
+    engines: {node: '>=14.19'}
     dev: true
 
   /@polka/url/1.0.0-next.21:
@@ -7622,35 +7622,25 @@ packages:
       commander: 9.1.0
     dev: true
 
-  /bob-esbuild-cli/3.0.2_bob-esbuild@3.2.5:
+  /bob-esbuild-cli/3.0.2_bob-esbuild@3.2.6:
     resolution: {integrity: sha512-/E3g7xQqn4+rFSlIN37gGrJAv4o7cB0dicv/C/OSNUruh9u1cWsDGnLdaYHdUttEK4Df5vMHsYzB6KxIh5Yq5A==}
     engines: {node: '>=12.0.0'}
     hasBin: true
     peerDependencies:
       bob-esbuild: ^3.2.5
     dependencies:
-      bob-esbuild: 3.2.5_esbuild@0.14.36+typescript@4.6.3
+      bob-esbuild: 3.2.6_esbuild@0.14.36+typescript@4.6.3
       commander: 9.1.0
     dev: true
 
-  /bob-esbuild-plugin/3.1.4_esbuild@0.14.36+rollup@2.70.1:
-    resolution: {integrity: sha512-JB6I8Y0EKJcRHvGnAkhJ4TaYw3uRRMjQbQAIMe/ggywrGG97ww/AL6a+29WoV7wmCM8A0rt6d7JOh70QkowqJw==}
+  /bob-esbuild-plugin/3.1.5_esbuild@0.14.36+rollup@2.70.1:
+    resolution: {integrity: sha512-UOZqW2BPtzc+VuyAbnLghQtZgYst2bc0KzE2qC9RmXJocNoABTSMsVR0MCBrBtvaw4CWG2Ja9UvMAdpUmw99uQ==}
     peerDependencies:
       esbuild: '>=0.14.13'
       rollup: '*'
     dependencies:
       '@rollup/pluginutils': 4.2.0
       esbuild: 0.14.36
-      rollup: 2.70.1
-    dev: true
-
-  /bob-esbuild-plugin/3.1.4_rollup@2.70.1:
-    resolution: {integrity: sha512-JB6I8Y0EKJcRHvGnAkhJ4TaYw3uRRMjQbQAIMe/ggywrGG97ww/AL6a+29WoV7wmCM8A0rt6d7JOh70QkowqJw==}
-    peerDependencies:
-      esbuild: '>=0.14.13'
-      rollup: '*'
-    dependencies:
-      '@rollup/pluginutils': 4.2.0
       rollup: 2.70.1
     dev: true
 
@@ -7664,27 +7654,27 @@ packages:
       rollup: 2.70.1
     dev: true
 
-  /bob-esbuild/3.2.5_esbuild@0.14.36+typescript@4.6.3:
-    resolution: {integrity: sha512-gsbeqawI4KH9kjdygmB8vxVjXx38k/h9a+s9n66vcCeVeP/Oh/Jz1B/nm5rBAFt+s3hwbLrvZWRA44vciJa4Hw==}
+  /bob-esbuild/3.2.6_esbuild@0.14.36+typescript@4.6.3:
+    resolution: {integrity: sha512-WimNe1b+Ctgl18z5iJBA2gZqCNYk55tO1lCcYcOpYI81WlbesV66DE0KeEm+Uhk0UKzyJltn6F92L10u9BO+xQ==}
     peerDependencies:
       esbuild: '>=0.14.13'
       typescript: '*'
     dependencies:
-      '@pnpm/types': 7.10.0
-      bob-esbuild-plugin: 3.1.4_esbuild@0.14.36+rollup@2.70.1
+      '@pnpm/types': 8.0.0
+      bob-esbuild-plugin: 3.1.5_esbuild@0.14.36+rollup@2.70.1
       esbuild: 0.14.36
       rollup: 2.70.1
       typescript: 4.6.3
     dev: true
 
-  /bob-esbuild/3.2.5_typescript@4.6.3:
-    resolution: {integrity: sha512-gsbeqawI4KH9kjdygmB8vxVjXx38k/h9a+s9n66vcCeVeP/Oh/Jz1B/nm5rBAFt+s3hwbLrvZWRA44vciJa4Hw==}
+  /bob-esbuild/3.2.6_typescript@4.6.3:
+    resolution: {integrity: sha512-WimNe1b+Ctgl18z5iJBA2gZqCNYk55tO1lCcYcOpYI81WlbesV66DE0KeEm+Uhk0UKzyJltn6F92L10u9BO+xQ==}
     peerDependencies:
       esbuild: '>=0.14.13'
       typescript: '*'
     dependencies:
-      '@pnpm/types': 7.10.0
-      bob-esbuild-plugin: 3.1.4_rollup@2.70.1
+      '@pnpm/types': 8.0.0
+      bob-esbuild-plugin: 3.1.5_rollup@2.70.1
       rollup: 2.70.1
       typescript: 4.6.3
     dev: true
