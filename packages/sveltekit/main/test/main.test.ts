@@ -10,11 +10,7 @@ let port: number;
 
 const TearDownPromises: Promise<unknown>[] = [];
 
-const isNode12 = process.version.startsWith('v12');
-
 beforeAll(async () => {
-  if (isNode12) return;
-
   await command(`node ${require.resolve(resolve(__dirname, '../node_modules/@sveltejs/kit/svelte-kit.js'))} build`, {
     cwd: resolve(__dirname, './test-example/'),
     stdio: 'ignore',
@@ -45,14 +41,10 @@ beforeAll(async () => {
 });
 
 afterAll(async () => {
-  if (isNode12) return;
-
   await Promise.allSettled(TearDownPromises);
 });
 
-const testSkipNode12 = isNode12 ? test.skip : test;
-
-testSkipNode12('basic schema', async () => {
+test('basic schema', async () => {
   const { client, query } = (await EZClientPromise)({
     endpoint: `http://127.0.0.1:${port}/graphql`,
   });
@@ -94,7 +86,7 @@ testSkipNode12('basic schema', async () => {
         `);
 });
 
-testSkipNode12('altair', async () => {
+test('altair', async () => {
   const { client } = (await EZClientPromise)({
     endpoint: `http://127.0.0.1:${port}/graphql`,
   });
@@ -145,7 +137,7 @@ testSkipNode12('altair', async () => {
   );
 });
 
-testSkipNode12('graphiql', async () => {
+test('graphiql', async () => {
   const { client } = (await EZClientPromise)({
     endpoint: `http://127.0.0.1:${port}/graphql`,
   });
@@ -184,7 +176,7 @@ testSkipNode12('graphiql', async () => {
   `);
 });
 
-testSkipNode12('voyager', async () => {
+test('voyager', async () => {
   const { client } = (await EZClientPromise)({
     endpoint: `http://127.0.0.1:${port}/graphql`,
   });
