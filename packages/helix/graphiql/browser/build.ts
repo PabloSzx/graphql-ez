@@ -18,7 +18,7 @@ async function main() {
     platform: 'browser',
   });
 
-  await cpy('bundle/', 'src/bundle/', {
+  await cpy('./bundle/', './src/', {
     cwd: join(__dirname, '../'),
   });
 }
