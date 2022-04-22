@@ -27,7 +27,7 @@
     "dist"
   ],
   "scripts": {
-    "prepack": "concurrently -r \"bob-tsm --cjs browser/build.ts\" \"bob-esbuild build\"",
+    "prepack": "concurrently -r \"bob-tsm browser/build.ts\" \"bob-esbuild build\"",
     "prepublishOnly": "pnpm prepack",
     "postpublish": "gh-release"
   },
@@ -47,7 +47,7 @@
     "changesets-github-release": "^0.1.0",
     "concurrently": "^7.1.0",
     "copy-to-clipboard": "^3.3.1",
-    "cpy": "^8.1.2",
+    "cpy": "^9.0.1",
     "esbuild": "^0.14.36",
     "graphiql": "^1.8.5",
     "graphql": "16.1.0-experimental-stream-defer.6",
