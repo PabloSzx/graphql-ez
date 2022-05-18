@@ -1,5 +1,16 @@
 # @graphql-ez/fastify
 
+## 0.10.0
+
+### Minor Changes
+
+- dc502d9d: Use @fastify/cors instead of fastify-cors
+
+### Patch Changes
+
+- Updated dependencies [dc502d9d]
+  - graphql-ez@0.15.0
+
 ## 0.9.7
 
 ### Patch Changes

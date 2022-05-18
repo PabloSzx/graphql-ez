@@ -1,6 +1,6 @@
 {
   "name": "@graphql-ez/koa-testing",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "repository": {
     "type": "git",
     "url": "https://github.com/PabloSzx/graphql-ez",
@@ -33,7 +33,7 @@
     "@graphql-ez/utils": "workspace:^0.1.4"
   },
   "devDependencies": {
-    "@graphql-ez/koa": "workspace:^0.8.10",
+    "@graphql-ez/koa": "workspace:^0.8.11",
     "@koa/router": "^10.1.1",
     "@types/koa": "^2.13.4",
     "@types/koa__router": "^8.0.11",
@@ -42,16 +42,16 @@
     "changesets-github-release": "^0.1.0",
     "esbuild": "^0.14.39",
     "graphql": "16.1.0-experimental-stream-defer.6",
-    "graphql-ez": "workspace:^0.14.1",
+    "graphql-ez": "workspace:^0.15.0",
     "jest": "^28.1.0",
     "koa": "^2.13.4",
     "typescript": "^4.6.4"
   },
   "peerDependencies": {
-    "@graphql-ez/koa": "workspace:^0.8.9",
+    "@graphql-ez/koa": "workspace:^0.8.11",
     "@koa/router": "*",
     "graphql": "*",
-    "graphql-ez": "workspace:^0.14.0",
+    "graphql-ez": "workspace:^0.15.0",
     "koa": "*"
   },
   "publishConfig": {

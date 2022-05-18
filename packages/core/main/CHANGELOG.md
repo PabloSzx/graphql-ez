@@ -1,5 +1,11 @@
 # graphql-ez
 
+## 0.15.0
+
+### Minor Changes
+
+- dc502d9d: Require Node.js >=14.13.1
+
 ## 0.14.1
 
 ### Patch Changes

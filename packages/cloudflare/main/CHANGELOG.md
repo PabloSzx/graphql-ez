@@ -1,5 +1,12 @@
 # @graphql-ez/cloudflare
 
+## 0.2.3
+
+### Patch Changes
+
+- Updated dependencies [dc502d9d]
+  - graphql-ez@0.15.0
+
 ## 0.2.2
 
 ### Patch Changes

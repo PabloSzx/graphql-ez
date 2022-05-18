@@ -1,5 +1,12 @@
 # @graphql-ez/plugin-voyager
 
+## 0.9.4
+
+### Patch Changes
+
+- Updated dependencies [dc502d9d]
+  - graphql-ez@0.15.0
+
 ## 0.9.3
 
 ### Patch Changes

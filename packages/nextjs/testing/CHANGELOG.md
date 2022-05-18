@@ -1,5 +1,13 @@
 # @graphql-ez/nextjs-testing
 
+## 0.2.3
+
+### Patch Changes
+
+- Updated dependencies [dc502d9d]
+  - graphql-ez@0.15.0
+  - @graphql-ez/nextjs@0.10.2
+
 ## 0.2.2
 
 ### Patch Changes

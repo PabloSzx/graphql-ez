@@ -1,5 +1,12 @@
 # @graphql-ez/nextjs
 
+## 0.10.2
+
+### Patch Changes
+
+- Updated dependencies [dc502d9d]
+  - graphql-ez@0.15.0
+
 ## 0.10.1
 
 ### Patch Changes
