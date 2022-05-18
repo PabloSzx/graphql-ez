@@ -383,7 +383,7 @@ export async function startNextJSServer(dir: string[], autoClose: boolean = true
     done(null, body);
   });
 
-  const FastifyNext = (await import('fastify-nextjs')).default;
+  const FastifyNext = (await import('@fastify/nextjs')).default;
 
   const NextJSDir = resolve(...dir);
 

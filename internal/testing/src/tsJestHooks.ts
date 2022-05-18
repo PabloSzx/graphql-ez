@@ -4,7 +4,9 @@ export const depsJsImport = /deps\.js/g;
 
 export function afterProcess(
   []: [fileContent: string, filePath: string, jestConfig: unknown, transformOptions: unknown],
-  result: string
+  { code }: { code: string }
 ) {
-  return result.replace(metaImportUrlRegex, 'new URL("file:" + __filename)').replace(depsJsImport, 'deps');
+  return {
+    code: code.replace(metaImportUrlRegex, 'new URL("file:" + __filename)').replace(depsJsImport, 'deps'),
+  };
 }

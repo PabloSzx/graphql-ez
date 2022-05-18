@@ -10,17 +10,19 @@
     "start": "bob-tsm --node-env=prod src/index.ts"
   },
   "dependencies": {
-    "@envelop/graphql-jit": "^4.2.1",
+    "@envelop/graphql-jit": "^4.2.2",
     "@graphql-ez/fastify": "workspace:^0.9.7",
     "benchmark-bench": "workspace:1.0.0",
     "cross-env": "^7.0.3",
-    "fastify": "^3.27.4",
+    "fastify": "^3.29.0",
     "graphql": "16.1.0-experimental-stream-defer.6",
     "graphql-ez": "workspace:^0.14.1",
-    "require-env-variable": "^4.0.1",
-    "typescript": "^4.6.3"
+    "require-env-variable": "^4.0.1"
   },
   "devDependencies": {
-    "bob-tsm": "^0.4.8"
+    "@types/node": "^17.0.34",
+    "bob-tsm": "^1.0.0",
+    "esbuild": "^0.14.39",
+    "typescript": "^4.6.4"
   }
 }

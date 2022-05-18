@@ -1,7 +1,7 @@
 import { getObjectValue } from '@graphql-ez/utils/object';
 import { LazyPromise } from '@graphql-ez/utils/promise';
 import type { FastifyInstance, FastifyPluginCallback, FastifyReply, FastifyRequest, RouteOptions } from 'fastify';
-import type { FastifyCorsOptions, FastifyCorsOptionsDelegate, FastifyPluginOptionsDelegate } from 'fastify-cors';
+import type { FastifyCorsOptions, FastifyCorsOptionsDelegate, FastifyPluginOptionsDelegate } from '@fastify/cors';
 import type { AppOptions, BuildAppOptions, EZAppFactoryType, GetEnvelopedFn, ProcessRequestOptions } from 'graphql-ez';
 import {
   BaseAppBuilder,
@@ -103,7 +103,7 @@ export function CreateApp(config: FastifyAppOptions = {}): EZAppBuilder {
           await onIntegrationRegister(integration);
 
           if (cors) {
-            const fastifyCors = (await import('fastify-cors')).default;
+            const fastifyCors = (await import('@fastify/cors')).default;
 
             await instance.register(fastifyCors, getObjectValue(cors));
           }
