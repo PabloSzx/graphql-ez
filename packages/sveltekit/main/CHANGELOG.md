@@ -1,5 +1,12 @@
 # @graphql-ez/sveltekit
 
+## 0.4.1
+
+### Patch Changes
+
+- Updated dependencies [dc502d9d]
+  - graphql-ez@0.15.0
+
 ## 0.4.0
 
 ### Minor Changes

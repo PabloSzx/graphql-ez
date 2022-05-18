@@ -1,5 +1,12 @@
 # @graphql-ez/express
 
+## 0.9.8
+
+### Patch Changes
+
+- Updated dependencies [dc502d9d]
+  - graphql-ez@0.15.0
+
 ## 0.9.7
 
 ### Patch Changes

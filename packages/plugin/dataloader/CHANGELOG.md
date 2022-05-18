@@ -1,5 +1,12 @@
 # @graphql-ez/plugin-dataloader
 
+## 0.6.1
+
+### Patch Changes
+
+- Updated dependencies [dc502d9d]
+  - graphql-ez@0.15.0
+
 ## 0.6.0
 
 ### Minor Changes

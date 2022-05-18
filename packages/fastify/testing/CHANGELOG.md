@@ -1,5 +1,14 @@
 # @graphql-ez/fastify-testing
 
+## 0.2.1
+
+### Patch Changes
+
+- Updated dependencies [dc502d9d]
+- Updated dependencies [dc502d9d]
+  - graphql-ez@0.15.0
+  - @graphql-ez/fastify@0.10.0
+
 ## 0.2.0
 
 ### Minor Changes

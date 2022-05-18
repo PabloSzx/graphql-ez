@@ -1,5 +1,12 @@
 # @graphql-ez/plugin-scalars
 
+## 0.7.5
+
+### Patch Changes
+
+- Updated dependencies [dc502d9d]
+  - graphql-ez@0.15.0
+
 ## 0.7.4
 
 ### Patch Changes
