@@ -1,0 +1,37 @@
+{
+  "name": "graphql-ez-integration-test-17",
+  "private": true,
+  "scripts": {
+    "test:mocha": "c8 mocha"
+  },
+  "dependencies": {
+    "@graphql-ez/fastify": "workspace:^0.10.0",
+    "@graphql-ez/fastify-testing": "workspace:^0.2.1",
+    "@pothos/core": "^3.11.0",
+    "c8": "^7.11.3",
+    "chai": "^4.3.6",
+    "fastify": "^3.29.0",
+    "graphql": "17.0.0-alpha.1",
+    "graphql-ez": "workspace:^0.15.0",
+    "mocha": "^10.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^17.0.35",
+    "esbuild": "^0.14.39",
+    "typescript": "^4.6.4"
+  },
+  "dependenciesMeta": {
+    "@graphql-ez/fastify": {
+      "injected": true
+    },
+    "@graphql-ez/fastify-testing": {
+      "injected": true
+    },
+    "@pothos/core": {
+      "injected": true
+    },
+    "graphql-ez": {
+      "injected": true
+    }
+  }
+}

@@ -47,6 +47,6 @@
     },
     "importsNotUsedAsValues": "error"
   },
-  "exclude": ["**/dist", "**/website", "**/coverage", "**/.next", "**/browser", "**/test-example"],
+  "exclude": ["**/dist", "**/website", "**/coverage", "**/.next", "**/browser", "**/test-example", "integration/gql-17"],
   "include": ["packages", "internal", "bob-esbuild.config.ts", "jest.config.js", "benchmarks/bench", "integration"]
 }

@@ -1037,6 +1037,44 @@ importers:
       graphql-ez:
         injected: true
 
+  integration/gql-17:
+    specifiers:
+      '@graphql-ez/fastify': workspace:^0.10.0
+      '@graphql-ez/fastify-testing': workspace:^0.2.1
+      '@pothos/core': ^3.11.0
+      '@types/node': ^17.0.35
+      c8: ^7.11.3
+      chai: ^4.3.6
+      esbuild: ^0.14.36
+      fastify: ^3.29.0
+      graphql: 17.0.0-alpha.1
+      graphql-ez: workspace:^0.15.0
+      mocha: ^10.0.0
+      typescript: ^4.6.4
+    dependencies:
+      '@graphql-ez/fastify': file:packages/fastify/main_jdckogd5zr44muonbdrn55oiii
+      '@graphql-ez/fastify-testing': file:packages/fastify/testing_3muocqbkmggjq3v2qysnc2rsza
+      '@pothos/core': 3.11.0_graphql@17.0.0-alpha.1
+      c8: 7.11.3
+      chai: 4.3.6
+      fastify: 3.29.0
+      graphql: 17.0.0-alpha.1
+      graphql-ez: file:packages/core/main_graphql@17.0.0-alpha.1
+      mocha: 10.0.0
+    devDependencies:
+      '@types/node': 17.0.35
+      esbuild: 0.14.39
+      typescript: 4.6.4
+    dependenciesMeta:
+      '@graphql-ez/fastify':
+        injected: true
+      '@graphql-ez/fastify-testing':
+        injected: true
+      '@pothos/core':
+        injected: true
+      graphql-ez:
+        injected: true
+
   internal/testing:
     specifiers:
       '@fastify/nextjs': ^8.0.0
@@ -4707,6 +4745,15 @@ packages:
       graphql: 16.5.0
     dev: false
 
+  /@envelop/core/2.3.2_graphql@17.0.0-alpha.1:
+    resolution: {integrity: sha512-NTVY7bajznZyE0S/yzwIu5aimcM8JLqdeWkWUmwmrAHZdE6zjrvOuVCwq1kMIHzgV3bmLdPg2F7534Nxad/HLg==}
+    peerDependencies:
+      graphql: '*'
+    dependencies:
+      '@envelop/types': 2.2.0_graphql@17.0.0-alpha.1
+      graphql: 17.0.0-alpha.1
+    dev: false
+
   /@envelop/core/2.3.2_gtorhqsyh7roiqmmeoqngd6dra:
     resolution: {integrity: sha512-NTVY7bajznZyE0S/yzwIu5aimcM8JLqdeWkWUmwmrAHZdE6zjrvOuVCwq1kMIHzgV3bmLdPg2F7534Nxad/HLg==}
     peerDependencies:
@@ -4817,6 +4864,14 @@ packages:
       graphql: '*'
     dependencies:
       graphql: 16.5.0
+    dev: false
+
+  /@envelop/types/2.2.0_graphql@17.0.0-alpha.1:
+    resolution: {integrity: sha512-Lghvfs0kh53G5mUKpCMlB/FhHh3O8SSR4hewB7JyE9hOEu/9h/6u+GHH/OEgdaRHky1Sae5Jf4grO+h21ka4ig==}
+    peerDependencies:
+      graphql: '*'
+    dependencies:
+      graphql: 17.0.0-alpha.1
     dev: false
 
   /@envelop/types/2.2.0_gtorhqsyh7roiqmmeoqngd6dra:
@@ -6467,6 +6522,14 @@ packages:
 
   /@popperjs/core/2.11.5:
     resolution: {integrity: sha512-9X2obfABZuDVLCgPK9aX0a/x4jaOEweTTWE2+9sr0Qqqevj2Uv5XorvusThmc9XGYpS9yI+fhh8RTafBtGposw==}
+    dev: false
+
+  /@pothos/core/3.11.0_graphql@17.0.0-alpha.1:
+    resolution: {integrity: sha512-zeVeG1Ggfyv3wia7lP+9a9QmFpVVST7oho4IQtGbtU7QvvdsezpikJEvPwAg7T4Sgu0tEyMRWwFcnJZdSHSjCw==}
+    peerDependencies:
+      graphql: '*'
+    dependencies:
+      graphql: 17.0.0-alpha.1
     dev: false
 
   /@pothos/core/3.11.0_ptiko6tsqj7cmirxhjfetabnhu:
@@ -10924,6 +10987,11 @@ packages:
   /graphql/16.5.0:
     resolution: {integrity: sha512-qbHgh8Ix+j/qY+a/ZcJnFQ+j8ezakqPiHwPiZhV/3PgGlgf96QMBB5/f2rkiC9sgLoy/xvT6TSiaf2nTHJh5iA==}
     engines: {node: ^12.22.0 || ^14.16.0 || ^16.0.0 || >=17.0.0}
+
+  /graphql/17.0.0-alpha.1:
+    resolution: {integrity: sha512-D59afb/GOC2ie47EONn574mVU5mjUPOyplPGME5US0rZBEIPLbzFdp8OBWX6uo9PqySDMnEjYp0OtfKjk0wjig==}
+    engines: {node: ^14.19.0 || ^16.10.0 || >=18.0.0}
+    dev: false
 
   /gray-matter/4.0.3:
     resolution: {integrity: sha512-5v6yZd4JK3eMI3FqqCouswVqwugaA9r4dNZB1wwcmrD02QkV5H0y7XBQW8QwQqEaZY1pM9aqORSORhJRdNK44Q==}
@@ -17519,6 +17587,26 @@ packages:
       tiny-lru: 8.0.2
     dev: false
 
+  file:packages/core/main_graphql@17.0.0-alpha.1:
+    resolution: {directory: packages/core/main, type: directory}
+    id: file:packages/core/main
+    name: graphql-ez
+    version: 0.15.0
+    engines: {node: '>=14.13.1'}
+    peerDependencies:
+      graphql: '*'
+    peerDependenciesMeta:
+      graphql:
+        optional: true
+    dependencies:
+      '@envelop/core': 2.3.2_graphql@17.0.0-alpha.1
+      '@envelop/types': 2.2.0_graphql@17.0.0-alpha.1
+      '@graphql-ez/utils': link:packages/core/utils
+      '@pablosz/graphql-helix': link:packages/helix/core
+      graphql: 17.0.0-alpha.1
+      tiny-lru: 8.0.2
+    dev: false
+
   file:packages/core/main_gtorhqsyh7roiqmmeoqngd6dra:
     resolution: {directory: packages/core/main, type: directory}
     id: file:packages/core/main
@@ -17634,6 +17722,31 @@ packages:
       graphql-ez: file:packages/core/main_graphql@16.5.0
     dev: false
 
+  file:packages/fastify/main_jdckogd5zr44muonbdrn55oiii:
+    resolution: {directory: packages/fastify/main, type: directory}
+    id: file:packages/fastify/main
+    name: '@graphql-ez/fastify'
+    version: 0.10.0
+    engines: {node: '>=14.13.1'}
+    peerDependencies:
+      '@types/node': '*'
+      fastify: ^3.29.0
+      graphql: '*'
+      graphql-ez: workspace:^0.15.0
+    peerDependenciesMeta:
+      fastify:
+        optional: true
+      graphql:
+        optional: true
+    dependencies:
+      '@fastify/cors': 7.0.0
+      '@graphql-ez/utils': link:packages/core/utils
+      '@types/node': 17.0.35
+      fastify: 3.29.0
+      graphql: 17.0.0-alpha.1
+      graphql-ez: file:packages/core/main_graphql@17.0.0-alpha.1
+    dev: false
+
   file:packages/fastify/main_l4xxzc2mzpndkjmmmusdpgczvq:
     resolution: {directory: packages/fastify/main, type: directory}
     id: file:packages/fastify/main
@@ -17682,6 +17795,25 @@ packages:
       fastify: 3.29.0
       graphql: 15.8.0
       graphql-ez: file:packages/core/main_graphql@15.8.0
+    dev: false
+
+  file:packages/fastify/testing_3muocqbkmggjq3v2qysnc2rsza:
+    resolution: {directory: packages/fastify/testing, type: directory}
+    id: file:packages/fastify/testing
+    name: '@graphql-ez/fastify-testing'
+    version: 0.2.1
+    peerDependencies:
+      '@graphql-ez/fastify': workspace:^0.10.0
+      fastify: ^3.29.0
+      graphql: '*'
+      graphql-ez: workspace:^0.15.0
+    dependencies:
+      '@graphql-ez/client': link:packages/client/main
+      '@graphql-ez/fastify': file:packages/fastify/main_jdckogd5zr44muonbdrn55oiii
+      '@graphql-ez/utils': link:packages/core/utils
+      fastify: 3.29.0
+      graphql: 17.0.0-alpha.1
+      graphql-ez: file:packages/core/main_graphql@17.0.0-alpha.1
     dev: false
 
   file:packages/fastify/testing_eeyhul5ewim5pfxcln2hhiqzge:
