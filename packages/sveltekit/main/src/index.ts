@@ -1,5 +1,4 @@
-import type { RequestHandler } from '@sveltejs/kit';
-import type { RequestEvent, ResponseHeaders } from '@sveltejs/kit/types/private';
+import type { RequestHandler, RequestEvent, RequestHandlerOutput } from '@sveltejs/kit';
 import {
   AppOptions,
   BaseAppBuilder,
@@ -16,6 +15,8 @@ import {
   ProcessRequestOptions,
 } from 'graphql-ez';
 import type { IncomingMessage } from 'http';
+
+type ResponseHeaders = NonNullable<RequestHandlerOutput['headers']>;
 
 export interface EZAppBuilder extends BaseAppBuilder {
   readonly buildApp: (options?: BuildAppOptions) => EZApp;
