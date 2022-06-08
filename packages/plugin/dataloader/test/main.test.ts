@@ -2,8 +2,10 @@ import { resolve } from 'path';
 
 import { ezCodegen } from '@graphql-ez/plugin-codegen';
 import { CommonSchema, createDeferredPromise, gql, startFastifyServer } from 'graphql-ez-testing';
-
+import SchemaBuilder from '@pothos/core';
 import { ezDataLoader, InferDataLoader, RegisteredDataLoader } from '../src';
+import { ezWebSockets } from '../../websockets/src/index';
+import DataLoader from 'dataloader';
 
 type NumberMultiplier = RegisteredDataLoader<'NumberMultiplier', number, number>;
 
@@ -104,4 +106,109 @@ test('works', async () => {
   `);
 
   await codegenDone.promise;
+});
+
+test('dataloaders are cleared for subscriptions', async () => {
+  const builder = new SchemaBuilder<{
+    Context: {
+      clearedSubscription: DataLoader<number, string>;
+      notClearedSubscription: DataLoader<number, string>;
+    };
+  }>({});
+  builder.queryType({
+    fields(t) {
+      return {
+        hello: t.string({
+          resolve() {
+            return 'Hello';
+          },
+        }),
+      };
+    },
+  });
+  builder.subscriptionType({});
+  builder.subscriptionField('cleared', t =>
+    t.field({
+      type: 'String',
+      async *subscribe() {
+        yield 1;
+        yield 2;
+        yield 3;
+
+        yield 1;
+        yield 2;
+        yield 3;
+      },
+      resolve(data, _args, { clearedSubscription }) {
+        return clearedSubscription.load(data);
+      },
+    })
+  );
+  builder.subscriptionField('notCleared', t =>
+    t.field({
+      type: 'String',
+      async *subscribe() {
+        yield 1;
+        yield 2;
+        yield 3;
+
+        yield 1;
+        yield 2;
+        yield 3;
+      },
+      resolve(data, _args, { notClearedSubscription }) {
+        return notClearedSubscription.load(data);
+      },
+    })
+  );
+
+  let clearedDataLoaderCalls = 0;
+  let notClearedDataLoaderCalls = 0;
+  const { GraphQLWSWebsocketsClient } = await startFastifyServer({
+    createOptions: {
+      schema: builder.toSchema({}),
+      ez: {
+        plugins: [ezDataLoader(), ezWebSockets('new')],
+      },
+      prepare({ registerDataLoader }) {
+        registerDataLoader(
+          'clearedSubscription',
+          DataLoader => new DataLoader(async (keys: readonly number[]) => keys.map(key => key + ' ' + ++clearedDataLoaderCalls))
+        );
+      },
+      buildContext() {
+        return {
+          notClearedSubscription: new DataLoader(async (keys: readonly number[]) =>
+            keys.map(key => key + ' ' + ++notClearedDataLoaderCalls)
+          ),
+        };
+      },
+    },
+  });
+
+  const clearedValues = await (async () => {
+    const values: string[] = [];
+
+    await GraphQLWSWebsocketsClient.subscribe<{ data: { cleared: string } }>('subscription{cleared}', ({ data }) => {
+      values.push(data.cleared);
+    }).done;
+
+    return values;
+  })();
+
+  // Second dataloader calls with the same arguments don't have existing cache values
+  expect(clearedValues).toStrictEqual(['1 1', '2 2', '3 3', '1 4', '2 5', '3 6']);
+
+  const notClearedValues = await (async () => {
+    const values: string[] = [];
+
+    await GraphQLWSWebsocketsClient.subscribe<{ data: { notCleared: string } }>('subscription{notCleared}', ({ data }) => {
+      values.push(data.notCleared);
+    }).done;
+
+    return values;
+  })();
+
+  // Second dataloader calls with the same arguments re-use cache values (not wanted)
+  expect(notClearedValues).toStrictEqual(['1 1', '2 2', '3 3', '1 1', '2 2', '3 3']);
 });

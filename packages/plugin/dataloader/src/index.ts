@@ -1,5 +1,6 @@
 import DataLoader from 'dataloader';
 import { useDataLoader } from '@envelop/dataloader';
+import { useExtendContextValuePerExecuteSubscriptionEvent } from '@envelop/execute-subscription-event';
 
 import type { EZPlugin, EZContext } from 'graphql-ez';
 
@@ -34,12 +35,18 @@ export const ezDataLoader = (): EZPlugin => {
   return {
     name: 'DataLoader',
     onRegister(ctx) {
+      const dataloadersSymbol = Symbol('dataloaders');
+
+      type DataLoadersWithSymbol = { [dataloadersSymbol]?: Array<[string, () => DataLoader<unknown, unknown, unknown>]> };
+
       function registerDataLoader<Name extends string, Key, Value, CacheKey = Key>(
         name: Name,
         dataLoaderFactory: DataLoaderFn<Key, Value, CacheKey>
       ): RegisteredDataLoader<Name, Key, Value, CacheKey> {
         ctx.options.envelop.plugins.push(
-          useDataLoader<Name, Key, Value, CacheKey, EZContext>(name, context => {
+          useDataLoader<Name, Key, Value, CacheKey, EZContext & DataLoadersWithSymbol>(name, context => {
+            (context[dataloadersSymbol] ||= []).push([name, () => dataLoaderFactory(DataLoader, context)]);
+
             return dataLoaderFactory(DataLoader, context);
           })
         );
@@ -50,6 +57,20 @@ export const ezDataLoader = (): EZPlugin => {
       }
 
       ctx.appBuilder.registerDataLoader = registerDataLoader;
+
+      ctx.options.envelop.plugins.push(
+        useExtendContextValuePerExecuteSubscriptionEvent(({ args: { contextValue } }) => {
+          const contextPartial: Record<string, DataLoader<unknown, unknown>> = {};
+
+          for (const [name, dataloader] of (contextValue as DataLoadersWithSymbol)[dataloadersSymbol] || []) {
+            contextPartial[name] = dataloader();
+          }
+
+          return {
+            contextPartial,
+          };
+        })
+      );
     },
   };
 };
