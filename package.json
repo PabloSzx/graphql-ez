@@ -55,7 +55,7 @@
     "changesets-github-release": "^0.1.0",
     "concurrently": "^7.2.0",
     "cross-env": "^7.0.3",
-    "esbuild": "^0.14.39",
+    "esbuild": "^0.14.43",
     "fastify": "^3.29.0",
     "globby": "^13.1.1",
     "graphql-ez-testing": "workspace:^1.0.0",
@@ -73,14 +73,15 @@
   },
   "pnpm": {
     "overrides": {
-      "esbuild": "^0.14.36",
+      "esbuild": "^0.14.43",
       "trim@<0.0.3": ">=0.0.3",
       "glob-parent@<5.1.2": ">=5.1.2",
       "set-value@<4.0.1": ">=4.0.1",
       "axios@<=0.21.1": ">=0.21.2",
       "ansi-regex@>2.1.1 <5.0.1": "^5.0.1",
       "json-schema@<0.4.0": ">=0.4.0",
-      "@types/react": "^17.0.44"
+      "@types/react": "^17.0.44",
+      "@types/hapi__hapi": "20.0.12"
     },
     "peerDependencyRules": {
       "ignoreMissing": [

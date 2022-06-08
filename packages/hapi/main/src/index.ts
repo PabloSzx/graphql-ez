@@ -65,7 +65,7 @@ export interface HapiAppOptions extends AppOptions {
 }
 
 export interface EZApp {
-  readonly hapiPlugin: Plugin<{}>;
+  readonly hapiPlugin: Plugin<unknown>;
   readonly getEnveloped: GetEnvelopedFn<unknown>;
 
   readonly path: string;
