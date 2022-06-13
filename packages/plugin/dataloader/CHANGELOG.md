@@ -1,5 +1,16 @@
 # @graphql-ez/plugin-dataloader
 
+## 0.7.0
+
+### Minor Changes
+
+- 21d63158: Automatically clear dataloaders on subscription using @envelop/execute-subscription-event
+
+### Patch Changes
+
+- Updated dependencies [060335e3]
+  - graphql-ez@0.15.1
+
 ## 0.6.1
 
 ### Patch Changes
