@@ -56,7 +56,7 @@
     "concurrently": "^7.2.1",
     "cross-env": "^7.0.3",
     "esbuild": "^0.14.43",
-    "fastify": "^3.29.0",
+    "fastify": "^4.0.2",
     "globby": "^13.1.2",
     "graphql-ez-testing": "workspace:^1.0.0",
     "husky": "8.0.1",
@@ -93,7 +93,11 @@
         "postcss",
         "autoprefixer",
         "next",
-        "@chakra-ui/system"
+        "@chakra-ui/system",
+        "@codemirror/language",
+        "@algolia/client-search",
+        "@babel/preset-env",
+        "unist-util-visit"
       ],
       "allowedVersions": {
         "graphql": "*",
