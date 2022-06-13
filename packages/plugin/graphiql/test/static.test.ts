@@ -100,7 +100,7 @@ test('fastify-same-path', async () => {
                 "connection": "keep-alive",
                 "content-length": "33",
                 "content-type": "application/json; charset=utf-8",
-                "keep-alive": "timeout=5",
+                "keep-alive": "timeout=72",
               },
               "statusCode": 200,
             },

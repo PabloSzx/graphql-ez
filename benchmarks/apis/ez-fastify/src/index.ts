@@ -21,4 +21,6 @@ app.register(
   }).buildApp({}).fastifyPlugin
 );
 
-app.listen(requireEnv('PORT').PORT);
+app.listen({
+  port: parseInt(requireEnv('PORT').PORT),
+});

@@ -78,19 +78,23 @@ export async function CreateTestClient(
 
   await options.preListen?.(server);
 
-  const port = await server.listen(0).then(() => {
-    try {
-      const addressInfo = server.server.address();
+  const port = await server
+    .listen({
+      port: 0,
+    })
+    .then(() => {
+      try {
+        const addressInfo = server.server.address();
 
-      if (addressInfo == null || typeof addressInfo !== 'object') {
-        throw Error('Invalid Server');
+        if (addressInfo == null || typeof addressInfo !== 'object') {
+          throw Error('Invalid Server');
+        }
+
+        return addressInfo.port;
+      } catch (err) {
+        throw err;
       }
-
-      return addressInfo.port;
-    } catch (err) {
-      throw err;
-    }
-  });
+    });
 
   teardownLazyPromiseList.push(
     LazyPromise(async () => {

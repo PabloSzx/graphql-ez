@@ -30,5 +30,7 @@ app.ready(err => {
     return;
   }
 
-  app.listen(8060);
+  app.listen({
+    port: 8060,
+  });
 });

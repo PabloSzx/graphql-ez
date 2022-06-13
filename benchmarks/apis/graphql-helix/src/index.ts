@@ -34,4 +34,6 @@ app.post('/graphql', async (req, res) => {
   }
 });
 
-app.listen(requireEnv('PORT').PORT);
+app.listen({
+  port: parseInt(requireEnv('PORT').PORT),
+});

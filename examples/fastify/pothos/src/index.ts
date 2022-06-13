@@ -7,4 +7,7 @@ const app = Fastify({
 
 app.register(ezApp.buildApp().fastifyPlugin);
 
-app.listen(4040, '0.0.0.0');
+app.listen({
+  port: 4040,
+  host: '0.0.0.0',
+});
