@@ -1,5 +1,13 @@
 # @graphql-ez/sveltekit
 
+## 0.4.2
+
+### Patch Changes
+
+- 76ddc063: Set sveltekit version to ^1.0.0-next.336
+- Updated dependencies [060335e3]
+  - graphql-ez@0.15.1
+
 ## 0.4.1
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # graphql-ez
 
+## 0.15.1
+
+### Patch Changes
+
+- 060335e3: Bump Envelop versions
+
 ## 0.15.0
 
 ### Minor Changes

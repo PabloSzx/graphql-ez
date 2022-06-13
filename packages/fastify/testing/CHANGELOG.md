@@ -1,5 +1,18 @@
 # @graphql-ez/fastify-testing
 
+## 0.3.0
+
+### Minor Changes
+
+- 3fee7823: Bump Fastify to v4
+
+### Patch Changes
+
+- Updated dependencies [3fee7823]
+- Updated dependencies [060335e3]
+  - @graphql-ez/fastify@0.11.0
+  - graphql-ez@0.15.1
+
 ## 0.2.1
 
 ### Patch Changes
