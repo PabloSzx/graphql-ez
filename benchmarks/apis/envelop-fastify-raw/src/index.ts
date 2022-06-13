@@ -123,8 +123,17 @@ app.post(
       throw err;
     }
 
-    return execute(envelopSchema, document, root, {}, variables, operationName);
+    return execute({
+      schema: envelopSchema,
+      document,
+      rootValue: root,
+      contextValue: {},
+      variableValues: variables,
+      operationName,
+    });
   }
 );
 
-app.listen(requireEnv('PORT').PORT);
+app.listen({
+  port: parseInt(requireEnv('PORT').PORT),
+});

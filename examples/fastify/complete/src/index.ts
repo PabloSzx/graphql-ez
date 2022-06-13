@@ -21,4 +21,6 @@ app.ready(err => {
   process.exit(1);
 });
 
-app.listen(process.env.PORT || 3000);
+app.listen({
+  port: (process.env.PORT && parseInt(process.env.PORT)) || 3000,
+});

@@ -22,4 +22,6 @@ const { buildApp } = CreateApp({
 
 app.register(buildApp().fastifyPlugin);
 
-app.listen(8070);
+app.listen({
+  port: 8070,
+});

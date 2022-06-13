@@ -100,6 +100,7 @@ importers:
 
   benchmarks/apis/express-graphql:
     specifiers:
+      '@types/express': ^4.17.13
       '@types/node': ^17.0.42
       benchmark-bench: workspace:1.0.0
       bob-tsm: ^1.0.0
@@ -116,6 +117,7 @@ importers:
       graphql: 16.1.0-experimental-stream-defer.6
       require-env-variable: 4.0.1
     devDependencies:
+      '@types/express': 4.17.13
       '@types/node': 17.0.42
       bob-tsm: 1.0.0_rfzdi44t3f7d4pftnjts7dki7e
       esbuild: 0.14.43

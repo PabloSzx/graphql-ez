@@ -28,7 +28,7 @@ const { fastifyPlugin } = ezApp.buildApp({
 
 app.register(fastifyPlugin);
 
-app.listen(8080);
+app.listen({ port: 8080 });
 ```
 
 > `EZ App module`

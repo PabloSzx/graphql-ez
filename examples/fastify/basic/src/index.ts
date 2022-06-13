@@ -37,4 +37,6 @@ const { fastifyPlugin } = ezApp.buildApp({});
 
 server.register(fastifyPlugin);
 
-server.listen(8080);
+server.listen({
+  port: 8080,
+});

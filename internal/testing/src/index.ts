@@ -76,19 +76,23 @@ export const startFastifyServer = async ({
   await server.ready();
 
   const port = await new Promise<number>((resolve, reject) => {
-    server.listen(0).then(() => {
-      try {
-        const addressInfo = server.server.address();
+    server
+      .listen({
+        port: 0,
+      })
+      .then(() => {
+        try {
+          const addressInfo = server.server.address();
 
-        if (addressInfo == null || typeof addressInfo !== 'object') {
-          return reject(Error('Invalid Server'));
+          if (addressInfo == null || typeof addressInfo !== 'object') {
+            return reject(Error('Invalid Server'));
+          }
+
+          resolve(addressInfo.port);
+        } catch (err) {
+          reject(err);
         }
-
-        resolve(addressInfo.port);
-      } catch (err) {
-        reject(err);
-      }
-    }, reject);
+      }, reject);
 
     autoClose && TearDownPromises.push(new PLazy<void>(resolve => server.close(resolve)));
   });
@@ -434,19 +438,23 @@ export async function startNextJSServer(dir: string[], autoClose: boolean = true
   await app.ready();
 
   const port = await new Promise<number>((resolve, reject) => {
-    app.listen(0).then(() => {
-      try {
-        const addressInfo = app.server.address();
+    app
+      .listen({
+        port: 0,
+      })
+      .then(() => {
+        try {
+          const addressInfo = app.server.address();
 
-        if (addressInfo == null || typeof addressInfo !== 'object') {
-          return reject(Error('Invalid Server'));
+          if (addressInfo == null || typeof addressInfo !== 'object') {
+            return reject(Error('Invalid Server'));
+          }
+
+          resolve(addressInfo.port);
+        } catch (err) {
+          reject(err);
         }
-
-        resolve(addressInfo.port);
-      } catch (err) {
-        reject(err);
-      }
-    }, reject);
+      }, reject);
 
     autoClose && TearDownPromises.push(new PLazy<void>(resolve => app.close(resolve)));
   });

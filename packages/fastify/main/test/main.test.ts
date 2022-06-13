@@ -212,7 +212,7 @@ test('batched queries', async () => {
                 "connection": "keep-alive",
                 "content-length": "70",
                 "content-type": "application/json; charset=utf-8",
-                "keep-alive": "timeout=5",
+                "keep-alive": "timeout=72",
               },
               "statusCode": 200,
             },
