@@ -1171,7 +1171,7 @@ importers:
       '@emotion/react': ^11.9.3
       '@emotion/styled': ^11.9.3
       '@guild-docs/client': 2.1.1
-      '@guild-docs/server': 3.0.1
+      '@guild-docs/server': 4.0.0
       '@mdx-js/react': ^2.1.1
       '@next/bundle-analyzer': ^12.1.6
       '@theguild/components': ^1.11.8
@@ -1207,7 +1207,7 @@ importers:
       '@emotion/react': 11.9.3_hx2b44akkvgcgvvtmk7ds2qk6q
       '@emotion/styled': 11.9.3_te5k3czhdeex6uyealpexg33cy
       '@guild-docs/client': 2.1.1_pcejtnkmryqbmhynf6dwkwqmgm
-      '@guild-docs/server': 3.0.1_jeyqdb3iyk4kn7z7etcvk3n22q
+      '@guild-docs/server': 4.0.0_jeyqdb3iyk4kn7z7etcvk3n22q
       '@mdx-js/react': 2.1.1_react@17.0.2
       '@theguild/components': 1.11.8_k2mvpji5i2ojml6m4ftklg47pa
       date-fns: 2.28.0
@@ -5598,8 +5598,8 @@ packages:
       - supports-color
     dev: false
 
-  /@guild-docs/server/3.0.1_jeyqdb3iyk4kn7z7etcvk3n22q:
-    resolution: {integrity: sha512-KRXoSqbpBmSAtm1u3iQVpm1oz+vrng+F95NkSf8+uWr6vmxgAscE1hq9/2wrTaNfwwQFUd+GIm6FRlhy4eG2pA==}
+  /@guild-docs/server/4.0.0_jeyqdb3iyk4kn7z7etcvk3n22q:
+    resolution: {integrity: sha512-LlDr4U8LMwoE3LEmbMgUXlmFBUdHVKzGIOofKG1SR6VNwZEQ8/qAR5eEIdl3xA5VyOCs4PJ0lDJg5pzoECxq8w==}
     peerDependencies:
       next: '*'
       next-i18next: '*'
@@ -5615,7 +5615,7 @@ packages:
         optional: true
     dependencies:
       '@guild-docs/mdx-remote': 2.0.2_c62bghribpr44nzrfj5gk2cjxm
-      '@guild-docs/types': 2.0.0_3xaqzqczgwuy22e74gayxkolea
+      '@guild-docs/types': 3.0.0_3xaqzqczgwuy22e74gayxkolea
       '@stefanprobst/remark-shiki': 2.1.0_shiki@0.10.1
       github-slugger: 1.4.0
       globby: 13.1.1
@@ -5628,7 +5628,7 @@ packages:
       remark-emoji: 3.0.2
       shiki: 0.10.1
       tiny-lru: 8.0.2
-      undici: 4.16.0
+      undici: 5.0.0
     transitivePeerDependencies:
       - '@chakra-ui/react'
       - '@mdx-js/react'
@@ -16997,8 +16997,8 @@ packages:
       fastify-plugin: 3.0.1
     dev: true
 
-  /undici/4.16.0:
-    resolution: {integrity: sha512-tkZSECUYi+/T1i4u+4+lwZmQgLXd4BLGlrc7KZPcLIW7Jpq99+Xpc30ONv7nS6F5UNOxp/HBZSSL9MafUrvJbw==}
+  /undici/5.0.0:
+    resolution: {integrity: sha512-VhUpiZ3No1DOPPQVQnsDZyfcbTTcHdcgWej1PdFnSvOeJmOVDgiOHkunJmBLfmjt4CqgPQddPVjSWW0dsTs5Yg==}
     engines: {node: '>=12.18'}
     dev: false
 
