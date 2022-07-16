@@ -1080,7 +1080,7 @@ importers:
 
   internal/testing:
     specifiers:
-      '@fastify/nextjs': ^8.0.0
+      '@fastify/nextjs': ^8.0.2
       '@graphql-ez/utils': workspace:^0.1.4
       '@graphql-tools/schema': ^8.3.14
       '@graphql-tools/utils': ^8.6.13
@@ -1121,7 +1121,7 @@ importers:
       wait-for-expect: ^3.0.2
       ws: ^8.8.0
     devDependencies:
-      '@fastify/nextjs': 8.0.0
+      '@fastify/nextjs': 8.0.2
       '@graphql-ez/utils': link:../../packages/core/utils
       '@graphql-tools/schema': 8.3.14_ptiko6tsqj7cmirxhjfetabnhu
       '@graphql-tools/utils': 8.6.13_ptiko6tsqj7cmirxhjfetabnhu
@@ -4994,8 +4994,8 @@ packages:
     dependencies:
       fast-json-stringify: 4.2.0
 
-  /@fastify/nextjs/8.0.0:
-    resolution: {integrity: sha512-XgIxxk21GuW4F+PECvvUh7wm5IEbXBrqh/+qvvf/FvBaSgaJFsLX33n3y9ypaa8E19vesKd1B5Pe5B4V7JtZmA==}
+  /@fastify/nextjs/8.0.2:
+    resolution: {integrity: sha512-1BtaonQMoS4pmLCtSYEBy4miHtBMykSGamTO254+cUasGh+E6eSP3CX/iwo5jwPaqNov9UnUL3CDQsvioe0QKA==}
     engines: {node: '>=10'}
     peerDependencies:
       next: '*'
@@ -6646,7 +6646,6 @@ packages:
       graphql: '*'
     dependencies:
       graphql: 17.0.0-alpha.1
-    dev: false
 
   /@pothos/core/3.12.0_ptiko6tsqj7cmirxhjfetabnhu:
     resolution: {integrity: sha512-3bHYh7TBojfFQjiMvtnkLQ1x4/2hR9D5JV++USH2zAa55ZzWs7/xRXiPr1WpyRe9yxx7NahsU59HKygBxh/P3Q==}
@@ -10512,6 +10511,7 @@ packages:
       focus-trap: 6.9.4
       react: 17.0.2
       react-dom: 17.0.2_react@17.0.2
+      tabbable: 5.3.3
     dev: false
 
   /focus-trap/6.9.4:
