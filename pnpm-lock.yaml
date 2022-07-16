@@ -1088,7 +1088,7 @@ importers:
       '@hapi/hapi': ^20.2.2
       '@jest/types': ^28.1.1
       '@koa/router': ^10.1.1
-      '@types/eventsource': ^1.1.8
+      '@types/eventsource': ^1.1.9
       '@types/express': ^4.17.13
       '@types/express-serve-static-core': ^4.17.28
       '@types/fs-extra': ^9.0.13
@@ -1129,7 +1129,7 @@ importers:
       '@hapi/hapi': 20.2.2
       '@jest/types': 28.1.1
       '@koa/router': 10.1.1
-      '@types/eventsource': 1.1.8
+      '@types/eventsource': 1.1.9
       '@types/express': 4.17.13
       '@types/express-serve-static-core': 4.17.28
       '@types/fs-extra': 9.0.13
@@ -1241,7 +1241,7 @@ importers:
     specifiers:
       '@graphql-ez/utils': workspace:^0.1.4
       '@graphql-typed-document-node/core': ^3.1.1
-      '@types/eventsource': ^1.1.8
+      '@types/eventsource': ^1.1.9
       '@types/extract-files': ^8.1.1
       '@types/node': ^17.0.42
       '@types/node-fetch': ^2.6.1
@@ -1267,7 +1267,7 @@ importers:
       undici: 5.5.1
     devDependencies:
       '@graphql-typed-document-node/core': 3.1.1_ptiko6tsqj7cmirxhjfetabnhu
-      '@types/eventsource': 1.1.8
+      '@types/eventsource': 1.1.9
       '@types/extract-files': 8.1.1
       '@types/node': 17.0.42
       '@types/node-fetch': 2.6.1
@@ -6646,7 +6646,6 @@ packages:
       graphql: '*'
     dependencies:
       graphql: 17.0.0-alpha.1
-    dev: false
 
   /@pothos/core/3.12.0_ptiko6tsqj7cmirxhjfetabnhu:
     resolution: {integrity: sha512-3bHYh7TBojfFQjiMvtnkLQ1x4/2hR9D5JV++USH2zAa55ZzWs7/xRXiPr1WpyRe9yxx7NahsU59HKygBxh/P3Q==}
@@ -7209,8 +7208,8 @@ packages:
     resolution: {integrity: sha512-CuPgU6f3eT/XgKKPqKd/gLZV1Xmvf1a2R5POBOGQa6uv82xpls89HU5zKeVoyR8XzHd1RGNOlQlvUe3CFkjWNQ==}
     dev: false
 
-  /@types/eventsource/1.1.8:
-    resolution: {integrity: sha512-fJQNt9LijJCZwYvM6O30uLzdpAK9zs52Uc9iUW9M2Zsg0HQM6DLf6QysjC/wuFX+0798B8AppVMvgdO6IftPKQ==}
+  /@types/eventsource/1.1.9:
+    resolution: {integrity: sha512-F3K4oyM12o8W9jxuJmW+1sc8kdw0Hj0t+26urwkcolPJTgkfppEfIdftdcXmUU2QPBIwcrYO6diqgIqgCDf1FA==}
     dev: true
 
   /@types/express-serve-static-core/4.17.28:
@@ -10512,6 +10511,7 @@ packages:
       focus-trap: 6.9.4
       react: 17.0.2
       react-dom: 17.0.2_react@17.0.2
+      tabbable: 5.3.3
     dev: false
 
   /focus-trap/6.9.4:
