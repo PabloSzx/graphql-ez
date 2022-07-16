@@ -1,5 +1,11 @@
 # @graphql-ez/plugin-codegen
 
+## 0.7.11
+
+### Patch Changes
+
+- fe82a8b2: Update graphql-codegen
+
 ## 0.7.10
 
 ### Patch Changes
