@@ -347,7 +347,7 @@ importers:
       mkdirp: ^1.0.4
       require-env-variable: ^4.0.1
       rimraf: ^3.0.2
-      systeminformation: ^5.11.18
+      systeminformation: ^5.12.1
       typescript: ^4.7.3
       wait-on: ^6.0.1
     dependencies:
@@ -363,7 +363,7 @@ importers:
       mkdirp: 1.0.4
       require-env-variable: 4.0.1
       rimraf: 3.0.2
-      systeminformation: 5.11.18
+      systeminformation: 5.12.1
       wait-on: 6.0.1
     devDependencies:
       '@types/autocannon': 7.6.1
@@ -6646,7 +6646,6 @@ packages:
       graphql: '*'
     dependencies:
       graphql: 17.0.0-alpha.1
-    dev: false
 
   /@pothos/core/3.12.0_ptiko6tsqj7cmirxhjfetabnhu:
     resolution: {integrity: sha512-3bHYh7TBojfFQjiMvtnkLQ1x4/2hR9D5JV++USH2zAa55ZzWs7/xRXiPr1WpyRe9yxx7NahsU59HKygBxh/P3Q==}
@@ -10512,6 +10511,7 @@ packages:
       focus-trap: 6.9.4
       react: 17.0.2
       react-dom: 17.0.2_react@17.0.2
+      tabbable: 5.3.3
     dev: false
 
   /focus-trap/6.9.4:
@@ -16473,8 +16473,8 @@ packages:
       - encoding
     dev: true
 
-  /systeminformation/5.11.18:
-    resolution: {integrity: sha512-FLvgLAj8PAq3yGGhQk7A5al20BsiLAXQeho8IFKtqXJQsCLTSgQFggtK5azCTZr9MLgtMWYQdypPDBsNgGAmMg==}
+  /systeminformation/5.12.1:
+    resolution: {integrity: sha512-qAV0xSeSJlg0ZHmQ1T2rLrL54SATalBx6v4T8Sd5s17pEm6saX3LKzlPhfPx+EfT91y9yhRYnKhnMoLTFkxbqw==}
     engines: {node: '>=8.0.0'}
     os: [darwin, linux, win32, freebsd, openbsd, netbsd, sunos, android]
     hasBin: true
@@ -17706,7 +17706,7 @@ packages:
       mkdirp: 1.0.4
       require-env-variable: 4.0.1
       rimraf: 3.0.2
-      systeminformation: 5.11.18
+      systeminformation: 5.12.1
       wait-on: 6.0.1
     transitivePeerDependencies:
       - debug
