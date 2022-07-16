@@ -2,6 +2,10 @@ import { LazyPromise } from '@graphql-ez/utils/promise';
 import { withoutTrailingSlash, withTrailingSlash } from '@graphql-ez/utils/url';
 import type { AltairRender } from '../types';
 
+export function getDefault<T>(pkg: T & { default?: T }): T {
+  return pkg.default || pkg;
+}
+
 const AltairDeps = LazyPromise(async () => {
   const [
     { getDistDirectory, renderAltair },
@@ -10,7 +14,7 @@ const AltairDeps = LazyPromise(async () => {
     },
     { resolve },
     { lookup },
-  ] = await Promise.all([import('altair-static-slim'), import('fs'), import('path'), import('mime-types')]);
+  ] = await Promise.all([import('altair-static-slim').then(getDefault), import('fs'), import('path'), import('mime-types')]);
 
   return {
     getDistDirectory,
