@@ -56,7 +56,7 @@ test('fastify', async () => {
       })
     ).slice(0, 300)
   ).toMatchInlineSnapshot(
-    `"@charset \\"UTF-8\\";[class*=ant-]::-ms-clear,[class*=ant-] input::-ms-clear,[class*=ant-] input::-ms-reveal,[class^=ant-]::-ms-clear,[class^=ant-] input::-ms-clear,[class^=ant-] input::-ms-reveal{display:none}body,html{width:100%}input::-ms-clear,input::-ms-reveal{display:none}*,:after,:before{box-sizi"`
+    `"[class^=ant-]::-ms-clear,[class*=ant-]::-ms-clear,[class^=ant-] input::-ms-clear,[class*=ant-] input::-ms-clear,[class^=ant-] input::-ms-reveal,[class*=ant-] input::-ms-reveal{display:none}html,body{width:100%;height:100%}input::-ms-clear,input::-ms-reveal{display:none}*,*:before,*:after{box-sizing:"`
   );
 });
 
@@ -102,7 +102,7 @@ test('express', async () => {
       })
     ).slice(0, 300)
   ).toMatchInlineSnapshot(
-    `"@charset \\"UTF-8\\";[class*=ant-]::-ms-clear,[class*=ant-] input::-ms-clear,[class*=ant-] input::-ms-reveal,[class^=ant-]::-ms-clear,[class^=ant-] input::-ms-clear,[class^=ant-] input::-ms-reveal{display:none}body,html{width:100%}input::-ms-clear,input::-ms-reveal{display:none}*,:after,:before{box-sizi"`
+    `"[class^=ant-]::-ms-clear,[class*=ant-]::-ms-clear,[class^=ant-] input::-ms-clear,[class*=ant-] input::-ms-clear,[class^=ant-] input::-ms-reveal,[class*=ant-] input::-ms-reveal{display:none}html,body{width:100%;height:100%}input::-ms-clear,input::-ms-reveal{display:none}*,*:before,*:after{box-sizing:"`
   );
 });
 
@@ -148,7 +148,7 @@ test('http', async () => {
       })
     ).slice(0, 300)
   ).toMatchInlineSnapshot(
-    `"@charset \\"UTF-8\\";[class*=ant-]::-ms-clear,[class*=ant-] input::-ms-clear,[class*=ant-] input::-ms-reveal,[class^=ant-]::-ms-clear,[class^=ant-] input::-ms-clear,[class^=ant-] input::-ms-reveal{display:none}body,html{width:100%}input::-ms-clear,input::-ms-reveal{display:none}*,:after,:before{box-sizi"`
+    `"[class^=ant-]::-ms-clear,[class*=ant-]::-ms-clear,[class^=ant-] input::-ms-clear,[class*=ant-] input::-ms-clear,[class^=ant-] input::-ms-reveal,[class*=ant-] input::-ms-reveal{display:none}html,body{width:100%;height:100%}input::-ms-clear,input::-ms-reveal{display:none}*,*:before,*:after{box-sizing:"`
   );
 });
 
@@ -194,7 +194,7 @@ test('hapi', async () => {
       })
     ).slice(0, 300)
   ).toMatchInlineSnapshot(
-    `"@charset \\"UTF-8\\";[class*=ant-]::-ms-clear,[class*=ant-] input::-ms-clear,[class*=ant-] input::-ms-reveal,[class^=ant-]::-ms-clear,[class^=ant-] input::-ms-clear,[class^=ant-] input::-ms-reveal{display:none}body,html{width:100%}input::-ms-clear,input::-ms-reveal{display:none}*,:after,:before{box-sizi"`
+    `"[class^=ant-]::-ms-clear,[class*=ant-]::-ms-clear,[class^=ant-] input::-ms-clear,[class*=ant-] input::-ms-clear,[class^=ant-] input::-ms-reveal,[class*=ant-] input::-ms-reveal{display:none}html,body{width:100%;height:100%}input::-ms-clear,input::-ms-reveal{display:none}*,*:before,*:after{box-sizing:"`
   );
 });
 
@@ -240,11 +240,11 @@ test('koa', async () => {
       })
     ).slice(0, 300)
   ).toMatchInlineSnapshot(
-    `"@charset \\"UTF-8\\";[class*=ant-]::-ms-clear,[class*=ant-] input::-ms-clear,[class*=ant-] input::-ms-reveal,[class^=ant-]::-ms-clear,[class^=ant-] input::-ms-clear,[class^=ant-] input::-ms-reveal{display:none}body,html{width:100%}input::-ms-clear,input::-ms-reveal{display:none}*,:after,:before{box-sizi"`
+    `"[class^=ant-]::-ms-clear,[class*=ant-]::-ms-clear,[class^=ant-] input::-ms-clear,[class*=ant-] input::-ms-clear,[class^=ant-] input::-ms-reveal,[class*=ant-] input::-ms-reveal{display:none}html,body{width:100%;height:100%}input::-ms-clear,input::-ms-reveal{display:none}*,*:before,*:after{box-sizing:"`
   );
 });
 
-test('nextjs', async () => {
+test.skip('nextjs', async () => {
   const warnCalled = createDeferredPromise<unknown>(5000);
 
   const prevWarn = console.warn;
