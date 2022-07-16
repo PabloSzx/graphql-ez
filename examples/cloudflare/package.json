@@ -9,7 +9,7 @@
     "start": "miniflare dist/worker.js"
   },
   "dependencies": {
-    "@graphql-ez/cloudflare": "workspace:*",
+    "@graphql-ez/cloudflare": "workspace:0.2.3",
     "@graphql-ez/plugin-altair": "workspace:^0.9.10",
     "@graphql-ez/plugin-graphiql": "workspace:^0.11.5",
     "@graphql-ez/plugin-schema": "workspace:^0.8.5",
@@ -19,11 +19,11 @@
     "worktop": "^0.7.3"
   },
   "devDependencies": {
-    "@types/node": "^17.0.42",
+    "@types/node": "^17.0.45",
     "clipboardy": "^3.0.0",
-    "concurrently": "^7.2.1",
-    "esbuild": "^0.14.43",
-    "miniflare": "^2.5.0",
-    "typescript": "^4.7.3"
+    "concurrently": "^7.2.2",
+    "esbuild": "^0.14.49",
+    "miniflare": "^2.6.0",
+    "typescript": "^4.7.4"
   }
 }

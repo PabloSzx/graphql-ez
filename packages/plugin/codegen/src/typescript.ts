@@ -12,9 +12,9 @@ import type { CodegenPlugin, Types } from '@graphql-codegen/plugin-helpers';
 import type { Source } from '@graphql-tools/utils';
 import type { LoadTypedefsOptions, UnnormalizedTypeDefPointer } from '@graphql-tools/load';
 import type { TypeScriptPluginConfig } from '@graphql-codegen/typescript';
-import type { TypeScriptResolversPluginConfig } from '@graphql-codegen/typescript-resolvers/config';
+import type { TypeScriptResolversPluginConfig } from '@graphql-codegen/typescript-resolvers';
 import type { TypeScriptDocumentsPluginConfig } from '@graphql-codegen/typescript-operations';
-import type { TypeScriptTypedDocumentNodesConfig } from '@graphql-codegen/typed-document-node/config';
+import type { TypeScriptTypedDocumentNodesConfig } from '@graphql-codegen/typed-document-node';
 
 import type { InternalAppBuildContext } from 'graphql-ez';
 

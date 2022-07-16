@@ -11,19 +11,19 @@
     "start-ez-fastify": "bob-tsm --node-env=prod src/start-ez-fastify.ts"
   },
   "dependencies": {
-    "@faker-js/faker": "^6.3.1",
-    "@graphql-tools/schema": "^8.3.14",
+    "@faker-js/faker": "^7.3.0",
+    "@graphql-tools/schema": "^8.5.0",
     "autocannon": "^7.9.0",
     "chalk": "^5.0.1",
     "cli-table": "^0.3.11",
-    "concurrently": "^7.2.1",
+    "concurrently": "^7.2.2",
     "cross-env": "^7.0.3",
-    "kill-port": "^2.0.0",
+    "kill-port": "^2.0.1",
     "md5": "^2.3.0",
     "mkdirp": "^1.0.4",
     "require-env-variable": "^4.0.1",
     "rimraf": "^3.0.2",
-    "systeminformation": "^5.11.18",
+    "systeminformation": "^5.12.1",
     "wait-on": "^6.0.1"
   },
   "devDependencies": {
@@ -31,13 +31,13 @@
     "@types/cli-table": "^0.3.0",
     "@types/md5": "^2.3.2",
     "@types/mkdirp": "^1.0.2",
-    "@types/node": "^17.0.42",
+    "@types/node": "^17.0.45",
     "@types/rimraf": "^3.0.2",
     "@types/wait-on": "^5.3.1",
-    "bob-tsm": "^1.0.0",
+    "bob-tsm": "^1.1.0",
     "esbuild": "^0.14.43",
     "graphql": "16.1.0-experimental-stream-defer.6",
-    "typescript": "^4.7.3"
+    "typescript": "^4.7.4"
   },
   "peerDependencies": {
     "graphql": "*"
