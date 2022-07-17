@@ -1,5 +1,11 @@
 # @graphql-ez/plugin-altair
 
+## 0.9.11
+
+### Patch Changes
+
+- dbc748af: Update Altair to v4.5.3
+
 ## 0.9.10
 
 ### Patch Changes
