@@ -14,5 +14,8 @@ module.exports = withBundleAnalyzer(
   withGuildDocs({
     i18n,
     getRoutes,
+    typescript: {
+      ignoreBuildErrors: true,
+    },
   })
 );
