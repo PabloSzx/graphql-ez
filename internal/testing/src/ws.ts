@@ -1,5 +1,5 @@
 import { print } from 'graphql';
-import { ClientOptions as GraphQLWSClientOptions, createClient as createGraphQLWSClient } from 'graphql-ws';
+import { ClientOptions as GraphQLWSClientOptions, createClient as createGraphQLWSClient, ExecutionResult } from 'graphql-ws';
 import {
   ClientOptions as SubscriptionsTransportClientOptions,
   SubscriptionClient as SubscriptionsTransportClient,
@@ -39,7 +39,10 @@ export function createGraphQLWSWebsocketsClient(
     })
   );
 
-  function subscribe<TResult = unknown>(query: string | TypedDocumentNode<TResult>, onData: (data: TResult) => void) {
+  function subscribe<TResult = Record<string, unknown>>(
+    query: string | TypedDocumentNode<TResult>,
+    onData: (data: ExecutionResult<TResult>) => void
+  ) {
     let unsubscribe = () => {};
 
     const done = new Promise<void>((resolve, reject) => {

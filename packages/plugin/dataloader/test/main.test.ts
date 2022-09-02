@@ -6,6 +6,7 @@ import SchemaBuilder from '@pothos/core';
 import { ezDataLoader, InferDataLoader, RegisteredDataLoader } from '../src';
 import { ezWebSockets } from '../../websockets/src/index';
 import DataLoader from 'dataloader';
+import assert from 'assert';
 
 type NumberMultiplier = RegisteredDataLoader<'NumberMultiplier', number, number>;
 
@@ -189,7 +190,8 @@ test('dataloaders are cleared for subscriptions', async () => {
   const clearedValues = await (async () => {
     const values: string[] = [];
 
-    await GraphQLWSWebsocketsClient.subscribe<{ data: { cleared: string } }>('subscription{cleared}', ({ data }) => {
+    await GraphQLWSWebsocketsClient.subscribe<{ cleared: string }>('subscription{cleared}', ({ data }) => {
+      assert(data);
       values.push(data.cleared);
     }).done;
 
@@ -202,7 +204,8 @@ test('dataloaders are cleared for subscriptions', async () => {
   const notClearedValues = await (async () => {
     const values: string[] = [];
 
-    await GraphQLWSWebsocketsClient.subscribe<{ data: { notCleared: string } }>('subscription{notCleared}', ({ data }) => {
+    await GraphQLWSWebsocketsClient.subscribe<{ notCleared: string }>('subscription{notCleared}', ({ data }) => {
+      assert(data);
       values.push(data.notCleared);
     }).done;
 

@@ -40,6 +40,17 @@ test('all scalars', async () => {
       initialCount: Int = 0
     ) on FIELD
 
+    type Query {
+      hello: String!
+      users: [User!]!
+      stream: [String!]
+      context: String!
+    }
+
+    type User {
+      id: Int!
+    }
+
     \\"\\"\\"
     A date string, such as 2007-12-03, compliant with the \`full-date\` format outlined in section 5.6 of the RFC 3339 profile of the ISO 8601 standard for representation of dates and times using the Gregorian calendar.
     \\"\\"\\"
@@ -294,16 +305,10 @@ test('all scalars', async () => {
     \\"\\"\\"
     scalar AccountNumber
 
-    type Query {
-      hello: String!
-      users: [User!]!
-      stream: [String!]
-      context: String!
-    }
-
-    type User {
-      id: Int!
-    }"
+    \\"\\"\\"
+    A field whose value conforms to the standard cuid format as specified in https://github.com/ericelliott/cuid#broken-down
+    \\"\\"\\"
+    scalar Cuid"
   `);
 });
 
@@ -343,11 +348,6 @@ test('scalars in list', async () => {
       initialCount: Int = 0
     ) on FIELD
 
-    \\"\\"\\"
-    A field whose value is a Currency: https://en.wikipedia.org/wiki/ISO_4217.
-    \\"\\"\\"
-    scalar Currency
-
     type Query {
       hello: String!
       users: [User!]!
@@ -357,7 +357,12 @@ test('scalars in list', async () => {
 
     type User {
       id: Int!
-    }"
+    }
+
+    \\"\\"\\"
+    A field whose value is a Currency: https://en.wikipedia.org/wiki/ISO_4217.
+    \\"\\"\\"
+    scalar Currency"
   `);
 });
 
@@ -402,11 +407,6 @@ test('scalars in object', async () => {
       initialCount: Int = 0
     ) on FIELD
 
-    \\"\\"\\"
-    A date-time string at UTC, such as 2007-12-03T10:15:30Z, compliant with the \`date-time\` format outlined in section 5.6 of the RFC 3339 profile of the ISO 8601 standard for representation of dates and times using the Gregorian calendar.
-    \\"\\"\\"
-    scalar DateTime
-
     type Query {
       hello: String!
       users: [User!]!
@@ -416,6 +416,11 @@ test('scalars in object', async () => {
 
     type User {
       id: Int!
-    }"
+    }
+
+    \\"\\"\\"
+    A date-time string at UTC, such as 2007-12-03T10:15:30Z, compliant with the \`date-time\` format outlined in section 5.6 of the RFC 3339 profile of the ISO 8601 standard for representation of dates and times using the Gregorian calendar.
+    \\"\\"\\"
+    scalar DateTime"
   `);
 });

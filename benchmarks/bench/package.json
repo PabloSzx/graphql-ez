@@ -11,19 +11,19 @@
     "start-ez-fastify": "bob-tsm --node-env=prod src/start-ez-fastify.ts"
   },
   "dependencies": {
-    "@faker-js/faker": "^7.3.0",
-    "@graphql-tools/schema": "^8.5.0",
+    "@faker-js/faker": "^7.5.0",
+    "@graphql-tools/schema": "^9.0.2",
     "autocannon": "^7.9.0",
     "chalk": "^5.0.1",
     "cli-table": "^0.3.11",
-    "concurrently": "^7.2.2",
+    "concurrently": "^7.3.0",
     "cross-env": "^7.0.3",
     "kill-port": "^2.0.1",
     "md5": "^2.3.0",
     "mkdirp": "^1.0.4",
     "require-env-variable": "^4.0.1",
     "rimraf": "^3.0.2",
-    "systeminformation": "^5.12.1",
+    "systeminformation": "^5.12.6",
     "wait-on": "^6.0.1"
   },
   "devDependencies": {
@@ -37,7 +37,7 @@
     "bob-tsm": "^1.1.2",
     "esbuild": "^0.15.6",
     "graphql": "16.1.0-experimental-stream-defer.6",
-    "typescript": "^4.7.4"
+    "typescript": "^4.8.2"
   },
   "peerDependencies": {
     "graphql": "*"
