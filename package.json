@@ -50,12 +50,12 @@
     "@types/node": "^17.0.45",
     "bob-esbuild": "^4.0.3",
     "bob-esbuild-cli": "^4.0.0",
-    "bob-tsm": "^1.1.0",
+    "bob-tsm": "^1.1.2",
     "chalk": "^5.0.1",
     "changesets-github-release": "^0.1.0",
     "concurrently": "^7.2.2",
     "cross-env": "^7.0.3",
-    "esbuild": "^0.14.49",
+    "esbuild": "^0.15.6",
     "fastify": "^4.2.1",
     "globby": "^13.1.2",
     "graphql-ez-testing": "workspace:^1.0.0",
@@ -73,7 +73,7 @@
   },
   "pnpm": {
     "overrides": {
-      "esbuild": "^0.14.43",
+      "esbuild": "^0.15.6",
       "trim@<0.0.3": ">=0.0.3",
       "glob-parent@<5.1.2": ">=5.1.2",
       "set-value@<4.0.1": ">=4.0.1",
@@ -97,7 +97,8 @@
         "@codemirror/language",
         "@algolia/client-search",
         "@babel/preset-env",
-        "unist-util-visit"
+        "unist-util-visit",
+        "@jest/types"
       ],
       "allowedVersions": {
         "graphql": "*",
