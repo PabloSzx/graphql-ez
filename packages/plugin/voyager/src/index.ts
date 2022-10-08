@@ -197,13 +197,12 @@ export const ezVoyager = (options: VoyagerPluginOptions | boolean = true): EZPlu
           handlers.push(req => {
             if (req.request.method !== 'GET' || path !== req.url.pathname) return;
 
-            return {
+            return new Response(html, {
               status: 200,
               headers: {
                 'content-type': 'text/html',
               },
-              body: html,
-            };
+            });
           });
         },
         async cloudflare({ integration: { router } }) {

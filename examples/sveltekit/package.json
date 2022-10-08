@@ -17,20 +17,21 @@
     "@graphql-ez/plugin-schema": "workspace:^0.8.5",
     "@graphql-ez/plugin-voyager": "workspace:^0.9.4",
     "@graphql-ez/sveltekit": "workspace:^0.4.2",
-    "@graphql-tools/schema": "^9.0.2",
-    "@sveltejs/adapter-node": "^1.0.0-next.88",
+    "@graphql-tools/schema": "^9.0.4",
+    "@sveltejs/adapter-node": "1.0.0-next.96",
     "altair-static-slim": "4.5.4",
     "graphql": "16.1.0-experimental-stream-defer.6",
-    "graphql-ez": "workspace:^0.15.1"
+    "graphql-ez": "workspace:^0.15.1",
+    "vite": "^3.1.6"
   },
   "devDependencies": {
-    "@sveltejs/kit": "1.0.0-next.336",
-    "@types/node": "^18.7.14",
-    "esbuild": "^0.15.6",
-    "svelte": "^3.50.0",
-    "svelte-check": "^2.9.0",
+    "@sveltejs/kit": "1.0.0-next.511",
+    "@types/node": "^18.8.3",
+    "esbuild": "^0.15.10",
+    "svelte": "^3.50.1",
+    "svelte-check": "^2.9.1",
     "svelte-preprocess": "^4.10.7",
     "tslib": "^2.4.0",
-    "typescript": "^4.8.2"
+    "typescript": "^4.8.4"
   }
 }

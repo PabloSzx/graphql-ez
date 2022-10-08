@@ -34,11 +34,14 @@ export const handleSvelteKit: IntegrationRegisterHandler<'sveltekit'> = async ({
         },
         url: req.url.pathname,
       }).then(({ status, content, contentType }) => {
-        return {
-          headers: contentType ? { 'content-type': contentType } : ({} as {}),
+        return new Response(content, {
+          headers: contentType
+            ? {
+                'content-type': contentType,
+              }
+            : {},
           status,
-          body: content,
-        };
+        });
       });
     }
 
