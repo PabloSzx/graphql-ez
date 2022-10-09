@@ -20,7 +20,7 @@ sidebar_label: SvelteKit
 ## Usage
 
 If you add plugins like [Altair](/plugins/altair) or [Voyager](/plugins/voyager) which require a new explicit path to visit,
-you will need to create your endpoint as [Fallthrough Routes](https://kit.svelte.dev/docs#routing-advanced-fallthrough-routes), for example `/src/routes/api/[...any].ts`, otherwise, you can create it as any endpoint you prefer, for example: `/src/routes/api/graphql.ts`.
+you will need to create your endpoint as [Rest Paramaters](https://kit.svelte.dev/docs/advanced-routing#rest-parameters), for example `/src/routes/api/[...any]/+server.ts`, otherwise, you can create it as any endpoint you prefer, for example: `/src/routes/api/graphql/+server.ts`.
 
 > `Endpoint module`
 
@@ -31,9 +31,9 @@ import { ezApp } from '../ez';
 
 const { handler } = ezApp.buildApp();
 
-export const get = handler;
+export const GET = handler;
 
-export const post = handler;
+export const POST = handler;
 ```
 
 > `EZ App module`
@@ -42,6 +42,7 @@ export const post = handler;
 import { CreateApp } from '@graphql-ez/sveltekit';
 
 export const ezApp = CreateApp({
+  path: '/api/graphql',
   // You can use any valid GraphQL Schema
   schema,
   ez: {
