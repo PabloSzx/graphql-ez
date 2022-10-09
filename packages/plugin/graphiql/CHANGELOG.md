@@ -1,5 +1,13 @@
 # @graphql-ez/plugin-graphiql
 
+## 0.11.6
+
+### Patch Changes
+
+- 067872ea: Update for Sveltekit>=1.0.0-next.511
+- Updated dependencies [067872ea]
+  - graphql-ez@0.15.2
+
 ## 0.11.5
 
 ### Patch Changes

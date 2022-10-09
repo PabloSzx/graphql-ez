@@ -1,5 +1,11 @@
 # graphql-ez
 
+## 0.15.2
+
+### Patch Changes
+
+- 067872ea: Update tiny-lru to v9
+
 ## 0.15.1
 
 ### Patch Changes

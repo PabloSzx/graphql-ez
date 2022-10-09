@@ -1,5 +1,13 @@
 # @graphql-ez/plugin-automatic-persisted-queries
 
+## 1.0.7
+
+### Patch Changes
+
+- 067872ea: Update tiny-lru to v9
+- Updated dependencies [067872ea]
+  - graphql-ez@0.15.2
+
 ## 1.0.6
 
 ### Patch Changes
