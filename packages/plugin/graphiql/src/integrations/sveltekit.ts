@@ -8,13 +8,12 @@ export const handleSvelteKit: IntegrationRegisterHandler<'sveltekit'> = async ({
 
   const path = ctx.graphiql.path;
 
-  const objResponse = {
+  const objResponse = new Response(html, {
     status: 200,
     headers: {
       'content-type': 'text/html',
     },
-    body: html,
-  };
+  });
 
   // If no root path is specific, the expected behavior is
   // to render graphiql only if the method is GET and no query params are specified

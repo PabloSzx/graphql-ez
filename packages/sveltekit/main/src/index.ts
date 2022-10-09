@@ -1,4 +1,4 @@
-import type { RequestHandler, RequestEvent, RequestHandlerOutput } from '@sveltejs/kit';
+import type { RequestHandler, RequestEvent } from '@sveltejs/kit';
 import {
   AppOptions,
   BaseAppBuilder,
@@ -16,7 +16,9 @@ import {
 } from 'graphql-ez';
 import type { IncomingMessage } from 'http';
 
-type ResponseHeaders = NonNullable<RequestHandlerOutput['headers']>;
+type RequestHandlerResponse = Awaited<ReturnType<RequestHandler>>;
+
+type ResponseHeaders = Record<string, string>;
 
 export interface EZAppBuilder extends BaseAppBuilder {
   readonly buildApp: (options?: BuildAppOptions) => EZApp;
@@ -131,7 +133,7 @@ export function CreateApp(config: SvelteKitAppOptions = {}): EZAppBuilder {
 
         const hasHandlers = !!externalHandlers.length;
 
-        const EZHandler: RequestHandler = async function EZHandler(req) {
+        const EZHandler: RequestHandler = async function EZHandler(req): Promise<RequestHandlerResponse> {
           if (hasHandlers) {
             const result = await Promise.all(externalHandlers.map(cb => cb(req)));
 
@@ -139,10 +141,9 @@ export function CreateApp(config: SvelteKitAppOptions = {}): EZAppBuilder {
           }
 
           if (path && req.url.pathname !== path) {
-            return {
+            return new Response(null, {
               status: 404,
-              body: null,
-            };
+            });
           }
 
           const headers = Object.fromEntries(req.request.headers);
@@ -174,7 +175,9 @@ export function CreateApp(config: SvelteKitAppOptions = {}): EZAppBuilder {
             }
           );
 
-          const responseHeaders: ResponseHeaders = {};
+          const responseHeaders: ResponseHeaders = {
+            'content-type': 'application/json',
+          };
 
           return requestHandler({
             request,
@@ -195,11 +198,11 @@ export function CreateApp(config: SvelteKitAppOptions = {}): EZAppBuilder {
               for (const { name, value } of result.headers) {
                 responseHeaders[name] = value;
               }
-              return {
-                status: result.status,
-                body: result.payload as Record<string, any>,
+
+              return new Response(JSON.stringify(result.payload), {
                 headers: responseHeaders,
-              };
+                status: result.status,
+              });
             },
             onMultiPartResponse() {
               throw Error('Not supported for SvelteKit!');

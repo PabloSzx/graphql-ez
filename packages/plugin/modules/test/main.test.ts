@@ -39,7 +39,7 @@ test('register module with extra modules', async () => {
   `);
 
   expect(printSchema(buildClientSchema((await query<IntrospectionQuery>(getIntrospectionQuery())).data!))).toMatchInlineSnapshot(`
-    "\\"\\"\\"The \`Upload\` scalar type represents a file upload.\\"\\"\\"
+    """"The \`Upload\` scalar type represents a file upload."""
     scalar Upload
 
     type Query {

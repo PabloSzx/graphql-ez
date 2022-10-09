@@ -1,9 +1,16 @@
 import { withoutTrailingSlash, withTrailingSlash } from '@graphql-ez/utils/url';
 import type { AltairConfigOptions, RenderOptions } from 'altair-static-slim';
-import crossFetch from 'cross-fetch';
 import type { AltairRender } from '../types';
 
 export const altairUnpkgDist = 'https://unpkg.com/altair-static@4.3.1/build/dist/';
+
+let fetchFn: Promise<typeof fetch> | typeof fetch;
+
+if (typeof fetch !== 'undefined') {
+  fetchFn = fetch;
+} else {
+  fetchFn = import('cross-undici-fetch').then(v => v.fetch);
+}
 
 function getObjectPropertyForOption(option: any, propertyName: keyof AltairConfigOptions) {
   if (option) {
@@ -49,14 +56,14 @@ export const renderInitialOptions = (options: RenderOptions = {}) => {
       `;
 };
 
-const fetchFn = typeof fetch !== 'undefined' ? fetch : crossFetch;
+// const fetchFn = typeof fetch !== 'undefined' ? fetch : crossFetch;
 
 /**
  * Render Altair as a string using the provided renderOptions
  * @param renderOptions
  */
 export const renderAltair = async (options: RenderOptions = {}) => {
-  const altairHtml = await (await fetchFn(altairUnpkgDist + 'index.html')).text();
+  const altairHtml = await (await (await fetchFn)(altairUnpkgDist + 'index.html')).text();
 
   const initialOptions = renderInitialOptions(options);
   const baseURL = options.baseURL || './';
@@ -86,7 +93,7 @@ export const UnpkgRender: AltairRender = async ({ baseURL, url, altairPath, rend
 
       const resolvedPath = altairUnpkgDist + url.slice(baseURL.length);
 
-      const fetchResult = await fetchFn(resolvedPath).catch(() => null);
+      const fetchResult = await (await fetchFn)(resolvedPath).catch(() => null);
 
       if (!fetchResult) return { status: 404, isBasePath: false };
 

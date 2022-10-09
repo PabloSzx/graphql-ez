@@ -1,4 +1,4 @@
-import LRU from 'tiny-lru';
+import { lru } from 'tiny-lru';
 import type { PromiseOrValue } from 'graphql-ez';
 
 export interface PersistedQueryStore {
@@ -28,7 +28,7 @@ export const createLRUStore = (maxSize?: number, ttl?: number): PersistedQuerySt
 
   // Initialize a LRU cache in the local scope.
   // LRU is used to prevent DoS attacks.
-  const cache = LRU<string>(maxSize, ttl);
+  const cache = lru<string>(maxSize, ttl);
   return {
     async get(hash: string) {
       return cache.get(hash) ?? null;

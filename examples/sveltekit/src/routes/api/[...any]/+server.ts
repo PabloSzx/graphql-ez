@@ -1,9 +1,8 @@
 import { CreateApp, type SvelteKitContextArgs } from '@graphql-ez/sveltekit';
 import { ezSchema, gql } from '@graphql-ez/plugin-schema';
+import { ezVoyager } from '@graphql-ez/plugin-voyager';
 import { ezGraphiQLIDE } from '@graphql-ez/plugin-graphiql';
 import { ezUnpkgAltairIDE } from '@graphql-ez/plugin-altair/unpkg';
-import { ezVoyager } from '@graphql-ez/plugin-voyager';
-import { ezCodegen } from '@graphql-ez/plugin-codegen';
 
 const buildContext = ({ sveltekit }: SvelteKitContextArgs) => {
   console.log(sveltekit);
@@ -14,10 +13,9 @@ const ezApp = CreateApp({
   path: '/api/graphql',
   ez: {
     plugins: [
-      ezCodegen({
-        outputSchema: true,
+      ezVoyager({
+        path: '/api/voyager',
       }),
-      ezVoyager(),
       ezUnpkgAltairIDE({
         path: '/api/altair',
         instanceStorageNamespace: 'sveltekit',
@@ -46,6 +44,6 @@ const ezApp = CreateApp({
 
 const { handler } = ezApp.buildApp();
 
-export const get = handler;
+export const GET = handler;
 
-export const post = handler;
+export const POST = handler;

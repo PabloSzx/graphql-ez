@@ -2,7 +2,7 @@ import type { Plugin, ValidateFunctionParameter } from '@envelop/types';
 import { getObjectValue } from '@graphql-ez/utils/object';
 import type { DocumentNode, GraphQLError } from 'graphql';
 import { NoSchemaIntrospectionCustomRule, print } from 'graphql';
-import lru from 'tiny-lru';
+import { lru } from 'tiny-lru';
 import type { EZContext } from './index';
 import type { EZPlugin } from './types';
 
