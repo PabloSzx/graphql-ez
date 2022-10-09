@@ -260,28 +260,28 @@ test('typescript resolvers', async () => {
   expect(Object.keys(introspectionJson)).toStrictEqual(['__schema']);
 
   expect(printSchema(buildClientSchema(introspectionJson))).toMatchInlineSnapshot(`
-    "\\"\\"\\"
+    """"
     Directs the executor to defer this fragment when the \`if\` argument is true or undefined.
-    \\"\\"\\"
+    """
     directive @defer(
-      \\"\\"\\"Deferred when true or undefined.\\"\\"\\"
+      """Deferred when true or undefined."""
       if: Boolean
 
-      \\"\\"\\"Unique name\\"\\"\\"
+      """Unique name"""
       label: String
     ) on FRAGMENT_SPREAD | INLINE_FRAGMENT
 
-    \\"\\"\\"
+    """
     Directs the executor to stream plural fields when the \`if\` argument is true or undefined.
-    \\"\\"\\"
+    """
     directive @stream(
-      \\"\\"\\"Stream when true or undefined.\\"\\"\\"
+      """Stream when true or undefined."""
       if: Boolean
 
-      \\"\\"\\"Unique name\\"\\"\\"
+      """Unique name"""
       label: String
 
-      \\"\\"\\"Number of items to return immediately\\"\\"\\"
+      """Number of items to return immediately"""
       initialCount: Int = 0
     ) on FIELD
 
@@ -306,31 +306,31 @@ test('typescript resolvers', async () => {
       query: Query
     }
 
-    \\"Directs the executor to defer this fragment when the \`if\` argument is true or undefined.\\"
+    "Directs the executor to defer this fragment when the \`if\` argument is true or undefined."
     directive @defer(
-      \\"\\"\\"
+      """
       Deferred when true or undefined.
-      \\"\\"\\"
+      """
       if: Boolean
-      \\"\\"\\"
+      """
       Unique name
-      \\"\\"\\"
+      """
       label: String
     ) on FRAGMENT_SPREAD | INLINE_FRAGMENT
 
-    \\"Directs the executor to stream plural fields when the \`if\` argument is true or undefined.\\"
+    "Directs the executor to stream plural fields when the \`if\` argument is true or undefined."
     directive @stream(
-      \\"\\"\\"
+      """
       Stream when true or undefined.
-      \\"\\"\\"
+      """
       if: Boolean
-      \\"\\"\\"
+      """
       Unique name
-      \\"\\"\\"
+      """
       label: String
-      \\"\\"\\"
+      """
       Number of items to return immediately
-      \\"\\"\\"
+      """
       initialCount: Int = 0
     ) on FIELD
 

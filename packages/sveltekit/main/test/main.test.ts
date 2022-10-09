@@ -11,14 +11,13 @@ let port: number;
 const TearDownPromises: Promise<unknown>[] = [];
 
 beforeAll(async () => {
-  await command(`node ${require.resolve(resolve(__dirname, '../node_modules/@sveltejs/kit/svelte-kit.js'))} build`, {
+  await command(`node ${require.resolve(resolve(__dirname, '../node_modules/vite/bin/vite.js'))} build`, {
     cwd: resolve(__dirname, './test-example/'),
     stdio: 'ignore',
   });
 
   const preview = command(
-    `node ${require.resolve(resolve(__dirname, '../node_modules/@sveltejs/kit/svelte-kit.js'))} preview --port=${(port =
-      await getPort())}`,
+    `node ${require.resolve(resolve(__dirname, '../node_modules/vite/bin/vite.js'))} preview --port=${(port = await getPort())}`,
     {
       cwd: resolve(__dirname, './test-example/'),
       stdio: 'ignore',
@@ -76,14 +75,14 @@ test('basic schema', async () => {
         `);
 
   await expect(query('{ctx}')).resolves.toMatchInlineSnapshot(`
-          {
-            "data": {
-              "ctx": "{
-            \\"foo\\": \\"bar\\"
-          }",
-            },
-          }
-        `);
+    {
+      "data": {
+        "ctx": "{
+      "foo": "bar"
+    }",
+      },
+    }
+  `);
 });
 
 test('altair', async () => {
@@ -111,12 +110,12 @@ test('altair', async () => {
     <html>
 
     <head>
-      <meta charset=\\"utf-8\\">
+      <meta charset="utf-8">
       <title>Altair</title>
-      <base href=\\"/altair/\\">
-      <meta name=\\"viewport\\" content=\\"width=device-width,initial-scale=1\\">
-      <link rel=\\"icon\\" type=\\"image/x-icon\\" href=\\"favicon.ico\\">
-      <link href=\\"styles.css\\" rel=\\"stylesheet\\" />
+      <base href="/altair/">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <link rel="icon" type="image/x-icon" href="favicon.ico">
+      <link href="styles.css" rel="stylesheet" />
     </head>
 
     <body>
@@ -165,14 +164,14 @@ test('graphiql', async () => {
     <!DOCTYPE html>
     <html>
       <head>
-        <meta charset=\\"utf-8\\" />
+        <meta charset="utf-8" />
         <title>GraphiQL</title>
-        <meta name=\\"robots\\" content=\\"noindex\\" />
-        <meta name=\\"referrer\\" content=\\"origin\\" />
-        <meta name=\\"viewport\\" content=\\"width=device-width, initial-scale=1\\" />
+        <meta name="robots" content="noindex" />
+        <meta name="referrer" content="origin" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link
-          rel=\\"icon\\"
-          type=\\"image"
+          rel="icon"
+          type="image"
   `);
 });
 
@@ -202,7 +201,7 @@ test('voyager', async () => {
       <html>
       <head>
         <meta charset=utf-8 />
-        <meta name=\\"viewport\\" content=\\"user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0\\">
+        <meta name="viewport" content="user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
         <title>GraphQL Voyager</title>
         <style>
           body {

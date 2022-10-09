@@ -36,7 +36,7 @@ test('fastify', async () => {
       <html>
       <head>
         <meta charset=utf-8 />
-        <meta name=\\"viewport\\" content=\\"user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0\\">
+        <meta name="viewport" content="user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
         <title>GraphQL Voyager</title>
         <style>
           body {
@@ -50,18 +50,18 @@ test('fastify', async () => {
             height: 100vh;
           }
         </style>
-        <link rel=\\"stylesheet\\"
-          href=\\"https://cdn.jsdelivr.net/npm/graphql-voyager@1.0.0-rc.31/dist/voyager.css\\"
+        <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/graphql-voyager@1.0.0-rc.31/dist/voyager.css"
         />
-        <link rel=\\"shortcut icon\\" href=\\"https://i.imgur.com/SEC809s.png\\" />
-        <script src=\\"https://cdn.jsdelivr.net/fetch/2.0.1/fetch.min.js\\"></script>
-        <script src=\\"https://cdn.jsdelivr.net/npm/react@16/umd/react.production.min.js\\"></script>
-        <script src=\\"https://cdn.jsdelivr.net/npm/react-dom@16/umd/react-dom.production.min.js\\"></script>
-        <script src=\\"https://cdn.jsdelivr.net/npm/graphql-voyager@1.0.0-rc.31/dist/voyager.min.js\\"></script>
+        <link rel="shortcut icon" href="https://i.imgur.com/SEC809s.png" />
+        <script src="https://cdn.jsdelivr.net/fetch/2.0.1/fetch.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/react@16/umd/react.production.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/react-dom@16/umd/react-dom.production.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/graphql-voyager@1.0.0-rc.31/dist/voyager.min.js"></script>
       </head>
       <body>
-        <main id=\\"voyager\\">
-          <h1 style=\\"text-align: center; color: #5d7e86;\\"> Loading... </h1>
+        <main id="voyager">
+          <h1 style="text-align: center; color: #5d7e86;"> Loading... </h1>
         </main>
         <script>
     window.addEventListener('load', function(event) {
@@ -121,7 +121,7 @@ test('express', async () => {
       <html>
       <head>
         <meta charset=utf-8 />
-        <meta name=\\"viewport\\" content=\\"user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0\\">
+        <meta name="viewport" content="user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
         <title>GraphQL Voyager</title>
         <style>
           body {
@@ -135,18 +135,18 @@ test('express', async () => {
             height: 100vh;
           }
         </style>
-        <link rel=\\"stylesheet\\"
-          href=\\"https://cdn.jsdelivr.net/npm/graphql-voyager@1.0.0-rc.31/dist/voyager.css\\"
+        <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/graphql-voyager@1.0.0-rc.31/dist/voyager.css"
         />
-        <link rel=\\"shortcut icon\\" href=\\"https://i.imgur.com/SEC809s.png\\" />
-        <script src=\\"https://cdn.jsdelivr.net/fetch/2.0.1/fetch.min.js\\"></script>
-        <script src=\\"https://cdn.jsdelivr.net/npm/react@16/umd/react.production.min.js\\"></script>
-        <script src=\\"https://cdn.jsdelivr.net/npm/react-dom@16/umd/react-dom.production.min.js\\"></script>
-        <script src=\\"https://cdn.jsdelivr.net/npm/graphql-voyager@1.0.0-rc.31/dist/voyager.min.js\\"></script>
+        <link rel="shortcut icon" href="https://i.imgur.com/SEC809s.png" />
+        <script src="https://cdn.jsdelivr.net/fetch/2.0.1/fetch.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/react@16/umd/react.production.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/react-dom@16/umd/react-dom.production.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/graphql-voyager@1.0.0-rc.31/dist/voyager.min.js"></script>
       </head>
       <body>
-        <main id=\\"voyager\\">
-          <h1 style=\\"text-align: center; color: #5d7e86;\\"> Loading... </h1>
+        <main id="voyager">
+          <h1 style="text-align: center; color: #5d7e86;"> Loading... </h1>
         </main>
         <script>
     window.addEventListener('load', function(event) {
@@ -206,7 +206,7 @@ test('http', async () => {
       <html>
       <head>
         <meta charset=utf-8 />
-        <meta name=\\"viewport\\" content=\\"user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0\\">
+        <meta name="viewport" content="user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
         <title>GraphQL Voyager</title>
         <style>
           body {
@@ -220,18 +220,18 @@ test('http', async () => {
             height: 100vh;
           }
         </style>
-        <link rel=\\"stylesheet\\"
-          href=\\"https://cdn.jsdelivr.net/npm/graphql-voyager@1.0.0-rc.31/dist/voyager.css\\"
+        <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/graphql-voyager@1.0.0-rc.31/dist/voyager.css"
         />
-        <link rel=\\"shortcut icon\\" href=\\"https://i.imgur.com/SEC809s.png\\" />
-        <script src=\\"https://cdn.jsdelivr.net/fetch/2.0.1/fetch.min.js\\"></script>
-        <script src=\\"https://cdn.jsdelivr.net/npm/react@16/umd/react.production.min.js\\"></script>
-        <script src=\\"https://cdn.jsdelivr.net/npm/react-dom@16/umd/react-dom.production.min.js\\"></script>
-        <script src=\\"https://cdn.jsdelivr.net/npm/graphql-voyager@1.0.0-rc.31/dist/voyager.min.js\\"></script>
+        <link rel="shortcut icon" href="https://i.imgur.com/SEC809s.png" />
+        <script src="https://cdn.jsdelivr.net/fetch/2.0.1/fetch.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/react@16/umd/react.production.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/react-dom@16/umd/react-dom.production.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/graphql-voyager@1.0.0-rc.31/dist/voyager.min.js"></script>
       </head>
       <body>
-        <main id=\\"voyager\\">
-          <h1 style=\\"text-align: center; color: #5d7e86;\\"> Loading... </h1>
+        <main id="voyager">
+          <h1 style="text-align: center; color: #5d7e86;"> Loading... </h1>
         </main>
         <script>
     window.addEventListener('load', function(event) {
@@ -297,7 +297,7 @@ test('hapi', async () => {
       <html>
       <head>
         <meta charset=utf-8 />
-        <meta name=\\"viewport\\" content=\\"user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0\\">
+        <meta name="viewport" content="user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
         <title>GraphQL Voyager</title>
         <style>
           body {
@@ -311,18 +311,18 @@ test('hapi', async () => {
             height: 100vh;
           }
         </style>
-        <link rel=\\"stylesheet\\"
-          href=\\"https://cdn.jsdelivr.net/npm/graphql-voyager@1.0.0-rc.31/dist/voyager.css\\"
+        <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/graphql-voyager@1.0.0-rc.31/dist/voyager.css"
         />
-        <link rel=\\"shortcut icon\\" href=\\"https://i.imgur.com/SEC809s.png\\" />
-        <script src=\\"https://cdn.jsdelivr.net/fetch/2.0.1/fetch.min.js\\"></script>
-        <script src=\\"https://cdn.jsdelivr.net/npm/react@16/umd/react.production.min.js\\"></script>
-        <script src=\\"https://cdn.jsdelivr.net/npm/react-dom@16/umd/react-dom.production.min.js\\"></script>
-        <script src=\\"https://cdn.jsdelivr.net/npm/graphql-voyager@1.0.0-rc.31/dist/voyager.min.js\\"></script>
+        <link rel="shortcut icon" href="https://i.imgur.com/SEC809s.png" />
+        <script src="https://cdn.jsdelivr.net/fetch/2.0.1/fetch.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/react@16/umd/react.production.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/react-dom@16/umd/react-dom.production.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/graphql-voyager@1.0.0-rc.31/dist/voyager.min.js"></script>
       </head>
       <body>
-        <main id=\\"voyager\\">
-          <h1 style=\\"text-align: center; color: #5d7e86;\\"> Loading... </h1>
+        <main id="voyager">
+          <h1 style="text-align: center; color: #5d7e86;"> Loading... </h1>
         </main>
         <script>
     window.addEventListener('load', function(event) {
@@ -332,9 +332,9 @@ test('hapi', async () => {
           headers: Object.assign({}, {
             'Accept': 'application/json',
             'Content-Type': 'application/json',
-          }, {\\"hello\\":123}),
+          }, {"hello":123}),
           body: JSON.stringify({query: introspectionQuery}),
-          credentials: \\"include\\",
+          credentials: "include",
         }).then(function (response) {
           return response.text();
         }).then(function (responseBody) {
@@ -348,7 +348,7 @@ test('hapi', async () => {
 
       GraphQLVoyager.init(document.getElementById('voyager'), {
         introspection: introspectionProvider,
-        displayOptions: {\\"hideRoot\\":true},
+        displayOptions: {"hideRoot":true},
       })
     })
         </script>
@@ -385,7 +385,7 @@ test('koa', async () => {
       <html>
       <head>
         <meta charset=utf-8 />
-        <meta name=\\"viewport\\" content=\\"user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0\\">
+        <meta name="viewport" content="user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
         <title>GraphQL Voyager</title>
         <style>
           body {
@@ -399,18 +399,18 @@ test('koa', async () => {
             height: 100vh;
           }
         </style>
-        <link rel=\\"stylesheet\\"
-          href=\\"https://cdn.jsdelivr.net/npm/graphql-voyager@1.0.0-rc.31/dist/voyager.css\\"
+        <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/graphql-voyager@1.0.0-rc.31/dist/voyager.css"
         />
-        <link rel=\\"shortcut icon\\" href=\\"https://i.imgur.com/SEC809s.png\\" />
-        <script src=\\"https://cdn.jsdelivr.net/fetch/2.0.1/fetch.min.js\\"></script>
-        <script src=\\"https://cdn.jsdelivr.net/npm/react@16/umd/react.production.min.js\\"></script>
-        <script src=\\"https://cdn.jsdelivr.net/npm/react-dom@16/umd/react-dom.production.min.js\\"></script>
-        <script src=\\"https://cdn.jsdelivr.net/npm/graphql-voyager@1.0.0-rc.31/dist/voyager.min.js\\"></script>
+        <link rel="shortcut icon" href="https://i.imgur.com/SEC809s.png" />
+        <script src="https://cdn.jsdelivr.net/fetch/2.0.1/fetch.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/react@16/umd/react.production.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/react-dom@16/umd/react-dom.production.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/graphql-voyager@1.0.0-rc.31/dist/voyager.min.js"></script>
       </head>
       <body>
-        <main id=\\"voyager\\">
-          <h1 style=\\"text-align: center; color: #5d7e86;\\"> Loading... </h1>
+        <main id="voyager">
+          <h1 style="text-align: center; color: #5d7e86;"> Loading... </h1>
         </main>
         <script>
     window.addEventListener('load', function(event) {
@@ -520,7 +520,7 @@ test('nextjs', async () => {
   <html>
   <head>
     <meta charset=utf-8 />
-    <meta name=\\"viewport\\" content=\\"user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0\\">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
     <title>GraphQL Voyager</title>
     <style>
       body {
@@ -534,18 +534,18 @@ test('nextjs', async () => {
         height: 100vh;
       }
     </style>
-    <link rel=\\"stylesheet\\"
-      href=\\"https://cdn.jsdelivr.net/npm/graphql-voyager@1.0.0-rc.31/dist/voyager.css\\"
+    <link rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/graphql-voyager@1.0.0-rc.31/dist/voyager.css"
     />
-    <link rel=\\"shortcut icon\\" href=\\"https://i.imgur.com/SEC809s.png\\" />
-    <script src=\\"https://cdn.jsdelivr.net/fetch/2.0.1/fetch.min.js\\"></script>
-    <script src=\\"https://cdn.jsdelivr.net/npm/react@16/umd/react.production.min.js\\"></script>
-    <script src=\\"https://cdn.jsdelivr.net/npm/react-dom@16/umd/react-dom.production.min.js\\"></script>
-    <script src=\\"https://cdn.jsdelivr.net/npm/graphql-voyager@1.0.0-rc.31/dist/voyager.min.js\\"></script>
+    <link rel="shortcut icon" href="https://i.imgur.com/SEC809s.png" />
+    <script src="https://cdn.jsdelivr.net/fetch/2.0.1/fetch.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/react@16/umd/react.production.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/react-dom@16/umd/react-dom.production.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/graphql-voyager@1.0.0-rc.31/dist/voyager.min.js"></script>
   </head>
   <body>
-    <main id=\\"voyager\\">
-      <h1 style=\\"text-align: center; color: #5d7e86;\\"> Loading... </h1>
+    <main id="voyager">
+      <h1 style="text-align: center; color: #5d7e86;"> Loading... </h1>
     </main>
     <script>
 window.addEventListener('load', function(event) {
@@ -583,7 +583,7 @@ window.addEventListener('load', function(event) {
 
   expect(await warnCalled.promise).toMatchInlineSnapshot(`
     [
-      "[graphql-ez] You don't need to add the Voyager plugin in your EZ App for Next.js, use \\"VoyagerHandler\\" directly in your API Routes.",
+      "[graphql-ez] You don't need to add the Voyager plugin in your EZ App for Next.js, use "VoyagerHandler" directly in your API Routes.",
     ]
   `);
 });

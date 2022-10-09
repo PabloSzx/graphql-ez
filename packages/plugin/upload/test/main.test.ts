@@ -131,7 +131,7 @@ test('express', async () => {
     headers: body.getHeaders(),
   });
 
-  expect(await response.clone().text()).toMatchInlineSnapshot(`"{\\"data\\":{\\"uploadFileToBase64\\":\\"aGVsbG8td29ybGQ=\\"}}"`);
+  expect(await response.clone().text()).toMatchInlineSnapshot(`"{"data":{"uploadFileToBase64":"aGVsbG8td29ybGQ="}}"`);
 
   expect(response.status).toBe(200);
 
@@ -169,7 +169,7 @@ test('koa', async () => {
     headers: body.getHeaders(),
   });
 
-  expect(await response.clone().text()).toMatchInlineSnapshot(`"{\\"data\\":{\\"uploadFileToBase64\\":\\"aGVsbG8td29ybGQ=\\"}}"`);
+  expect(await response.clone().text()).toMatchInlineSnapshot(`"{"data":{"uploadFileToBase64":"aGVsbG8td29ybGQ="}}"`);
 
   expect(response.status).toBe(200);
 

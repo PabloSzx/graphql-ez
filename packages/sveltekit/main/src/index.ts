@@ -175,7 +175,9 @@ export function CreateApp(config: SvelteKitAppOptions = {}): EZAppBuilder {
             }
           );
 
-          const responseHeaders: ResponseHeaders = {};
+          const responseHeaders: ResponseHeaders = {
+            'content-type': 'application/json',
+          };
 
           return requestHandler({
             request,

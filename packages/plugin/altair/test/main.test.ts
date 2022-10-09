@@ -36,12 +36,12 @@ test('fastify', async () => {
     <html>
 
     <head>
-      <meta charset=\\"utf-8\\">
+      <meta charset="utf-8">
       <title>Altair</title>
-      <base href=\\"/altair/\\">
-      <meta name=\\"viewport\\" content=\\"width=device-width,initial-scale=1\\">
-      <link rel=\\"icon\\" type=\\"image/x-icon\\" href=\\"favicon.ico\\">
-      <link href=\\"styles.css\\" rel=\\"stylesheet\\" />
+      <base href="/altair/">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <link rel="icon" type="image/x-icon" href="favicon.ico">
+      <link href="styles.css" rel="stylesheet" />
     </head>
 
     <body>
@@ -82,12 +82,12 @@ test('express', async () => {
     <html>
 
     <head>
-      <meta charset=\\"utf-8\\">
+      <meta charset="utf-8">
       <title>Altair</title>
-      <base href=\\"/altair/\\">
-      <meta name=\\"viewport\\" content=\\"width=device-width,initial-scale=1\\">
-      <link rel=\\"icon\\" type=\\"image/x-icon\\" href=\\"favicon.ico\\">
-      <link href=\\"styles.css\\" rel=\\"stylesheet\\" />
+      <base href="/altair/">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <link rel="icon" type="image/x-icon" href="favicon.ico">
+      <link href="styles.css" rel="stylesheet" />
     </head>
 
     <body>
@@ -128,12 +128,12 @@ test('http', async () => {
     <html>
 
     <head>
-      <meta charset=\\"utf-8\\">
+      <meta charset="utf-8">
       <title>Altair</title>
-      <base href=\\"/altair/\\">
-      <meta name=\\"viewport\\" content=\\"width=device-width,initial-scale=1\\">
-      <link rel=\\"icon\\" type=\\"image/x-icon\\" href=\\"favicon.ico\\">
-      <link href=\\"styles.css\\" rel=\\"stylesheet\\" />
+      <base href="/altair/">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <link rel="icon" type="image/x-icon" href="favicon.ico">
+      <link href="styles.css" rel="stylesheet" />
     </head>
 
     <body>
@@ -174,12 +174,12 @@ test('hapi', async () => {
     <html>
 
     <head>
-      <meta charset=\\"utf-8\\">
+      <meta charset="utf-8">
       <title>Altair</title>
-      <base href=\\"/altair/\\">
-      <meta name=\\"viewport\\" content=\\"width=device-width,initial-scale=1\\">
-      <link rel=\\"icon\\" type=\\"image/x-icon\\" href=\\"favicon.ico\\">
-      <link href=\\"styles.css\\" rel=\\"stylesheet\\" />
+      <base href="/altair/">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <link rel="icon" type="image/x-icon" href="favicon.ico">
+      <link href="styles.css" rel="stylesheet" />
     </head>
 
     <body>
@@ -220,12 +220,12 @@ test('koa', async () => {
     <html>
 
     <head>
-      <meta charset=\\"utf-8\\">
+      <meta charset="utf-8">
       <title>Altair</title>
-      <base href=\\"/altair/\\">
-      <meta name=\\"viewport\\" content=\\"width=device-width,initial-scale=1\\">
-      <link rel=\\"icon\\" type=\\"image/x-icon\\" href=\\"favicon.ico\\">
-      <link href=\\"styles.css\\" rel=\\"stylesheet\\" />
+      <base href="/altair/">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <link rel="icon" type="image/x-icon" href="favicon.ico">
+      <link href="styles.css" rel="stylesheet" />
     </head>
 
     <body>

@@ -2,10 +2,10 @@ import { ezAltairIDE } from '@graphql-ez/plugin-altair';
 import { ezGraphiQLIDE } from '@graphql-ez/plugin-graphiql';
 import { ezSchema, gql } from '@graphql-ez/plugin-schema';
 import { ezVoyager } from '@graphql-ez/plugin-voyager';
-import type {} from '@sveltejs/kit/types/endpoint';
-import { CreateApp, SvelteKitContextArgs } from '../../../../src';
+import { CreateApp, type SvelteKitContextArgs } from '../../../../../src';
 
 const buildContext = (_args: SvelteKitContextArgs) => {
+  console.log('here');
   return {
     foo: 'bar',
   };
@@ -45,6 +45,6 @@ const ezApp = CreateApp({
 
 const { handler } = ezApp.buildApp();
 
-export const get = handler;
+export const GET = handler;
 
-export const post = handler;
+export const POST = handler;

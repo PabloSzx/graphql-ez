@@ -40,14 +40,14 @@ test('fastify', async () => {
     <!DOCTYPE html>
     <html>
       <head>
-        <meta charset=\\"utf-8\\" />
+        <meta charset="utf-8" />
         <title>GraphiQL</title>
-        <meta name=\\"robots\\" content=\\"noindex\\" />
-        <meta name=\\"referrer\\" content=\\"origin\\" />
-        <meta name=\\"viewport\\" content=\\"width=device-width, initial-scale=1\\" />
+        <meta name="robots" content="noindex" />
+        <meta name="referrer" content="origin" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link
-          rel=\\"icon\\"
-          type=\\"image"
+          rel="icon"
+          type="image"
   `);
 });
 
@@ -80,14 +80,14 @@ test('fastify-same-path', async () => {
     <!DOCTYPE html>
     <html>
       <head>
-        <meta charset=\\"utf-8\\" />
+        <meta charset="utf-8" />
         <title>GraphiQL</title>
-        <meta name=\\"robots\\" content=\\"noindex\\" />
-        <meta name=\\"referrer\\" content=\\"origin\\" />
-        <meta name=\\"viewport\\" content=\\"width=device-width, initial-scale=1\\" />
+        <meta name="robots" content="noindex" />
+        <meta name="referrer" content="origin" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link
-          rel=\\"icon\\"
-          type=\\"image"
+          rel="icon"
+          type="image"
   `);
 
   await expect(query('{hello}', { method: 'GET' })).resolves.toMatchInlineSnapshot(`
@@ -134,14 +134,14 @@ test('express', async () => {
     <!DOCTYPE html>
     <html>
       <head>
-        <meta charset=\\"utf-8\\" />
+        <meta charset="utf-8" />
         <title>GraphiQL</title>
-        <meta name=\\"robots\\" content=\\"noindex\\" />
-        <meta name=\\"referrer\\" content=\\"origin\\" />
-        <meta name=\\"viewport\\" content=\\"width=device-width, initial-scale=1\\" />
+        <meta name="robots" content="noindex" />
+        <meta name="referrer" content="origin" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link
-          rel=\\"icon\\"
-          type=\\"image"
+          rel="icon"
+          type="image"
   `);
 });
 
@@ -174,34 +174,34 @@ test('express-same-path', async () => {
     <!DOCTYPE html>
     <html>
       <head>
-        <meta charset=\\"utf-8\\" />
+        <meta charset="utf-8" />
         <title>GraphiQL</title>
-        <meta name=\\"robots\\" content=\\"noindex\\" />
-        <meta name=\\"referrer\\" content=\\"origin\\" />
-        <meta name=\\"viewport\\" content=\\"width=device-width, initial-scale=1\\" />
+        <meta name="robots" content="noindex" />
+        <meta name="referrer" content="origin" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link
-          rel=\\"icon\\"
-          type=\\"image"
+          rel="icon"
+          type="image"
   `);
 
   await expect(query('{hello}', { method: 'GET' })).resolves.toMatchInlineSnapshot(`
-          {
-            "data": {
-              "hello": "Hello World!",
-            },
-            "http": {
-              "headers": {
-                "connection": "keep-alive",
-                "content-length": "33",
-                "content-type": "application/json; charset=utf-8",
-                "etag": "W/\\"21-8RkOxzVx9fQUGIol7Im263Gc/34\\"",
-                "keep-alive": "timeout=5",
-                "x-powered-by": "Express",
-              },
-              "statusCode": 200,
-            },
-          }
-        `);
+    {
+      "data": {
+        "hello": "Hello World!",
+      },
+      "http": {
+        "headers": {
+          "connection": "keep-alive",
+          "content-length": "33",
+          "content-type": "application/json; charset=utf-8",
+          "etag": "W/"21-8RkOxzVx9fQUGIol7Im263Gc/34"",
+          "keep-alive": "timeout=5",
+          "x-powered-by": "Express",
+        },
+        "statusCode": 200,
+      },
+    }
+  `);
 });
 
 test('http', async () => {
@@ -230,14 +230,14 @@ test('http', async () => {
     <!DOCTYPE html>
     <html>
       <head>
-        <meta charset=\\"utf-8\\" />
+        <meta charset="utf-8" />
         <title>GraphiQL</title>
-        <meta name=\\"robots\\" content=\\"noindex\\" />
-        <meta name=\\"referrer\\" content=\\"origin\\" />
-        <meta name=\\"viewport\\" content=\\"width=device-width, initial-scale=1\\" />
+        <meta name="robots" content="noindex" />
+        <meta name="referrer" content="origin" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link
-          rel=\\"icon\\"
-          type=\\"image"
+          rel="icon"
+          type="image"
   `);
 });
 
@@ -270,14 +270,14 @@ test('http-same-path', async () => {
     <!DOCTYPE html>
     <html>
       <head>
-        <meta charset=\\"utf-8\\" />
+        <meta charset="utf-8" />
         <title>GraphiQL</title>
-        <meta name=\\"robots\\" content=\\"noindex\\" />
-        <meta name=\\"referrer\\" content=\\"origin\\" />
-        <meta name=\\"viewport\\" content=\\"width=device-width, initial-scale=1\\" />
+        <meta name="robots" content="noindex" />
+        <meta name="referrer" content="origin" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link
-          rel=\\"icon\\"
-          type=\\"image"
+          rel="icon"
+          type="image"
   `);
 
   await expect(query('{hello}', { method: 'GET' })).resolves.toMatchInlineSnapshot(`
@@ -324,14 +324,14 @@ test('hapi', async () => {
     <!DOCTYPE html>
     <html>
       <head>
-        <meta charset=\\"utf-8\\" />
+        <meta charset="utf-8" />
         <title>GraphiQL</title>
-        <meta name=\\"robots\\" content=\\"noindex\\" />
-        <meta name=\\"referrer\\" content=\\"origin\\" />
-        <meta name=\\"viewport\\" content=\\"width=device-width, initial-scale=1\\" />
+        <meta name="robots" content="noindex" />
+        <meta name="referrer" content="origin" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link
-          rel=\\"icon\\"
-          type=\\"image"
+          rel="icon"
+          type="image"
   `);
 });
 test('hapi-same-path', async () => {
@@ -363,14 +363,14 @@ test('hapi-same-path', async () => {
     <!DOCTYPE html>
     <html>
       <head>
-        <meta charset=\\"utf-8\\" />
+        <meta charset="utf-8" />
         <title>GraphiQL</title>
-        <meta name=\\"robots\\" content=\\"noindex\\" />
-        <meta name=\\"referrer\\" content=\\"origin\\" />
-        <meta name=\\"viewport\\" content=\\"width=device-width, initial-scale=1\\" />
+        <meta name="robots" content="noindex" />
+        <meta name="referrer" content="origin" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link
-          rel=\\"icon\\"
-          type=\\"image"
+          rel="icon"
+          type="image"
   `);
 
   await expect(query('{hello}', { method: 'GET' })).resolves.toMatchInlineSnapshot(`
@@ -419,14 +419,14 @@ test('koa', async () => {
     <!DOCTYPE html>
     <html>
       <head>
-        <meta charset=\\"utf-8\\" />
+        <meta charset="utf-8" />
         <title>GraphiQL</title>
-        <meta name=\\"robots\\" content=\\"noindex\\" />
-        <meta name=\\"referrer\\" content=\\"origin\\" />
-        <meta name=\\"viewport\\" content=\\"width=device-width, initial-scale=1\\" />
+        <meta name="robots" content="noindex" />
+        <meta name="referrer" content="origin" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link
-          rel=\\"icon\\"
-          type=\\"image"
+          rel="icon"
+          type="image"
   `);
 });
 test('koa-same-path', async () => {
@@ -458,14 +458,14 @@ test('koa-same-path', async () => {
     <!DOCTYPE html>
     <html>
       <head>
-        <meta charset=\\"utf-8\\" />
+        <meta charset="utf-8" />
         <title>GraphiQL</title>
-        <meta name=\\"robots\\" content=\\"noindex\\" />
-        <meta name=\\"referrer\\" content=\\"origin\\" />
-        <meta name=\\"viewport\\" content=\\"width=device-width, initial-scale=1\\" />
+        <meta name="robots" content="noindex" />
+        <meta name="referrer" content="origin" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link
-          rel=\\"icon\\"
-          type=\\"image"
+          rel="icon"
+          type="image"
   `);
 
   await expect(query('{hello}', { method: 'GET' })).resolves.toMatchInlineSnapshot(`
@@ -540,14 +540,14 @@ test('nextjs', async () => {
     <!DOCTYPE html>
     <html>
       <head>
-        <meta charset=\\"utf-8\\" />
+        <meta charset="utf-8" />
         <title>GraphiQL</title>
-        <meta name=\\"robots\\" content=\\"noindex\\" />
-        <meta name=\\"referrer\\" content=\\"origin\\" />
-        <meta name=\\"viewport\\" content=\\"width=device-width, initial-scale=1\\" />
+        <meta name="robots" content="noindex" />
+        <meta name="referrer" content="origin" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link
-          rel=\\"icon\\"
-          type=\\"image"
+          rel="icon"
+          type="image"
   `);
 
   expect(await query('{hello}')).toMatchInlineSnapshot(`
@@ -574,19 +574,19 @@ test('nextjs', async () => {
           ).text()
         ).slice(0, 300)
       ).toMatchInlineSnapshot(`
-        "
-        <!DOCTYPE html>
-        <html>
-          <head>
-            <meta charset=\\"utf-8\\" />
-            <title>GraphiQL</title>
-            <meta name=\\"robots\\" content=\\"noindex\\" />
-            <meta name=\\"referrer\\" content=\\"origin\\" />
-            <meta name=\\"viewport\\" content=\\"width=device-width, initial-scale=1\\" />
-            <link
-              rel=\\"icon\\"
-              type=\\"image"
-      `);
+"
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>GraphiQL</title>
+    <meta name="robots" content="noindex" />
+    <meta name="referrer" content="origin" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="icon"
+      type="image"
+`);
     },
   });
 });
