@@ -1,5 +1,13 @@
 # @graphql-ez/koa
 
+## 0.8.12
+
+### Patch Changes
+
+- 067872ea: Update @koa/cors to v4
+- Updated dependencies [067872ea]
+  - graphql-ez@0.15.2
+
 ## 0.8.11
 
 ### Patch Changes
