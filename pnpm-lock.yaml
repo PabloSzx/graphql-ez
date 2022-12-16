@@ -1836,7 +1836,7 @@ importers:
       '@graphql-ez/utils': workspace:^0.1.4
       '@types/mime-types': ^2.1.1
       '@types/node': ^18.11.15
-      altair-static-slim: 4.5.4
+      altair-static-slim: 5.0.9
       bob-esbuild-cli: ^4.0.0
       changesets-github-release: ^0.1.0
       cross-undici-fetch: ^0.4.14
@@ -1849,7 +1849,7 @@ importers:
       typescript: ^4.9.4
     dependencies:
       '@graphql-ez/utils': link:../../core/utils
-      altair-static-slim: 4.5.4
+      altair-static-slim: 5.0.9
       cross-undici-fetch: 0.4.14
       mime-types: 2.1.35
     devDependencies:
@@ -2238,7 +2238,7 @@ importers:
       '@sveltejs/kit': 1.0.0
       '@types/node': ^18.11.15
       '@types/wait-on': ^5.3.1
-      altair-static-slim: 4.5.4
+      altair-static-slim: 5.0.9
       bob-esbuild-cli: ^4.0.0
       changesets-github-release: ^0.1.0
       esbuild: ^0.16.7
@@ -2271,7 +2271,7 @@ importers:
       '@sveltejs/kit': 1.0.0_svelte@3.55.0+vite@4.0.1
       '@types/node': 18.11.15
       '@types/wait-on': 5.3.1
-      altair-static-slim: 4.5.4
+      altair-static-slim: 5.0.9
       bob-esbuild-cli: 4.0.0
       changesets-github-release: 0.1.0
       esbuild: 0.16.7
@@ -7485,7 +7485,7 @@ packages:
     resolution: {integrity: sha512-LDz83AXCrClyq/MWe+0vaZfHp1Ytqn+kgL5VxG7rirUvmluWaj/snxzfNPWn0Ma4K2YENmXXRC/iHt5X95SqIg==}
     peerDependencies:
       react: '*'
-      react-dom: '*'
+      react-dom: ^16.8.0 || 17.x
     peerDependenciesMeta:
       react:
         optional: true
@@ -8479,8 +8479,8 @@ packages:
       '@algolia/transporter': 4.14.2
     dev: false
 
-  /altair-static-slim/4.5.4:
-    resolution: {integrity: sha512-UWZfQXpYcnsYAjFwxvLCf6PfoKeZvqsmTgG4USknNwHO6eJxqlo12jxqYnaVsXoCBWhv3VT7GFuHkaLh6s7ICg==}
+  /altair-static-slim/5.0.9:
+    resolution: {integrity: sha512-PlG7yCBfV+dvBWRJBFb/v9m8N7lZcBTFdYNV1WIQfHW7w/sU8yat35uxGoAQ9K7XkOHNpRF0wdyRqmGwtro0bg==}
 
   /ansi-colors/4.1.1:
     resolution: {integrity: sha512-JoX0apGbHaUJBNl6yF+p6JAFYZ666/hhCGKN5t9QFjbJQKUU/g8MNbFDbvfrgKXvI1QpZplPOnwIo99lX/AAmA==}
