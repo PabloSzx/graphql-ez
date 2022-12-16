@@ -1,12 +1,17 @@
+import { DocumentNode, ExecutionResult, print } from 'graphql';
+
 import { documentParamsToURIParams } from '@graphql-ez/utils/clientURI';
 import { LazyPromise } from '@graphql-ez/utils/promise';
-import type { TypedDocumentNode } from '@graphql-typed-document-node/core';
-import { DocumentNode, ExecutionResult, print } from 'graphql';
-import type { IncomingHttpHeaders } from 'http';
-import type { RequestOptions } from 'undici/types/dispatcher';
+
 import { TearDownPromises } from './common';
 
-export type { RequestOptions, TypedDocumentNode };
+import type { TypedDocumentNode } from '@graphql-typed-document-node/core';
+import type { IncomingHttpHeaders } from 'http';
+import type { Dispatcher } from 'undici';
+
+export type RequestOptions = Dispatcher.RequestOptions;
+
+export type { TypedDocumentNode };
 
 export async function getRequestPool(port: number, path = '/graphql') {
   const { Pool } = await import('undici');
