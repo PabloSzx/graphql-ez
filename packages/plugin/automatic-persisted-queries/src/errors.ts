@@ -1,5 +1,5 @@
-import { EnvelopError } from 'graphql-ez';
-import type { GraphQLError } from 'graphql';
+import { GraphQLError, versionInfo } from 'graphql';
+
 import type { EZContext } from 'graphql-ez';
 import type { Response } from '@pablosz/graphql-helix';
 
@@ -31,9 +31,34 @@ function parseExtensions(
   return res;
 }
 
-export class PersistedQueryError extends EnvelopError {
+type GraphQLErrorParameters = ConstructorParameters<typeof GraphQLError>;
+
+type TupleSplit<T, N extends number, O extends readonly any[] = readonly []> = O['length'] extends N
+  ? [O, T]
+  : T extends readonly [infer F, ...infer R]
+  ? TupleSplit<readonly [...R], N, readonly [...O, F]>
+  : [O, T];
+
+type SkipFirst<T extends readonly any[], N extends number> = TupleSplit<T, N>[1];
+
+export class PersistedQueryError extends GraphQLError {
   constructor(message: string, extensions?: string | Record<string, unknown>) {
-    super(message, parseExtensions(extensions));
+    const parsedExtensions = parseExtensions(extensions);
+
+    const oldParams: SkipFirst<GraphQLErrorParameters, 1> = [
+      undefined,
+      undefined,
+      undefined,
+      undefined,
+      undefined,
+      parsedExtensions,
+    ];
+
+    const newParams: SkipFirst<GraphQLErrorParameters, 1> = [
+      { extensions: parsedExtensions } as unknown as GraphQLErrorParameters[1],
+    ];
+
+    super(message, ...(versionInfo.major >= 17 ? newParams : oldParams));
   }
 }
 
