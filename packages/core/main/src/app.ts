@@ -1,5 +1,12 @@
+import { execute, parse, subscribe, validate } from 'graphql';
+
 import { envelop, Plugin, useEnvelop, useSchema } from '@envelop/core';
+import { useEngine } from '@envelop/core';
 import { cleanObject, toPlural } from '@graphql-ez/utils/object';
+
+import { SmartCacheIntrospection } from './smart-cache';
+import { gql, LazyPromise } from './utils';
+
 import type {
   AdapterFactoryContext,
   AppOptions,
@@ -10,9 +17,6 @@ import type {
   InternalAppBuildContext,
   InternalAppBuildIntegrationContext,
 } from './index';
-import { SmartCacheIntrospection } from './smart-cache';
-import { gql, LazyPromise } from './utils';
-
 export const InternalAppBuildContextKey = Symbol('graphql-ez-internal-app-build-context');
 
 export function createEZAppFactory(
@@ -161,9 +165,17 @@ export function createEZAppFactory(
     Object.freeze(envelopPlugins);
 
     const getEnveloped = envelop({
-      plugins: (await Promise.all(envelopPlugins)).filter((plugin): plugin is Plugin => {
-        return plugin != null && typeof plugin != 'boolean';
-      }),
+      plugins: [
+        useEngine({
+          parse,
+          validate,
+          execute,
+          subscribe,
+        }),
+        ...(await Promise.all(envelopPlugins)).filter((plugin): plugin is Plugin => {
+          return plugin != null && typeof plugin != 'boolean';
+        }),
+      ],
       enableInternalTracing: ctx.options.envelop.enableInternalTracing,
     });
 
