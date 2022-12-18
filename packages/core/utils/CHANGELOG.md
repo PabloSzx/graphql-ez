@@ -1,5 +1,11 @@
 # @graphql-ez/utils
 
+## 0.1.5
+
+### Patch Changes
+
+- c7678a36: Improve "readStreamToBuffer" types
+
 ## 0.1.4
 
 ### Patch Changes
