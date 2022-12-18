@@ -796,7 +796,7 @@ importers:
       '@graphql-ez/plugin-voyager': workspace:^0.9.5
       '@graphql-ez/sveltekit': workspace:^0.5.0
       '@sveltejs/adapter-auto': 1.0.0
-      '@sveltejs/kit': 1.0.0
+      '@sveltejs/kit': 1.0.1
       svelte: ^3.55.0
       svelte-check: ^2.10.2
       svelte-preprocess: ^5.0.0
@@ -809,8 +809,8 @@ importers:
       '@graphql-ez/plugin-schema': link:../../packages/plugin/schema
       '@graphql-ez/plugin-voyager': link:../../packages/plugin/voyager
       '@graphql-ez/sveltekit': link:../../packages/sveltekit/main
-      '@sveltejs/adapter-auto': 1.0.0_@sveltejs+kit@1.0.0
-      '@sveltejs/kit': 1.0.0_svelte@3.55.0+vite@4.0.1
+      '@sveltejs/adapter-auto': 1.0.0_@sveltejs+kit@1.0.1
+      '@sveltejs/kit': 1.0.1_svelte@3.55.0+vite@4.0.1
       svelte: 3.55.0
       svelte-check: 2.10.2_svelte@3.55.0
       svelte-preprocess: 5.0.0_niwyv7xychq2ag6arq5eqxbomm
@@ -2235,7 +2235,7 @@ importers:
       '@graphql-tools/schema': ^9.0.12
       '@sveltejs/adapter-auto': 1.0.0
       '@sveltejs/adapter-node': 1.0.0
-      '@sveltejs/kit': 1.0.0
+      '@sveltejs/kit': 1.0.1
       '@types/node': ^18.11.15
       '@types/wait-on': ^5.3.1
       altair-static-slim: 5.0.9
@@ -2266,9 +2266,9 @@ importers:
       '@graphql-ez/plugin-schema': link:../../plugin/schema
       '@graphql-ez/plugin-voyager': link:../../plugin/voyager
       '@graphql-tools/schema': 9.0.12_ptiko6tsqj7cmirxhjfetabnhu
-      '@sveltejs/adapter-auto': 1.0.0_@sveltejs+kit@1.0.0
-      '@sveltejs/adapter-node': 1.0.0_@sveltejs+kit@1.0.0
-      '@sveltejs/kit': 1.0.0_svelte@3.55.0+vite@4.0.1
+      '@sveltejs/adapter-auto': 1.0.0_@sveltejs+kit@1.0.1
+      '@sveltejs/adapter-node': 1.0.0_@sveltejs+kit@1.0.1
+      '@sveltejs/kit': 1.0.1_svelte@3.55.0+vite@4.0.1
       '@types/node': 18.11.17
       '@types/wait-on': 5.3.1
       altair-static-slim: 5.0.9
@@ -7767,16 +7767,16 @@ packages:
       unist-util-visit: 4.1.1
     dev: false
 
-  /@sveltejs/adapter-auto/1.0.0_@sveltejs+kit@1.0.0:
+  /@sveltejs/adapter-auto/1.0.0_@sveltejs+kit@1.0.1:
     resolution: {integrity: sha512-yKyPvlLVua1bJ/42FrR3X041mFGdB4GzTZOAEoHUcNBRE5Mhx94+eqHpC3hNvAOiLEDcKfVO0ObyKSu7qldU+w==}
     peerDependencies:
       '@sveltejs/kit': ^1.0.0
     dependencies:
-      '@sveltejs/kit': 1.0.0_svelte@3.55.0+vite@4.0.1
+      '@sveltejs/kit': 1.0.1_svelte@3.55.0+vite@4.0.1
       import-meta-resolve: 2.2.0
     dev: true
 
-  /@sveltejs/adapter-node/1.0.0_@sveltejs+kit@1.0.0:
+  /@sveltejs/adapter-node/1.0.0_@sveltejs+kit@1.0.1:
     resolution: {integrity: sha512-Q8an8CXEt5XlFbyT1NBM4xELNZD8xPVZfKCcgorCfPkeBP5ftDgPaK12JIokXA5koYJ54AJcNY4ams9TZ7yGxA==}
     peerDependencies:
       '@sveltejs/kit': ^1.0.0
@@ -7784,13 +7784,13 @@ packages:
       '@rollup/plugin-commonjs': 23.0.7_rollup@3.7.5
       '@rollup/plugin-json': 5.0.2_rollup@3.7.5
       '@rollup/plugin-node-resolve': 15.0.1_rollup@3.7.5
-      '@sveltejs/kit': 1.0.0_svelte@3.55.0+vite@4.0.1
+      '@sveltejs/kit': 1.0.1_svelte@3.55.0+vite@4.0.1
       rollup: 3.7.5
     dev: true
 
-  /@sveltejs/kit/1.0.0_svelte@3.55.0+vite@4.0.1:
-    resolution: {integrity: sha512-6VgD5C3i2XOT7GRBi5LaPPLiFAmpiDkhKJNVt8fLg1RmaL6f7rT4Kiwi2XGpYRj3V1F4t1QRdsfmAkkDUKY3OA==}
-    engines: {node: '>=16.14'}
+  /@sveltejs/kit/1.0.1_svelte@3.55.0+vite@4.0.1:
+    resolution: {integrity: sha512-C41aCaDjA7xoUdsrc/lSdU1059UdLPIRE1vEIRRynzpMujNgp82bTMHkDosb6vykH6LrLf3tT2w2/5NYQhKYGQ==}
+    engines: {node: ^16.14 || >=18}
     hasBin: true
     requiresBuild: true
     peerDependencies:
