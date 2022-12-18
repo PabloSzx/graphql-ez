@@ -1,11 +1,9 @@
-import type { ReadStream } from 'fs';
-
 export interface FileUpload {
-  createReadStream(): ReadStream;
+  createReadStream(): AsyncIterable<any>;
 }
 
 export async function readStreamToBuffer(
-  rsLike: ReadStream | Promise<ReadStream> | Promise<FileUpload> | FileUpload
+  rsLike: AsyncIterable<Uint8Array> | Promise<AsyncIterable<Uint8Array>> | Promise<FileUpload> | FileUpload
 ): Promise<Buffer> {
   const readStream = await rsLike;
 

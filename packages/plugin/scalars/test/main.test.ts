@@ -199,6 +199,11 @@ test('all scalars', async () => {
     scalar HSLA
 
     """
+    A field whose value is either an IPv4 or IPv6 address: https://en.wikipedia.org/wiki/IP_address.
+    """
+    scalar IP
+
+    """
     A field whose value is a IPv4 address: https://en.wikipedia.org/wiki/IPv4.
     """
     scalar IPv4
@@ -308,7 +313,10 @@ test('all scalars', async () => {
     """
     A field whose value conforms to the standard cuid format as specified in https://github.com/ericelliott/cuid#broken-down
     """
-    scalar Cuid"
+    scalar Cuid
+
+    """A field whose value is a Semantic Version: https://semver.org"""
+    scalar SemVer"
   `);
 });
 

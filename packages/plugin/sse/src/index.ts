@@ -1,8 +1,11 @@
-import { LazyPromise } from '@graphql-ez/utils/promise';
 import assert from 'assert';
 import { print } from 'graphql';
-import type { EZPlugin } from 'graphql-ez';
+
+import { LazyPromise } from '@graphql-ez/utils/promise';
+
+import type { BuildContextArgs, EZPlugin } from 'graphql-ez';
 import type { createHandler, Handler, HandlerOptions } from 'graphql-sse';
+import type { IncomingMessage } from 'http';
 
 export interface GraphQLSSEOptions {
   options?: Omit<HandlerOptions, 'execute' | 'subscribe' | 'validate' | 'onSubscribe' | 'schema' | 'context'>;
@@ -60,7 +63,7 @@ export const ezSSE = (options: GraphQLSSEOptions = {}): EZPlugin => {
         subscribe,
         validate: validate as HandlerOptions['validate'],
         async onSubscribe(req, _res, params) {
-          const contextArgsData = { req };
+          const contextArgsData: BuildContextArgs = { req: req as IncomingMessage };
           const { schema, parse, contextFactory } = getEnveloped(
             buildContext ? Object.assign(contextArgsData, await buildContext(contextArgsData)) : contextArgsData
           );
