@@ -1,5 +1,5 @@
 export interface FileUpload {
-  createReadStream(): AsyncIterable<Uint8Array>;
+  createReadStream(): AsyncIterable<any>;
 }
 
 export async function readStreamToBuffer(
