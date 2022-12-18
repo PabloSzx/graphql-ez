@@ -30,4 +30,4 @@
 '@graphql-ez/vercel': minor
 ---
 
-Update to Envelop v3
+Update to Envelop v3, no code changes should be required for basic usage
