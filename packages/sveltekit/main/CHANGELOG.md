@@ -1,5 +1,13 @@
 # @graphql-ez/sveltekit
 
+## 0.5.1
+
+### Patch Changes
+
+- c7678a36: Update sveltekit peer dependency to v1
+- Updated dependencies [c7678a36]
+  - @graphql-ez/utils@0.1.5
+
 ## 0.5.0
 
 ### Minor Changes

@@ -1,5 +1,18 @@
 # @graphql-ez/hapi-testing
 
+## 0.3.0
+
+### Minor Changes
+
+- 3c93a448: Update for hapi v21
+
+### Patch Changes
+
+- Updated dependencies [3c93a448]
+- Updated dependencies [c7678a36]
+  - @graphql-ez/hapi@0.9.0
+  - @graphql-ez/utils@0.1.5
+
 ## 0.2.1
 
 ### Patch Changes

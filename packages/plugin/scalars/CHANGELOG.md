@@ -1,5 +1,13 @@
 # @graphql-ez/plugin-scalars
 
+## 0.7.6
+
+### Patch Changes
+
+- c7678a36: Minor deps updates
+- Updated dependencies [c7678a36]
+  - @graphql-ez/utils@0.1.5
+
 ## 0.7.5
 
 ### Patch Changes

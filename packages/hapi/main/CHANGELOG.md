@@ -1,5 +1,11 @@
 # @graphql-ez/hapi
 
+## 0.9.0
+
+### Minor Changes
+
+- 3c93a448: Update for hapi v21
+
 ## 0.8.10
 
 ### Patch Changes
