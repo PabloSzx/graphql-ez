@@ -32,7 +32,7 @@ importers:
       esbuild: ^0.16.9
       fastify: ^4.10.2
       globby: ^13.1.3
-      graphql-ez-testing: workspace:^1.0.0
+      graphql-ez-testing: workspace:*
       husky: 8.0.2
       jest: ^29.3.1
       mocha: ^10.2.0
@@ -75,7 +75,7 @@ importers:
       '@envelop/types': ^2.4.0
       '@envelop/validation-cache': ^4.7.0
       '@types/node': ^18.11.15
-      benchmark-bench: workspace:1.0.0
+      benchmark-bench: workspace:*
       bob-tsm: ^1.1.2
       esbuild: ^0.16.9
       fastify: ^4.10.2
@@ -102,7 +102,7 @@ importers:
     specifiers:
       '@types/express': ^4.17.15
       '@types/node': ^18.11.15
-      benchmark-bench: workspace:1.0.0
+      benchmark-bench: workspace:*
       bob-tsm: ^1.1.2
       esbuild: ^0.16.9
       express: ^4.18.2
@@ -126,16 +126,16 @@ importers:
   benchmarks/apis/ez-express:
     specifiers:
       '@envelop/graphql-jit': ^4.6.0
-      '@graphql-ez/express': workspace:^0.9.8
+      '@graphql-ez/express': workspace:*
       '@types/express': ^4.17.15
       '@types/node': ^18.11.15
-      benchmark-bench: workspace:1.0.0
+      benchmark-bench: workspace:*
       bob-tsm: ^1.1.2
       cross-env: ^7.0.3
       esbuild: ^0.16.9
       express: ^4.18.2
       graphql: 16.1.0-experimental-stream-defer.6
-      graphql-ez: workspace:^0.15.2
+      graphql-ez: workspace:*
       require-env-variable: ^4.0.1
       typescript: ^4.9.4
     dependencies:
@@ -157,15 +157,15 @@ importers:
   benchmarks/apis/ez-fastify:
     specifiers:
       '@envelop/graphql-jit': ^4.6.0
-      '@graphql-ez/fastify': workspace:^0.11.0
+      '@graphql-ez/fastify': workspace:*
       '@types/node': ^18.11.15
-      benchmark-bench: workspace:1.0.0
+      benchmark-bench: workspace:*
       bob-tsm: ^1.1.2
       cross-env: ^7.0.3
       esbuild: ^0.16.9
       fastify: ^4.10.2
       graphql: 16.1.0-experimental-stream-defer.6
-      graphql-ez: workspace:^0.15.2
+      graphql-ez: workspace:*
       require-env-variable: ^4.0.1
       typescript: ^4.9.4
     dependencies:
@@ -186,15 +186,15 @@ importers:
   benchmarks/apis/ez-hapi:
     specifiers:
       '@envelop/graphql-jit': ^4.6.0
-      '@graphql-ez/hapi': workspace:^0.9.0
+      '@graphql-ez/hapi': workspace:*
       '@hapi/hapi': ^21.1.0
       '@types/node': ^18.11.15
-      benchmark-bench: workspace:1.0.0
+      benchmark-bench: workspace:*
       bob-tsm: ^1.1.2
       cross-env: ^7.0.3
       esbuild: ^0.16.9
       graphql: 16.1.0-experimental-stream-defer.6
-      graphql-ez: workspace:^0.15.2
+      graphql-ez: workspace:*
       require-env-variable: ^4.0.1
       typescript: ^4.9.4
     dependencies:
@@ -215,14 +215,14 @@ importers:
   benchmarks/apis/ez-http:
     specifiers:
       '@envelop/graphql-jit': ^4.6.0
-      '@graphql-ez/http': workspace:^0.10.4
+      '@graphql-ez/http': workspace:*
       '@types/node': ^18.11.15
-      benchmark-bench: workspace:1.0.0
+      benchmark-bench: workspace:*
       bob-tsm: ^1.1.2
       cross-env: ^7.0.3
       esbuild: ^0.16.9
       graphql: 16.1.0-experimental-stream-defer.6
-      graphql-ez: workspace:^0.15.2
+      graphql-ez: workspace:*
       require-env-variable: ^4.0.1
       typescript: ^4.9.4
     dependencies:
@@ -242,18 +242,18 @@ importers:
   benchmarks/apis/ez-koa:
     specifiers:
       '@envelop/graphql-jit': ^4.6.0
-      '@graphql-ez/koa': workspace:^0.8.12
+      '@graphql-ez/koa': workspace:*
       '@koa/router': ^12.0.0
       '@types/koa': ^2.13.5
       '@types/koa-bodyparser': ^4.3.10
       '@types/koa__router': ^12.0.0
       '@types/node': ^18.11.15
-      benchmark-bench: workspace:1.0.0
+      benchmark-bench: workspace:*
       bob-tsm: ^1.1.2
       cross-env: ^7.0.3
       esbuild: ^0.16.9
       graphql: 16.1.0-experimental-stream-defer.6
-      graphql-ez: workspace:^0.15.2
+      graphql-ez: workspace:*
       koa: ^2.14.1
       require-env-variable: ^4.0.1
       typescript: ^4.9.4
@@ -279,7 +279,7 @@ importers:
   benchmarks/apis/graphql-helix:
     specifiers:
       '@types/node': ^18.11.15
-      benchmark-bench: workspace:1.0.0
+      benchmark-bench: workspace:*
       bob-tsm: ^1.1.2
       esbuild: ^0.16.9
       fastify: ^4.10.2
@@ -302,7 +302,7 @@ importers:
   benchmarks/apis/mercurius:
     specifiers:
       '@types/node': ^18.11.15
-      benchmark-bench: workspace:1.0.0
+      benchmark-bench: workspace:*
       bob-tsm: ^1.1.2
       cross-env: ^7.0.3
       esbuild: ^0.16.9
@@ -384,17 +384,17 @@ importers:
 
   examples/cloudflare:
     specifiers:
-      '@graphql-ez/cloudflare': workspace:0.2.3
-      '@graphql-ez/plugin-altair': workspace:^0.10.0
-      '@graphql-ez/plugin-graphiql': workspace:^0.11.6
-      '@graphql-ez/plugin-schema': workspace:^0.8.6
-      '@graphql-ez/plugin-voyager': workspace:^0.9.5
+      '@graphql-ez/cloudflare': workspace:*
+      '@graphql-ez/plugin-altair': workspace:*
+      '@graphql-ez/plugin-graphiql': workspace:*
+      '@graphql-ez/plugin-schema': workspace:*
+      '@graphql-ez/plugin-voyager': workspace:*
       '@types/node': ^18.11.15
       clipboardy: ^3.0.0
       concurrently: ^7.6.0
       esbuild: ^0.16.9
       graphql: 16.1.0-experimental-stream-defer.6
-      graphql-ez: workspace:^0.15.2
+      graphql-ez: workspace:*
       miniflare: ^2.11.0
       typescript: ^4.9.4
       worktop: ^0.7.3
@@ -417,15 +417,15 @@ importers:
 
   examples/express/complete:
     specifiers:
-      '@graphql-ez/express': workspace:^0.9.8
-      '@graphql-ez/plugin-altair': workspace:^0.10.0
-      '@graphql-ez/plugin-codegen': workspace:^0.7.12
-      '@graphql-ez/plugin-graphiql': workspace:^0.11.6
-      '@graphql-ez/plugin-modules': workspace:^0.11.1
-      '@graphql-ez/plugin-scalars': workspace:^0.7.6
-      '@graphql-ez/plugin-schema': workspace:^0.8.6
-      '@graphql-ez/plugin-upload': workspace:^0.7.2
-      '@graphql-ez/plugin-websockets': workspace:^0.10.5
+      '@graphql-ez/express': workspace:*
+      '@graphql-ez/plugin-altair': workspace:*
+      '@graphql-ez/plugin-codegen': workspace:*
+      '@graphql-ez/plugin-graphiql': workspace:*
+      '@graphql-ez/plugin-modules': workspace:*
+      '@graphql-ez/plugin-scalars': workspace:*
+      '@graphql-ez/plugin-schema': workspace:*
+      '@graphql-ez/plugin-upload': workspace:*
+      '@graphql-ez/plugin-websockets': workspace:*
       '@graphql-typed-document-node/core': ^3.1.1
       '@types/express': ^4.17.15
       '@types/node': ^18.11.15
@@ -433,7 +433,7 @@ importers:
       esbuild: ^0.16.9
       express: ^4.18.2
       graphql: 16.1.0-experimental-stream-defer.6
-      graphql-ez: workspace:^0.15.2
+      graphql-ez: workspace:*
       typescript: ^4.9.4
     dependencies:
       '@graphql-ez/express': link:../../../packages/express/main
@@ -458,15 +458,15 @@ importers:
 
   examples/fastify/basic:
     specifiers:
-      '@graphql-ez/fastify': workspace:^0.11.0
-      '@graphql-ez/plugin-codegen': workspace:^0.7.12
-      '@graphql-ez/plugin-schema': workspace:^0.8.6
+      '@graphql-ez/fastify': workspace:*
+      '@graphql-ez/plugin-codegen': workspace:*
+      '@graphql-ez/plugin-schema': workspace:*
       '@types/node': ^18.11.15
       bob-tsm: ^1.1.2
       esbuild: ^0.16.9
       fastify: ^4.10.2
       graphql: 16.1.0-experimental-stream-defer.6
-      graphql-ez: workspace:^0.15.2
+      graphql-ez: workspace:*
       typescript: ^4.9.4
     dependencies:
       '@graphql-ez/fastify': link:../../../packages/fastify/main
@@ -483,24 +483,24 @@ importers:
 
   examples/fastify/complete:
     specifiers:
-      '@graphql-ez/fastify': workspace:^0.11.0
-      '@graphql-ez/plugin-altair': workspace:^0.10.0
-      '@graphql-ez/plugin-codegen': workspace:^0.7.12
-      '@graphql-ez/plugin-dataloader': workspace:^0.7.0
-      '@graphql-ez/plugin-graphiql': workspace:^0.11.6
-      '@graphql-ez/plugin-modules': workspace:^0.11.1
-      '@graphql-ez/plugin-scalars': workspace:^0.7.6
-      '@graphql-ez/plugin-schema': workspace:^0.8.6
-      '@graphql-ez/plugin-upload': workspace:^0.7.2
-      '@graphql-ez/plugin-voyager': workspace:^0.9.5
-      '@graphql-ez/plugin-websockets': workspace:^0.10.5
+      '@graphql-ez/fastify': workspace:*
+      '@graphql-ez/plugin-altair': workspace:*
+      '@graphql-ez/plugin-codegen': workspace:*
+      '@graphql-ez/plugin-dataloader': workspace:*
+      '@graphql-ez/plugin-graphiql': workspace:*
+      '@graphql-ez/plugin-modules': workspace:*
+      '@graphql-ez/plugin-scalars': workspace:*
+      '@graphql-ez/plugin-schema': workspace:*
+      '@graphql-ez/plugin-upload': workspace:*
+      '@graphql-ez/plugin-voyager': workspace:*
+      '@graphql-ez/plugin-websockets': workspace:*
       '@types/graphql-upload': ^8.0.12
       '@types/node': ^18.11.15
       bob-tsm: ^1.1.2
       esbuild: ^0.16.9
       fastify: ^4.10.2
       graphql: 16.1.0-experimental-stream-defer.6
-      graphql-ez: workspace:^0.15.2
+      graphql-ez: workspace:*
       graphql-upload: ^13.0.0
       typescript: ^4.9.4
     dependencies:
@@ -528,14 +528,14 @@ importers:
 
   examples/fastify/nexus:
     specifiers:
-      '@graphql-ez/fastify': workspace:^0.11.0
-      '@graphql-ez/plugin-altair': workspace:^0.10.0
+      '@graphql-ez/fastify': workspace:*
+      '@graphql-ez/plugin-altair': workspace:*
       '@types/node': ^18.11.15
       bob-tsm: ^1.1.2
       esbuild: ^0.16.9
       fastify: ^4.10.2
       graphql: 16.1.0-experimental-stream-defer.6
-      graphql-ez: workspace:^0.15.2
+      graphql-ez: workspace:*
       nexus: ^1.3.0
       typescript: ^4.9.4
     dependencies:
@@ -553,15 +553,15 @@ importers:
 
   examples/fastify/pothos:
     specifiers:
-      '@graphql-ez/fastify': workspace:^0.11.0
-      '@graphql-ez/plugin-graphiql': workspace:^0.11.6
+      '@graphql-ez/fastify': workspace:*
+      '@graphql-ez/plugin-graphiql': workspace:*
       '@pothos/core': ^3.23.2
       '@types/node': ^18.11.15
       bob-tsm: ^1.1.2
       esbuild: ^0.16.9
       fastify: ^4.10.2
       graphql: 16.1.0-experimental-stream-defer.6
-      graphql-ez: workspace:^0.15.2
+      graphql-ez: workspace:*
       typescript: ^4.9.4
     dependencies:
       '@graphql-ez/fastify': link:../../../packages/fastify/main
@@ -578,14 +578,14 @@ importers:
 
   examples/fastify/type-graphql:
     specifiers:
-      '@graphql-ez/fastify': workspace:^0.11.0
-      '@graphql-ez/plugin-altair': workspace:^0.10.0
+      '@graphql-ez/fastify': workspace:*
+      '@graphql-ez/plugin-altair': workspace:*
       '@types/node': ^18.11.15
       class-validator: ^0.13.2
       esbuild: ^0.16.9
       fastify: ^4.10.2
       graphql: ^15.8.0
-      graphql-ez: workspace:^0.15.2
+      graphql-ez: workspace:*
       reflect-metadata: ^0.1.13
       tsc-watch: ^6.0.0
       type-graphql: ^1.1.1
@@ -612,22 +612,22 @@ importers:
 
   examples/hapi/complete:
     specifiers:
-      '@graphql-ez/hapi': workspace:^0.9.0
-      '@graphql-ez/plugin-altair': workspace:^0.10.0
-      '@graphql-ez/plugin-codegen': workspace:^0.7.12
-      '@graphql-ez/plugin-graphiql': workspace:^0.11.6
-      '@graphql-ez/plugin-modules': workspace:^0.11.1
-      '@graphql-ez/plugin-scalars': workspace:^0.7.6
-      '@graphql-ez/plugin-schema': workspace:^0.8.6
-      '@graphql-ez/plugin-upload': workspace:^0.7.2
-      '@graphql-ez/plugin-websockets': workspace:^0.10.5
+      '@graphql-ez/hapi': workspace:*
+      '@graphql-ez/plugin-altair': workspace:*
+      '@graphql-ez/plugin-codegen': workspace:*
+      '@graphql-ez/plugin-graphiql': workspace:*
+      '@graphql-ez/plugin-modules': workspace:*
+      '@graphql-ez/plugin-scalars': workspace:*
+      '@graphql-ez/plugin-schema': workspace:*
+      '@graphql-ez/plugin-upload': workspace:*
+      '@graphql-ez/plugin-websockets': workspace:*
       '@graphql-typed-document-node/core': ^3.1.1
       '@hapi/hapi': ^21.1.0
       '@types/node': ^18.11.15
       bob-tsm: ^1.1.2
       esbuild: ^0.16.9
       graphql: 16.1.0-experimental-stream-defer.6
-      graphql-ez: workspace:^0.15.2
+      graphql-ez: workspace:*
       typescript: ^4.9.4
     dependencies:
       '@graphql-ez/hapi': link:../../../packages/hapi/main
@@ -651,21 +651,21 @@ importers:
 
   examples/http/complete:
     specifiers:
-      '@graphql-ez/http': workspace:^0.10.4
-      '@graphql-ez/plugin-altair': workspace:^0.10.0
-      '@graphql-ez/plugin-codegen': workspace:^0.7.12
-      '@graphql-ez/plugin-graphiql': workspace:^0.11.6
-      '@graphql-ez/plugin-modules': workspace:^0.11.1
-      '@graphql-ez/plugin-scalars': workspace:^0.7.6
-      '@graphql-ez/plugin-schema': workspace:^0.8.6
-      '@graphql-ez/plugin-upload': workspace:^0.7.2
-      '@graphql-ez/plugin-websockets': workspace:^0.10.5
+      '@graphql-ez/http': workspace:*
+      '@graphql-ez/plugin-altair': workspace:*
+      '@graphql-ez/plugin-codegen': workspace:*
+      '@graphql-ez/plugin-graphiql': workspace:*
+      '@graphql-ez/plugin-modules': workspace:*
+      '@graphql-ez/plugin-scalars': workspace:*
+      '@graphql-ez/plugin-schema': workspace:*
+      '@graphql-ez/plugin-upload': workspace:*
+      '@graphql-ez/plugin-websockets': workspace:*
       '@graphql-typed-document-node/core': ^3.1.1
       '@types/node': ^18.11.15
       bob-tsm: ^1.1.2
       esbuild: ^0.16.9
       graphql: 16.1.0-experimental-stream-defer.6
-      graphql-ez: workspace:^0.15.2
+      graphql-ez: workspace:*
       typescript: ^4.9.4
     dependencies:
       '@graphql-ez/http': link:../../../packages/http/main
@@ -688,16 +688,16 @@ importers:
 
   examples/koa/complete:
     specifiers:
-      '@graphql-ez/koa': workspace:^0.8.12
-      '@graphql-ez/plugin-altair': workspace:^0.10.0
-      '@graphql-ez/plugin-codegen': workspace:^0.7.12
-      '@graphql-ez/plugin-graphiql': workspace:^0.11.6
-      '@graphql-ez/plugin-modules': workspace:^0.11.1
-      '@graphql-ez/plugin-scalars': workspace:^0.7.6
-      '@graphql-ez/plugin-schema': workspace:^0.8.6
-      '@graphql-ez/plugin-sse': workspace:^0.2.2
-      '@graphql-ez/plugin-upload': workspace:^0.7.2
-      '@graphql-ez/plugin-websockets': workspace:^0.10.5
+      '@graphql-ez/koa': workspace:*
+      '@graphql-ez/plugin-altair': workspace:*
+      '@graphql-ez/plugin-codegen': workspace:*
+      '@graphql-ez/plugin-graphiql': workspace:*
+      '@graphql-ez/plugin-modules': workspace:*
+      '@graphql-ez/plugin-scalars': workspace:*
+      '@graphql-ez/plugin-schema': workspace:*
+      '@graphql-ez/plugin-sse': workspace:*
+      '@graphql-ez/plugin-upload': workspace:*
+      '@graphql-ez/plugin-websockets': workspace:*
       '@graphql-typed-document-node/core': ^3.1.1
       '@koa/router': ^12.0.0
       '@types/koa': ^2.13.5
@@ -707,7 +707,7 @@ importers:
       bob-tsm: ^1.1.2
       esbuild: ^0.16.9
       graphql: 16.1.0-experimental-stream-defer.6
-      graphql-ez: workspace:^0.15.2
+      graphql-ez: workspace:*
       koa: ^2.14.1
       koa-bodyparser: ^4.3.0
       typescript: ^4.9.4
@@ -739,21 +739,21 @@ importers:
 
   examples/nextjs/complete:
     specifiers:
-      '@graphql-ez/nextjs': workspace:^0.10.2
-      '@graphql-ez/plugin-altair': workspace:^0.10.0
-      '@graphql-ez/plugin-codegen': workspace:^0.7.12
-      '@graphql-ez/plugin-graphiql': workspace:^0.11.6
-      '@graphql-ez/plugin-modules': workspace:^0.11.1
-      '@graphql-ez/plugin-scalars': workspace:^0.7.6
-      '@graphql-ez/plugin-upload': workspace:^0.7.2
-      '@graphql-ez/plugin-voyager': workspace:^0.9.5
+      '@graphql-ez/nextjs': workspace:*
+      '@graphql-ez/plugin-altair': workspace:*
+      '@graphql-ez/plugin-codegen': workspace:*
+      '@graphql-ez/plugin-graphiql': workspace:*
+      '@graphql-ez/plugin-modules': workspace:*
+      '@graphql-ez/plugin-scalars': workspace:*
+      '@graphql-ez/plugin-upload': workspace:*
+      '@graphql-ez/plugin-voyager': workspace:*
       '@graphql-typed-document-node/core': ^3.1.1
       '@types/node': ^18.11.15
       '@types/react': ^17.0.50
       '@types/react-dom': ^18.0.9
       esbuild: ^0.16.9
       graphql: 16.1.0-experimental-stream-defer.6
-      graphql-ez: workspace:^0.15.2
+      graphql-ez: workspace:*
       graphql-request: ^5.0.0
       next: ^12.3.4
       react: ^17.0.2
@@ -786,11 +786,11 @@ importers:
 
   examples/sveltekit:
     specifiers:
-      '@graphql-ez/plugin-altair': workspace:^0.10.0
-      '@graphql-ez/plugin-graphiql': workspace:^0.11.6
-      '@graphql-ez/plugin-schema': workspace:^0.8.6
-      '@graphql-ez/plugin-voyager': workspace:^0.9.5
-      '@graphql-ez/sveltekit': workspace:^0.5.1
+      '@graphql-ez/plugin-altair': workspace:*
+      '@graphql-ez/plugin-graphiql': workspace:*
+      '@graphql-ez/plugin-schema': workspace:*
+      '@graphql-ez/plugin-voyager': workspace:*
+      '@graphql-ez/sveltekit': workspace:*
       '@sveltejs/adapter-auto': 1.0.0
       '@sveltejs/kit': 1.0.1
       svelte: ^3.55.0
@@ -816,15 +816,15 @@ importers:
 
   examples/vercel:
     specifiers:
-      '@graphql-ez/plugin-altair': workspace:^0.10.0
-      '@graphql-ez/plugin-graphiql': workspace:^0.11.6
-      '@graphql-ez/plugin-schema': workspace:^0.8.6
-      '@graphql-ez/plugin-voyager': workspace:^0.9.5
-      '@graphql-ez/vercel': workspace:^0.1.3
+      '@graphql-ez/plugin-altair': workspace:*
+      '@graphql-ez/plugin-graphiql': workspace:*
+      '@graphql-ez/plugin-schema': workspace:*
+      '@graphql-ez/plugin-voyager': workspace:*
+      '@graphql-ez/vercel': workspace:*
       '@types/node': ^18.11.15
       esbuild: ^0.16.9
       graphql: 16.1.0-experimental-stream-defer.6
-      graphql-ez: workspace:^0.15.2
+      graphql-ez: workspace:*
       typescript: ^4.9.4
     dependencies:
       '@graphql-ez/plugin-altair': link:../../packages/plugin/altair
@@ -841,16 +841,16 @@ importers:
 
   integration/gql-15-interop:
     specifiers:
-      '@graphql-ez/fastify': workspace:^0.11.0
-      '@graphql-ez/fastify-testing': workspace:^0.3.0
-      '@graphql-ez/plugin-schema': workspace:^0.8.6
+      '@graphql-ez/fastify': workspace:^
+      '@graphql-ez/fastify-testing': workspace:^
+      '@graphql-ez/plugin-schema': workspace:^
       '@types/node': ^18.11.15
       c8: ^7.12.0
       chai: ^4.3.7
       esbuild: ^0.16.9
       fastify: ^4.10.2
       graphql: 15.8.0
-      graphql-ez: workspace:^0.15.2
+      graphql-ez: workspace:^
       mocha: ^10.2.0
       typescript: ^4.9.4
     dependencies:
@@ -879,16 +879,16 @@ importers:
 
   integration/gql-15-stream-defer-interop:
     specifiers:
-      '@graphql-ez/fastify': workspace:^0.11.0
-      '@graphql-ez/fastify-testing': workspace:^0.3.0
-      '@graphql-ez/plugin-schema': workspace:^0.8.6
+      '@graphql-ez/fastify': workspace:^
+      '@graphql-ez/fastify-testing': workspace:^
+      '@graphql-ez/plugin-schema': workspace:^
       '@types/node': ^18.11.15
       c8: ^7.12.0
       chai: ^4.3.7
       esbuild: ^0.16.9
       fastify: ^4.10.2
       graphql: 15.4.0-experimental-stream-defer.1
-      graphql-ez: workspace:^0.15.2
+      graphql-ez: workspace:^
       mocha: ^10.2.0
       typescript: ^4.9.4
     dependencies:
@@ -917,16 +917,16 @@ importers:
 
   integration/gql-16-esm:
     specifiers:
-      '@graphql-ez/fastify': workspace:^0.11.0
-      '@graphql-ez/fastify-testing': workspace:^0.3.0
-      '@graphql-ez/plugin-schema': workspace:^0.8.6
+      '@graphql-ez/fastify': workspace:^
+      '@graphql-ez/fastify-testing': workspace:^
+      '@graphql-ez/plugin-schema': workspace:^
       '@types/node': ^18.11.15
       c8: ^7.12.0
       chai: ^4.3.7
       esbuild: ^0.16.9
       fastify: ^4.10.2
       graphql: npm:graphql-esm@^16.5.0
-      graphql-ez: workspace:^0.15.2
+      graphql-ez: workspace:^
       mocha: ^10.2.0
       typescript: ^4.9.4
     dependencies:
@@ -955,16 +955,16 @@ importers:
 
   integration/gql-16-interop:
     specifiers:
-      '@graphql-ez/fastify': workspace:^0.11.0
-      '@graphql-ez/fastify-testing': workspace:^0.3.0
-      '@graphql-ez/plugin-schema': workspace:^0.8.6
+      '@graphql-ez/fastify': workspace:^
+      '@graphql-ez/fastify-testing': workspace:^
+      '@graphql-ez/plugin-schema': workspace:^
       '@types/node': ^18.11.15
       c8: ^7.12.0
       chai: ^4.3.7
       esbuild: ^0.16.9
       fastify: ^4.10.2
       graphql: 16.6.0
-      graphql-ez: workspace:^0.15.2
+      graphql-ez: workspace:^
       mocha: ^10.2.0
       typescript: ^4.9.4
     dependencies:
@@ -993,16 +993,16 @@ importers:
 
   integration/gql-16-stream-defer-interop:
     specifiers:
-      '@graphql-ez/fastify': workspace:^0.11.0
-      '@graphql-ez/fastify-testing': workspace:^0.3.0
-      '@graphql-ez/plugin-schema': workspace:^0.8.6
+      '@graphql-ez/fastify': workspace:^
+      '@graphql-ez/fastify-testing': workspace:^
+      '@graphql-ez/plugin-schema': workspace:^
       '@types/node': ^18.11.15
       c8: ^7.12.0
       chai: ^4.3.7
       esbuild: ^0.16.9
       fastify: ^4.10.2
       graphql: 16.1.0-experimental-stream-defer.6
-      graphql-ez: workspace:^0.15.2
+      graphql-ez: workspace:^
       mocha: ^10.2.0
       typescript: ^4.9.4
     dependencies:
@@ -1031,15 +1031,15 @@ importers:
 
   integration/gql-17:
     specifiers:
-      '@graphql-ez/fastify': workspace:^0.11.0
-      '@graphql-ez/fastify-testing': workspace:^0.3.0
+      '@graphql-ez/fastify': workspace:^
+      '@graphql-ez/fastify-testing': workspace:^
       '@types/node': ^18.11.15
       c8: ^7.12.0
       chai: ^4.3.7
       esbuild: ^0.16.9
       fastify: ^4.10.2
       graphql: 17.0.0-alpha.1
-      graphql-ez: workspace:^0.15.2
+      graphql-ez: workspace:^
       mocha: ^10.2.0
       typescript: ^4.9.4
     dependencies:
@@ -1068,7 +1068,7 @@ importers:
   internal/testing:
     specifiers:
       '@fastify/nextjs': ^9.2.0
-      '@graphql-ez/utils': workspace:^0.1.5
+      '@graphql-ez/utils': workspace:^
       '@graphql-tools/schema': ^9.0.12
       '@graphql-tools/utils': ^9.1.3
       '@graphql-typed-document-node/core': ^3.1.1
@@ -1224,7 +1224,7 @@ importers:
 
   packages/client/main:
     specifiers:
-      '@graphql-ez/utils': workspace:^0.1.5
+      '@graphql-ez/utils': workspace:^
       '@graphql-typed-document-node/core': ^3.1.1
       '@types/eventsource': ^1.1.10
       '@types/extract-files': ^8.1.1
@@ -1276,7 +1276,7 @@ importers:
 
   packages/cloudflare/main:
     specifiers:
-      '@graphql-ez/utils': workspace:^0.1.5
+      '@graphql-ez/utils': workspace:^
       '@types/node': ^18.11.15
       '@types/wait-on': ^5.3.1
       bob-esbuild-cli: ^4.0.0
@@ -1285,7 +1285,7 @@ importers:
       execa: ^5.1.1
       get-port: ^5.1.1
       graphql: 16.1.0-experimental-stream-defer.6
-      graphql-ez: workspace:^0.15.2
+      graphql-ez: workspace:^
       jest: ^29.3.1
       miniflare: ^2.11.0
       typescript: ^4.9.4
@@ -1316,8 +1316,8 @@ importers:
     specifiers:
       '@envelop/core': ^2.6.0
       '@envelop/types': ^2.4.0
-      '@graphql-ez/utils': workspace:^0.1.5
-      '@pablosz/graphql-helix': workspace:^2.0.3
+      '@graphql-ez/utils': workspace:^
+      '@pablosz/graphql-helix': workspace:^
       '@types/node': ^18.11.15
       bob-esbuild-cli: ^4.0.0
       changesets-github-release: ^0.1.0
@@ -1361,7 +1361,7 @@ importers:
 
   packages/express/main:
     specifiers:
-      '@graphql-ez/utils': workspace:^0.1.5
+      '@graphql-ez/utils': workspace:^
       '@types/body-parser': ^1.19.2
       '@types/cors': ^2.8.13
       '@types/express': ^4.17.15
@@ -1372,7 +1372,7 @@ importers:
       esbuild: ^0.16.9
       express: ^4.18.2
       graphql: 16.1.0-experimental-stream-defer.6
-      graphql-ez: workspace:^0.15.2
+      graphql-ez: workspace:^
       jest: ^29.3.1
       ts-jest: ^29.0.3
       typescript: ^4.9.4
@@ -1397,9 +1397,9 @@ importers:
 
   packages/express/testing:
     specifiers:
-      '@graphql-ez/client': workspace:^0.6.0
-      '@graphql-ez/express': workspace:^0.9.8
-      '@graphql-ez/utils': workspace:^0.1.5
+      '@graphql-ez/client': workspace:^
+      '@graphql-ez/express': workspace:^
+      '@graphql-ez/utils': workspace:^
       '@types/express': ^4.17.15
       '@types/node': ^18.11.15
       bob-esbuild-cli: ^4.0.0
@@ -1407,7 +1407,7 @@ importers:
       esbuild: ^0.16.9
       express: ^4.18.2
       graphql: 16.1.0-experimental-stream-defer.6
-      graphql-ez: workspace:^0.15.2
+      graphql-ez: workspace:^
       jest: ^29.3.1
       typescript: ^4.9.4
     dependencies:
@@ -1430,14 +1430,14 @@ importers:
   packages/fastify/main:
     specifiers:
       '@fastify/cors': ^8.2.0
-      '@graphql-ez/utils': workspace:^0.1.5
+      '@graphql-ez/utils': workspace:^
       '@types/node': ^18.11.15
       bob-esbuild-cli: ^4.0.0
       changesets-github-release: ^0.1.0
       esbuild: ^0.16.9
       fastify: ^4.10.2
       graphql: 16.1.0-experimental-stream-defer.6
-      graphql-ez: workspace:^0.15.2
+      graphql-ez: workspace:^
       jest: ^29.3.1
       ts-jest: ^29.0.3
       typescript: ^4.9.4
@@ -1459,16 +1459,16 @@ importers:
 
   packages/fastify/testing:
     specifiers:
-      '@graphql-ez/client': workspace:^0.6.0
-      '@graphql-ez/fastify': workspace:^0.11.0
-      '@graphql-ez/utils': workspace:^0.1.5
+      '@graphql-ez/client': workspace:^
+      '@graphql-ez/fastify': workspace:^
+      '@graphql-ez/utils': workspace:^
       '@types/node': ^18.11.15
       bob-esbuild-cli: ^4.0.0
       changesets-github-release: ^0.1.0
       esbuild: ^0.16.9
       fastify: ^4.10.2
       graphql: 16.1.0-experimental-stream-defer.6
-      graphql-ez: workspace:^0.15.2
+      graphql-ez: workspace:^
       jest: ^29.3.1
       typescript: ^4.9.4
     dependencies:
@@ -1495,7 +1495,7 @@ importers:
       changesets-github-release: ^0.1.0
       esbuild: ^0.16.9
       graphql: 16.1.0-experimental-stream-defer.6
-      graphql-ez: workspace:^0.15.2
+      graphql-ez: workspace:^
       jest: ^29.3.1
       ts-jest: ^29.0.3
       typescript: ^4.9.4
@@ -1514,16 +1514,16 @@ importers:
 
   packages/hapi/testing:
     specifiers:
-      '@graphql-ez/client': workspace:^0.6.0
-      '@graphql-ez/hapi': workspace:^0.9.0
-      '@graphql-ez/utils': workspace:^0.1.5
+      '@graphql-ez/client': workspace:^
+      '@graphql-ez/hapi': workspace:^
+      '@graphql-ez/utils': workspace:^
       '@hapi/hapi': ^21.1.0
       '@types/node': ^18.11.15
       bob-esbuild-cli: ^4.0.0
       changesets-github-release: ^0.1.0
       esbuild: ^0.16.9
       graphql: 16.1.0-experimental-stream-defer.6
-      graphql-ez: workspace:^0.15.2
+      graphql-ez: workspace:^
       jest: ^29.3.1
       typescript: ^4.9.4
     dependencies:
@@ -1562,7 +1562,7 @@ importers:
   packages/helix/graphiql:
     specifiers:
       '@graphiql/toolkit': 0.4.5
-      '@graphql-ez/utils': workspace:^0.1.5
+      '@graphql-ez/utils': workspace:^
       '@graphql-tools/url-loader': 7.16.26
       '@graphql-tools/utils': ^9.1.3
       '@n1ru4l/graphql-live-query': ^0.9.0
@@ -1579,7 +1579,7 @@ importers:
       esbuild: ^0.16.9
       graphiql: ^1.11.5
       graphql: 16.1.0-experimental-stream-defer.6
-      graphql-ez: workspace:^0.15.2
+      graphql-ez: workspace:^
       graphql-language-service-interface: ^2.10.2
       graphql-ws: ^5.11.2
       prettier: ^2.8.1
@@ -1619,7 +1619,7 @@ importers:
 
   packages/http/main:
     specifiers:
-      '@graphql-ez/utils': workspace:^0.1.5
+      '@graphql-ez/utils': workspace:^
       '@types/cors': ^2.8.13
       '@types/node': ^18.11.15
       bob-esbuild-cli: ^4.0.0
@@ -1627,7 +1627,7 @@ importers:
       cors: ^2.8.5
       esbuild: ^0.16.9
       graphql: 16.1.0-experimental-stream-defer.6
-      graphql-ez: workspace:^0.15.2
+      graphql-ez: workspace:^
       jest: ^29.3.1
       ts-jest: ^29.0.3
       typescript: ^4.9.4
@@ -1649,15 +1649,15 @@ importers:
 
   packages/http/testing:
     specifiers:
-      '@graphql-ez/client': workspace:^0.6.0
-      '@graphql-ez/http': workspace:^0.10.4
-      '@graphql-ez/utils': workspace:^0.1.5
+      '@graphql-ez/client': workspace:^
+      '@graphql-ez/http': workspace:^
+      '@graphql-ez/utils': workspace:^
       '@types/node': ^18.11.15
       bob-esbuild-cli: ^4.0.0
       changesets-github-release: ^0.1.0
       esbuild: ^0.16.9
       graphql: 16.1.0-experimental-stream-defer.6
-      graphql-ez: workspace:^0.15.2
+      graphql-ez: workspace:^
       jest: ^29.3.1
       typescript: ^4.9.4
     dependencies:
@@ -1688,7 +1688,7 @@ importers:
       changesets-github-release: ^0.1.0
       esbuild: ^0.16.9
       graphql: 16.1.0-experimental-stream-defer.6
-      graphql-ez: workspace:^0.15.2
+      graphql-ez: workspace:^
       jest: ^29.3.1
       koa: ^2.14.1
       koa-bodyparser: ^4.3.0
@@ -1717,9 +1717,9 @@ importers:
 
   packages/koa/testing:
     specifiers:
-      '@graphql-ez/client': workspace:^0.6.0
-      '@graphql-ez/koa': workspace:^0.8.12
-      '@graphql-ez/utils': workspace:^0.1.5
+      '@graphql-ez/client': workspace:^
+      '@graphql-ez/koa': workspace:^
+      '@graphql-ez/utils': workspace:^
       '@koa/router': ^12.0.0
       '@types/koa': ^2.13.5
       '@types/koa__router': ^12.0.0
@@ -1728,7 +1728,7 @@ importers:
       changesets-github-release: ^0.1.0
       esbuild: ^0.16.9
       graphql: 16.1.0-experimental-stream-defer.6
-      graphql-ez: workspace:^0.15.2
+      graphql-ez: workspace:^
       jest: ^29.3.1
       koa: ^2.14.1
       typescript: ^4.9.4
@@ -1763,7 +1763,7 @@ importers:
       cors: ^2.8.5
       esbuild: ^0.16.9
       graphql: 16.1.0-experimental-stream-defer.6
-      graphql-ez: workspace:^0.15.2
+      graphql-ez: workspace:^
       jest: ^29.3.1
       next: ^12.3.4
       next-test-api-route-handler: ^3.1.7
@@ -1795,14 +1795,14 @@ importers:
 
   packages/nextjs/testing:
     specifiers:
-      '@graphql-ez/nextjs': workspace:^0.10.2
-      '@graphql-ez/utils': workspace:^0.1.5
+      '@graphql-ez/nextjs': workspace:^
+      '@graphql-ez/utils': workspace:^
       '@graphql-typed-document-node/core': ^3.1.1
       '@types/node': ^18.11.15
       changesets-github-release: ^0.1.0
       esbuild: ^0.16.9
       graphql: 16.1.0-experimental-stream-defer.6
-      graphql-ez: workspace:^0.15.2
+      graphql-ez: workspace:^
       next: ^12.3.4
       next-test-api-route-handler: ^3.1.7
       typescript: ^4.9.4
@@ -1823,7 +1823,7 @@ importers:
 
   packages/plugin/altair:
     specifiers:
-      '@graphql-ez/utils': workspace:^0.1.5
+      '@graphql-ez/utils': workspace:^
       '@types/mime-types': ^2.1.1
       '@types/node': ^18.11.15
       altair-static-slim: 5.0.9
@@ -1831,7 +1831,7 @@ importers:
       changesets-github-release: ^0.1.0
       cross-undici-fetch: ^0.4.14
       esbuild: ^0.16.9
-      graphql-ez: workspace:^0.15.2
+      graphql-ez: workspace:^
       jest: ^29.3.1
       mime-types: ^2.1.35
       next: ^12.3.4
@@ -1857,13 +1857,13 @@ importers:
 
   packages/plugin/automatic-persisted-queries:
     specifiers:
-      '@graphql-ez/utils': workspace:^0.1.5
+      '@graphql-ez/utils': workspace:^
       '@types/node': ^18.11.15
       bob-esbuild-cli: ^4.0.0
       changesets-github-release: ^0.1.0
       esbuild: ^0.16.9
       graphql: 16.1.0-experimental-stream-defer.6
-      graphql-ez: workspace:^0.15.2
+      graphql-ez: workspace:^
       jest: ^29.3.1
       tiny-lru: ^10.0.1
       ts-jest: ^29.0.3
@@ -1891,7 +1891,7 @@ importers:
       '@graphql-codegen/typescript': ^2.8.5
       '@graphql-codegen/typescript-operations': ^2.5.10
       '@graphql-codegen/typescript-resolvers': ^2.7.10
-      '@graphql-ez/utils': workspace:^0.1.5
+      '@graphql-ez/utils': workspace:^
       '@graphql-tools/graphql-file-loader': ^7.5.13
       '@graphql-tools/load': ^7.8.8
       '@graphql-tools/utils': ^9.1.3
@@ -1903,7 +1903,7 @@ importers:
       changesets-github-release: ^0.1.0
       esbuild: ^0.16.9
       graphql: 16.1.0-experimental-stream-defer.6
-      graphql-ez: workspace:^0.15.2
+      graphql-ez: workspace:^
       jest: ^29.3.1
       mkdirp: ^1.0.4
       prettier: ^2.8.1
@@ -1951,7 +1951,7 @@ importers:
       dataloader: ^2.1.0
       esbuild: ^0.16.9
       graphql: 16.1.0-experimental-stream-defer.6
-      graphql-ez: workspace:^0.15.2
+      graphql-ez: workspace:^
       jest: ^29.3.1
       ts-jest: ^29.0.3
       typescript: ^4.9.4
@@ -1975,13 +1975,13 @@ importers:
 
   packages/plugin/graphiql:
     specifiers:
-      '@graphql-ez/utils': workspace:^0.1.5
-      '@pablosz/graphql-helix-graphiql': workspace:^4.2.1
+      '@graphql-ez/utils': workspace:^
+      '@pablosz/graphql-helix-graphiql': workspace:^
       '@types/node': ^18.11.15
       bob-esbuild-cli: ^4.0.0
       changesets-github-release: ^0.1.0
       esbuild: ^0.16.9
-      graphql-ez: workspace:^0.15.2
+      graphql-ez: workspace:^
       jest: ^29.3.1
       next: ^12.3.4
       ts-jest: ^29.0.3
@@ -2004,14 +2004,14 @@ importers:
   packages/plugin/modules:
     specifiers:
       '@envelop/graphql-modules': ^3.6.0
-      '@graphql-ez/utils': workspace:^0.1.5
+      '@graphql-ez/utils': workspace:^
       '@graphql-tools/schema': ^9.0.12
       '@types/node': ^18.11.15
       bob-esbuild-cli: ^4.0.0
       changesets-github-release: ^0.1.0
       esbuild: ^0.16.9
       graphql: 16.1.0-experimental-stream-defer.6
-      graphql-ez: workspace:^0.15.2
+      graphql-ez: workspace:^
       graphql-modules: ^2.1.0
       jest: ^29.3.1
       ts-jest: ^29.0.3
@@ -2035,14 +2035,14 @@ importers:
 
   packages/plugin/scalars:
     specifiers:
-      '@graphql-ez/utils': workspace:^0.1.5
+      '@graphql-ez/utils': workspace:^
       '@graphql-tools/utils': ^9.1.3
       '@types/node': ^18.11.15
       bob-esbuild-cli: ^4.0.0
       changesets-github-release: ^0.1.0
       esbuild: ^0.16.9
       graphql: 16.1.0-experimental-stream-defer.6
-      graphql-ez: workspace:^0.15.2
+      graphql-ez: workspace:^
       graphql-scalars: ^1.20.1
       jest: ^29.3.1
       ts-jest: ^29.0.3
@@ -2065,7 +2065,7 @@ importers:
 
   packages/plugin/schema:
     specifiers:
-      '@graphql-ez/utils': workspace:^0.1.5
+      '@graphql-ez/utils': workspace:^
       '@graphql-tools/schema': ^9.0.12
       '@graphql-tools/utils': ^9.1.3
       '@types/node': ^18.11.15
@@ -2073,7 +2073,7 @@ importers:
       changesets-github-release: ^0.1.0
       esbuild: ^0.16.9
       graphql: 16.1.0-experimental-stream-defer.6
-      graphql-ez: workspace:^0.15.2
+      graphql-ez: workspace:^
       jest: ^29.3.1
       ts-jest: ^29.0.3
       typescript: ^4.9.4
@@ -2095,13 +2095,13 @@ importers:
 
   packages/plugin/sse:
     specifiers:
-      '@graphql-ez/utils': workspace:^0.1.5
+      '@graphql-ez/utils': workspace:^
       '@types/node': ^18.11.15
       bob-esbuild-cli: ^4.0.0
       changesets-github-release: ^0.1.0
       esbuild: ^0.16.9
       graphql: 16.1.0-experimental-stream-defer.6
-      graphql-ez: workspace:^0.15.2
+      graphql-ez: workspace:^
       graphql-sse: ^1.3.2
       jest: ^29.3.1
       typescript: ^4.9.4
@@ -2121,7 +2121,7 @@ importers:
 
   packages/plugin/upload:
     specifiers:
-      '@graphql-ez/utils': workspace:^0.1.5
+      '@graphql-ez/utils': workspace:^
       '@types/graphql-upload': ^8.0.12
       '@types/node': ^18.11.15
       '@types/node-fetch': ^2.6.2
@@ -2129,7 +2129,7 @@ importers:
       changesets-github-release: ^0.1.0
       esbuild: ^0.16.9
       graphql: 16.1.0-experimental-stream-defer.6
-      graphql-ez: workspace:^0.15.2
+      graphql-ez: workspace:^
       graphql-upload: ^13.0.0
       jest: ^29.3.1
       node-fetch: ^2.6.7
@@ -2155,12 +2155,12 @@ importers:
 
   packages/plugin/voyager:
     specifiers:
-      '@graphql-ez/utils': workspace:^0.1.5
+      '@graphql-ez/utils': workspace:^
       '@types/node': ^18.11.15
       bob-esbuild-cli: ^4.0.0
       changesets-github-release: ^0.1.0
       esbuild: ^0.16.9
-      graphql-ez: workspace:^0.15.2
+      graphql-ez: workspace:^
       jest: ^29.3.1
       next: ^12.3.4
       ts-jest: ^29.0.3
@@ -2181,14 +2181,14 @@ importers:
 
   packages/plugin/websockets:
     specifiers:
-      '@graphql-ez/utils': workspace:^0.1.5
+      '@graphql-ez/utils': workspace:^
       '@types/node': ^18.11.15
       '@types/ws': ^8.5.3
       bob-esbuild-cli: ^4.0.0
       changesets-github-release: ^0.1.0
       esbuild: ^0.16.9
       graphql: 16.1.0-experimental-stream-defer.6
-      graphql-ez: workspace:^0.15.2
+      graphql-ez: workspace:^
       graphql-ws: ^5.11.2
       jest: ^29.3.1
       subscriptions-transport-ws-envelop: ^2.0.2
@@ -2217,11 +2217,11 @@ importers:
     specifiers:
       '@envelop/core': ^2.6.0
       '@envelop/types': ^2.4.0
-      '@graphql-ez/plugin-altair': workspace:^0.10.0
-      '@graphql-ez/plugin-graphiql': workspace:^0.11.6
-      '@graphql-ez/plugin-schema': workspace:^0.8.6
-      '@graphql-ez/plugin-voyager': workspace:^0.9.5
-      '@graphql-ez/utils': workspace:^0.1.5
+      '@graphql-ez/plugin-altair': workspace:^
+      '@graphql-ez/plugin-graphiql': workspace:^
+      '@graphql-ez/plugin-schema': workspace:^
+      '@graphql-ez/plugin-voyager': workspace:^
+      '@graphql-ez/utils': workspace:^
       '@graphql-tools/schema': ^9.0.12
       '@sveltejs/adapter-auto': 1.0.0
       '@sveltejs/adapter-node': 1.0.0
@@ -2235,7 +2235,7 @@ importers:
       execa: ^5.1.1
       get-port: ^5.1.1
       graphql: 16.1.0-experimental-stream-defer.6
-      graphql-ez: workspace:^0.15.2
+      graphql-ez: workspace:^
       jest: ^29.3.1
       mime-types: ^2.1.35
       svelte: ^3.55.0
@@ -2290,7 +2290,7 @@ importers:
       cors: ^2.8.5
       esbuild: ^0.16.9
       graphql: 16.1.0-experimental-stream-defer.6
-      graphql-ez: workspace:^0.15.2
+      graphql-ez: workspace:^
       typescript: ^4.9.4
     dependencies:
       '@types/cors': 2.8.13
@@ -14706,7 +14706,7 @@ packages:
         optional: true
     dependencies:
       cookie: 0.5.0
-      next: 12.3.4_sfoxds7t5ydpegc3knd667wn6m
+      next: 12.3.4
       node-fetch: 2.6.7
     transitivePeerDependencies:
       - encoding
@@ -14756,7 +14756,6 @@ packages:
     transitivePeerDependencies:
       - '@babel/core'
       - babel-plugin-macros
-    dev: true
 
   /next/12.3.4_sfoxds7t5ydpegc3knd667wn6m:
     resolution: {integrity: sha512-VcyMJUtLZBGzLKo3oMxrEF0stxh8HwuW976pAzlHhI3t8qJ4SROjCrSh1T24bhrbjw55wfZXAbXPGwPt5FLRfQ==}
@@ -17117,7 +17116,6 @@ packages:
         optional: true
       react:
         optional: true
-    dev: true
 
   /styled-jsx/5.0.7_react@17.0.2:
     resolution: {integrity: sha512-b3sUzamS086YLRuvnaDigdAewz1/EFYlHpYBP5mZovKEdQQOIIYq8lApylub3HHZ6xFjV051kkGU7cudJmrXEA==}
@@ -18164,7 +18162,6 @@ packages:
     peerDependenciesMeta:
       react:
         optional: true
-    dev: true
 
   /use-sync-external-store/1.2.0_react@17.0.2:
     resolution: {integrity: sha512-eEgnFxGQ1Ife9bzYs6VLi8/4X6CObHMw9Qr9tPY43iKwsPw8xE8+EFsf/2cFZ5S3esXgpWgtSCtLNS41F+sKPA==}
@@ -18864,7 +18861,7 @@ packages:
       '@types/node': '*'
       fastify: ^4.7.0
       graphql: '*'
-      graphql-ez: workspace:^0.15.1
+      graphql-ez: '*'
     peerDependenciesMeta:
       fastify:
         optional: true
@@ -18889,7 +18886,7 @@ packages:
       '@types/node': '*'
       fastify: ^4.7.0
       graphql: '*'
-      graphql-ez: workspace:^0.15.1
+      graphql-ez: '*'
     peerDependenciesMeta:
       fastify:
         optional: true
@@ -18914,7 +18911,7 @@ packages:
       '@types/node': '*'
       fastify: ^4.7.0
       graphql: '*'
-      graphql-ez: workspace:^0.15.1
+      graphql-ez: '*'
     peerDependenciesMeta:
       fastify:
         optional: true
@@ -18939,7 +18936,7 @@ packages:
       '@types/node': '*'
       fastify: ^4.7.0
       graphql: '*'
-      graphql-ez: workspace:^0.15.1
+      graphql-ez: '*'
     peerDependenciesMeta:
       fastify:
         optional: true
@@ -18964,7 +18961,7 @@ packages:
       '@types/node': '*'
       fastify: ^4.7.0
       graphql: '*'
-      graphql-ez: workspace:^0.15.1
+      graphql-ez: '*'
     peerDependenciesMeta:
       fastify:
         optional: true
@@ -18989,7 +18986,7 @@ packages:
       '@types/node': '*'
       fastify: ^4.7.0
       graphql: '*'
-      graphql-ez: workspace:^0.15.1
+      graphql-ez: '*'
     peerDependenciesMeta:
       fastify:
         optional: true
@@ -19010,10 +19007,10 @@ packages:
     name: '@graphql-ez/fastify-testing'
     version: 0.3.0
     peerDependencies:
-      '@graphql-ez/fastify': workspace:^0.11.0
+      '@graphql-ez/fastify': workspace:*
       fastify: ^4.7.0
       graphql: '*'
-      graphql-ez: workspace:^0.15.1
+      graphql-ez: '*'
     dependencies:
       '@graphql-ez/client': link:packages/client/main
       '@graphql-ez/fastify': file:packages/fastify/main_5vxuxauuw6sc5nnpk6m4qtx3za
@@ -19029,10 +19026,10 @@ packages:
     name: '@graphql-ez/fastify-testing'
     version: 0.3.0
     peerDependencies:
-      '@graphql-ez/fastify': workspace:^0.11.0
+      '@graphql-ez/fastify': workspace:*
       fastify: ^4.7.0
       graphql: '*'
-      graphql-ez: workspace:^0.15.1
+      graphql-ez: '*'
     dependencies:
       '@graphql-ez/client': link:packages/client/main
       '@graphql-ez/fastify': file:packages/fastify/main_4k27ilawzviehwrrkqds5ab66a
@@ -19048,10 +19045,10 @@ packages:
     name: '@graphql-ez/fastify-testing'
     version: 0.3.0
     peerDependencies:
-      '@graphql-ez/fastify': workspace:^0.11.0
+      '@graphql-ez/fastify': workspace:*
       fastify: ^4.7.0
       graphql: '*'
-      graphql-ez: workspace:^0.15.1
+      graphql-ez: '*'
     dependencies:
       '@graphql-ez/client': link:packages/client/main
       '@graphql-ez/fastify': file:packages/fastify/main_nbuamt4tgvdbmu343vgj6gpm2m
@@ -19067,10 +19064,10 @@ packages:
     name: '@graphql-ez/fastify-testing'
     version: 0.3.0
     peerDependencies:
-      '@graphql-ez/fastify': workspace:^0.11.0
+      '@graphql-ez/fastify': workspace:*
       fastify: ^4.7.0
       graphql: '*'
-      graphql-ez: workspace:^0.15.1
+      graphql-ez: '*'
     dependencies:
       '@graphql-ez/client': link:packages/client/main
       '@graphql-ez/fastify': file:packages/fastify/main_fhnt5zdeomn4qvy3lten6wpguu
@@ -19086,10 +19083,10 @@ packages:
     name: '@graphql-ez/fastify-testing'
     version: 0.3.0
     peerDependencies:
-      '@graphql-ez/fastify': workspace:^0.11.0
+      '@graphql-ez/fastify': workspace:*
       fastify: ^4.7.0
       graphql: '*'
-      graphql-ez: workspace:^0.15.1
+      graphql-ez: '*'
     dependencies:
       '@graphql-ez/client': link:packages/client/main
       '@graphql-ez/fastify': file:packages/fastify/main_wuivytqsj7fuvhl23b5e2zl6bi
@@ -19105,10 +19102,10 @@ packages:
     name: '@graphql-ez/fastify-testing'
     version: 0.3.0
     peerDependencies:
-      '@graphql-ez/fastify': workspace:^0.11.0
+      '@graphql-ez/fastify': workspace:*
       fastify: ^4.7.0
       graphql: '*'
-      graphql-ez: workspace:^0.15.1
+      graphql-ez: '*'
     dependencies:
       '@graphql-ez/client': link:packages/client/main
       '@graphql-ez/fastify': file:packages/fastify/main_doxntfa7ucmrqlcbhkpjutatom
@@ -19126,7 +19123,7 @@ packages:
     engines: {node: '>=14.13.1'}
     peerDependencies:
       graphql: '*'
-      graphql-ez: workspace:^0.15.0
+      graphql-ez: '*'
     peerDependenciesMeta:
       graphql:
         optional: true
@@ -19146,7 +19143,7 @@ packages:
     engines: {node: '>=14.13.1'}
     peerDependencies:
       graphql: '*'
-      graphql-ez: workspace:^0.15.0
+      graphql-ez: '*'
     peerDependenciesMeta:
       graphql:
         optional: true
@@ -19166,7 +19163,7 @@ packages:
     engines: {node: '>=14.13.1'}
     peerDependencies:
       graphql: '*'
-      graphql-ez: workspace:^0.15.0
+      graphql-ez: '*'
     peerDependenciesMeta:
       graphql:
         optional: true
@@ -19186,7 +19183,7 @@ packages:
     engines: {node: '>=14.13.1'}
     peerDependencies:
       graphql: '*'
-      graphql-ez: workspace:^0.15.0
+      graphql-ez: '*'
     peerDependenciesMeta:
       graphql:
         optional: true
@@ -19206,7 +19203,7 @@ packages:
     engines: {node: '>=14.13.1'}
     peerDependencies:
       graphql: '*'
-      graphql-ez: workspace:^0.15.0
+      graphql-ez: '*'
     peerDependenciesMeta:
       graphql:
         optional: true

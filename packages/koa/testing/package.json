@@ -29,11 +29,11 @@
     "test": "jest"
   },
   "dependencies": {
-    "@graphql-ez/client": "workspace:^0.6.0",
-    "@graphql-ez/utils": "workspace:^0.1.5"
+    "@graphql-ez/client": "workspace:^",
+    "@graphql-ez/utils": "workspace:^"
   },
   "devDependencies": {
-    "@graphql-ez/koa": "workspace:^0.8.12",
+    "@graphql-ez/koa": "workspace:^",
     "@koa/router": "^12.0.0",
     "@types/koa": "^2.13.5",
     "@types/koa__router": "^12.0.0",
@@ -42,16 +42,16 @@
     "changesets-github-release": "^0.1.0",
     "esbuild": "^0.16.9",
     "graphql": "16.1.0-experimental-stream-defer.6",
-    "graphql-ez": "workspace:^0.15.2",
+    "graphql-ez": "workspace:^",
     "jest": "^29.3.1",
     "koa": "^2.14.1",
     "typescript": "^4.9.4"
   },
   "peerDependencies": {
-    "@graphql-ez/koa": "workspace:^0.8.11",
+    "@graphql-ez/koa": "workspace:^",
     "@koa/router": "*",
     "graphql": "*",
-    "graphql-ez": "workspace:^0.15.0",
+    "graphql-ez": "workspace:^",
     "koa": "*"
   },
   "publishConfig": {

@@ -10,12 +10,12 @@
     "start": "bob-tsm src/index.ts"
   },
   "dependencies": {
-    "@graphql-ez/fastify": "workspace:^0.11.0",
-    "@graphql-ez/plugin-codegen": "workspace:^0.7.12",
-    "@graphql-ez/plugin-schema": "workspace:^0.8.6",
+    "@graphql-ez/fastify": "workspace:*",
+    "@graphql-ez/plugin-codegen": "workspace:*",
+    "@graphql-ez/plugin-schema": "workspace:*",
     "fastify": "^4.10.2",
     "graphql": "16.1.0-experimental-stream-defer.6",
-    "graphql-ez": "workspace:^0.15.2"
+    "graphql-ez": "workspace:*"
   },
   "devDependencies": {
     "@types/node": "^18.11.15",

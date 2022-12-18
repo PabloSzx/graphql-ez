@@ -34,14 +34,14 @@
     "bob-esbuild-cli": "^4.0.0",
     "changesets-github-release": "^0.1.0",
     "esbuild": "^0.16.9",
-    "graphql-ez": "workspace:^0.15.2",
+    "graphql-ez": "workspace:^",
     "jest": "^29.3.1",
     "next": "^12.3.4",
     "ts-jest": "^29.0.3",
     "typescript": "^4.9.4"
   },
   "peerDependencies": {
-    "graphql-ez": "workspace:^0.15.2"
+    "graphql-ez": "workspace:^"
   },
   "engines": {
     "node": ">=14.13.1"
@@ -50,6 +50,6 @@
     "directory": "dist"
   },
   "dependencies": {
-    "@graphql-ez/utils": "workspace:^0.1.5"
+    "@graphql-ez/utils": "workspace:^"
   }
 }
