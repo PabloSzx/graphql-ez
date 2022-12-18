@@ -1,4 +1,3 @@
-import type { PluginOrDisabledPlugin } from '@envelop/core';
 import type { GetEnvelopedFn, Plugin } from '@envelop/types';
 import type { DocumentNode, GraphQLSchema } from 'graphql';
 import type { IncomingMessage } from 'http';
@@ -53,7 +52,7 @@ export type EZPlugin =
 
 export type NullableEZPlugin = EZPlugin | null | undefined | false;
 
-export type NullableEnvelopPlugin = PluginOrDisabledPlugin | PromiseOrValue<Plugin<any> | null | undefined | false>;
+export type NullableEnvelopPlugin = PromiseOrValue<Plugin<any> | null | undefined | false>;
 
 export type EZPreset = {
   self?: EZPlugin;

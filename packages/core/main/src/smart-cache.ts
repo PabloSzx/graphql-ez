@@ -1,6 +1,6 @@
 import type { Plugin, ValidateFunctionParameter } from '@envelop/types';
 import { getObjectValue } from '@graphql-ez/utils/object';
-import type { DocumentNode, GraphQLError } from 'graphql';
+import type { DocumentNode } from 'graphql';
 import { NoSchemaIntrospectionCustomRule, print } from 'graphql';
 import { lru } from 'tiny-lru';
 import type { EZContext } from './index';
@@ -109,23 +109,21 @@ export const SmartCacheIntrospection = (): NonNullable<EZPlugin['onPreBuild']> =
     const max = typeof pluginOptions.max === 'number' ? pluginOptions.max : DEFAULT_MAX;
     const ttl = typeof pluginOptions.ttl === 'number' ? pluginOptions.ttl : DEFAULT_TTL;
 
-    const resultCache = lru<readonly GraphQLError[]>(max, ttl);
+    const resultCache = lru<readonly unknown[]>(max, ttl);
 
     return {
       onSchemaChange() {
         resultCache.clear();
       },
       onValidate({ params: { documentAST }, setResult }) {
-        let key = DocumentKeyMap.get(documentAST);
-
-        if (key == null) key = print(documentAST);
+        const key = DocumentKeyMap.get(documentAST) ?? print(documentAST);
 
         const cacheValue = resultCache.get(key);
 
         if (cacheValue) setResult(cacheValue);
 
         return ({ result }) => {
-          resultCache.set(key!, result);
+          resultCache.set(key, result);
         };
       },
     };
