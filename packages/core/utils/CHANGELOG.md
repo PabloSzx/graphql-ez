@@ -1,5 +1,11 @@
 # @graphql-ez/utils
 
+## 0.2.0
+
+### Minor Changes
+
+- d2128a8c: Update to Envelop v3, no code changes should be required for basic usage
+
 ## 0.1.5
 
 ### Patch Changes

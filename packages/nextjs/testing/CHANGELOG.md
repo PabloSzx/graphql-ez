@@ -1,5 +1,18 @@
 # @graphql-ez/nextjs-testing
 
+## 0.3.0
+
+### Minor Changes
+
+- d2128a8c: Update to Envelop v3, no code changes should be required for basic usage
+
+### Patch Changes
+
+- Updated dependencies [d2128a8c]
+  - graphql-ez@0.16.0
+  - @graphql-ez/utils@0.2.0
+  - @graphql-ez/nextjs@0.11.0
+
 ## 0.2.3
 
 ### Patch Changes

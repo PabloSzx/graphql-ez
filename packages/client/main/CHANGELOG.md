@@ -1,5 +1,12 @@
 # @graphql-ez/client
 
+## 0.6.1
+
+### Patch Changes
+
+- Updated dependencies [d2128a8c]
+  - @graphql-ez/utils@0.2.0
+
 ## 0.6.0
 
 ### Minor Changes

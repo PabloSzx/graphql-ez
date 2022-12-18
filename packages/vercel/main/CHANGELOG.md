@@ -1,5 +1,16 @@
 # @graphql-ez/vercel
 
+## 0.2.0
+
+### Minor Changes
+
+- d2128a8c: Update to Envelop v3, no code changes should be required for basic usage
+
+### Patch Changes
+
+- Updated dependencies [d2128a8c]
+  - graphql-ez@0.16.0
+
 ## 0.1.3
 
 ### Patch Changes
