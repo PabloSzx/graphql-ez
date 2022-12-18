@@ -4,5 +4,7 @@
   "rangeStrategy": "bump",
   "ignorePaths": ["**/node_modules/**"],
   "automerge": true,
-  "ignoreDeps": ["graphql", "execa", "node-fetch", "@types/node-fetch", "execa", "get-port", "pnpm"]
+  "ignoreDeps": ["graphql", "execa", "node-fetch", "@types/node-fetch", "execa", "get-port", "pnpm"],
+  "rebaseWhen": "behind-base-branch",
+  "prHourlyLimit": 0
 }
