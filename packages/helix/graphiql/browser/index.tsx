@@ -190,7 +190,7 @@ export const init = async ({
 
         const executor = urlLoader.getExecutorAsync(endpoint, options);
 
-        setNetworkInterface(executor);
+        setNetworkInterface(() => executor);
 
         return () => {
           isCanceled = true;
