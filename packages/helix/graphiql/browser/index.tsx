@@ -70,7 +70,7 @@ const buildHybridMenuOptions = (hybridConfig: HybridSubscriptionTransportConfig,
 
 const getOperationWithFragments = (
   document: DocumentNode,
-  operationName: string
+  operationName: string | null | undefined
 ): {
   document: DocumentNode;
   isSubscriber: boolean;
@@ -198,13 +198,7 @@ export const init = async ({
       }, [menuOptions, hybridTransportIndex]);
 
       const onShare = () => {
-        const state = graphiqlRef.current?.state;
-
-        console.log({
-          a: state?.query,
-          b: state?.variables,
-          c: state?.operationName,
-        });
+        const state: Record<string, string> | undefined = graphiqlRef.current?.state;
 
         copyToClipboard(
           urlLoader.prepareGETUrl({
