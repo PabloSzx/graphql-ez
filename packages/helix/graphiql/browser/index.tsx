@@ -1,6 +1,6 @@
 import copyToClipboard from 'copy-to-clipboard';
 import GraphiQL from 'graphiql';
-import { DocumentNode, getOperationAST, Kind, parse } from 'graphql';
+import { DocumentNode, getOperationAST, Kind, parse, stripIgnoredCharacters } from 'graphql';
 import React from 'react';
 import ReactDOM from 'react-dom';
 
@@ -201,7 +201,7 @@ export const init = async ({
         const state: Record<string, string> | undefined = graphiqlRef.current?.state;
 
         copyToClipboard(
-          urlLoader.prepareGETUrl({
+          prepareGETUrl({
             baseUrl: window.location.href,
             query: state?.query || '',
             variables: state?.variables && JSON.parse(state.variables),
@@ -325,3 +325,37 @@ export const init = async ({
 };
 
 window['GraphQLHelixGraphiQL'] = { init };
+
+function prepareGETUrl({
+  baseUrl = '',
+  query,
+  variables,
+  operationName,
+  extensions,
+}: {
+  baseUrl: string;
+  query: string;
+  variables?: any;
+  operationName?: string;
+  extensions?: any;
+}) {
+  const dummyHostname = 'https://dummyhostname.com';
+  const validUrl = baseUrl.startsWith('http')
+    ? baseUrl
+    : baseUrl?.startsWith('/')
+    ? `${dummyHostname}${baseUrl}`
+    : `${dummyHostname}/${baseUrl}`;
+  const urlObj = new URL(validUrl);
+  urlObj.searchParams.set('query', stripIgnoredCharacters(query));
+  if (variables && Object.keys(variables).length > 0) {
+    urlObj.searchParams.set('variables', JSON.stringify(variables));
+  }
+  if (operationName) {
+    urlObj.searchParams.set('operationName', operationName);
+  }
+  if (extensions) {
+    urlObj.searchParams.set('extensions', JSON.stringify(extensions));
+  }
+  const finalUrl = urlObj.toString().replace(dummyHostname, '');
+  return finalUrl;
+}
