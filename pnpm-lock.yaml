@@ -581,7 +581,7 @@ importers:
       '@graphql-ez/fastify': workspace:*
       '@graphql-ez/plugin-altair': workspace:*
       '@types/node': ^18.11.15
-      class-validator: ^0.13.2
+      class-validator: ^0.14.0
       esbuild: ^0.16.9
       fastify: ^4.10.2
       graphql: ^15.8.0
@@ -593,12 +593,12 @@ importers:
     dependencies:
       '@graphql-ez/fastify': file:packages/fastify/main_nfzbdf4jkwgpeywz7y23egnam4
       '@graphql-ez/plugin-altair': link:../../../packages/plugin/altair
-      class-validator: 0.13.2
+      class-validator: 0.14.0
       fastify: 4.10.2
       graphql: 15.8.0
       graphql-ez: file:packages/core/main_graphql@15.8.0
       reflect-metadata: 0.1.13
-      type-graphql: 1.1.1_v2revtygxcm7xrdg2oz3ssohfu
+      type-graphql: 1.1.1_yxlhq5elwzdhphazhcbwh6wmlq
     devDependencies:
       '@types/node': 18.11.17
       esbuild: 0.16.9
@@ -8130,6 +8130,10 @@ packages:
     resolution: {integrity: sha512-PBjIUxZHOuj0R15/xuwJYjFi+KZdNFrehocChv4g5hu6aFroHue8m0lBP0POdK2nKzbw0cgV1mws8+V/JAcEkQ==}
     dev: false
 
+  /@types/validator/13.7.10:
+    resolution: {integrity: sha512-t1yxFAR2n0+VO6hd/FJ9F2uezAZVWHLmpmlJzm1eX03+H7+HsuTAp7L8QJs+2pQCfWkP1+EXsGK9Z9v7o/qPVQ==}
+    dev: false
+
   /@types/wait-on/5.3.1:
     resolution: {integrity: sha512-2FFOKCF/YydrMUaqg+fkk49qf0e5rDgwt6aQsMzFQzbS419h2gNOXyiwp/o2yYy27bi/C1z+HgfncryjGzlvgQ==}
     dependencies:
@@ -9300,9 +9304,10 @@ packages:
       static-extend: 0.1.2
     dev: false
 
-  /class-validator/0.13.2:
-    resolution: {integrity: sha512-yBUcQy07FPlGzUjoLuUfIOXzgynnQPPruyK1Ge2B74k9ROwnle1E+NxLWnUv5OLU8hA/qL5leAE9XnXq3byaBw==}
+  /class-validator/0.14.0:
+    resolution: {integrity: sha512-ct3ltplN8I9fOwUd8GrP8UQixwff129BkEtuWDKL5W45cQuLd19xqmTLu5ge78YDm/fdje6FMt0hGOhl0lii3A==}
     dependencies:
+      '@types/validator': 13.7.10
       libphonenumber-js: 1.10.15
       validator: 13.7.0
     dev: false
@@ -17752,7 +17757,7 @@ packages:
     engines: {node: '>=12.20'}
     dev: true
 
-  /type-graphql/1.1.1_v2revtygxcm7xrdg2oz3ssohfu:
+  /type-graphql/1.1.1_yxlhq5elwzdhphazhcbwh6wmlq:
     resolution: {integrity: sha512-iOOWVn0ehCYMukmnXStbkRwFE9dcjt7/oDcBS1JyQZo9CbhlIll4lHHps54HMEk4A4c8bUPd+DjK8w1/ZrxB4A==}
     engines: {node: '>= 10.3'}
     requiresBuild: true
@@ -17763,7 +17768,7 @@ packages:
       '@types/glob': 7.2.0
       '@types/node': 18.11.17
       '@types/semver': 7.3.13
-      class-validator: 0.13.2
+      class-validator: 0.14.0
       glob: 7.2.3
       graphql: 15.8.0
       graphql-query-complexity: 0.7.2_graphql@15.8.0
