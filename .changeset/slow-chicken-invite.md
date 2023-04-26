@@ -1,5 +1,5 @@
 ---
-"@graphql-ez/plugin-websockets": patch
+'@graphql-ez/plugin-websockets': patch
 ---
 
 allow passing ws server as option

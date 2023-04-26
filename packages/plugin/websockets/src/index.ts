@@ -90,7 +90,7 @@ export const ezWebSockets = (options: WebSocketOptions = 'adaptive'): EZPlugin =
       const enableGraphQLWS = options === 'new' || options === 'adaptive' || (typeof options === 'object' && options.graphQLWS);
 
       const enableAll = enableOldTransport && enableGraphQLWS;
-      const existingWSServer = typeof options === 'object' && options.wsServer
+      const existingWSServer = typeof options === 'object' && options.wsServer;
 
       const enabled: WebSocketsEnabledState | 'none' = enableAll
         ? 'adaptive'
@@ -121,10 +121,11 @@ export const ezWebSockets = (options: WebSocketOptions = 'adaptive'): EZPlugin =
             /**
              * graphql-ws
              */
-            existingWSServer || new ws.Server({
-              ...cleanObject(optionsObj.wsOptions),
-              noServer: true,
-            }),
+            existingWSServer ||
+              new ws.Server({
+                ...cleanObject(optionsObj.wsOptions),
+                noServer: true,
+              }),
             /**
              * subscriptions-transport-ws
              */
@@ -133,7 +134,8 @@ export const ezWebSockets = (options: WebSocketOptions = 'adaptive'): EZPlugin =
               noServer: true,
             }),
           ]
-        : existingWSServer || new ws.Server({
+        : existingWSServer ||
+          new ws.Server({
             ...cleanObject(optionsObj.wsOptions),
             noServer: true,
           });
