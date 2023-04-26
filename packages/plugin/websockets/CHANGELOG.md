@@ -1,5 +1,11 @@
 # @graphql-ez/plugin-websockets
 
+## 0.11.1
+
+### Patch Changes
+
+- 6c9930bf: allow passing ws server as option
+
 ## 0.11.0
 
 ### Minor Changes
