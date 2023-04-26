@@ -26,6 +26,7 @@
   "scripts": {
     "dev": "bob-esbuild watch",
     "prepack": "bob-esbuild build",
+    "prepare": "true",
     "postpublish": "gh-release",
     "test": "jest"
   },
@@ -50,7 +51,8 @@
   },
   "publishConfig": {
     "access": "public",
-    "directory": "dist"
+    "directory": "dist",
+    "linkDirectory": false
   },
   "typescript": {
     "definition": "dist/index.d.ts"

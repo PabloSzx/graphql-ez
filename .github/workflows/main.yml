@@ -28,7 +28,7 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-${{ matrix.node_version }}-
       - name: install pnpm
-        run: npm i pnpm@^7.1.1 -g
+        run: npm i pnpm@^8.3.1 -g
       - name: Cache Jest
         uses: actions/cache@v3
         with:
