@@ -25,6 +25,7 @@
   "scripts": {
     "dev": "bob-esbuild watch",
     "prepack": "bob-esbuild build",
+    "prepare": "true",
     "postpublish": "gh-release",
     "test": "jest"
   },
