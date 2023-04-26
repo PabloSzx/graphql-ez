@@ -20,12 +20,14 @@ export interface WebSocketObjectOptions {
   subscriptionsTransport?: FilteredSubscriptionsTransportOptions | boolean;
   graphQLWS?: FilteredGraphQLWSOptions | boolean;
   wsOptions?: Pick<WebSocketNode.ServerOptions, 'verifyClient' | 'clientTracking' | 'perMessageDeflate' | 'maxPayload'>;
+  wsServer?: WebSocketNode.Server;
 }
 
 export interface WebSocketObjectOptionsConfig {
   subscriptionsTransport?: FilteredSubscriptionsTransportOptions;
   graphQLWS?: FilteredGraphQLWSOptions;
   wsOptions?: Pick<WebSocketNode.ServerOptions, 'verifyClient' | 'clientTracking' | 'perMessageDeflate' | 'maxPayload'>;
+  wsServer?: WebSocketNode.Server;
 }
 
 export type WebSocketOptions = WebSocketObjectOptions | 'new' | 'legacy' | 'adaptive';
@@ -88,6 +90,7 @@ export const ezWebSockets = (options: WebSocketOptions = 'adaptive'): EZPlugin =
       const enableGraphQLWS = options === 'new' || options === 'adaptive' || (typeof options === 'object' && options.graphQLWS);
 
       const enableAll = enableOldTransport && enableGraphQLWS;
+      const existingWSServer = typeof options === 'object' && options.wsServer;
 
       const enabled: WebSocketsEnabledState | 'none' = enableAll
         ? 'adaptive'
@@ -118,10 +121,11 @@ export const ezWebSockets = (options: WebSocketOptions = 'adaptive'): EZPlugin =
             /**
              * graphql-ws
              */
-            new ws.Server({
-              ...cleanObject(optionsObj.wsOptions),
-              noServer: true,
-            }),
+            existingWSServer ||
+              new ws.Server({
+                ...cleanObject(optionsObj.wsOptions),
+                noServer: true,
+              }),
             /**
              * subscriptions-transport-ws
              */
@@ -130,7 +134,8 @@ export const ezWebSockets = (options: WebSocketOptions = 'adaptive'): EZPlugin =
               noServer: true,
             }),
           ]
-        : new ws.Server({
+        : existingWSServer ||
+          new ws.Server({
             ...cleanObject(optionsObj.wsOptions),
             noServer: true,
           });
