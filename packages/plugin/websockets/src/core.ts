@@ -94,8 +94,8 @@ export function handleGraphQLWS(
           payload: { operationName, query, variables },
         } = message;
 
-        if (typeof options.onSubscribe === 'function') {
-          options.onSubscribe(context, message);
+        if (typeof options?.onSubscribe === 'function') {
+          options?.onSubscribe(context, message);
         }
 
         const contextArgsData = {
