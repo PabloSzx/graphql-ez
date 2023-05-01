@@ -14,10 +14,7 @@ export type FilteredSubscriptionsTransportOptions = Omit<
   'schema' | 'execute' | 'subscribe' | 'onConnect' | 'validate' | 'parse'
 >;
 
-export type FilteredGraphQLWSOptions = Omit<
-  GraphQLWSOptions,
-  'schema' | 'execute' | 'subscribe' | 'context' | 'validate' | 'onSubscribe'
->;
+export type FilteredGraphQLWSOptions = Omit<GraphQLWSOptions, 'schema' | 'execute' | 'subscribe' | 'context' | 'validate'>;
 
 export interface WebSocketsState {
   closing: boolean;
@@ -88,7 +85,19 @@ export function handleGraphQLWS(
       ...cleanObject(options),
       execute,
       subscribe,
-      async onSubscribe({ connectionParams, extra: { request, socket } }, { payload: { operationName, query, variables } }) {
+      async onSubscribe(context, message) {
+        const {
+          connectionParams,
+          extra: { request, socket },
+        } = context;
+        const {
+          payload: { operationName, query, variables },
+        } = message;
+
+        if (typeof options?.onSubscribe === 'function') {
+          options.onSubscribe(context, message);
+        }
+
         const contextArgsData = {
           req: request,
           ws: {
