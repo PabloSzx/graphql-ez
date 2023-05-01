@@ -1,5 +1,11 @@
 # @graphql-ez/plugin-websockets
 
+## 0.11.2
+
+### Patch Changes
+
+- 36e7c9eb: allow introspecting onSubscribe from app level
+
 ## 0.11.1
 
 ### Patch Changes
