@@ -1,5 +1,9 @@
 lockfileVersion: '6.0'
 
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
+
 overrides:
   esbuild: ^0.16.9
   trim@<0.0.3: '>=0.0.3'
@@ -1111,7 +1115,7 @@ importers:
         version: 1.0.0(@sveltejs/kit@1.0.1)
       '@sveltejs/kit':
         specifier: 1.0.1
-        version: 1.0.1(svelte@3.55.0)(vite@4.0.2)
+        version: 1.0.1(svelte@3.55.0)(vite@4.4.8)
       svelte:
         specifier: ^3.55.0
         version: 3.55.0
@@ -1128,8 +1132,8 @@ importers:
         specifier: ^4.9.4
         version: 4.9.4
       vite:
-        specifier: ^4.0.2
-        version: 4.0.2(@types/node@18.11.17)
+        specifier: ^4.4.8
+        version: 4.4.8(@types/node@18.11.17)
 
   examples/vercel:
     dependencies:
@@ -3131,7 +3135,7 @@ importers:
         version: 1.0.0(@sveltejs/kit@1.0.1)
       '@sveltejs/kit':
         specifier: 1.0.1
-        version: 1.0.1(svelte@3.55.0)(vite@4.0.2)
+        version: 1.0.1(svelte@3.55.0)(vite@4.4.8)
       '@types/node':
         specifier: ^18.11.15
         version: 18.11.17
@@ -3187,8 +3191,8 @@ importers:
         specifier: ^4.9.4
         version: 4.9.4
       vite:
-        specifier: ^4.0.2
-        version: 4.0.2(@types/node@18.11.17)
+        specifier: ^4.4.8
+        version: 4.4.8(@types/node@18.11.17)
       wait-on:
         specifier: ^6.0.1
         version: 6.0.1
@@ -5609,6 +5613,7 @@ packages:
 
   /@emotion/memoize@0.7.4:
     resolution: {integrity: sha512-Ja/Vfqe3HpuzRsG1oBtWTHk2PGZ7GR+2Vz5iYGelAw8dx32K0y7PjVuxK6z1nMpZOqAFsRUPCkK1YjJ56qJlgw==}
+    requiresBuild: true
     dev: false
     optional: true
 
@@ -8448,7 +8453,7 @@ packages:
     peerDependencies:
       '@sveltejs/kit': ^1.0.0
     dependencies:
-      '@sveltejs/kit': 1.0.1(svelte@3.55.0)(vite@4.0.2)
+      '@sveltejs/kit': 1.0.1(svelte@3.55.0)(vite@4.4.8)
       import-meta-resolve: 2.2.0
     dev: true
 
@@ -8460,11 +8465,11 @@ packages:
       '@rollup/plugin-commonjs': 23.0.7(rollup@3.7.5)
       '@rollup/plugin-json': 5.0.2(rollup@3.7.5)
       '@rollup/plugin-node-resolve': 15.0.1(rollup@3.7.5)
-      '@sveltejs/kit': 1.0.1(svelte@3.55.0)(vite@4.0.2)
+      '@sveltejs/kit': 1.0.1(svelte@3.55.0)(vite@4.4.8)
       rollup: 3.7.5
     dev: true
 
-  /@sveltejs/kit@1.0.1(svelte@3.55.0)(vite@4.0.2):
+  /@sveltejs/kit@1.0.1(svelte@3.55.0)(vite@4.4.8):
     resolution: {integrity: sha512-C41aCaDjA7xoUdsrc/lSdU1059UdLPIRE1vEIRRynzpMujNgp82bTMHkDosb6vykH6LrLf3tT2w2/5NYQhKYGQ==}
     engines: {node: ^16.14 || >=18}
     hasBin: true
@@ -8473,7 +8478,7 @@ packages:
       svelte: ^3.54.0
       vite: ^4.0.0
     dependencies:
-      '@sveltejs/vite-plugin-svelte': 2.0.2(svelte@3.55.0)(vite@4.0.2)
+      '@sveltejs/vite-plugin-svelte': 2.0.2(svelte@3.55.0)(vite@4.4.8)
       '@types/cookie': 0.5.1
       cookie: 0.5.0
       devalue: 4.2.0
@@ -8487,12 +8492,12 @@ packages:
       svelte: 3.55.0
       tiny-glob: 0.2.9
       undici: 5.14.0
-      vite: 4.0.2(@types/node@18.11.17)
+      vite: 4.4.8(@types/node@18.11.17)
     transitivePeerDependencies:
       - supports-color
     dev: true
 
-  /@sveltejs/vite-plugin-svelte@2.0.2(svelte@3.55.0)(vite@4.0.2):
+  /@sveltejs/vite-plugin-svelte@2.0.2(svelte@3.55.0)(vite@4.4.8):
     resolution: {integrity: sha512-xCEan0/NNpQuL0l5aS42FjwQ6wwskdxC3pW1OeFtEKNZwRg7Evro9lac9HesGP6TdFsTv2xMes5ASQVKbCacxg==}
     engines: {node: ^14.18.0 || >= 16}
     peerDependencies:
@@ -8505,8 +8510,8 @@ packages:
       magic-string: 0.27.0
       svelte: 3.55.0
       svelte-hmr: 0.15.1(svelte@3.55.0)
-      vite: 4.0.2(@types/node@18.11.17)
-      vitefu: 0.2.4(vite@4.0.2)
+      vite: 4.4.8(@types/node@18.11.17)
+      vitefu: 0.2.4(vite@4.4.8)
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -15357,6 +15362,12 @@ packages:
     engines: {node: ^10 || ^12 || ^13.7 || ^14 || >=15.0.1}
     hasBin: true
 
+  /nanoid@3.3.6:
+    resolution: {integrity: sha512-BGcqMMJuToF7i1rt+2PWSNVnWIkGCU78jBG3RxO/bZlnZPK2Cmi2QaffxGO/2RvWi9sL+FAiRiXMgsyxQ1DIDA==}
+    engines: {node: ^10 || ^12 || ^13.7 || ^14 || >=15.0.1}
+    hasBin: true
+    dev: true
+
   /nanomatch@1.2.13:
     resolution: {integrity: sha512-fpoe2T0RbHwBTBUOftAfBPaDEi06ufaUai0mE6Yn1kacc3SnTErfb/h+X94VXzI64rKFHYImXSvdwGGCmwOqCA==}
     engines: {node: '>=0.10.0'}
@@ -16192,6 +16203,16 @@ packages:
       nanoid: 3.3.4
       picocolors: 1.0.0
       source-map-js: 1.0.2
+    dev: false
+
+  /postcss@8.4.27:
+    resolution: {integrity: sha512-gY/ACJtJPSmUFPDCHtX78+01fHa64FaU4zaaWfuh1MhGJISufJAH4cun6k/8fwsHYeK4UQmENQK+tRLCFJE8JQ==}
+    engines: {node: ^10 || ^12 || >=14}
+    dependencies:
+      nanoid: 3.3.6
+      picocolors: 1.0.0
+      source-map-js: 1.0.2
+    dev: true
 
   /preact@10.11.3:
     resolution: {integrity: sha512-eY93IVpod/zG3uMF22Unl8h9KkrcKIRs2EGar8hwLZZDU1lkjph303V9HZBwufh2s736U6VXuhD109LYqPoffg==}
@@ -17083,6 +17104,14 @@ packages:
   /rollup@2.79.1:
     resolution: {integrity: sha512-uKxbd0IhMZOhjAiD5oAFp7BqvkA4Dv47qpOCtaNvng4HBwdbWtdOh8f5nZNuk2rp51PMGk3bzfWu5oayNEuYnw==}
     engines: {node: '>=10.0.0'}
+    hasBin: true
+    optionalDependencies:
+      fsevents: 2.3.2
+    dev: true
+
+  /rollup@3.27.0:
+    resolution: {integrity: sha512-aOltLCrYZ0FhJDm7fCqwTjIUEVjWjcydKBV/Zeid6Mn8BWgDCUBBWT5beM5ieForYNo/1ZHuGJdka26kvQ3Gzg==}
+    engines: {node: '>=14.18.0', npm: '>=8.0.0'}
     hasBin: true
     optionalDependencies:
       fsevents: 2.3.2
@@ -18945,13 +18974,14 @@ packages:
       vfile-message: 3.1.3
     dev: false
 
-  /vite@4.0.2(@types/node@18.11.17):
-    resolution: {integrity: sha512-QJaY3R+tFlTagH0exVqbgkkw45B+/bXVBzF2ZD1KB5Z8RiAoiKo60vSUf6/r4c2Vh9jfGBKM4oBI9b4/1ZJYng==}
+  /vite@4.4.8(@types/node@18.11.17):
+    resolution: {integrity: sha512-LONawOUUjxQridNWGQlNizfKH89qPigK36XhMI7COMGztz8KNY0JHim7/xDd71CZwGT4HtSRgI7Hy+RlhG0Gvg==}
     engines: {node: ^14.18.0 || >=16.0.0}
     hasBin: true
     peerDependencies:
       '@types/node': '>= 14'
       less: '*'
+      lightningcss: ^1.21.0
       sass: '*'
       stylus: '*'
       sugarss: '*'
@@ -18960,6 +18990,8 @@ packages:
       '@types/node':
         optional: true
       less:
+        optional: true
+      lightningcss:
         optional: true
       sass:
         optional: true
@@ -18972,14 +19004,13 @@ packages:
     dependencies:
       '@types/node': 18.11.17
       esbuild: 0.16.9
-      postcss: 8.4.20
-      resolve: 1.22.1
-      rollup: 3.7.5
+      postcss: 8.4.27
+      rollup: 3.27.0
     optionalDependencies:
       fsevents: 2.3.2
     dev: true
 
-  /vitefu@0.2.4(vite@4.0.2):
+  /vitefu@0.2.4(vite@4.4.8):
     resolution: {integrity: sha512-fanAXjSaf9xXtOOeno8wZXIhgia+CZury481LsDaV++lSvcU2R9Ch2bPh3PYFyoHW+w9LqAeYRISVQjUIew14g==}
     peerDependencies:
       vite: ^3.0.0 || ^4.0.0
@@ -18987,7 +19018,7 @@ packages:
       vite:
         optional: true
     dependencies:
-      vite: 4.0.2(@types/node@18.11.17)
+      vite: 4.4.8(@types/node@18.11.17)
     dev: true
 
   /void-elements@3.1.0:
@@ -19336,7 +19367,6 @@ packages:
     resolution: {directory: benchmarks/bench, type: directory}
     id: file:benchmarks/bench
     name: benchmark-bench
-    version: 1.0.0
     peerDependencies:
       graphql: '*'
     dependencies:
@@ -19363,7 +19393,6 @@ packages:
     resolution: {directory: packages/core/main, type: directory}
     id: file:packages/core/main
     name: graphql-ez
-    version: 0.16.0
     engines: {node: '>=14.13.1'}
     peerDependencies:
       graphql: '*'
@@ -19383,7 +19412,6 @@ packages:
     resolution: {directory: packages/core/main, type: directory}
     id: file:packages/core/main
     name: graphql-ez
-    version: 0.16.0
     engines: {node: '>=14.13.1'}
     peerDependencies:
       graphql: '*'
@@ -19403,7 +19431,6 @@ packages:
     resolution: {directory: packages/core/main, type: directory}
     id: file:packages/core/main
     name: graphql-ez
-    version: 0.16.0
     engines: {node: '>=14.13.1'}
     peerDependencies:
       graphql: '*'
@@ -19423,7 +19450,6 @@ packages:
     resolution: {directory: packages/core/main, type: directory}
     id: file:packages/core/main
     name: graphql-ez
-    version: 0.16.0
     engines: {node: '>=14.13.1'}
     peerDependencies:
       graphql: '*'
@@ -19443,7 +19469,6 @@ packages:
     resolution: {directory: packages/core/main, type: directory}
     id: file:packages/core/main
     name: graphql-ez
-    version: 0.16.0
     engines: {node: '>=14.13.1'}
     peerDependencies:
       graphql: '*'
@@ -19463,7 +19488,6 @@ packages:
     resolution: {directory: packages/core/main, type: directory}
     id: file:packages/core/main
     name: graphql-ez
-    version: 0.16.0
     engines: {node: '>=14.13.1'}
     peerDependencies:
       graphql: '*'
@@ -19483,7 +19507,6 @@ packages:
     resolution: {directory: packages/fastify/main, type: directory}
     id: file:packages/fastify/main
     name: '@graphql-ez/fastify'
-    version: 0.12.0
     engines: {node: '>=14.13.1'}
     peerDependencies:
       '@types/node': '*'
@@ -19508,7 +19531,6 @@ packages:
     resolution: {directory: packages/fastify/main, type: directory}
     id: file:packages/fastify/main
     name: '@graphql-ez/fastify'
-    version: 0.12.0
     engines: {node: '>=14.13.1'}
     peerDependencies:
       '@types/node': '*'
@@ -19533,7 +19555,6 @@ packages:
     resolution: {directory: packages/fastify/main, type: directory}
     id: file:packages/fastify/main
     name: '@graphql-ez/fastify'
-    version: 0.12.0
     engines: {node: '>=14.13.1'}
     peerDependencies:
       '@types/node': '*'
@@ -19558,7 +19579,6 @@ packages:
     resolution: {directory: packages/fastify/main, type: directory}
     id: file:packages/fastify/main
     name: '@graphql-ez/fastify'
-    version: 0.12.0
     engines: {node: '>=14.13.1'}
     peerDependencies:
       '@types/node': '*'
@@ -19583,7 +19603,6 @@ packages:
     resolution: {directory: packages/fastify/main, type: directory}
     id: file:packages/fastify/main
     name: '@graphql-ez/fastify'
-    version: 0.12.0
     engines: {node: '>=14.13.1'}
     peerDependencies:
       '@types/node': '*'
@@ -19608,7 +19627,6 @@ packages:
     resolution: {directory: packages/fastify/main, type: directory}
     id: file:packages/fastify/main
     name: '@graphql-ez/fastify'
-    version: 0.12.0
     engines: {node: '>=14.13.1'}
     peerDependencies:
       '@types/node': '*'
@@ -19633,7 +19651,6 @@ packages:
     resolution: {directory: packages/fastify/testing, type: directory}
     id: file:packages/fastify/testing
     name: '@graphql-ez/fastify-testing'
-    version: 0.4.0
     peerDependencies:
       '@graphql-ez/fastify': workspace:*
       fastify: ^4.7.0
@@ -19652,7 +19669,6 @@ packages:
     resolution: {directory: packages/fastify/testing, type: directory}
     id: file:packages/fastify/testing
     name: '@graphql-ez/fastify-testing'
-    version: 0.4.0
     peerDependencies:
       '@graphql-ez/fastify': workspace:*
       fastify: ^4.7.0
@@ -19671,7 +19687,6 @@ packages:
     resolution: {directory: packages/fastify/testing, type: directory}
     id: file:packages/fastify/testing
     name: '@graphql-ez/fastify-testing'
-    version: 0.4.0
     peerDependencies:
       '@graphql-ez/fastify': workspace:*
       fastify: ^4.7.0
@@ -19690,7 +19705,6 @@ packages:
     resolution: {directory: packages/fastify/testing, type: directory}
     id: file:packages/fastify/testing
     name: '@graphql-ez/fastify-testing'
-    version: 0.4.0
     peerDependencies:
       '@graphql-ez/fastify': workspace:*
       fastify: ^4.7.0
@@ -19709,7 +19723,6 @@ packages:
     resolution: {directory: packages/fastify/testing, type: directory}
     id: file:packages/fastify/testing
     name: '@graphql-ez/fastify-testing'
-    version: 0.4.0
     peerDependencies:
       '@graphql-ez/fastify': workspace:*
       fastify: ^4.7.0
@@ -19728,7 +19741,6 @@ packages:
     resolution: {directory: packages/fastify/testing, type: directory}
     id: file:packages/fastify/testing
     name: '@graphql-ez/fastify-testing'
-    version: 0.4.0
     peerDependencies:
       '@graphql-ez/fastify': workspace:*
       fastify: ^4.7.0
@@ -19747,7 +19759,6 @@ packages:
     resolution: {directory: packages/plugin/schema, type: directory}
     id: file:packages/plugin/schema
     name: '@graphql-ez/plugin-schema'
-    version: 0.9.0
     engines: {node: '>=14.13.1'}
     peerDependencies:
       graphql: '*'
@@ -19767,7 +19778,6 @@ packages:
     resolution: {directory: packages/plugin/schema, type: directory}
     id: file:packages/plugin/schema
     name: '@graphql-ez/plugin-schema'
-    version: 0.9.0
     engines: {node: '>=14.13.1'}
     peerDependencies:
       graphql: '*'
@@ -19787,7 +19797,6 @@ packages:
     resolution: {directory: packages/plugin/schema, type: directory}
     id: file:packages/plugin/schema
     name: '@graphql-ez/plugin-schema'
-    version: 0.9.0
     engines: {node: '>=14.13.1'}
     peerDependencies:
       graphql: '*'
@@ -19807,7 +19816,6 @@ packages:
     resolution: {directory: packages/plugin/schema, type: directory}
     id: file:packages/plugin/schema
     name: '@graphql-ez/plugin-schema'
-    version: 0.9.0
     engines: {node: '>=14.13.1'}
     peerDependencies:
       graphql: '*'
@@ -19827,7 +19835,6 @@ packages:
     resolution: {directory: packages/plugin/schema, type: directory}
     id: file:packages/plugin/schema
     name: '@graphql-ez/plugin-schema'
-    version: 0.9.0
     engines: {node: '>=14.13.1'}
     peerDependencies:
       graphql: '*'
