@@ -123,12 +123,15 @@ export function EZClient(options: EZClientOptions): EZClientInstance {
           }
     );
 
-    if (!headers['content-type']?.startsWith('application/json')) {
+    const contentType = headers['content-type'];
+    const contentTypeString = Array.isArray(contentType) ? contentType[0] : contentType;
+
+    if (!contentTypeString?.startsWith('application/json')) {
       const errorBody = (await body.text().catch(() => null)) || 'No body';
       throw Error(`Unexpected content type received: ${headers['content-type']}, BodyText: ${errorBody}`);
     }
 
-    const json = await body.json();
+    const json = (await body.json()) as ExecutionResult<any, any>;
 
     return json;
   };

@@ -44,8 +44,7 @@
       "@pablosz/graphql-helix": ["packages/helix/core/src/index.ts"],
       "@pablosz/graphql-helix-graphiql": ["packages/helix/graphiql/src/index.ts"],
       "@pablosz/graphql-helix-graphiql/*": ["packages/helix/graphiql/src/*.ts"]
-    },
-    "importsNotUsedAsValues": "error"
+    }
   },
   "exclude": ["**/dist", "**/website", "**/coverage", "**/.next", "**/browser", "**/test-example", "integration/gql-17"],
   "include": ["packages", "internal", "bob-esbuild.config.ts", "jest.config.js", "benchmarks/bench", "integration"]

@@ -13,11 +13,13 @@
   "exports": {
     ".": {
       "require": "./dist/index.js",
-      "import": "./dist/index.mjs"
+      "import": "./dist/index.mjs",
+      "types": "./dist/index.d.ts"
     },
     "./*": {
       "require": "./dist/*.js",
-      "import": "./dist/*.mjs"
+      "import": "./dist/*.mjs",
+      "types": "./dist/*.d.ts"
     }
   },
   "main": "dist/index.js",
@@ -40,7 +42,7 @@
     "@types/node-fetch": "^2.6.2",
     "@types/rimraf": "^3.0.2",
     "@types/ws": "^8.5.3",
-    "bob-ts": "^4.1.1",
+    "bob-ts": "5.0.0-alpha-d826df0.0",
     "changesets-github-release": "^0.1.0",
     "esbuild": "^0.16.9",
     "eventsource": "^2.0.2",
@@ -52,7 +54,7 @@
     "node-fetch": "^2.6.7",
     "rimraf": "^3.0.2",
     "subscriptions-transport-ws-envelop": "^2.0.2",
-    "typescript": "^4.9.4",
+    "typescript": "^5.3.3",
     "ws": "^8.11.0"
   },
   "peerDependencies": {
