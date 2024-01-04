@@ -47,7 +47,11 @@ export type AssertedQuery = <TData = any, TVariables = {}>(
 ) => Promise<TData>;
 
 class GraphQLErrorJSON extends Error {
-  constructor(message: string, public locations: GraphQLError['locations'], public extensions: GraphQLError['extensions']) {
+  constructor(
+    message: string,
+    public locations: GraphQLError['locations'],
+    public extensions: GraphQLError['extensions']
+  ) {
     super(message);
   }
 }

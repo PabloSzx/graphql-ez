@@ -61,7 +61,7 @@ export type RequestHandler = (req: IncomingMessage, res: ServerResponse) => Prom
  * If it returns an object, it interrupts the default execution returning the given payload.
  */
 export interface PreProcessRequest {
-  (data: Readonly<{ appOptions: AppOptions; requestOptions: PreProcessRequestOptions }>): PromiseOrValue<
-    ProcessRequestResult<EZContext, unknown> | undefined | null | void
-  >;
+  (
+    data: Readonly<{ appOptions: AppOptions; requestOptions: PreProcessRequestOptions }>
+  ): PromiseOrValue<ProcessRequestResult<EZContext, unknown> | undefined | null | void>;
 }

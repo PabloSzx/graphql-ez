@@ -31,7 +31,7 @@ const PERSISTED_QUERY_EXTENSION_KEY = 'persistedQuery';
 
 const ALGORITHMS = ['sha256', 'sha512', 'sha1', 'md5'] as const;
 
-export type HashAlgorithm = typeof ALGORITHMS[number];
+export type HashAlgorithm = (typeof ALGORITHMS)[number];
 
 export const DEFAULT_HASH_ALGORITHM: HashAlgorithm = 'sha256';
 

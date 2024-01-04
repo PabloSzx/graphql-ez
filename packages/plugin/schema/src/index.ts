@@ -54,10 +54,10 @@ export interface RegisterTypeDefs {
  */
 export interface RegisterResolvers {
   <Resolvers extends EZResolvers>(resolvers: Resolvers): [Resolvers];
-  <Resolvers extends EZResolvers, Resolvers2 extends EZResolvers>(resolvers: Resolvers, resolvers2: Resolvers2): [
-    Resolvers,
-    Resolvers2
-  ];
+  <Resolvers extends EZResolvers, Resolvers2 extends EZResolvers>(
+    resolvers: Resolvers,
+    resolvers2: Resolvers2
+  ): [Resolvers, Resolvers2];
   <Resolvers extends EZResolvers, Resolvers2 extends EZResolvers, Resolvers3 extends EZResolvers>(
     resolvers: Resolvers,
     resolvers2: Resolvers2,
@@ -74,7 +74,7 @@ export interface RegisterResolvers {
     Resolvers2 extends EZResolvers,
     Resolvers3 extends EZResolvers,
     Resolvers4 extends EZResolvers,
-    Resolvers5 extends EZResolvers
+    Resolvers5 extends EZResolvers,
   >(
     resolvers: Resolvers,
     resolvers2: Resolvers2,
@@ -107,7 +107,7 @@ export interface RegisterSchemas {
     Schemas2 extends EZSchema,
     Schemas3 extends EZSchema,
     Schemas4 extends EZSchema,
-    Schemas5 extends EZSchema
+    Schemas5 extends EZSchema,
   >(
     schemas: Schemas,
     schemas2: Schemas2,

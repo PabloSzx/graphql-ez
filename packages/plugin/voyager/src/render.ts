@@ -26,8 +26,8 @@ export function renderVoyagerPage(options: RenderVoyagerOptions) {
     ? typeof headers === 'object'
       ? JSON.stringify(headers)
       : typeof headers === 'string'
-      ? headers
-      : '{}'
+        ? headers
+        : '{}'
     : '{}';
 
   return `

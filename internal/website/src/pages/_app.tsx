@@ -25,7 +25,7 @@ ExtendComponents({
   img: chakra.img,
 });
 
-const styles: typeof chakraTheme['styles'] = {
+const styles: (typeof chakraTheme)['styles'] = {
   global: props => ({
     body: {
       bg: mode('white', 'gray.850')(props),

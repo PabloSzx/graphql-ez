@@ -5,7 +5,7 @@ export type SubscribeOptions<
   TResult,
   TVariables extends Record<string, unknown>,
   TExtensions extends Record<string, unknown> = Record<string, unknown>,
-  TExtra extends {} = {}
+  TExtra extends {} = {},
 > = {
   onData?: (data: ExecutionResult<TResult>) => void;
   variables?: TVariables;
@@ -19,7 +19,7 @@ export interface SubscribeFunction<TExtra extends Record<string, any> = {}> {
     TVariables extends Record<string, unknown> = {
       [key: string]: any;
     },
-    TExtensions extends Record<string, unknown> = Record<string, unknown>
+    TExtensions extends Record<string, unknown> = Record<string, unknown>,
   >(
     query: string | TypedDocumentNode<TResult, TVariables>,
     options?: SubscribeOptions<TResult, TVariables, TExtensions, TExtra>

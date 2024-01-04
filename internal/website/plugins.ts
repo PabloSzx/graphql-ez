@@ -18,7 +18,7 @@ export const TagsList = [
   'vercel',
 ] as const;
 
-export type Tags = typeof TagsList[number];
+export type Tags = (typeof TagsList)[number];
 
 declare module '@guild-docs/server/npm' {
   interface Package {
