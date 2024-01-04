@@ -22,7 +22,7 @@
   ],
   "scripts": {
     "dev": "bob-esbuild watch",
-    "prepack": "bob-esbuild build"
+    "prepare": "bob-esbuild build"
   },
   "devDependencies": {
     "@fastify/nextjs": "^9.2.0",
@@ -43,7 +43,7 @@
     "@types/lodash": "^4.14.191",
     "@types/node": "^18.11.15",
     "@types/ws": "^8.5.3",
-    "bob-esbuild-cli": "^4.0.0",
+    "bob-esbuild-cli": "5.0.0-alpha-227aebc.0",
     "esbuild": "^0.16.9",
     "eventsource": "^2.0.2",
     "express": "^4.18.2",
