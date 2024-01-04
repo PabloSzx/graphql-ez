@@ -1,5 +1,11 @@
 # @graphql-ez/plugin-altair
 
+## 0.11.2
+
+### Patch Changes
+
+- 6fb104e: Update altair version to 6.1.0
+
 ## 0.11.1
 
 ### Patch Changes
