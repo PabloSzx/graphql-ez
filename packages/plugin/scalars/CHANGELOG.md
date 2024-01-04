@@ -1,5 +1,14 @@
 # @graphql-ez/plugin-scalars
 
+## 0.8.1
+
+### Patch Changes
+
+- 933522a: Update package.json with export types field
+- Updated dependencies [933522a]
+  - graphql-ez@0.16.1
+  - @graphql-ez/utils@0.2.1
+
 ## 0.8.0
 
 ### Minor Changes

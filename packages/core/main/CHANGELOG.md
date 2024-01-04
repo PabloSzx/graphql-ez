@@ -1,5 +1,14 @@
 # graphql-ez
 
+## 0.16.1
+
+### Patch Changes
+
+- 933522a: Update package.json with export types field
+- Updated dependencies [933522a]
+  - @graphql-ez/utils@0.2.1
+  - @pablosz/graphql-helix@2.0.4
+
 ## 0.16.0
 
 ### Minor Changes

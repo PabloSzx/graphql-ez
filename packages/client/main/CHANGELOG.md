@@ -1,5 +1,13 @@
 # @graphql-ez/client
 
+## 0.6.2
+
+### Patch Changes
+
+- 933522a: Update package.json with export types field
+- Updated dependencies [933522a]
+  - @graphql-ez/utils@0.2.1
+
 ## 0.6.1
 
 ### Patch Changes

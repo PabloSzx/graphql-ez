@@ -1,5 +1,14 @@
 # @graphql-ez/plugin-websockets
 
+## 0.11.3
+
+### Patch Changes
+
+- 933522a: Update package.json with export types field
+- Updated dependencies [933522a]
+  - graphql-ez@0.16.1
+  - @graphql-ez/utils@0.2.1
+
 ## 0.11.2
 
 ### Patch Changes

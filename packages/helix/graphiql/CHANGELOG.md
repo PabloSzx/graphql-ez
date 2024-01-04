@@ -1,5 +1,13 @@
 # @pablosz/graphql-helix-graphiql
 
+## 4.2.3
+
+### Patch Changes
+
+- 933522a: Update package.json with export types field
+- Updated dependencies [933522a]
+  - @graphql-ez/utils@0.2.1
+
 ## 4.2.2
 
 ### Patch Changes

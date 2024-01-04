@@ -1,5 +1,16 @@
 # @graphql-ez/http-testing
 
+## 0.3.1
+
+### Patch Changes
+
+- 933522a: Update package.json with export types field
+- Updated dependencies [933522a]
+  - @graphql-ez/client@0.6.2
+  - graphql-ez@0.16.1
+  - @graphql-ez/utils@0.2.1
+  - @graphql-ez/http@0.11.1
+
 ## 0.3.0
 
 ### Minor Changes

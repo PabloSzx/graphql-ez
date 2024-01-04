@@ -1,5 +1,11 @@
 # @graphql-ez/utils
 
+## 0.2.1
+
+### Patch Changes
+
+- 933522a: Update package.json with export types field
+
 ## 0.2.0
 
 ### Minor Changes

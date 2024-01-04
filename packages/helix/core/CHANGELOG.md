@@ -1,5 +1,11 @@
 # @pablosz/graphql-helix
 
+## 2.0.4
+
+### Patch Changes
+
+- 933522a: Update package.json with export types field
+
 ## 2.0.3
 
 ### Patch Changes

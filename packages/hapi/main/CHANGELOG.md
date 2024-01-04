@@ -1,5 +1,13 @@
 # @graphql-ez/hapi
 
+## 0.10.1
+
+### Patch Changes
+
+- 933522a: Update package.json with export types field
+- Updated dependencies [933522a]
+  - graphql-ez@0.16.1
+
 ## 0.10.0
 
 ### Minor Changes
