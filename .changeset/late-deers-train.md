@@ -1,5 +1,4 @@
 ---
-'graphql-ez-testing': patch
 '@graphql-ez/client': patch
 '@graphql-ez/cloudflare': patch
 'graphql-ez': patch
