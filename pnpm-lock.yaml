@@ -2562,9 +2562,9 @@ importers:
       '@graphql-ez/utils':
         specifier: workspace:^
         version: link:../../core/utils
-      altair-static-slim:
-        specifier: 5.0.9
-        version: 5.0.9
+      altair-static:
+        specifier: ^6.1.0
+        version: 6.1.0
       cross-undici-fetch:
         specifier: ^0.4.14
         version: 0.4.14
@@ -9452,6 +9452,12 @@ packages:
 
   /altair-static-slim@5.0.9:
     resolution: {integrity: sha512-PlG7yCBfV+dvBWRJBFb/v9m8N7lZcBTFdYNV1WIQfHW7w/sU8yat35uxGoAQ9K7XkOHNpRF0wdyRqmGwtro0bg==}
+    dev: true
+
+  /altair-static@6.1.0:
+    resolution: {integrity: sha512-Pfs+AGT8R/NDuPR/8376757tVZUILdUj3vz9QNLWxE5bLu0vn3lOjShxP40bbbvDGjZ6dKmpdtdeLCiGW1WHgA==}
+    engines: {node: '>= 6.9.1'}
+    dev: false
 
   /ansi-colors@4.1.1:
     resolution: {integrity: sha512-JoX0apGbHaUJBNl6yF+p6JAFYZ666/hhCGKN5t9QFjbJQKUU/g8MNbFDbvfrgKXvI1QpZplPOnwIo99lX/AAmA==}
