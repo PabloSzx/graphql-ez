@@ -2580,7 +2580,7 @@ importers:
         version: 18.19.4
       bob-esbuild-cli:
         specifier: 5.0.0-alpha-227aebc.0
-        version: 5.0.0-alpha-227aebc.0
+        version: 5.0.0-alpha-227aebc.0(bob-esbuild@5.0.0-alpha-227aebc.0)
       changesets-github-release:
         specifier: ^0.1.0
         version: 0.1.0
@@ -2595,10 +2595,10 @@ importers:
         version: 29.7.0(@types/node@18.19.4)
       next:
         specifier: ^12.3.4
-        version: 12.3.4
+        version: 12.3.4(react-dom@17.0.2)(react@17.0.2)
       ts-jest:
         specifier: ^29.0.3
-        version: 29.1.1(esbuild@0.16.17)(jest@29.7.0)(typescript@5.3.3)
+        version: 29.1.1(@jest/types@29.6.3)(esbuild@0.16.17)(jest@29.7.0)(typescript@5.3.3)
       typescript:
         specifier: ^5.3.3
         version: 5.3.3
@@ -3493,7 +3493,7 @@ packages:
       '@babel/traverse': 7.17.3
       '@babel/types': 7.23.6
       convert-source-map: 1.8.0
-      debug: 4.3.4
+      debug: 4.3.4(supports-color@8.1.1)
       gensync: 1.0.0-beta.2
       json5: 2.2.3
       semver: 6.3.1
@@ -4290,7 +4290,7 @@ packages:
       '@babel/helper-split-export-declaration': 7.22.6
       '@babel/parser': 7.23.6
       '@babel/types': 7.23.6
-      debug: 4.3.4
+      debug: 4.3.4(supports-color@8.1.1)
       globals: 11.12.0
     transitivePeerDependencies:
       - supports-color
@@ -9925,19 +9925,6 @@ packages:
       readable-stream: 3.6.0
     dev: false
 
-  /bob-esbuild-cli@5.0.0-alpha-227aebc.0:
-    resolution: {integrity: sha512-32Iyv8SXr2n7aVPcJjfPT3OEBzLnf+xROWJwM1iK6W0c2oebn3crBKNeFEtEKYAAszHtZ+2+u88COpXTAPaQjw==}
-    engines: {node: '>=14.13.1'}
-    hasBin: true
-    peerDependencies:
-      bob-esbuild: ^5.0.0-alpha-227aebc.0
-    peerDependenciesMeta:
-      bob-esbuild:
-        optional: true
-    dependencies:
-      commander: 11.1.0
-    dev: true
-
   /bob-esbuild-cli@5.0.0-alpha-227aebc.0(bob-esbuild@5.0.0-alpha-227aebc.0):
     resolution: {integrity: sha512-32Iyv8SXr2n7aVPcJjfPT3OEBzLnf+xROWJwM1iK6W0c2oebn3crBKNeFEtEKYAAszHtZ+2+u88COpXTAPaQjw==}
     engines: {node: '>=14.13.1'}
@@ -11297,17 +11284,6 @@ packages:
         optional: true
     dependencies:
       ms: 2.0.0
-
-  /debug@4.3.4:
-    resolution: {integrity: sha512-PRWFHuSU3eDtQJPvnNY7Jcket1j0t5OuOsFzPPzsekD52Zl8qUfFIPEiswXqIvHWGVHOgX+7G/vCNNhehwxfkQ==}
-    engines: {node: '>=6.0'}
-    peerDependencies:
-      supports-color: '*'
-    peerDependenciesMeta:
-      supports-color:
-        optional: true
-    dependencies:
-      ms: 2.1.2
 
   /debug@4.3.4(supports-color@8.1.1):
     resolution: {integrity: sha512-PRWFHuSU3eDtQJPvnNY7Jcket1j0t5OuOsFzPPzsekD52Zl8qUfFIPEiswXqIvHWGVHOgX+7G/vCNNhehwxfkQ==}
@@ -13927,7 +13903,7 @@ packages:
     resolution: {integrity: sha512-n3s8EwkdFIJCG3BPKBYvskgXGoy88ARzvegkitk60NxRdwltLOTaH7CUiMRXvwYorl0Q712iEjcWB+fK/MrWVw==}
     engines: {node: '>=10'}
     dependencies:
-      debug: 4.3.4
+      debug: 4.3.4(supports-color@8.1.1)
       istanbul-lib-coverage: 3.2.0
       source-map: 0.6.1
     transitivePeerDependencies:
@@ -15905,53 +15881,6 @@ packages:
       node-fetch: 2.6.9
     transitivePeerDependencies:
       - encoding
-
-  /next@12.3.4:
-    resolution: {integrity: sha512-VcyMJUtLZBGzLKo3oMxrEF0stxh8HwuW976pAzlHhI3t8qJ4SROjCrSh1T24bhrbjw55wfZXAbXPGwPt5FLRfQ==}
-    engines: {node: '>=12.22.0'}
-    hasBin: true
-    peerDependencies:
-      fibers: '>= 3.1.0'
-      node-sass: ^6.0.0 || ^7.0.0
-      react: '*'
-      react-dom: ^17.0.2 || ^18.0.0-0
-      sass: ^1.3.0
-    peerDependenciesMeta:
-      fibers:
-        optional: true
-      node-sass:
-        optional: true
-      react:
-        optional: true
-      react-dom:
-        optional: true
-      sass:
-        optional: true
-    dependencies:
-      '@next/env': 12.3.4
-      '@swc/helpers': 0.4.11
-      caniuse-lite: 1.0.30001572
-      postcss: 8.4.14
-      styled-jsx: 5.0.7
-      use-sync-external-store: 1.2.0
-    optionalDependencies:
-      '@next/swc-android-arm-eabi': 12.3.4
-      '@next/swc-android-arm64': 12.3.4
-      '@next/swc-darwin-arm64': 12.3.4
-      '@next/swc-darwin-x64': 12.3.4
-      '@next/swc-freebsd-x64': 12.3.4
-      '@next/swc-linux-arm-gnueabihf': 12.3.4
-      '@next/swc-linux-arm64-gnu': 12.3.4
-      '@next/swc-linux-arm64-musl': 12.3.4
-      '@next/swc-linux-x64-gnu': 12.3.4
-      '@next/swc-linux-x64-musl': 12.3.4
-      '@next/swc-win32-arm64-msvc': 12.3.4
-      '@next/swc-win32-ia32-msvc': 12.3.4
-      '@next/swc-win32-x64-msvc': 12.3.4
-    transitivePeerDependencies:
-      - '@babel/core'
-      - babel-plugin-macros
-    dev: true
 
   /next@12.3.4(react-dom@17.0.2)(react@17.0.2):
     resolution: {integrity: sha512-VcyMJUtLZBGzLKo3oMxrEF0stxh8HwuW976pAzlHhI3t8qJ4SROjCrSh1T24bhrbjw55wfZXAbXPGwPt5FLRfQ==}
@@ -18400,22 +18329,6 @@ packages:
       tslib: 2.6.2
     dev: false
 
-  /styled-jsx@5.0.7:
-    resolution: {integrity: sha512-b3sUzamS086YLRuvnaDigdAewz1/EFYlHpYBP5mZovKEdQQOIIYq8lApylub3HHZ6xFjV051kkGU7cudJmrXEA==}
-    engines: {node: '>= 12.0.0'}
-    peerDependencies:
-      '@babel/core': '*'
-      babel-plugin-macros: '*'
-      react: '*'
-    peerDependenciesMeta:
-      '@babel/core':
-        optional: true
-      babel-plugin-macros:
-        optional: true
-      react:
-        optional: true
-    dev: true
-
   /styled-jsx@5.0.7(react@17.0.2):
     resolution: {integrity: sha512-b3sUzamS086YLRuvnaDigdAewz1/EFYlHpYBP5mZovKEdQQOIIYq8lApylub3HHZ6xFjV051kkGU7cudJmrXEA==}
     engines: {node: '>= 12.0.0'}
@@ -18965,40 +18878,6 @@ packages:
       yargs-parser: 21.1.1
     dev: true
 
-  /ts-jest@29.1.1(esbuild@0.16.17)(jest@29.7.0)(typescript@5.3.3):
-    resolution: {integrity: sha512-D6xjnnbP17cC85nliwGiL+tpoKN0StpgE0TeOjXQTU6MVCfsB4v7aW05CgQ/1OywGb0x/oy9hHFnN+sczTiRaA==}
-    engines: {node: ^14.15.0 || ^16.10.0 || >=18.0.0}
-    hasBin: true
-    peerDependencies:
-      '@babel/core': '>=7.0.0-beta.0 <8'
-      '@jest/types': ^29.0.0
-      babel-jest: ^29.0.0
-      esbuild: '*'
-      jest: ^29.0.0
-      typescript: '>=4.3 <6'
-    peerDependenciesMeta:
-      '@babel/core':
-        optional: true
-      '@jest/types':
-        optional: true
-      babel-jest:
-        optional: true
-      esbuild:
-        optional: true
-    dependencies:
-      bs-logger: 0.2.6
-      esbuild: 0.16.17
-      fast-json-stable-stringify: 2.1.0
-      jest: 29.7.0(@types/node@18.19.4)
-      jest-util: 29.7.0
-      json5: 2.2.3
-      lodash.memoize: 4.1.2
-      make-error: 1.3.6
-      semver: 7.5.4
-      typescript: 5.3.3
-      yargs-parser: 21.1.1
-    dev: true
-
   /ts-morph@12.0.0:
     resolution: {integrity: sha512-VHC8XgU2fFW7yO1f/b3mxKDje1vmyzFXHWzOYmKEkCEwcLjDtbdLgBQviqj4ZwP4MJkQtRo6Ha2I29lq/B+VxA==}
     dependencies:
@@ -19523,15 +19402,6 @@ packages:
       react: 17.0.2
       tslib: 1.14.1
     dev: false
-
-  /use-sync-external-store@1.2.0:
-    resolution: {integrity: sha512-eEgnFxGQ1Ife9bzYs6VLi8/4X6CObHMw9Qr9tPY43iKwsPw8xE8+EFsf/2cFZ5S3esXgpWgtSCtLNS41F+sKPA==}
-    peerDependencies:
-      react: '*'
-    peerDependenciesMeta:
-      react:
-        optional: true
-    dev: true
 
   /use-sync-external-store@1.2.0(react@17.0.2):
     resolution: {integrity: sha512-eEgnFxGQ1Ife9bzYs6VLi8/4X6CObHMw9Qr9tPY43iKwsPw8xE8+EFsf/2cFZ5S3esXgpWgtSCtLNS41F+sKPA==}
