@@ -1,8 +1,8 @@
 import { withoutTrailingSlash, withTrailingSlash } from '@graphql-ez/utils/url';
-import type { AltairConfigOptions, RenderOptions } from 'altair-static-slim';
+import type { AltairConfigOptions, RenderOptions } from 'altair-static';
 import type { AltairRender } from '../types';
 
-export const altairUnpkgDist = 'https://unpkg.com/altair-static@4.3.1/build/dist/';
+export const altairUnpkgDist = 'https://unpkg.com/altair-static@6.1.0/build/dist/';
 
 let fetchFn: Promise<typeof fetch> | typeof fetch;
 

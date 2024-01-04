@@ -14,7 +14,7 @@ const AltairDeps = LazyPromise(async () => {
     },
     { resolve },
     { lookup },
-  ] = await Promise.all([import('altair-static-slim').then(getDefault), import('fs'), import('path'), import('mime-types')]);
+  ] = await Promise.all([import('altair-static'), import('fs'), import('path'), import('mime-types')]);
 
   return {
     getDistDirectory,
