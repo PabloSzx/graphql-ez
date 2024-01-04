@@ -2199,8 +2199,8 @@ importers:
         version: link:../../core/utils
     devDependencies:
       '@graphiql/toolkit':
-        specifier: 0.4.5
-        version: 0.4.5(@types/node@18.19.4)(graphql-ws@5.14.3)(graphql@16.1.0-experimental-stream-defer.6)
+        specifier: 0.9.1
+        version: 0.9.1(@types/node@18.19.4)(graphql-ws@5.14.3)(graphql@16.1.0-experimental-stream-defer.6)
       '@graphql-tools/url-loader':
         specifier: 7.16.26
         version: 7.16.26(@types/node@18.19.4)(graphql@16.1.0-experimental-stream-defer.6)
@@ -6188,8 +6188,8 @@ packages:
       - graphql-ws
     dev: true
 
-  /@graphiql/toolkit@0.4.5(@types/node@18.19.4)(graphql-ws@5.14.3)(graphql@16.1.0-experimental-stream-defer.6):
-    resolution: {integrity: sha512-QXuuMSSK/0GfBS7tltrGZdyhIvm6oe9TK4VW9pfa8dALYttpzyJ64Q4Sx9I1Ng++yOMJWziM/ksa043zkNHsjQ==}
+  /@graphiql/toolkit@0.6.1(@types/node@18.19.4)(graphql-ws@5.14.3)(graphql@16.1.0-experimental-stream-defer.6):
+    resolution: {integrity: sha512-rRjbHko6aSg1RWGr3yOJQqEV1tKe8yw9mDSr/18B+eDhVLQ30yyKk2NznFUT9NmIDzWFGR2pH/0lbBhHKmUCqw==}
     peerDependencies:
       graphql: '*'
       graphql-ws: '>= 4.5.0'
@@ -6202,11 +6202,14 @@ packages:
       - '@types/node'
     dev: true
 
-  /@graphiql/toolkit@0.6.1(@types/node@18.19.4)(graphql-ws@5.14.3)(graphql@16.1.0-experimental-stream-defer.6):
-    resolution: {integrity: sha512-rRjbHko6aSg1RWGr3yOJQqEV1tKe8yw9mDSr/18B+eDhVLQ30yyKk2NznFUT9NmIDzWFGR2pH/0lbBhHKmUCqw==}
+  /@graphiql/toolkit@0.9.1(@types/node@18.19.4)(graphql-ws@5.14.3)(graphql@16.1.0-experimental-stream-defer.6):
+    resolution: {integrity: sha512-LVt9pdk0830so50ZnU2Znb2rclcoWznG8r8asqAENzV0U1FM1kuY0sdPpc/rBc9MmmNgnB6A+WZzDhq6dbhTHA==}
     peerDependencies:
       graphql: '*'
       graphql-ws: '>= 4.5.0'
+    peerDependenciesMeta:
+      graphql-ws:
+        optional: true
     dependencies:
       '@n1ru4l/push-pull-async-iterable-iterator': 3.2.0
       graphql: 16.1.0-experimental-stream-defer.6
