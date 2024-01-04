@@ -1,5 +1,11 @@
 # @graphql-ez/plugin-altair
 
+## 0.11.3
+
+### Patch Changes
+
+- 1bf75f7: Update unpkg with new property options
+
 ## 0.11.2
 
 ### Patch Changes
