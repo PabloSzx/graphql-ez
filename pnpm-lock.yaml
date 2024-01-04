@@ -455,7 +455,7 @@ importers:
         specifier: ^7.6.0
         version: 7.6.0
       '@graphql-tools/schema':
-        specifier: ^9.0.12
+        specifier: ^9.0.19
         version: 9.0.19(graphql@16.1.0-experimental-stream-defer.6)
       autocannon:
         specifier: ^7.10.0
@@ -1509,10 +1509,10 @@ importers:
         specifier: workspace:^
         version: link:../../packages/core/utils
       '@graphql-tools/schema':
-        specifier: ^9.0.12
+        specifier: ^9.0.19
         version: 9.0.19(graphql@16.1.0-experimental-stream-defer.6)
       '@graphql-tools/utils':
-        specifier: ^9.1.3
+        specifier: ^9.2.1
         version: 9.2.1(graphql@16.1.0-experimental-stream-defer.6)
       '@graphql-typed-document-node/core':
         specifier: ^3.1.1
@@ -2202,10 +2202,10 @@ importers:
         specifier: 0.4.5
         version: 0.4.5(@types/node@18.19.4)(graphql-ws@5.14.3)(graphql@16.1.0-experimental-stream-defer.6)
       '@graphql-tools/url-loader':
-        specifier: 7.16.26
-        version: 7.16.26(@types/node@18.19.4)(graphql@16.1.0-experimental-stream-defer.6)
+        specifier: 7.17.18
+        version: 7.17.18(@types/node@18.19.4)(graphql@16.1.0-experimental-stream-defer.6)
       '@graphql-tools/utils':
-        specifier: ^9.1.3
+        specifier: ^9.2.1
         version: 9.2.1(graphql@16.1.0-experimental-stream-defer.6)
       '@n1ru4l/graphql-live-query':
         specifier: ^0.9.0
@@ -2470,7 +2470,7 @@ importers:
         version: 2.8.5
     devDependencies:
       '@graphql-tools/schema':
-        specifier: ^9.0.12
+        specifier: ^9.0.19
         version: 9.0.19(graphql@16.1.0-experimental-stream-defer.6)
       '@types/node':
         specifier: ^18.11.15
@@ -2666,13 +2666,13 @@ importers:
         specifier: workspace:^
         version: link:../../core/utils
       '@graphql-tools/graphql-file-loader':
-        specifier: ^7.5.13
+        specifier: ^7.5.17
         version: 7.5.17(graphql@16.1.0-experimental-stream-defer.6)
       '@graphql-tools/load':
-        specifier: ^7.8.8
+        specifier: ^7.8.14
         version: 7.8.14(graphql@16.1.0-experimental-stream-defer.6)
       '@graphql-tools/utils':
-        specifier: ^9.1.3
+        specifier: ^9.2.1
         version: 9.2.1(graphql@16.1.0-experimental-stream-defer.6)
       mkdirp:
         specifier: ^1.0.4
@@ -2816,7 +2816,7 @@ importers:
         specifier: workspace:^
         version: link:../../core/utils
       '@graphql-tools/schema':
-        specifier: ^9.0.12
+        specifier: ^9.0.19
         version: 9.0.19(graphql@16.1.0-experimental-stream-defer.6)
       graphql-modules:
         specifier: ^2.1.0
@@ -2857,7 +2857,7 @@ importers:
         specifier: workspace:^
         version: link:../../core/utils
       '@graphql-tools/utils':
-        specifier: ^9.1.3
+        specifier: ^9.2.1
         version: 9.2.1(graphql@16.1.0-experimental-stream-defer.6)
       graphql-scalars:
         specifier: ^1.20.1
@@ -2898,10 +2898,10 @@ importers:
         specifier: workspace:^
         version: link:../../core/utils
       '@graphql-tools/schema':
-        specifier: ^9.0.12
+        specifier: ^9.0.19
         version: 9.0.19(graphql@16.1.0-experimental-stream-defer.6)
       '@graphql-tools/utils':
-        specifier: ^9.1.3
+        specifier: ^9.2.1
         version: 9.2.1(graphql@16.1.0-experimental-stream-defer.6)
     devDependencies:
       '@types/node':
@@ -3122,7 +3122,7 @@ importers:
         specifier: workspace:^
         version: link:../../plugin/voyager
       '@graphql-tools/schema':
-        specifier: ^9.0.12
+        specifier: ^9.0.19
         version: 9.0.19(graphql@16.1.0-experimental-stream-defer.6)
       '@sveltejs/adapter-auto':
         specifier: 1.0.0
@@ -6339,16 +6339,16 @@ packages:
       - supports-color
     dev: false
 
-  /@graphql-tools/batch-execute@8.5.14(graphql@16.1.0-experimental-stream-defer.6):
-    resolution: {integrity: sha512-m6yXqqmFAH2V5JuSIC/geiGLBQA1Y6RddOJfUtkc9Z7ttkULRCd1W39TpYS6IlrCwYyTj+klO1/kdWiny38f5g==}
+  /@graphql-tools/batch-execute@8.5.22(graphql@16.1.0-experimental-stream-defer.6):
+    resolution: {integrity: sha512-hcV1JaY6NJQFQEwCKrYhpfLK8frSXDbtNMoTur98u10Cmecy1zrqNKSqhEyGetpgHxaJRqszGzKeI3RuroDN6A==}
     peerDependencies:
       graphql: '*'
     dependencies:
-      '@graphql-tools/utils': 9.1.3(graphql@16.1.0-experimental-stream-defer.6)
-      dataloader: 2.1.0
+      '@graphql-tools/utils': 9.2.1(graphql@16.1.0-experimental-stream-defer.6)
+      dataloader: 2.2.2
       graphql: 16.1.0-experimental-stream-defer.6
       tslib: 2.6.2
-      value-or-promise: 1.0.11
+      value-or-promise: 1.0.12
     dev: true
 
   /@graphql-tools/batch-execute@9.0.2(graphql@16.1.0-experimental-stream-defer.6):
@@ -6377,85 +6377,84 @@ packages:
       graphql: 16.1.0-experimental-stream-defer.6
       tslib: 2.6.2
 
-  /@graphql-tools/delegate@9.0.20(graphql@16.1.0-experimental-stream-defer.6):
-    resolution: {integrity: sha512-m/de++kSxa/JABQ15tyt6SMlc4qfl3MgFFWmwbPcWgJxlAvZ7oIdGXcUvU6VJcXiyXfo6MZ/zr4V2E2UwMehew==}
+  /@graphql-tools/delegate@9.0.35(graphql@16.1.0-experimental-stream-defer.6):
+    resolution: {integrity: sha512-jwPu8NJbzRRMqi4Vp/5QX1vIUeUPpWmlQpOkXQD2r1X45YsVceyUUBnktCrlJlDB4jPRVy7JQGwmYo3KFiOBMA==}
     peerDependencies:
       graphql: '*'
     dependencies:
-      '@graphql-tools/batch-execute': 8.5.14(graphql@16.1.0-experimental-stream-defer.6)
-      '@graphql-tools/executor': 0.0.11(graphql@16.1.0-experimental-stream-defer.6)
-      '@graphql-tools/schema': 9.0.12(graphql@16.1.0-experimental-stream-defer.6)
-      '@graphql-tools/utils': 9.1.3(graphql@16.1.0-experimental-stream-defer.6)
-      dataloader: 2.1.0
+      '@graphql-tools/batch-execute': 8.5.22(graphql@16.1.0-experimental-stream-defer.6)
+      '@graphql-tools/executor': 0.0.20(graphql@16.1.0-experimental-stream-defer.6)
+      '@graphql-tools/schema': 9.0.19(graphql@16.1.0-experimental-stream-defer.6)
+      '@graphql-tools/utils': 9.2.1(graphql@16.1.0-experimental-stream-defer.6)
+      dataloader: 2.2.2
       graphql: 16.1.0-experimental-stream-defer.6
-      tslib: 2.4.1
-      value-or-promise: 1.0.11
+      tslib: 2.6.2
+      value-or-promise: 1.0.12
     dev: true
 
-  /@graphql-tools/executor-graphql-ws@0.0.5(graphql@16.1.0-experimental-stream-defer.6):
-    resolution: {integrity: sha512-1bJfZdSBPCJWz1pJ5g/YHMtGt6YkNRDdmqNQZ8v+VlQTNVfuBpY2vzj15uvf5uDrZLg2MSQThrKlL8av4yFpsA==}
+  /@graphql-tools/executor-graphql-ws@0.0.14(graphql@16.1.0-experimental-stream-defer.6):
+    resolution: {integrity: sha512-P2nlkAsPZKLIXImFhj0YTtny5NQVGSsKnhi7PzXiaHSXc6KkzqbWZHKvikD4PObanqg+7IO58rKFpGXP7eeO+w==}
     peerDependencies:
       graphql: '*'
     dependencies:
-      '@graphql-tools/utils': 9.1.3(graphql@16.1.0-experimental-stream-defer.6)
+      '@graphql-tools/utils': 9.2.1(graphql@16.1.0-experimental-stream-defer.6)
       '@repeaterjs/repeater': 3.0.4
       '@types/ws': 8.5.3
       graphql: 16.1.0-experimental-stream-defer.6
-      graphql-ws: 5.11.2(graphql@16.1.0-experimental-stream-defer.6)
-      isomorphic-ws: 5.0.0(ws@8.11.0)
+      graphql-ws: 5.12.1(graphql@16.1.0-experimental-stream-defer.6)
+      isomorphic-ws: 5.0.0(ws@8.13.0)
       tslib: 2.6.2
-      ws: 8.11.0
+      ws: 8.13.0
     transitivePeerDependencies:
       - bufferutil
       - utf-8-validate
     dev: true
 
-  /@graphql-tools/executor-http@0.0.7(@types/node@18.19.4)(graphql@16.1.0-experimental-stream-defer.6):
-    resolution: {integrity: sha512-g0NV4HVZVABsylk6SIA/gfjQbMIsy3NjZYW0k0JZmTcp9698J37uG50GZC2mKe0F8pIlDvPLvrPloqdKGX3ZAA==}
+  /@graphql-tools/executor-http@0.1.10(@types/node@18.19.4)(graphql@16.1.0-experimental-stream-defer.6):
+    resolution: {integrity: sha512-hnAfbKv0/lb9s31LhWzawQ5hghBfHS+gYWtqxME6Rl0Aufq9GltiiLBcl7OVVOnkLF0KhwgbYP1mB5VKmgTGpg==}
     peerDependencies:
       graphql: '*'
     dependencies:
-      '@graphql-tools/utils': 9.1.3(graphql@16.1.0-experimental-stream-defer.6)
-      '@repeaterjs/repeater': 3.0.4
-      '@whatwg-node/fetch': 0.5.3
-      dset: 3.1.2
+      '@graphql-tools/utils': 9.2.1(graphql@16.1.0-experimental-stream-defer.6)
+      '@repeaterjs/repeater': 3.0.5
+      '@whatwg-node/fetch': 0.8.8
+      dset: 3.1.3
       extract-files: 11.0.0
       graphql: 16.1.0-experimental-stream-defer.6
       meros: 1.2.1(@types/node@18.19.4)
       tslib: 2.6.2
-      value-or-promise: 1.0.11
+      value-or-promise: 1.0.12
     transitivePeerDependencies:
       - '@types/node'
-      - encoding
     dev: true
 
-  /@graphql-tools/executor-legacy-ws@0.0.5(graphql@16.1.0-experimental-stream-defer.6):
-    resolution: {integrity: sha512-j2ZQVTI4rKIT41STzLPK206naYDhHxmGHot0siJKBKX1vMqvxtWBqvL66v7xYEOaX79wJrFc8l6oeURQP2LE6g==}
+  /@graphql-tools/executor-legacy-ws@0.0.11(graphql@16.1.0-experimental-stream-defer.6):
+    resolution: {integrity: sha512-4ai+NnxlNfvIQ4c70hWFvOZlSUN8lt7yc+ZsrwtNFbFPH/EroIzFMapAxM9zwyv9bH38AdO3TQxZ5zNxgBdvUw==}
     peerDependencies:
       graphql: '*'
     dependencies:
-      '@graphql-tools/utils': 9.1.3(graphql@16.1.0-experimental-stream-defer.6)
+      '@graphql-tools/utils': 9.2.1(graphql@16.1.0-experimental-stream-defer.6)
       '@types/ws': 8.5.3
       graphql: 16.1.0-experimental-stream-defer.6
-      isomorphic-ws: 5.0.0(ws@8.11.0)
+      isomorphic-ws: 5.0.0(ws@8.13.0)
       tslib: 2.6.2
-      ws: 8.11.0
+      ws: 8.13.0
     transitivePeerDependencies:
       - bufferutil
       - utf-8-validate
     dev: true
 
-  /@graphql-tools/executor@0.0.11(graphql@16.1.0-experimental-stream-defer.6):
-    resolution: {integrity: sha512-GjtXW0ZMGZGKad6A1HXFPArkfxE0AIpznusZuQdy4laQx+8Ut3Zx8SAFJNnDfZJ2V5kU29B5Xv3Fr0/DiMBHOQ==}
+  /@graphql-tools/executor@0.0.20(graphql@16.1.0-experimental-stream-defer.6):
+    resolution: {integrity: sha512-GdvNc4vszmfeGvUqlcaH1FjBoguvMYzxAfT6tDd4/LgwymepHhinqLNA5otqwVLW+JETcDaK7xGENzFomuE6TA==}
     peerDependencies:
       graphql: '*'
     dependencies:
-      '@graphql-tools/utils': 9.1.3(graphql@16.1.0-experimental-stream-defer.6)
-      '@graphql-typed-document-node/core': 3.1.1(graphql@16.1.0-experimental-stream-defer.6)
-      '@repeaterjs/repeater': 3.0.4
+      '@graphql-tools/utils': 9.2.1(graphql@16.1.0-experimental-stream-defer.6)
+      '@graphql-typed-document-node/core': 3.2.0(graphql@16.1.0-experimental-stream-defer.6)
+      '@repeaterjs/repeater': 3.0.5
       graphql: 16.1.0-experimental-stream-defer.6
       tslib: 2.6.2
-      value-or-promise: 1.0.11
+      value-or-promise: 1.0.12
     dev: true
 
   /@graphql-tools/executor@1.2.0(graphql@16.1.0-experimental-stream-defer.6):
@@ -6515,16 +6514,6 @@ packages:
       graphql: 16.1.0-experimental-stream-defer.6
       p-limit: 3.1.0
       tslib: 2.6.2
-
-  /@graphql-tools/merge@8.3.14(graphql@16.1.0-experimental-stream-defer.6):
-    resolution: {integrity: sha512-zV0MU1DnxJLIB0wpL4N3u21agEiYFsjm6DI130jqHpwF0pR9HkF+Ni65BNfts4zQelP0GjkHltG+opaozAJ1NA==}
-    peerDependencies:
-      graphql: '*'
-    dependencies:
-      '@graphql-tools/utils': 9.1.3(graphql@16.1.0-experimental-stream-defer.6)
-      graphql: 16.1.0-experimental-stream-defer.6
-      tslib: 2.6.2
-    dev: true
 
   /@graphql-tools/merge@8.4.2(graphql-esm@16.5.0):
     resolution: {integrity: sha512-XbrHAaj8yDuINph+sAfuq3QCZ/tKblrTLOpirK0+CAgNlZUCHs0Fa+xtMUURgwCVThLle1AF7svJCxFizygLsw==}
@@ -6620,18 +6609,6 @@ packages:
       tslib: 2.6.2
       value-or-promise: 1.0.12
 
-  /@graphql-tools/schema@9.0.12(graphql@16.1.0-experimental-stream-defer.6):
-    resolution: {integrity: sha512-DmezcEltQai0V1y96nwm0Kg11FDS/INEFekD4nnVgzBqawvznWqK6D6bujn+cw6kivoIr3Uq//QmU/hBlBzUlQ==}
-    peerDependencies:
-      graphql: '*'
-    dependencies:
-      '@graphql-tools/merge': 8.3.14(graphql@16.1.0-experimental-stream-defer.6)
-      '@graphql-tools/utils': 9.1.3(graphql@16.1.0-experimental-stream-defer.6)
-      graphql: 16.1.0-experimental-stream-defer.6
-      tslib: 2.6.2
-      value-or-promise: 1.0.11
-    dev: true
-
   /@graphql-tools/schema@9.0.19(graphql-esm@16.5.0):
     resolution: {integrity: sha512-oBRPoNBtCkk0zbUsyP4GaIzCt8C0aCI4ycIRUL67KK5pOHljKLBBtGT+Jr6hkzA74C8Gco8bpZPe7aWFjiaK2w==}
     peerDependencies:
@@ -6691,25 +6668,25 @@ packages:
       value-or-promise: 1.0.12
     dev: false
 
-  /@graphql-tools/url-loader@7.16.26(@types/node@18.19.4)(graphql@16.1.0-experimental-stream-defer.6):
-    resolution: {integrity: sha512-mrbFhShlthSdvMD3GPeKYxUt54CBUteN0eR6WgJJSXibycTSA6h0LAn6iyCAg+uUsBP/KR6GcjvQHifl00Q7rQ==}
+  /@graphql-tools/url-loader@7.17.18(@types/node@18.19.4)(graphql@16.1.0-experimental-stream-defer.6):
+    resolution: {integrity: sha512-ear0CiyTj04jCVAxi7TvgbnGDIN2HgqzXzwsfcqiVg9cvjT40NcMlZ2P1lZDgqMkZ9oyLTV8Bw6j+SyG6A+xPw==}
     peerDependencies:
       graphql: '*'
     dependencies:
       '@ardatan/sync-fetch': 0.0.1
-      '@graphql-tools/delegate': 9.0.20(graphql@16.1.0-experimental-stream-defer.6)
-      '@graphql-tools/executor-graphql-ws': 0.0.5(graphql@16.1.0-experimental-stream-defer.6)
-      '@graphql-tools/executor-http': 0.0.7(@types/node@18.19.4)(graphql@16.1.0-experimental-stream-defer.6)
-      '@graphql-tools/executor-legacy-ws': 0.0.5(graphql@16.1.0-experimental-stream-defer.6)
-      '@graphql-tools/utils': 9.1.3(graphql@16.1.0-experimental-stream-defer.6)
-      '@graphql-tools/wrap': 9.2.21(graphql@16.1.0-experimental-stream-defer.6)
+      '@graphql-tools/delegate': 9.0.35(graphql@16.1.0-experimental-stream-defer.6)
+      '@graphql-tools/executor-graphql-ws': 0.0.14(graphql@16.1.0-experimental-stream-defer.6)
+      '@graphql-tools/executor-http': 0.1.10(@types/node@18.19.4)(graphql@16.1.0-experimental-stream-defer.6)
+      '@graphql-tools/executor-legacy-ws': 0.0.11(graphql@16.1.0-experimental-stream-defer.6)
+      '@graphql-tools/utils': 9.2.1(graphql@16.1.0-experimental-stream-defer.6)
+      '@graphql-tools/wrap': 9.4.2(graphql@16.1.0-experimental-stream-defer.6)
       '@types/ws': 8.5.3
-      '@whatwg-node/fetch': 0.5.4
+      '@whatwg-node/fetch': 0.8.8
       graphql: 16.1.0-experimental-stream-defer.6
-      isomorphic-ws: 5.0.0(ws@8.11.0)
+      isomorphic-ws: 5.0.0(ws@8.16.0)
       tslib: 2.6.2
       value-or-promise: 1.0.12
-      ws: 8.11.0
+      ws: 8.16.0
     transitivePeerDependencies:
       - '@types/node'
       - bufferutil
@@ -6736,15 +6713,6 @@ packages:
     dependencies:
       graphql: 16.1.0-experimental-stream-defer.6
       tslib: 2.3.1
-    dev: true
-
-  /@graphql-tools/utils@9.1.3(graphql@16.1.0-experimental-stream-defer.6):
-    resolution: {integrity: sha512-bbJyKhs6awp1/OmP+WKA1GOyu9UbgZGkhIj5srmiMGLHohEOKMjW784Sk0BZil1w2x95UPu0WHw6/d/HVCACCg==}
-    peerDependencies:
-      graphql: '*'
-    dependencies:
-      graphql: 16.1.0-experimental-stream-defer.6
-      tslib: 2.6.2
     dev: true
 
   /@graphql-tools/utils@9.2.1(graphql-esm@16.5.0):
@@ -6809,25 +6777,17 @@ packages:
       tslib: 2.6.2
       value-or-promise: 1.0.12
 
-  /@graphql-tools/wrap@9.2.21(graphql@16.1.0-experimental-stream-defer.6):
-    resolution: {integrity: sha512-h4S9x9Rh8aSKkBGv+nq43Z0qK7CH8ySl+9RDO0MluscWlqNNECJ34FytwPVd8sXSrS7JwgwmVNcT51EH1n0wRw==}
+  /@graphql-tools/wrap@9.4.2(graphql@16.1.0-experimental-stream-defer.6):
+    resolution: {integrity: sha512-DFcd9r51lmcEKn0JW43CWkkI2D6T9XI1juW/Yo86i04v43O9w2/k4/nx2XTJv4Yv+iXwUw7Ok81PGltwGJSDSA==}
     peerDependencies:
       graphql: '*'
     dependencies:
-      '@graphql-tools/delegate': 9.0.20(graphql@16.1.0-experimental-stream-defer.6)
-      '@graphql-tools/schema': 9.0.12(graphql@16.1.0-experimental-stream-defer.6)
-      '@graphql-tools/utils': 9.1.3(graphql@16.1.0-experimental-stream-defer.6)
+      '@graphql-tools/delegate': 9.0.35(graphql@16.1.0-experimental-stream-defer.6)
+      '@graphql-tools/schema': 9.0.19(graphql@16.1.0-experimental-stream-defer.6)
+      '@graphql-tools/utils': 9.2.1(graphql@16.1.0-experimental-stream-defer.6)
       graphql: 16.1.0-experimental-stream-defer.6
       tslib: 2.6.2
-      value-or-promise: 1.0.11
-    dev: true
-
-  /@graphql-typed-document-node/core@3.1.1(graphql@16.1.0-experimental-stream-defer.6):
-    resolution: {integrity: sha512-NQ17ii0rK1b34VZonlmT2QMJFI70m0TRwbknO/ihlbatXyaktDhN/98vBiUU6kNBPljqGqyIrl2T4nY2RpFANg==}
-    peerDependencies:
-      graphql: '*'
-    dependencies:
-      graphql: 16.1.0-experimental-stream-defer.6
+      value-or-promise: 1.0.12
     dev: true
 
   /@graphql-typed-document-node/core@3.2.0(graphql-esm@16.5.0):
@@ -9282,34 +9242,28 @@ packages:
       ts-morph: 12.0.0
     dev: true
 
-  /@whatwg-node/fetch@0.5.3:
-    resolution: {integrity: sha512-cuAKL3Z7lrJJuUrfF1wxkQTb24Qd1QO/lsjJpM5ZSZZzUMms5TPnbGeGUKWA3hVKNHh30lVfr2MyRCT5Jfkucw==}
-    dependencies:
-      '@peculiar/webcrypto': 1.4.3
-      abort-controller: 3.0.0
-      busboy: 1.6.0
-      form-data-encoder: 1.7.1
-      formdata-node: 4.3.2
-      node-fetch: 2.6.9
-      undici: 5.28.2
-      web-streams-polyfill: 3.2.0
-    transitivePeerDependencies:
-      - encoding
+  /@whatwg-node/events@0.0.3:
+    resolution: {integrity: sha512-IqnKIDWfXBJkvy/k6tzskWTc2NK3LcqHlb+KHGCrjOCH4jfQckRX0NAiIcC/vIqQkzLYw2r2CTSwAxcrtcD6lA==}
     dev: true
 
-  /@whatwg-node/fetch@0.5.4:
-    resolution: {integrity: sha512-dR5PCzvOeS7OaW6dpIlPt+Ou3pak7IEG+ZVAV26ltcaiDB3+IpuvjqRdhsY6FKHcqBo1qD+S99WXY9Z6+9Rwnw==}
+  /@whatwg-node/fetch@0.8.8:
+    resolution: {integrity: sha512-CdcjGC2vdKhc13KKxgsc6/616BQ7ooDIgPeTuAiE8qfCnS0mGzcfCOoZXypQSz73nxI+GWc7ZReIAVhxoE1KCg==}
     dependencies:
       '@peculiar/webcrypto': 1.4.3
-      abort-controller: 3.0.0
+      '@whatwg-node/node-fetch': 0.3.6
       busboy: 1.6.0
-      form-data-encoder: 1.7.1
-      formdata-node: 4.3.2
-      node-fetch: 2.6.9
-      undici: 5.28.2
-      web-streams-polyfill: 3.2.0
-    transitivePeerDependencies:
-      - encoding
+      urlpattern-polyfill: 8.0.2
+      web-streams-polyfill: 3.3.2
+    dev: true
+
+  /@whatwg-node/node-fetch@0.3.6:
+    resolution: {integrity: sha512-w9wKgDO4C95qnXZRwZTfCmLWqyRnooGjcIwG0wADWjw9/HN0p7dtvtgSvItZtUyNteEvgTrd8QojNEqV6DAGTA==}
+    dependencies:
+      '@whatwg-node/events': 0.0.3
+      busboy: 1.6.0
+      fast-querystring: 1.1.2
+      fast-url-parser: 1.1.3
+      tslib: 2.6.2
     dev: true
 
   /@xobotyi/scrollbar-width@1.9.5:
@@ -11262,10 +11216,6 @@ packages:
       lodash: 4.17.21
     dev: false
 
-  /dataloader@2.1.0:
-    resolution: {integrity: sha512-qTcEYLen3r7ojZNgVUaRggOI+KM7jrKxXeSHhogh/TWxYMeONEMqY+hmkobiYQozsGIyg9OYVzO4ZIfoB4I0pQ==}
-    dev: true
-
   /dataloader@2.2.2:
     resolution: {integrity: sha512-8YnDaaf7N3k/q5HnTJVuzSyLETjoZjVmHc4AeKAzOvKHEFQKcn64OKBfzHYtE9zGjctNM7V9I0MfnUVLpi7M5g==}
 
@@ -11555,11 +11505,6 @@ packages:
     resolution: {integrity: sha512-hlQYwNEdW7Qf8zxysy+yN1E8C/SxRst3Z9n+IvXOR35D9bPVwNHhnL8ZBeoZjvinuGrlvGg6pAMDwhmjqFDgjA==}
     engines: {node: '>=4'}
     dev: false
-
-  /dset@3.1.2:
-    resolution: {integrity: sha512-g/M9sqy3oHe477Ar4voQxWtaPIFw1jTdKZuomOjhCcBx9nHUNn0pu6NopuFFrTh/TRZIKEj+76vLWFu9BNKk+Q==}
-    engines: {node: '>=4'}
-    dev: true
 
   /dset@3.1.3:
     resolution: {integrity: sha512-20TuZZHCEZ2O71q9/+8BwKwZ0QtD9D8ObhrihJPr+vLLYlSuAU3/zL4cSlgbfeoGHTjCSJBa7NGcrF9/Bx/WJQ==}
@@ -12100,6 +12045,12 @@ packages:
   /fast-uri@2.3.0:
     resolution: {integrity: sha512-eel5UKGn369gGEWOqBShmFJWfq/xSJvsgDzgLYC845GneayWvXBf0lJCBn5qTABfewy1ZDPoaR5OZCP+kssfuw==}
 
+  /fast-url-parser@1.1.3:
+    resolution: {integrity: sha512-5jOCVXADYNuRkKFzNJ0dCCewsZiYo0dz8QNYljkOpFC6r2U4OBmKtvm/Tsuh4w1YYdDqDb31a8TVhBJ2OJKdqQ==}
+    dependencies:
+      punycode: 1.4.1
+    dev: true
+
   /fastest-stable-stringify@2.0.2:
     resolution: {integrity: sha512-bijHueCGd0LqqNK9b5oCMHc0MluJAx0cwqASgbWMvkO01lCYgIhacVRLcaDz3QnyYIRNJRDwMb41VuT6pHJ91Q==}
     dev: false
@@ -12339,6 +12290,7 @@ packages:
 
   /form-data-encoder@1.7.1:
     resolution: {integrity: sha512-EFRDrsMm/kyqbTQocNvRXMLjc7Es2Vk+IQFx/YW7hkUH1eBl4J1fqiP34l74Yt0pFLCNpc06fkbVk00008mzjg==}
+    dev: false
 
   /form-data@3.0.1:
     resolution: {integrity: sha512-RHkBKtLWUVwd7SqRIvCZMEvAMoGUp0XU+seQiZejj0COz3RI3hWP4sCv3gZWWLjJTd7rGwcsF5eKZGii0r/hbg==}
@@ -12362,6 +12314,7 @@ packages:
     dependencies:
       node-domexception: 1.0.0
       web-streams-polyfill: 4.0.0-beta.1
+    dev: false
 
   /forwarded@0.2.0:
     resolution: {integrity: sha512-buRG0fpBtRHSTCOASe6hD258tEubFoRLb4ZNA6NxMVHNw2gOcwHo9wyablzMzOA5z9xA9L1KNjk/Nt6MT9aYow==}
@@ -12711,7 +12664,7 @@ packages:
       '@graphql-tools/json-file-loader': 7.3.5(graphql@16.1.0-experimental-stream-defer.6)
       '@graphql-tools/load': 7.8.14(graphql@16.1.0-experimental-stream-defer.6)
       '@graphql-tools/merge': 8.4.2(graphql@16.1.0-experimental-stream-defer.6)
-      '@graphql-tools/url-loader': 7.16.26(@types/node@18.19.4)(graphql@16.1.0-experimental-stream-defer.6)
+      '@graphql-tools/url-loader': 7.17.18(@types/node@18.19.4)(graphql@16.1.0-experimental-stream-defer.6)
       '@graphql-tools/utils': 8.6.3(graphql@16.1.0-experimental-stream-defer.6)
       cosmiconfig: 7.0.1
       cosmiconfig-toml-loader: 1.0.0
@@ -12934,8 +12887,8 @@ packages:
       http-errors: 1.8.1
       object-path: 0.11.8
 
-  /graphql-ws@5.11.2(graphql@16.1.0-experimental-stream-defer.6):
-    resolution: {integrity: sha512-4EiZ3/UXYcjm+xFGP544/yW1+DVI8ZpKASFbzrV5EDTFWJp0ZvLl4Dy2fSZAzz9imKp5pZMIcjB0x/H69Pv/6w==}
+  /graphql-ws@5.12.1(graphql@16.1.0-experimental-stream-defer.6):
+    resolution: {integrity: sha512-umt4f5NnMK46ChM2coO36PTFhHouBrK9stWWBczERguwYrGnPNxJ9dimU6IyOBfOkC6Izhkg4H8+F51W/8CYDg==}
     engines: {node: '>=10'}
     peerDependencies:
       graphql: '*'
@@ -13853,12 +13806,20 @@ packages:
     dependencies:
       ws: 8.16.0
 
-  /isomorphic-ws@5.0.0(ws@8.11.0):
+  /isomorphic-ws@5.0.0(ws@8.13.0):
     resolution: {integrity: sha512-muId7Zzn9ywDsyXgTIafTry2sV3nySZeUDe6YedVd1Hvuuep5AsIlqK+XefWpYTyJG5e503F2xIuT2lcU6rCSw==}
     peerDependencies:
       ws: '*'
     dependencies:
-      ws: 8.11.0
+      ws: 8.13.0
+    dev: true
+
+  /isomorphic-ws@5.0.0(ws@8.16.0):
+    resolution: {integrity: sha512-muId7Zzn9ywDsyXgTIafTry2sV3nySZeUDe6YedVd1Hvuuep5AsIlqK+XefWpYTyJG5e503F2xIuT2lcU6rCSw==}
+    peerDependencies:
+      ws: '*'
+    dependencies:
+      ws: 8.16.0
     dev: true
 
   /istanbul-lib-coverage@3.2.0:
@@ -15972,6 +15933,7 @@ packages:
   /node-domexception@1.0.0:
     resolution: {integrity: sha512-/jKZoMpw0F8GRwl4/eLROPA3cfcXtLApP0QzLmUT/HuPCZWyB7IY9ZrMeKw2O/nFIqPQB3PVM9aYm0F312AXDQ==}
     engines: {node: '>=10.5.0'}
+    dev: false
 
   /node-emoji@1.11.0:
     resolution: {integrity: sha512-wo2DpQkQp7Sjm2A0cq+sN7EHKO6Sl0ctXeBdFZrL9T9+UywORbufTcTZxom8YqpLQt/FqNMUkOpkZrJVYSKD3A==}
@@ -16773,6 +16735,10 @@ packages:
       end-of-stream: 1.4.4
       once: 1.4.0
     dev: false
+
+  /punycode@1.4.1:
+    resolution: {integrity: sha512-jmYNElW7yvO7TV33CjSmvSiE2yco3bV2czu/OzDKdMNVZQWfxCblURLhf+47syQRBntjfLdd/H0egrzIG+oaFQ==}
+    dev: true
 
   /punycode@2.1.1:
     resolution: {integrity: sha512-XRsRjdf+j5ml+y/6GKHPZbrF/8p2Yga0JPtdqTIY2Xe5ohJPD9saDJJLPvp9+NSBprVvevdXZybnj2cv8OEd0A==}
@@ -18960,6 +18926,7 @@ packages:
 
   /tslib@2.4.1:
     resolution: {integrity: sha512-tGyy4dAjRIEwI7BzsB0lynWgOpfqjUdq91XXAlIWD2OwKBH7oCl/GZG/HT4BOHrTlPMOASlMQ7veyTqpmRcrNA==}
+    dev: false
 
   /tslib@2.6.2:
     resolution: {integrity: sha512-AEYxH93jGFPn/a2iVAwW87VuUIkR1FVUKB77NwMF7nBTDkDrrT/Hpt/IrCJ0QXhW27jTBDcf5ZY7w6RiqTMw2Q==}
@@ -19348,6 +19315,10 @@ packages:
     resolution: {integrity: sha512-DOE84vZT2fEcl9gqCUTcnAw5ZY5Id55ikUcziSUntuEFL3pRvavg5kwDmTEUJkeCHInTlV/HexFomgYnzO5kdQ==}
     dev: true
 
+  /urlpattern-polyfill@8.0.2:
+    resolution: {integrity: sha512-Qp95D4TPJl1kC9SKigDcqgyM2VDVO4RiJc2d4qe5GrYm+zbIQCWWKAFaJNQ4BhdFeDGwBmAxqJBwWSJDb9T3BQ==}
+    dev: true
+
   /use-callback-ref@1.2.5(@types/react@17.0.74)(react@17.0.2):
     resolution: {integrity: sha512-gN3vgMISAgacF7sqsLPByqoePooY3n2emTH59Ur5d/M8eg4WTWu1xp8i8DHjohftIyEx0S08RiYxbffr4j8Peg==}
     engines: {node: '>=8.5.0'}
@@ -19475,11 +19446,6 @@ packages:
     resolution: {integrity: sha512-nYXQLCBkpJ8X6ltALua9dRrZDHVYxjJ1wgskNt1lH9fzGjs3tgojGSCBjmEPwkWS1y29+DrizMTW19Pr9uB2nw==}
     engines: {node: '>= 0.10'}
     dev: false
-
-  /value-or-promise@1.0.11:
-    resolution: {integrity: sha512-41BrgH+dIbCFXClcSapVs5M6GkENd3gQOJpEfPDNa71LsUGMXDL0jMWpI/Rh7WhX+Aalfz2TTS3Zt5pUsbnhLg==}
-    engines: {node: '>=12'}
-    dev: true
 
   /value-or-promise@1.0.12:
     resolution: {integrity: sha512-Z6Uz+TYwEqE7ZN50gwn+1LCVo9ZVrpxRPOhOLnncYkY1ZzOYtrX8Fwf/rFktZ8R5mJms6EZf5TqNOMeZmnPq9Q==}
@@ -19614,10 +19580,17 @@ packages:
   /web-streams-polyfill@3.2.0:
     resolution: {integrity: sha512-EqPmREeOzttaLRm5HS7io98goBgZ7IVz79aDvqjD0kYXLtFZTc0T/U6wHTPKyIjb+MdN7DFIIX6hgdBEpWmfPA==}
     engines: {node: '>= 8'}
+    dev: false
+
+  /web-streams-polyfill@3.3.2:
+    resolution: {integrity: sha512-3pRGuxRF5gpuZc0W+EpwQRmCD7gRqcDOMt688KmdlDAgAyaB1XlN0zq2njfDNm44XVdIouE7pZ6GzbdyH47uIQ==}
+    engines: {node: '>= 8'}
+    dev: true
 
   /web-streams-polyfill@4.0.0-beta.1:
     resolution: {integrity: sha512-3ux37gEX670UUphBF9AMCq8XM6iQ8Ac6A+DSRRjDoRBm1ufCkaCDdNVbaqq60PsEkdNlLKrGtv/YBP4EJXqNtQ==}
     engines: {node: '>= 12'}
+    dev: false
 
   /webcrypto-core@1.7.7:
     resolution: {integrity: sha512-7FjigXNsBfopEj+5DV2nhNpfic2vumtjjgPmeDKk45z+MJwXKKfhPB7118Pfzrmh4jqOMST6Ch37iPAHoImg5g==}
@@ -19767,12 +19740,12 @@ packages:
         optional: true
     dev: true
 
-  /ws@8.11.0:
-    resolution: {integrity: sha512-HPG3wQd9sNQoT9xHyNCXoDUa+Xw/VevmY9FoHyQ+g+rrMn4j6FB4np7Z0OhdTgjx6MgQLK7jwSy1YecU1+4Asg==}
+  /ws@8.13.0:
+    resolution: {integrity: sha512-x9vcZYTrFPC7aSIbj7sRCYo7L/Xb8Iy+pW0ng0wt2vCJv7M9HOMy0UoN3rr+IFC7hb7vXoqS+P9ktyLLLhO+LA==}
     engines: {node: '>=10.0.0'}
     peerDependencies:
       bufferutil: ^4.0.1
-      utf-8-validate: ^5.0.2
+      utf-8-validate: '>=5.0.2'
     peerDependenciesMeta:
       bufferutil:
         optional: true
