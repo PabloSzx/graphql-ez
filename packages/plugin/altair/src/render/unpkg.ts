@@ -12,24 +12,25 @@ if (typeof fetch !== 'undefined') {
   fetchFn = import('cross-undici-fetch').then(v => v.fetch);
 }
 
-function getObjectPropertyForOption(option: any, propertyName: keyof AltairConfigOptions) {
-  if (option) {
+const getRenderedAltairOpts = (renderOptions: RenderOptions, keys: (keyof AltairConfigOptions)[]) => {
+  const optProps = Object.keys(renderOptions)
+    .filter((key): key is keyof AltairConfigOptions => keys.includes(key as keyof AltairConfigOptions))
+    .map(key => getObjectPropertyForOption(renderOptions[key], key));
+
+  return ['{', ...optProps, '}'].join('\n');
+};
+function getObjectPropertyForOption(option: unknown, propertyName: keyof AltairConfigOptions) {
+  if (typeof option !== 'undefined') {
     switch (typeof option) {
       case 'object':
         return `${propertyName}: ${JSON.stringify(option)},`;
+      case 'boolean':
+        return `${propertyName}: ${option},`;
     }
     return `${propertyName}: \`${option}\`,`;
   }
   return '';
 }
-
-const getRenderedAltairOpts = (renderOptions: RenderOptions, keys: (keyof AltairConfigOptions)[]) => {
-  const optProps = Object.keys(renderOptions)
-    .filter((key: any): key is keyof AltairConfigOptions => keys.includes(key))
-    .map(key => getObjectPropertyForOption(renderOptions[key], key));
-
-  return ['{', ...optProps, '}'].join('\n');
-};
 
 /**
  * Render Altair Initial options as a string using the provided renderOptions
@@ -37,23 +38,26 @@ const getRenderedAltairOpts = (renderOptions: RenderOptions, keys: (keyof Altair
  */
 export const renderInitialOptions = (options: RenderOptions = {}) => {
   return `
-          AltairGraphQL.init(${getRenderedAltairOpts(options, [
-            'endpointURL',
-            'subscriptionsEndpoint',
-            'initialQuery',
-            'initialVariables',
-            'initialPreRequestScript',
-            'initialPostRequestScript',
-            'initialHeaders',
-            'initialEnvironments',
-            'instanceStorageNamespace',
-            'initialSettings',
-            'initialSubscriptionsProvider',
-            'initialSubscriptionsPayload',
-            'preserveState',
-            'initialHttpMethod',
-          ])});
-      `;
+        AltairGraphQL.init(${getRenderedAltairOpts(options, [
+          'endpointURL',
+          'subscriptionsEndpoint',
+          'subscriptionsProtocol',
+          'initialQuery',
+          'initialVariables',
+          'initialPreRequestScript',
+          'initialPostRequestScript',
+          'initialHeaders',
+          'initialEnvironments',
+          'instanceStorageNamespace',
+          'initialSettings',
+          'initialSubscriptionsProvider',
+          'initialSubscriptionsPayload',
+          'preserveState',
+          'initialHttpMethod',
+          'initialWindows',
+          'disableAccount',
+        ])});
+    `;
 };
 
 // const fetchFn = typeof fetch !== 'undefined' ? fetch : crossFetch;
