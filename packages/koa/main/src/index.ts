@@ -178,6 +178,7 @@ export function CreateApp(config: KoaAppOptions = {}): EZAppBuilder {
         };
 
         router.get(path, main).post(path, main);
+        return false;
       } catch (error) {
         return error;
       }

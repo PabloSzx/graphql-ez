@@ -10,10 +10,10 @@ export type PickRequired<T, TKey extends keyof T> = T & Required<Pick<T, TKey>>;
 export type DeepPartial<T> = T extends Function
   ? T
   : T extends Array<infer U>
-  ? DeepPartialArray<U>
-  : T extends object
-  ? DeepPartialObject<T>
-  : T | undefined;
+    ? DeepPartialArray<U>
+    : T extends object
+      ? DeepPartialObject<T>
+      : T | undefined;
 
 interface DeepPartialArray<T> extends Array<PromiseOrValue<DeepPartial<PromiseOrValue<T>>>> {}
 type DeepPartialObject<T> = {

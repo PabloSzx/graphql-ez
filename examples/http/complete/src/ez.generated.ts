@@ -123,7 +123,7 @@ export interface DateTimeScalarConfig extends GraphQLScalarTypeConfig<ResolversT
 
 export type QueryResolvers<
   ContextType = EZContext,
-  ParentType extends ResolversParentTypes['Query'] = ResolversParentTypes['Query']
+  ParentType extends ResolversParentTypes['Query'] = ResolversParentTypes['Query'],
 > = {
   hello?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   hello2?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -132,7 +132,7 @@ export type QueryResolvers<
 
 export type SubscriptionResolvers<
   ContextType = EZContext,
-  ParentType extends ResolversParentTypes['Subscription'] = ResolversParentTypes['Subscription']
+  ParentType extends ResolversParentTypes['Subscription'] = ResolversParentTypes['Subscription'],
 > = {
   hello?: SubscriptionResolver<ResolversTypes['String'], 'hello', ParentType, ContextType>;
 };

@@ -95,10 +95,10 @@ export const ezWebSockets = (options: WebSocketOptions = 'adaptive'): EZPlugin =
       const enabled: WebSocketsEnabledState | 'none' = enableAll
         ? 'adaptive'
         : enableOldTransport
-        ? 'legacy'
-        : enableGraphQLWS
-        ? 'new'
-        : 'none';
+          ? 'legacy'
+          : enableGraphQLWS
+            ? 'new'
+            : 'none';
 
       if (enabled === 'none') {
         console.warn('No Websockets implementations enabled!');

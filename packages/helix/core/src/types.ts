@@ -14,8 +14,8 @@ import type {
 export type ResultType<T> = T extends AsyncGenerator<infer U>
   ? ResultType<U>
   : T extends PromiseLike<infer U>
-  ? ResultType<U>
-  : T;
+    ? ResultType<U>
+    : T;
 
 export interface ExecutionPatchResult<TData = { [key: string]: any }, TExtensions = { [key: string]: any }> {
   errors?: ReadonlyArray<GraphQLError>;

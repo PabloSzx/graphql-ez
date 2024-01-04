@@ -15,7 +15,7 @@ export function createSSESubscription(
   const subscribe: SubscribeSSE = function subscribe<
     TData,
     TVariables extends Record<string, unknown> = {},
-    TExtensions extends Record<string, unknown> = {}
+    TExtensions extends Record<string, unknown> = {},
   >(
     document: string | TypedDocumentNode<TData, TVariables>,
     {

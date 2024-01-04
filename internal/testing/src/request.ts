@@ -84,7 +84,10 @@ export async function getRequestPool(port: number, path = '/graphql') {
             }
       );
 
-      if (!headers['content-type']?.startsWith('application/json')) {
+      const contentType = headers['content-type'];
+      const contentTypeString = Array.isArray(contentType) ? contentType[0] : contentType;
+
+      if (!contentTypeString?.startsWith('application/json')) {
         console.error({
           body: await body.text(),
           headers,
@@ -92,7 +95,8 @@ export async function getRequestPool(port: number, path = '/graphql') {
         throw Error('Unexpected content type received: ' + headers['content-type']);
       }
 
-      return { ...(await body.json()), http: { statusCode, headers } };
+      const responseBody = await body.json();
+      return Object.assign({}, responseBody, { http: { statusCode, headers } });
     },
     async batchedQueries(
       queries: Array<{
@@ -130,7 +134,10 @@ export async function getRequestPool(port: number, path = '/graphql') {
         path,
       });
 
-      if (!headers['content-type']?.startsWith('application/json')) {
+      const contentType = headers['content-type'];
+      const contentTypeString = Array.isArray(contentType) ? contentType[0] : contentType;
+
+      if (!contentTypeString?.startsWith('application/json')) {
         console.error({
           body: await body.text(),
           headers,
@@ -138,7 +145,9 @@ export async function getRequestPool(port: number, path = '/graphql') {
         throw Error('Unexpected content type received: ' + headers['content-type']);
       }
 
-      return { result: await body.json(), http: { statusCode, headers } };
+      const result = (await body.json()) as ExecutionResult<Record<string, any>>[];
+
+      return { result, http: { statusCode, headers } };
     },
   };
 }

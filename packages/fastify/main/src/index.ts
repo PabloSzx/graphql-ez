@@ -169,7 +169,7 @@ export function CreateApp(config: FastifyAppOptions = {}): EZAppBuilder {
     });
 
     const skipOverride: unique symbol = Symbol.for('skip-override');
-    const fastifyPlugin: FastifyPluginCallback & { [skipOverride]?: true } = async function fastifyPlugin(
+    const fastifyPlugin: FastifyPluginCallback & { [skipOverride]?: boolean } = async function fastifyPlugin(
       instance: FastifyInstance
     ) {
       await (await appPromise).app(instance);

@@ -117,7 +117,7 @@ export type ResolversParentTypes = {
 
 export type QueryResolvers<
   ContextType = EZContext,
-  ParentType extends ResolversParentTypes['Query'] = ResolversParentTypes['Query']
+  ParentType extends ResolversParentTypes['Query'] = ResolversParentTypes['Query'],
 > = {
   hello?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   users?: Resolver<Array<ResolversTypes['User']>, ParentType, ContextType>;
@@ -127,7 +127,7 @@ export type QueryResolvers<
 
 export type UserResolvers<
   ContextType = EZContext,
-  ParentType extends ResolversParentTypes['User'] = ResolversParentTypes['User']
+  ParentType extends ResolversParentTypes['User'] = ResolversParentTypes['User'],
 > = {
   id?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
   idMulti?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;

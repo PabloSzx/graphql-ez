@@ -31,7 +31,7 @@ export type CommonWebSocketsServerTuple =
   | readonly [
       'both',
       (protocol: string | string[] | undefined) => WebSocket.Server,
-      readonly [WebSocket.Server, WebSocket.Server]
+      readonly [WebSocket.Server, WebSocket.Server],
     ]
   | readonly ['legacy', WebSocket.Server];
 
