@@ -807,8 +807,8 @@ importers:
         specifier: workspace:*
         version: link:../../../packages/plugin/altair
       class-validator:
-        specifier: ^0.13.2
-        version: 0.13.2
+        specifier: ^0.14.0
+        version: 0.14.1
       fastify:
         specifier: ^4.25.2
         version: 4.25.2
@@ -823,7 +823,7 @@ importers:
         version: 0.1.13
       type-graphql:
         specifier: ^1.1.1
-        version: 1.1.1(class-validator@0.13.2)(graphql@15.8.0)
+        version: 1.1.1(class-validator@0.14.1)(graphql@15.8.0)
     devDependencies:
       '@types/node':
         specifier: ^18.11.15
@@ -9214,6 +9214,10 @@ packages:
     resolution: {integrity: sha512-PBjIUxZHOuj0R15/xuwJYjFi+KZdNFrehocChv4g5hu6aFroHue8m0lBP0POdK2nKzbw0cgV1mws8+V/JAcEkQ==}
     dev: false
 
+  /@types/validator@13.11.9:
+    resolution: {integrity: sha512-FCTsikRozryfayPuiI46QzH3fnrOoctTjvOYZkho9BTFLCOZ2rgZJHMOVgCOfttjPJcgOx52EpkY0CMfy87MIw==}
+    dev: false
+
   /@types/wait-on@5.3.1:
     resolution: {integrity: sha512-2FFOKCF/YydrMUaqg+fkk49qf0e5rDgwt6aQsMzFQzbS419h2gNOXyiwp/o2yYy27bi/C1z+HgfncryjGzlvgQ==}
     dependencies:
@@ -10442,11 +10446,12 @@ packages:
       static-extend: 0.1.2
     dev: false
 
-  /class-validator@0.13.2:
-    resolution: {integrity: sha512-yBUcQy07FPlGzUjoLuUfIOXzgynnQPPruyK1Ge2B74k9ROwnle1E+NxLWnUv5OLU8hA/qL5leAE9XnXq3byaBw==}
+  /class-validator@0.14.1:
+    resolution: {integrity: sha512-2VEG9JICxIqTpoK1eMzZqaV+u/EiwEJkMGzTrZf6sU/fwsnOITVgYJ8yojSy6CaXtO9V0Cc6ZQZ8h8m4UBuLwQ==}
     dependencies:
-      libphonenumber-js: 1.9.50
-      validator: 13.7.0
+      '@types/validator': 13.11.9
+      libphonenumber-js: 1.10.57
+      validator: 13.11.0
     dev: false
 
   /classnames@2.3.1:
@@ -14555,8 +14560,8 @@ packages:
     engines: {node: '>=6'}
     dev: true
 
-  /libphonenumber-js@1.9.50:
-    resolution: {integrity: sha512-cCzQPChw2XbordcO2LKiw5Htx5leHVfFk/EXkxNHqJfFo7Fndcb1kF5wPJpc316vCJhhikedYnVysMh3Sc7Ocw==}
+  /libphonenumber-js@1.10.57:
+    resolution: {integrity: sha512-OjsEd9y4LgcX+Ig09SbxWqcGESxliDDFNVepFhB9KEsQZTrnk3UdEU+cO0sW1APvLprHstQpS23OQpZ3bwxy6Q==}
     dev: false
 
   /light-my-request@5.11.0:
@@ -19049,7 +19054,7 @@ packages:
     engines: {node: '>=14.16'}
     dev: true
 
-  /type-graphql@1.1.1(class-validator@0.13.2)(graphql@15.8.0):
+  /type-graphql@1.1.1(class-validator@0.14.1)(graphql@15.8.0):
     resolution: {integrity: sha512-iOOWVn0ehCYMukmnXStbkRwFE9dcjt7/oDcBS1JyQZo9CbhlIll4lHHps54HMEk4A4c8bUPd+DjK8w1/ZrxB4A==}
     engines: {node: '>= 10.3'}
     requiresBuild: true
@@ -19060,7 +19065,7 @@ packages:
       '@types/glob': 7.2.0
       '@types/node': 18.19.4
       '@types/semver': 7.5.6
-      class-validator: 0.13.2
+      class-validator: 0.14.1
       glob: 7.2.0
       graphql: 15.8.0
       graphql-query-complexity: 0.7.2(graphql@15.8.0)
@@ -19471,8 +19476,8 @@ packages:
       builtins: 5.0.1
     dev: true
 
-  /validator@13.7.0:
-    resolution: {integrity: sha512-nYXQLCBkpJ8X6ltALua9dRrZDHVYxjJ1wgskNt1lH9fzGjs3tgojGSCBjmEPwkWS1y29+DrizMTW19Pr9uB2nw==}
+  /validator@13.11.0:
+    resolution: {integrity: sha512-Ii+sehpSfZy+At5nPdnyMhx78fEoPDkR2XW/zimHEL3MyGJQOCQ7WeP20jPYRz7ZCpcKLB21NxuXHF3bxjStBQ==}
     engines: {node: '>= 0.10'}
     dev: false
 
