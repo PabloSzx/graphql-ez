@@ -1112,7 +1112,7 @@ importers:
         version: 1.0.0(@sveltejs/kit@1.0.1)
       '@sveltejs/kit':
         specifier: 1.0.1
-        version: 1.0.1(svelte@3.59.2)(vite@4.5.1)
+        version: 1.0.1(svelte@3.59.2)(vite@4.5.2)
       svelte:
         specifier: ^3.55.0
         version: 3.59.2
@@ -1130,7 +1130,7 @@ importers:
         version: 5.3.3
       vite:
         specifier: ^4.0.2
-        version: 4.5.1(@types/node@18.19.4)
+        version: 4.5.2(@types/node@18.19.4)
 
   examples/vercel:
     dependencies:
@@ -3132,7 +3132,7 @@ importers:
         version: 1.0.0(@sveltejs/kit@1.0.1)
       '@sveltejs/kit':
         specifier: 1.0.1
-        version: 1.0.1(svelte@3.59.2)(vite@4.5.1)
+        version: 1.0.1(svelte@3.59.2)(vite@4.5.2)
       '@types/node':
         specifier: ^18.11.15
         version: 18.19.4
@@ -3189,7 +3189,7 @@ importers:
         version: 5.3.3
       vite:
         specifier: ^4.0.2
-        version: 4.5.1(@types/node@18.19.4)
+        version: 4.5.2(@types/node@18.19.4)
       wait-on:
         specifier: ^6.0.1
         version: 6.0.1
@@ -8636,7 +8636,7 @@ packages:
     peerDependencies:
       '@sveltejs/kit': ^1.0.0
     dependencies:
-      '@sveltejs/kit': 1.0.1(svelte@3.59.2)(vite@4.5.1)
+      '@sveltejs/kit': 1.0.1(svelte@3.59.2)(vite@4.5.2)
       import-meta-resolve: 2.2.2
     dev: true
 
@@ -8648,11 +8648,11 @@ packages:
       '@rollup/plugin-commonjs': 23.0.7(rollup@3.29.4)
       '@rollup/plugin-json': 5.0.2(rollup@3.29.4)
       '@rollup/plugin-node-resolve': 15.2.3(rollup@3.29.4)
-      '@sveltejs/kit': 1.0.1(svelte@3.59.2)(vite@4.5.1)
+      '@sveltejs/kit': 1.0.1(svelte@3.59.2)(vite@4.5.2)
       rollup: 3.29.4
     dev: true
 
-  /@sveltejs/kit@1.0.1(svelte@3.59.2)(vite@4.5.1):
+  /@sveltejs/kit@1.0.1(svelte@3.59.2)(vite@4.5.2):
     resolution: {integrity: sha512-C41aCaDjA7xoUdsrc/lSdU1059UdLPIRE1vEIRRynzpMujNgp82bTMHkDosb6vykH6LrLf3tT2w2/5NYQhKYGQ==}
     engines: {node: ^16.14 || >=18}
     hasBin: true
@@ -8661,7 +8661,7 @@ packages:
       svelte: ^3.54.0
       vite: ^4.0.0
     dependencies:
-      '@sveltejs/vite-plugin-svelte': 2.5.3(svelte@3.59.2)(vite@4.5.1)
+      '@sveltejs/vite-plugin-svelte': 2.5.3(svelte@3.59.2)(vite@4.5.2)
       '@types/cookie': 0.5.4
       cookie: 0.5.0
       devalue: 4.3.2
@@ -8675,12 +8675,12 @@ packages:
       svelte: 3.59.2
       tiny-glob: 0.2.9
       undici: 5.14.0
-      vite: 4.5.1(@types/node@18.19.4)
+      vite: 4.5.2(@types/node@18.19.4)
     transitivePeerDependencies:
       - supports-color
     dev: true
 
-  /@sveltejs/vite-plugin-svelte-inspector@1.0.4(@sveltejs/vite-plugin-svelte@2.5.3)(svelte@3.59.2)(vite@4.5.1):
+  /@sveltejs/vite-plugin-svelte-inspector@1.0.4(@sveltejs/vite-plugin-svelte@2.5.3)(svelte@3.59.2)(vite@4.5.2):
     resolution: {integrity: sha512-zjiuZ3yydBtwpF3bj0kQNV0YXe+iKE545QGZVTaylW3eAzFr+pJ/cwK8lZEaRp4JtaJXhD5DyWAV4AxLh6DgaQ==}
     engines: {node: ^14.18.0 || >= 16}
     peerDependencies:
@@ -8688,30 +8688,30 @@ packages:
       svelte: ^3.54.0 || ^4.0.0
       vite: ^4.0.0
     dependencies:
-      '@sveltejs/vite-plugin-svelte': 2.5.3(svelte@3.59.2)(vite@4.5.1)
+      '@sveltejs/vite-plugin-svelte': 2.5.3(svelte@3.59.2)(vite@4.5.2)
       debug: 4.3.4(supports-color@8.1.1)
       svelte: 3.59.2
-      vite: 4.5.1(@types/node@18.19.4)
+      vite: 4.5.2(@types/node@18.19.4)
     transitivePeerDependencies:
       - supports-color
     dev: true
 
-  /@sveltejs/vite-plugin-svelte@2.5.3(svelte@3.59.2)(vite@4.5.1):
+  /@sveltejs/vite-plugin-svelte@2.5.3(svelte@3.59.2)(vite@4.5.2):
     resolution: {integrity: sha512-erhNtXxE5/6xGZz/M9eXsmI7Pxa6MS7jyTy06zN3Ck++ldrppOnOlJwHHTsMC7DHDQdgUp4NAc4cDNQ9eGdB/w==}
     engines: {node: ^14.18.0 || >= 16}
     peerDependencies:
       svelte: ^3.54.0 || ^4.0.0 || ^5.0.0-next.0
       vite: ^4.0.0
     dependencies:
-      '@sveltejs/vite-plugin-svelte-inspector': 1.0.4(@sveltejs/vite-plugin-svelte@2.5.3)(svelte@3.59.2)(vite@4.5.1)
+      '@sveltejs/vite-plugin-svelte-inspector': 1.0.4(@sveltejs/vite-plugin-svelte@2.5.3)(svelte@3.59.2)(vite@4.5.2)
       debug: 4.3.4(supports-color@8.1.1)
       deepmerge: 4.3.1
       kleur: 4.1.5
       magic-string: 0.30.5
       svelte: 3.59.2
       svelte-hmr: 0.15.3(svelte@3.59.2)
-      vite: 4.5.1(@types/node@18.19.4)
-      vitefu: 0.2.5(vite@4.5.1)
+      vite: 4.5.2(@types/node@18.19.4)
+      vitefu: 0.2.5(vite@4.5.2)
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -9685,7 +9685,7 @@ packages:
       timestring: 6.0.0
     dev: false
 
-  /autoprefixer@10.4.4(postcss@8.4.32):
+  /autoprefixer@10.4.4(postcss@8.4.35):
     resolution: {integrity: sha512-Tm8JxsB286VweiZ5F0anmbyGiNI3v3wGv3mz9W+cxEDYB/6jbnj6GM9H9mK3wIL8ftgl+C07Lcwb8PG5PCCPzA==}
     engines: {node: ^10 || ^12 || >=14}
     hasBin: true
@@ -9700,7 +9700,7 @@ packages:
       fraction.js: 4.2.0
       normalize-range: 0.1.2
       picocolors: 1.0.0
-      postcss: 8.4.32
+      postcss: 8.4.35
       postcss-value-parser: 4.2.0
     dev: false
 
@@ -16578,7 +16578,7 @@ packages:
     engines: {node: '>=10.0'}
     dependencies:
       camelcase-css: 2.0.1
-      postcss: 8.4.32
+      postcss: 8.4.35
     dev: false
 
   /postcss-load-config@3.1.3:
@@ -16594,7 +16594,7 @@ packages:
       yaml: 1.10.2
     dev: false
 
-  /postcss-nested@5.0.6(postcss@8.4.32):
+  /postcss-nested@5.0.6(postcss@8.4.35):
     resolution: {integrity: sha512-rKqm2Fk0KbA8Vt3AdGN0FB9OBOMDVajMG6ZCf/GoHgdxUJ4sBFp0A/uMIRm+MJUdo33YXEtjqIz8u7DAp8B7DA==}
     engines: {node: '>=12.0'}
     peerDependencies:
@@ -16603,7 +16603,7 @@ packages:
       postcss:
         optional: true
     dependencies:
-      postcss: 8.4.32
+      postcss: 8.4.35
       postcss-selector-parser: 6.0.9
     dev: false
 
@@ -16631,8 +16631,8 @@ packages:
       picocolors: 1.0.0
       source-map-js: 1.0.2
 
-  /postcss@8.4.32:
-    resolution: {integrity: sha512-D/kj5JNu6oo2EIy+XL/26JEDTlIbB8hw85G8StOE6L74RQAVVP5rej6wxCNqyMbR4RkPfqvezVbPw81Ngd6Kcw==}
+  /postcss@8.4.35:
+    resolution: {integrity: sha512-u5U8qYpBCpN13BsiEB0CbR1Hhh4Gc0zLFuedrHJKMctHCHAGrMdG0PRM/KErzAL3CU6/eckEtmHNB3x6e3c0vA==}
     engines: {node: ^10 || ^12 || >=14}
     dependencies:
       nanoid: 3.3.7
@@ -16788,7 +16788,7 @@ packages:
     dependencies:
       commander: 8.3.0
       glob: 7.2.0
-      postcss: 8.4.32
+      postcss: 8.4.35
       postcss-selector-parser: 6.0.9
     dev: false
 
@@ -18557,7 +18557,7 @@ packages:
     resolution: {integrity: sha512-QD9qKY3StfbZqWOPLp0++pOrAVb/HbUi5xCc8cUo4XjP19808oaMiDzn0leBY5mCespIBM0CIZePzZjgzR83kA==}
     dev: false
 
-  /tailwindcss@2.2.19(autoprefixer@10.4.4)(postcss@8.4.32):
+  /tailwindcss@2.2.19(autoprefixer@10.4.4)(postcss@8.4.35):
     resolution: {integrity: sha512-6Ui7JSVtXadtTUo2NtkBBacobzWiQYVjYW0ZnKaP9S1ZCKQ0w7KVNz+YSDI/j7O7KCMHbOkz94ZMQhbT9pOqjw==}
     engines: {node: '>=12.13.0'}
     hasBin: true
@@ -18571,7 +18571,7 @@ packages:
         optional: true
     dependencies:
       arg: 5.0.1
-      autoprefixer: 10.4.4(postcss@8.4.32)
+      autoprefixer: 10.4.4(postcss@8.4.35)
       bytes: 3.1.2
       chalk: 4.1.2
       chokidar: 3.5.3
@@ -18592,10 +18592,10 @@ packages:
       node-emoji: 1.11.0
       normalize-path: 3.0.0
       object-hash: 2.2.0
-      postcss: 8.4.32
+      postcss: 8.4.35
       postcss-js: 3.0.3
       postcss-load-config: 3.1.3
-      postcss-nested: 5.0.6(postcss@8.4.32)
+      postcss-nested: 5.0.6(postcss@8.4.35)
       postcss-selector-parser: 6.0.9
       postcss-value-parser: 4.2.0
       pretty-hrtime: 1.0.3
@@ -18994,7 +18994,7 @@ packages:
     dependencies:
       '@babel/parser': 7.23.6
       '@babel/template': 7.22.15
-      autoprefixer: 10.4.4(postcss@8.4.32)
+      autoprefixer: 10.4.4(postcss@8.4.35)
       babel-plugin-macros: 2.8.0
       chalk: 4.1.2
       clean-set: 1.1.2
@@ -19003,9 +19003,9 @@ packages:
       lodash.flatmap: 4.5.0
       lodash.get: 4.4.2
       lodash.merge: 4.6.2
-      postcss: 8.4.32
+      postcss: 8.4.35
       string-similarity: 4.0.4
-      tailwindcss: 2.2.19(autoprefixer@10.4.4)(postcss@8.4.32)
+      tailwindcss: 2.2.19(autoprefixer@10.4.4)(postcss@8.4.35)
       timsort: 0.3.0
     transitivePeerDependencies:
       - ts-node
@@ -19513,8 +19513,8 @@ packages:
       vfile-message: 3.1.2
     dev: false
 
-  /vite@4.5.1(@types/node@18.19.4):
-    resolution: {integrity: sha512-AXXFaAJ8yebyqzoNB9fu2pHoo/nWX+xZlaRwoeYUxEqBO+Zj4msE5G+BhGBll9lYEKv9Hfks52PAF2X7qDYXQA==}
+  /vite@4.5.2(@types/node@18.19.4):
+    resolution: {integrity: sha512-tBCZBNSBbHQkaGyhGCDUGqeo2ph8Fstyp6FMSvTtsXeZSPpSMGlviAOav2hxVTqFcx8Hj/twtWKsMJXNY0xI8w==}
     engines: {node: ^14.18.0 || >=16.0.0}
     hasBin: true
     peerDependencies:
@@ -19543,13 +19543,13 @@ packages:
     dependencies:
       '@types/node': 18.19.4
       esbuild: 0.16.17
-      postcss: 8.4.32
+      postcss: 8.4.35
       rollup: 3.29.4
     optionalDependencies:
       fsevents: 2.3.3
     dev: true
 
-  /vitefu@0.2.5(vite@4.5.1):
+  /vitefu@0.2.5(vite@4.5.2):
     resolution: {integrity: sha512-SgHtMLoqaeeGnd2evZ849ZbACbnwQCIwRH57t18FxcXoZop0uQu0uzlIhJBlF/eWVzuce0sHeqPcDo+evVcg8Q==}
     peerDependencies:
       vite: ^3.0.0 || ^4.0.0 || ^5.0.0
@@ -19557,7 +19557,7 @@ packages:
       vite:
         optional: true
     dependencies:
-      vite: 4.5.1(@types/node@18.19.4)
+      vite: 4.5.2(@types/node@18.19.4)
     dev: true
 
   /void-elements@3.1.0:
