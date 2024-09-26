@@ -167,7 +167,7 @@ export async function EnvelopTypeScriptCodegen(executableSchema: GraphQLSchema, 
     typeof customScalars === 'string'
       ? customScalars
       : {
-          ...(customScalars || {}),
+          ...customScalars,
           ...(ctx.GraphQLUpload
             ? {
                 Upload: 'Promise<import("graphql-upload").FileUpload>',

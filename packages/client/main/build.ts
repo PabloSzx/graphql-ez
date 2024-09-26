@@ -34,8 +34,7 @@ async function main() {
     }),
   ]);
 
-  await Promise.all([
-    buildCode({
+  await buildCode({
       entryPoints: ['./src/index.ts', './src/types.ts'],
       clean: false,
       format: 'interop',
@@ -50,8 +49,7 @@ async function main() {
       rollup: {
         interop: 'esModule',
       },
-    }),
-  ]);
+    });
 
   await tscPromise.then(v => {
     if (v.status === 'rejected') throw v.reason;

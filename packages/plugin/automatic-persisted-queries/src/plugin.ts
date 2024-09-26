@@ -97,7 +97,7 @@ export const ezAutomaticPersistedQueries = (options?: AutomaticPersistedQueryOpt
     hashAlgorithm = DEFAULT_HASH_ALGORITHM,
     disableIf,
   } = {
-    ...(options || {}),
+    ...options,
   };
   const store = _store || createLRUStore();
   const getPersistedQuery = _resolvePersistedQuery || (opts => getPersistedQueryFromContext(opts, hashAlgorithm));

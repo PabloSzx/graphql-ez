@@ -92,7 +92,7 @@ export const ezVoyager = (options: VoyagerPluginOptions | boolean = true): EZPlu
     onRegister(ctx) {
       if (!options) return;
 
-      const objOptions = { ...(getObjectValue(options) || {}) };
+      const objOptions = { ...getObjectValue(options) };
 
       const path = (objOptions.path ||= '/voyager');
 

@@ -50,7 +50,7 @@ export const ezStaticGraphiQLIDE = (options: GraphiQLOptions | boolean = true): 
     onRegister(ctx) {
       if (!options) return;
 
-      const objOptions = { ...(getObjectValue(options) || {}) };
+      const objOptions = { ...getObjectValue(options) };
 
       const path = (objOptions.path ||= ctx.options.path || '/graphql');
 
