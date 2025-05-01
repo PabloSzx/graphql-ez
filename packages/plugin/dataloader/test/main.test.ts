@@ -1,12 +1,19 @@
 import { resolve } from 'path';
 
 import { ezCodegen } from '@graphql-ez/plugin-codegen';
-import { CommonSchema, createDeferredPromise, gql, startFastifyServer } from 'graphql-ez-testing';
+import {
+  CommonSchema,
+  createDeferredPromise,
+  gql,
+  startFastifyServer,
+  VanillaEZExecutableSchemaDefinition,
+} from 'graphql-ez-testing';
 import SchemaBuilder from '@pothos/core';
 import { ezDataLoader, InferDataLoader, RegisteredDataLoader } from '../src';
 import { ezWebSockets } from '../../websockets/src/index';
 import DataLoader from 'dataloader';
 import assert from 'assert';
+import { Resolvers } from './ez.generated';
 
 type NumberMultiplier = RegisteredDataLoader<'NumberMultiplier', number, number>;
 
@@ -59,9 +66,9 @@ test('works', async () => {
                 return ctx.NumberMultiplier.load(root.id);
               },
             },
-          } as EZResolvers,
+          } as Resolvers<EZContext>,
         ],
-      },
+      } as VanillaEZExecutableSchemaDefinition,
     },
     buildOptions: {
       prepare(appBuilder) {
