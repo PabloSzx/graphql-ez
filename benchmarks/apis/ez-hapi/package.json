@@ -10,19 +10,19 @@
     "start": "bob-tsm --node-env=prod src/index.ts"
   },
   "dependencies": {
-    "@envelop/graphql-jit": "^5.0.4",
+    "@envelop/graphql-jit": "^5.0.6",
     "@graphql-ez/hapi": "workspace:*",
-    "@hapi/hapi": "^21.1.0",
+    "@hapi/hapi": "^21.4.0",
     "benchmark-bench": "workspace:*",
     "cross-env": "^7.0.3",
     "graphql": "16.1.0-experimental-stream-defer.6",
     "graphql-ez": "workspace:*",
-    "require-env-variable": "^4.0.1"
+    "require-env-variable": "^4.0.2"
   },
   "devDependencies": {
-    "@types/node": "^18.11.15",
+    "@types/node": "^18.19.87",
     "bob-tsm": "2.0.0-alpha-227aebc.0",
-    "esbuild": "^0.16.9",
-    "typescript": "^5.3.3"
+    "esbuild": "^0.16.17",
+    "typescript": "^5.8.3"
   }
 }

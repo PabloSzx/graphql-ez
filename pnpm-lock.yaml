@@ -95,35 +95,35 @@ importers:
   benchmarks/apis/envelop-fastify-raw:
     dependencies:
       '@envelop/core':
-        specifier: ^3.0.4
+        specifier: ^3.0.6
         version: 3.0.6
       '@envelop/graphql-jit':
-        specifier: ^5.0.4
+        specifier: ^5.0.6
         version: 5.0.6(@envelop/core@3.0.6)(graphql@16.1.0-experimental-stream-defer.6)
       '@envelop/parser-cache':
-        specifier: ^5.0.4
+        specifier: ^5.0.6
         version: 5.0.6(@envelop/core@3.0.6)(graphql@16.1.0-experimental-stream-defer.6)
       '@envelop/types':
-        specifier: ^3.0.1
+        specifier: ^3.0.2
         version: 3.0.2
       '@envelop/validation-cache':
-        specifier: ^5.0.4
+        specifier: ^5.1.3
         version: 5.1.3(@envelop/core@3.0.6)(graphql@16.1.0-experimental-stream-defer.6)
       benchmark-bench:
         specifier: workspace:*
         version: link:../../bench
       fastify:
-        specifier: ^4.25.2
+        specifier: ^4.29.1
         version: 4.29.1
       graphql:
         specifier: 16.1.0-experimental-stream-defer.6
         version: 16.1.0-experimental-stream-defer.6
       require-env-variable:
-        specifier: ^4.0.1
+        specifier: ^4.0.2
         version: 4.0.2
     devDependencies:
       '@types/node':
-        specifier: ^18.11.15
+        specifier: ^18.19.87
         version: 18.19.87
       bob-tsm:
         specifier: 2.0.0-alpha-227aebc.0
@@ -132,7 +132,7 @@ importers:
         specifier: ^0.16.9
         version: 0.16.17
       typescript:
-        specifier: ^5.3.3
+        specifier: ^5.8.3
         version: 5.8.3
 
   benchmarks/apis/express-graphql:
@@ -141,7 +141,7 @@ importers:
         specifier: workspace:*
         version: link:../../bench
       express:
-        specifier: ^4.18.2
+        specifier: ^4.21.2
         version: 4.21.2
       express-graphql:
         specifier: ^0.12.0
@@ -150,14 +150,14 @@ importers:
         specifier: 16.1.0-experimental-stream-defer.6
         version: 16.1.0-experimental-stream-defer.6
       require-env-variable:
-        specifier: ^4.0.1
+        specifier: ^4.0.2
         version: 4.0.2
     devDependencies:
       '@types/express':
-        specifier: ^4.17.15
+        specifier: ^4.17.21
         version: 4.17.21
       '@types/node':
-        specifier: ^18.11.15
+        specifier: ^18.19.87
         version: 18.19.87
       bob-tsm:
         specifier: 2.0.0-alpha-227aebc.0
@@ -166,19 +166,19 @@ importers:
         specifier: ^0.16.9
         version: 0.16.17
       typescript:
-        specifier: ^5.3.3
+        specifier: ^5.8.3
         version: 5.8.3
 
   benchmarks/apis/ez-express:
     dependencies:
       '@envelop/graphql-jit':
-        specifier: ^5.0.4
+        specifier: ^5.0.6
         version: 5.0.6(@envelop/core@3.0.6)(graphql@16.1.0-experimental-stream-defer.6)
       '@graphql-ez/express':
         specifier: workspace:*
         version: link:../../../packages/express/main
       '@types/express':
-        specifier: ^4.17.15
+        specifier: ^4.17.21
         version: 4.17.21
       benchmark-bench:
         specifier: workspace:*
@@ -187,7 +187,7 @@ importers:
         specifier: ^7.0.3
         version: 7.0.3
       express:
-        specifier: ^4.18.2
+        specifier: ^4.21.2
         version: 4.21.2
       graphql:
         specifier: 16.1.0-experimental-stream-defer.6
@@ -196,11 +196,11 @@ importers:
         specifier: workspace:*
         version: link:../../../packages/core/main
       require-env-variable:
-        specifier: ^4.0.1
+        specifier: ^4.0.2
         version: 4.0.2
     devDependencies:
       '@types/node':
-        specifier: ^18.11.15
+        specifier: ^18.19.87
         version: 18.19.87
       bob-tsm:
         specifier: 2.0.0-alpha-227aebc.0
@@ -209,13 +209,13 @@ importers:
         specifier: ^0.16.9
         version: 0.16.17
       typescript:
-        specifier: ^5.3.3
+        specifier: ^5.8.3
         version: 5.8.3
 
   benchmarks/apis/ez-fastify:
     dependencies:
       '@envelop/graphql-jit':
-        specifier: ^5.0.4
+        specifier: ^5.0.6
         version: 5.0.6(@envelop/core@3.0.6)(graphql@16.1.0-experimental-stream-defer.6)
       '@graphql-ez/fastify':
         specifier: workspace:*
@@ -227,7 +227,7 @@ importers:
         specifier: ^7.0.3
         version: 7.0.3
       fastify:
-        specifier: ^4.25.2
+        specifier: ^4.29.1
         version: 4.29.1
       graphql:
         specifier: 16.1.0-experimental-stream-defer.6
@@ -236,11 +236,11 @@ importers:
         specifier: workspace:*
         version: link:../../../packages/core/main
       require-env-variable:
-        specifier: ^4.0.1
+        specifier: ^4.0.2
         version: 4.0.2
     devDependencies:
       '@types/node':
-        specifier: ^18.11.15
+        specifier: ^18.19.87
         version: 18.19.87
       bob-tsm:
         specifier: 2.0.0-alpha-227aebc.0
@@ -249,19 +249,19 @@ importers:
         specifier: ^0.16.9
         version: 0.16.17
       typescript:
-        specifier: ^5.3.3
+        specifier: ^5.8.3
         version: 5.8.3
 
   benchmarks/apis/ez-hapi:
     dependencies:
       '@envelop/graphql-jit':
-        specifier: ^5.0.4
+        specifier: ^5.0.6
         version: 5.0.6(@envelop/core@3.0.6)(graphql@16.1.0-experimental-stream-defer.6)
       '@graphql-ez/hapi':
         specifier: workspace:*
         version: link:../../../packages/hapi/main
       '@hapi/hapi':
-        specifier: ^21.1.0
+        specifier: ^21.4.0
         version: 21.4.0
       benchmark-bench:
         specifier: workspace:*
@@ -276,11 +276,11 @@ importers:
         specifier: workspace:*
         version: link:../../../packages/core/main
       require-env-variable:
-        specifier: ^4.0.1
+        specifier: ^4.0.2
         version: 4.0.2
     devDependencies:
       '@types/node':
-        specifier: ^18.11.15
+        specifier: ^18.19.87
         version: 18.19.87
       bob-tsm:
         specifier: 2.0.0-alpha-227aebc.0
@@ -289,13 +289,13 @@ importers:
         specifier: ^0.16.9
         version: 0.16.17
       typescript:
-        specifier: ^5.3.3
+        specifier: ^5.8.3
         version: 5.8.3
 
   benchmarks/apis/ez-http:
     dependencies:
       '@envelop/graphql-jit':
-        specifier: ^5.0.4
+        specifier: ^5.0.6
         version: 5.0.6(@envelop/core@3.0.6)(graphql@16.1.0-experimental-stream-defer.6)
       '@graphql-ez/http':
         specifier: workspace:*
@@ -313,11 +313,11 @@ importers:
         specifier: workspace:*
         version: link:../../../packages/core/main
       require-env-variable:
-        specifier: ^4.0.1
+        specifier: ^4.0.2
         version: 4.0.2
     devDependencies:
       '@types/node':
-        specifier: ^18.11.15
+        specifier: ^18.19.87
         version: 18.19.87
       bob-tsm:
         specifier: 2.0.0-alpha-227aebc.0
@@ -326,19 +326,19 @@ importers:
         specifier: ^0.16.9
         version: 0.16.17
       typescript:
-        specifier: ^5.3.3
+        specifier: ^5.8.3
         version: 5.8.3
 
   benchmarks/apis/ez-koa:
     dependencies:
       '@envelop/graphql-jit':
-        specifier: ^5.0.4
+        specifier: ^5.0.6
         version: 5.0.6(@envelop/core@3.0.6)(graphql@16.1.0-experimental-stream-defer.6)
       '@graphql-ez/koa':
         specifier: workspace:*
         version: link:../../../packages/koa/main
       '@koa/router':
-        specifier: ^12.0.0
+        specifier: ^12.0.2
         version: 12.0.2
       benchmark-bench:
         specifier: workspace:*
@@ -353,23 +353,23 @@ importers:
         specifier: workspace:*
         version: link:../../../packages/core/main
       koa:
-        specifier: ^2.14.1
+        specifier: ^2.16.1
         version: 2.16.1
       require-env-variable:
-        specifier: ^4.0.1
+        specifier: ^4.0.2
         version: 4.0.2
     devDependencies:
       '@types/koa':
-        specifier: ^2.13.5
+        specifier: ^2.15.0
         version: 2.15.0
       '@types/koa-bodyparser':
-        specifier: ^4.3.10
+        specifier: ^4.3.12
         version: 4.3.12
       '@types/koa__router':
-        specifier: ^12.0.0
+        specifier: ^12.0.4
         version: 12.0.4
       '@types/node':
-        specifier: ^18.11.15
+        specifier: ^18.19.87
         version: 18.19.87
       bob-tsm:
         specifier: 2.0.0-alpha-227aebc.0
@@ -378,7 +378,7 @@ importers:
         specifier: ^0.16.9
         version: 0.16.17
       typescript:
-        specifier: ^5.3.3
+        specifier: ^5.8.3
         version: 5.8.3
 
   benchmarks/apis/graphql-helix:
@@ -387,7 +387,7 @@ importers:
         specifier: workspace:*
         version: link:../../bench
       fastify:
-        specifier: ^4.25.2
+        specifier: ^4.29.1
         version: 4.29.1
       graphql:
         specifier: 16.1.0-experimental-stream-defer.6
@@ -396,11 +396,11 @@ importers:
         specifier: ^1.13.0
         version: 1.13.0(graphql@16.1.0-experimental-stream-defer.6)
       require-env-variable:
-        specifier: ^4.0.1
+        specifier: ^4.0.2
         version: 4.0.2
     devDependencies:
       '@types/node':
-        specifier: ^18.11.15
+        specifier: ^18.19.87
         version: 18.19.87
       bob-tsm:
         specifier: 2.0.0-alpha-227aebc.0
@@ -409,7 +409,7 @@ importers:
         specifier: ^0.16.9
         version: 0.16.17
       typescript:
-        specifier: ^5.3.3
+        specifier: ^5.8.3
         version: 5.8.3
 
   benchmarks/apis/mercurius:
@@ -421,23 +421,23 @@ importers:
         specifier: ^7.0.3
         version: 7.0.3
       fastify:
-        specifier: ^4.25.2
+        specifier: ^4.29.1
         version: 4.29.1
       graphql:
-        specifier: ^16.6.0
+        specifier: ^16.11.0
         version: 16.11.0
       mercurius:
-        specifier: ^11.4.0
+        specifier: ^11.5.0
         version: 11.5.0(graphql@16.11.0)
       require-env-variable:
-        specifier: ^4.0.1
+        specifier: ^4.0.2
         version: 4.0.2
     dependenciesMeta:
       benchmark-bench:
         injected: true
     devDependencies:
       '@types/node':
-        specifier: ^18.11.15
+        specifier: ^18.19.87
         version: 18.19.87
       bob-tsm:
         specifier: 2.0.0-alpha-227aebc.0
@@ -446,7 +446,7 @@ importers:
         specifier: ^0.16.9
         version: 0.16.17
       typescript:
-        specifier: ^5.3.3
+        specifier: ^5.8.3
         version: 5.8.3
 
   benchmarks/bench:
@@ -455,13 +455,13 @@ importers:
         specifier: ^7.6.0
         version: 7.6.0
       '@graphql-tools/schema':
-        specifier: ^9.0.12
+        specifier: ^9.0.19
         version: 9.0.19(graphql@16.1.0-experimental-stream-defer.6)
       autocannon:
-        specifier: ^7.10.0
+        specifier: ^7.15.0
         version: 7.15.0
       chalk:
-        specifier: ^5.2.0
+        specifier: ^5.4.1
         version: 5.4.1
       cli-table:
         specifier: ^0.3.11
@@ -482,38 +482,38 @@ importers:
         specifier: ^1.0.4
         version: 1.0.4
       require-env-variable:
-        specifier: ^4.0.1
+        specifier: ^4.0.2
         version: 4.0.2
       rimraf:
         specifier: ^3.0.2
         version: 3.0.2
       systeminformation:
-        specifier: ^5.16.6
+        specifier: ^5.25.11
         version: 5.25.11
       wait-on:
         specifier: ^6.0.1
         version: 6.0.1
     devDependencies:
       '@types/autocannon':
-        specifier: ^7.9.0
+        specifier: ^7.12.6
         version: 7.12.6
       '@types/cli-table':
-        specifier: ^0.3.1
+        specifier: ^0.3.4
         version: 0.3.4
       '@types/md5':
-        specifier: ^2.3.2
+        specifier: ^2.3.5
         version: 2.3.5
       '@types/mkdirp':
         specifier: ^1.0.2
         version: 1.0.2
       '@types/node':
-        specifier: ^18.11.15
+        specifier: ^18.19.87
         version: 18.19.87
       '@types/rimraf':
         specifier: ^3.0.2
         version: 3.0.2
       '@types/wait-on':
-        specifier: ^5.3.1
+        specifier: ^5.3.4
         version: 5.3.4
       bob-tsm:
         specifier: 2.0.0-alpha-227aebc.0
@@ -525,7 +525,7 @@ importers:
         specifier: 16.1.0-experimental-stream-defer.6
         version: 16.1.0-experimental-stream-defer.6
       typescript:
-        specifier: ^5.3.3
+        specifier: ^5.8.3
         version: 5.8.3
 
   examples/cloudflare:
@@ -556,7 +556,7 @@ importers:
         version: 0.7.3
     devDependencies:
       '@types/node':
-        specifier: ^18.11.15
+        specifier: ^18.19.87
         version: 18.19.87
       clipboardy:
         specifier: ^3.0.0
@@ -568,10 +568,10 @@ importers:
         specifier: ^0.16.9
         version: 0.16.17
       miniflare:
-        specifier: ^2.11.0
+        specifier: ^2.14.4
         version: 2.14.4(cron-schedule@3.0.6)
       typescript:
-        specifier: ^5.3.3
+        specifier: ^5.8.3
         version: 5.8.3
 
   examples/express/complete:
@@ -604,10 +604,10 @@ importers:
         specifier: workspace:*
         version: link:../../../packages/plugin/websockets
       '@graphql-typed-document-node/core':
-        specifier: ^3.1.1
+        specifier: ^3.2.0
         version: 3.2.0(graphql@16.1.0-experimental-stream-defer.6)
       express:
-        specifier: ^4.18.2
+        specifier: ^4.21.2
         version: 4.21.2
       graphql:
         specifier: 16.1.0-experimental-stream-defer.6
@@ -617,10 +617,10 @@ importers:
         version: link:../../../packages/core/main
     devDependencies:
       '@types/express':
-        specifier: ^4.17.15
+        specifier: ^4.17.21
         version: 4.17.21
       '@types/node':
-        specifier: ^18.11.15
+        specifier: ^18.19.87
         version: 18.19.87
       bob-tsm:
         specifier: 2.0.0-alpha-227aebc.0
@@ -629,7 +629,7 @@ importers:
         specifier: ^0.16.9
         version: 0.16.17
       typescript:
-        specifier: ^5.3.3
+        specifier: ^5.8.3
         version: 5.8.3
 
   examples/fastify/basic:
@@ -644,7 +644,7 @@ importers:
         specifier: workspace:*
         version: link:../../../packages/plugin/schema
       fastify:
-        specifier: ^4.25.2
+        specifier: ^4.29.1
         version: 4.29.1
       graphql:
         specifier: 16.1.0-experimental-stream-defer.6
@@ -654,7 +654,7 @@ importers:
         version: link:../../../packages/core/main
     devDependencies:
       '@types/node':
-        specifier: ^18.11.15
+        specifier: ^18.19.87
         version: 18.19.87
       bob-tsm:
         specifier: 2.0.0-alpha-227aebc.0
@@ -663,7 +663,7 @@ importers:
         specifier: ^0.16.9
         version: 0.16.17
       typescript:
-        specifier: ^5.3.3
+        specifier: ^5.8.3
         version: 5.8.3
 
   examples/fastify/complete:
@@ -705,7 +705,7 @@ importers:
         specifier: ^8.0.12
         version: 8.0.12
       fastify:
-        specifier: ^4.25.2
+        specifier: ^4.29.1
         version: 4.29.1
       graphql:
         specifier: 16.1.0-experimental-stream-defer.6
@@ -718,7 +718,7 @@ importers:
         version: 13.0.0(graphql@16.1.0-experimental-stream-defer.6)
     devDependencies:
       '@types/node':
-        specifier: ^18.11.15
+        specifier: ^18.19.87
         version: 18.19.87
       bob-tsm:
         specifier: 2.0.0-alpha-227aebc.0
@@ -727,7 +727,7 @@ importers:
         specifier: ^0.16.9
         version: 0.16.17
       typescript:
-        specifier: ^5.3.3
+        specifier: ^5.8.3
         version: 5.8.3
 
   examples/fastify/nexus:
@@ -739,7 +739,7 @@ importers:
         specifier: workspace:*
         version: link:../../../packages/plugin/altair
       fastify:
-        specifier: ^4.25.2
+        specifier: ^4.29.1
         version: 4.29.1
       graphql:
         specifier: 16.1.0-experimental-stream-defer.6
@@ -752,7 +752,7 @@ importers:
         version: 1.3.0(graphql@16.1.0-experimental-stream-defer.6)
     devDependencies:
       '@types/node':
-        specifier: ^18.11.15
+        specifier: ^18.19.87
         version: 18.19.87
       bob-tsm:
         specifier: 2.0.0-alpha-227aebc.0
@@ -761,7 +761,7 @@ importers:
         specifier: ^0.16.9
         version: 0.16.17
       typescript:
-        specifier: ^5.3.3
+        specifier: ^5.8.3
         version: 5.8.3
 
   examples/fastify/pothos:
@@ -773,10 +773,10 @@ importers:
         specifier: workspace:*
         version: link:../../../packages/plugin/graphiql
       '@pothos/core':
-        specifier: ^3.23.2
+        specifier: ^3.41.2
         version: 3.41.2(graphql@16.1.0-experimental-stream-defer.6)
       fastify:
-        specifier: ^4.25.2
+        specifier: ^4.29.1
         version: 4.29.1
       graphql:
         specifier: 16.1.0-experimental-stream-defer.6
@@ -786,7 +786,7 @@ importers:
         version: link:../../../packages/core/main
     devDependencies:
       '@types/node':
-        specifier: ^18.11.15
+        specifier: ^18.19.87
         version: 18.19.87
       bob-tsm:
         specifier: 2.0.0-alpha-227aebc.0
@@ -795,7 +795,7 @@ importers:
         specifier: ^0.16.9
         version: 0.16.17
       typescript:
-        specifier: ^5.3.3
+        specifier: ^5.8.3
         version: 5.8.3
 
   examples/fastify/type-graphql:
@@ -810,16 +810,16 @@ importers:
         specifier: ^0.13.2
         version: 0.13.2
       fastify:
-        specifier: ^4.25.2
+        specifier: ^4.29.1
         version: 4.29.1
       graphql:
-        specifier: ^15.8.0
+        specifier: ^15.10.1
         version: 15.10.1
       graphql-ez:
         specifier: workspace:*
         version: file:packages/core/main(graphql@15.10.1)
       reflect-metadata:
-        specifier: ^0.1.13
+        specifier: ^0.1.14
         version: 0.1.14
       type-graphql:
         specifier: ^1.1.1
@@ -831,16 +831,16 @@ importers:
         injected: true
     devDependencies:
       '@types/node':
-        specifier: ^18.11.15
+        specifier: ^18.19.87
         version: 18.19.87
       esbuild:
         specifier: ^0.16.9
         version: 0.16.17
       tsc-watch:
-        specifier: ^6.0.0
+        specifier: ^6.2.1
         version: 6.2.1(typescript@5.8.3)
       typescript:
-        specifier: ^5.3.3
+        specifier: ^5.8.3
         version: 5.8.3
 
   examples/hapi/complete:
@@ -873,10 +873,10 @@ importers:
         specifier: workspace:*
         version: link:../../../packages/plugin/websockets
       '@graphql-typed-document-node/core':
-        specifier: ^3.1.1
+        specifier: ^3.2.0
         version: 3.2.0(graphql@16.1.0-experimental-stream-defer.6)
       '@hapi/hapi':
-        specifier: ^21.1.0
+        specifier: ^21.4.0
         version: 21.4.0
       graphql:
         specifier: 16.1.0-experimental-stream-defer.6
@@ -886,7 +886,7 @@ importers:
         version: link:../../../packages/core/main
     devDependencies:
       '@types/node':
-        specifier: ^18.11.15
+        specifier: ^18.19.87
         version: 18.19.87
       bob-tsm:
         specifier: 2.0.0-alpha-227aebc.0
@@ -895,7 +895,7 @@ importers:
         specifier: ^0.16.9
         version: 0.16.17
       typescript:
-        specifier: ^5.3.3
+        specifier: ^5.8.3
         version: 5.8.3
 
   examples/http/complete:
@@ -928,7 +928,7 @@ importers:
         specifier: workspace:*
         version: link:../../../packages/plugin/websockets
       '@graphql-typed-document-node/core':
-        specifier: ^3.1.1
+        specifier: ^3.2.0
         version: 3.2.0(graphql@16.1.0-experimental-stream-defer.6)
       graphql:
         specifier: 16.1.0-experimental-stream-defer.6
@@ -938,7 +938,7 @@ importers:
         version: link:../../../packages/core/main
     devDependencies:
       '@types/node':
-        specifier: ^18.11.15
+        specifier: ^18.19.87
         version: 18.19.87
       bob-tsm:
         specifier: 2.0.0-alpha-227aebc.0
@@ -947,7 +947,7 @@ importers:
         specifier: ^0.16.9
         version: 0.16.17
       typescript:
-        specifier: ^5.3.3
+        specifier: ^5.8.3
         version: 5.8.3
 
   examples/koa/complete:
@@ -983,10 +983,10 @@ importers:
         specifier: workspace:*
         version: link:../../../packages/plugin/websockets
       '@graphql-typed-document-node/core':
-        specifier: ^3.1.1
+        specifier: ^3.2.0
         version: 3.2.0(graphql@16.1.0-experimental-stream-defer.6)
       '@koa/router':
-        specifier: ^12.0.0
+        specifier: ^12.0.2
         version: 12.0.2
       graphql:
         specifier: 16.1.0-experimental-stream-defer.6
@@ -995,23 +995,23 @@ importers:
         specifier: workspace:*
         version: link:../../../packages/core/main
       koa:
-        specifier: ^2.14.1
+        specifier: ^2.16.1
         version: 2.16.1
       koa-bodyparser:
-        specifier: ^4.3.0
+        specifier: ^4.4.1
         version: 4.4.1
     devDependencies:
       '@types/koa':
-        specifier: ^2.13.5
+        specifier: ^2.15.0
         version: 2.15.0
       '@types/koa-bodyparser':
-        specifier: ^4.3.10
+        specifier: ^4.3.12
         version: 4.3.12
       '@types/koa__router':
-        specifier: ^12.0.0
+        specifier: ^12.0.4
         version: 12.0.4
       '@types/node':
-        specifier: ^18.11.15
+        specifier: ^18.19.87
         version: 18.19.87
       bob-tsm:
         specifier: 2.0.0-alpha-227aebc.0
@@ -1020,7 +1020,7 @@ importers:
         specifier: ^0.16.9
         version: 0.16.17
       typescript:
-        specifier: ^5.3.3
+        specifier: ^5.8.3
         version: 5.8.3
 
   examples/nextjs/complete:
@@ -1050,7 +1050,7 @@ importers:
         specifier: workspace:*
         version: link:../../../packages/plugin/voyager
       '@graphql-typed-document-node/core':
-        specifier: ^3.1.1
+        specifier: ^3.2.0
         version: 3.2.0(graphql@16.1.0-experimental-stream-defer.6)
       graphql:
         specifier: 16.1.0-experimental-stream-defer.6
@@ -1059,10 +1059,10 @@ importers:
         specifier: workspace:*
         version: link:../../../packages/core/main
       graphql-request:
-        specifier: ^5.0.0
+        specifier: ^5.2.0
         version: 5.2.0(graphql@16.1.0-experimental-stream-defer.6)
       next:
-        specifier: ^12.3.4
+        specifier: ^12.3.7
         version: 12.3.7(@babel/core@7.27.1)(babel-plugin-macros@3.1.0)(react-dom@17.0.2(react@17.0.2))(react@17.0.2)(sass@1.87.0)
       react:
         specifier: ^17.0.2
@@ -1071,23 +1071,23 @@ importers:
         specifier: ^17.0.2
         version: 17.0.2(react@17.0.2)
       react-query:
-        specifier: ^3.39.2
+        specifier: ^3.39.3
         version: 3.39.3(react-dom@17.0.2(react@17.0.2))(react@17.0.2)
     devDependencies:
       '@types/node':
-        specifier: ^18.11.15
+        specifier: ^18.19.87
         version: 18.19.87
       '@types/react':
         specifier: ^17.0.50
         version: 17.0.85
       '@types/react-dom':
-        specifier: ^18.0.9
+        specifier: ^18.3.7
         version: 18.3.7(@types/react@17.0.85)
       esbuild:
         specifier: ^0.16.9
         version: 0.16.17
       typescript:
-        specifier: ^5.3.3
+        specifier: ^5.8.3
         version: 5.8.3
 
   examples/sveltekit:
@@ -1114,22 +1114,22 @@ importers:
         specifier: 1.0.1
         version: 1.0.1(svelte@3.59.2)(vite@4.5.14(@types/node@18.19.87)(sass@1.87.0))
       svelte:
-        specifier: ^3.55.0
+        specifier: ^3.59.2
         version: 3.59.2
       svelte-check:
-        specifier: ^2.10.2
+        specifier: ^2.10.3
         version: 2.10.3(@babel/core@7.27.1)(postcss-load-config@3.1.4(postcss@8.5.3)(ts-node@10.9.1(@types/node@18.19.87)(typescript@5.8.3)))(postcss@8.5.3)(sass@1.87.0)(svelte@3.59.2)
       svelte-preprocess:
-        specifier: ^5.0.0
+        specifier: ^5.1.4
         version: 5.1.4(@babel/core@7.27.1)(postcss-load-config@3.1.4(postcss@8.5.3)(ts-node@10.9.1(@types/node@18.19.87)(typescript@5.8.3)))(postcss@8.5.3)(sass@1.87.0)(svelte@3.59.2)(typescript@5.8.3)
       tslib:
-        specifier: ^2.4.1
+        specifier: ^2.8.1
         version: 2.8.1
       typescript:
-        specifier: ^5.3.3
+        specifier: ^5.8.3
         version: 5.8.3
       vite:
-        specifier: ^4.0.2
+        specifier: ^4.5.14
         version: 4.5.14(@types/node@18.19.87)(sass@1.87.0)
 
   examples/vercel:
@@ -1157,13 +1157,13 @@ importers:
         version: link:../../packages/core/main
     devDependencies:
       '@types/node':
-        specifier: ^18.11.15
+        specifier: ^18.19.87
         version: 18.19.87
       esbuild:
         specifier: ^0.16.9
         version: 0.16.17
       typescript:
-        specifier: ^5.3.3
+        specifier: ^5.8.3
         version: 5.8.3
 
   integration/gql-15-interop:
@@ -1178,13 +1178,13 @@ importers:
         specifier: workspace:^
         version: file:packages/plugin/schema(graphql-ez@file:packages/core/main(graphql@15.8.0))(graphql@15.8.0)
       c8:
-        specifier: ^7.12.0
+        specifier: ^7.14.0
         version: 7.14.0
       chai:
-        specifier: ^4.3.7
+        specifier: ^4.5.0
         version: 4.5.0
       fastify:
-        specifier: ^4.25.2
+        specifier: ^4.29.1
         version: 4.29.1
       graphql:
         specifier: 15.8.0
@@ -1193,7 +1193,7 @@ importers:
         specifier: workspace:^
         version: file:packages/core/main(graphql@15.8.0)
       mocha:
-        specifier: ^10.2.0
+        specifier: ^10.8.2
         version: 10.8.2
     dependenciesMeta:
       '@graphql-ez/fastify':
@@ -1206,13 +1206,13 @@ importers:
         injected: true
     devDependencies:
       '@types/node':
-        specifier: ^18.11.15
+        specifier: ^18.19.87
         version: 18.19.87
       esbuild:
         specifier: ^0.16.9
         version: 0.16.17
       typescript:
-        specifier: ^5.3.3
+        specifier: ^5.8.3
         version: 5.8.3
 
   integration/gql-15-stream-defer-interop:
@@ -1227,13 +1227,13 @@ importers:
         specifier: workspace:^
         version: file:packages/plugin/schema(graphql-ez@file:packages/core/main(graphql@15.4.0-experimental-stream-defer.1))(graphql@15.4.0-experimental-stream-defer.1)
       c8:
-        specifier: ^7.12.0
+        specifier: ^7.14.0
         version: 7.14.0
       chai:
-        specifier: ^4.3.7
+        specifier: ^4.5.0
         version: 4.5.0
       fastify:
-        specifier: ^4.25.2
+        specifier: ^4.29.1
         version: 4.29.1
       graphql:
         specifier: 15.4.0-experimental-stream-defer.1
@@ -1242,7 +1242,7 @@ importers:
         specifier: workspace:^
         version: file:packages/core/main(graphql@15.4.0-experimental-stream-defer.1)
       mocha:
-        specifier: ^10.2.0
+        specifier: ^10.8.2
         version: 10.8.2
     dependenciesMeta:
       '@graphql-ez/fastify':
@@ -1255,13 +1255,13 @@ importers:
         injected: true
     devDependencies:
       '@types/node':
-        specifier: ^18.11.15
+        specifier: ^18.19.87
         version: 18.19.87
       esbuild:
         specifier: ^0.16.9
         version: 0.16.17
       typescript:
-        specifier: ^5.3.3
+        specifier: ^5.8.3
         version: 5.8.3
 
   integration/gql-16-esm:
@@ -1276,13 +1276,13 @@ importers:
         specifier: workspace:^
         version: file:packages/plugin/schema(graphql-esm@16.5.0)(graphql-ez@file:packages/core/main(graphql-esm@16.5.0))
       c8:
-        specifier: ^7.12.0
+        specifier: ^7.14.0
         version: 7.14.0
       chai:
-        specifier: ^4.3.7
+        specifier: ^4.5.0
         version: 4.5.0
       fastify:
-        specifier: ^4.25.2
+        specifier: ^4.29.1
         version: 4.29.1
       graphql:
         specifier: npm:graphql-esm@^16.5.0
@@ -1291,7 +1291,7 @@ importers:
         specifier: workspace:^
         version: file:packages/core/main(graphql-esm@16.5.0)
       mocha:
-        specifier: ^10.2.0
+        specifier: ^10.8.2
         version: 10.8.2
     dependenciesMeta:
       '@graphql-ez/fastify':
@@ -1304,13 +1304,13 @@ importers:
         injected: true
     devDependencies:
       '@types/node':
-        specifier: ^18.11.15
+        specifier: ^18.19.87
         version: 18.19.87
       esbuild:
         specifier: ^0.16.9
         version: 0.16.17
       typescript:
-        specifier: ^5.3.3
+        specifier: ^5.8.3
         version: 5.8.3
 
   integration/gql-16-interop:
@@ -1325,13 +1325,13 @@ importers:
         specifier: workspace:^
         version: file:packages/plugin/schema(graphql-ez@file:packages/core/main(graphql@16.6.0))(graphql@16.6.0)
       c8:
-        specifier: ^7.12.0
+        specifier: ^7.14.0
         version: 7.14.0
       chai:
-        specifier: ^4.3.7
+        specifier: ^4.5.0
         version: 4.5.0
       fastify:
-        specifier: ^4.25.2
+        specifier: ^4.29.1
         version: 4.29.1
       graphql:
         specifier: 16.6.0
@@ -1340,7 +1340,7 @@ importers:
         specifier: workspace:^
         version: file:packages/core/main(graphql@16.6.0)
       mocha:
-        specifier: ^10.2.0
+        specifier: ^10.8.2
         version: 10.8.2
     dependenciesMeta:
       '@graphql-ez/fastify':
@@ -1353,13 +1353,13 @@ importers:
         injected: true
     devDependencies:
       '@types/node':
-        specifier: ^18.11.15
+        specifier: ^18.19.87
         version: 18.19.87
       esbuild:
         specifier: ^0.16.9
         version: 0.16.17
       typescript:
-        specifier: ^5.3.3
+        specifier: ^5.8.3
         version: 5.8.3
 
   integration/gql-16-stream-defer-interop:
@@ -1374,13 +1374,13 @@ importers:
         specifier: workspace:^
         version: file:packages/plugin/schema(graphql-ez@file:packages/core/main(graphql@16.1.0-experimental-stream-defer.6))(graphql@16.1.0-experimental-stream-defer.6)
       c8:
-        specifier: ^7.12.0
+        specifier: ^7.14.0
         version: 7.14.0
       chai:
-        specifier: ^4.3.7
+        specifier: ^4.5.0
         version: 4.5.0
       fastify:
-        specifier: ^4.25.2
+        specifier: ^4.29.1
         version: 4.29.1
       graphql:
         specifier: 16.1.0-experimental-stream-defer.6
@@ -1389,7 +1389,7 @@ importers:
         specifier: workspace:^
         version: file:packages/core/main(graphql@16.1.0-experimental-stream-defer.6)
       mocha:
-        specifier: ^10.2.0
+        specifier: ^10.8.2
         version: 10.8.2
     dependenciesMeta:
       '@graphql-ez/fastify':
@@ -1402,13 +1402,13 @@ importers:
         injected: true
     devDependencies:
       '@types/node':
-        specifier: ^18.11.15
+        specifier: ^18.19.87
         version: 18.19.87
       esbuild:
         specifier: ^0.16.9
         version: 0.16.17
       typescript:
-        specifier: ^5.3.3
+        specifier: ^5.8.3
         version: 5.8.3
 
   integration/gql-17:
@@ -1420,13 +1420,13 @@ importers:
         specifier: workspace:^
         version: file:packages/fastify/testing(@graphql-ez/fastify@file:packages/fastify/main(@types/node@18.19.87)(fastify@4.29.1)(graphql-ez@file:packages/core/main(graphql@17.0.0-alpha.1))(graphql@17.0.0-alpha.1))(fastify@4.29.1)(graphql-ez@file:packages/core/main(graphql@17.0.0-alpha.1))(graphql@17.0.0-alpha.1)
       c8:
-        specifier: ^7.12.0
+        specifier: ^7.14.0
         version: 7.14.0
       chai:
-        specifier: ^4.3.7
+        specifier: ^4.5.0
         version: 4.5.0
       fastify:
-        specifier: ^4.25.2
+        specifier: ^4.29.1
         version: 4.29.1
       graphql:
         specifier: 17.0.0-alpha.1
@@ -1435,7 +1435,7 @@ importers:
         specifier: workspace:^
         version: file:packages/core/main(graphql@17.0.0-alpha.1)
       mocha:
-        specifier: ^10.2.0
+        specifier: ^10.8.2
         version: 10.8.2
     dependenciesMeta:
       '@graphql-ez/fastify':
@@ -1448,13 +1448,13 @@ importers:
         injected: true
     devDependencies:
       '@types/node':
-        specifier: ^18.11.15
+        specifier: ^18.19.87
         version: 18.19.87
       esbuild:
         specifier: ^0.16.9
         version: 0.16.17
       typescript:
-        specifier: ^5.3.3
+        specifier: ^5.8.3
         version: 5.8.3
 
   internal/testing:
@@ -1509,52 +1509,52 @@ importers:
         specifier: workspace:^
         version: link:../../packages/core/utils
       '@graphql-tools/schema':
-        specifier: ^9.0.12
+        specifier: ^9.0.19
         version: 9.0.19(graphql@16.1.0-experimental-stream-defer.6)
       '@graphql-tools/utils':
-        specifier: ^9.1.3
+        specifier: ^9.2.1
         version: 9.2.1(graphql@16.1.0-experimental-stream-defer.6)
       '@graphql-typed-document-node/core':
-        specifier: ^3.1.1
+        specifier: ^3.2.0
         version: 3.2.0(graphql@16.1.0-experimental-stream-defer.6)
       '@hapi/hapi':
-        specifier: ^21.1.0
+        specifier: ^21.4.0
         version: 21.4.0
       '@jest/types':
-        specifier: ^29.3.1
+        specifier: ^29.6.3
         version: 29.6.3
       '@koa/router':
-        specifier: ^12.0.0
+        specifier: ^12.0.2
         version: 12.0.2
       '@types/eventsource':
-        specifier: ^1.1.10
+        specifier: ^1.1.15
         version: 1.1.15
       '@types/express':
-        specifier: ^4.17.15
+        specifier: ^4.17.21
         version: 4.17.21
       '@types/express-serve-static-core':
-        specifier: ^4.17.31
+        specifier: ^4.19.6
         version: 4.19.6
       '@types/fs-extra':
         specifier: ^9.0.13
         version: 9.0.13
       '@types/jest':
-        specifier: ^29.2.4
+        specifier: ^29.5.14
         version: 29.5.14
       '@types/koa':
-        specifier: ^2.13.5
+        specifier: ^2.15.0
         version: 2.15.0
       '@types/koa__router':
-        specifier: ^12.0.0
+        specifier: ^12.0.4
         version: 12.0.4
       '@types/lodash':
-        specifier: ^4.14.191
+        specifier: ^4.17.16
         version: 4.17.16
       '@types/node':
-        specifier: ^18.11.15
+        specifier: ^18.19.87
         version: 18.19.87
       '@types/ws':
-        specifier: ^8.5.3
+        specifier: ^8.18.1
         version: 8.18.1
       bob-esbuild-cli:
         specifier: 5.0.0-alpha-227aebc.0
@@ -1566,19 +1566,19 @@ importers:
         specifier: ^2.0.2
         version: 2.0.2
       express:
-        specifier: ^4.18.2
+        specifier: ^4.21.2
         version: 4.21.2
       fast-safe-stringify:
         specifier: ^2.1.1
         version: 2.1.1
       fastify:
-        specifier: ^4.25.2
+        specifier: ^4.29.1
         version: 4.29.1
       form-data:
-        specifier: ^4.0.0
+        specifier: ^4.0.2
         version: 4.0.2
       fs-extra:
-        specifier: ^11.1.0
+        specifier: ^11.3.0
         version: 11.3.0
       graphql:
         specifier: 16.1.0-experimental-stream-defer.6
@@ -1587,16 +1587,16 @@ importers:
         specifier: workspace:*
         version: link:../../packages/core/main
       graphql-modules:
-        specifier: ^2.1.0
+        specifier: ^2.4.0
         version: 2.4.0(graphql@16.1.0-experimental-stream-defer.6)
       graphql-ws:
-        specifier: ^5.11.2
+        specifier: ^5.16.2
         version: 5.16.2(graphql@16.1.0-experimental-stream-defer.6)
       jest:
         specifier: 30.0.0-alpha.7
         version: 30.0.0-alpha.7(@types/node@18.19.87)(babel-plugin-macros@3.1.0)(ts-node@10.9.1(@types/node@18.19.87)(typescript@5.8.3))
       koa:
-        specifier: ^2.14.1
+        specifier: ^2.16.1
         version: 2.16.1
       lodash:
         specifier: ^4.17.21
@@ -1605,19 +1605,19 @@ importers:
         specifier: ^2.0.2
         version: 2.0.2(graphql@16.1.0-experimental-stream-defer.6)(ws@8.18.1)
       ts-jest:
-        specifier: ^29.0.3
+        specifier: ^29.3.2
         version: 29.3.2(@babel/core@7.27.1)(@jest/transform@29.7.0)(@jest/types@29.6.3)(babel-jest@29.7.0(@babel/core@7.27.1))(esbuild@0.16.17)(jest@30.0.0-alpha.7(@types/node@18.19.87)(babel-plugin-macros@3.1.0)(ts-node@10.9.1(@types/node@18.19.87)(typescript@5.8.3)))(typescript@5.8.3)
       typescript:
-        specifier: ^5.3.3
+        specifier: ^5.8.3
         version: 5.8.3
       undici:
-        specifier: ^5.14.0
+        specifier: ^5.29.0
         version: 5.29.0
       wait-for-expect:
         specifier: ^3.0.2
         version: 3.0.2
       ws:
-        specifier: ^8.11.0
+        specifier: ^8.18.1
         version: 8.18.1
 
   internal/website:
@@ -1635,10 +1635,10 @@ importers:
         specifier: ^1.10.4
         version: 1.10.4
       '@emotion/react':
-        specifier: ^11.10.5
+        specifier: ^11.14.0
         version: 11.14.0(@types/react@17.0.85)(react@17.0.2)
       '@emotion/styled':
-        specifier: ^11.10.5
+        specifier: ^11.14.0
         version: 11.14.0(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@types/react@17.0.85)(react@17.0.2)
       '@guild-docs/client':
         specifier: 2.1.1
@@ -1647,19 +1647,19 @@ importers:
         specifier: 3.0.1
         version: 3.0.1(@chakra-ui/react@1.8.9(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@types/react@17.0.85)(react@17.0.2))(@types/react@17.0.85)(framer-motion@6.5.1(react-dom@17.0.2(react@17.0.2))(react@17.0.2))(react-dom@17.0.2(react@17.0.2))(react@17.0.2))(@mdx-js/react@2.3.0(react@17.0.2))(@types/react@17.0.85)(next-i18next@12.1.0(next@12.3.7(@babel/core@7.27.1)(babel-plugin-macros@3.1.0)(react-dom@17.0.2(react@17.0.2))(react@17.0.2)(sass@1.87.0))(react-dom@17.0.2(react@17.0.2))(react@17.0.2))(next@12.3.7(@babel/core@7.27.1)(babel-plugin-macros@3.1.0)(react-dom@17.0.2(react@17.0.2))(react@17.0.2)(sass@1.87.0))(react-dom@17.0.2(react@17.0.2))(react@17.0.2)(shiki@0.11.1)
       '@mdx-js/react':
-        specifier: ^2.2.1
+        specifier: ^2.3.0
         version: 2.3.0(react@17.0.2)
       '@theguild/components':
         specifier: ^1.12.0
         version: 1.12.0(@algolia/client-search@4.24.0)(@types/react@17.0.85)(prop-types@15.8.1)(react-dom@17.0.2(react@17.0.2))(react@17.0.2)(ts-node@10.9.1(@types/node@18.19.87)(typescript@5.8.3))
       date-fns:
-        specifier: ^2.29.3
+        specifier: ^2.30.0
         version: 2.30.0
       framer-motion:
         specifier: ^6.5.1
         version: 6.5.1(react-dom@17.0.2(react@17.0.2))(react@17.0.2)
       next:
-        specifier: ^12.3.4
+        specifier: ^12.3.7
         version: 12.3.7(@babel/core@7.27.1)(babel-plugin-macros@3.1.0)(react-dom@17.0.2(react@17.0.2))(react@17.0.2)(sass@1.87.0)
       next-i18next:
         specifier: ^12.1.0
@@ -1674,35 +1674,35 @@ importers:
         specifier: ^17.0.2
         version: 17.0.2(react@17.0.2)
       react-icons:
-        specifier: ^4.7.1
+        specifier: ^4.12.0
         version: 4.12.0(react@17.0.2)
       react-use:
-        specifier: ^17.4.0
+        specifier: ^17.6.0
         version: 17.6.0(react-dom@17.0.2(react@17.0.2))(react@17.0.2)
       sharp:
-        specifier: ~0.31.2
+        specifier: ~0.31.3
         version: 0.31.3
       shiki:
         specifier: ^0.11.1
         version: 0.11.1
     devDependencies:
       '@next/bundle-analyzer':
-        specifier: ^12.3.4
+        specifier: ^12.3.7
         version: 12.3.7
       '@types/mdx-js__react':
-        specifier: ^1.5.5
+        specifier: ^1.5.8
         version: 1.5.8
       '@types/node':
-        specifier: ^18.11.15
+        specifier: ^18.19.87
         version: 18.19.87
       '@types/react':
         specifier: ^17.0.50
         version: 17.0.85
       '@types/react-dom':
-        specifier: ^18.0.9
+        specifier: ^18.3.7
         version: 18.3.7(@types/react@17.0.85)
       '@types/wait-on':
-        specifier: ^5.3.1
+        specifier: ^5.3.4
         version: 5.3.4
       bob-tsm:
         specifier: 2.0.0-alpha-227aebc.0
@@ -1720,10 +1720,10 @@ importers:
         specifier: ^2.0.0
         version: 2.0.0(next@12.3.7(@babel/core@7.27.1)(babel-plugin-macros@3.1.0)(react-dom@17.0.2(react@17.0.2))(react@17.0.2)(sass@1.87.0))
       open-cli:
-        specifier: ^7.1.0
+        specifier: ^7.2.0
         version: 7.2.0
       typescript:
-        specifier: ^5.3.3
+        specifier: ^5.8.3
         version: 5.8.3
       wait-on:
         specifier: ^6.0.1
@@ -1735,29 +1735,29 @@ importers:
         specifier: workspace:^
         version: link:../../core/utils
       undici:
-        specifier: ^5.14.0
+        specifier: ^5.29.0
         version: 5.29.0
     devDependencies:
       '@graphql-typed-document-node/core':
-        specifier: ^3.1.1
+        specifier: ^3.2.0
         version: 3.2.0(graphql@16.1.0-experimental-stream-defer.6)
       '@types/eventsource':
-        specifier: ^1.1.10
+        specifier: ^1.1.15
         version: 1.1.15
       '@types/extract-files':
-        specifier: ^8.1.1
+        specifier: ^8.1.3
         version: 8.1.3
       '@types/node':
-        specifier: ^18.11.15
+        specifier: ^18.19.87
         version: 18.19.87
       '@types/node-fetch':
-        specifier: ^2.6.2
+        specifier: ^2.6.12
         version: 2.6.12
       '@types/rimraf':
         specifier: ^3.0.2
         version: 3.0.2
       '@types/ws':
-        specifier: ^8.5.3
+        specifier: ^8.18.1
         version: 8.18.1
       bob-ts:
         specifier: 5.0.0-alpha-227aebc.0
@@ -1775,19 +1775,19 @@ importers:
         specifier: ^11.0.0
         version: 11.0.0
       form-data:
-        specifier: ^4.0.0
+        specifier: ^4.0.2
         version: 4.0.2
       graphql:
         specifier: 16.1.0-experimental-stream-defer.6
         version: 16.1.0-experimental-stream-defer.6
       graphql-ws:
-        specifier: ^5.11.2
+        specifier: ^5.16.2
         version: 5.16.2(graphql@16.1.0-experimental-stream-defer.6)
       jest:
         specifier: 30.0.0-alpha.7
         version: 30.0.0-alpha.7(@types/node@18.19.87)(babel-plugin-macros@3.1.0)(ts-node@10.9.1(@types/node@18.19.87)(typescript@5.8.3))
       node-fetch:
-        specifier: ^2.6.7
+        specifier: ^2.7.0
         version: 2.7.0
       rimraf:
         specifier: ^3.0.2
@@ -1796,10 +1796,10 @@ importers:
         specifier: ^2.0.2
         version: 2.0.2(graphql@16.1.0-experimental-stream-defer.6)(ws@8.18.1)
       typescript:
-        specifier: ^5.3.3
+        specifier: ^5.8.3
         version: 5.8.3
       ws:
-        specifier: ^8.11.0
+        specifier: ^8.18.1
         version: 8.18.1
     publishDirectory: dist
 
@@ -1810,10 +1810,10 @@ importers:
         version: link:../../core/utils
     devDependencies:
       '@types/node':
-        specifier: ^18.11.15
+        specifier: ^18.19.87
         version: 18.19.87
       '@types/wait-on':
-        specifier: ^5.3.1
+        specifier: ^5.3.4
         version: 5.3.4
       bob-esbuild-cli:
         specifier: 5.0.0-alpha-227aebc.0
@@ -1840,13 +1840,13 @@ importers:
         specifier: 30.0.0-alpha.7
         version: 30.0.0-alpha.7(@types/node@18.19.87)(babel-plugin-macros@3.1.0)(ts-node@10.9.1(@types/node@18.19.87)(typescript@5.8.3))
       miniflare:
-        specifier: ^2.11.0
+        specifier: ^2.14.4
         version: 2.14.4(cron-schedule@3.0.6)
       typescript:
-        specifier: ^5.3.3
+        specifier: ^5.8.3
         version: 5.8.3
       undici:
-        specifier: ^5.14.0
+        specifier: ^5.29.0
         version: 5.29.0
       wait-on:
         specifier: ^6.0.1
@@ -1859,10 +1859,10 @@ importers:
   packages/core/main:
     dependencies:
       '@envelop/core':
-        specifier: ^3.0.4
+        specifier: ^3.0.6
         version: 3.0.6
       '@envelop/types':
-        specifier: ^3.0.1
+        specifier: ^3.0.2
         version: 3.0.2
       '@graphql-ez/utils':
         specifier: workspace:^
@@ -1875,7 +1875,7 @@ importers:
         version: 10.0.1
     devDependencies:
       '@types/node':
-        specifier: ^18.11.15
+        specifier: ^18.19.87
         version: 18.19.87
       bob-esbuild-cli:
         specifier: 5.0.0-alpha-227aebc.0
@@ -1893,17 +1893,17 @@ importers:
         specifier: 30.0.0-alpha.7
         version: 30.0.0-alpha.7(@types/node@18.19.87)(babel-plugin-macros@3.1.0)(ts-node@10.9.1(@types/node@18.19.87)(typescript@5.8.3))
       ts-jest:
-        specifier: ^29.0.3
+        specifier: ^29.3.2
         version: 29.3.2(@babel/core@7.27.1)(@jest/transform@29.7.0)(@jest/types@29.6.3)(babel-jest@29.7.0(@babel/core@7.27.1))(esbuild@0.16.17)(jest@30.0.0-alpha.7(@types/node@18.19.87)(babel-plugin-macros@3.1.0)(ts-node@10.9.1(@types/node@18.19.87)(typescript@5.8.3)))(typescript@5.8.3)
       typescript:
-        specifier: ^5.3.3
+        specifier: ^5.8.3
         version: 5.8.3
     publishDirectory: dist
 
   packages/core/utils:
     devDependencies:
       '@types/node':
-        specifier: ^18.11.15
+        specifier: ^18.19.87
         version: 18.19.87
       bob-esbuild-cli:
         specifier: 5.0.0-alpha-227aebc.0
@@ -1915,7 +1915,7 @@ importers:
         specifier: 16.1.0-experimental-stream-defer.6
         version: 16.1.0-experimental-stream-defer.6
       typescript:
-        specifier: ^5.3.3
+        specifier: ^5.8.3
         version: 5.8.3
     publishDirectory: dist
 
@@ -1925,20 +1925,20 @@ importers:
         specifier: workspace:^
         version: link:../../core/utils
       '@types/body-parser':
-        specifier: ^1.19.2
+        specifier: ^1.19.5
         version: 1.19.5
       '@types/cors':
-        specifier: ^2.8.13
+        specifier: ^2.8.17
         version: 2.8.17
       cors:
         specifier: ^2.8.5
         version: 2.8.5
     devDependencies:
       '@types/express':
-        specifier: ^4.17.15
+        specifier: ^4.17.21
         version: 4.17.21
       '@types/node':
-        specifier: ^18.11.15
+        specifier: ^18.19.87
         version: 18.19.87
       bob-esbuild-cli:
         specifier: 5.0.0-alpha-227aebc.0
@@ -1950,7 +1950,7 @@ importers:
         specifier: ^0.16.9
         version: 0.16.17
       express:
-        specifier: ^4.18.2
+        specifier: ^4.21.2
         version: 4.21.2
       graphql:
         specifier: 16.1.0-experimental-stream-defer.6
@@ -1962,10 +1962,10 @@ importers:
         specifier: 30.0.0-alpha.7
         version: 30.0.0-alpha.7(@types/node@18.19.87)(babel-plugin-macros@3.1.0)(ts-node@10.9.1(@types/node@18.19.87)(typescript@5.8.3))
       ts-jest:
-        specifier: ^29.0.3
+        specifier: ^29.3.2
         version: 29.3.2(@babel/core@7.27.1)(@jest/transform@29.7.0)(@jest/types@29.6.3)(babel-jest@29.7.0(@babel/core@7.27.1))(esbuild@0.16.17)(jest@30.0.0-alpha.7(@types/node@18.19.87)(babel-plugin-macros@3.1.0)(ts-node@10.9.1(@types/node@18.19.87)(typescript@5.8.3)))(typescript@5.8.3)
       typescript:
-        specifier: ^5.3.3
+        specifier: ^5.8.3
         version: 5.8.3
     publishDirectory: dist
 
@@ -1982,10 +1982,10 @@ importers:
         specifier: workspace:^
         version: link:../main
       '@types/express':
-        specifier: ^4.17.15
+        specifier: ^4.17.21
         version: 4.17.21
       '@types/node':
-        specifier: ^18.11.15
+        specifier: ^18.19.87
         version: 18.19.87
       bob-esbuild-cli:
         specifier: 5.0.0-alpha-227aebc.0
@@ -1997,7 +1997,7 @@ importers:
         specifier: ^0.16.9
         version: 0.16.17
       express:
-        specifier: ^4.18.2
+        specifier: ^4.21.2
         version: 4.21.2
       graphql:
         specifier: 16.1.0-experimental-stream-defer.6
@@ -2009,21 +2009,21 @@ importers:
         specifier: 30.0.0-alpha.7
         version: 30.0.0-alpha.7(@types/node@18.19.87)(babel-plugin-macros@3.1.0)(ts-node@10.9.1(@types/node@18.19.87)(typescript@5.8.3))
       typescript:
-        specifier: ^5.3.3
+        specifier: ^5.8.3
         version: 5.8.3
     publishDirectory: dist
 
   packages/fastify/main:
     dependencies:
       '@fastify/cors':
-        specifier: ^8.2.0
+        specifier: ^8.5.0
         version: 8.5.0
       '@graphql-ez/utils':
         specifier: workspace:^
         version: link:../../core/utils
     devDependencies:
       '@types/node':
-        specifier: ^18.11.15
+        specifier: ^18.19.87
         version: 18.19.87
       bob-esbuild-cli:
         specifier: 5.0.0-alpha-227aebc.0
@@ -2035,7 +2035,7 @@ importers:
         specifier: ^0.16.9
         version: 0.16.17
       fastify:
-        specifier: ^4.25.2
+        specifier: ^4.29.1
         version: 4.29.1
       graphql:
         specifier: 16.1.0-experimental-stream-defer.6
@@ -2047,10 +2047,10 @@ importers:
         specifier: 30.0.0-alpha.7
         version: 30.0.0-alpha.7(@types/node@18.19.87)(babel-plugin-macros@3.1.0)(ts-node@10.9.1(@types/node@18.19.87)(typescript@5.8.3))
       ts-jest:
-        specifier: ^29.0.3
+        specifier: ^29.3.2
         version: 29.3.2(@babel/core@7.27.1)(@jest/transform@29.7.0)(@jest/types@29.6.3)(babel-jest@29.7.0(@babel/core@7.27.1))(esbuild@0.16.17)(jest@30.0.0-alpha.7(@types/node@18.19.87)(babel-plugin-macros@3.1.0)(ts-node@10.9.1(@types/node@18.19.87)(typescript@5.8.3)))(typescript@5.8.3)
       typescript:
-        specifier: ^5.3.3
+        specifier: ^5.8.3
         version: 5.8.3
     publishDirectory: dist
 
@@ -2067,7 +2067,7 @@ importers:
         specifier: workspace:^
         version: link:../main
       '@types/node':
-        specifier: ^18.11.15
+        specifier: ^18.19.87
         version: 18.19.87
       bob-esbuild-cli:
         specifier: 5.0.0-alpha-227aebc.0
@@ -2079,7 +2079,7 @@ importers:
         specifier: ^0.16.9
         version: 0.16.17
       fastify:
-        specifier: ^4.25.2
+        specifier: ^4.29.1
         version: 4.29.1
       graphql:
         specifier: 16.1.0-experimental-stream-defer.6
@@ -2091,17 +2091,17 @@ importers:
         specifier: 30.0.0-alpha.7
         version: 30.0.0-alpha.7(@types/node@18.19.87)(babel-plugin-macros@3.1.0)(ts-node@10.9.1(@types/node@18.19.87)(typescript@5.8.3))
       typescript:
-        specifier: ^5.3.3
+        specifier: ^5.8.3
         version: 5.8.3
     publishDirectory: dist
 
   packages/hapi/main:
     devDependencies:
       '@hapi/hapi':
-        specifier: ^21.1.0
+        specifier: ^21.4.0
         version: 21.4.0
       '@types/node':
-        specifier: ^18.11.15
+        specifier: ^18.19.87
         version: 18.19.87
       bob-esbuild-cli:
         specifier: 5.0.0-alpha-227aebc.0
@@ -2122,10 +2122,10 @@ importers:
         specifier: 30.0.0-alpha.7
         version: 30.0.0-alpha.7(@types/node@18.19.87)(babel-plugin-macros@3.1.0)(ts-node@10.9.1(@types/node@18.19.87)(typescript@5.8.3))
       ts-jest:
-        specifier: ^29.0.3
+        specifier: ^29.3.2
         version: 29.3.2(@babel/core@7.27.1)(@jest/transform@29.7.0)(@jest/types@29.6.3)(babel-jest@29.7.0(@babel/core@7.27.1))(esbuild@0.16.17)(jest@30.0.0-alpha.7(@types/node@18.19.87)(babel-plugin-macros@3.1.0)(ts-node@10.9.1(@types/node@18.19.87)(typescript@5.8.3)))(typescript@5.8.3)
       typescript:
-        specifier: ^5.3.3
+        specifier: ^5.8.3
         version: 5.8.3
     publishDirectory: dist
 
@@ -2142,10 +2142,10 @@ importers:
         specifier: workspace:^
         version: link:../main
       '@hapi/hapi':
-        specifier: ^21.1.0
+        specifier: ^21.4.0
         version: 21.4.0
       '@types/node':
-        specifier: ^18.11.15
+        specifier: ^18.19.87
         version: 18.19.87
       bob-esbuild-cli:
         specifier: 5.0.0-alpha-227aebc.0
@@ -2166,14 +2166,14 @@ importers:
         specifier: 30.0.0-alpha.7
         version: 30.0.0-alpha.7(@types/node@18.19.87)(babel-plugin-macros@3.1.0)(ts-node@10.9.1(@types/node@18.19.87)(typescript@5.8.3))
       typescript:
-        specifier: ^5.3.3
+        specifier: ^5.8.3
         version: 5.8.3
     publishDirectory: dist
 
   packages/helix/core:
     devDependencies:
       '@types/node':
-        specifier: ^18.11.15
+        specifier: ^18.19.87
         version: 18.19.87
       bob-esbuild-cli:
         specifier: 5.0.0-alpha-227aebc.0
@@ -2188,7 +2188,7 @@ importers:
         specifier: 16.1.0-experimental-stream-defer.6
         version: 16.1.0-experimental-stream-defer.6
       typescript:
-        specifier: ^5.3.3
+        specifier: ^5.8.3
         version: 5.8.3
     publishDirectory: dist
 
@@ -2205,25 +2205,25 @@ importers:
         specifier: 7.16.26
         version: 7.16.26(@types/node@18.19.87)(graphql@16.1.0-experimental-stream-defer.6)
       '@graphql-tools/utils':
-        specifier: ^9.1.3
+        specifier: ^9.2.1
         version: 9.2.1(graphql@16.1.0-experimental-stream-defer.6)
       '@n1ru4l/graphql-live-query':
         specifier: ^0.9.0
         version: 0.9.0(graphql@16.1.0-experimental-stream-defer.6)
       '@types/node':
-        specifier: ^18.11.15
+        specifier: ^18.19.87
         version: 18.19.87
       '@types/prettier':
-        specifier: ^2.7.1
+        specifier: ^2.7.3
         version: 2.7.3
       '@types/prop-types':
-        specifier: ^15.7.5
+        specifier: ^15.7.14
         version: 15.7.14
       '@types/react':
         specifier: ^17.0.50
         version: 17.0.85
       '@types/react-dom':
-        specifier: ^18.0.9
+        specifier: ^18.3.7
         version: 18.3.7(@types/react@17.0.85)
       bob-esbuild-cli:
         specifier: 5.0.0-alpha-227aebc.0
@@ -2256,10 +2256,10 @@ importers:
         specifier: ^2.10.2
         version: 2.10.2(@types/node@18.19.87)(graphql@16.1.0-experimental-stream-defer.6)
       graphql-ws:
-        specifier: ^5.11.2
+        specifier: ^5.16.2
         version: 5.16.2(graphql@16.1.0-experimental-stream-defer.6)
       prettier:
-        specifier: ^3.1.1
+        specifier: ^3.5.3
         version: 3.5.3
       prop-types:
         specifier: ^15.8.1
@@ -2271,7 +2271,7 @@ importers:
         specifier: ^17.0.2
         version: 17.0.2(react@17.0.2)
       typescript:
-        specifier: ^5.3.3
+        specifier: ^5.8.3
         version: 5.8.3
     publishDirectory: dist
 
@@ -2281,14 +2281,14 @@ importers:
         specifier: workspace:^
         version: link:../../core/utils
       '@types/cors':
-        specifier: ^2.8.13
+        specifier: ^2.8.17
         version: 2.8.17
       cors:
         specifier: ^2.8.5
         version: 2.8.5
     devDependencies:
       '@types/node':
-        specifier: ^18.11.15
+        specifier: ^18.19.87
         version: 18.19.87
       bob-esbuild-cli:
         specifier: 5.0.0-alpha-227aebc.0
@@ -2309,10 +2309,10 @@ importers:
         specifier: 30.0.0-alpha.7
         version: 30.0.0-alpha.7(@types/node@18.19.87)(babel-plugin-macros@3.1.0)(ts-node@10.9.1(@types/node@18.19.87)(typescript@5.8.3))
       ts-jest:
-        specifier: ^29.0.3
+        specifier: ^29.3.2
         version: 29.3.2(@babel/core@7.27.1)(@jest/transform@29.7.0)(@jest/types@29.6.3)(babel-jest@29.7.0(@babel/core@7.27.1))(esbuild@0.16.17)(jest@30.0.0-alpha.7(@types/node@18.19.87)(babel-plugin-macros@3.1.0)(ts-node@10.9.1(@types/node@18.19.87)(typescript@5.8.3)))(typescript@5.8.3)
       typescript:
-        specifier: ^5.3.3
+        specifier: ^5.8.3
         version: 5.8.3
     publishDirectory: dist
 
@@ -2329,7 +2329,7 @@ importers:
         specifier: workspace:^
         version: link:../main
       '@types/node':
-        specifier: ^18.11.15
+        specifier: ^18.19.87
         version: 18.19.87
       bob-esbuild-cli:
         specifier: 5.0.0-alpha-227aebc.0
@@ -2350,7 +2350,7 @@ importers:
         specifier: 30.0.0-alpha.7
         version: 30.0.0-alpha.7(@types/node@18.19.87)(babel-plugin-macros@3.1.0)(ts-node@10.9.1(@types/node@18.19.87)(typescript@5.8.3))
       typescript:
-        specifier: ^5.3.3
+        specifier: ^5.8.3
         version: 5.8.3
     publishDirectory: dist
 
@@ -2360,26 +2360,26 @@ importers:
         specifier: ^4.0.0
         version: 4.0.0
       '@types/koa-bodyparser':
-        specifier: ^4.3.10
+        specifier: ^4.3.12
         version: 4.3.12
       '@types/koa__cors':
-        specifier: ^3.3.0
+        specifier: ^3.3.1
         version: 3.3.1
       koa-bodyparser:
-        specifier: ^4.3.0
+        specifier: ^4.4.1
         version: 4.4.1
     devDependencies:
       '@koa/router':
-        specifier: ^12.0.0
+        specifier: ^12.0.2
         version: 12.0.2
       '@types/koa':
-        specifier: ^2.13.5
+        specifier: ^2.15.0
         version: 2.15.0
       '@types/koa__router':
-        specifier: ^12.0.0
+        specifier: ^12.0.4
         version: 12.0.4
       '@types/node':
-        specifier: ^18.11.15
+        specifier: ^18.19.87
         version: 18.19.87
       bob-esbuild-cli:
         specifier: 5.0.0-alpha-227aebc.0
@@ -2400,13 +2400,13 @@ importers:
         specifier: 30.0.0-alpha.7
         version: 30.0.0-alpha.7(@types/node@18.19.87)(babel-plugin-macros@3.1.0)(ts-node@10.9.1(@types/node@18.19.87)(typescript@5.8.3))
       koa:
-        specifier: ^2.14.1
+        specifier: ^2.16.1
         version: 2.16.1
       ts-jest:
-        specifier: ^29.0.3
+        specifier: ^29.3.2
         version: 29.3.2(@babel/core@7.27.1)(@jest/transform@29.7.0)(@jest/types@29.6.3)(babel-jest@29.7.0(@babel/core@7.27.1))(esbuild@0.16.17)(jest@30.0.0-alpha.7(@types/node@18.19.87)(babel-plugin-macros@3.1.0)(ts-node@10.9.1(@types/node@18.19.87)(typescript@5.8.3)))(typescript@5.8.3)
       typescript:
-        specifier: ^5.3.3
+        specifier: ^5.8.3
         version: 5.8.3
     publishDirectory: dist
 
@@ -2423,16 +2423,16 @@ importers:
         specifier: workspace:^
         version: link:../main
       '@koa/router':
-        specifier: ^12.0.0
+        specifier: ^12.0.2
         version: 12.0.2
       '@types/koa':
-        specifier: ^2.13.5
+        specifier: ^2.15.0
         version: 2.15.0
       '@types/koa__router':
-        specifier: ^12.0.0
+        specifier: ^12.0.4
         version: 12.0.4
       '@types/node':
-        specifier: ^18.11.15
+        specifier: ^18.19.87
         version: 18.19.87
       bob-esbuild-cli:
         specifier: 5.0.0-alpha-227aebc.0
@@ -2453,33 +2453,33 @@ importers:
         specifier: 30.0.0-alpha.7
         version: 30.0.0-alpha.7(@types/node@18.19.87)(babel-plugin-macros@3.1.0)(ts-node@10.9.1(@types/node@18.19.87)(typescript@5.8.3))
       koa:
-        specifier: ^2.14.1
+        specifier: ^2.16.1
         version: 2.16.1
       typescript:
-        specifier: ^5.3.3
+        specifier: ^5.8.3
         version: 5.8.3
     publishDirectory: dist
 
   packages/nextjs/main:
     dependencies:
       '@types/cors':
-        specifier: ^2.8.13
+        specifier: ^2.8.17
         version: 2.8.17
       cors:
         specifier: ^2.8.5
         version: 2.8.5
     devDependencies:
       '@graphql-tools/schema':
-        specifier: ^9.0.12
+        specifier: ^9.0.19
         version: 9.0.19(graphql@16.1.0-experimental-stream-defer.6)
       '@types/node':
-        specifier: ^18.11.15
+        specifier: ^18.19.87
         version: 18.19.87
       '@types/react':
         specifier: ^17.0.50
         version: 17.0.85
       '@types/react-dom':
-        specifier: ^18.0.9
+        specifier: ^18.3.7
         version: 18.3.7(@types/react@17.0.85)
       bob-esbuild-cli:
         specifier: 5.0.0-alpha-227aebc.0
@@ -2500,10 +2500,10 @@ importers:
         specifier: 30.0.0-alpha.7
         version: 30.0.0-alpha.7(@types/node@18.19.87)(babel-plugin-macros@3.1.0)(ts-node@10.9.1(@types/node@18.19.87)(typescript@5.8.3))
       next:
-        specifier: ^12.3.4
+        specifier: ^12.3.7
         version: 12.3.7(@babel/core@7.27.1)(babel-plugin-macros@3.1.0)(react-dom@17.0.2(react@17.0.2))(react@17.0.2)(sass@1.87.0)
       next-test-api-route-handler:
-        specifier: ^3.1.7
+        specifier: ^3.2.0
         version: 3.2.0(next@12.3.7(@babel/core@7.27.1)(babel-plugin-macros@3.1.0)(react-dom@17.0.2(react@17.0.2))(react@17.0.2)(sass@1.87.0))
       react:
         specifier: ^17.0.2
@@ -2512,10 +2512,10 @@ importers:
         specifier: ^17.0.2
         version: 17.0.2(react@17.0.2)
       ts-jest:
-        specifier: ^29.0.3
+        specifier: ^29.3.2
         version: 29.3.2(@babel/core@7.27.1)(@jest/transform@29.7.0)(@jest/types@29.6.3)(babel-jest@29.7.0(@babel/core@7.27.1))(esbuild@0.16.17)(jest@30.0.0-alpha.7(@types/node@18.19.87)(babel-plugin-macros@3.1.0)(ts-node@10.9.1(@types/node@18.19.87)(typescript@5.8.3)))(typescript@5.8.3)
       typescript:
-        specifier: ^5.3.3
+        specifier: ^5.8.3
         version: 5.8.3
     publishDirectory: dist
 
@@ -2525,17 +2525,17 @@ importers:
         specifier: workspace:^
         version: link:../../core/utils
       '@graphql-typed-document-node/core':
-        specifier: ^3.1.1
+        specifier: ^3.2.0
         version: 3.2.0(graphql@16.1.0-experimental-stream-defer.6)
       next-test-api-route-handler:
-        specifier: ^3.1.7
+        specifier: ^3.2.0
         version: 3.2.0(next@12.3.7(@babel/core@7.27.1)(babel-plugin-macros@3.1.0)(react-dom@17.0.2(react@17.0.2))(react@17.0.2)(sass@1.87.0))
     devDependencies:
       '@graphql-ez/nextjs':
         specifier: workspace:^
         version: link:../main
       '@types/node':
-        specifier: ^18.11.15
+        specifier: ^18.19.87
         version: 18.19.87
       changesets-github-release:
         specifier: ^0.1.0
@@ -2550,10 +2550,10 @@ importers:
         specifier: workspace:^
         version: link:../../core/main
       next:
-        specifier: ^12.3.4
+        specifier: ^12.3.7
         version: 12.3.7(@babel/core@7.27.1)(babel-plugin-macros@3.1.0)(react-dom@17.0.2(react@17.0.2))(react@17.0.2)(sass@1.87.0)
       typescript:
-        specifier: ^5.3.3
+        specifier: ^5.8.3
         version: 5.8.3
     publishDirectory: dist
 
@@ -2563,7 +2563,7 @@ importers:
         specifier: workspace:^
         version: link:../../core/utils
       altair-static:
-        specifier: ^6.1.0
+        specifier: ^6.4.2
         version: 6.4.2
       cross-undici-fetch:
         specifier: ^0.4.14
@@ -2573,10 +2573,10 @@ importers:
         version: 2.1.35
     devDependencies:
       '@types/mime-types':
-        specifier: ^2.1.1
+        specifier: ^2.1.4
         version: 2.1.4
       '@types/node':
-        specifier: ^18.11.15
+        specifier: ^18.19.87
         version: 18.19.87
       bob-esbuild-cli:
         specifier: 5.0.0-alpha-227aebc.0
@@ -2594,13 +2594,13 @@ importers:
         specifier: 30.0.0-alpha.7
         version: 30.0.0-alpha.7(@types/node@18.19.87)(babel-plugin-macros@3.1.0)(ts-node@10.9.1(@types/node@18.19.87)(typescript@5.8.3))
       next:
-        specifier: ^12.3.4
+        specifier: ^12.3.7
         version: 12.3.7(@babel/core@7.27.1)(babel-plugin-macros@3.1.0)(react-dom@17.0.2(react@17.0.2))(react@17.0.2)(sass@1.87.0)
       ts-jest:
-        specifier: ^29.0.3
+        specifier: ^29.3.2
         version: 29.3.2(@babel/core@7.27.1)(@jest/transform@29.7.0)(@jest/types@29.6.3)(babel-jest@29.7.0(@babel/core@7.27.1))(esbuild@0.16.17)(jest@30.0.0-alpha.7(@types/node@18.19.87)(babel-plugin-macros@3.1.0)(ts-node@10.9.1(@types/node@18.19.87)(typescript@5.8.3)))(typescript@5.8.3)
       typescript:
-        specifier: ^5.3.3
+        specifier: ^5.8.3
         version: 5.8.3
     publishDirectory: dist
 
@@ -2610,11 +2610,11 @@ importers:
         specifier: workspace:^
         version: link:../../core/utils
       tiny-lru:
-        specifier: ^10.0.1
+        specifier: ^10.4.1
         version: 10.4.1
     devDependencies:
       '@types/node':
-        specifier: ^18.11.15
+        specifier: ^18.19.87
         version: 18.19.87
       bob-esbuild-cli:
         specifier: 5.0.0-alpha-227aebc.0
@@ -2635,10 +2635,10 @@ importers:
         specifier: 30.0.0-alpha.7
         version: 30.0.0-alpha.7(@types/node@18.19.87)(babel-plugin-macros@3.1.0)(ts-node@10.9.1(@types/node@18.19.87)(typescript@5.8.3))
       ts-jest:
-        specifier: ^29.0.3
+        specifier: ^29.3.2
         version: 29.3.2(@babel/core@7.27.1)(@jest/transform@29.7.0)(@jest/types@29.6.3)(babel-jest@29.7.0(@babel/core@7.27.1))(esbuild@0.16.17)(jest@30.0.0-alpha.7(@types/node@18.19.87)(babel-plugin-macros@3.1.0)(ts-node@10.9.1(@types/node@18.19.87)(typescript@5.8.3)))(typescript@5.8.3)
       typescript:
-        specifier: ^5.3.3
+        specifier: ^5.8.3
         version: 5.8.3
     publishDirectory: dist
 
@@ -2648,37 +2648,37 @@ importers:
         specifier: ^2.6.8
         version: 2.6.8(graphql@16.1.0-experimental-stream-defer.6)
       '@graphql-codegen/plugin-helpers':
-        specifier: ^3.1.1
+        specifier: ^3.1.2
         version: 3.1.2(graphql@16.1.0-experimental-stream-defer.6)
       '@graphql-codegen/typed-document-node':
-        specifier: ^2.3.10
+        specifier: ^2.3.13
         version: 2.3.13(graphql@16.1.0-experimental-stream-defer.6)
       '@graphql-codegen/typescript':
-        specifier: ^2.8.5
+        specifier: ^2.8.8
         version: 2.8.8(graphql@16.1.0-experimental-stream-defer.6)
       '@graphql-codegen/typescript-operations':
-        specifier: ^2.5.10
+        specifier: ^2.5.13
         version: 2.5.13(graphql@16.1.0-experimental-stream-defer.6)
       '@graphql-codegen/typescript-resolvers':
-        specifier: ^2.7.10
+        specifier: ^2.7.13
         version: 2.7.13(graphql@16.1.0-experimental-stream-defer.6)
       '@graphql-ez/utils':
         specifier: workspace:^
         version: link:../../core/utils
       '@graphql-tools/graphql-file-loader':
-        specifier: ^7.5.13
+        specifier: ^7.5.17
         version: 7.5.17(graphql@16.1.0-experimental-stream-defer.6)
       '@graphql-tools/load':
-        specifier: ^7.8.8
+        specifier: ^7.8.14
         version: 7.8.14(graphql@16.1.0-experimental-stream-defer.6)
       '@graphql-tools/utils':
-        specifier: ^9.1.3
+        specifier: ^9.2.1
         version: 9.2.1(graphql@16.1.0-experimental-stream-defer.6)
       mkdirp:
         specifier: ^1.0.4
         version: 1.0.4
       prettier:
-        specifier: ^3.1.1
+        specifier: ^3.5.3
         version: 3.5.3
     devDependencies:
       '@types/fs-extra':
@@ -2688,10 +2688,10 @@ importers:
         specifier: ^1.0.2
         version: 1.0.2
       '@types/node':
-        specifier: ^18.11.15
+        specifier: ^18.19.87
         version: 18.19.87
       '@types/prettier':
-        specifier: ^2.7.1
+        specifier: ^2.7.3
         version: 2.7.3
       bob-esbuild-cli:
         specifier: 5.0.0-alpha-227aebc.0
@@ -2715,33 +2715,33 @@ importers:
         specifier: ^3.0.3
         version: 3.0.3
       ts-jest:
-        specifier: ^29.0.3
+        specifier: ^29.3.2
         version: 29.3.2(@babel/core@7.27.1)(@jest/transform@29.7.0)(@jest/types@29.6.3)(babel-jest@29.7.0(@babel/core@7.27.1))(esbuild@0.16.17)(jest@30.0.0-alpha.7(@types/node@18.19.87)(babel-plugin-macros@3.1.0)(ts-node@10.9.1(@types/node@18.19.87)(typescript@5.8.3)))(typescript@5.8.3)
       typescript:
-        specifier: ^5.3.3
+        specifier: ^5.8.3
         version: 5.8.3
     publishDirectory: dist
 
   packages/plugin/dataloader:
     dependencies:
       '@envelop/dataloader':
-        specifier: ^4.0.4
+        specifier: ^4.0.6
         version: 4.0.6(@envelop/core@3.0.6)(dataloader@2.2.3)
       '@envelop/execute-subscription-event':
-        specifier: ^3.0.4
+        specifier: ^3.0.6
         version: 3.0.6(@envelop/core@3.0.6)(graphql@16.1.0-experimental-stream-defer.6)
       dataloader:
-        specifier: ^2.1.0
+        specifier: ^2.2.3
         version: 2.2.3
     devDependencies:
       '@envelop/core':
-        specifier: ^3.0.4
+        specifier: ^3.0.6
         version: 3.0.6
       '@pothos/core':
-        specifier: ^3.23.2
+        specifier: ^3.41.2
         version: 3.41.2(graphql@16.1.0-experimental-stream-defer.6)
       '@types/node':
-        specifier: ^18.11.15
+        specifier: ^18.19.87
         version: 18.19.87
       bob-esbuild-cli:
         specifier: 5.0.0-alpha-227aebc.0
@@ -2762,10 +2762,10 @@ importers:
         specifier: 30.0.0-alpha.7
         version: 30.0.0-alpha.7(@types/node@18.19.87)(babel-plugin-macros@3.1.0)(ts-node@10.9.1(@types/node@18.19.87)(typescript@5.8.3))
       ts-jest:
-        specifier: ^29.0.3
+        specifier: ^29.3.2
         version: 29.3.2(@babel/core@7.27.1)(@jest/transform@29.7.0)(@jest/types@29.6.3)(babel-jest@29.7.0(@babel/core@7.27.1))(esbuild@0.16.17)(jest@30.0.0-alpha.7(@types/node@18.19.87)(babel-plugin-macros@3.1.0)(ts-node@10.9.1(@types/node@18.19.87)(typescript@5.8.3)))(typescript@5.8.3)
       typescript:
-        specifier: ^5.3.3
+        specifier: ^5.8.3
         version: 5.8.3
     publishDirectory: dist
 
@@ -2779,7 +2779,7 @@ importers:
         version: link:../../helix/graphiql
     devDependencies:
       '@types/node':
-        specifier: ^18.11.15
+        specifier: ^18.19.87
         version: 18.19.87
       bob-esbuild-cli:
         specifier: 5.0.0-alpha-227aebc.0
@@ -2797,33 +2797,33 @@ importers:
         specifier: 30.0.0-alpha.7
         version: 30.0.0-alpha.7(@types/node@18.19.87)(babel-plugin-macros@3.1.0)(ts-node@10.9.1(@types/node@18.19.87)(typescript@5.8.3))
       next:
-        specifier: ^12.3.4
+        specifier: ^12.3.7
         version: 12.3.7(@babel/core@7.27.1)(babel-plugin-macros@3.1.0)(react-dom@17.0.2(react@17.0.2))(react@17.0.2)(sass@1.87.0)
       ts-jest:
-        specifier: ^29.0.3
+        specifier: ^29.3.2
         version: 29.3.2(@babel/core@7.27.1)(@jest/transform@29.7.0)(@jest/types@29.6.3)(babel-jest@29.7.0(@babel/core@7.27.1))(esbuild@0.16.17)(jest@30.0.0-alpha.7(@types/node@18.19.87)(babel-plugin-macros@3.1.0)(ts-node@10.9.1(@types/node@18.19.87)(typescript@5.8.3)))(typescript@5.8.3)
       typescript:
-        specifier: ^5.3.3
+        specifier: ^5.8.3
         version: 5.8.3
     publishDirectory: dist
 
   packages/plugin/modules:
     dependencies:
       '@envelop/graphql-modules':
-        specifier: ^4.0.4
+        specifier: ^4.0.6
         version: 4.0.6(@envelop/core@3.0.6)(graphql-modules@2.4.0(graphql@16.1.0-experimental-stream-defer.6))(graphql@16.1.0-experimental-stream-defer.6)
       '@graphql-ez/utils':
         specifier: workspace:^
         version: link:../../core/utils
       '@graphql-tools/schema':
-        specifier: ^9.0.12
+        specifier: ^9.0.19
         version: 9.0.19(graphql@16.1.0-experimental-stream-defer.6)
       graphql-modules:
-        specifier: ^2.1.0
+        specifier: ^2.4.0
         version: 2.4.0(graphql@16.1.0-experimental-stream-defer.6)
     devDependencies:
       '@types/node':
-        specifier: ^18.11.15
+        specifier: ^18.19.87
         version: 18.19.87
       bob-esbuild-cli:
         specifier: 5.0.0-alpha-227aebc.0
@@ -2844,10 +2844,10 @@ importers:
         specifier: 30.0.0-alpha.7
         version: 30.0.0-alpha.7(@types/node@18.19.87)(babel-plugin-macros@3.1.0)(ts-node@10.9.1(@types/node@18.19.87)(typescript@5.8.3))
       ts-jest:
-        specifier: ^29.0.3
+        specifier: ^29.3.2
         version: 29.3.2(@babel/core@7.27.1)(@jest/transform@29.7.0)(@jest/types@29.6.3)(babel-jest@29.7.0(@babel/core@7.27.1))(esbuild@0.16.17)(jest@30.0.0-alpha.7(@types/node@18.19.87)(babel-plugin-macros@3.1.0)(ts-node@10.9.1(@types/node@18.19.87)(typescript@5.8.3)))(typescript@5.8.3)
       typescript:
-        specifier: ^5.3.3
+        specifier: ^5.8.3
         version: 5.8.3
     publishDirectory: dist
 
@@ -2857,14 +2857,14 @@ importers:
         specifier: workspace:^
         version: link:../../core/utils
       '@graphql-tools/utils':
-        specifier: ^9.1.3
+        specifier: ^9.2.1
         version: 9.2.1(graphql@16.1.0-experimental-stream-defer.6)
       graphql-scalars:
-        specifier: ^1.20.1
+        specifier: ^1.24.2
         version: 1.24.2(graphql@16.1.0-experimental-stream-defer.6)
     devDependencies:
       '@types/node':
-        specifier: ^18.11.15
+        specifier: ^18.19.87
         version: 18.19.87
       bob-esbuild-cli:
         specifier: 5.0.0-alpha-227aebc.0
@@ -2885,10 +2885,10 @@ importers:
         specifier: 30.0.0-alpha.7
         version: 30.0.0-alpha.7(@types/node@18.19.87)(babel-plugin-macros@3.1.0)(ts-node@10.9.1(@types/node@18.19.87)(typescript@5.8.3))
       ts-jest:
-        specifier: ^29.0.3
+        specifier: ^29.3.2
         version: 29.3.2(@babel/core@7.27.1)(@jest/transform@29.7.0)(@jest/types@29.6.3)(babel-jest@29.7.0(@babel/core@7.27.1))(esbuild@0.16.17)(jest@30.0.0-alpha.7(@types/node@18.19.87)(babel-plugin-macros@3.1.0)(ts-node@10.9.1(@types/node@18.19.87)(typescript@5.8.3)))(typescript@5.8.3)
       typescript:
-        specifier: ^5.3.3
+        specifier: ^5.8.3
         version: 5.8.3
     publishDirectory: dist
 
@@ -2898,14 +2898,14 @@ importers:
         specifier: workspace:^
         version: link:../../core/utils
       '@graphql-tools/schema':
-        specifier: ^9.0.12
+        specifier: ^9.0.19
         version: 9.0.19(graphql@16.1.0-experimental-stream-defer.6)
       '@graphql-tools/utils':
-        specifier: ^9.1.3
+        specifier: ^9.2.1
         version: 9.2.1(graphql@16.1.0-experimental-stream-defer.6)
     devDependencies:
       '@types/node':
-        specifier: ^18.11.15
+        specifier: ^18.19.87
         version: 18.19.87
       bob-esbuild:
         specifier: 5.0.0-alpha-227aebc.0
@@ -2926,10 +2926,10 @@ importers:
         specifier: 30.0.0-alpha.7
         version: 30.0.0-alpha.7(@types/node@18.19.87)(babel-plugin-macros@3.1.0)(ts-node@10.9.1(@types/node@18.19.87)(typescript@5.8.3))
       ts-jest:
-        specifier: ^29.0.3
+        specifier: ^29.3.2
         version: 29.3.2(@babel/core@7.27.1)(@jest/transform@29.7.0)(@jest/types@29.6.3)(babel-jest@29.7.0(@babel/core@7.27.1))(esbuild@0.16.17)(jest@30.0.0-alpha.7(@types/node@18.19.87)(babel-plugin-macros@3.1.0)(ts-node@10.9.1(@types/node@18.19.87)(typescript@5.8.3)))(typescript@5.8.3)
       typescript:
-        specifier: ^5.3.3
+        specifier: ^5.8.3
         version: 5.8.3
     publishDirectory: dist
 
@@ -2943,7 +2943,7 @@ importers:
         version: 1.3.2(graphql@16.1.0-experimental-stream-defer.6)
     devDependencies:
       '@types/node':
-        specifier: ^18.11.15
+        specifier: ^18.19.87
         version: 18.19.87
       bob-esbuild-cli:
         specifier: 5.0.0-alpha-227aebc.0
@@ -2964,7 +2964,7 @@ importers:
         specifier: 30.0.0-alpha.7
         version: 30.0.0-alpha.7(@types/node@18.19.87)(babel-plugin-macros@3.1.0)(ts-node@10.9.1(@types/node@18.19.87)(typescript@5.8.3))
       typescript:
-        specifier: ^5.3.3
+        specifier: ^5.8.3
         version: 5.8.3
     publishDirectory: dist
 
@@ -2974,14 +2974,17 @@ importers:
         specifier: workspace:^
         version: link:../../core/utils
     devDependencies:
+      '@types/express':
+        specifier: ^4.17.21
+        version: 4.17.21
       '@types/graphql-upload':
         specifier: ^8.0.12
         version: 8.0.12
       '@types/node':
-        specifier: ^18.11.15
+        specifier: ^18.19.87
         version: 18.19.87
       '@types/node-fetch':
-        specifier: ^2.6.2
+        specifier: ^2.6.12
         version: 2.6.12
       bob-esbuild-cli:
         specifier: 5.0.0-alpha-227aebc.0
@@ -3005,13 +3008,13 @@ importers:
         specifier: 30.0.0-alpha.7
         version: 30.0.0-alpha.7(@types/node@18.19.87)(babel-plugin-macros@3.1.0)(ts-node@10.9.1(@types/node@18.19.87)(typescript@5.8.3))
       node-fetch:
-        specifier: ^2.6.7
+        specifier: ^2.7.0
         version: 2.7.0
       ts-jest:
-        specifier: ^29.0.3
+        specifier: ^29.3.2
         version: 29.3.2(@babel/core@7.27.1)(@jest/transform@29.7.0)(@jest/types@29.6.3)(babel-jest@29.7.0(@babel/core@7.27.1))(esbuild@0.16.17)(jest@30.0.0-alpha.7(@types/node@18.19.87)(babel-plugin-macros@3.1.0)(ts-node@10.9.1(@types/node@18.19.87)(typescript@5.8.3)))(typescript@5.8.3)
       typescript:
-        specifier: ^5.3.3
+        specifier: ^5.8.3
         version: 5.8.3
     publishDirectory: dist
 
@@ -3022,7 +3025,7 @@ importers:
         version: link:../../core/utils
     devDependencies:
       '@types/node':
-        specifier: ^18.11.15
+        specifier: ^18.19.87
         version: 18.19.87
       bob-esbuild-cli:
         specifier: 5.0.0-alpha-227aebc.0
@@ -3040,13 +3043,13 @@ importers:
         specifier: 30.0.0-alpha.7
         version: 30.0.0-alpha.7(@types/node@18.19.87)(babel-plugin-macros@3.1.0)(ts-node@10.9.1(@types/node@18.19.87)(typescript@5.8.3))
       next:
-        specifier: ^12.3.4
+        specifier: ^12.3.7
         version: 12.3.7(@babel/core@7.27.1)(babel-plugin-macros@3.1.0)(react-dom@17.0.2(react@17.0.2))(react@17.0.2)(sass@1.87.0)
       ts-jest:
-        specifier: ^29.0.3
+        specifier: ^29.3.2
         version: 29.3.2(@babel/core@7.27.1)(@jest/transform@29.7.0)(@jest/types@29.6.3)(babel-jest@29.7.0(@babel/core@7.27.1))(esbuild@0.16.17)(jest@30.0.0-alpha.7(@types/node@18.19.87)(babel-plugin-macros@3.1.0)(ts-node@10.9.1(@types/node@18.19.87)(typescript@5.8.3)))(typescript@5.8.3)
       typescript:
-        specifier: ^5.3.3
+        specifier: ^5.8.3
         version: 5.8.3
     publishDirectory: dist
 
@@ -3056,20 +3059,20 @@ importers:
         specifier: workspace:^
         version: link:../../core/utils
       '@types/ws':
-        specifier: ^8.5.3
+        specifier: ^8.18.1
         version: 8.18.1
       graphql-ws:
-        specifier: ^5.11.2
+        specifier: ^5.16.2
         version: 5.16.2(graphql@16.1.0-experimental-stream-defer.6)
       subscriptions-transport-ws-envelop:
         specifier: ^2.0.2
         version: 2.0.2(graphql@16.1.0-experimental-stream-defer.6)(ws@8.18.1)
       ws:
-        specifier: ^8.11.0
+        specifier: ^8.18.1
         version: 8.18.1
     devDependencies:
       '@types/node':
-        specifier: ^18.11.15
+        specifier: ^18.19.87
         version: 18.19.87
       bob-esbuild-cli:
         specifier: 5.0.0-alpha-227aebc.0
@@ -3090,10 +3093,10 @@ importers:
         specifier: 30.0.0-alpha.7
         version: 30.0.0-alpha.7(@types/node@18.19.87)(babel-plugin-macros@3.1.0)(ts-node@10.9.1(@types/node@18.19.87)(typescript@5.8.3))
       ts-jest:
-        specifier: ^29.0.3
+        specifier: ^29.3.2
         version: 29.3.2(@babel/core@7.27.1)(@jest/transform@29.7.0)(@jest/types@29.6.3)(babel-jest@29.7.0(@babel/core@7.27.1))(esbuild@0.16.17)(jest@30.0.0-alpha.7(@types/node@18.19.87)(babel-plugin-macros@3.1.0)(ts-node@10.9.1(@types/node@18.19.87)(typescript@5.8.3)))(typescript@5.8.3)
       typescript:
-        specifier: ^5.3.3
+        specifier: ^5.8.3
         version: 5.8.3
     publishDirectory: dist
 
@@ -3104,10 +3107,10 @@ importers:
         version: link:../../core/utils
     devDependencies:
       '@envelop/core':
-        specifier: ^3.0.4
+        specifier: ^3.0.6
         version: 3.0.6
       '@envelop/types':
-        specifier: ^3.0.1
+        specifier: ^3.0.2
         version: 3.0.2
       '@graphql-ez/plugin-altair':
         specifier: workspace:^
@@ -3122,7 +3125,7 @@ importers:
         specifier: workspace:^
         version: link:../../plugin/voyager
       '@graphql-tools/schema':
-        specifier: ^9.0.12
+        specifier: ^9.0.19
         version: 9.0.19(graphql@16.1.0-experimental-stream-defer.6)
       '@sveltejs/adapter-auto':
         specifier: 1.0.0
@@ -3134,10 +3137,10 @@ importers:
         specifier: 1.0.1
         version: 1.0.1(svelte@3.59.2)(vite@4.5.14(@types/node@18.19.87)(sass@1.87.0))
       '@types/node':
-        specifier: ^18.11.15
+        specifier: ^18.19.87
         version: 18.19.87
       '@types/wait-on':
-        specifier: ^5.3.1
+        specifier: ^5.3.4
         version: 5.3.4
       altair-static-slim:
         specifier: 5.0.9
@@ -3170,25 +3173,25 @@ importers:
         specifier: ^2.1.35
         version: 2.1.35
       svelte:
-        specifier: ^3.55.0
+        specifier: ^3.59.2
         version: 3.59.2
       svelte-check:
-        specifier: ^2.10.2
+        specifier: ^2.10.3
         version: 2.10.3(@babel/core@7.27.1)(postcss-load-config@3.1.4(postcss@8.5.3)(ts-node@10.9.1(@types/node@18.19.87)(typescript@5.8.3)))(postcss@8.5.3)(sass@1.87.0)(svelte@3.59.2)
       svelte-preprocess:
-        specifier: ^5.0.0
+        specifier: ^5.1.4
         version: 5.1.4(@babel/core@7.27.1)(postcss-load-config@3.1.4(postcss@8.5.3)(ts-node@10.9.1(@types/node@18.19.87)(typescript@5.8.3)))(postcss@8.5.3)(sass@1.87.0)(svelte@3.59.2)(typescript@5.8.3)
       tiny-lru:
-        specifier: ^10.0.1
+        specifier: ^10.4.1
         version: 10.4.1
       tslib:
-        specifier: ^2.4.1
+        specifier: ^2.8.1
         version: 2.8.1
       typescript:
-        specifier: ^5.3.3
+        specifier: ^5.8.3
         version: 5.8.3
       vite:
-        specifier: ^4.0.2
+        specifier: ^4.5.14
         version: 4.5.14(@types/node@18.19.87)(sass@1.87.0)
       wait-on:
         specifier: ^6.0.1
@@ -3198,17 +3201,17 @@ importers:
   packages/vercel/main:
     dependencies:
       '@types/cors':
-        specifier: ^2.8.13
+        specifier: ^2.8.17
         version: 2.8.17
       cors:
         specifier: ^2.8.5
         version: 2.8.5
     devDependencies:
       '@types/node':
-        specifier: ^18.11.15
+        specifier: ^18.19.87
         version: 18.19.87
       '@vercel/node':
-        specifier: ^2.8.1
+        specifier: ^2.15.10
         version: 2.15.10
       bob-esbuild-cli:
         specifier: 5.0.0-alpha-227aebc.0
@@ -3223,7 +3226,7 @@ importers:
         specifier: workspace:^
         version: link:../../core/main
       typescript:
-        specifier: ^5.3.3
+        specifier: ^5.8.3
         version: 5.8.3
     publishDirectory: dist
 
@@ -14499,14 +14502,14 @@ snapshots:
   '@graphql-tools/optimize@1.4.0(graphql@16.1.0-experimental-stream-defer.6)':
     dependencies:
       graphql: 16.1.0-experimental-stream-defer.6
-      tslib: 2.8.1
+      tslib: 2.4.1
 
   '@graphql-tools/relay-operation-optimizer@6.5.18(graphql@16.1.0-experimental-stream-defer.6)':
     dependencies:
       '@ardatan/relay-compiler': 12.0.0(graphql@16.1.0-experimental-stream-defer.6)
       '@graphql-tools/utils': 9.2.1(graphql@16.1.0-experimental-stream-defer.6)
       graphql: 16.1.0-experimental-stream-defer.6
-      tslib: 2.8.1
+      tslib: 2.4.1
     transitivePeerDependencies:
       - encoding
       - supports-color
@@ -14785,7 +14788,7 @@ snapshots:
   '@guild-docs/types@3.0.0(@chakra-ui/react@1.8.9(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@types/react@17.0.85)(react@17.0.2))(@types/react@17.0.85)(framer-motion@6.5.1(react-dom@17.0.2(react@17.0.2))(react@17.0.2))(react-dom@17.0.2(react@17.0.2))(react@17.0.2))(@types/react@17.0.85)(next-i18next@12.1.0(next@12.3.7(@babel/core@7.27.1)(babel-plugin-macros@3.1.0)(react-dom@17.0.2(react@17.0.2))(react@17.0.2)(sass@1.87.0))(react-dom@17.0.2(react@17.0.2))(react@17.0.2))':
     dependencies:
       '@chakra-ui/react': 1.8.9(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@types/react@17.0.85)(react@17.0.2))(@types/react@17.0.85)(framer-motion@6.5.1(react-dom@17.0.2(react@17.0.2))(react@17.0.2))(react-dom@17.0.2(react@17.0.2))(react@17.0.2)
-      '@mdx-js/mdx': 2.3.0
+      '@mdx-js/mdx': 2.1.1
       '@types/react': 17.0.85
       next-i18next: 12.1.0(next@12.3.7(@babel/core@7.27.1)(babel-plugin-macros@3.1.0)(react-dom@17.0.2(react@17.0.2))(react@17.0.2)(sass@1.87.0))(react-dom@17.0.2(react@17.0.2))(react@17.0.2)
       unified: 10.1.2
@@ -15279,7 +15282,7 @@ snapshots:
       unist-util-position-from-estree: 1.1.2
       unist-util-stringify-position: 3.0.3
       unist-util-visit: 4.1.2
-      vfile: 5.3.7
+      vfile: 5.3.2
     transitivePeerDependencies:
       - supports-color
 
@@ -15586,7 +15589,7 @@ snapshots:
 
   '@oclif/config@1.18.2':
     dependencies:
-      '@oclif/errors': 1.3.6
+      '@oclif/errors': 1.3.5
       '@oclif/parser': 3.8.17
       debug: 4.4.0(supports-color@8.1.1)
       globby: 11.1.0
@@ -17165,7 +17168,7 @@ snapshots:
   camel-case@4.1.2:
     dependencies:
       pascal-case: 3.1.2
-      tslib: 2.8.1
+      tslib: 2.4.1
 
   camelcase-css@2.0.1: {}
 
@@ -17187,7 +17190,7 @@ snapshots:
   capital-case@1.0.4:
     dependencies:
       no-case: 3.0.4
-      tslib: 2.8.1
+      tslib: 2.4.1
       upper-case-first: 2.0.2
 
   ccount@2.0.1: {}
@@ -17241,7 +17244,7 @@ snapshots:
       path-case: 3.0.4
       sentence-case: 3.0.4
       snake-case: 3.0.4
-      tslib: 2.8.1
+      tslib: 2.4.1
 
   changesets-github-release@0.1.0: {}
 
@@ -17467,7 +17470,7 @@ snapshots:
   constant-case@3.0.4:
     dependencies:
       no-case: 3.0.4
-      tslib: 2.8.1
+      tslib: 2.4.1
       upper-case: 2.0.2
 
   content-disposition@0.5.4:
@@ -17951,7 +17954,7 @@ snapshots:
   dot-case@3.0.4:
     dependencies:
       no-case: 3.0.4
-      tslib: 2.8.1
+      tslib: 2.4.1
 
   dotenv@10.0.0: {}
 
@@ -18924,7 +18927,7 @@ snapshots:
   graphql-tag@2.12.6(graphql@16.1.0-experimental-stream-defer.6):
     dependencies:
       graphql: 16.1.0-experimental-stream-defer.6
-      tslib: 2.8.1
+      tslib: 2.4.1
 
   graphql-upload@13.0.0(graphql@16.1.0-experimental-stream-defer.6):
     dependencies:
@@ -19063,7 +19066,7 @@ snapshots:
   header-case@2.0.4:
     dependencies:
       capital-case: 1.0.4
-      tslib: 2.8.1
+      tslib: 2.4.1
 
   hex-color-regex@1.1.0: {}
 
@@ -19330,7 +19333,7 @@ snapshots:
 
   is-lower-case@2.0.2:
     dependencies:
-      tslib: 2.8.1
+      tslib: 2.4.1
 
   is-module@1.0.0: {}
 
@@ -19389,7 +19392,7 @@ snapshots:
 
   is-upper-case@2.0.2:
     dependencies:
-      tslib: 2.8.1
+      tslib: 2.4.1
 
   is-windows@1.0.2: {}
 
@@ -20079,11 +20082,11 @@ snapshots:
 
   lower-case-first@2.0.2:
     dependencies:
-      tslib: 2.8.1
+      tslib: 2.4.1
 
   lower-case@2.0.2:
     dependencies:
-      tslib: 2.8.1
+      tslib: 2.4.1
 
   lru-cache@10.4.3: {}
 
@@ -20953,7 +20956,7 @@ snapshots:
   no-case@3.0.4:
     dependencies:
       lower-case: 2.0.2
-      tslib: 2.8.1
+      tslib: 2.4.1
 
   node-abi@3.75.0:
     dependencies:
@@ -21181,7 +21184,7 @@ snapshots:
   param-case@3.0.4:
     dependencies:
       dot-case: 3.0.4
-      tslib: 2.8.1
+      tslib: 2.4.1
 
   parent-module@1.0.1:
     dependencies:
@@ -21221,7 +21224,7 @@ snapshots:
   pascal-case@3.1.2:
     dependencies:
       no-case: 3.0.4
-      tslib: 2.8.1
+      tslib: 2.4.1
 
   pascalcase@0.1.1: {}
 
@@ -21230,7 +21233,7 @@ snapshots:
   path-case@3.0.4:
     dependencies:
       dot-case: 3.0.4
-      tslib: 2.8.1
+      tslib: 2.4.1
 
   path-exists@3.0.0: {}
 
@@ -22004,7 +22007,7 @@ snapshots:
   sentence-case@3.0.4:
     dependencies:
       no-case: 3.0.4
-      tslib: 2.8.1
+      tslib: 2.4.1
       upper-case-first: 2.0.2
 
   serialize-javascript@6.0.2:
@@ -22142,7 +22145,7 @@ snapshots:
   snake-case@3.0.4:
     dependencies:
       dot-case: 3.0.4
-      tslib: 2.8.1
+      tslib: 2.4.1
 
   snapdragon-node@2.1.1:
     dependencies:
@@ -22252,7 +22255,7 @@ snapshots:
 
   sponge-case@1.0.1:
     dependencies:
-      tslib: 2.8.1
+      tslib: 2.4.1
 
   sprintf-js@1.0.3: {}
 
@@ -22475,7 +22478,7 @@ snapshots:
 
   swap-case@2.0.2:
     dependencies:
-      tslib: 2.8.1
+      tslib: 2.4.1
 
   symbol-observable@4.0.0: {}
 
@@ -22596,7 +22599,7 @@ snapshots:
 
   title-case@3.0.3:
     dependencies:
-      tslib: 2.8.1
+      tslib: 2.4.1
 
   titleize@3.0.0: {}
 
@@ -22845,7 +22848,7 @@ snapshots:
       is-buffer: 2.0.5
       is-plain-obj: 4.1.0
       trough: 2.2.0
-      vfile: 5.3.7
+      vfile: 5.3.2
 
   union-value@1.0.1:
     dependencies:
@@ -22928,11 +22931,11 @@ snapshots:
 
   upper-case-first@2.0.2:
     dependencies:
-      tslib: 2.8.1
+      tslib: 2.4.1
 
   upper-case@2.0.2:
     dependencies:
-      tslib: 2.8.1
+      tslib: 2.4.1
 
   uri-js@4.4.1:
     dependencies:
