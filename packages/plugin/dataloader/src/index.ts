@@ -27,9 +27,10 @@ declare module 'graphql-ez' {
   }
 }
 
-export type InferDataLoader<V> = V extends RegisteredDataLoader<infer Name, infer Key, infer Value, infer Cache>
-  ? { [k in Name]: DataLoader<Key, Value, Cache> }
-  : never;
+export type InferDataLoader<V> =
+  V extends RegisteredDataLoader<infer Name, infer Key, infer Value, infer Cache>
+    ? { [k in Name]: DataLoader<Key, Value, Cache> }
+    : never;
 
 export const ezDataLoader = (): EZPlugin => {
   return {
