@@ -1,7 +1,6 @@
 import { gql } from '@graphql-ez/utils/gql';
 import { getObjectValue } from '@graphql-ez/utils/object';
 import { LazyPromise } from '@graphql-ez/utils/promise';
-import type { RequestHandler } from 'express';
 import type { EZPlugin } from 'graphql-ez';
 import type { GraphQLUpload, graphqlUploadExpress, graphqlUploadKoa, processRequest, UploadOptions } from 'graphql-upload';
 
@@ -79,9 +78,7 @@ export const ezUpload = (options: GraphQLUploadConfig = true): EZPlugin => {
         async express({ integration: { router } }) {
           if (!ctx.options.path) throw Error("Path not specified and it's required for GraphQL Upload");
 
-          const graphqlUploadExpress: RequestHandler<any, any, any, any, any> = (await GraphQLUpload.express)(
-            GraphQLUpload.options
-          );
+          const graphqlUploadExpress = (await GraphQLUpload.express)(GraphQLUpload.options);
 
           router.post(ctx.options.path, graphqlUploadExpress, (_req, _res, next) => next());
         },
