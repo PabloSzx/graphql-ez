@@ -76,106 +76,106 @@ test('with testing client', async () => {
   ).data!.context;
 
   expect(JSON.parse(contextString.replace(/localhost:(.+?)"/g, '__host__"'))).toMatchInlineSnapshot(`
-    {
-      "document": {
-        "definitions": [
-          {
-            "directives": [],
-            "kind": "OperationDefinition",
-            "loc": {
-              "end": 9,
-              "start": 0,
-            },
-            "operation": "query",
-            "selectionSet": {
-              "kind": "SelectionSet",
-              "loc": {
-                "end": 9,
-                "start": 0,
-              },
-              "selections": [
-                {
-                  "arguments": [],
-                  "directives": [],
-                  "kind": "Field",
-                  "loc": {
-                    "end": 8,
-                    "start": 1,
-                  },
-                  "name": {
-                    "kind": "Name",
-                    "loc": {
-                      "end": 8,
-                      "start": 1,
-                    },
-                    "value": "context",
-                  },
-                },
-              ],
-            },
-            "variableDefinitions": [],
-          },
-        ],
-        "kind": "Document",
-        "loc": {
-          "end": 9,
-          "start": 0,
-        },
-      },
-      "foo": "bar",
-      "operation": {
-        "directives": [],
-        "kind": "OperationDefinition",
-        "loc": {
-          "end": 9,
-          "start": 0,
-        },
-        "operation": "query",
-        "selectionSet": {
-          "kind": "SelectionSet",
-          "loc": {
-            "end": 9,
-            "start": 0,
-          },
-          "selections": [
-            {
-              "arguments": [],
-              "directives": [],
-              "kind": "Field",
-              "loc": {
-                "end": 8,
-                "start": 1,
-              },
-              "name": {
-                "kind": "Name",
-                "loc": {
-                  "end": 8,
-                  "start": 1,
-                },
-                "value": "context",
-              },
-            },
-          ],
-        },
-        "variableDefinitions": [],
-      },
-      "request": {
-        "body": {
-          "query": "{context}",
-        },
-        "headers": {
-          "accept": "*/*",
-          "accept-encoding": "gzip,deflate",
-          "connection": "close",
-          "content-length": "21",
-          "content-type": "application/json",
-          "host": "__host__",
-          "user-agent": "node-fetch/1.0 (+https://github.com/bitinn/node-fetch)",
-          "x-msw-bypass": "true",
-        },
-        "method": "POST",
-        "query": {},
-      },
-    }
+   {
+     "document": {
+       "definitions": [
+         {
+           "directives": [],
+           "kind": "OperationDefinition",
+           "loc": {
+             "end": 9,
+             "start": 0,
+           },
+           "operation": "query",
+           "selectionSet": {
+             "kind": "SelectionSet",
+             "loc": {
+               "end": 9,
+               "start": 0,
+             },
+             "selections": [
+               {
+                 "arguments": [],
+                 "directives": [],
+                 "kind": "Field",
+                 "loc": {
+                   "end": 8,
+                   "start": 1,
+                 },
+                 "name": {
+                   "kind": "Name",
+                   "loc": {
+                     "end": 8,
+                     "start": 1,
+                   },
+                   "value": "context",
+                 },
+               },
+             ],
+           },
+           "variableDefinitions": [],
+         },
+       ],
+       "kind": "Document",
+       "loc": {
+         "end": 9,
+         "start": 0,
+       },
+     },
+     "foo": "bar",
+     "operation": {
+       "directives": [],
+       "kind": "OperationDefinition",
+       "loc": {
+         "end": 9,
+         "start": 0,
+       },
+       "operation": "query",
+       "selectionSet": {
+         "kind": "SelectionSet",
+         "loc": {
+           "end": 9,
+           "start": 0,
+         },
+         "selections": [
+           {
+             "arguments": [],
+             "directives": [],
+             "kind": "Field",
+             "loc": {
+               "end": 8,
+               "start": 1,
+             },
+             "name": {
+               "kind": "Name",
+               "loc": {
+                 "end": 8,
+                 "start": 1,
+               },
+               "value": "context",
+             },
+           },
+         ],
+       },
+       "variableDefinitions": [],
+     },
+     "request": {
+       "body": {
+         "query": "{context}",
+       },
+       "headers": {
+         "accept": "*/*",
+         "accept-encoding": "gzip,deflate",
+         "connection": "keep-alive",
+         "content-length": "21",
+         "content-type": "application/json",
+         "host": "__host__",
+         "user-agent": "node-fetch/1.0 (+https://github.com/bitinn/node-fetch)",
+         "x-msw-intention": "bypass",
+       },
+       "method": "POST",
+       "query": {},
+     },
+   }
   `);
 });
