@@ -45,7 +45,7 @@ jobs:
       - name: Check Format
         run: pnpm pretty:check
       - name: Test
-        run: pnpm test -- --logHeapUsage
+        run: pnpm test --logHeapUsage
       - name: Test Integration
         run: pnpm test:integration
       - name: Test ESM
