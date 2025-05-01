@@ -1,9 +1,10 @@
+import { VanillaEZExecutableSchemaDefinition } from '@graphql-ez/plugin-schema';
 import { gql } from '@graphql-ez/utils/gql';
 import { makeExecutableSchema } from '@graphql-tools/schema';
 import safeStringify from 'fast-safe-stringify';
 import { GraphQLSchema } from 'graphql';
 import type { EZContext } from 'graphql-ez';
-import { createModule } from 'graphql-modules';
+import { createModule, TypeDefs } from 'graphql-modules';
 
 export * from '@graphql-ez/plugin-schema';
 export { makeExecutableSchema };
@@ -46,7 +47,11 @@ export const PingSubscription = {
   },
 } as const;
 
-export const CommonSchema = {
+export const CommonSchema: VanillaEZExecutableSchemaDefinition & {
+  typeDefs: TypeDefs;
+  readonly schema: GraphQLSchema;
+  readonly module: ReturnType<typeof createModule>;
+} = {
   typeDefs: gql`
     type Query {
       hello: String!
@@ -83,7 +88,7 @@ export const CommonSchema = {
       },
     },
   },
-  get schema() {
+  get schema(): GraphQLSchema {
     return new GraphQLSchema({
       ...makeExecutableSchema({
         typeDefs: CommonSchema.typeDefs,
@@ -92,11 +97,11 @@ export const CommonSchema = {
       enableDeferStream: true,
     });
   },
-  get module() {
+  get module(): ReturnType<typeof createModule> {
     return createModule({
       id: 'CommonSchema',
       typeDefs: CommonSchema.typeDefs,
       resolvers: CommonSchema.resolvers,
     });
   },
-} as const;
+};

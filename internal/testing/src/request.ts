@@ -15,8 +15,8 @@ export type { TypedDocumentNode };
 
 export async function getRequestPool(port: number, path = '/graphql') {
   const { Pool } = await import('undici');
-  const address = `http://127.0.0.1:${port}`;
-  const addressWithoutProtocol = `127.0.0.1:${port}`;
+  const address = `http://localhost:${port}`;
+  const addressWithoutProtocol = `localhost:${port}`;
   const requestPool = new Pool(address, {
     connections: 5,
     bodyTimeout: 0,

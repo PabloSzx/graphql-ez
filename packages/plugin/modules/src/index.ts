@@ -1,4 +1,5 @@
 import { useGraphQLModules } from '@envelop/graphql-modules';
+import { VanillaEZResolvers } from '@graphql-ez/plugin-schema';
 import { isDocumentNode } from '@graphql-ez/utils/document';
 import { gql } from '@graphql-ez/utils/gql';
 import { toPlural } from '@graphql-ez/utils/object';
@@ -12,7 +13,7 @@ import { createApplication, createModule } from 'graphql-modules';
 
 export type EnvelopModuleConfig = Omit<ModuleConfig, 'typeDefs' | 'id' | 'resolvers'> & {
   id?: string;
-  resolvers?: EZResolvers;
+  resolvers?: EZResolvers | EZResolvers[] | VanillaEZResolvers | VanillaEZResolvers[];
   /**
    * Automatically add the created module in the built envelop app
    *

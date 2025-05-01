@@ -7,8 +7,14 @@ import { EZContext, EZPlugin, EZResolvers, LazyPromise, useSchema } from 'graphq
 
 export interface EZExecutableSchemaDefinition<TContext = EZContext>
   extends Omit<IExecutableSchemaDefinition<TContext>, 'resolvers'> {
-  resolvers?: EZResolvers | EZResolvers[];
+  resolvers?: EZResolvers | EZResolvers[] | VanillaEZResolvers | VanillaEZResolvers[];
 }
+
+export type VanillaEZResolvers = IResolvers<any, EZContext>;
+
+export type VanillaEZExecutableSchemaDefinition = Omit<EZExecutableSchemaDefinition, 'resolvers'> & {
+  resolvers: VanillaEZResolvers | VanillaEZResolvers[];
+};
 
 export type EZSchema<TContext = EZContext> =
   | GraphQLSchema
@@ -22,7 +28,11 @@ export interface EZSchemaOptions {
   /**
    * Pre-built or to-build schemas
    */
-  schema?: EZSchema<EZContext> | EZSchema<EZContext>[];
+  schema?:
+    | EZSchema<EZContext>
+    | EZSchema<EZContext>[]
+    | VanillaEZExecutableSchemaDefinition
+    | Promise<VanillaEZExecutableSchemaDefinition>;
 
   /**
    * Customize configuration of schema merging
@@ -122,7 +132,7 @@ declare module 'graphql-ez' {
   interface ExtraSchemaDef {
     id: string;
     typeDefs: DocumentNode | string | Array<DocumentNode | string>;
-    resolvers: EZResolvers | EZResolvers[];
+    resolvers: EZResolvers | EZResolvers[] | VanillaEZResolvers | VanillaEZResolvers[];
   }
 
   interface InternalAppBuildContext {
@@ -137,8 +147,6 @@ declare module 'graphql-ez' {
     registeredResolvers?: EZResolvers[];
     registeredSchemas?: EZSchema[];
   }
-
-  interface EZResolvers extends IResolvers<any, EZContext> {}
 
   interface BaseAppBuilder {
     registerTypeDefs: RegisterTypeDefs;

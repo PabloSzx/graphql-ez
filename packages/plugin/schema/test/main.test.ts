@@ -308,7 +308,9 @@ test('cannot use registeredResolvers by itself', async () => {
         prepare({ registerResolvers }) {
           registerResolvers({
             Query: {
-              hello() {},
+              hello() {
+                return 'test';
+              },
             },
           });
         },
