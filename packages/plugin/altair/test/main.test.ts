@@ -158,20 +158,16 @@ test('hapi', async () => {
       })
     ).slice(0, 300)
   ).toMatchInlineSnapshot(`
-    "<!doctype html>
-    <html>
-
-    <head>
-      <meta charset="utf-8">
-      <title>Altair</title>
-      <base href="/altair/">
-      <meta name="viewport" content="width=device-width,initial-scale=1">
-      <link rel="icon" type="image/x-icon" href="favicon.ico">
-      <link href="styles.css" rel="stylesheet" />
-    </head>
-
-    <body>
-      <a"
+   "<!DOCTYPE html>
+   <html>
+     <head>
+       <meta charset="utf-8" />
+       <title>Altair</title>
+       <base href="/altair/">
+       <meta name="viewport" content="width=device-width,initial-scale=1" />
+       <link rel="icon" type="image/x-icon" href="favicon.ico" />
+       <link href="styles.css" rel="stylesheet" />
+    "
   `);
 
   expect(
@@ -182,7 +178,7 @@ test('hapi', async () => {
       })
     ).slice(0, 300)
   ).toMatchInlineSnapshot(
-    `"[class^=ant-]::-ms-clear,[class*=ant-]::-ms-clear,[class^=ant-] input::-ms-clear,[class*=ant-] input::-ms-clear,[class^=ant-] input::-ms-reveal,[class*=ant-] input::-ms-reveal{display:none}html,body{width:100%;height:100%}input::-ms-clear,input::-ms-reveal{display:none}*,*:before,*:after{box-sizing:"`
+    `".ant-alert,body,h1,h2,h3,h4,h5,h6{color:#000000d9}a,a:active,a:focus,a:hover{outline:0;text-decoration:none}dl,h1,h2,h3,h4,h5,h6,ol,p,pre,ul{margin-top:0}address,dl,ol,p,pre,ul{margin-bottom:1em}.ant-btn,[role=button],a,area,button,input:not([type=range]),label,select,summary,textarea{touch-action:m"`
   );
 });
 

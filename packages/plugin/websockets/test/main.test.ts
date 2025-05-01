@@ -85,7 +85,7 @@ describe('fastify', () => {
         },
       });
 
-      expect(warnSpy).toBeCalledTimes(1);
+      expect(warnSpy).toHaveBeenCalledTimes(1);
 
       expect(warnMessage).toMatchInlineSnapshot(`"No Websockets implementations enabled!"`);
     } finally {

@@ -96,7 +96,7 @@ export async function CreateTestClient(
 
   assert(ezAppPath, 'Path for EZ App could not be found!');
 
-  const endpoint = `http://127.0.0.1:${port}${ezAppPath}`;
+  const endpoint = `http://localhost:${port}${ezAppPath}`;
 
   const client = EZClient({
     endpoint,

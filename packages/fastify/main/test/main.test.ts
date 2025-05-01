@@ -31,104 +31,104 @@ test('basic', async () => {
       ).data!.context.replace(new RegExp(addressWithoutProtocol, 'g'), '__host__')
     )
   ).toMatchInlineSnapshot(`
-    {
-      "document": {
-        "definitions": [
-          {
-            "directives": [],
-            "kind": "OperationDefinition",
-            "loc": {
-              "end": 9,
-              "start": 0,
-            },
-            "operation": "query",
-            "selectionSet": {
-              "kind": "SelectionSet",
-              "loc": {
-                "end": 9,
-                "start": 0,
-              },
-              "selections": [
-                {
-                  "arguments": [],
-                  "directives": [],
-                  "kind": "Field",
-                  "loc": {
-                    "end": 8,
-                    "start": 1,
-                  },
-                  "name": {
-                    "kind": "Name",
-                    "loc": {
-                      "end": 8,
-                      "start": 1,
-                    },
-                    "value": "context",
-                  },
-                },
-              ],
-            },
-            "variableDefinitions": [],
-          },
-        ],
-        "kind": "Document",
-        "loc": {
-          "end": 9,
-          "start": 0,
-        },
-      },
-      "foo": "bar",
-      "ip": "127.0.0.1",
-      "operation": {
-        "directives": [],
-        "kind": "OperationDefinition",
-        "loc": {
-          "end": 9,
-          "start": 0,
-        },
-        "operation": "query",
-        "selectionSet": {
-          "kind": "SelectionSet",
-          "loc": {
-            "end": 9,
-            "start": 0,
-          },
-          "selections": [
-            {
-              "arguments": [],
-              "directives": [],
-              "kind": "Field",
-              "loc": {
-                "end": 8,
-                "start": 1,
-              },
-              "name": {
-                "kind": "Name",
-                "loc": {
-                  "end": 8,
-                  "start": 1,
-                },
-                "value": "context",
-              },
-            },
-          ],
-        },
-        "variableDefinitions": [],
-      },
-      "request": {
-        "body": {
-          "query": "{context}",
-        },
-        "headers": {
-          "connection": "keep-alive",
-          "content-length": "21",
-          "content-type": "application/json",
-          "host": "__host__",
-        },
-        "method": "POST",
-        "query": {},
-      },
-    }
+   {
+     "document": {
+       "definitions": [
+         {
+           "directives": [],
+           "kind": "OperationDefinition",
+           "loc": {
+             "end": 9,
+             "start": 0,
+           },
+           "operation": "query",
+           "selectionSet": {
+             "kind": "SelectionSet",
+             "loc": {
+               "end": 9,
+               "start": 0,
+             },
+             "selections": [
+               {
+                 "arguments": [],
+                 "directives": [],
+                 "kind": "Field",
+                 "loc": {
+                   "end": 8,
+                   "start": 1,
+                 },
+                 "name": {
+                   "kind": "Name",
+                   "loc": {
+                     "end": 8,
+                     "start": 1,
+                   },
+                   "value": "context",
+                 },
+               },
+             ],
+           },
+           "variableDefinitions": [],
+         },
+       ],
+       "kind": "Document",
+       "loc": {
+         "end": 9,
+         "start": 0,
+       },
+     },
+     "foo": "bar",
+     "ip": "::1",
+     "operation": {
+       "directives": [],
+       "kind": "OperationDefinition",
+       "loc": {
+         "end": 9,
+         "start": 0,
+       },
+       "operation": "query",
+       "selectionSet": {
+         "kind": "SelectionSet",
+         "loc": {
+           "end": 9,
+           "start": 0,
+         },
+         "selections": [
+           {
+             "arguments": [],
+             "directives": [],
+             "kind": "Field",
+             "loc": {
+               "end": 8,
+               "start": 1,
+             },
+             "name": {
+               "kind": "Name",
+               "loc": {
+                 "end": 8,
+                 "start": 1,
+               },
+               "value": "context",
+             },
+           },
+         ],
+       },
+       "variableDefinitions": [],
+     },
+     "request": {
+       "body": {
+         "query": "{context}",
+       },
+       "headers": {
+         "connection": "keep-alive",
+         "content-length": "21",
+         "content-type": "application/json",
+         "host": "__host__",
+       },
+       "method": "POST",
+       "query": {},
+     },
+   }
   `);
 
   expect(printSchema((await ezApp.getEnveloped)().schema)).toMatchInlineSnapshot(`

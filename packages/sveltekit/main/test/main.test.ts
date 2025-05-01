@@ -45,7 +45,7 @@ afterAll(async () => {
 
 test('basic schema', async () => {
   const { client, query } = (await EZClientPromise)({
-    endpoint: `http://127.0.0.1:${port}/graphql`,
+    endpoint: `http://localhost:${port}/graphql`,
   });
 
   TearDownPromises.push(
@@ -87,7 +87,7 @@ test('basic schema', async () => {
 
 test('altair', async () => {
   const { client } = (await EZClientPromise)({
-    endpoint: `http://127.0.0.1:${port}/graphql`,
+    endpoint: `http://localhost:${port}/graphql`,
   });
 
   TearDownPromises.push(
@@ -106,20 +106,18 @@ test('altair', async () => {
       ).body.text()
     ).slice(0, 300)
   ).toMatchInlineSnapshot(`
-    "<!doctype html>
-    <html>
+   "<!DOCTYPE html>
+   <html lang="en">
+   	<head>
+   		<meta charset="utf-8" />
+   		<title>Internal Error</title>
 
-    <head>
-      <meta charset="utf-8">
-      <title>Altair</title>
-      <base href="/altair/">
-      <meta name="viewport" content="width=device-width,initial-scale=1">
-      <link rel="icon" type="image/x-icon" href="favicon.ico">
-      <link href="styles.css" rel="stylesheet" />
-    </head>
-
-    <body>
-      <a"
+   		<style>
+   			body {
+   				font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+   					Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+   				display: flex;
+   		"
   `);
 
   expect(
@@ -131,14 +129,25 @@ test('altair', async () => {
         })
       ).body.text()
     ).slice(0, 300)
-  ).toMatchInlineSnapshot(
-    `"[class^=ant-]::-ms-clear,[class*=ant-]::-ms-clear,[class^=ant-] input::-ms-clear,[class*=ant-] input::-ms-clear,[class^=ant-] input::-ms-reveal,[class*=ant-] input::-ms-reveal{display:none}html,body{width:100%;height:100%}input::-ms-clear,input::-ms-reveal{display:none}*,*:before,*:after{box-sizing:"`
-  );
+  ).toMatchInlineSnapshot(`
+   "<!DOCTYPE html>
+   <html lang="en">
+   	<head>
+   		<meta charset="utf-8" />
+   		<title>Internal Error</title>
+
+   		<style>
+   			body {
+   				font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+   					Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+   				display: flex;
+   		"
+  `);
 });
 
 test('graphiql', async () => {
   const { client } = (await EZClientPromise)({
-    endpoint: `http://127.0.0.1:${port}/graphql`,
+    endpoint: `http://localhost:${port}/graphql`,
   });
 
   TearDownPromises.push(
@@ -177,7 +186,7 @@ test('graphiql', async () => {
 
 test('voyager', async () => {
   const { client } = (await EZClientPromise)({
-    endpoint: `http://127.0.0.1:${port}/graphql`,
+    endpoint: `http://localhost:${port}/graphql`,
   });
 
   TearDownPromises.push(
