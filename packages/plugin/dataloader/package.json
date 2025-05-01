@@ -33,22 +33,22 @@
     "test": "jest"
   },
   "dependencies": {
-    "@envelop/dataloader": "^4.0.4",
-    "@envelop/execute-subscription-event": "^3.0.4",
-    "dataloader": "^2.1.0"
+    "@envelop/dataloader": "^4.0.6",
+    "@envelop/execute-subscription-event": "^3.0.6",
+    "dataloader": "^2.2.3"
   },
   "devDependencies": {
-    "@envelop/core": "^3.0.4",
-    "@pothos/core": "^3.23.2",
-    "@types/node": "^18.11.15",
+    "@envelop/core": "^3.0.6",
+    "@pothos/core": "^3.41.2",
+    "@types/node": "^18.19.87",
     "bob-esbuild-cli": "5.0.0-alpha-227aebc.0",
     "changesets-github-release": "^0.1.0",
-    "esbuild": "^0.16.9",
+    "esbuild": "^0.16.17",
     "graphql": "16.1.0-experimental-stream-defer.6",
     "graphql-ez": "workspace:^",
     "jest": "30.0.0-alpha.7",
-    "ts-jest": "^29.0.3",
-    "typescript": "^5.3.3"
+    "ts-jest": "^29.3.2",
+    "typescript": "^5.8.3"
   },
   "peerDependencies": {
     "graphql-ez": "workspace:^"

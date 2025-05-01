@@ -33,19 +33,20 @@
     "test": "jest"
   },
   "devDependencies": {
+    "@types/express": "^4.17.21",
     "@types/graphql-upload": "^8.0.12",
-    "@types/node": "^18.11.15",
-    "@types/node-fetch": "^2.6.2",
+    "@types/node": "^18.19.87",
+    "@types/node-fetch": "^2.6.12",
     "bob-esbuild-cli": "5.0.0-alpha-227aebc.0",
     "changesets-github-release": "^0.1.0",
-    "esbuild": "^0.16.9",
+    "esbuild": "^0.16.17",
     "graphql": "16.1.0-experimental-stream-defer.6",
     "graphql-ez": "workspace:^",
     "graphql-upload": "^13.0.0",
     "jest": "30.0.0-alpha.7",
-    "node-fetch": "^2.6.7",
-    "ts-jest": "^29.0.3",
-    "typescript": "^5.3.3"
+    "node-fetch": "^2.7.0",
+    "ts-jest": "^29.3.2",
+    "typescript": "^5.8.3"
   },
   "peerDependencies": {
     "@types/graphql-upload": "*",

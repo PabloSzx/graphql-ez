@@ -10,23 +10,23 @@
     "start": "bob-tsm --node-env=prod src/index.ts"
   },
   "dependencies": {
-    "@envelop/graphql-jit": "^5.0.4",
+    "@envelop/graphql-jit": "^5.0.6",
     "@graphql-ez/koa": "workspace:*",
-    "@koa/router": "^12.0.0",
+    "@koa/router": "^12.0.2",
     "benchmark-bench": "workspace:*",
     "cross-env": "^7.0.3",
     "graphql": "16.1.0-experimental-stream-defer.6",
     "graphql-ez": "workspace:*",
-    "koa": "^2.14.1",
-    "require-env-variable": "^4.0.1"
+    "koa": "^2.16.1",
+    "require-env-variable": "^4.0.2"
   },
   "devDependencies": {
-    "@types/koa": "^2.13.5",
-    "@types/koa-bodyparser": "^4.3.10",
-    "@types/koa__router": "^12.0.0",
-    "@types/node": "^18.11.15",
+    "@types/koa": "^2.15.0",
+    "@types/koa-bodyparser": "^4.3.12",
+    "@types/koa__router": "^12.0.4",
+    "@types/node": "^18.19.87",
     "bob-tsm": "2.0.0-alpha-227aebc.0",
-    "esbuild": "^0.16.9",
-    "typescript": "^5.3.3"
+    "esbuild": "^0.16.17",
+    "typescript": "^5.8.3"
   }
 }
