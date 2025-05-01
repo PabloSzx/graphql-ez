@@ -2,7 +2,7 @@ import { buildClientSchema, getIntrospectionQuery, IntrospectionQuery, lexicogra
 import { CommonSchema, gql, makeExecutableSchema, startFastifyServer } from 'graphql-ez-testing';
 import { ezGraphQLModules } from '../../modules/src/index';
 import { ezScalars } from '../../scalars/src/index';
-import { ezSchema, VanillaEZExecutableSchemaDefinition } from '../src';
+import { ezSchema } from '../src';
 
 test('registerTypeDefs works as expected', async () => {
   const { query } = await startFastifyServer({
@@ -141,7 +141,7 @@ test('uses root executable schema config', async () => {
                   },
                 },
               },
-            } as VanillaEZExecutableSchemaDefinition,
+            },
           }),
         ],
       },

@@ -7,7 +7,7 @@ import { EZContext, EZPlugin, EZResolvers, LazyPromise, useSchema } from 'graphq
 
 export interface EZExecutableSchemaDefinition<TContext = EZContext>
   extends Omit<IExecutableSchemaDefinition<TContext>, 'resolvers'> {
-  resolvers?: EZResolvers | EZResolvers[];
+  resolvers?: EZResolvers | EZResolvers[] | VanillaEZResolvers | VanillaEZResolvers[];
 }
 
 export type VanillaEZResolvers = IResolvers<any, EZContext>;
