@@ -14,7 +14,7 @@ jobs:
       - name: Use Node
         uses: actions/setup-node@v3
         with:
-          node-version: '16.x'
+          node-version: '22.x'
       - name: Cache pnpm modules
         uses: actions/cache@v3
         env:
@@ -25,7 +25,7 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-
       - name: install pnpm
-        run: npm i pnpm@^8.3.1 -g
+        run: npm i pnpm@^10.10.0 -g
       - name: Install Dependencies
         run: pnpm i
       - name: Create Release Pull Request or Publish to npm
