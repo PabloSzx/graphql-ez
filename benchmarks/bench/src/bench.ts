@@ -34,7 +34,6 @@ const instance = autocannon(
 );
 
 process.once('SIGINT', () => {
-  //@ts-expect-error
   instance.stop();
 });
 
