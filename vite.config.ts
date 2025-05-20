@@ -5,5 +5,7 @@ export default defineConfig({
     globals: true,
     // testNamePattern: '**/test/**/*.test.ts',
     globalSetup: './setup-test.js',
+    include: ['**/test/**/*.test.ts'],
+    exclude: ['**/test-mocha/**/*.test.ts', '**/node_modules'],
   },
 });

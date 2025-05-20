@@ -343,10 +343,10 @@ test('presets', async () => {
   expect(() => {
     // @ts-expect-error
     appBuilder.ezPlugins.push(ezAltairIDE());
-  }).toThrowErrorMatchingInlineSnapshot(`"Cannot add property 2, object is not extensible"`);
+  }).toThrowErrorMatchingInlineSnapshot(`[TypeError: Cannot add property 2, object is not extensible]`);
   expect(() => {
     appBuilder.envelopPlugins.push(useExtendContext(() => ({})));
-  }).toThrowErrorMatchingInlineSnapshot(`"Cannot add property 2, object is not extensible"`);
+  }).toThrowErrorMatchingInlineSnapshot(`[TypeError: Cannot add property 2, object is not extensible]`);
 
   expect((await query<{ ok: string }>('{ok}')).data?.ok).toBe('OK');
 

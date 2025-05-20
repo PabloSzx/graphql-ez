@@ -43,6 +43,8 @@
   "devDependencies": {
     "@changesets/assemble-release-plan": "^5.2.4",
     "@changesets/cli": "^2.29.2",
+    "@graphql-ez/fastify-testing": "workspace:^",
+    "@graphql-ez/nextjs-testing": "workspace:^",
     "@types/chai": "^4.3.20",
     "@types/express-serve-static-core": "^5.0.6",
     "@types/jest": "^29.5.14",
@@ -57,6 +59,7 @@
     "cross-env": "^7.0.3",
     "esbuild": "^0.25.4",
     "fastify": "^4.29.1",
+    "fs-extra": "^11.3.0",
     "globby": "^13.2.2",
     "graphql-ez-testing": "workspace:*",
     "husky": "8.0.2",
