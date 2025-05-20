@@ -12,19 +12,19 @@
   },
   "exports": {
     ".": {
+      "types": "./dist/index.d.ts",
       "require": "./dist/index.js",
-      "import": "./dist/index.mjs",
-      "types": "./dist/index.d.ts"
+      "import": "./dist/index.mjs"
     },
     "./*": {
+      "types": "./dist/*.d.ts",
       "require": "./dist/*.js",
-      "import": "./dist/*.mjs",
-      "types": "./dist/*.d.ts"
+      "import": "./dist/*.mjs"
     },
     "./util": {
+      "types": "./dist/util/index.d.ts",
       "require": "./dist/util/index.js",
-      "import": "./dist/util/index.mjs",
-      "types": "./dist/util/index.d.ts"
+      "import": "./dist/util/index.mjs"
     }
   },
   "main": "dist/index.js",

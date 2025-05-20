@@ -1,10 +1,23 @@
-import { execa } from 'execa';
 import { unlinkSync } from 'fs';
-import getPort from 'get-port';
+import { Miniflare } from 'miniflare';
+import { build } from 'esbuild';
 import { resolve } from 'path';
-import waitOn from 'wait-on';
 
 const outfile = resolve(__dirname, './worker/bundle.js');
+
+beforeAll(async () => {
+  await build({
+    entryPoints: [resolve(__dirname, './worker/worker.ts')],
+    bundle: true,
+    target: 'es2019',
+    outfile,
+    splitting: false,
+    minify: true,
+    banner: {
+      js: '// @ts-nocheck',
+    },
+  });
+});
 
 afterAll(() => {
   try {
@@ -14,24 +27,21 @@ afterAll(() => {
   }
 });
 
-test.skip('works', async () => {
+test('works', async () => {
   const { EZClient } = await import('../../../client/main/src/index');
 
-  const port = await getPort();
-
-  const miniflare = execa(`${require.resolve('../node_modules/miniflare/bootstrap.js')} ${outfile} -p ${port}`, {
-    stdio: 'ignore',
+  const miniflare = new Miniflare({
+    script: outfile,
   });
+
+  const ready = await miniflare.ready;
+
+  const port = ready.port;
 
   const client = EZClient({
-    endpoint: 'http://127.0.0.1:' + port + '/graphql',
+    endpoint: 'http://localhost:' + port + '/graphql',
   });
   try {
-    await waitOn({
-      resources: ['tcp:' + port],
-      timeout: 5000,
-    });
-
     await expect(client.query('{hello}')).resolves.toMatchInlineSnapshot(`
             {
               "data": {
@@ -40,7 +50,7 @@ test.skip('works', async () => {
             }
           `);
   } finally {
-    miniflare.kill();
+    await miniflare.dispose();
 
     await client.client.close();
   }

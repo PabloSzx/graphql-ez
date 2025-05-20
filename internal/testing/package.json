@@ -6,14 +6,14 @@
   "author": "PabloSz <pablosaez1995@gmail.com>",
   "exports": {
     ".": {
+      "types": "./dist/index.d.ts",
       "require": "./dist/index.js",
-      "import": "./dist/index.mjs",
-      "types": "./dist/index.d.ts"
+      "import": "./dist/index.mjs"
     },
     "./*": {
+      "types": "./dist/*.d.ts",
       "require": "./dist/*.js",
-      "import": "./dist/*.mjs",
-      "types": "./dist/*.d.ts"
+      "import": "./dist/*.mjs"
     }
   },
   "types": "dist/index.d.ts",
