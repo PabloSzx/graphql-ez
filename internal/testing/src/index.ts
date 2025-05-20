@@ -210,6 +210,8 @@ export async function startHTTPServer({
 
   const ezApp = appBuilder.buildApp({ ...buildOptions, server });
 
+  await ezApp.ready;
+
   const port = await new Promise<number>((resolve, reject) => {
     server.listen(0, () => {
       try {
