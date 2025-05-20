@@ -1,10 +1,7 @@
 import type { Config } from '@jest/types';
 import { execSync } from 'child_process';
-import { readJSONSync, writeFileSync } from 'fs-extra';
-import { relative, resolve } from 'path';
-import { pathsToModuleNameMapper } from 'ts-jest';
-
-const rootPath = resolve(__dirname, '../../../');
+import { writeFileSync } from 'fs-extra';
+import { resolve } from 'path';
 
 process.env.TS_JEST_HOOKS = resolve(__dirname, 'tsJestHooks.js');
 
@@ -14,8 +11,6 @@ export function getConfig({
 }: {
   nextjs?: string[];
 } & Config.InitialOptions = {}): Record<string, unknown> {
-  const prefix = `<rootDir>/${relative(process.cwd(), rootPath)}`;
-
   if (nextjs) {
     writeFileSync(
       './setup-test.js',
@@ -42,7 +37,6 @@ export function getConfig({
     modulePathIgnorePatterns: ['/dist/'],
     testPathIgnorePatterns: ['/node_modules/', '/dist/', '/.next'],
     coveragePathIgnorePatterns: ['node_modules', '/.next'],
-    moduleNameMapper: pathsToModuleNameMapper(readJSONSync(resolve(rootPath, 'tsconfig.json')).compilerOptions.paths, { prefix }),
     collectCoverage: true,
     globalSetup: nextjs ? './setup-test.js' : undefined,
     watchman: false,

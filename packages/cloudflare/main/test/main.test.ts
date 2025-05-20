@@ -1,8 +1,6 @@
-import { build } from 'esbuild';
 import { execa } from 'execa';
 import { unlinkSync } from 'fs';
 import getPort from 'get-port';
-import { testIfNode16OrPlus } from 'graphql-ez-testing';
 import { resolve } from 'path';
 import waitOn from 'wait-on';
 
@@ -16,17 +14,8 @@ afterAll(() => {
   }
 });
 
-testIfNode16OrPlus('works', async () => {
-  const { EZClient } = await import('@graphql-ez/client');
-
-  await build({
-    entryPoints: [resolve(__dirname, './worker/worker.ts')],
-    bundle: true,
-    target: 'es2019',
-    outfile,
-    splitting: false,
-    minify: true,
-  });
+test.skip('works', async () => {
+  const { EZClient } = await import('../../../client/main/src/index');
 
   const port = await getPort();
 

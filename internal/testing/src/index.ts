@@ -12,6 +12,7 @@ import {
   GraphQLWSClientOptions,
   SubscriptionsTransportClientOptions,
 } from './ws';
+import { vitest } from 'vitest';
 
 export * from 'graphql-ez';
 export * from './common';
@@ -392,7 +393,7 @@ export async function startNextJSServer(dir: string[], autoClose: boolean = true
   const NextJSDir = resolve(...dir);
 
   const prevWarn = console.warn;
-  const warnSpy = jest.spyOn(console, 'warn').mockImplementation((...message) => {
+  const warnSpy = vitest.spyOn(console, 'warn').mockImplementation((...message) => {
     if (!message[0]) return;
 
     if (

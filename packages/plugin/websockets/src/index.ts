@@ -71,7 +71,7 @@ const WSDeps = {
   subscriptionsTransportWs: LazyPromise(() =>
     import('subscriptions-transport-ws-envelop/server').then(v => v.SubscriptionServer)
   ),
-  useGraphQLWSServer: LazyPromise(() => import('graphql-ws/dist/use/ws').then(v => v.useServer)),
+  useGraphQLWSServer: LazyPromise(() => import('graphql-ws/use/ws').then(v => v.useServer)),
 };
 
 /**
