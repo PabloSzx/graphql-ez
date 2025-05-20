@@ -1,47 +1,29 @@
-import { unlinkSync } from 'fs';
-import { Miniflare } from 'miniflare';
-import { build } from 'esbuild';
+import { execaCommand } from 'execa';
+import getPort from 'get-port';
 import { resolve } from 'path';
-
-const outfile = resolve(__dirname, './worker/bundle.js');
-
-beforeAll(async () => {
-  await build({
-    entryPoints: [resolve(__dirname, './worker/worker.ts')],
-    bundle: true,
-    target: 'es2019',
-    outfile,
-    splitting: false,
-    minify: true,
-    banner: {
-      js: '// @ts-nocheck',
-    },
-  });
-});
-
-afterAll(() => {
-  try {
-    unlinkSync(outfile);
-  } catch (err) {
-    console.error(err);
-  }
-});
+import waitOn from 'wait-on';
 
 test('works', async () => {
   const { EZClient } = await import('../../../client/main/src/index');
 
-  const miniflare = new Miniflare({
-    script: outfile,
-  });
+  const port = await getPort();
 
-  const ready = await miniflare.ready;
-
-  const port = ready.port;
+  const miniflare = execaCommand(
+    `node ${require.resolve('../node_modules/wrangler/bin/wrangler.js')} dev ${resolve(__dirname, './worker/worker.ts')} --port ${port}`,
+    {
+      stdio: 'ignore',
+    }
+  );
 
   const client = EZClient({
     endpoint: 'http://localhost:' + port + '/graphql',
   });
   try {
+    await waitOn({
+      resources: ['tcp:' + port],
+      timeout: 5000,
+    });
+
     await expect(client.query('{hello}')).resolves.toMatchInlineSnapshot(`
             {
               "data": {
@@ -50,7 +32,7 @@ test('works', async () => {
             }
           `);
   } finally {
-    await miniflare.dispose();
+    miniflare.kill();
 
     await client.client.close();
   }
