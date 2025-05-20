@@ -2,11 +2,11 @@ import { createDeferredPromise, DeferredPromise } from '@graphql-ez/utils/promis
 import type { TypedDocumentNode } from '@graphql-typed-document-node/core';
 import { ExecutionResult, stripIgnoredCharacters } from 'graphql';
 import type { IncomingHttpHeaders } from 'http';
-import type { EventSourceInitDict } from './deps.js';
+import type { EventSourceFetchInit } from './deps.js';
 import type { SubscribeFunction, SubscribeOptions } from './types';
-import { getQueryString, lazyDeps } from './utils';
+import { getQueryString, incomingHeadersToHeadersInit, lazyDeps } from './utils';
 
-export type SubscribeSSE = SubscribeFunction<EventSourceInitDict & { headers?: Partial<IncomingHttpHeaders> }>;
+export type SubscribeSSE = SubscribeFunction<EventSourceFetchInit & { headers?: Partial<IncomingHttpHeaders> }>;
 
 export function createSSESubscription(
   href: string,
@@ -25,7 +25,7 @@ export function createSSESubscription(
       onData,
       headers,
       ...rest
-    }: SubscribeOptions<TData, TVariables, TExtensions, EventSourceInitDict> = {}
+    }: SubscribeOptions<TData, TVariables, TExtensions, EventSourceFetchInit> = {}
   ) {
     let deferValuePromise: DeferredPromise<ExecutionResult<any> | null> | null = createDeferredPromise();
 
@@ -41,13 +41,18 @@ export function createSSESubscription(
         }`,
         {
           ...rest,
-          headers: getHeaders(headers as IncomingHttpHeaders),
+          fetch() {
+            return fetch(href, {
+              ...rest,
+              headers: incomingHeadersToHeadersInit(getHeaders(headers)),
+            });
+          },
         }
       );
       try {
         eventSource.onerror = evt => {
           console.error(evt);
-          reject(evt.data);
+          reject(new Error(evt.message && evt.code ? `${evt.message} (${evt.code})` : evt.message || 'Unknown error'));
           // deferValuePromise?.reject(value)
         };
         eventSource.onmessage = evt => {

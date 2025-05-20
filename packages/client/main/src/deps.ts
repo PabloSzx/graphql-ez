@@ -1,4 +1,4 @@
-export { default as EventSource, EventSourceInitDict } from 'eventsource';
+export { EventSource, EventSourceFetchInit } from 'eventsource';
 export { default as ws } from 'ws';
 export { default as nodeFetch } from 'node-fetch';
 export { extractFiles } from 'extract-files';

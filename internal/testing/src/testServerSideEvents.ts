@@ -1,4 +1,4 @@
-import EventSource from 'eventsource';
+import { EventSource } from 'eventsource';
 import { createDeferredPromise } from '@graphql-ez/utils/promise';
 
 export async function expectCommonServerSideEventSubscription(address: string) {

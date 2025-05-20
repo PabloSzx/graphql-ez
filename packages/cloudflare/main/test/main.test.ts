@@ -1,5 +1,5 @@
 import { build } from 'esbuild';
-import { command } from 'execa';
+import { execa } from 'execa';
 import { unlinkSync } from 'fs';
 import getPort from 'get-port';
 import { testIfNode16OrPlus } from 'graphql-ez-testing';
@@ -30,7 +30,7 @@ testIfNode16OrPlus('works', async () => {
 
   const port = await getPort();
 
-  const miniflare = command(`${require.resolve('../node_modules/miniflare/bootstrap.js')} ${outfile} -p ${port}`, {
+  const miniflare = execa(`${require.resolve('../node_modules/miniflare/bootstrap.js')} ${outfile} -p ${port}`, {
     stdio: 'ignore',
   });
 

@@ -73,7 +73,7 @@ export function handleSubscriptionsTransport(
 }
 
 export function handleGraphQLWS(
-  useGraphQLWSServer: typeof import('graphql-ws/lib/use/ws').useServer,
+  useGraphQLWSServer: typeof import('graphql-ws/dist/use/ws').useServer,
   wsServer: WebSocket.Server,
   options: FilteredGraphQLWSOptions | undefined,
   getEnveloped: GetEnvelopedFn<unknown>,
@@ -85,17 +85,17 @@ export function handleGraphQLWS(
       ...cleanObject(options),
       execute,
       subscribe,
-      async onSubscribe(context, message) {
+      async onSubscribe(context, id, payload) {
         const {
           connectionParams,
           extra: { request, socket },
         } = context;
-        const {
-          payload: { operationName, query, variables },
-        } = message;
+        const { operationName, query, variables } = payload;
+
+        options?.onSubscribe;
 
         if (typeof options?.onSubscribe === 'function') {
-          options.onSubscribe(context, message);
+          options.onSubscribe(context, id, payload);
         }
 
         const contextArgsData = {
