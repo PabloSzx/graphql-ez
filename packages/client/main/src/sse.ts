@@ -53,7 +53,6 @@ export function createSSESubscription(
         eventSource.onerror = evt => {
           console.error(evt);
           reject(new Error(evt.message && evt.code ? `${evt.message} (${evt.code})` : evt.message || 'Unknown error'));
-          // deferValuePromise?.reject(value)
         };
         eventSource.onmessage = evt => {
           const value = JSON.parse(evt.data);
@@ -66,6 +65,17 @@ export function createSSESubscription(
         reject(err);
       }
     });
+
+    done.then(
+      () => {
+        deferValuePromise?.resolve(null);
+        deferValuePromise = null;
+      },
+      error => {
+        deferValuePromise?.reject(error);
+        deferValuePromise = null;
+      }
+    );
 
     async function* iteratorGenerator() {
       while (deferValuePromise?.promise) {
