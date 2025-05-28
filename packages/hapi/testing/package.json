@@ -11,14 +11,14 @@
   "sideEffects": false,
   "exports": {
     ".": {
+      "types": "./dist/index.d.ts",
       "require": "./dist/index.js",
-      "import": "./dist/index.mjs",
-      "types": "./dist/index.d.ts"
+      "import": "./dist/index.mjs"
     },
     "./*": {
+      "types": "./dist/*.d.ts",
       "require": "./dist/*.js",
-      "import": "./dist/*.mjs",
-      "types": "./dist/*.d.ts"
+      "import": "./dist/*.mjs"
     }
   },
   "main": "dist/index.js",
@@ -38,13 +38,12 @@
   "devDependencies": {
     "@graphql-ez/hapi": "workspace:^",
     "@hapi/hapi": "^21.4.0",
-    "@types/node": "^18.19.87",
+    "@types/node": "^22.15.19",
     "bob-esbuild-cli": "5.0.0-alpha-227aebc.0",
     "changesets-github-release": "^0.1.0",
-    "esbuild": "^0.16.17",
+    "esbuild": "^0.25.4",
     "graphql": "16.1.0-experimental-stream-defer.6",
     "graphql-ez": "workspace:^",
-    "jest": "30.0.0-alpha.7",
     "typescript": "^5.8.3"
   },
   "peerDependencies": {

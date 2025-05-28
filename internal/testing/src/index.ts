@@ -12,6 +12,7 @@ import {
   GraphQLWSClientOptions,
   SubscriptionsTransportClientOptions,
 } from './ws';
+import { vitest } from 'vitest';
 
 export * from 'graphql-ez';
 export * from './common';
@@ -94,7 +95,13 @@ export const startFastifyServer = async ({
         }
       }, reject);
 
-    autoClose && TearDownPromises.push(new PLazy<void>(resolve => server.close(resolve)));
+    autoClose &&
+      TearDownPromises.push(
+        new PLazy<void>(resolve => {
+          server.close().catch(console.error);
+          resolve();
+        })
+      );
   });
 
   const pool = await getRequestPool(port);
@@ -208,6 +215,8 @@ export async function startHTTPServer({
   });
 
   const ezApp = appBuilder.buildApp({ ...buildOptions, server });
+
+  await ezApp.ready;
 
   const port = await new Promise<number>((resolve, reject) => {
     server.listen(0, () => {
@@ -392,7 +401,7 @@ export async function startNextJSServer(dir: string[], autoClose: boolean = true
   const NextJSDir = resolve(...dir);
 
   const prevWarn = console.warn;
-  const warnSpy = jest.spyOn(console, 'warn').mockImplementation((...message) => {
+  const warnSpy = vitest.spyOn(console, 'warn').mockImplementation((...message) => {
     if (!message[0]) return;
 
     if (

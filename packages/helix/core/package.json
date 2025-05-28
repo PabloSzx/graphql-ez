@@ -12,19 +12,19 @@
   },
   "exports": {
     ".": {
+      "types": "./dist/index.d.ts",
       "require": "./dist/index.js",
-      "import": "./dist/index.mjs",
-      "types": "./dist/index.d.ts"
+      "import": "./dist/index.mjs"
     },
     "./*": {
+      "types": "./dist/*.d.ts",
       "require": "./dist/*.js",
-      "import": "./dist/*.mjs",
-      "types": "./dist/*.d.ts"
+      "import": "./dist/*.mjs"
     },
     "./util": {
+      "types": "./dist/util/index.d.ts",
       "require": "./dist/util/index.js",
-      "import": "./dist/util/index.mjs",
-      "types": "./dist/util/index.d.ts"
+      "import": "./dist/util/index.mjs"
     }
   },
   "main": "dist/index.js",
@@ -34,10 +34,10 @@
     "prepack": "bob-esbuild build"
   },
   "devDependencies": {
-    "@types/node": "^18.19.87",
+    "@types/node": "^22.15.19",
     "bob-esbuild-cli": "5.0.0-alpha-227aebc.0",
     "changesets-github-release": "^0.1.0",
-    "esbuild": "^0.16.17",
+    "esbuild": "^0.25.4",
     "graphql": "16.1.0-experimental-stream-defer.6",
     "typescript": "^5.8.3"
   },

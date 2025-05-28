@@ -11,14 +11,14 @@
   "author": "PabloSz <pablosaez1995@gmail.com>",
   "exports": {
     ".": {
+      "types": "./dist/index.d.ts",
       "require": "./dist/index.js",
-      "import": "./dist/index.mjs",
-      "types": "./dist/index.d.ts"
+      "import": "./dist/index.mjs"
     },
     "./*": {
+      "types": "./dist/*.d.ts",
       "require": "./dist/*.js",
-      "import": "./dist/*.mjs",
-      "types": "./dist/*.d.ts"
+      "import": "./dist/*.mjs"
     }
   },
   "main": "dist/index.js",
@@ -37,6 +37,7 @@
   "devDependencies": {
     "@envelop/core": "^3.0.6",
     "@envelop/types": "^3.0.2",
+    "@graphql-ez/client": "workspace:^",
     "@graphql-ez/plugin-altair": "workspace:^",
     "@graphql-ez/plugin-graphiql": "workspace:^",
     "@graphql-ez/plugin-schema": "workspace:^",
@@ -45,17 +46,16 @@
     "@sveltejs/adapter-auto": "1.0.0",
     "@sveltejs/adapter-node": "1.0.0",
     "@sveltejs/kit": "1.0.1",
-    "@types/node": "^18.19.87",
+    "@types/node": "^22.15.19",
     "@types/wait-on": "^5.3.4",
     "altair-static-slim": "5.0.9",
     "bob-esbuild-cli": "5.0.0-alpha-227aebc.0",
     "changesets-github-release": "^0.1.0",
-    "esbuild": "^0.16.17",
-    "execa": "^5.1.1",
-    "get-port": "^5.1.1",
+    "esbuild": "^0.25.4",
+    "execa": "^9.5.3",
+    "get-port": "^7.1.0",
     "graphql": "16.1.0-experimental-stream-defer.6",
     "graphql-ez": "workspace:^",
-    "jest": "30.0.0-alpha.7",
     "mime-types": "^2.1.35",
     "svelte": "^3.59.2",
     "svelte-check": "^2.10.3",

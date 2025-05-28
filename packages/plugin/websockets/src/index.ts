@@ -65,13 +65,16 @@ const WSDeps = {
     const ws = await import('ws');
 
     return {
-      Server: ws.WebSocketServer || ws.default.WebSocketServer,
+      Server: ws.WebSocketServer || ws.WebSocketServer,
     };
   }),
   subscriptionsTransportWs: LazyPromise(() =>
     import('subscriptions-transport-ws-envelop/server').then(v => v.SubscriptionServer)
   ),
-  useGraphQLWSServer: LazyPromise(() => import('graphql-ws/lib/use/ws').then(v => v.useServer)),
+  useGraphQLWSServer: LazyPromise(() =>
+    // @ts-expect-error Type error
+    import('graphql-ws/use/ws').then(v => (v as typeof import('graphql-ws/dist/use/ws')).useServer)
+  ),
 };
 
 /**

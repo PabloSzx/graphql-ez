@@ -2,6 +2,7 @@ import { buildSchema } from 'graphql';
 import type { Plugin as EnvelopPlugin, SetSchemaFn } from 'graphql-ez';
 import { gql, startFastifyServer } from 'graphql-ez-testing';
 import { DisableContext, ezAutomaticPersistedQueries, generateHash, PersistedQueryStore } from '../src';
+import { vitest } from 'vitest';
 
 describe('ezAutomaticPersistedQueries', () => {
   const testSchema = {
@@ -467,7 +468,7 @@ describe('ezAutomaticPersistedQueries', () => {
       async set(hash, doc) {
         data.set(hash, doc);
       },
-      clear: jest.fn(),
+      clear: vitest.fn(),
     };
 
     let setSchemaFn: SetSchemaFn = () => {};

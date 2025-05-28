@@ -11,6 +11,8 @@ import {
   PingSubscription,
 } from 'graphql-ez-testing';
 import { ezWebSockets } from '../src/index';
+import { vitest } from 'vitest';
+import { setTimeout } from 'timers/promises';
 
 async function checkSubscription(
   client: ReturnType<typeof createGraphQLWSWebsocketsClient> | ReturnType<typeof createSubscriptionsTransportWebsocketsClient>
@@ -71,7 +73,7 @@ describe('fastify', () => {
 
   test('no implementation enabled warning', async () => {
     let warnMessage: unknown;
-    const warnSpy = jest.spyOn(console, 'warn').mockImplementation(message => {
+    const warnSpy = vitest.spyOn(console, 'warn').mockImplementation(message => {
       warnMessage = message;
     });
 
@@ -183,6 +185,8 @@ describe('http', () => {
         schema: [CommonSchema.schema, PingSubscription.schema],
       },
     });
+
+    await setTimeout(100);
 
     await Promise.all([checkSubscription(GraphQLWSWebsocketsClient), checkSubscription(SubscriptionsTransportWebsocketsClient)]);
   });
