@@ -1,11 +1,15 @@
-import type { BuiltInParserName } from 'prettier';
+import { resolveConfigFile, type BuiltInParserName } from 'prettier';
 
 export async function formatPrettier(str: string, parser: BuiltInParserName): Promise<string> {
   const prettier = await import('prettier');
 
   const { resolveConfig = prettier.default.resolveConfig, format = prettier.default.format } = prettier;
 
-  const prettierConfig = Object.assign({}, await resolveConfig(process.cwd()));
+  const configFilePath = await resolveConfigFile();
+
+  const resolvedConfig = await resolveConfig(configFilePath || process.cwd());
+
+  const prettierConfig = Object.assign({}, resolvedConfig);
 
   return format(str, {
     parser,
