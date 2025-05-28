@@ -69,15 +69,16 @@ test('fastify', async () => {
   });
 
   const { data } = JSON.parse(res.body);
+
+  const recovered = Buffer.from(data.uploadFileToBase64, 'base64').toString('utf-8');
+
+  expect(recovered).toBe(fileMessage);
+
   expect(data).toMatchInlineSnapshot(`
     {
       "uploadFileToBase64": "aGVsbG8td29ybGQ=",
     }
   `);
-
-  const recovered = Buffer.from(data.uploadFileToBase64, 'base64').toString('utf-8');
-
-  expect(recovered).toBe(fileMessage);
 
   expect(res.statusCode).toBe(200);
 });
