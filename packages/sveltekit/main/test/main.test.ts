@@ -1,5 +1,5 @@
 import { LazyPromise } from '@graphql-ez/utils/promise';
-import { execa } from 'execa';
+import { execaCommand, execa } from 'execa';
 import getPort from 'get-port';
 import { resolve } from 'path';
 import waitOn from 'wait-on';
@@ -11,7 +11,7 @@ let port: number;
 const TearDownPromises: Promise<unknown>[] = [];
 
 beforeAll(async () => {
-  await execa(`node ${require.resolve(resolve(__dirname, '../node_modules/vite/bin/vite.js'))} build`, {
+  await execaCommand(`node ${require.resolve(resolve(__dirname, '../node_modules/vite/bin/vite.js'))} build`, {
     cwd: resolve(__dirname, './test-example/'),
     stdio: 'ignore',
   });

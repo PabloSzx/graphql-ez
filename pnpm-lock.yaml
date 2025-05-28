@@ -3042,6 +3042,9 @@ importers:
       '@envelop/types':
         specifier: ^3.0.2
         version: 3.0.2
+      '@graphql-ez/client':
+        specifier: workspace:^
+        version: link:../../client/main
       '@graphql-ez/plugin-altair':
         specifier: workspace:^
         version: link:../../plugin/altair
