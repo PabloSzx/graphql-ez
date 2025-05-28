@@ -95,7 +95,13 @@ export const startFastifyServer = async ({
         }
       }, reject);
 
-    autoClose && TearDownPromises.push(new PLazy<void>(resolve => server.close(resolve)));
+    autoClose &&
+      TearDownPromises.push(
+        new PLazy<void>(resolve => {
+          server.close().catch(console.error);
+          resolve();
+        })
+      );
   });
 
   const pool = await getRequestPool(port);

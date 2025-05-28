@@ -64,18 +64,10 @@ export function createSSESubscription(
       } catch (err) {
         reject(err);
       }
+    }).catch(error => {
+      deferValuePromise?.reject(error);
+      deferValuePromise = null;
     });
-
-    done.then(
-      () => {
-        deferValuePromise?.resolve(null);
-        deferValuePromise = null;
-      },
-      error => {
-        deferValuePromise?.reject(error);
-        deferValuePromise = null;
-      }
-    );
 
     async function* iteratorGenerator() {
       while (deferValuePromise?.promise) {
