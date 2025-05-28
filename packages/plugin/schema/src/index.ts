@@ -234,7 +234,7 @@ export const ezSchema = (options: EZSchemaOptions = {}): EZPlugin => {
       }
 
       const typeDefsToMerge = extraTypeDefs.length ? extraTypeDefs : undefined;
-      const resolversToMerge = extraResolvers.length ? extraResolvers : undefined;
+      const resolversToMerge = extraResolvers.length ? (extraResolvers as IResolvers<any, any>[]) : undefined;
 
       const schemas = schemaList.length
         ? await Promise.all(
@@ -253,7 +253,10 @@ export const ezSchema = (options: EZSchemaOptions = {}): EZPlugin => {
               return (await toolsSchemaPrimise).makeExecutableSchema({
                 ...schemaValue,
                 typeDefs: [...toPlural(schemaValue.typeDefs), ...extraTypeDefs],
-                resolvers: [...toPlural(schemaValue.resolvers), ...extraResolvers],
+                resolvers: [
+                  ...toPlural(schemaValue.resolvers as IResolvers<any, any>[]),
+                  ...(extraResolvers as IResolvers<any, any>[]),
+                ],
               });
             })
           )
