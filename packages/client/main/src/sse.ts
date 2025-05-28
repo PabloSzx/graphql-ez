@@ -33,22 +33,22 @@ export function createSSESubscription(
 
     const done = new Promise<void>(async (resolve, reject) => {
       const { EventSource } = await lazyDeps;
-      eventSource = new EventSource(
-        `${href}?query=${encodeURIComponent(stripIgnoredCharacters(getQueryString(document)))}${
-          variables ? '&variables=' + encodeURIComponent(JSON.stringify(variables)) : ''
-        }${extensions ? '&extensions=' + encodeURIComponent(JSON.stringify(extensions)) : ''}${
-          operationName ? '&operationName=' + encodeURIComponent(operationName) : ''
-        }`,
-        {
-          ...rest,
-          fetch() {
-            return fetch(href, {
-              ...rest,
-              headers: incomingHeadersToHeadersInit(getHeaders(headers)),
-            });
-          },
-        }
-      );
+      const url = new URL(href);
+
+      url.searchParams.set('query', stripIgnoredCharacters(getQueryString(document)));
+      if (variables) url.searchParams.set('variables', JSON.stringify(variables));
+      if (extensions) url.searchParams.set('extensions', JSON.stringify(extensions));
+      if (operationName) url.searchParams.set('operationName', operationName);
+
+      eventSource = new EventSource(url.toString(), {
+        ...rest,
+        fetch() {
+          return fetch(url.toString(), {
+            ...rest,
+            headers: incomingHeadersToHeadersInit(getHeaders(headers)),
+          });
+        },
+      });
       try {
         eventSource.onerror = evt => {
           console.error(evt);
