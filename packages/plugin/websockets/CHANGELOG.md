@@ -1,5 +1,15 @@
 # @graphql-ez/plugin-websockets
 
+## 0.12.0
+
+### Minor Changes
+
+- 473d6db: Update graphql-ws to ^6.0.5
+
+### Patch Changes
+
+- graphql-ez@0.16.1
+
 ## 0.11.3
 
 ### Patch Changes
