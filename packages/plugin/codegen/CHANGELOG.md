@@ -1,5 +1,12 @@
 # @graphql-ez/plugin-codegen
 
+## 0.8.2
+
+### Patch Changes
+
+- 473d6db: Fix consistent prettier config resolution
+  - graphql-ez@0.16.1
+
 ## 0.8.1
 
 ### Patch Changes
