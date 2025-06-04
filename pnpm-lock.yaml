@@ -12,7 +12,7 @@ overrides:
   axios@<=0.21.1: '>=0.21.2'
   ansi-regex@>2.1.1 <5.0.1: ^5.0.1
   json-schema@<0.4.0: '>=0.4.0'
-  '@types/react': ^17.0.50
+  '@types/react': ^17.0.87
   '@types/hapi__hapi': 20.0.13
   tar-fs@>=2.0.0 <2.1.3: 2.1.3
 
@@ -1099,11 +1099,11 @@ importers:
         specifier: ^22.15.29
         version: 22.15.29
       '@types/react':
-        specifier: ^17.0.50
-        version: 17.0.85
+        specifier: ^17.0.87
+        version: 17.0.87
       '@types/react-dom':
         specifier: ^18.3.7
-        version: 18.3.7(@types/react@17.0.85)
+        version: 18.3.7(@types/react@17.0.87)
       esbuild:
         specifier: ^0.25.4
         version: 0.25.4
@@ -1645,34 +1645,34 @@ importers:
     dependencies:
       '@chakra-ui/icons':
         specifier: ^1.1.7
-        version: 1.1.7(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@types/react@17.0.85)(react@17.0.2))(react@17.0.2))(react@17.0.2)
+        version: 1.1.7(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@types/react@17.0.87)(react@17.0.2))(react@17.0.2))(react@17.0.2)
       '@chakra-ui/react':
         specifier: ^1.8.9
-        version: 1.8.9(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@types/react@17.0.85)(react@17.0.2))(@types/react@17.0.85)(framer-motion@6.5.1(react-dom@17.0.2(react@17.0.2))(react@17.0.2))(react-dom@17.0.2(react@17.0.2))(react@17.0.2)
+        version: 1.8.9(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@types/react@17.0.87)(react@17.0.2))(@types/react@17.0.87)(framer-motion@6.5.1(react-dom@17.0.2(react@17.0.2))(react@17.0.2))(react-dom@17.0.2(react@17.0.2))(react@17.0.2)
       '@chakra-ui/theme-tools':
         specifier: ^1.3.6
-        version: 1.3.6(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@types/react@17.0.85)(react@17.0.2))(react@17.0.2))
+        version: 1.3.6(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@types/react@17.0.87)(react@17.0.2))(react@17.0.2))
       '@chakra-ui/utils':
         specifier: ^1.10.4
         version: 1.10.4
       '@emotion/react':
         specifier: ^11.14.0
-        version: 11.14.0(@types/react@17.0.85)(react@17.0.2)
+        version: 11.14.0(@types/react@17.0.87)(react@17.0.2)
       '@emotion/styled':
         specifier: ^11.14.0
-        version: 11.14.0(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@types/react@17.0.85)(react@17.0.2)
+        version: 11.14.0(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@types/react@17.0.87)(react@17.0.2)
       '@guild-docs/client':
         specifier: 2.1.1
-        version: 2.1.1(7e2f5bf0f70aef35a5ec8406423392c0)
+        version: 2.1.1(bf0145f729997fb90323cb3009454b66)
       '@guild-docs/server':
         specifier: 3.0.1
-        version: 3.0.1(@chakra-ui/react@1.8.9(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@types/react@17.0.85)(react@17.0.2))(@types/react@17.0.85)(framer-motion@6.5.1(react-dom@17.0.2(react@17.0.2))(react@17.0.2))(react-dom@17.0.2(react@17.0.2))(react@17.0.2))(@mdx-js/react@2.3.0(react@17.0.2))(@types/react@17.0.85)(next-i18next@12.1.0(next@12.3.7(@babel/core@7.27.1)(react-dom@17.0.2(react@17.0.2))(react@17.0.2)(sass@1.87.0))(react-dom@17.0.2(react@17.0.2))(react@17.0.2))(next@12.3.7(@babel/core@7.27.1)(react-dom@17.0.2(react@17.0.2))(react@17.0.2)(sass@1.87.0))(react-dom@17.0.2(react@17.0.2))(react@17.0.2)(shiki@0.11.1)
+        version: 3.0.1(@chakra-ui/react@1.8.9(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@types/react@17.0.87)(react@17.0.2))(@types/react@17.0.87)(framer-motion@6.5.1(react-dom@17.0.2(react@17.0.2))(react@17.0.2))(react-dom@17.0.2(react@17.0.2))(react@17.0.2))(@mdx-js/react@2.3.0(react@17.0.2))(@types/react@17.0.87)(next-i18next@12.1.0(next@12.3.7(@babel/core@7.27.1)(react-dom@17.0.2(react@17.0.2))(react@17.0.2)(sass@1.87.0))(react-dom@17.0.2(react@17.0.2))(react@17.0.2))(next@12.3.7(@babel/core@7.27.1)(react-dom@17.0.2(react@17.0.2))(react@17.0.2)(sass@1.87.0))(react-dom@17.0.2(react@17.0.2))(react@17.0.2)(shiki@0.11.1)
       '@mdx-js/react':
         specifier: ^2.3.0
         version: 2.3.0(react@17.0.2)
       '@theguild/components':
         specifier: ^1.12.0
-        version: 1.12.0(@algolia/client-search@4.24.0)(@types/react@17.0.85)(prop-types@15.8.1)(react-dom@17.0.2(react@17.0.2))(react@17.0.2)(ts-node@10.9.1(@types/node@22.15.29)(typescript@5.8.3))
+        version: 1.12.0(@algolia/client-search@4.24.0)(@types/react@17.0.87)(prop-types@15.8.1)(react-dom@17.0.2(react@17.0.2))(react@17.0.2)(ts-node@10.9.1(@types/node@22.15.29)(typescript@5.8.3))
       date-fns:
         specifier: ^2.30.0
         version: 2.30.0
@@ -1717,11 +1717,11 @@ importers:
         specifier: ^22.15.29
         version: 22.15.29
       '@types/react':
-        specifier: ^17.0.50
-        version: 17.0.85
+        specifier: ^17.0.87
+        version: 17.0.87
       '@types/react-dom':
         specifier: ^18.3.7
-        version: 18.3.7(@types/react@17.0.85)
+        version: 18.3.7(@types/react@17.0.87)
       '@types/wait-on':
         specifier: ^5.3.4
         version: 5.3.4
@@ -2226,11 +2226,11 @@ importers:
         specifier: ^15.7.14
         version: 15.7.14
       '@types/react':
-        specifier: ^17.0.50
-        version: 17.0.85
+        specifier: ^17.0.87
+        version: 17.0.87
       '@types/react-dom':
         specifier: ^18.3.7
-        version: 18.3.7(@types/react@17.0.85)
+        version: 18.3.7(@types/react@17.0.87)
       bob-esbuild-cli:
         specifier: 5.0.0-alpha-227aebc.0
         version: 5.0.0-alpha-227aebc.0(bob-esbuild@5.0.0-alpha-227aebc.0(esbuild@0.25.4)(typescript@5.8.3))
@@ -2467,11 +2467,11 @@ importers:
         specifier: ^22.15.29
         version: 22.15.29
       '@types/react':
-        specifier: ^17.0.50
-        version: 17.0.85
+        specifier: ^17.0.87
+        version: 17.0.87
       '@types/react-dom':
         specifier: ^18.3.7
-        version: 18.3.7(@types/react@17.0.85)
+        version: 18.3.7(@types/react@17.0.87)
       bob-esbuild-cli:
         specifier: 5.0.0-alpha-227aebc.0
         version: 5.0.0-alpha-227aebc.0(bob-esbuild@5.0.0-alpha-227aebc.0(esbuild@0.25.4)(typescript@5.8.3))
@@ -4967,14 +4967,14 @@ packages:
     resolution: {integrity: sha512-BeObMB7WokzcFO5quSWOOouJL96zneEzE0VS6rkZmg/bG/ukX0S6ODy4/UhxsWphxPYqQ68VAdM57WqTkdlamg==}
     peerDependencies:
       '@chakra-ui/react': '*'
-      '@types/react': ^17.0.50
+      '@types/react': ^17.0.87
       next-i18next: '*'
 
   '@guild-docs/types@3.0.0':
     resolution: {integrity: sha512-Vd8lgw+p7boag31I2hqpiCgp3aKsLgPNs2WNWx3MZA2bWJ7+qKKDvPP3KiioMGK5nadEq9SsCbG72ogBZbwpag==}
     peerDependencies:
       '@chakra-ui/react': '*'
-      '@types/react': ^17.0.50
+      '@types/react': ^17.0.87
       next-i18next: '*'
 
   '@hapi/accept@6.0.3':
@@ -6107,10 +6107,10 @@ packages:
   '@types/react-dom@18.3.7':
     resolution: {integrity: sha512-MEe3UeoENYVFXzoXEWsvcpg6ZvlrFNlOQ7EOsvhI3CfAXwzPfO8Qwuxd40nepsYKqyyVQnTdEfv68q91yLcKrQ==}
     peerDependencies:
-      '@types/react': ^17.0.50
+      '@types/react': ^17.0.87
 
-  '@types/react@17.0.85':
-    resolution: {integrity: sha512-5oBDUsRDsrYq4DdyHaL99gE1AJCfuDhyxqF6/55fvvOIRkp1PpKuwJ+aMiGJR+GJt7YqMNclPROTHF20vY2cXA==}
+  '@types/react@17.0.87':
+    resolution: {integrity: sha512-wpg9AbtJ6agjA+BKYmhG6dRWEU/2DHYwMzCaBzsz137ft6IyuqZ5fI4ic1DWL4DrI03Zy78IyVE6ucrXl0mu4g==}
 
   '@types/resolve@1.20.2':
     resolution: {integrity: sha512-60BCwRFOZCQhDncwQdxxeOEEkbc5dIMccYLwbxsS4TUNeVECQ/pBJ0j09mrHOl/JJvpRPGwO9SvE4nR2Nb/a4Q==}
@@ -9968,7 +9968,7 @@ packages:
     resolution: {integrity: sha512-9r+yi9+mgU33AKcj6IbT9oRCO78WriSj6t/cF8DWBZJ9aOGPOTEDvdUDz1FwKim7QXWwmHqtdHnRJfhAxEG46Q==}
     engines: {node: '>=10'}
     peerDependencies:
-      '@types/react': ^17.0.50
+      '@types/react': ^17.0.87
       react: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
     peerDependenciesMeta:
       '@types/react':
@@ -9978,7 +9978,7 @@ packages:
     resolution: {integrity: sha512-K7XZySEzOHMTq7dDwcHsZA6Y7/1uX5RsWhRXVYv8rdh+y9Qz2nMwl9RX/Mwnj/j7JstCGmxyfyC0zbVGXYh3mA==}
     engines: {node: '>=8.5.0'}
     peerDependencies:
-      '@types/react': ^17.0.50
+      '@types/react': ^17.0.87
       react: ^16.8.0 || ^17.0.0
     peerDependenciesMeta:
       '@types/react':
@@ -9993,7 +9993,7 @@ packages:
     resolution: {integrity: sha512-b6jSvxvVnyptAiLjbkWLE/lOnR4lfTtDAl+eUC7RZy+QQWc6wRzIV2CE6xBuMmDxc2qIihtDCZD5NPOFl7fRBQ==}
     engines: {node: '>=10'}
     peerDependencies:
-      '@types/react': ^17.0.50
+      '@types/react': ^17.0.87
       react: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0 || ^19.0.0-rc
     peerDependenciesMeta:
       '@types/react':
@@ -11174,7 +11174,7 @@ packages:
     resolution: {integrity: sha512-jQL3lRnocaFtu3V00JToYz/4QkNWswxijDaCVNZRiRTO3HQDLsdu1ZtmIUvV4yPp+rvWm5j0y0TG/S61cuijTg==}
     engines: {node: '>=10'}
     peerDependencies:
-      '@types/react': ^17.0.50
+      '@types/react': ^17.0.87
       react: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0 || ^19.0.0-rc
     peerDependenciesMeta:
       '@types/react':
@@ -11196,7 +11196,7 @@ packages:
     resolution: {integrity: sha512-Fedw0aZvkhynoPYlA5WXrMCAMm+nSWdZt6lzJQ7Ok8S6Q+VsHmHpRWndVRJ8Be0ZbkfPc5LRYH+5XrzXcEeLRQ==}
     engines: {node: '>=10'}
     peerDependencies:
-      '@types/react': ^17.0.50
+      '@types/react': ^17.0.87
       react: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0 || ^19.0.0-rc
     peerDependenciesMeta:
       '@types/react':
@@ -12564,63 +12564,63 @@ snapshots:
 
   '@braintree/sanitize-url@3.1.0': {}
 
-  '@chakra-ui/accordion@1.4.12(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@types/react@17.0.85)(react@17.0.2))(react@17.0.2))(framer-motion@6.5.1(react-dom@17.0.2(react@17.0.2))(react@17.0.2))(react@17.0.2)':
+  '@chakra-ui/accordion@1.4.12(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@types/react@17.0.87)(react@17.0.2))(react@17.0.2))(framer-motion@6.5.1(react-dom@17.0.2(react@17.0.2))(react@17.0.2))(react@17.0.2)':
     dependencies:
       '@chakra-ui/descendant': 2.1.4(react@17.0.2)
       '@chakra-ui/hooks': 1.9.1(react@17.0.2)
-      '@chakra-ui/icon': 2.0.5(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@types/react@17.0.85)(react@17.0.2))(react@17.0.2))(react@17.0.2)
+      '@chakra-ui/icon': 2.0.5(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@types/react@17.0.87)(react@17.0.2))(react@17.0.2))(react@17.0.2)
       '@chakra-ui/react-utils': 1.2.3(react@17.0.2)
-      '@chakra-ui/system': 1.12.1(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@types/react@17.0.85)(react@17.0.2))(react@17.0.2)
+      '@chakra-ui/system': 1.12.1(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@types/react@17.0.87)(react@17.0.2))(react@17.0.2)
       '@chakra-ui/transition': 1.4.8(framer-motion@6.5.1(react-dom@17.0.2(react@17.0.2))(react@17.0.2))(react@17.0.2)
       '@chakra-ui/utils': 1.10.4
       framer-motion: 6.5.1(react-dom@17.0.2(react@17.0.2))(react@17.0.2)
       react: 17.0.2
 
-  '@chakra-ui/alert@1.3.7(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@types/react@17.0.85)(react@17.0.2))(react@17.0.2))(react@17.0.2)':
+  '@chakra-ui/alert@1.3.7(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@types/react@17.0.87)(react@17.0.2))(react@17.0.2))(react@17.0.2)':
     dependencies:
-      '@chakra-ui/icon': 2.0.5(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@types/react@17.0.85)(react@17.0.2))(react@17.0.2))(react@17.0.2)
+      '@chakra-ui/icon': 2.0.5(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@types/react@17.0.87)(react@17.0.2))(react@17.0.2))(react@17.0.2)
       '@chakra-ui/react-utils': 1.2.3(react@17.0.2)
-      '@chakra-ui/system': 1.12.1(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@types/react@17.0.85)(react@17.0.2))(react@17.0.2)
+      '@chakra-ui/system': 1.12.1(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@types/react@17.0.87)(react@17.0.2))(react@17.0.2)
       '@chakra-ui/utils': 1.10.4
       react: 17.0.2
 
-  '@chakra-ui/anatomy@1.3.0(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@types/react@17.0.85)(react@17.0.2))(react@17.0.2))':
+  '@chakra-ui/anatomy@1.3.0(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@types/react@17.0.87)(react@17.0.2))(react@17.0.2))':
     dependencies:
-      '@chakra-ui/system': 1.12.1(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@types/react@17.0.85)(react@17.0.2))(react@17.0.2)
-      '@chakra-ui/theme-tools': 1.3.6(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@types/react@17.0.85)(react@17.0.2))(react@17.0.2))
+      '@chakra-ui/system': 1.12.1(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@types/react@17.0.87)(react@17.0.2))(react@17.0.2)
+      '@chakra-ui/theme-tools': 1.3.6(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@types/react@17.0.87)(react@17.0.2))(react@17.0.2))
 
-  '@chakra-ui/avatar@1.3.11(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@types/react@17.0.85)(react@17.0.2))(react@17.0.2))(react@17.0.2)':
+  '@chakra-ui/avatar@1.3.11(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@types/react@17.0.87)(react@17.0.2))(react@17.0.2))(react@17.0.2)':
     dependencies:
-      '@chakra-ui/image': 1.1.10(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@types/react@17.0.85)(react@17.0.2))(react@17.0.2))(react@17.0.2)
+      '@chakra-ui/image': 1.1.10(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@types/react@17.0.87)(react@17.0.2))(react@17.0.2))(react@17.0.2)
       '@chakra-ui/react-utils': 1.2.3(react@17.0.2)
-      '@chakra-ui/system': 1.12.1(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@types/react@17.0.85)(react@17.0.2))(react@17.0.2)
+      '@chakra-ui/system': 1.12.1(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@types/react@17.0.87)(react@17.0.2))(react@17.0.2)
       '@chakra-ui/utils': 1.10.4
       react: 17.0.2
 
-  '@chakra-ui/breadcrumb@1.3.6(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@types/react@17.0.85)(react@17.0.2))(react@17.0.2))(react@17.0.2)':
+  '@chakra-ui/breadcrumb@1.3.6(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@types/react@17.0.87)(react@17.0.2))(react@17.0.2))(react@17.0.2)':
     dependencies:
       '@chakra-ui/react-utils': 1.2.3(react@17.0.2)
-      '@chakra-ui/system': 1.12.1(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@types/react@17.0.85)(react@17.0.2))(react@17.0.2)
+      '@chakra-ui/system': 1.12.1(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@types/react@17.0.87)(react@17.0.2))(react@17.0.2)
       '@chakra-ui/utils': 1.10.4
       react: 17.0.2
 
-  '@chakra-ui/button@1.5.10(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@types/react@17.0.85)(react@17.0.2))(react@17.0.2))(react@17.0.2)':
+  '@chakra-ui/button@1.5.10(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@types/react@17.0.87)(react@17.0.2))(react@17.0.2))(react@17.0.2)':
     dependencies:
       '@chakra-ui/hooks': 1.9.1(react@17.0.2)
       '@chakra-ui/react-utils': 1.2.3(react@17.0.2)
-      '@chakra-ui/spinner': 1.2.6(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@types/react@17.0.85)(react@17.0.2))(react@17.0.2))(react@17.0.2)
-      '@chakra-ui/system': 1.12.1(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@types/react@17.0.85)(react@17.0.2))(react@17.0.2)
+      '@chakra-ui/spinner': 1.2.6(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@types/react@17.0.87)(react@17.0.2))(react@17.0.2))(react@17.0.2)
+      '@chakra-ui/system': 1.12.1(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@types/react@17.0.87)(react@17.0.2))(react@17.0.2)
       '@chakra-ui/utils': 1.10.4
       react: 17.0.2
 
-  '@chakra-ui/checkbox@1.7.1(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@types/react@17.0.85)(react@17.0.2))(react@17.0.2))(framer-motion@6.5.1(react-dom@17.0.2(react@17.0.2))(react@17.0.2))(react@17.0.2)':
+  '@chakra-ui/checkbox@1.7.1(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@types/react@17.0.87)(react@17.0.2))(react@17.0.2))(framer-motion@6.5.1(react-dom@17.0.2(react@17.0.2))(react@17.0.2))(react@17.0.2)':
     dependencies:
-      '@chakra-ui/form-control': 1.6.0(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@types/react@17.0.85)(react@17.0.2))(react@17.0.2))(react@17.0.2)
+      '@chakra-ui/form-control': 1.6.0(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@types/react@17.0.87)(react@17.0.2))(react@17.0.2))(react@17.0.2)
       '@chakra-ui/hooks': 1.9.1(react@17.0.2)
       '@chakra-ui/react-utils': 1.2.3(react@17.0.2)
-      '@chakra-ui/system': 1.12.1(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@types/react@17.0.85)(react@17.0.2))(react@17.0.2)
+      '@chakra-ui/system': 1.12.1(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@types/react@17.0.87)(react@17.0.2))(react@17.0.2)
       '@chakra-ui/utils': 1.10.4
-      '@chakra-ui/visually-hidden': 1.1.6(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@types/react@17.0.85)(react@17.0.2))(react@17.0.2))(react@17.0.2)
+      '@chakra-ui/visually-hidden': 1.1.6(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@types/react@17.0.87)(react@17.0.2))(react@17.0.2))(react@17.0.2)
       framer-motion: 6.5.1(react-dom@17.0.2(react@17.0.2))(react@17.0.2)
       react: 17.0.2
 
@@ -12630,10 +12630,10 @@ snapshots:
       '@chakra-ui/utils': 1.10.4
       react: 17.0.2
 
-  '@chakra-ui/close-button@1.2.7(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@types/react@17.0.85)(react@17.0.2))(react@17.0.2))(react@17.0.2)':
+  '@chakra-ui/close-button@1.2.7(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@types/react@17.0.87)(react@17.0.2))(react@17.0.2))(react@17.0.2)':
     dependencies:
-      '@chakra-ui/icon': 2.0.5(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@types/react@17.0.85)(react@17.0.2))(react@17.0.2))(react@17.0.2)
-      '@chakra-ui/system': 1.12.1(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@types/react@17.0.85)(react@17.0.2))(react@17.0.2)
+      '@chakra-ui/icon': 2.0.5(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@types/react@17.0.87)(react@17.0.2))(react@17.0.2))(react@17.0.2)
+      '@chakra-ui/system': 1.12.1(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@types/react@17.0.87)(react@17.0.2))(react@17.0.2)
       '@chakra-ui/utils': 1.10.4
       react: 17.0.2
 
@@ -12644,9 +12644,9 @@ snapshots:
       '@chakra-ui/utils': 1.10.4
       react: 17.0.2
 
-  '@chakra-ui/control-box@1.1.6(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@types/react@17.0.85)(react@17.0.2))(react@17.0.2))(react@17.0.2)':
+  '@chakra-ui/control-box@1.1.6(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@types/react@17.0.87)(react@17.0.2))(react@17.0.2))(react@17.0.2)':
     dependencies:
-      '@chakra-ui/system': 1.12.1(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@types/react@17.0.85)(react@17.0.2))(react@17.0.2)
+      '@chakra-ui/system': 1.12.1(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@types/react@17.0.87)(react@17.0.2))(react@17.0.2)
       '@chakra-ui/utils': 1.10.4
       react: 17.0.2
 
@@ -12656,9 +12656,9 @@ snapshots:
       '@chakra-ui/utils': 1.10.4
       react: 17.0.2
 
-  '@chakra-ui/css-reset@1.1.3(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(react@17.0.2)':
+  '@chakra-ui/css-reset@1.1.3(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(react@17.0.2)':
     dependencies:
-      '@emotion/react': 11.14.0(@types/react@17.0.85)(react@17.0.2)
+      '@emotion/react': 11.14.0(@types/react@17.0.87)(react@17.0.2)
       react: 17.0.2
 
   '@chakra-ui/descendant@2.1.4(react@17.0.2)':
@@ -12666,28 +12666,28 @@ snapshots:
       '@chakra-ui/react-utils': 1.2.3(react@17.0.2)
       react: 17.0.2
 
-  '@chakra-ui/editable@1.4.2(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@types/react@17.0.85)(react@17.0.2))(react@17.0.2))(react@17.0.2)':
+  '@chakra-ui/editable@1.4.2(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@types/react@17.0.87)(react@17.0.2))(react@17.0.2))(react@17.0.2)':
     dependencies:
       '@chakra-ui/hooks': 1.9.1(react@17.0.2)
       '@chakra-ui/react-utils': 1.2.3(react@17.0.2)
-      '@chakra-ui/system': 1.12.1(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@types/react@17.0.85)(react@17.0.2))(react@17.0.2)
+      '@chakra-ui/system': 1.12.1(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@types/react@17.0.87)(react@17.0.2))(react@17.0.2)
       '@chakra-ui/utils': 1.10.4
       react: 17.0.2
 
-  '@chakra-ui/focus-lock@1.2.6(@types/react@17.0.85)(react@17.0.2)':
+  '@chakra-ui/focus-lock@1.2.6(@types/react@17.0.87)(react@17.0.2)':
     dependencies:
       '@chakra-ui/utils': 1.10.4
       react: 17.0.2
-      react-focus-lock: 2.5.2(@types/react@17.0.85)(react@17.0.2)
+      react-focus-lock: 2.5.2(@types/react@17.0.87)(react@17.0.2)
     transitivePeerDependencies:
       - '@types/react'
 
-  '@chakra-ui/form-control@1.6.0(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@types/react@17.0.85)(react@17.0.2))(react@17.0.2))(react@17.0.2)':
+  '@chakra-ui/form-control@1.6.0(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@types/react@17.0.87)(react@17.0.2))(react@17.0.2))(react@17.0.2)':
     dependencies:
       '@chakra-ui/hooks': 1.9.1(react@17.0.2)
-      '@chakra-ui/icon': 2.0.5(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@types/react@17.0.85)(react@17.0.2))(react@17.0.2))(react@17.0.2)
+      '@chakra-ui/icon': 2.0.5(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@types/react@17.0.87)(react@17.0.2))(react@17.0.2))(react@17.0.2)
       '@chakra-ui/react-utils': 1.2.3(react@17.0.2)
-      '@chakra-ui/system': 1.12.1(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@types/react@17.0.85)(react@17.0.2))(react@17.0.2)
+      '@chakra-ui/system': 1.12.1(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@types/react@17.0.87)(react@17.0.2))(react@17.0.2)
       '@chakra-ui/utils': 1.10.4
       react: 17.0.2
 
@@ -12699,39 +12699,39 @@ snapshots:
       copy-to-clipboard: 3.3.1
       react: 17.0.2
 
-  '@chakra-ui/icon@2.0.5(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@types/react@17.0.85)(react@17.0.2))(react@17.0.2))(react@17.0.2)':
+  '@chakra-ui/icon@2.0.5(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@types/react@17.0.87)(react@17.0.2))(react@17.0.2))(react@17.0.2)':
     dependencies:
-      '@chakra-ui/system': 1.12.1(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@types/react@17.0.85)(react@17.0.2))(react@17.0.2)
+      '@chakra-ui/system': 1.12.1(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@types/react@17.0.87)(react@17.0.2))(react@17.0.2)
       '@chakra-ui/utils': 1.10.4
       react: 17.0.2
 
-  '@chakra-ui/icons@1.1.7(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@types/react@17.0.85)(react@17.0.2))(react@17.0.2))(react@17.0.2)':
+  '@chakra-ui/icons@1.1.7(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@types/react@17.0.87)(react@17.0.2))(react@17.0.2))(react@17.0.2)':
     dependencies:
-      '@chakra-ui/icon': 2.0.5(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@types/react@17.0.85)(react@17.0.2))(react@17.0.2))(react@17.0.2)
-      '@chakra-ui/system': 1.12.1(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@types/react@17.0.85)(react@17.0.2))(react@17.0.2)
-      '@types/react': 17.0.85
+      '@chakra-ui/icon': 2.0.5(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@types/react@17.0.87)(react@17.0.2))(react@17.0.2))(react@17.0.2)
+      '@chakra-ui/system': 1.12.1(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@types/react@17.0.87)(react@17.0.2))(react@17.0.2)
+      '@types/react': 17.0.87
       react: 17.0.2
 
-  '@chakra-ui/image@1.1.10(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@types/react@17.0.85)(react@17.0.2))(react@17.0.2))(react@17.0.2)':
+  '@chakra-ui/image@1.1.10(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@types/react@17.0.87)(react@17.0.2))(react@17.0.2))(react@17.0.2)':
     dependencies:
       '@chakra-ui/hooks': 1.9.1(react@17.0.2)
-      '@chakra-ui/system': 1.12.1(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@types/react@17.0.85)(react@17.0.2))(react@17.0.2)
+      '@chakra-ui/system': 1.12.1(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@types/react@17.0.87)(react@17.0.2))(react@17.0.2)
       '@chakra-ui/utils': 1.10.4
       react: 17.0.2
 
-  '@chakra-ui/input@1.4.6(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@types/react@17.0.85)(react@17.0.2))(react@17.0.2))(react@17.0.2)':
+  '@chakra-ui/input@1.4.6(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@types/react@17.0.87)(react@17.0.2))(react@17.0.2))(react@17.0.2)':
     dependencies:
-      '@chakra-ui/form-control': 1.6.0(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@types/react@17.0.85)(react@17.0.2))(react@17.0.2))(react@17.0.2)
+      '@chakra-ui/form-control': 1.6.0(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@types/react@17.0.87)(react@17.0.2))(react@17.0.2))(react@17.0.2)
       '@chakra-ui/react-utils': 1.2.3(react@17.0.2)
-      '@chakra-ui/system': 1.12.1(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@types/react@17.0.85)(react@17.0.2))(react@17.0.2)
+      '@chakra-ui/system': 1.12.1(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@types/react@17.0.87)(react@17.0.2))(react@17.0.2)
       '@chakra-ui/utils': 1.10.4
       react: 17.0.2
 
-  '@chakra-ui/layout@1.8.0(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@types/react@17.0.85)(react@17.0.2))(react@17.0.2))(react@17.0.2)':
+  '@chakra-ui/layout@1.8.0(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@types/react@17.0.87)(react@17.0.2))(react@17.0.2))(react@17.0.2)':
     dependencies:
-      '@chakra-ui/icon': 2.0.5(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@types/react@17.0.85)(react@17.0.2))(react@17.0.2))(react@17.0.2)
+      '@chakra-ui/icon': 2.0.5(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@types/react@17.0.87)(react@17.0.2))(react@17.0.2))(react@17.0.2)
       '@chakra-ui/react-utils': 1.2.3(react@17.0.2)
-      '@chakra-ui/system': 1.12.1(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@types/react@17.0.85)(react@17.0.2))(react@17.0.2)
+      '@chakra-ui/system': 1.12.1(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@types/react@17.0.87)(react@17.0.2))(react@17.0.2)
       '@chakra-ui/utils': 1.10.4
       react: 17.0.2
 
@@ -12740,72 +12740,72 @@ snapshots:
       '@chakra-ui/utils': 1.10.4
       react: 17.0.2
 
-  '@chakra-ui/media-query@2.0.4(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@types/react@17.0.85)(react@17.0.2))(react@17.0.2))(@chakra-ui/theme@1.14.1(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@types/react@17.0.85)(react@17.0.2))(react@17.0.2)))(react@17.0.2)':
+  '@chakra-ui/media-query@2.0.4(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@types/react@17.0.87)(react@17.0.2))(react@17.0.2))(@chakra-ui/theme@1.14.1(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@types/react@17.0.87)(react@17.0.2))(react@17.0.2)))(react@17.0.2)':
     dependencies:
       '@chakra-ui/react-env': 1.1.6(react@17.0.2)
-      '@chakra-ui/system': 1.12.1(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@types/react@17.0.85)(react@17.0.2))(react@17.0.2)
-      '@chakra-ui/theme': 1.14.1(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@types/react@17.0.85)(react@17.0.2))(react@17.0.2))
+      '@chakra-ui/system': 1.12.1(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@types/react@17.0.87)(react@17.0.2))(react@17.0.2)
+      '@chakra-ui/theme': 1.14.1(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@types/react@17.0.87)(react@17.0.2))(react@17.0.2))
       '@chakra-ui/utils': 1.10.4
       react: 17.0.2
 
-  '@chakra-ui/menu@1.8.12(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@types/react@17.0.85)(react@17.0.2))(react@17.0.2))(framer-motion@6.5.1(react-dom@17.0.2(react@17.0.2))(react@17.0.2))(react@17.0.2)':
+  '@chakra-ui/menu@1.8.12(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@types/react@17.0.87)(react@17.0.2))(react@17.0.2))(framer-motion@6.5.1(react-dom@17.0.2(react@17.0.2))(react@17.0.2))(react@17.0.2)':
     dependencies:
       '@chakra-ui/clickable': 1.2.6(react@17.0.2)
       '@chakra-ui/descendant': 2.1.4(react@17.0.2)
       '@chakra-ui/hooks': 1.9.1(react@17.0.2)
       '@chakra-ui/popper': 2.4.3(react@17.0.2)
       '@chakra-ui/react-utils': 1.2.3(react@17.0.2)
-      '@chakra-ui/system': 1.12.1(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@types/react@17.0.85)(react@17.0.2))(react@17.0.2)
+      '@chakra-ui/system': 1.12.1(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@types/react@17.0.87)(react@17.0.2))(react@17.0.2)
       '@chakra-ui/transition': 1.4.8(framer-motion@6.5.1(react-dom@17.0.2(react@17.0.2))(react@17.0.2))(react@17.0.2)
       '@chakra-ui/utils': 1.10.4
       framer-motion: 6.5.1(react-dom@17.0.2(react@17.0.2))(react@17.0.2)
       react: 17.0.2
 
-  '@chakra-ui/modal@1.11.1(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@types/react@17.0.85)(react@17.0.2))(react@17.0.2))(@types/react@17.0.85)(framer-motion@6.5.1(react-dom@17.0.2(react@17.0.2))(react@17.0.2))(react-dom@17.0.2(react@17.0.2))(react@17.0.2)':
+  '@chakra-ui/modal@1.11.1(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@types/react@17.0.87)(react@17.0.2))(react@17.0.2))(@types/react@17.0.87)(framer-motion@6.5.1(react-dom@17.0.2(react@17.0.2))(react@17.0.2))(react-dom@17.0.2(react@17.0.2))(react@17.0.2)':
     dependencies:
-      '@chakra-ui/close-button': 1.2.7(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@types/react@17.0.85)(react@17.0.2))(react@17.0.2))(react@17.0.2)
-      '@chakra-ui/focus-lock': 1.2.6(@types/react@17.0.85)(react@17.0.2)
+      '@chakra-ui/close-button': 1.2.7(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@types/react@17.0.87)(react@17.0.2))(react@17.0.2))(react@17.0.2)
+      '@chakra-ui/focus-lock': 1.2.6(@types/react@17.0.87)(react@17.0.2)
       '@chakra-ui/hooks': 1.9.1(react@17.0.2)
       '@chakra-ui/portal': 1.3.10(react-dom@17.0.2(react@17.0.2))(react@17.0.2)
       '@chakra-ui/react-utils': 1.2.3(react@17.0.2)
-      '@chakra-ui/system': 1.12.1(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@types/react@17.0.85)(react@17.0.2))(react@17.0.2)
+      '@chakra-ui/system': 1.12.1(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@types/react@17.0.87)(react@17.0.2))(react@17.0.2)
       '@chakra-ui/transition': 1.4.8(framer-motion@6.5.1(react-dom@17.0.2(react@17.0.2))(react@17.0.2))(react@17.0.2)
       '@chakra-ui/utils': 1.10.4
       aria-hidden: 1.2.4
       framer-motion: 6.5.1(react-dom@17.0.2(react@17.0.2))(react@17.0.2)
       react: 17.0.2
       react-dom: 17.0.2(react@17.0.2)
-      react-remove-scroll: 2.4.1(@types/react@17.0.85)(react@17.0.2)
+      react-remove-scroll: 2.4.1(@types/react@17.0.87)(react@17.0.2)
     transitivePeerDependencies:
       - '@types/react'
 
-  '@chakra-ui/number-input@1.4.7(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@types/react@17.0.85)(react@17.0.2))(react@17.0.2))(react@17.0.2)':
+  '@chakra-ui/number-input@1.4.7(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@types/react@17.0.87)(react@17.0.2))(react@17.0.2))(react@17.0.2)':
     dependencies:
       '@chakra-ui/counter': 1.2.10(react@17.0.2)
-      '@chakra-ui/form-control': 1.6.0(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@types/react@17.0.85)(react@17.0.2))(react@17.0.2))(react@17.0.2)
+      '@chakra-ui/form-control': 1.6.0(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@types/react@17.0.87)(react@17.0.2))(react@17.0.2))(react@17.0.2)
       '@chakra-ui/hooks': 1.9.1(react@17.0.2)
-      '@chakra-ui/icon': 2.0.5(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@types/react@17.0.85)(react@17.0.2))(react@17.0.2))(react@17.0.2)
+      '@chakra-ui/icon': 2.0.5(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@types/react@17.0.87)(react@17.0.2))(react@17.0.2))(react@17.0.2)
       '@chakra-ui/react-utils': 1.2.3(react@17.0.2)
-      '@chakra-ui/system': 1.12.1(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@types/react@17.0.85)(react@17.0.2))(react@17.0.2)
+      '@chakra-ui/system': 1.12.1(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@types/react@17.0.87)(react@17.0.2))(react@17.0.2)
       '@chakra-ui/utils': 1.10.4
       react: 17.0.2
 
-  '@chakra-ui/pin-input@1.7.11(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@types/react@17.0.85)(react@17.0.2))(react@17.0.2))(react@17.0.2)':
+  '@chakra-ui/pin-input@1.7.11(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@types/react@17.0.87)(react@17.0.2))(react@17.0.2))(react@17.0.2)':
     dependencies:
       '@chakra-ui/descendant': 2.1.4(react@17.0.2)
       '@chakra-ui/hooks': 1.9.1(react@17.0.2)
       '@chakra-ui/react-utils': 1.2.3(react@17.0.2)
-      '@chakra-ui/system': 1.12.1(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@types/react@17.0.85)(react@17.0.2))(react@17.0.2)
+      '@chakra-ui/system': 1.12.1(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@types/react@17.0.87)(react@17.0.2))(react@17.0.2)
       '@chakra-ui/utils': 1.10.4
       react: 17.0.2
 
-  '@chakra-ui/popover@1.11.9(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@types/react@17.0.85)(react@17.0.2))(react@17.0.2))(framer-motion@6.5.1(react-dom@17.0.2(react@17.0.2))(react@17.0.2))(react@17.0.2)':
+  '@chakra-ui/popover@1.11.9(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@types/react@17.0.87)(react@17.0.2))(react@17.0.2))(framer-motion@6.5.1(react-dom@17.0.2(react@17.0.2))(react@17.0.2))(react@17.0.2)':
     dependencies:
-      '@chakra-ui/close-button': 1.2.7(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@types/react@17.0.85)(react@17.0.2))(react@17.0.2))(react@17.0.2)
+      '@chakra-ui/close-button': 1.2.7(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@types/react@17.0.87)(react@17.0.2))(react@17.0.2))(react@17.0.2)
       '@chakra-ui/hooks': 1.9.1(react@17.0.2)
       '@chakra-ui/popper': 2.4.3(react@17.0.2)
       '@chakra-ui/react-utils': 1.2.3(react@17.0.2)
-      '@chakra-ui/system': 1.12.1(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@types/react@17.0.85)(react@17.0.2))(react@17.0.2)
+      '@chakra-ui/system': 1.12.1(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@types/react@17.0.87)(react@17.0.2))(react@17.0.2)
       '@chakra-ui/utils': 1.10.4
       framer-motion: 6.5.1(react-dom@17.0.2(react@17.0.2))(react@17.0.2)
       react: 17.0.2
@@ -12824,34 +12824,34 @@ snapshots:
       react: 17.0.2
       react-dom: 17.0.2(react@17.0.2)
 
-  '@chakra-ui/progress@1.2.6(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@types/react@17.0.85)(react@17.0.2))(react@17.0.2))(react@17.0.2)':
+  '@chakra-ui/progress@1.2.6(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@types/react@17.0.87)(react@17.0.2))(react@17.0.2))(react@17.0.2)':
     dependencies:
-      '@chakra-ui/system': 1.12.1(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@types/react@17.0.85)(react@17.0.2))(react@17.0.2)
-      '@chakra-ui/theme-tools': 1.3.6(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@types/react@17.0.85)(react@17.0.2))(react@17.0.2))
+      '@chakra-ui/system': 1.12.1(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@types/react@17.0.87)(react@17.0.2))(react@17.0.2)
+      '@chakra-ui/theme-tools': 1.3.6(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@types/react@17.0.87)(react@17.0.2))(react@17.0.2))
       '@chakra-ui/utils': 1.10.4
       react: 17.0.2
 
-  '@chakra-ui/provider@1.7.14(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@types/react@17.0.85)(react@17.0.2))(react-dom@17.0.2(react@17.0.2))(react@17.0.2)':
+  '@chakra-ui/provider@1.7.14(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@types/react@17.0.87)(react@17.0.2))(react-dom@17.0.2(react@17.0.2))(react@17.0.2)':
     dependencies:
-      '@chakra-ui/css-reset': 1.1.3(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(react@17.0.2)
+      '@chakra-ui/css-reset': 1.1.3(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(react@17.0.2)
       '@chakra-ui/hooks': 1.9.1(react@17.0.2)
       '@chakra-ui/portal': 1.3.10(react-dom@17.0.2(react@17.0.2))(react@17.0.2)
       '@chakra-ui/react-env': 1.1.6(react@17.0.2)
-      '@chakra-ui/system': 1.12.1(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@types/react@17.0.85)(react@17.0.2))(react@17.0.2)
+      '@chakra-ui/system': 1.12.1(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@types/react@17.0.87)(react@17.0.2))(react@17.0.2)
       '@chakra-ui/utils': 1.10.4
-      '@emotion/react': 11.14.0(@types/react@17.0.85)(react@17.0.2)
-      '@emotion/styled': 11.14.0(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@types/react@17.0.85)(react@17.0.2)
+      '@emotion/react': 11.14.0(@types/react@17.0.87)(react@17.0.2)
+      '@emotion/styled': 11.14.0(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@types/react@17.0.87)(react@17.0.2)
       react: 17.0.2
       react-dom: 17.0.2(react@17.0.2)
 
-  '@chakra-ui/radio@1.5.1(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@types/react@17.0.85)(react@17.0.2))(react@17.0.2))(react@17.0.2)':
+  '@chakra-ui/radio@1.5.1(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@types/react@17.0.87)(react@17.0.2))(react@17.0.2))(react@17.0.2)':
     dependencies:
-      '@chakra-ui/form-control': 1.6.0(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@types/react@17.0.85)(react@17.0.2))(react@17.0.2))(react@17.0.2)
+      '@chakra-ui/form-control': 1.6.0(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@types/react@17.0.87)(react@17.0.2))(react@17.0.2))(react@17.0.2)
       '@chakra-ui/hooks': 1.9.1(react@17.0.2)
       '@chakra-ui/react-utils': 1.2.3(react@17.0.2)
-      '@chakra-ui/system': 1.12.1(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@types/react@17.0.85)(react@17.0.2))(react@17.0.2)
+      '@chakra-ui/system': 1.12.1(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@types/react@17.0.87)(react@17.0.2))(react@17.0.2)
       '@chakra-ui/utils': 1.10.4
-      '@chakra-ui/visually-hidden': 1.1.6(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@types/react@17.0.85)(react@17.0.2))(react@17.0.2))(react@17.0.2)
+      '@chakra-ui/visually-hidden': 1.1.6(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@types/react@17.0.87)(react@17.0.2))(react@17.0.2))(react@17.0.2)
       react: 17.0.2
 
   '@chakra-ui/react-env@1.1.6(react@17.0.2)':
@@ -12864,102 +12864,102 @@ snapshots:
       '@chakra-ui/utils': 1.10.4
       react: 17.0.2
 
-  '@chakra-ui/react@1.8.9(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@types/react@17.0.85)(react@17.0.2))(@types/react@17.0.85)(framer-motion@6.5.1(react-dom@17.0.2(react@17.0.2))(react@17.0.2))(react-dom@17.0.2(react@17.0.2))(react@17.0.2)':
+  '@chakra-ui/react@1.8.9(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@types/react@17.0.87)(react@17.0.2))(@types/react@17.0.87)(framer-motion@6.5.1(react-dom@17.0.2(react@17.0.2))(react@17.0.2))(react-dom@17.0.2(react@17.0.2))(react@17.0.2)':
     dependencies:
-      '@chakra-ui/accordion': 1.4.12(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@types/react@17.0.85)(react@17.0.2))(react@17.0.2))(framer-motion@6.5.1(react-dom@17.0.2(react@17.0.2))(react@17.0.2))(react@17.0.2)
-      '@chakra-ui/alert': 1.3.7(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@types/react@17.0.85)(react@17.0.2))(react@17.0.2))(react@17.0.2)
-      '@chakra-ui/avatar': 1.3.11(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@types/react@17.0.85)(react@17.0.2))(react@17.0.2))(react@17.0.2)
-      '@chakra-ui/breadcrumb': 1.3.6(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@types/react@17.0.85)(react@17.0.2))(react@17.0.2))(react@17.0.2)
-      '@chakra-ui/button': 1.5.10(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@types/react@17.0.85)(react@17.0.2))(react@17.0.2))(react@17.0.2)
-      '@chakra-ui/checkbox': 1.7.1(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@types/react@17.0.85)(react@17.0.2))(react@17.0.2))(framer-motion@6.5.1(react-dom@17.0.2(react@17.0.2))(react@17.0.2))(react@17.0.2)
-      '@chakra-ui/close-button': 1.2.7(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@types/react@17.0.85)(react@17.0.2))(react@17.0.2))(react@17.0.2)
-      '@chakra-ui/control-box': 1.1.6(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@types/react@17.0.85)(react@17.0.2))(react@17.0.2))(react@17.0.2)
+      '@chakra-ui/accordion': 1.4.12(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@types/react@17.0.87)(react@17.0.2))(react@17.0.2))(framer-motion@6.5.1(react-dom@17.0.2(react@17.0.2))(react@17.0.2))(react@17.0.2)
+      '@chakra-ui/alert': 1.3.7(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@types/react@17.0.87)(react@17.0.2))(react@17.0.2))(react@17.0.2)
+      '@chakra-ui/avatar': 1.3.11(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@types/react@17.0.87)(react@17.0.2))(react@17.0.2))(react@17.0.2)
+      '@chakra-ui/breadcrumb': 1.3.6(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@types/react@17.0.87)(react@17.0.2))(react@17.0.2))(react@17.0.2)
+      '@chakra-ui/button': 1.5.10(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@types/react@17.0.87)(react@17.0.2))(react@17.0.2))(react@17.0.2)
+      '@chakra-ui/checkbox': 1.7.1(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@types/react@17.0.87)(react@17.0.2))(react@17.0.2))(framer-motion@6.5.1(react-dom@17.0.2(react@17.0.2))(react@17.0.2))(react@17.0.2)
+      '@chakra-ui/close-button': 1.2.7(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@types/react@17.0.87)(react@17.0.2))(react@17.0.2))(react@17.0.2)
+      '@chakra-ui/control-box': 1.1.6(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@types/react@17.0.87)(react@17.0.2))(react@17.0.2))(react@17.0.2)
       '@chakra-ui/counter': 1.2.10(react@17.0.2)
-      '@chakra-ui/css-reset': 1.1.3(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(react@17.0.2)
-      '@chakra-ui/editable': 1.4.2(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@types/react@17.0.85)(react@17.0.2))(react@17.0.2))(react@17.0.2)
-      '@chakra-ui/form-control': 1.6.0(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@types/react@17.0.85)(react@17.0.2))(react@17.0.2))(react@17.0.2)
+      '@chakra-ui/css-reset': 1.1.3(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(react@17.0.2)
+      '@chakra-ui/editable': 1.4.2(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@types/react@17.0.87)(react@17.0.2))(react@17.0.2))(react@17.0.2)
+      '@chakra-ui/form-control': 1.6.0(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@types/react@17.0.87)(react@17.0.2))(react@17.0.2))(react@17.0.2)
       '@chakra-ui/hooks': 1.9.1(react@17.0.2)
-      '@chakra-ui/icon': 2.0.5(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@types/react@17.0.85)(react@17.0.2))(react@17.0.2))(react@17.0.2)
-      '@chakra-ui/image': 1.1.10(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@types/react@17.0.85)(react@17.0.2))(react@17.0.2))(react@17.0.2)
-      '@chakra-ui/input': 1.4.6(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@types/react@17.0.85)(react@17.0.2))(react@17.0.2))(react@17.0.2)
-      '@chakra-ui/layout': 1.8.0(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@types/react@17.0.85)(react@17.0.2))(react@17.0.2))(react@17.0.2)
+      '@chakra-ui/icon': 2.0.5(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@types/react@17.0.87)(react@17.0.2))(react@17.0.2))(react@17.0.2)
+      '@chakra-ui/image': 1.1.10(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@types/react@17.0.87)(react@17.0.2))(react@17.0.2))(react@17.0.2)
+      '@chakra-ui/input': 1.4.6(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@types/react@17.0.87)(react@17.0.2))(react@17.0.2))(react@17.0.2)
+      '@chakra-ui/layout': 1.8.0(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@types/react@17.0.87)(react@17.0.2))(react@17.0.2))(react@17.0.2)
       '@chakra-ui/live-region': 1.1.6(react@17.0.2)
-      '@chakra-ui/media-query': 2.0.4(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@types/react@17.0.85)(react@17.0.2))(react@17.0.2))(@chakra-ui/theme@1.14.1(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@types/react@17.0.85)(react@17.0.2))(react@17.0.2)))(react@17.0.2)
-      '@chakra-ui/menu': 1.8.12(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@types/react@17.0.85)(react@17.0.2))(react@17.0.2))(framer-motion@6.5.1(react-dom@17.0.2(react@17.0.2))(react@17.0.2))(react@17.0.2)
-      '@chakra-ui/modal': 1.11.1(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@types/react@17.0.85)(react@17.0.2))(react@17.0.2))(@types/react@17.0.85)(framer-motion@6.5.1(react-dom@17.0.2(react@17.0.2))(react@17.0.2))(react-dom@17.0.2(react@17.0.2))(react@17.0.2)
-      '@chakra-ui/number-input': 1.4.7(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@types/react@17.0.85)(react@17.0.2))(react@17.0.2))(react@17.0.2)
-      '@chakra-ui/pin-input': 1.7.11(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@types/react@17.0.85)(react@17.0.2))(react@17.0.2))(react@17.0.2)
-      '@chakra-ui/popover': 1.11.9(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@types/react@17.0.85)(react@17.0.2))(react@17.0.2))(framer-motion@6.5.1(react-dom@17.0.2(react@17.0.2))(react@17.0.2))(react@17.0.2)
+      '@chakra-ui/media-query': 2.0.4(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@types/react@17.0.87)(react@17.0.2))(react@17.0.2))(@chakra-ui/theme@1.14.1(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@types/react@17.0.87)(react@17.0.2))(react@17.0.2)))(react@17.0.2)
+      '@chakra-ui/menu': 1.8.12(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@types/react@17.0.87)(react@17.0.2))(react@17.0.2))(framer-motion@6.5.1(react-dom@17.0.2(react@17.0.2))(react@17.0.2))(react@17.0.2)
+      '@chakra-ui/modal': 1.11.1(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@types/react@17.0.87)(react@17.0.2))(react@17.0.2))(@types/react@17.0.87)(framer-motion@6.5.1(react-dom@17.0.2(react@17.0.2))(react@17.0.2))(react-dom@17.0.2(react@17.0.2))(react@17.0.2)
+      '@chakra-ui/number-input': 1.4.7(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@types/react@17.0.87)(react@17.0.2))(react@17.0.2))(react@17.0.2)
+      '@chakra-ui/pin-input': 1.7.11(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@types/react@17.0.87)(react@17.0.2))(react@17.0.2))(react@17.0.2)
+      '@chakra-ui/popover': 1.11.9(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@types/react@17.0.87)(react@17.0.2))(react@17.0.2))(framer-motion@6.5.1(react-dom@17.0.2(react@17.0.2))(react@17.0.2))(react@17.0.2)
       '@chakra-ui/popper': 2.4.3(react@17.0.2)
       '@chakra-ui/portal': 1.3.10(react-dom@17.0.2(react@17.0.2))(react@17.0.2)
-      '@chakra-ui/progress': 1.2.6(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@types/react@17.0.85)(react@17.0.2))(react@17.0.2))(react@17.0.2)
-      '@chakra-ui/provider': 1.7.14(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@types/react@17.0.85)(react@17.0.2))(react-dom@17.0.2(react@17.0.2))(react@17.0.2)
-      '@chakra-ui/radio': 1.5.1(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@types/react@17.0.85)(react@17.0.2))(react@17.0.2))(react@17.0.2)
+      '@chakra-ui/progress': 1.2.6(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@types/react@17.0.87)(react@17.0.2))(react@17.0.2))(react@17.0.2)
+      '@chakra-ui/provider': 1.7.14(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@types/react@17.0.87)(react@17.0.2))(react-dom@17.0.2(react@17.0.2))(react@17.0.2)
+      '@chakra-ui/radio': 1.5.1(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@types/react@17.0.87)(react@17.0.2))(react@17.0.2))(react@17.0.2)
       '@chakra-ui/react-env': 1.1.6(react@17.0.2)
-      '@chakra-ui/select': 1.2.11(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@types/react@17.0.85)(react@17.0.2))(react@17.0.2))(react@17.0.2)
-      '@chakra-ui/skeleton': 1.2.14(@chakra-ui/theme@1.14.1(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@types/react@17.0.85)(react@17.0.2))(react@17.0.2)))(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@types/react@17.0.85)(react@17.0.2))(react@17.0.2)
-      '@chakra-ui/slider': 1.5.11(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@types/react@17.0.85)(react@17.0.2))(react@17.0.2))(react@17.0.2)
-      '@chakra-ui/spinner': 1.2.6(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@types/react@17.0.85)(react@17.0.2))(react@17.0.2))(react@17.0.2)
-      '@chakra-ui/stat': 1.2.7(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@types/react@17.0.85)(react@17.0.2))(react@17.0.2))(react@17.0.2)
-      '@chakra-ui/switch': 1.3.10(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@types/react@17.0.85)(react@17.0.2))(react@17.0.2))(framer-motion@6.5.1(react-dom@17.0.2(react@17.0.2))(react@17.0.2))(react@17.0.2)
-      '@chakra-ui/system': 1.12.1(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@types/react@17.0.85)(react@17.0.2))(react@17.0.2)
-      '@chakra-ui/table': 1.3.6(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@types/react@17.0.85)(react@17.0.2))(react@17.0.2))(react@17.0.2)
-      '@chakra-ui/tabs': 1.6.11(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@types/react@17.0.85)(react@17.0.2))(react@17.0.2))(react@17.0.2)
-      '@chakra-ui/tag': 1.2.7(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@types/react@17.0.85)(react@17.0.2))(react@17.0.2))(react@17.0.2)
-      '@chakra-ui/textarea': 1.2.11(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@types/react@17.0.85)(react@17.0.2))(react@17.0.2))(react@17.0.2)
-      '@chakra-ui/theme': 1.14.1(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@types/react@17.0.85)(react@17.0.2))(react@17.0.2))
-      '@chakra-ui/toast': 1.5.9(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@types/react@17.0.85)(react@17.0.2))(react@17.0.2))(framer-motion@6.5.1(react-dom@17.0.2(react@17.0.2))(react@17.0.2))(react-dom@17.0.2(react@17.0.2))(react@17.0.2)
-      '@chakra-ui/tooltip': 1.5.1(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@types/react@17.0.85)(react@17.0.2))(react@17.0.2))(framer-motion@6.5.1(react-dom@17.0.2(react@17.0.2))(react@17.0.2))(react-dom@17.0.2(react@17.0.2))(react@17.0.2)
+      '@chakra-ui/select': 1.2.11(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@types/react@17.0.87)(react@17.0.2))(react@17.0.2))(react@17.0.2)
+      '@chakra-ui/skeleton': 1.2.14(@chakra-ui/theme@1.14.1(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@types/react@17.0.87)(react@17.0.2))(react@17.0.2)))(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@types/react@17.0.87)(react@17.0.2))(react@17.0.2)
+      '@chakra-ui/slider': 1.5.11(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@types/react@17.0.87)(react@17.0.2))(react@17.0.2))(react@17.0.2)
+      '@chakra-ui/spinner': 1.2.6(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@types/react@17.0.87)(react@17.0.2))(react@17.0.2))(react@17.0.2)
+      '@chakra-ui/stat': 1.2.7(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@types/react@17.0.87)(react@17.0.2))(react@17.0.2))(react@17.0.2)
+      '@chakra-ui/switch': 1.3.10(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@types/react@17.0.87)(react@17.0.2))(react@17.0.2))(framer-motion@6.5.1(react-dom@17.0.2(react@17.0.2))(react@17.0.2))(react@17.0.2)
+      '@chakra-ui/system': 1.12.1(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@types/react@17.0.87)(react@17.0.2))(react@17.0.2)
+      '@chakra-ui/table': 1.3.6(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@types/react@17.0.87)(react@17.0.2))(react@17.0.2))(react@17.0.2)
+      '@chakra-ui/tabs': 1.6.11(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@types/react@17.0.87)(react@17.0.2))(react@17.0.2))(react@17.0.2)
+      '@chakra-ui/tag': 1.2.7(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@types/react@17.0.87)(react@17.0.2))(react@17.0.2))(react@17.0.2)
+      '@chakra-ui/textarea': 1.2.11(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@types/react@17.0.87)(react@17.0.2))(react@17.0.2))(react@17.0.2)
+      '@chakra-ui/theme': 1.14.1(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@types/react@17.0.87)(react@17.0.2))(react@17.0.2))
+      '@chakra-ui/toast': 1.5.9(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@types/react@17.0.87)(react@17.0.2))(react@17.0.2))(framer-motion@6.5.1(react-dom@17.0.2(react@17.0.2))(react@17.0.2))(react-dom@17.0.2(react@17.0.2))(react@17.0.2)
+      '@chakra-ui/tooltip': 1.5.1(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@types/react@17.0.87)(react@17.0.2))(react@17.0.2))(framer-motion@6.5.1(react-dom@17.0.2(react@17.0.2))(react@17.0.2))(react-dom@17.0.2(react@17.0.2))(react@17.0.2)
       '@chakra-ui/transition': 1.4.8(framer-motion@6.5.1(react-dom@17.0.2(react@17.0.2))(react@17.0.2))(react@17.0.2)
       '@chakra-ui/utils': 1.10.4
-      '@chakra-ui/visually-hidden': 1.1.6(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@types/react@17.0.85)(react@17.0.2))(react@17.0.2))(react@17.0.2)
-      '@emotion/react': 11.14.0(@types/react@17.0.85)(react@17.0.2)
-      '@emotion/styled': 11.14.0(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@types/react@17.0.85)(react@17.0.2)
+      '@chakra-ui/visually-hidden': 1.1.6(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@types/react@17.0.87)(react@17.0.2))(react@17.0.2))(react@17.0.2)
+      '@emotion/react': 11.14.0(@types/react@17.0.87)(react@17.0.2)
+      '@emotion/styled': 11.14.0(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@types/react@17.0.87)(react@17.0.2)
       framer-motion: 6.5.1(react-dom@17.0.2(react@17.0.2))(react@17.0.2)
       react: 17.0.2
       react-dom: 17.0.2(react@17.0.2)
     transitivePeerDependencies:
       - '@types/react'
 
-  '@chakra-ui/select@1.2.11(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@types/react@17.0.85)(react@17.0.2))(react@17.0.2))(react@17.0.2)':
+  '@chakra-ui/select@1.2.11(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@types/react@17.0.87)(react@17.0.2))(react@17.0.2))(react@17.0.2)':
     dependencies:
-      '@chakra-ui/form-control': 1.6.0(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@types/react@17.0.85)(react@17.0.2))(react@17.0.2))(react@17.0.2)
-      '@chakra-ui/system': 1.12.1(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@types/react@17.0.85)(react@17.0.2))(react@17.0.2)
+      '@chakra-ui/form-control': 1.6.0(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@types/react@17.0.87)(react@17.0.2))(react@17.0.2))(react@17.0.2)
+      '@chakra-ui/system': 1.12.1(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@types/react@17.0.87)(react@17.0.2))(react@17.0.2)
       '@chakra-ui/utils': 1.10.4
       react: 17.0.2
 
-  '@chakra-ui/skeleton@1.2.14(@chakra-ui/theme@1.14.1(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@types/react@17.0.85)(react@17.0.2))(react@17.0.2)))(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@types/react@17.0.85)(react@17.0.2))(react@17.0.2)':
+  '@chakra-ui/skeleton@1.2.14(@chakra-ui/theme@1.14.1(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@types/react@17.0.87)(react@17.0.2))(react@17.0.2)))(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@types/react@17.0.87)(react@17.0.2))(react@17.0.2)':
     dependencies:
       '@chakra-ui/hooks': 1.9.1(react@17.0.2)
-      '@chakra-ui/media-query': 2.0.4(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@types/react@17.0.85)(react@17.0.2))(react@17.0.2))(@chakra-ui/theme@1.14.1(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@types/react@17.0.85)(react@17.0.2))(react@17.0.2)))(react@17.0.2)
-      '@chakra-ui/system': 1.12.1(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@types/react@17.0.85)(react@17.0.2))(react@17.0.2)
-      '@chakra-ui/theme': 1.14.1(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@types/react@17.0.85)(react@17.0.2))(react@17.0.2))
+      '@chakra-ui/media-query': 2.0.4(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@types/react@17.0.87)(react@17.0.2))(react@17.0.2))(@chakra-ui/theme@1.14.1(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@types/react@17.0.87)(react@17.0.2))(react@17.0.2)))(react@17.0.2)
+      '@chakra-ui/system': 1.12.1(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@types/react@17.0.87)(react@17.0.2))(react@17.0.2)
+      '@chakra-ui/theme': 1.14.1(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@types/react@17.0.87)(react@17.0.2))(react@17.0.2))
       '@chakra-ui/utils': 1.10.4
-      '@emotion/react': 11.14.0(@types/react@17.0.85)(react@17.0.2)
-      '@emotion/styled': 11.14.0(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@types/react@17.0.85)(react@17.0.2)
+      '@emotion/react': 11.14.0(@types/react@17.0.87)(react@17.0.2)
+      '@emotion/styled': 11.14.0(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@types/react@17.0.87)(react@17.0.2)
       react: 17.0.2
 
-  '@chakra-ui/slider@1.5.11(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@types/react@17.0.85)(react@17.0.2))(react@17.0.2))(react@17.0.2)':
+  '@chakra-ui/slider@1.5.11(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@types/react@17.0.87)(react@17.0.2))(react@17.0.2))(react@17.0.2)':
     dependencies:
       '@chakra-ui/hooks': 1.9.1(react@17.0.2)
       '@chakra-ui/react-utils': 1.2.3(react@17.0.2)
-      '@chakra-ui/system': 1.12.1(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@types/react@17.0.85)(react@17.0.2))(react@17.0.2)
+      '@chakra-ui/system': 1.12.1(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@types/react@17.0.87)(react@17.0.2))(react@17.0.2)
       '@chakra-ui/utils': 1.10.4
       react: 17.0.2
 
-  '@chakra-ui/spinner@1.2.6(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@types/react@17.0.85)(react@17.0.2))(react@17.0.2))(react@17.0.2)':
+  '@chakra-ui/spinner@1.2.6(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@types/react@17.0.87)(react@17.0.2))(react@17.0.2))(react@17.0.2)':
     dependencies:
-      '@chakra-ui/system': 1.12.1(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@types/react@17.0.85)(react@17.0.2))(react@17.0.2)
+      '@chakra-ui/system': 1.12.1(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@types/react@17.0.87)(react@17.0.2))(react@17.0.2)
       '@chakra-ui/utils': 1.10.4
-      '@chakra-ui/visually-hidden': 1.1.6(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@types/react@17.0.85)(react@17.0.2))(react@17.0.2))(react@17.0.2)
+      '@chakra-ui/visually-hidden': 1.1.6(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@types/react@17.0.87)(react@17.0.2))(react@17.0.2))(react@17.0.2)
       react: 17.0.2
 
-  '@chakra-ui/stat@1.2.7(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@types/react@17.0.85)(react@17.0.2))(react@17.0.2))(react@17.0.2)':
+  '@chakra-ui/stat@1.2.7(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@types/react@17.0.87)(react@17.0.2))(react@17.0.2))(react@17.0.2)':
     dependencies:
-      '@chakra-ui/icon': 2.0.5(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@types/react@17.0.85)(react@17.0.2))(react@17.0.2))(react@17.0.2)
-      '@chakra-ui/system': 1.12.1(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@types/react@17.0.85)(react@17.0.2))(react@17.0.2)
+      '@chakra-ui/icon': 2.0.5(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@types/react@17.0.87)(react@17.0.2))(react@17.0.2))(react@17.0.2)
+      '@chakra-ui/system': 1.12.1(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@types/react@17.0.87)(react@17.0.2))(react@17.0.2)
       '@chakra-ui/utils': 1.10.4
-      '@chakra-ui/visually-hidden': 1.1.6(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@types/react@17.0.85)(react@17.0.2))(react@17.0.2))(react@17.0.2)
+      '@chakra-ui/visually-hidden': 1.1.6(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@types/react@17.0.87)(react@17.0.2))(react@17.0.2))(react@17.0.2)
       react: 17.0.2
 
   '@chakra-ui/styled-system@1.19.0':
@@ -12967,75 +12967,75 @@ snapshots:
       '@chakra-ui/utils': 1.10.4
       csstype: 3.0.9
 
-  '@chakra-ui/switch@1.3.10(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@types/react@17.0.85)(react@17.0.2))(react@17.0.2))(framer-motion@6.5.1(react-dom@17.0.2(react@17.0.2))(react@17.0.2))(react@17.0.2)':
+  '@chakra-ui/switch@1.3.10(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@types/react@17.0.87)(react@17.0.2))(react@17.0.2))(framer-motion@6.5.1(react-dom@17.0.2(react@17.0.2))(react@17.0.2))(react@17.0.2)':
     dependencies:
-      '@chakra-ui/checkbox': 1.7.1(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@types/react@17.0.85)(react@17.0.2))(react@17.0.2))(framer-motion@6.5.1(react-dom@17.0.2(react@17.0.2))(react@17.0.2))(react@17.0.2)
-      '@chakra-ui/system': 1.12.1(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@types/react@17.0.85)(react@17.0.2))(react@17.0.2)
+      '@chakra-ui/checkbox': 1.7.1(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@types/react@17.0.87)(react@17.0.2))(react@17.0.2))(framer-motion@6.5.1(react-dom@17.0.2(react@17.0.2))(react@17.0.2))(react@17.0.2)
+      '@chakra-ui/system': 1.12.1(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@types/react@17.0.87)(react@17.0.2))(react@17.0.2)
       '@chakra-ui/utils': 1.10.4
       framer-motion: 6.5.1(react-dom@17.0.2(react@17.0.2))(react@17.0.2)
       react: 17.0.2
 
-  '@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@types/react@17.0.85)(react@17.0.2))(react@17.0.2)':
+  '@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@types/react@17.0.87)(react@17.0.2))(react@17.0.2)':
     dependencies:
       '@chakra-ui/color-mode': 1.4.8(react@17.0.2)
       '@chakra-ui/react-utils': 1.2.3(react@17.0.2)
       '@chakra-ui/styled-system': 1.19.0
       '@chakra-ui/utils': 1.10.4
-      '@emotion/react': 11.14.0(@types/react@17.0.85)(react@17.0.2)
-      '@emotion/styled': 11.14.0(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@types/react@17.0.85)(react@17.0.2)
+      '@emotion/react': 11.14.0(@types/react@17.0.87)(react@17.0.2)
+      '@emotion/styled': 11.14.0(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@types/react@17.0.87)(react@17.0.2)
       react: 17.0.2
       react-fast-compare: 3.2.0
 
-  '@chakra-ui/table@1.3.6(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@types/react@17.0.85)(react@17.0.2))(react@17.0.2))(react@17.0.2)':
+  '@chakra-ui/table@1.3.6(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@types/react@17.0.87)(react@17.0.2))(react@17.0.2))(react@17.0.2)':
     dependencies:
-      '@chakra-ui/system': 1.12.1(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@types/react@17.0.85)(react@17.0.2))(react@17.0.2)
+      '@chakra-ui/system': 1.12.1(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@types/react@17.0.87)(react@17.0.2))(react@17.0.2)
       '@chakra-ui/utils': 1.10.4
       react: 17.0.2
 
-  '@chakra-ui/tabs@1.6.11(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@types/react@17.0.85)(react@17.0.2))(react@17.0.2))(react@17.0.2)':
+  '@chakra-ui/tabs@1.6.11(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@types/react@17.0.87)(react@17.0.2))(react@17.0.2))(react@17.0.2)':
     dependencies:
       '@chakra-ui/clickable': 1.2.6(react@17.0.2)
       '@chakra-ui/descendant': 2.1.4(react@17.0.2)
       '@chakra-ui/hooks': 1.9.1(react@17.0.2)
       '@chakra-ui/react-utils': 1.2.3(react@17.0.2)
-      '@chakra-ui/system': 1.12.1(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@types/react@17.0.85)(react@17.0.2))(react@17.0.2)
+      '@chakra-ui/system': 1.12.1(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@types/react@17.0.87)(react@17.0.2))(react@17.0.2)
       '@chakra-ui/utils': 1.10.4
       react: 17.0.2
 
-  '@chakra-ui/tag@1.2.7(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@types/react@17.0.85)(react@17.0.2))(react@17.0.2))(react@17.0.2)':
+  '@chakra-ui/tag@1.2.7(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@types/react@17.0.87)(react@17.0.2))(react@17.0.2))(react@17.0.2)':
     dependencies:
-      '@chakra-ui/icon': 2.0.5(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@types/react@17.0.85)(react@17.0.2))(react@17.0.2))(react@17.0.2)
-      '@chakra-ui/system': 1.12.1(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@types/react@17.0.85)(react@17.0.2))(react@17.0.2)
+      '@chakra-ui/icon': 2.0.5(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@types/react@17.0.87)(react@17.0.2))(react@17.0.2))(react@17.0.2)
+      '@chakra-ui/system': 1.12.1(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@types/react@17.0.87)(react@17.0.2))(react@17.0.2)
       '@chakra-ui/utils': 1.10.4
       react: 17.0.2
 
-  '@chakra-ui/textarea@1.2.11(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@types/react@17.0.85)(react@17.0.2))(react@17.0.2))(react@17.0.2)':
+  '@chakra-ui/textarea@1.2.11(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@types/react@17.0.87)(react@17.0.2))(react@17.0.2))(react@17.0.2)':
     dependencies:
-      '@chakra-ui/form-control': 1.6.0(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@types/react@17.0.85)(react@17.0.2))(react@17.0.2))(react@17.0.2)
-      '@chakra-ui/system': 1.12.1(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@types/react@17.0.85)(react@17.0.2))(react@17.0.2)
+      '@chakra-ui/form-control': 1.6.0(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@types/react@17.0.87)(react@17.0.2))(react@17.0.2))(react@17.0.2)
+      '@chakra-ui/system': 1.12.1(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@types/react@17.0.87)(react@17.0.2))(react@17.0.2)
       '@chakra-ui/utils': 1.10.4
       react: 17.0.2
 
-  '@chakra-ui/theme-tools@1.3.6(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@types/react@17.0.85)(react@17.0.2))(react@17.0.2))':
+  '@chakra-ui/theme-tools@1.3.6(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@types/react@17.0.87)(react@17.0.2))(react@17.0.2))':
     dependencies:
-      '@chakra-ui/system': 1.12.1(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@types/react@17.0.85)(react@17.0.2))(react@17.0.2)
+      '@chakra-ui/system': 1.12.1(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@types/react@17.0.87)(react@17.0.2))(react@17.0.2)
       '@chakra-ui/utils': 1.10.4
       '@ctrl/tinycolor': 3.6.1
 
-  '@chakra-ui/theme@1.14.1(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@types/react@17.0.85)(react@17.0.2))(react@17.0.2))':
+  '@chakra-ui/theme@1.14.1(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@types/react@17.0.87)(react@17.0.2))(react@17.0.2))':
     dependencies:
-      '@chakra-ui/anatomy': 1.3.0(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@types/react@17.0.85)(react@17.0.2))(react@17.0.2))
-      '@chakra-ui/system': 1.12.1(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@types/react@17.0.85)(react@17.0.2))(react@17.0.2)
-      '@chakra-ui/theme-tools': 1.3.6(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@types/react@17.0.85)(react@17.0.2))(react@17.0.2))
+      '@chakra-ui/anatomy': 1.3.0(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@types/react@17.0.87)(react@17.0.2))(react@17.0.2))
+      '@chakra-ui/system': 1.12.1(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@types/react@17.0.87)(react@17.0.2))(react@17.0.2)
+      '@chakra-ui/theme-tools': 1.3.6(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@types/react@17.0.87)(react@17.0.2))(react@17.0.2))
       '@chakra-ui/utils': 1.10.4
 
-  '@chakra-ui/toast@1.5.9(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@types/react@17.0.85)(react@17.0.2))(react@17.0.2))(framer-motion@6.5.1(react-dom@17.0.2(react@17.0.2))(react@17.0.2))(react-dom@17.0.2(react@17.0.2))(react@17.0.2)':
+  '@chakra-ui/toast@1.5.9(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@types/react@17.0.87)(react@17.0.2))(react@17.0.2))(framer-motion@6.5.1(react-dom@17.0.2(react@17.0.2))(react@17.0.2))(react-dom@17.0.2(react@17.0.2))(react@17.0.2)':
     dependencies:
-      '@chakra-ui/alert': 1.3.7(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@types/react@17.0.85)(react@17.0.2))(react@17.0.2))(react@17.0.2)
-      '@chakra-ui/close-button': 1.2.7(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@types/react@17.0.85)(react@17.0.2))(react@17.0.2))(react@17.0.2)
+      '@chakra-ui/alert': 1.3.7(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@types/react@17.0.87)(react@17.0.2))(react@17.0.2))(react@17.0.2)
+      '@chakra-ui/close-button': 1.2.7(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@types/react@17.0.87)(react@17.0.2))(react@17.0.2))(react@17.0.2)
       '@chakra-ui/hooks': 1.9.1(react@17.0.2)
-      '@chakra-ui/system': 1.12.1(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@types/react@17.0.85)(react@17.0.2))(react@17.0.2)
-      '@chakra-ui/theme': 1.14.1(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@types/react@17.0.85)(react@17.0.2))(react@17.0.2))
+      '@chakra-ui/system': 1.12.1(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@types/react@17.0.87)(react@17.0.2))(react@17.0.2)
+      '@chakra-ui/theme': 1.14.1(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@types/react@17.0.87)(react@17.0.2))(react@17.0.2))
       '@chakra-ui/transition': 1.4.8(framer-motion@6.5.1(react-dom@17.0.2(react@17.0.2))(react@17.0.2))(react@17.0.2)
       '@chakra-ui/utils': 1.10.4
       '@reach/alert': 0.13.2(react-dom@17.0.2(react@17.0.2))(react@17.0.2)
@@ -13043,15 +13043,15 @@ snapshots:
       react: 17.0.2
       react-dom: 17.0.2(react@17.0.2)
 
-  '@chakra-ui/tooltip@1.5.1(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@types/react@17.0.85)(react@17.0.2))(react@17.0.2))(framer-motion@6.5.1(react-dom@17.0.2(react@17.0.2))(react@17.0.2))(react-dom@17.0.2(react@17.0.2))(react@17.0.2)':
+  '@chakra-ui/tooltip@1.5.1(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@types/react@17.0.87)(react@17.0.2))(react@17.0.2))(framer-motion@6.5.1(react-dom@17.0.2(react@17.0.2))(react@17.0.2))(react-dom@17.0.2(react@17.0.2))(react@17.0.2)':
     dependencies:
       '@chakra-ui/hooks': 1.9.1(react@17.0.2)
       '@chakra-ui/popper': 2.4.3(react@17.0.2)
       '@chakra-ui/portal': 1.3.10(react-dom@17.0.2(react@17.0.2))(react@17.0.2)
       '@chakra-ui/react-utils': 1.2.3(react@17.0.2)
-      '@chakra-ui/system': 1.12.1(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@types/react@17.0.85)(react@17.0.2))(react@17.0.2)
+      '@chakra-ui/system': 1.12.1(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@types/react@17.0.87)(react@17.0.2))(react@17.0.2)
       '@chakra-ui/utils': 1.10.4
-      '@chakra-ui/visually-hidden': 1.1.6(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@types/react@17.0.85)(react@17.0.2))(react@17.0.2))(react@17.0.2)
+      '@chakra-ui/visually-hidden': 1.1.6(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@types/react@17.0.87)(react@17.0.2))(react@17.0.2))(react@17.0.2)
       framer-motion: 6.5.1(react-dom@17.0.2(react@17.0.2))(react@17.0.2)
       react: 17.0.2
       react-dom: 17.0.2(react@17.0.2)
@@ -13069,9 +13069,9 @@ snapshots:
       framesync: 5.3.0
       lodash.mergewith: 4.6.2
 
-  '@chakra-ui/visually-hidden@1.1.6(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@types/react@17.0.85)(react@17.0.2))(react@17.0.2))(react@17.0.2)':
+  '@chakra-ui/visually-hidden@1.1.6(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@types/react@17.0.87)(react@17.0.2))(react@17.0.2))(react@17.0.2)':
     dependencies:
-      '@chakra-ui/system': 1.12.1(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@types/react@17.0.85)(react@17.0.2))(react@17.0.2)
+      '@chakra-ui/system': 1.12.1(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@types/react@17.0.87)(react@17.0.2))(react@17.0.2)
       '@chakra-ui/utils': 1.10.4
       react: 17.0.2
 
@@ -13354,7 +13354,7 @@ snapshots:
 
   '@emotion/memoize@0.9.0': {}
 
-  '@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2)':
+  '@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2)':
     dependencies:
       '@babel/runtime': 7.27.1
       '@emotion/babel-plugin': 11.13.5
@@ -13366,7 +13366,7 @@ snapshots:
       hoist-non-react-statics: 3.3.2
       react: 17.0.2
     optionalDependencies:
-      '@types/react': 17.0.85
+      '@types/react': 17.0.87
     transitivePeerDependencies:
       - supports-color
 
@@ -13380,18 +13380,18 @@ snapshots:
 
   '@emotion/sheet@1.4.0': {}
 
-  '@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@types/react@17.0.85)(react@17.0.2)':
+  '@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@types/react@17.0.87)(react@17.0.2)':
     dependencies:
       '@babel/runtime': 7.27.1
       '@emotion/babel-plugin': 11.13.5
       '@emotion/is-prop-valid': 1.3.1
-      '@emotion/react': 11.14.0(@types/react@17.0.85)(react@17.0.2)
+      '@emotion/react': 11.14.0(@types/react@17.0.87)(react@17.0.2)
       '@emotion/serialize': 1.3.3
       '@emotion/use-insertion-effect-with-fallbacks': 1.2.0(react@17.0.2)
       '@emotion/utils': 1.4.2
       react: 17.0.2
     optionalDependencies:
-      '@types/react': 17.0.85
+      '@types/react': 17.0.87
     transitivePeerDependencies:
       - supports-color
 
@@ -14266,16 +14266,16 @@ snapshots:
     dependencies:
       graphql: 16.6.0(patch_hash=f4d3896be90512dca06bde51fe01c4bc50f1d0177e9856a6a6847e011f9d3aa0)
 
-  '@guild-docs/client@2.1.1(7e2f5bf0f70aef35a5ec8406423392c0)':
+  '@guild-docs/client@2.1.1(bf0145f729997fb90323cb3009454b66)':
     dependencies:
-      '@chakra-ui/icons': 1.1.7(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@types/react@17.0.85)(react@17.0.2))(react@17.0.2))(react@17.0.2)
-      '@chakra-ui/react': 1.8.9(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@types/react@17.0.85)(react@17.0.2))(@types/react@17.0.85)(framer-motion@6.5.1(react-dom@17.0.2(react@17.0.2))(react@17.0.2))(react-dom@17.0.2(react@17.0.2))(react@17.0.2)
+      '@chakra-ui/icons': 1.1.7(@chakra-ui/system@1.12.1(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@types/react@17.0.87)(react@17.0.2))(react@17.0.2))(react@17.0.2)
+      '@chakra-ui/react': 1.8.9(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@types/react@17.0.87)(react@17.0.2))(@types/react@17.0.87)(framer-motion@6.5.1(react-dom@17.0.2(react@17.0.2))(react@17.0.2))(react-dom@17.0.2(react@17.0.2))(react@17.0.2)
       '@chakra-ui/utils': 1.10.4
-      '@emotion/react': 11.14.0(@types/react@17.0.85)(react@17.0.2)
-      '@guild-docs/mdx-remote': 2.0.2(@chakra-ui/react@1.8.9(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@types/react@17.0.85)(react@17.0.2))(@types/react@17.0.85)(framer-motion@6.5.1(react-dom@17.0.2(react@17.0.2))(react@17.0.2))(react-dom@17.0.2(react@17.0.2))(react@17.0.2))(@mdx-js/react@2.3.0(react@17.0.2))(@types/react@17.0.85)(next-i18next@12.1.0(next@12.3.7(@babel/core@7.27.1)(react-dom@17.0.2(react@17.0.2))(react@17.0.2)(sass@1.87.0))(react-dom@17.0.2(react@17.0.2))(react@17.0.2))(react@17.0.2)(shiki@0.11.1)
-      '@guild-docs/types': 2.0.0(@chakra-ui/react@1.8.9(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@types/react@17.0.85)(react@17.0.2))(@types/react@17.0.85)(framer-motion@6.5.1(react-dom@17.0.2(react@17.0.2))(react@17.0.2))(react-dom@17.0.2(react@17.0.2))(react@17.0.2))(@types/react@17.0.85)(next-i18next@12.1.0(next@12.3.7(@babel/core@7.27.1)(react-dom@17.0.2(react@17.0.2))(react@17.0.2)(sass@1.87.0))(react-dom@17.0.2(react@17.0.2))(react@17.0.2))
+      '@emotion/react': 11.14.0(@types/react@17.0.87)(react@17.0.2)
+      '@guild-docs/mdx-remote': 2.0.2(@chakra-ui/react@1.8.9(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@types/react@17.0.87)(react@17.0.2))(@types/react@17.0.87)(framer-motion@6.5.1(react-dom@17.0.2(react@17.0.2))(react@17.0.2))(react-dom@17.0.2(react@17.0.2))(react@17.0.2))(@mdx-js/react@2.3.0(react@17.0.2))(@types/react@17.0.87)(next-i18next@12.1.0(next@12.3.7(@babel/core@7.27.1)(react-dom@17.0.2(react@17.0.2))(react@17.0.2)(sass@1.87.0))(react-dom@17.0.2(react@17.0.2))(react@17.0.2))(react@17.0.2)(shiki@0.11.1)
+      '@guild-docs/types': 2.0.0(@chakra-ui/react@1.8.9(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@types/react@17.0.87)(react@17.0.2))(@types/react@17.0.87)(framer-motion@6.5.1(react-dom@17.0.2(react@17.0.2))(react@17.0.2))(react-dom@17.0.2(react@17.0.2))(react@17.0.2))(@types/react@17.0.87)(next-i18next@12.1.0(next@12.3.7(@babel/core@7.27.1)(react-dom@17.0.2(react@17.0.2))(react@17.0.2)(sass@1.87.0))(react-dom@17.0.2(react@17.0.2))(react@17.0.2))
       '@mdx-js/react': 2.3.0(react@17.0.2)
-      '@theguild/components': 1.12.0(@algolia/client-search@4.24.0)(@types/react@17.0.85)(prop-types@15.8.1)(react-dom@17.0.2(react@17.0.2))(react@17.0.2)(ts-node@10.9.1(@types/node@22.15.29)(typescript@5.8.3))
+      '@theguild/components': 1.12.0(@algolia/client-search@4.24.0)(@types/react@17.0.87)(prop-types@15.8.1)(react-dom@17.0.2(react@17.0.2))(react@17.0.2)(ts-node@10.9.1(@types/node@22.15.29)(typescript@5.8.3))
       framer-motion: 6.5.1(react-dom@17.0.2(react@17.0.2))(react@17.0.2)
       immer: 9.0.12
       mdx-mermaid: 1.2.2(mermaid@8.11.5(@babel/preset-env@7.27.1(@babel/core@7.27.1))(typescript@5.8.3))(react@17.0.2)(unist-util-visit@4.1.2)
@@ -14303,10 +14303,10 @@ snapshots:
       - typescript
       - unist-util-visit
 
-  '@guild-docs/mdx-remote@2.0.2(@chakra-ui/react@1.8.9(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@types/react@17.0.85)(react@17.0.2))(@types/react@17.0.85)(framer-motion@6.5.1(react-dom@17.0.2(react@17.0.2))(react@17.0.2))(react-dom@17.0.2(react@17.0.2))(react@17.0.2))(@mdx-js/react@2.3.0(react@17.0.2))(@types/react@17.0.85)(next-i18next@12.1.0(next@12.3.7(@babel/core@7.27.1)(react-dom@17.0.2(react@17.0.2))(react@17.0.2)(sass@1.87.0))(react-dom@17.0.2(react@17.0.2))(react@17.0.2))(react@17.0.2)(shiki@0.11.1)':
+  '@guild-docs/mdx-remote@2.0.2(@chakra-ui/react@1.8.9(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@types/react@17.0.87)(react@17.0.2))(@types/react@17.0.87)(framer-motion@6.5.1(react-dom@17.0.2(react@17.0.2))(react@17.0.2))(react-dom@17.0.2(react@17.0.2))(react@17.0.2))(@mdx-js/react@2.3.0(react@17.0.2))(@types/react@17.0.87)(next-i18next@12.1.0(next@12.3.7(@babel/core@7.27.1)(react-dom@17.0.2(react@17.0.2))(react@17.0.2)(sass@1.87.0))(react-dom@17.0.2(react@17.0.2))(react@17.0.2))(react@17.0.2)(shiki@0.11.1)':
     dependencies:
       '@babel/code-frame': 7.16.7
-      '@guild-docs/types': 3.0.0(@chakra-ui/react@1.8.9(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@types/react@17.0.85)(react@17.0.2))(@types/react@17.0.85)(framer-motion@6.5.1(react-dom@17.0.2(react@17.0.2))(react@17.0.2))(react-dom@17.0.2(react@17.0.2))(react@17.0.2))(@types/react@17.0.85)(next-i18next@12.1.0(next@12.3.7(@babel/core@7.27.1)(react-dom@17.0.2(react@17.0.2))(react@17.0.2)(sass@1.87.0))(react-dom@17.0.2(react@17.0.2))(react@17.0.2))
+      '@guild-docs/types': 3.0.0(@chakra-ui/react@1.8.9(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@types/react@17.0.87)(react@17.0.2))(@types/react@17.0.87)(framer-motion@6.5.1(react-dom@17.0.2(react@17.0.2))(react@17.0.2))(react-dom@17.0.2(react@17.0.2))(react@17.0.2))(@types/react@17.0.87)(next-i18next@12.1.0(next@12.3.7(@babel/core@7.27.1)(react-dom@17.0.2(react@17.0.2))(react@17.0.2)(sass@1.87.0))(react-dom@17.0.2(react@17.0.2))(react@17.0.2))
       '@mdx-js/mdx': 2.1.1
       '@mdx-js/react': 2.3.0(react@17.0.2)
       '@stefanprobst/rehype-shiki': 2.2.0(shiki@0.11.1)
@@ -14323,10 +14323,10 @@ snapshots:
       - shiki
       - supports-color
 
-  '@guild-docs/server@3.0.1(@chakra-ui/react@1.8.9(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@types/react@17.0.85)(react@17.0.2))(@types/react@17.0.85)(framer-motion@6.5.1(react-dom@17.0.2(react@17.0.2))(react@17.0.2))(react-dom@17.0.2(react@17.0.2))(react@17.0.2))(@mdx-js/react@2.3.0(react@17.0.2))(@types/react@17.0.85)(next-i18next@12.1.0(next@12.3.7(@babel/core@7.27.1)(react-dom@17.0.2(react@17.0.2))(react@17.0.2)(sass@1.87.0))(react-dom@17.0.2(react@17.0.2))(react@17.0.2))(next@12.3.7(@babel/core@7.27.1)(react-dom@17.0.2(react@17.0.2))(react@17.0.2)(sass@1.87.0))(react-dom@17.0.2(react@17.0.2))(react@17.0.2)(shiki@0.11.1)':
+  '@guild-docs/server@3.0.1(@chakra-ui/react@1.8.9(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@types/react@17.0.87)(react@17.0.2))(@types/react@17.0.87)(framer-motion@6.5.1(react-dom@17.0.2(react@17.0.2))(react@17.0.2))(react-dom@17.0.2(react@17.0.2))(react@17.0.2))(@mdx-js/react@2.3.0(react@17.0.2))(@types/react@17.0.87)(next-i18next@12.1.0(next@12.3.7(@babel/core@7.27.1)(react-dom@17.0.2(react@17.0.2))(react@17.0.2)(sass@1.87.0))(react-dom@17.0.2(react@17.0.2))(react@17.0.2))(next@12.3.7(@babel/core@7.27.1)(react-dom@17.0.2(react@17.0.2))(react@17.0.2)(sass@1.87.0))(react-dom@17.0.2(react@17.0.2))(react@17.0.2)(shiki@0.11.1)':
     dependencies:
-      '@guild-docs/mdx-remote': 2.0.2(@chakra-ui/react@1.8.9(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@types/react@17.0.85)(react@17.0.2))(@types/react@17.0.85)(framer-motion@6.5.1(react-dom@17.0.2(react@17.0.2))(react@17.0.2))(react-dom@17.0.2(react@17.0.2))(react@17.0.2))(@mdx-js/react@2.3.0(react@17.0.2))(@types/react@17.0.85)(next-i18next@12.1.0(next@12.3.7(@babel/core@7.27.1)(react-dom@17.0.2(react@17.0.2))(react@17.0.2)(sass@1.87.0))(react-dom@17.0.2(react@17.0.2))(react@17.0.2))(react@17.0.2)(shiki@0.11.1)
-      '@guild-docs/types': 2.0.0(@chakra-ui/react@1.8.9(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@types/react@17.0.85)(react@17.0.2))(@types/react@17.0.85)(framer-motion@6.5.1(react-dom@17.0.2(react@17.0.2))(react@17.0.2))(react-dom@17.0.2(react@17.0.2))(react@17.0.2))(@types/react@17.0.85)(next-i18next@12.1.0(next@12.3.7(@babel/core@7.27.1)(react-dom@17.0.2(react@17.0.2))(react@17.0.2)(sass@1.87.0))(react-dom@17.0.2(react@17.0.2))(react@17.0.2))
+      '@guild-docs/mdx-remote': 2.0.2(@chakra-ui/react@1.8.9(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@types/react@17.0.87)(react@17.0.2))(@types/react@17.0.87)(framer-motion@6.5.1(react-dom@17.0.2(react@17.0.2))(react@17.0.2))(react-dom@17.0.2(react@17.0.2))(react@17.0.2))(@mdx-js/react@2.3.0(react@17.0.2))(@types/react@17.0.87)(next-i18next@12.1.0(next@12.3.7(@babel/core@7.27.1)(react-dom@17.0.2(react@17.0.2))(react@17.0.2)(sass@1.87.0))(react-dom@17.0.2(react@17.0.2))(react@17.0.2))(react@17.0.2)(shiki@0.11.1)
+      '@guild-docs/types': 2.0.0(@chakra-ui/react@1.8.9(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@types/react@17.0.87)(react@17.0.2))(@types/react@17.0.87)(framer-motion@6.5.1(react-dom@17.0.2(react@17.0.2))(react@17.0.2))(react-dom@17.0.2(react@17.0.2))(react@17.0.2))(@types/react@17.0.87)(next-i18next@12.1.0(next@12.3.7(@babel/core@7.27.1)(react-dom@17.0.2(react@17.0.2))(react@17.0.2)(sass@1.87.0))(react-dom@17.0.2(react@17.0.2))(react@17.0.2))
       '@stefanprobst/remark-shiki': 2.1.0(shiki@0.11.1)
       github-slugger: 1.4.0
       globby: 13.1.1
@@ -14346,21 +14346,21 @@ snapshots:
       - '@types/react'
       - supports-color
 
-  '@guild-docs/types@2.0.0(@chakra-ui/react@1.8.9(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@types/react@17.0.85)(react@17.0.2))(@types/react@17.0.85)(framer-motion@6.5.1(react-dom@17.0.2(react@17.0.2))(react@17.0.2))(react-dom@17.0.2(react@17.0.2))(react@17.0.2))(@types/react@17.0.85)(next-i18next@12.1.0(next@12.3.7(@babel/core@7.27.1)(react-dom@17.0.2(react@17.0.2))(react@17.0.2)(sass@1.87.0))(react-dom@17.0.2(react@17.0.2))(react@17.0.2))':
+  '@guild-docs/types@2.0.0(@chakra-ui/react@1.8.9(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@types/react@17.0.87)(react@17.0.2))(@types/react@17.0.87)(framer-motion@6.5.1(react-dom@17.0.2(react@17.0.2))(react@17.0.2))(react-dom@17.0.2(react@17.0.2))(react@17.0.2))(@types/react@17.0.87)(next-i18next@12.1.0(next@12.3.7(@babel/core@7.27.1)(react-dom@17.0.2(react@17.0.2))(react@17.0.2)(sass@1.87.0))(react-dom@17.0.2(react@17.0.2))(react@17.0.2))':
     dependencies:
-      '@chakra-ui/react': 1.8.9(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@types/react@17.0.85)(react@17.0.2))(@types/react@17.0.85)(framer-motion@6.5.1(react-dom@17.0.2(react@17.0.2))(react@17.0.2))(react-dom@17.0.2(react@17.0.2))(react@17.0.2)
+      '@chakra-ui/react': 1.8.9(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@types/react@17.0.87)(react@17.0.2))(@types/react@17.0.87)(framer-motion@6.5.1(react-dom@17.0.2(react@17.0.2))(react@17.0.2))(react-dom@17.0.2(react@17.0.2))(react@17.0.2)
       '@mdx-js/mdx': 2.3.0
-      '@types/react': 17.0.85
+      '@types/react': 17.0.87
       next-i18next: 12.1.0(next@12.3.7(@babel/core@7.27.1)(react-dom@17.0.2(react@17.0.2))(react@17.0.2)(sass@1.87.0))(react-dom@17.0.2(react@17.0.2))(react@17.0.2)
       unified: 10.1.2
     transitivePeerDependencies:
       - supports-color
 
-  '@guild-docs/types@3.0.0(@chakra-ui/react@1.8.9(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@types/react@17.0.85)(react@17.0.2))(@types/react@17.0.85)(framer-motion@6.5.1(react-dom@17.0.2(react@17.0.2))(react@17.0.2))(react-dom@17.0.2(react@17.0.2))(react@17.0.2))(@types/react@17.0.85)(next-i18next@12.1.0(next@12.3.7(@babel/core@7.27.1)(react-dom@17.0.2(react@17.0.2))(react@17.0.2)(sass@1.87.0))(react-dom@17.0.2(react@17.0.2))(react@17.0.2))':
+  '@guild-docs/types@3.0.0(@chakra-ui/react@1.8.9(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@types/react@17.0.87)(react@17.0.2))(@types/react@17.0.87)(framer-motion@6.5.1(react-dom@17.0.2(react@17.0.2))(react@17.0.2))(react-dom@17.0.2(react@17.0.2))(react@17.0.2))(@types/react@17.0.87)(next-i18next@12.1.0(next@12.3.7(@babel/core@7.27.1)(react-dom@17.0.2(react@17.0.2))(react@17.0.2)(sass@1.87.0))(react-dom@17.0.2(react@17.0.2))(react@17.0.2))':
     dependencies:
-      '@chakra-ui/react': 1.8.9(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@types/react@17.0.85)(react@17.0.2))(@types/react@17.0.85)(framer-motion@6.5.1(react-dom@17.0.2(react@17.0.2))(react@17.0.2))(react-dom@17.0.2(react@17.0.2))(react@17.0.2)
+      '@chakra-ui/react': 1.8.9(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@types/react@17.0.87)(react@17.0.2))(@types/react@17.0.87)(framer-motion@6.5.1(react-dom@17.0.2(react@17.0.2))(react@17.0.2))(react-dom@17.0.2(react@17.0.2))(react@17.0.2)
       '@mdx-js/mdx': 2.3.0
-      '@types/react': 17.0.85
+      '@types/react': 17.0.87
       next-i18next: 12.1.0(next@12.3.7(@babel/core@7.27.1)(react-dom@17.0.2(react@17.0.2))(react@17.0.2)(sass@1.87.0))(react-dom@17.0.2(react@17.0.2))(react@17.0.2)
       unified: 10.1.2
     transitivePeerDependencies:
@@ -14740,7 +14740,7 @@ snapshots:
   '@mdx-js/react@2.3.0(react@17.0.2)':
     dependencies:
       '@types/mdx': 2.0.13
-      '@types/react': 17.0.85
+      '@types/react': 17.0.87
       react: 17.0.2
 
   '@mercuriusjs/subscription-client@0.1.0(graphql@16.11.0(patch_hash=f4d3896be90512dca06bde51fe01c4bc50f1d0177e9856a6a6847e011f9d3aa0))':
@@ -15441,14 +15441,14 @@ snapshots:
     optionalDependencies:
       react-dom: 17.0.2(react@17.0.2)
 
-  '@theguild/components@1.12.0(@algolia/client-search@4.24.0)(@types/react@17.0.85)(prop-types@15.8.1)(react-dom@17.0.2(react@17.0.2))(react@17.0.2)(ts-node@10.9.1(@types/node@22.15.29)(typescript@5.8.3))':
+  '@theguild/components@1.12.0(@algolia/client-search@4.24.0)(@types/react@17.0.87)(prop-types@15.8.1)(react-dom@17.0.2(react@17.0.2))(react@17.0.2)(ts-node@10.9.1(@types/node@22.15.29)(typescript@5.8.3))':
     dependencies:
       '@algolia/autocomplete-js': 1.19.1(@algolia/client-search@4.24.0)(algoliasearch@4.24.0)(search-insights@2.17.3)
       '@algolia/autocomplete-plugin-algolia-insights': 1.19.1(@algolia/client-search@4.24.0)(algoliasearch@4.24.0)(search-insights@2.17.3)
       '@algolia/autocomplete-plugin-query-suggestions': 1.19.1(@algolia/client-search@4.24.0)(algoliasearch@4.24.0)(search-insights@2.17.3)
       '@algolia/autocomplete-theme-classic': 1.19.1
-      '@emotion/react': 11.14.0(@types/react@17.0.85)(react@17.0.2)
-      '@emotion/styled': 11.14.0(@emotion/react@11.14.0(@types/react@17.0.85)(react@17.0.2))(@types/react@17.0.85)(react@17.0.2)
+      '@emotion/react': 11.14.0(@types/react@17.0.87)(react@17.0.2)
+      '@emotion/styled': 11.14.0(@emotion/react@11.14.0(@types/react@17.0.87)(react@17.0.2))(@types/react@17.0.87)(react@17.0.2)
       '@radix-ui/react-navigation-menu': 0.1.2(react-dom@17.0.2(react@17.0.2))(react@17.0.2)
       algoliasearch: 4.24.0
       focus-trap-react: 9.0.2(prop-types@15.8.1)(react-dom@17.0.2(react@17.0.2))(react@17.0.2)
@@ -15587,7 +15587,7 @@ snapshots:
 
   '@types/hoist-non-react-statics@3.3.6':
     dependencies:
-      '@types/react': 17.0.85
+      '@types/react': 17.0.87
       hoist-non-react-statics: 3.3.2
 
   '@types/http-assert@1.5.6': {}
@@ -15664,7 +15664,7 @@ snapshots:
 
   '@types/mdx-js__react@1.5.8':
     dependencies:
-      '@types/react': 17.0.85
+      '@types/react': 17.0.87
 
   '@types/mdx@2.0.13': {}
 
@@ -15712,11 +15712,11 @@ snapshots:
 
   '@types/range-parser@1.2.7': {}
 
-  '@types/react-dom@18.3.7(@types/react@17.0.85)':
+  '@types/react-dom@18.3.7(@types/react@17.0.87)':
     dependencies:
-      '@types/react': 17.0.85
+      '@types/react': 17.0.87
 
-  '@types/react@17.0.85':
+  '@types/react@17.0.87':
     dependencies:
       '@types/prop-types': 15.7.14
       '@types/scheduler': 0.16.8
@@ -20207,15 +20207,15 @@ snapshots:
 
   react-fast-compare@3.2.2: {}
 
-  react-focus-lock@2.5.2(@types/react@17.0.85)(react@17.0.2):
+  react-focus-lock@2.5.2(@types/react@17.0.87)(react@17.0.2):
     dependencies:
       '@babel/runtime': 7.27.1
       focus-lock: 0.9.2
       prop-types: 15.8.1
       react: 17.0.2
       react-clientside-effect: 1.2.7(react@17.0.2)
-      use-callback-ref: 1.3.3(@types/react@17.0.85)(react@17.0.2)
-      use-sidecar: 1.1.3(@types/react@17.0.85)(react@17.0.2)
+      use-callback-ref: 1.3.3(@types/react@17.0.87)(react@17.0.2)
+      use-sidecar: 1.1.3(@types/react@17.0.87)(react@17.0.2)
     transitivePeerDependencies:
       - '@types/react'
 
@@ -20276,37 +20276,37 @@ snapshots:
       react: 17.0.2
       react-fast-compare: 3.2.2
 
-  react-remove-scroll-bar@2.3.8(@types/react@17.0.85)(react@17.0.2):
+  react-remove-scroll-bar@2.3.8(@types/react@17.0.87)(react@17.0.2):
     dependencies:
       react: 17.0.2
-      react-style-singleton: 2.2.3(@types/react@17.0.85)(react@17.0.2)
+      react-style-singleton: 2.2.3(@types/react@17.0.87)(react@17.0.2)
       tslib: 2.8.1
     optionalDependencies:
-      '@types/react': 17.0.85
+      '@types/react': 17.0.87
 
-  react-remove-scroll@2.4.1(@types/react@17.0.85)(react@17.0.2):
+  react-remove-scroll@2.4.1(@types/react@17.0.87)(react@17.0.2):
     dependencies:
       react: 17.0.2
-      react-remove-scroll-bar: 2.3.8(@types/react@17.0.85)(react@17.0.2)
-      react-style-singleton: 2.2.3(@types/react@17.0.85)(react@17.0.2)
+      react-remove-scroll-bar: 2.3.8(@types/react@17.0.87)(react@17.0.2)
+      react-style-singleton: 2.2.3(@types/react@17.0.87)(react@17.0.2)
       tslib: 1.14.1
-      use-callback-ref: 1.3.3(@types/react@17.0.85)(react@17.0.2)
-      use-sidecar: 1.1.3(@types/react@17.0.85)(react@17.0.2)
+      use-callback-ref: 1.3.3(@types/react@17.0.87)(react@17.0.2)
+      use-sidecar: 1.1.3(@types/react@17.0.87)(react@17.0.2)
     optionalDependencies:
-      '@types/react': 17.0.85
+      '@types/react': 17.0.87
 
   react-sticky-box@1.0.2(react@17.0.2):
     dependencies:
       react: 17.0.2
       resize-observer-polyfill: 1.5.1
 
-  react-style-singleton@2.2.3(@types/react@17.0.85)(react@17.0.2):
+  react-style-singleton@2.2.3(@types/react@17.0.87)(react@17.0.2):
     dependencies:
       get-nonce: 1.0.1
       react: 17.0.2
       tslib: 2.8.1
     optionalDependencies:
-      '@types/react': 17.0.85
+      '@types/react': 17.0.87
 
   react-universal-interface@0.6.2(react@17.0.2)(tslib@2.8.1):
     dependencies:
@@ -21576,12 +21576,12 @@ snapshots:
 
   urix@0.1.0: {}
 
-  use-callback-ref@1.3.3(@types/react@17.0.85)(react@17.0.2):
+  use-callback-ref@1.3.3(@types/react@17.0.87)(react@17.0.2):
     dependencies:
       react: 17.0.2
       tslib: 2.8.1
     optionalDependencies:
-      '@types/react': 17.0.85
+      '@types/react': 17.0.87
 
   use-debounce@8.0.4(react@17.0.2):
     dependencies:
@@ -21592,13 +21592,13 @@ snapshots:
       immer: 9.0.12
       react: 17.0.2
 
-  use-sidecar@1.1.3(@types/react@17.0.85)(react@17.0.2):
+  use-sidecar@1.1.3(@types/react@17.0.87)(react@17.0.2):
     dependencies:
       detect-node-es: 1.1.0
       react: 17.0.2
       tslib: 2.8.1
     optionalDependencies:
-      '@types/react': 17.0.85
+      '@types/react': 17.0.87
 
   use-sync-external-store@1.2.0(react@17.0.2):
     dependencies:
