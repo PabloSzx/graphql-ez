@@ -1,5 +1,4 @@
 import { useGraphQLModules } from '@envelop/graphql-modules';
-import { VanillaEZResolvers } from '@graphql-ez/plugin-schema';
 import { isDocumentNode } from '@graphql-ez/utils/document';
 import { gql } from '@graphql-ez/utils/gql';
 import { toPlural } from '@graphql-ez/utils/object';
@@ -7,13 +6,16 @@ import { LazyPromise } from '@graphql-ez/utils/promise';
 import { makeExecutableSchema } from '@graphql-tools/schema';
 import type { GraphQLSchemaConfig } from 'graphql';
 import { GraphQLSchema } from 'graphql';
-import type { EZPlugin, EZResolvers, Plugin as EnvelopPlugin } from 'graphql-ez';
+import type { EZContext, EZPlugin, EZResolvers, Plugin as EnvelopPlugin } from 'graphql-ez';
 import type { Application, ApplicationConfig, Module, ModuleConfig, TypeDefs } from 'graphql-modules';
 import { createApplication, createModule } from 'graphql-modules';
+import type { IResolvers } from '@graphql-tools/utils';
+
+export type VanillaEZResolvers = IResolvers<any, EZContext>;
 
 export type EnvelopModuleConfig = Omit<ModuleConfig, 'typeDefs' | 'id' | 'resolvers'> & {
   id?: string;
-  resolvers?: EZResolvers | EZResolvers[] | VanillaEZResolvers | VanillaEZResolvers[];
+  resolvers?: EZResolvers | EZResolvers[];
   /**
    * Automatically add the created module in the built envelop app
    *
@@ -35,6 +37,8 @@ declare module 'graphql-ez' {
   }
 
   interface EZContext extends GraphQLModules.Context {}
+
+  interface EZResolvers extends IResolvers<any, EZContext> {}
 }
 
 export interface RegisterModule {
