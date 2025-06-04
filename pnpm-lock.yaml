@@ -823,7 +823,7 @@ importers:
         version: file:packages/fastify/main(@types/node@22.15.29)(fastify@4.29.1)(graphql-ez@file:packages/core/main(graphql@15.10.1(patch_hash=f4d3896be90512dca06bde51fe01c4bc50f1d0177e9856a6a6847e011f9d3aa0)))(graphql@15.10.1(patch_hash=f4d3896be90512dca06bde51fe01c4bc50f1d0177e9856a6a6847e011f9d3aa0))
       '@graphql-ez/plugin-altair':
         specifier: workspace:*
-        version: link:../../../packages/plugin/altair
+        version: file:packages/plugin/altair(@types/node@22.15.29)(graphql-ez@file:packages/core/main(graphql@15.10.1(patch_hash=f4d3896be90512dca06bde51fe01c4bc50f1d0177e9856a6a6847e011f9d3aa0)))
       class-validator:
         specifier: ^0.14.0
         version: 0.14.2
@@ -844,6 +844,8 @@ importers:
         version: 1.1.1(class-validator@0.14.2)(graphql@15.10.1(patch_hash=f4d3896be90512dca06bde51fe01c4bc50f1d0177e9856a6a6847e011f9d3aa0))
     dependenciesMeta:
       '@graphql-ez/fastify':
+        injected: true
+      '@graphql-ez/plugin-altair':
         injected: true
       graphql-ez:
         injected: true
@@ -4762,6 +4764,13 @@ packages:
         optional: true
       graphql:
         optional: true
+
+  '@graphql-ez/plugin-altair@file:packages/plugin/altair':
+    resolution: {directory: packages/plugin/altair, type: directory}
+    engines: {node: '>=22.16.0'}
+    peerDependencies:
+      '@types/node': '*'
+      graphql-ez: workspace:^
 
   '@graphql-ez/plugin-schema@file:packages/plugin/schema':
     resolution: {directory: packages/plugin/schema, type: directory}
@@ -13847,6 +13856,17 @@ snapshots:
     optionalDependencies:
       fastify: 4.29.1
       graphql: 17.0.0-alpha.1(patch_hash=f4d3896be90512dca06bde51fe01c4bc50f1d0177e9856a6a6847e011f9d3aa0)
+
+  '@graphql-ez/plugin-altair@file:packages/plugin/altair(@types/node@22.15.29)(graphql-ez@file:packages/core/main(graphql@15.10.1(patch_hash=f4d3896be90512dca06bde51fe01c4bc50f1d0177e9856a6a6847e011f9d3aa0)))':
+    dependencies:
+      '@graphql-ez/utils': link:packages/core/utils
+      '@types/node': 22.15.29
+      altair-static: 6.4.2
+      cross-undici-fetch: 0.4.14
+      graphql-ez: file:packages/core/main(graphql@15.10.1(patch_hash=f4d3896be90512dca06bde51fe01c4bc50f1d0177e9856a6a6847e011f9d3aa0))
+      mime-types: 2.1.35
+    transitivePeerDependencies:
+      - encoding
 
   '@graphql-ez/plugin-schema@file:packages/plugin/schema(graphql-esm@16.5.0)(graphql-ez@file:packages/core/main(graphql-esm@16.5.0))':
     dependencies:
