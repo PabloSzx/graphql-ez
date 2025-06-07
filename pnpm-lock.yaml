@@ -1792,8 +1792,8 @@ importers:
         specifier: ^8.18.1
         version: 8.18.1
       bob-ts:
-        specifier: 5.0.0-alpha-227aebc.0
-        version: 5.0.0-alpha-227aebc.0(@types/node@22.15.29)(esbuild@0.25.4)(typescript@5.8.3)
+        specifier: 5.0.0-alpha-d826df0.0
+        version: 5.0.0-alpha-d826df0.0(@types/node@22.15.29)(esbuild@0.25.4)(typescript@5.8.3)
       changesets-github-release:
         specifier: ^0.1.0
         version: 0.1.0
@@ -6618,8 +6618,8 @@ packages:
       typescript:
         optional: true
 
-  bob-ts@5.0.0-alpha-227aebc.0:
-    resolution: {integrity: sha512-CTFOVp1Hzo7CQoVYuuGjeMU8kdm2VuUZ2uhOeb5zKigHaAziRfaArB2bbRrLI4joRENs6QPQdEJ6mg5ZtUbcVw==}
+  bob-ts@5.0.0-alpha-d826df0.0:
+    resolution: {integrity: sha512-8QnY1oLxWfIGkMTPtWU/1hZc7C5camc8f2j9l8C4rXPQEEGjW9m/Po3GaiSv9IV2UM/QKywYHdUwF2Q56jL+ug==}
     engines: {node: '>=14.13.1'}
     hasBin: true
     peerDependencies:
@@ -15367,6 +15367,14 @@ snapshots:
     optionalDependencies:
       rollup: 3.29.5
 
+  '@rollup/pluginutils@5.1.4(rollup@4.41.0)':
+    dependencies:
+      '@types/estree': 1.0.7
+      estree-walker: 2.0.2
+      picomatch: 4.0.2
+    optionalDependencies:
+      rollup: 4.41.0
+
   '@rollup/rollup-android-arm-eabi@4.41.0':
     optional: true
 
@@ -16385,12 +16393,12 @@ snapshots:
       esbuild: 0.25.4
       rollup: 2.79.2
 
-  bob-esbuild-plugin@5.0.0-alpha-d826df0.0(esbuild@0.25.4)(rollup@2.79.2):
+  bob-esbuild-plugin@5.0.0-alpha-d826df0.0(esbuild@0.25.4)(rollup@4.41.0):
     dependencies:
-      '@rollup/pluginutils': 5.1.4(rollup@2.79.2)
+      '@rollup/pluginutils': 5.1.4(rollup@4.41.0)
     optionalDependencies:
       esbuild: 0.25.4
-      rollup: 2.79.2
+      rollup: 4.41.0
 
   bob-esbuild@5.0.0-alpha-227aebc.0(esbuild@0.25.4)(typescript@5.8.3):
     dependencies:
@@ -16401,11 +16409,11 @@ snapshots:
       esbuild: 0.25.4
       typescript: 5.8.3
 
-  bob-ts@5.0.0-alpha-227aebc.0(@types/node@22.15.29)(esbuild@0.25.4)(typescript@5.8.3):
+  bob-ts@5.0.0-alpha-d826df0.0(@types/node@22.15.29)(esbuild@0.25.4)(typescript@5.8.3):
     dependencies:
-      bob-esbuild-plugin: 5.0.0-alpha-d826df0.0(esbuild@0.25.4)(rollup@2.79.2)
+      bob-esbuild-plugin: 5.0.0-alpha-d826df0.0(esbuild@0.25.4)(rollup@4.41.0)
       esbuild: 0.25.4
-      rollup: 2.79.2
+      rollup: 4.41.0
     optionalDependencies:
       '@types/node': 22.15.29
       typescript: 5.8.3
