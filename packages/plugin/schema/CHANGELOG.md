@@ -1,5 +1,11 @@
 # @graphql-ez/plugin-schema
 
+## 0.9.2
+
+### Patch Changes
+
+- a36fdb0: Fix EZResolvers default type
+
 ## 0.9.1
 
 ### Patch Changes

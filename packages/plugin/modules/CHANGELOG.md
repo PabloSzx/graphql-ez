@@ -1,5 +1,11 @@
 # @graphql-ez/plugin-modules
 
+## 0.12.2
+
+### Patch Changes
+
+- a36fdb0: Fix EZResolvers default type
+
 ## 0.12.1
 
 ### Patch Changes
